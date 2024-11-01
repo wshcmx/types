@@ -24,4 +24,10 @@ const arrayFunctionsNegativeTestStringValue = "testString";
 const arrayFunctionsNegativeTestNumberValue = 1234;
 
 
-export { testPrimitivesArray, testArrayOfObjects, xmlDocumentForTesting, arrayFunctionsNegativeTestStringValue, arrayFunctionsNegativeTestNumberValue};
+export {
+  testPrimitivesArray,
+  testArrayOfObjects,
+  xmlDocumentForTesting,
+  arrayFunctionsNegativeTestStringValue,
+  arrayFunctionsNegativeTestNumberValue
+};
