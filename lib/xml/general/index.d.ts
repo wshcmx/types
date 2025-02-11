@@ -1,14 +1,23 @@
 interface CostCurrencyBase {
-  /** Стоимость */
+  /**
+   * Стоимость
+   * @default 0.0
+   */
   cost: XmlElem<number | null>;
-  /** Ставка НДС */
+  /**
+   * Ставка НДС
+   * @default 0.0
+   */
   cost_nds: XmlElem<number | null>;
   /** Валюта */
   currency: XmlElem<string | null, typeof lists.currency_types>;
 }
 
 interface CostCurrencyTypeBase extends CostCurrencyBase {
-  /** Стоимость */
+  /**
+   * Стоимость
+   * @default person
+   */
   cost_type: XmlElem<string | null, typeof common.cost_types>;
 }
 
@@ -48,7 +57,10 @@ interface DocInfoBase {
   creation: XmlElem<DocInfoBaseCreation | null>;
   /** Изменение */
   modification: XmlElem<DocInfoBaseModification | null>;
-  /** Неизменяемый */
+  /**
+   * Неизменяемый
+   * @default false
+   */
   invariable: XmlElem<boolean | null>;
 }
 
@@ -61,22 +73,37 @@ interface ViewConditionBase {
   title: XmlElem<string | null>;
   /** Значение поля */
   value: XmlElem<string | null>;
-  /** Тип поля */
+  /**
+   * Тип поля
+   * @default string
+   */
   type: XmlElem<string>;
-  /** Условие */
+  /**
+   * Условие
+   * @default eq
+   */
   option_type: XmlElem<string, typeof common.all_option_types>;
-  /** Является настраиваемым */
+  /**
+   * Является настраиваемым
+   * @default false
+   */
   is_custom_field: XmlElem<boolean | null>;
-  /** И/Или */
+  /**
+   * И/Или
+   * @default and
+   */
   and_or: XmlElem<string>;
+  /** @default false */
   is_multiple: XmlElem<boolean | null>;
   value_multiple: XmlMultiElemObject<string | null>;
+  /** Скобка */
   bracket: XmlElem<string | null>;
 }
 
 interface ViewConditionsBase {
   /** Условия */
   conditions: XmlMultiElem<ViewConditionBase | null>;
+  /** Условия запроса */
   conditions_qual: XmlElem<string | null>;
 }
 
@@ -104,12 +131,24 @@ interface PersonBase extends PersonNameBase {
   phone: XmlElem<string | null>;
   /** Мобильный телефон */
   mobile_phone: XmlElem<string | null>;
+  /** Код подтверждения моб. номера */
   mobile_phone_conf_code: XmlElem<string | null>;
+  /** Дата подтверждения моб. номера */
   mobile_phone_conf_date: XmlElem<Date | null>;
+  /**
+   * Мобильный номер подтвержден
+   * @default 0
+   */
   mobile_phone_conf: XmlElem<boolean | null>;
   email: XmlElem<string | null>;
+  /** Код подтверждения E-mail */
   email_conf_code: XmlElem<string | null>;
+  /** Дата подтверждения E-mail */
   email_conf_date: XmlElem<Date | null>;
+  /**
+   * E-mail подтвержден
+   * @default 0
+   */
   email_conf: XmlElem<boolean | null>;
   /** Внутренний e-mail */
   system_email: XmlElem<string | null>;
@@ -132,14 +171,21 @@ interface DocumentAttributesBase {
   link_href: XmlElem<string | null>;
   /** Цель */
   link_target: XmlElem<string | null>;
-  /** Возможна подписка на раздел портала */
+  /**
+   * Возможна подписка на раздел портала
+   * @default false
+   */
   permit_subscription: XmlElem<boolean>;
 }
 
 interface LocalSettingsBase {
+  /** @default true */
   check_version_update: XmlElem<boolean>;
+  /** @default true */
   disp_all_access_blocks: XmlElem<boolean>;
+  /** @default false */
   use_dotnet_zip: XmlElem<boolean>;
+  /** @default false */
   disp_main_access_blocks: XmlElem<boolean>;
 }
 
@@ -179,6 +225,7 @@ interface EssentialBaseBankAccount extends BankAccountBase {
 }
 
 interface EssentialBase {
+  /** @default false */
   is_foreign: XmlElem<boolean | null>;
   swift_code: XmlElem<string | null>;
   iban_no: XmlElem<string | null>;
@@ -188,16 +235,19 @@ interface EssentialBase {
   kpp: XmlElem<string | null>;
   /** Юридический адрес */
   legal_address: XmlElem<string | null>;
+  /** Фактический адрес */
   fact_address: XmlElem<string | null>;
   /** ОКОНХ */
   okonh: XmlElem<string | null>;
   /** ОКПО */
   okpo: XmlElem<string | null>;
+  /** ОГРН */
   ogrn: XmlElem<string | null>;
+  /** ОКТМО */
   oktmo: XmlElem<string | null>;
   director: XmlElem<EssentialBaseDirector | null>;
   chief_accountant: XmlElem<EssentialBaseChiefAccountant | null>;
-  bank_account: XmlElem<EssentialBaseBankAccount | null>;
+  bank_account: XmlMultiElemObject<EssentialBaseBankAccount | null>;
 }
 
 interface EssentialsBaseEssentials extends EssentialBase {
@@ -210,12 +260,19 @@ interface EssentialsBase {
 }
 
 interface EventSettingsBaseEventSettings {
+  /** @default adding */
   send_type: XmlElem<string>;
+  /** @default true */
   send_collaborators: XmlElem<boolean>;
+  /** @default true */
   send_bosses: XmlElem<boolean>;
+  /** @default true */
   send_lectors: XmlElem<boolean>;
+  /** @default true */
   send_tutors: XmlElem<boolean>;
+  /** @default true */
   send_event_preparations: XmlElem<boolean>;
+  /** @default false */
   show_result_fields: XmlElem<boolean>;
 }
 
@@ -243,14 +300,22 @@ interface OutstaffPeriodsBasePeriod {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /** Время возможного изменения (чч:мм) */
   ext_time: XmlElem<string | null>;
+  /** Время начала (чч:мм) */
   start_time: XmlElem<string | null>;
+  /** Время завершения (чч:мм) */
   finish_time: XmlElem<string | null>;
   /** Часов */
   hour_num: XmlElem<number | null>;
   /** Полный день */
   full_time: XmlElem<boolean | null>;
+  /**
+   * Продолжительность дня
+   * @default 8;9;10;11
+   */
   days_length: XmlElem<string>;
+  /** Максимальное количество сотрудников на день */
   max_cnt: XmlElem<number | null>;
 }
 
@@ -269,21 +334,42 @@ interface OutstaffPeriodsBaseMaterial {
 interface OutstaffPeriodsBase {
   /** Интервалы работы временного персонала */
   periods: XmlMultiElem<OutstaffPeriodsBasePeriod | null>;
+  /** Расходные материалы */
   materials: XmlMultiElem<OutstaffPeriodsBaseMaterial | null>;
 }
 
 interface AccessBase {
-  /** Уровень доступа */
+  /**
+   * Уровень доступа
+   * @default 0
+   */
   access_level: XmlElem<number>;
-  /** Роль сотрудника */
+  /**
+   * Роль сотрудника
+   * @default user
+   */
   access_role: XmlElem<string, AccessRoleCatalogDocumentTopElem>;
-  /** Является пользователем интерфейса администратора */
+  /**
+   * Является пользователем интерфейса администратора
+   * @default false
+   */
   is_arm_admin: XmlElem<boolean>;
-  /** Временно запрещен доступ на портал */
+  /**
+   * Временно запрещен доступ на портал
+   * @default false
+   */
   web_banned: XmlElem<boolean>;
   /** Группа по умолчанию */
   user_group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
+  /**
+   * Является редактором контента
+   * @default false
+   */
   is_content_admin: XmlElem<boolean>;
+  /**
+   * Является пользователем приложений
+   * @default false
+   */
   is_application_admin: XmlElem<boolean>;
 }
 
@@ -298,9 +384,15 @@ interface AccessDocBaseAccessGroup {
 }
 
 interface AccessDocBase extends ViewConditionsBase {
-  /** Анонимный доступ */
+  /**
+   * Анонимный доступ
+   * @default false
+   */
   enable_anonymous_access: XmlElem<boolean | null>;
-  /** Уровень доступа */
+  /**
+   * Уровень доступа
+   * @default 0
+   */
   access_level: XmlElem<number>;
   /** Роли доступа */
   access_roles: XmlMultiElem<AccessDocBaseAccessRole | null>;
@@ -312,9 +404,12 @@ interface AccessDocBase extends ViewConditionsBase {
   access_site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
   /** Узел */
   access_host_id: XmlElem<number | null, HostCatalogDocumentTopElem>;
+  /** Тип страницы */
   web_mode_id: XmlElem<number | null, WebModeCatalogDocumentTopElem>;
   /** Оператор */
   operator: XmlElem<string | null>;
+  /** Группа подразделений */
+  access_subdivision_group_id: XmlElem<number | null, SubdivisionGroupCatalogDocumentTopElem>;
 }
 
 interface GlobalSettingsBaseWebDesign {
@@ -322,16 +417,20 @@ interface GlobalSettingsBaseWebDesign {
   name: XmlElem<string | null>;
   url: XmlElem<string | null>;
   zip_file_url: XmlElem<string | null>;
+  /** @default false */
   is_std: XmlElem<boolean>;
 }
 
 interface GlobalSettingsBaseWebRules {
+  /** @default /scripts/,/pics/,/pp/,/icons/,/services/ */
   exclude_path_list: XmlElem<string | null>;
 }
 
 interface GlobalSettingsBaseRequiredField {
   name: XmlElem<string | null>;
+  /** @default false */
   is_web_edit: XmlElem<boolean>;
+  /** @default false */
   is_required: XmlElem<boolean>;
   is_custom: XmlElem<boolean | null>;
 }
@@ -341,7 +440,9 @@ interface GlobalSettingsBaseWebApiSettingsFilter {
 }
 
 interface GlobalSettingsBaseWebApiSettings {
+  /** @default false */
   use_api: XmlElem<boolean>;
+  /** @default true */
   use_cache: XmlElem<boolean>;
   access_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   allowed_ip: XmlElem<string | null>;
@@ -350,11 +451,15 @@ interface GlobalSettingsBaseWebApiSettings {
 }
 
 interface GlobalSettingsBaseMobileDocumentReader {
+  /** @default mobilereader */
   menu_code: XmlElem<string>;
   days_credentials_update: XmlElem<number | null>;
+  /** @default true */
   use_favorites: XmlElem<boolean>;
+  /** @default true */
   use_search: XmlElem<boolean>;
   confirmation: XmlElem<string | null>;
+  /** @default true */
   use_update_stamp: XmlElem<boolean>;
 }
 
@@ -368,17 +473,20 @@ interface GlobalSettingsBaseVclassHostsHost {
 }
 
 interface GlobalSettingsBaseVclassHosts {
-  host: XmlElem<GlobalSettingsBaseVclassHostsHost | null>;
+  host: XmlMultiElemObject<GlobalSettingsBaseVclassHostsHost | null>;
 }
 
 interface GlobalSettingsBaseLibraryOptions {
+  /** @default false */
   ignore_before_first: XmlElem<boolean>;
 }
 
 interface GlobalSettingsBaseLibraryCutMarker {
   tag: XmlElem<string | null>;
   attr: XmlElem<string | null>;
+  /** @default 0 */
   type: XmlElem<number>;
+  /** @default false */
   enabled: XmlElem<boolean>;
 }
 
@@ -392,11 +500,15 @@ interface GlobalSettingsBaseOwnOrg extends EssentialsBase {
   phone: XmlElem<string | null>;
   email: XmlElem<string | null>;
   smtp_server: XmlElem<string | null>;
+  /** @default false */
   use_smtp_authenticate: XmlElem<boolean>;
   smtp_login: XmlElem<string | null>;
   smtp_password: XmlElem<string | null>;
+  /** @default trash */
   after_send_action: XmlElem<string | null>;
+  /** @default 24 */
   sent_save_hours: XmlElem<number>;
+  /** @default 60 */
   send_attempt_num: XmlElem<number>;
   default_notification_system_id: XmlElem<number | null, NotificationSystemCatalogDocumentTopElem>;
 }
@@ -417,14 +529,18 @@ interface GlobalSettingsBaseRecruitment {
 }
 
 interface GlobalSettingsBaseWebsoftPluginServer {
+  /** @default http://community.websoft.ru/components/pack_update_list.xml */
   url: XmlElem<string | null>;
   login: XmlElem<string | null>;
   password: XmlElem<string | null>;
 }
 
 interface GlobalSettingsBaseExternalWebPlayers {
+  /** @default false */
   ext_x_lite_grid: XmlElem<boolean>;
+  /** @default false */
   ext_hardcore_source: XmlElem<boolean>;
+  /** @default false */
   openurl_eq_openwindow: XmlElem<boolean>;
 }
 
@@ -438,6 +554,7 @@ interface GlobalSettingsBasePpmMatrixRowColumn {
   value: XmlElem<string | null>;
   /** URL к файлу фотографии */
   pict_url: XmlElem<string | null>;
+  /** @default false */
   is_base: XmlElem<boolean>;
   comment: XmlElem<string | null>;
   cell_color: XmlElem<string | null>;
@@ -449,19 +566,26 @@ interface GlobalSettingsBasePpmMatrixRow {
 }
 
 interface GlobalSettingsBasePpmMatrix {
+  /** @default Потенциал */
   line_name: XmlElem<string | null>;
+  /** @default Эффективность */
   column_name: XmlElem<string | null>;
   rows: XmlMultiElem<GlobalSettingsBasePpmMatrixRow | null>;
 }
 
 interface GlobalSettingsBaseStatistics {
+  /** @default false */
   calculate_statistics: XmlElem<boolean>;
+  /** @default 1 */
   calculation_period: XmlElem<number>;
 }
 
 interface GlobalSettingsBaseScriptQueues {
+  /** @default true */
   enable_queues: XmlElem<boolean>;
+  /** @default 10 */
   running_period: XmlElem<number>;
+  /** @default 10 */
   clear_period: XmlElem<number>;
 }
 
@@ -475,7 +599,9 @@ interface GlobalSettingsBaseOutstaff extends OutstaffPeriodsBase {
 }
 
 interface GlobalSettingsBaseProjectOptions {
+  /** @default false */
   use_custom_project_status: XmlElem<boolean>;
+  /** @default false */
   use_custom_project_icon: XmlElem<boolean>;
 }
 
@@ -494,7 +620,9 @@ interface GlobalSettingsBaseProject {
 }
 
 interface GlobalSettingsBaseProjectTaskOptions {
+  /** @default false */
   use_custom_project_task_status: XmlElem<boolean>;
+  /** @default false */
   use_custom_project_task_icon: XmlElem<boolean>;
 }
 
@@ -514,6 +642,7 @@ interface GlobalSettingsBaseProjectTask {
 interface GlobalSettingsBaseCl {
   use_constants: XmlElem<boolean | null>;
   use_cache: XmlElem<boolean | null>;
+  /** @default content */
   access_setting: XmlElem<string>;
 }
 
@@ -531,98 +660,166 @@ interface GlobalSettingsBase extends EventSettingsBase {
   default_web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
   web_designs: XmlMultiElem<GlobalSettingsBaseWebDesign | null>;
   portal_base_url: XmlElem<string | null>;
+  /** @default false */
   use_personal_chat_global_policy: XmlElem<boolean | null>;
+  /** @default false */
   personal_chat_confirmation_required: XmlElem<boolean>;
+  /** @default 100 */
   max_message_in_block_count: XmlElem<number>;
+  /**
+   * Расширенное логирование разговоров
+   * @default false
+   */
   conversation_debug: XmlElem<boolean>;
+  /**
+   * Тип отображения сотрудников для участников разговора
+   * @default participant
+   */
   conversation_visible_type_id: XmlElem<string | null, typeof common.conversation_visible_types>;
+  /** @default false */
   use_queue_in_chat: XmlElem<boolean>;
+  /** @default false */
   use_mobile_chat: XmlElem<boolean>;
+  /** Тип разговора по умолчанию */
   default_conversation_type_id: XmlElem<number | null, ConversationTypeCatalogDocumentTopElem>;
   auth_check_eval: XmlElem<string | null>;
   auth_site_access_failed_eval: XmlElem<string | null>;
+  /** @default false */
   login_case_sensitive: XmlElem<boolean>;
+  /** @default false */
   login_domen_sensitive: XmlElem<boolean>;
+  /** @default true */
   use_auth_session: XmlElem<boolean>;
+  /** @default 600 */
   auth_session_life_time: XmlElem<number>;
+  /** @default object_placeholder */
   template_cache_type: XmlElem<string, typeof common.template_cache_types>;
+  /** @default true */
   use_web_rules: XmlElem<boolean>;
   web_rules: XmlElem<GlobalSettingsBaseWebRules | null>;
+  /** @default 5787283383659285629 */
   default_file_source_id: XmlElem<number>;
+  /** @default false */
   search_in_trash: XmlElem<boolean>;
+  /** @default true */
   check_sid: XmlElem<boolean>;
+  /** @default false */
   disp_wellcome_screen: XmlElem<boolean>;
+  /** @default false */
   disp_anonymous_polls: XmlElem<boolean>;
+  /** @default false */
   check_user_required_fields: XmlElem<boolean>;
   required_fields: XmlMultiElem<GlobalSettingsBaseRequiredField | null>;
   web_api_settings: XmlElem<GlobalSettingsBaseWebApiSettings | null>;
   mobile: XmlElem<GlobalSettingsBaseMobile | null>;
   default_contact_type_id: XmlElem<number | null, ContactTypeCatalogDocumentTopElem>;
   default_contact_result_id: XmlElem<number | null, ContactResultCatalogDocumentTopElem>;
+  /** @default false */
   allow_self_register: XmlElem<boolean>;
   self_register_group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
+  /** @default true */
   web_banned_self_register: XmlElem<boolean>;
+  /** @default false */
   self_register_disp_custom_elems: XmlElem<boolean>;
+  /** @default true */
   self_register_disp_subs: XmlElem<boolean>;
   self_register_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   self_register_subdivision_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   self_register_position_name: XmlElem<string | null>;
+  /** @default false */
   self_register_use_position_commons: XmlElem<boolean>;
+  /** @default false */
   eval_post_registration_script: XmlElem<boolean>;
   post_registration_script: XmlElem<string | null>;
+  /** @default false */
   eval_prev_registration_script: XmlElem<boolean>;
   prev_registration_script: XmlElem<string | null>;
+  /** @default false */
   script_create_login: XmlElem<boolean>;
+  /** @default false */
   script_create_password: XmlElem<boolean>;
   vclass_hosts: XmlElem<GlobalSettingsBaseVclassHosts | null>;
   library: XmlElem<GlobalSettingsBaseLibrary | null>;
+  /** @default false */
   save_exchange_data_files: XmlElem<boolean>;
+  /** @default false */
   auto_exchange_data: XmlElem<boolean>;
+  /** @default 7 */
   exchange_period: XmlElem<number>;
   url_exchange_results: XmlElem<string | null>;
+  /** @default plain */
   password_format: XmlElem<string>;
+  /** @default false */
   password_auto_rebuild: XmlElem<boolean>;
   pass_validation_formula: XmlElem<string | null>;
+  /** @default false */
   fill_path_subs: XmlElem<boolean>;
+  /** @default false */
   check_access_on_lists: XmlElem<boolean>;
+  /** @default false */
   save_deleted_in_trash: XmlElem<boolean>;
+  /** @default false */
   fill_path_places: XmlElem<boolean>;
+  /** @default false */
   show_creator_editor_name: XmlElem<boolean>;
+  /** @default false */
   show_creator_in_reports: XmlElem<boolean>;
+  /** @default true */
   save_person_change_log: XmlElem<boolean>;
   script_evaluation_cutoff: XmlElem<number | null>;
+  /** @default 5000 */
   max_report_visible_rows: XmlElem<number>;
   default_currency: XmlElem<string | null, typeof lists.currency_types>;
   default_cost_center_id: XmlElem<number | null, CostCenterCatalogDocumentTopElem>;
   default_expense_item_id: XmlElem<number | null, ExpenseItemCatalogDocumentTopElem>;
+  /** @default collaborator */
   cost_center_priority: XmlElem<string | null>;
   timezone_id: XmlElem<number | null, typeof common.timezones>;
+  /** @default true */
   auto_select_status_edu_plan: XmlElem<boolean>;
+  /** @default false */
   soft_kill_before_regenerate: XmlElem<boolean>;
+  /** @default true */
   check_wf_access_assessment: XmlElem<boolean>;
   own_org: XmlElem<GlobalSettingsBaseOwnOrg | null>;
-  default_lng: XmlElem<string | null>;
+  default_lng: XmlElem<string | null, GlobalSettingsBase["lngs"]>;
   lngs: XmlMultiElem<GlobalSettingsBaseLng | null>;
   recruitment: XmlElem<GlobalSettingsBaseRecruitment | null>;
+  /** @default false */
   delete_unused_resource: XmlElem<boolean>;
+  /** @default false */
   admin_not_auth: XmlElem<boolean>;
   default_event_result_type_id: XmlElem<number | null, EventResultTypeCatalogDocumentTopElem>;
+  /** @default false */
   disp_log_web_request: XmlElem<boolean>;
+  /** @default false */
   log_web_request_rec_unloged: XmlElem<boolean>;
   web_request_logging_str: XmlElem<string | null>;
+  /** @default false */
   disp_log_debug: XmlElem<boolean>;
+  /** @default false */
   disp_log_mail_trans: XmlElem<boolean>;
+  /** @default false */
   tracing: XmlElem<boolean>;
   tracing_timeout: XmlElem<number | null>;
+  /** @default false */
   log_embedding_detail: XmlElem<boolean>;
+  /** @default 240 */
   export_odbc_commant_timeout: XmlElem<number>;
+  /** @default false */
   not_use_doc_contains: XmlElem<boolean>;
+  /** @default false */
   not_use_doc_contains_str_begins: XmlElem<boolean>;
+  /** @default false */
   email_empty_create_notification: XmlElem<boolean>;
+  /** @default true */
   show_all_persons: XmlElem<boolean>;
   websoft_plugin_server: XmlElem<GlobalSettingsBaseWebsoftPluginServer | null>;
+  /** @default true */
   disp_social_block: XmlElem<boolean>;
+  /** @default avatar */
   social_avatar_priority: XmlElem<string | null, typeof common.social_avatar_priority_types>;
+  /** @default host */
   portal_tracking_type: XmlElem<string>;
   external_web_players: XmlElem<GlobalSettingsBaseExternalWebPlayers | null>;
   calendar: XmlElem<GlobalSettingsBaseCalendar | null>;
@@ -630,15 +827,22 @@ interface GlobalSettingsBase extends EventSettingsBase {
   ppm_matrix: XmlElem<GlobalSettingsBasePpmMatrix | null>;
   statistics: XmlElem<GlobalSettingsBaseStatistics | null>;
   script_queues: XmlElem<GlobalSettingsBaseScriptQueues | null>;
+  /** @default capicom */
   digital_signature_control: XmlElem<string>;
+  /** @default false */
   use_time_stamp_server: XmlElem<boolean>;
+  /** @default http://www.cryptopro.ru/tsp/tsp.srf */
   time_stamp_server_address: XmlElem<string>;
+  /** @default false */
   use_profiling: XmlElem<boolean | null>;
   default_webinar_system_id: XmlElem<number | null, WebinarSystemCatalogDocumentTopElem>;
   lds_url_pattern: XmlElem<string | null>;
   outstaff: XmlElem<GlobalSettingsBaseOutstaff | null>;
+  /** @default false */
   send_learning_additional_info: XmlElem<boolean>;
+  /** @default false */
   set_st_category: XmlElem<boolean>;
+  /** @default false */
   use_queue_learnings: XmlElem<boolean>;
   project: XmlElem<GlobalSettingsBaseProject | null>;
   project_task: XmlElem<GlobalSettingsBaseProjectTask | null>;
@@ -647,13 +851,19 @@ interface GlobalSettingsBase extends EventSettingsBase {
   knowlcntrl: XmlElem<GlobalSettingsBaseKnowlcntrl | null>;
   brute_password_check: XmlElem<boolean | null>;
   brute_password_count: XmlElem<number | null>;
+  /** @default 1800 */
   brute_password_period: XmlElem<number | null>;
   lds: XmlElem<GlobalSettingsBaseLds | null>;
+  /** @default database */
   design_vscode_save_default: XmlElem<string | null, typeof common.design_vscode_save_types>;
+  /** @default full */
   design_vscode_access: XmlElem<string | null, typeof common.design_vscode_access_types>;
+  /** @default true */
   single_learning_session: XmlElem<boolean>;
+  /** @default true */
   course_access_on_education_plan: XmlElem<boolean>;
   unique_id_slot: XmlElem<number | null>;
+  /** @default false */
   use_ws_idm: XmlElem<boolean>;
 }
 
@@ -684,7 +894,10 @@ interface CoursePartBase {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default lesson
+   */
   type: XmlElem<string>;
   /** Максимальный балл */
   max_score: XmlElem<number | null>;
@@ -693,6 +906,7 @@ interface CoursePartBase {
   url: XmlElem<string | null>;
   /** Ссылка на родительский раздел */
   parent_part_code: XmlElem<string | null>;
+  /** @default true */
   visible: XmlElem<boolean>;
 }
 
@@ -706,6 +920,7 @@ interface ImportExcelPersonsBaseColumn {
   /** Поле */
   field_name: XmlElem<string | null, typeof common.field_name_types>;
   eval_str: XmlElem<string | null>;
+  /** @default false */
   is_key: XmlElem<boolean>;
 }
 
@@ -727,29 +942,59 @@ interface ImportExcelPersonsBase {
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   columns: XmlMultiElem<ImportExcelPersonsBaseColumn | null>;
   collaborator: XmlElem<ImportExcelPersonsBaseCollaborator | null>;
-  /** Запретить доступ на портал */
+  /**
+   * Запретить доступ на портал
+   * @default false
+   */
   web_banned: XmlElem<boolean>;
-  /** Отправлять уведомление новым сотрудникам с логином и паролем */
+  /**
+   * Отправлять уведомление новым сотрудникам с логином и паролем
+   * @default false
+   */
   send_notification: XmlElem<boolean>;
-  /** Обновлять данные о сотруднике, если он уже существует в базе */
+  /**
+   * Обновлять данные о сотруднике, если он уже существует в базе
+   * @default false
+   */
   update_data: XmlElem<boolean>;
-  /** Тип генерации пароля */
+  /**
+   * Тип генерации пароля
+   * @default random
+   */
   create_password_type: XmlElem<string>;
   /** Пароль один для всех с последующей заменой */
   common_password: XmlElem<string | null>;
-  /** Количество символов пароля */
+  /**
+   * Количество символов пароля
+   * @default 6
+   */
   password_digits_num: XmlElem<number>;
-  /** Пропустить первую строку */
+  /**
+   * Пропустить первую строку
+   * @default false
+   */
   miss_first_row: XmlElem<boolean>;
-  /** Выводить предупреждение о совпадении кода или логина, если они уж существуют в базе */
+  /**
+   * Выводить предупреждение о совпадении кода или логина, если они уж существуют в базе
+   * @default false
+   */
   show_warnings: XmlElem<boolean>;
-  /** Блокировать добавление или изменение записей, если обнаружено, что код или логин уже существуют в базе */
+  /**
+   * Блокировать добавление или изменение записей, если обнаружено, что код или логин уже существуют в базе
+   * @default false
+   */
   block_import: XmlElem<boolean>;
-  /** Выбор организации */
+  /**
+   * Выбор организации
+   * @default select
+   */
   create_org_type: XmlElem<string>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
-  /** Разделитель */
+  /**
+   * Разделитель
+   * @default \
+   */
   separator: XmlElem<string>;
   /** Предварительно исполняемый код */
   pre_eval_code: XmlElem<string | null>;
@@ -780,9 +1025,15 @@ interface OrgBase extends EssentialsBase {
 interface ProgramMethodBase extends CostCurrencyTypeBase {
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип проведения */
+  /**
+   * Тип проведения
+   * @default org
+   */
   type: XmlElem<string, typeof common.education_method_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   state_id: XmlElem<string, typeof common.education_method_states>;
   /** Обучающая организация */
   education_org_id: XmlElem<number | null, EducationOrgCatalogDocumentTopElem>;
@@ -816,18 +1067,32 @@ interface LectorsBase {
 
 interface AccessRoleBaseAccessBloc {
   id: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
-  /** Чтение */
+  /**
+   * Чтение
+   * @default false
+   */
   can_read: XmlElem<boolean | null>;
-  /** Запись */
+  /**
+   * Запись
+   * @default false
+   */
   can_write: XmlElem<boolean | null>;
-  /** Удаление */
+  /**
+   * Удаление
+   * @default false
+   */
   can_delete: XmlElem<boolean | null>;
 }
 
 interface AccessRoleBaseFuncBlockApplication {
   application_id: XmlElem<number | null, ApplicationCatalogDocumentTopElem>;
   application_code: XmlElem<string | null>;
-  /** Включен */
+  application_name: XmlElem<string | null>;
+  application_color: XmlElem<string | null>;
+  /**
+   * Включен
+   * @default true
+   */
   is_enabled: XmlElem<boolean>;
   /** Уровень доступа */
   access_level: XmlElem<number | null>;
@@ -835,7 +1100,10 @@ interface AccessRoleBaseFuncBlockApplication {
 
 interface AccessRoleBaseFuncBlock {
   id: XmlElem<string | null>;
-  /** Включен */
+  /**
+   * Включен
+   * @default true
+   */
   is_enabled: XmlElem<boolean>;
   applications: XmlMultiElem<AccessRoleBaseFuncBlockApplication | null>;
 }
@@ -846,10 +1114,17 @@ interface AccessRoleBase {
   name: XmlElem<string | null>;
   /** Модули */
   access_blocs: XmlMultiElem<AccessRoleBaseAccessBloc | null>;
-  /** Управление руководителями */
+  /**
+   * Управление руководителями
+   * @default false
+   */
   can_edit_managers: XmlElem<boolean | null>;
-  /** Управление правами доступа */
+  /**
+   * Управление правами доступа
+   * @default false
+   */
   can_edit_access: XmlElem<boolean | null>;
+  /** Конфигурация */
   admin_configuration_id: XmlElem<number | null, AdminConfigurationCatalogDocumentTopElem>;
   func_blocks: XmlMultiElem<AccessRoleBaseFuncBlock | null>;
 }
@@ -867,13 +1142,17 @@ interface WorkflowDataBaseWorkflowLogEntry {
   person_fullname: XmlElem<string | null>;
   begin_state: XmlElem<string | null>;
   finish_state: XmlElem<string | null>;
+  /** @default false */
   submited: XmlElem<boolean>;
 }
 
 interface WorkflowDataBaseWorkflowCustomStateCondition {
+  /** @default cur_person */
   type: XmlElem<string | null>;
+  /** @default cur_person */
   cur_user_type: XmlElem<string | null>;
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** @default || */
   and_or: XmlElem<string>;
   begin_bracket: XmlElem<string | null>;
   finish_bracket: XmlElem<string | null>;
@@ -893,9 +1172,7 @@ interface WorkflowDataBase {
   workflow_state: XmlElem<string | null>;
   workflow_state_name: XmlElem<string | null>;
   workflow_state_last_date: XmlElem<Date | null>;
-  get_workflow_state_name(workflowDoc: unknown): unknown;
-  set_workflow_state_last_date(param: unknown): unknown;
-  add_workflow_log_entry(param: unknown): unknown;
+  /** @default false */
   is_workflow_init: XmlElem<boolean>;
   workflow_fields: XmlMultiElem<WorkflowDataBaseWorkflowField | null>;
   workflow_log_entrys: XmlMultiElem<WorkflowDataBaseWorkflowLogEntry | null>;
@@ -908,6 +1185,7 @@ interface ConditionBase {
   workflow_field_value: XmlElem<string | null>;
   workflow_state_id: XmlElem<string | null>;
   cur_user_type: XmlElem<string | null>;
+  /** @default && */
   and_or: XmlElem<string>;
   begin_bracket: XmlElem<string | null>;
   finish_bracket: XmlElem<string | null>;
@@ -926,7 +1204,9 @@ interface ConditionsBase {
   conditions: XmlMultiElem<ConditionBase | null>;
   condition_eval_str: XmlElem<string | null>;
   desc_str: XmlElem<string | null>;
+  /** @default false */
   has_error: XmlElem<boolean>;
+  /** @default false */
   is_false: XmlElem<boolean>;
   error_eval(): unknown;
 }
@@ -938,15 +1218,19 @@ interface PersonFillingBase {
   person_position_id: XmlElem<number | null>;
   /** Название должности сотрудника */
   person_position_name: XmlElem<string | null>;
+  /** Код должности сотрудника */
   person_position_code: XmlElem<string | null>;
   /** Организация сотрудника */
   person_org_id: XmlElem<number | null>;
   /** Название организации сотрудника */
   person_org_name: XmlElem<string | null>;
+  /** Код организации сотрудника */
   person_org_code: XmlElem<string | null>;
   /** Подразделение сотрудника */
   person_subdivision_id: XmlElem<number | null>;
+  /** Название подразделения сотрудника */
   person_subdivision_name: XmlElem<string | null>;
+  /** Код подразделения сотрудника */
   person_subdivision_code: XmlElem<string | null>;
   /** Код сервера сотрудника */
   person_instance_id: XmlElem<string | null>;
@@ -956,7 +1240,7 @@ interface PersonFillingBase {
 
 interface PersonForeignBase {
   person_fullname(): string;
-  person_position_name(): unknown;
+  person_position_name(): string;
   person_org_name(): string;
   person_subdivision_name(): string;
   person_instance_id(): unknown;
@@ -970,7 +1254,9 @@ interface ServerBase {
   customer: XmlElem<string | null>;
   package_url: XmlElem<string | null>;
   select_action: XmlElem<string | null>;
+  /** @default 01:00 */
   default_replication_time: XmlElem<string>;
+  /** @default true */
   create_exchange_server: XmlElem<boolean | null>;
   web_design_url: XmlElem<string | null>;
   custom_templates_url: XmlElem<string | null>;
@@ -982,10 +1268,12 @@ interface ServerBase {
   start_info_url: XmlElem<string | null>;
   default_lng: XmlElem<string | null>;
   default_web_design: XmlElem<string | null>;
+  /** @default true */
   recovery_empty_lng_const: XmlElem<boolean>;
 }
 
 interface SelectServerBaseInstall {
+  /** @default false */
   skip_reg_page: XmlElem<boolean | null>;
   reg_user_name: XmlElem<string | null>;
   reg_org_name: XmlElem<string | null>;
@@ -994,8 +1282,11 @@ interface SelectServerBaseInstall {
 interface SelectServerBase extends ServerBase {
   title_text: XmlElem<string | null>;
   label_text: XmlElem<string | null>;
+  /** @default true */
   disp_select_password: XmlElem<boolean>;
+  /** @default false */
   disp_select_replication_time: XmlElem<boolean>;
+  /** @default combo */
   selector_type: XmlElem<string | null>;
   servers: XmlMultiElem<ServerBase | null>;
   replication_time: XmlElem<string | null>;
@@ -1017,26 +1308,39 @@ interface ViewColumnsBaseColumn {
   const: XmlElem<string | null>;
   /** Ширина */
   width: XmlElem<string | null>;
+  /** Поле сортировки */
   order: XmlElem<string | null>;
   order_field(): unknown;
+  /** @default t */
   sort_field: XmlElem<string | null>;
+  /** @default true */
   is_default: XmlElem<boolean>;
   category_field: XmlElem<string | null>;
   category_type: XmlElem<string | null>;
   catalog_name: XmlElem<string | null>;
+  /** @default false */
   is_link: XmlElem<boolean>;
   tile_items: XmlMultiElem<ViewColumnsBaseColumnTileItem | null>;
+  /** Формула цвета фона ячейки */
   bk_color: XmlElem<string | null>;
+  /** Формула цвета текста ячейки */
   text_color: XmlElem<string | null>;
+  /**
+   * Без сортировки
+   * @default false
+   */
   prohibit_sort: XmlElem<boolean>;
 }
 
 interface ViewColumnsBase {
+  /** @default true */
   disp_new_button: XmlElem<boolean>;
   new_button_text: XmlElem<string | null>;
+  /** Формула цвета строчки списка (относительно ListElem) */
   row_bk_color: XmlElem<string | null>;
   xquery_qual: XmlElem<string | null>;
   row_image_url: XmlElem<string | null>;
+  /** @default false */
   disp_role_selector: XmlElem<boolean>;
   data_fields: XmlElem<string | null>;
   /** Столбцы */
@@ -1051,6 +1355,7 @@ interface CatalogListBaseCatalogObject {
 interface CatalogListBaseCatalog {
   type: XmlElem<string | null, typeof common.exchange_object_types>;
   title: XmlElem<string | null>;
+  /** @default false */
   all: XmlElem<boolean>;
   objects: XmlMultiElem<CatalogListBaseCatalogObject | null>;
 }
@@ -1061,7 +1366,9 @@ interface CatalogListBase {
 
 interface ExpenseDistributionBaseExpenseItem {
   expense_item_id: XmlElem<number | null, ExpenseItemCatalogDocumentTopElem>;
+  /** @default 0.0 */
   sum: XmlElem<number | null>;
+  /** @default 0.0 */
   unnamed_person_sum: XmlElem<number | null>;
 }
 
@@ -1157,6 +1464,7 @@ interface ExchangeListsBaseImportExcelPersonScheme extends ImportExcelPersonsBas
 interface ExchangeListsBaseWebRequirement {
   id: XmlElem<string | null>;
   name: XmlElem<string | null>;
+  /** @default false */
   is_std: XmlElem<boolean>;
 }
 
@@ -1194,6 +1502,7 @@ interface WorkflowFieldsStatesBaseWorkflowFieldEntry {
 
 interface WorkflowFieldsStatesBaseWorkflowField {
   name: XmlElem<string | null>;
+  /** @default string */
   type: XmlElem<string | null, typeof common.template_field_types>;
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
   title: XmlElem<string | null>;
@@ -1223,12 +1532,16 @@ interface WorkflowFieldsStatesBase {
 interface FuncManagersBaseFuncManager extends PersonFillingBase {
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Должность подчиненного */
   subordinate_position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
   /** Дата начала действия */
   start_date: XmlElem<Date | null>;
   /** Дата окончания действия */
   end_date: XmlElem<Date | null>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
@@ -1241,7 +1554,10 @@ interface FuncManagersBasePositionManager {
   object_id: XmlElem<number | null>;
   /** Название объекта */
   object_name: XmlElem<string | null>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
@@ -1267,11 +1583,20 @@ interface DocumentPersonsBaseDocumentPerson {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** ФИО сотрудника */
   person_fullname: XmlElem<string | null>;
-  /** Может создавать */
+  /**
+   * Может создавать
+   * @default true
+   */
   can_create: XmlElem<boolean | null>;
-  /** Может редактировать */
+  /**
+   * Может редактировать
+   * @default true
+   */
   can_edit: XmlElem<boolean | null>;
-  /** Может удалять */
+  /**
+   * Может удалять
+   * @default true
+   */
   can_delete: XmlElem<boolean | null>;
 }
 
@@ -1326,14 +1651,19 @@ interface ConstantItemBase {
   type: XmlElem<string | null>;
   before_char: XmlElem<string | null>;
   after_char: XmlElem<string | null>;
+  /** @default false */
   is_line_repeat: XmlElem<boolean | null>;
+  /** @default false */
   is_const_block: XmlElem<boolean | null>;
 }
 
 interface LastAttemptTestLearningsBaseTestLearning {
   /** Тест */
   test_learning_id: XmlElem<number | null, TestLearningCatalogDocumentTopElem>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Баллы */
   score: XmlElem<number>;
@@ -1396,11 +1726,13 @@ interface AccessBlockBase {
   objects_access: XmlElem<string | null>;
   icon_url: XmlElem<string | null>;
   first_catalog_url: XmlElem<string | null>;
+  /** @default true */
   disp: XmlElem<boolean>;
   sys: XmlElem<boolean | null>;
   license_catalogs: XmlElem<string | null>;
   list_index: XmlElem<number | null>;
   structure: XmlElem<AccessBlockBaseStructure | null>;
+  /** @default false */
   is_default: XmlElem<boolean | null>;
 }
 
@@ -1409,6 +1741,7 @@ interface CompetenceScaleBaseScale {
   name: XmlElem<string | null>;
   percent: XmlElem<number | null>;
   desc: XmlElem<string | null>;
+  /** @default false */
   comment_require: XmlElem<boolean>;
 }
 
@@ -1446,7 +1779,10 @@ interface SupplementaryQuestionsBaseSupplementaryQuestion {
   supplementary_question_id: XmlElem<number | null, SupplementaryQuestionCatalogDocumentTopElem>;
   /** Название вопроса */
   supplementary_question_name: XmlElem<string | null>;
-  /** Тип вопроса */
+  /**
+   * Тип вопроса
+   * @default 1
+   */
   supplementary_question_type: XmlElem<string>;
   /** Оценка вопроса */
   supplementary_question_mark: XmlElem<string | null>;
@@ -1465,6 +1801,7 @@ interface WorkflowFieldsAssessmentBaseWorkflowField {
   title: XmlElem<string | null>;
   field_group_id: XmlElem<string | null>;
   value: XmlElem<string | null>;
+  /** @default false */
   is_major: XmlElem<boolean>;
 }
 
@@ -1472,26 +1809,40 @@ interface WorkflowFieldsAssessmentBase {
   workflow_fields: XmlMultiElem<WorkflowFieldsAssessmentBaseWorkflowField | null>;
 }
 
-interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatus {
+interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatusesStatus {
   status_id: XmlElem<string | null, typeof common.assessment_appraise_participants>;
+  /** @default 0 */
   mark: XmlElem<number>;
+  /** @default 0 */
   count: XmlElem<number>;
+  /** @default 0 */
   weight: XmlElem<number>;
+}
+
+interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatuses {
+  status: XmlMultiElemObject<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatusesStatus | null>;
 }
 
 interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetence {
   competence_id: XmlElem<number | null, CompetenceCatalogDocumentTopElem>;
   competence_name: XmlElem<string | null>;
+  /** @default 0 */
   competence_mark: XmlElem<number>;
+  /** @default 0 */
   competence_weight: XmlElem<number>;
+  /** @default 0 */
   test_mark: XmlElem<number | null>;
+  /** @default 0 */
   test_weight: XmlElem<number>;
-  statuses: XmlMultiElem<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatus | null>;
+  statuses: XmlElem<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatuses | null>;
 }
 
 interface ViewAssessmentAppraiseCompetenceReportBaseBlockGlobalResults {
+  /** @default 0 */
   previous_mark: XmlElem<number>;
+  /** @default 0 */
   previous_weight: XmlElem<number>;
+  /** @default 100 */
   current_weight: XmlElem<number>;
   result_mark: XmlElem<number | null>;
 }
@@ -1499,6 +1850,7 @@ interface ViewAssessmentAppraiseCompetenceReportBaseBlockGlobalResults {
 interface ViewAssessmentAppraiseCompetenceReportBaseBlock {
   block_id: XmlElem<number | null, CompetenceBlockCatalogDocumentTopElem>;
   block_name: XmlElem<string | null>;
+  /** @default 0 */
   block_mark: XmlElem<number>;
   competences: XmlMultiElem<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetence | null>;
   global_results: XmlElem<ViewAssessmentAppraiseCompetenceReportBaseBlockGlobalResults | null>;
@@ -1509,6 +1861,7 @@ interface ViewAssessmentAppraiseCompetenceReportBase {
   assessment_appraise_id: XmlElem<number | null, AssessmentAppraiseCatalogDocumentTopElem>;
   competence_profile_id: XmlElem<number | null, CompetenceProfileCatalogDocumentTopElem>;
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** @default 100 */
   test_weight: XmlElem<number>;
   blocks: XmlMultiElem<ViewAssessmentAppraiseCompetenceReportBaseBlock | null>;
 }
@@ -1646,6 +1999,7 @@ interface FieldNamesBase {
 }
 
 interface ColumnBaseColumnCCondition {
+  /** @default eq */
   option_type: XmlElem<string, typeof common.all_option_types>;
   color: XmlElem<string | null>;
   bkcolor: XmlElem<string | null>;
@@ -1667,13 +2021,19 @@ interface ColumnBaseColumn {
   column_foreign_name_2: XmlElem<string | null>;
   column_value: XmlElem<string | null>;
   column_width: XmlElem<number | null>;
+  /** @default % */
   column_width_unit: XmlElem<string>;
   column_color: XmlElem<string | null>;
   column_bkcolor: XmlElem<string | null>;
+  /** @default string */
   datatype: XmlElem<string, typeof common.spxml_types>;
+  /** @default false */
   flag_formula: XmlElem<boolean>;
+  /** @default false */
   flag_formula_post_process: XmlElem<boolean>;
+  /** @default true */
   flag_visible: XmlElem<boolean>;
+  /** @default false */
   flag_lng: XmlElem<boolean>;
   c_conditions: XmlMultiElem<ColumnBaseColumnCCondition | null>;
   foreign_field: XmlElem<ColumnBaseColumnForeignField | null>;
@@ -1684,9 +2044,13 @@ interface ColumnBase {
 }
 
 interface ChartReportGraphBase {
+  /** @default false */
   disp_legend: XmlElem<boolean>;
+  /** @default a0 */
   chart_id: XmlElem<string, typeof common.charts>;
+  /** @default false */
   flag_showvalues: XmlElem<boolean | null>;
+  /** @default clustered */
   plot_type: XmlElem<string>;
 }
 
@@ -1700,13 +2064,20 @@ interface CriterionBaseCriterion {
   value: XmlElem<string | null>;
   column_title: XmlElem<string | null>;
   type: XmlElem<string | null>;
+  /** @default eq */
   option_type: XmlElem<string, typeof common.all_option_types>;
+  /** @default and */
   and_or: XmlElem<string>;
+  /** @default false */
   is_custom_field: XmlElem<boolean>;
-  catalog_chains: XmlMultiElem<CriterionBaseCriterionCatalogChain | null>;
+  catalog_chains: XmlMultiElem<FieldNamesBase | null>;
+  /** @default false */
   flag_value_filter: XmlElem<boolean>;
+  /** @default false */
   flag_is_parameter: XmlElem<boolean>;
+  /** @default 0 */
   flag_hierarchy: XmlElem<number>;
+  /** @default true */
   flag_active: XmlElem<boolean>;
   open_bracket: XmlElem<string | null>;
   close_bracket: XmlElem<string | null>;
@@ -1718,10 +2089,12 @@ interface CriterionBase extends FieldNamesBase {
 
 interface CustomReportBaseSort {
   col_index: XmlElem<number | null>;
+  /** @default false */
   asc: XmlElem<boolean>;
 }
 
 interface CustomReportBaseAggregationAggregateSecondary {
+  /** @default eq */
   option_type: XmlElem<string, typeof common.all_option_types>;
   column_value: XmlElem<string | null>;
 }
@@ -1729,17 +2102,23 @@ interface CustomReportBaseAggregationAggregateSecondary {
 interface CustomReportBaseAggregation {
   aggregate_function: XmlElem<string | null>;
   aggregate_column: XmlElem<number | null>;
+  /** @default true */
   flag_graph: XmlElem<boolean | null>;
   aggregate_secondary: XmlElem<CustomReportBaseAggregationAggregateSecondary | null>;
 }
 
 interface CustomReportBase extends CriterionBase, ColumnBase, ChartReportGraphBase {
+  /** @default exchange_object_types */
   object_name_type: XmlElem<string>;
   object_name: XmlElem<string | null>;
+  /** @default false */
   flag_open_param_tun_section: XmlElem<boolean>;
+  /** @default false */
   flag_custom_x: XmlElem<boolean>;
   custom_x: XmlElem<string | null>;
+  /** @default true */
   show_table: XmlElem<boolean>;
+  /** @default false */
   show_chart: XmlElem<boolean>;
   get_report_data(reportId: number, userId: number): unknown;
   get_crit_hash(): unknown;
@@ -1751,10 +2130,14 @@ interface CustomReportBase extends CriterionBase, ColumnBase, ChartReportGraphBa
   performance_search_time: XmlElem<Date | null>;
   performance_process_time: XmlElem<Date | null>;
   sort: XmlElem<CustomReportBaseSort | null>;
+  /** @default false */
   categorize: XmlElem<boolean>;
+  /** @default plain */
   categorize_view: XmlElem<string>;
+  /** @default false */
   categorize_hide_details: XmlElem<boolean>;
   aggregations: XmlMultiElem<CustomReportBaseAggregation | null>;
+  /** @default false */
   show_total: XmlElem<boolean>;
   integrated_criterion_field: XmlElem<string | null>;
   integrated_criterion_field_is_custom: XmlElem<boolean | null>;
@@ -1768,15 +2151,24 @@ interface KnowledgePartsFieldsBaseKnowledgePart {
   knowledge_part_level_id: XmlElem<number | null, KnowledgePartLevelCatalogDocumentTopElem>;
   /** Родительское значение */
   full_path: XmlElem<string | null>;
+  /** Текущий уровень */
   current_level_id: XmlElem<string | null>;
+  /** Индекс текущего уровня */
   current_level_index: XmlElem<number | null>;
+  /** Текущий уровень */
   current_level_name: XmlElem<string | null>;
+  /** Целевой уровень */
   target_level_id: XmlElem<string | null>;
+  /** Индекс целевого уровня */
   target_level_index: XmlElem<number | null>;
+  /** Целевой уровень */
   target_level_name: XmlElem<string | null>;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Требует подтверждения */
+  /**
+   * Требует подтверждения
+   * @default false
+   */
   require_acknowledgement: XmlElem<boolean>;
 }
 
@@ -1789,7 +2181,10 @@ interface KnowledgePartsKpBaseTag {
   tag_name: XmlElem<string | null>;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Требует подтверждения */
+  /**
+   * Требует подтверждения
+   * @default false
+   */
   require_acknowledgement: XmlElem<boolean>;
 }
 
@@ -1798,7 +2193,10 @@ interface KnowledgePartsKpBase extends KnowledgePartsFieldsBase {
   tags: XmlMultiElem<KnowledgePartsKpBaseTag | null>;
   acquaint_time: XmlElem<number | null>;
   previous_version_object_id: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status_in_knowledge_map: XmlElem<string, typeof common.status_in_knowledge_map_types>;
   /** Дата начала действия */
   kp_start_date: XmlElem<Date | null>;
@@ -1811,7 +2209,10 @@ interface KnowledgePartsBaseTag {
   tag_name: XmlElem<string | null>;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Требует подтверждения */
+  /**
+   * Требует подтверждения
+   * @default false
+   */
   require_acknowledgement: XmlElem<boolean>;
 }
 
@@ -1825,7 +2226,10 @@ interface KnowledgePartsBase extends KnowledgePartsFieldsBase {
   experts: XmlMultiElem<KnowledgePartsBaseExpert | null>;
   acquaint_time: XmlElem<number | null>;
   previous_version_object_id: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status_in_knowledge_map: XmlElem<string, typeof common.status_in_knowledge_map_types>;
   /** Дата начала действия */
   kp_start_date: XmlElem<Date | null>;
@@ -1844,7 +2248,7 @@ interface CustomElemsBaseCustomElem {
   /** Название */
   name: XmlElem<string | null>;
   /** Значение */
-  value: XmlElem<null | undefined | string | Date | number | boolean | null>;
+  value: XmlElem<string | null>;
 }
 
 interface CustomElemsBase {
@@ -1866,7 +2270,10 @@ interface EstimationLevelsBase {
 interface TableDataBaseFile extends InsertFileBase {
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
-  /** Тип ресурса */
+  /**
+   * Тип ресурса
+   * @default file
+   */
   type: XmlElem<string, typeof common.resource_types>;
 }
 
@@ -2042,17 +2449,27 @@ interface AnnalsObjectsBase {
 }
 
 interface AnnalsNumsBase {
-  /** Вопросов */
+  /**
+   * Вопросов
+   * @default 0
+   */
   question_num: XmlElem<number | null>;
-  /** Вопросов отвечено */
+  /**
+   * Вопросов отвечено
+   * @default 0
+   */
   question_answered_num: XmlElem<number | null>;
-  /** Вопросов, отвеченных верно */
+  /**
+   * Вопросов, отвеченных верно
+   * @default 0
+   */
   question_passed_num: XmlElem<number | null>;
 }
 
 interface LearningObjectivesInteractionsBase {
   objectives: XmlMultiElem<ObjectiveBase | null>;
   interactions: XmlMultiElem<InteractionBase | null>;
+  /** @default scorm */
   scoring_type: XmlElem<string | null>;
 }
 
@@ -2098,7 +2515,9 @@ interface LearningAssessmentBase extends AnnalsObjectsBase {
   /** QTI теста */
   qti_text: XmlElem<string | null>;
   qti_date: XmlElem<Date | null>;
+  /** @default false */
   expert_eval: XmlElem<boolean>;
+  /** @default false */
   adaptive_eval: XmlElem<boolean>;
   /** Назначен самостоятельно */
   is_self_enrolled: XmlElem<boolean | null>;
@@ -2128,12 +2547,16 @@ interface LearningPartBase extends CoreLessonInfoBase, CoreLessonBase, LearningO
   name: XmlElem<string | null>;
   /** Тип */
   type: XmlElem<string | null, typeof common.course_part_types>;
+  /** Протокол */
   cl_module_protocol: XmlElem<string | null>;
   /** Родительский раздел */
   parent_part_code: XmlElem<string | null>;
   course_module_id: XmlElem<number | null>;
   object_id: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Данные положения курса */
   lesson_location: XmlElem<string | null>;
@@ -2150,9 +2573,15 @@ interface LearningPartBase extends CoreLessonInfoBase, CoreLessonBase, LearningO
   time: XmlElem<number | null>;
   /** Максимальный балл */
   max_score: XmlElem<number | null>;
-  /** Количество попыток */
+  /**
+   * Количество попыток
+   * @default 1
+   */
   attempts_num: XmlElem<number>;
-  /** Текущий номер попытки */
+  /**
+   * Текущий номер попытки
+   * @default 1
+   */
   cur_attempt_num: XmlElem<number>;
   use_proctoring: XmlElem<boolean | null>;
   logs: XmlMultiElem<LearningPartBaseLog | null>;
@@ -2174,11 +2603,17 @@ interface WebVariablesBaseWvarViewCondition {
   id: XmlElem<string | null>;
   /** Параметр */
   wvar_name: XmlElem<string | null>;
-  /** Условие */
+  /**
+   * Условие
+   * @default eq
+   */
   option_type: XmlElem<string, typeof common.all_option_types>;
   /** Значение */
   value: XmlElem<string | null>;
-  /** Условие */
+  /**
+   * Условие
+   * @default and
+   */
   and_or: XmlElem<string>;
 }
 
@@ -2194,7 +2629,10 @@ interface WebVariablesBaseWvar {
   parent_wvar_name: XmlElem<string | null>;
   /** Значение */
   value: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default string
+   */
   type: XmlElem<string, typeof common.template_field_types>;
   /** Тип объекта */
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
@@ -2206,10 +2644,15 @@ interface WebVariablesBaseWvar {
   title: XmlElem<string | null>;
   /** Описание */
   description: XmlElem<string | null>;
+  /** @default false */
   silent: XmlElem<boolean>;
-  /** Позиция */
+  /**
+   * Позиция
+   * @default 0
+   */
   position: XmlElem<number>;
   view: XmlElem<WebVariablesBaseWvarView | null>;
+  /** @default false */
   required: XmlElem<boolean>;
 }
 
@@ -2233,6 +2676,7 @@ interface EducGroupsBaseEducGroup {
   name: XmlElem<string | null>;
   /** Место проведения */
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
+  /** Разговор */
   conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
   /** Сотрудники */
   collaborators: XmlMultiElem<EducGroupsBaseEducGroupCollaborator | null>;
@@ -2260,7 +2704,10 @@ interface EventCatalogBase {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.event_status_types>;
   /** Количество участников */
   person_num: XmlElem<number | null>;
@@ -2301,6 +2748,7 @@ interface EduMethodTestingBasePrevTestingAssessment {
 }
 
 interface EduMethodTestingBasePrevTesting {
+  /** @default false */
   auto_assign: XmlElem<boolean | null>;
   assessments: XmlMultiElem<EduMethodTestingBasePrevTestingAssessment | null>;
 }
@@ -2310,6 +2758,7 @@ interface EduMethodTestingBasePostTestingAssessment {
 }
 
 interface EduMethodTestingBasePostTesting {
+  /** @default false */
   auto_assign: XmlElem<boolean | null>;
   assessments: XmlMultiElem<EduMethodTestingBasePostTestingAssessment | null>;
 }
@@ -2347,29 +2796,45 @@ interface RequirementsBaseRequirement {
 interface RequirementsBaseCertificateType {
   /** Название */
   certificate_type_id: XmlElem<number | null, CertificateTypeCatalogDocumentTopElem>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
 interface RequirementsBaseCompoundProgram {
   /** Название */
   compound_program_id: XmlElem<number | null, CompoundProgramCatalogDocumentTopElem>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
 interface RequirementsBaseEducationMethod {
   /** Название */
   education_method_id: XmlElem<number | null, EducationMethodCatalogDocumentTopElem>;
-  /** Периодичность назначения */
+  /**
+   * Периодичность назначения
+   * @default 0.0
+   */
   period: XmlElem<number | null>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
 interface RequirementsBaseTypicalDevelopmentProgram {
   /** Типовая программа развития */
   typical_development_program_id: XmlElem<number | null, TypicalDevelopmentProgramCatalogDocumentTopElem>;
+  /**
+   * Тип перемещения
+   * @default any
+   */
   job_transfer_type_id: XmlElem<string | null, typeof common.job_transfer_types>;
   /** Комментарий */
   comment: XmlElem<string | null>;
@@ -2378,7 +2843,10 @@ interface RequirementsBaseTypicalDevelopmentProgram {
 interface RequirementsBaseQualification {
   /** Название */
   qualification_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
@@ -2393,7 +2861,10 @@ interface RequirementsBaseAssessment {
 interface RequirementsBaseRecomendedLibraryMaterial {
   /** Материал библиотеки */
   material_id: XmlElem<number | null, LibraryMaterialCatalogDocumentTopElem>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
@@ -2402,6 +2873,7 @@ interface RequirementsBaseProfessionalArea {
 }
 
 interface RequirementsBase extends SkillsBase {
+  /** Дополнительные требования */
   requirements: XmlMultiElem<RequirementsBaseRequirement | null>;
   /** Требуемые типы сертификатов */
   certificate_types: XmlMultiElem<RequirementsBaseCertificateType | null>;
@@ -2430,7 +2902,9 @@ interface RequirementsBase extends SkillsBase {
   age_min: XmlElem<number | null>;
   /** Возраст до */
   age_max: XmlElem<number | null>;
+  /** Опыт работы в компании (месяцев) */
   experience_in_company: XmlElem<number | null>;
+  /** Опыт работы на текущей должности (месяцев) */
   experience_in_current_position: XmlElem<number | null>;
 }
 
@@ -2439,7 +2913,10 @@ interface LearningCurrentStateBase {
   cur_score: XmlElem<number>;
   /** Текущая строка баллов */
   cur_score_str: XmlElem<string | null>;
-  /** Текущее состояние */
+  /**
+   * Текущее состояние
+   * @default 0
+   */
   cur_state_id: XmlElem<number, typeof common.learning_states>;
 }
 
@@ -2447,6 +2924,7 @@ interface CourseExpertsBasePerson extends PersonFillingBase {
   id: XmlElem<string | null>;
   /** Эксперт курса */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** @default expert */
   type: XmlElem<string, typeof common.course_expert_types>;
 }
 
@@ -2454,47 +2932,54 @@ interface CourseExpertsBase {
   persons: XmlMultiElem<CourseExpertsBasePerson | null>;
 }
 
-interface GeneralStorageInfoBaseMssqlStorageModeParametrs {
+interface StorageInfoBaseMssqlStorageModeParametrs {
   server: XmlElem<string | null>;
+  /** @default false */
   trusted_connection: XmlElem<boolean>;
   username: XmlElem<string | null>;
   password: XmlElem<string | null>;
   database: XmlElem<string | null>;
   collation: XmlElem<string | null>;
+  /** @default false */
   create_on_fail: XmlElem<boolean>;
   db_directory: XmlElem<string | null>;
+  /** @default 0 */
   db_size: XmlElem<number>;
 }
 
-interface GeneralStorageInfoBaseOracleStorageModeParametrs {
+interface StorageInfoBaseOracleStorageModeParametrs {
   oracle_connection_string: XmlElem<string | null>;
+  /** @default Oracle10g */
   oracle_db_type: XmlElem<string, typeof common.oracle_db_types>;
+  /** @default true */
   initialize_db: XmlElem<boolean>;
   scheme: XmlElem<string | null>;
   username: XmlElem<string | null>;
   password: XmlElem<string | null>;
 }
 
-interface GeneralStorageInfoBaseAzureStorageModeParametrs {
+interface StorageInfoBaseAzureStorageModeParametrs {
   server: XmlElem<string | null>;
   username: XmlElem<string | null>;
   password: XmlElem<string | null>;
   database: XmlElem<string | null>;
   collation: XmlElem<string | null>;
+  /** @default false */
   create_on_fail: XmlElem<boolean>;
+  /** @default 0 */
   db_size: XmlElem<number>;
   storage_account_name: XmlElem<string | null>;
   storage_account_key: XmlElem<string | null>;
   storage_account: XmlElem<string | null>;
 }
 
-interface GeneralStorageInfoBase {
+interface StorageInfoBase {
   storage_mode: XmlElem<string | null, typeof common.possible_storages>;
   error_code: XmlElem<number | null>;
   error: XmlElem<string | null>;
-  mssql_storage_mode_parametrs: XmlElem<GeneralStorageInfoBaseMssqlStorageModeParametrs | null>;
-  oracle_storage_mode_parametrs: XmlElem<GeneralStorageInfoBaseOracleStorageModeParametrs | null>;
-  azure_storage_mode_parametrs: XmlElem<GeneralStorageInfoBaseAzureStorageModeParametrs | null>;
+  mssql_storage_mode_parametrs: XmlElem<StorageInfoBaseMssqlStorageModeParametrs | null>;
+  oracle_storage_mode_parametrs: XmlElem<StorageInfoBaseOracleStorageModeParametrs | null>;
+  azure_storage_mode_parametrs: XmlElem<StorageInfoBaseAzureStorageModeParametrs | null>;
 }
 
 interface PathPlacesBasePathPlace {
@@ -2522,7 +3007,9 @@ interface DownloadPackageLogBaseObject {
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
   type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** @default true */
   selected: XmlElem<boolean>;
+  /** @default valid */
   id_exists_type: XmlElem<string>;
   object_form: XmlElem<string | null>;
 }
@@ -2530,6 +3017,7 @@ interface DownloadPackageLogBaseObject {
 interface DownloadPackageLogBaseDeletedObjectsObject {
   id: XmlElem<number | null>;
   del_date: XmlElem<Date | null>;
+  /** @default true */
   selected: XmlElem<boolean>;
 }
 
@@ -2541,23 +3029,29 @@ interface DownloadPackageLogBaseCustomTemplate {
   name: XmlElem<string | null>;
   type: XmlElem<string | null, typeof common.template_field_types>;
   title: XmlElem<string | null>;
+  /** @default true */
   selected: XmlElem<boolean>;
 }
 
 interface DownloadPackageLogBaseAccessRole {
   id: XmlElem<string | null>;
   name: XmlElem<string | null>;
+  /** @default true */
   selected: XmlElem<boolean>;
 }
 
 interface DownloadPackageLogBaseList {
   field: XmlElem<string | null>;
+  /** @default 0 */
   num: XmlElem<number | null>;
+  /** @default true */
   selected: XmlElem<boolean>;
 }
 
 interface DownloadPackageLogBase {
+  /** @default true */
   selected_custom_templates: XmlElem<boolean>;
+  /** @default true */
   selected_roles: XmlElem<boolean>;
   objects: XmlMultiElem<DownloadPackageLogBaseObject | null>;
   deleted_objects: XmlElem<DownloadPackageLogBaseDeletedObjects | null>;
@@ -2569,12 +3063,14 @@ interface DownloadPackageLogBase {
 interface BlockReportsBaseBlockReportReportReport {
   url: XmlElem<string | null>;
   title: XmlElem<string | null>;
+  /** @default true */
   disp_web_client: XmlElem<boolean>;
 }
 
 interface BlockReportsBaseBlockReportReport {
   url: XmlElem<string | null>;
   title: XmlElem<string | null>;
+  /** @default true */
   disp_web_client: XmlElem<boolean>;
   reports: XmlMultiElem<BlockReportsBaseBlockReportReportReport | null>;
 }
@@ -2595,7 +3091,9 @@ interface ZonesBaseZone {
   style: XmlElem<string | null>;
   class: XmlElem<string | null>;
   parent_zone: XmlElem<string | null>;
+  /** @default true */
   is_mandatory: XmlElem<boolean>;
+  /** @default 0 */
   position: XmlElem<number>;
 }
 
@@ -2604,16 +3102,21 @@ interface ZonesBase {
 }
 
 interface ViewDispButtonBase {
+  /** @default false */
   disp_second_new_button: XmlElem<boolean>;
   second_button_text: XmlElem<string | null>;
   second_button_image_url: XmlElem<string | null>;
+  /** @default false */
   no_doc: XmlElem<boolean>;
 }
 
 interface TalentPoolFuncManagersBaseTalentPoolFuncManager extends PersonFillingBase {
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
@@ -2625,24 +3128,40 @@ interface TalentPoolFuncManagersBase {
 }
 
 interface SocialObjectAccessBase {
+  /** @default true */
   view_like: XmlElem<boolean>;
+  /** @default true */
   view_dislike: XmlElem<boolean>;
+  /** @default true */
   view_follow: XmlElem<boolean>;
+  /** @default true */
   allow_like: XmlElem<boolean>;
+  /** @default true */
   allow_dislike: XmlElem<boolean>;
+  /** @default true */
   allow_follow: XmlElem<boolean>;
+  /** @default true */
   allow_share: XmlElem<boolean>;
+  /** @default true */
   allow_comment: XmlElem<boolean>;
+  /** @default true */
   allow_view_numbers: XmlElem<boolean>;
+  /** @default true */
   allow_view_list: XmlElem<boolean>;
+  /** @default 1 */
   like_weight: XmlElem<number>;
+  /** @default 0-1 */
   dislike_weight: XmlElem<number>;
 }
 
 interface AdminAccessCatalogBase {
+  /** @default false */
   use_filter: XmlElem<boolean>;
+  /** @default false */
   auto_role_filling: XmlElem<boolean>;
+  /** @default false */
   auto_group_filling: XmlElem<boolean>;
+  /** @default false */
   backup_object_version: XmlElem<boolean>;
 }
 
@@ -2657,27 +3176,53 @@ interface ObjectCodeNameBase {
 }
 
 interface CourseSettingsBaseSettings {
-  /** Открывать автоматически, если в курсе один модуль */
+  /**
+   * Открывать автоматически, если в курсе один модуль
+   * @default true
+   */
   open_single_module: XmlElem<boolean>;
-  /** Открывать автоматически первый модуль при первом входе */
+  /**
+   * Открывать автоматически первый модуль при первом входе
+   * @default true
+   */
   open_first_module: XmlElem<boolean>;
-  /** Открывать автоматически последний посещенный модуль при продолжении обучения */
+  /**
+   * Открывать автоматически последний посещенный модуль при продолжении обучения
+   * @default true
+   */
   open_last_visited: XmlElem<boolean>;
-  /** Если последний посещенный модуль уже завершен, открыть автоматически следующий по порядку */
+  /**
+   * Если последний посещенный модуль уже завершен, открыть автоматически следующий по порядку
+   * @default false
+   */
   open_next_after_completed: XmlElem<boolean>;
+  /** @default false */
   no_display_status_msg: XmlElem<boolean>;
-  /** Разрешить пользователю завершать курс */
+  /**
+   * Разрешить пользователю завершать курс
+   * @default false
+   */
   enable_user_completion: XmlElem<boolean>;
-  /** Показывать сообщение при выполнении условий завершения */
+  /**
+   * Показывать сообщение при выполнении условий завершения
+   * @default false
+   */
   display_completion_msg: XmlElem<boolean>;
   /** Сообщение при выполнении условий завершения */
   completion_msg: XmlElem<string | null>;
-  /** Разрешить проверки компонентов */
+  /**
+   * Разрешить проверки компонентов
+   * @default false
+   */
   allow_checks: XmlElem<boolean>;
-  /** Действие, если отсутствуют требуемые компоненты */
+  /**
+   * Действие, если отсутствуют требуемые компоненты
+   * @default alert
+   */
   after_checks: XmlElem<string>;
   launch_type: XmlElem<string | null>;
   panel: XmlElem<boolean | null>;
+  /** @default close_msg */
   course_finish_action: XmlElem<string | null>;
   course_finish_msg: XmlElem<string | null>;
   course_manually_finish_msg: XmlElem<string | null>;
@@ -2779,15 +3324,20 @@ interface CustomDatasBase {
 
 interface SelectLearningOptionBase {
   start_learning_date: XmlElem<Date | null>;
+  /** @default from_learning */
   duration_type: XmlElem<string>;
   duration_days: XmlElem<number | null>;
+  /** @default false */
   miss_last_learning_date: XmlElem<boolean>;
   last_learning_date: XmlElem<Date | null>;
+  /** @default false */
   miss_only_success_learning: XmlElem<boolean>;
   logging: XmlElem<boolean | null>;
   commenting: XmlElem<boolean | null>;
+  /** Использовать прокторинг */
   use_proctoring: XmlElem<boolean | null>;
   proctor_prefer_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** @default 1 */
   skip_dismissed: XmlElem<boolean>;
   comment: XmlElem<string | null>;
 }
@@ -2796,6 +3346,7 @@ interface TaskInfoBase {
   id: XmlElem<string | null>;
   type: XmlElem<string | null>;
   title: XmlElem<string | null>;
+  /** @default init */
   status: XmlElem<string | null>;
   progress: XmlElem<number | null>;
   progress_max: XmlElem<number | null>;
@@ -2828,19 +3379,24 @@ interface GameBonusBase {
 }
 
 interface ClLocalizationsBaseLocalization {
+  /** Локализация */
   id: XmlElem<number | null, ClLocalizationCatalogDocumentTopElem>;
 }
 
 interface ClLocalizationsBase {
+  /** Локализации */
   localizations: XmlMultiElem<ClLocalizationsBaseLocalization | null>;
 }
 
 interface I18nBaseI18nParam {
+  /** Путь файлов локализации */
   load_path: XmlElem<string | null>;
+  /** Код компонента */
   code: XmlElem<string | null>;
 }
 
 interface I18nBase {
+  /** Локализации */
   i18n_param: XmlElem<I18nBaseI18nParam | null>;
 }
 
@@ -2859,11 +3415,17 @@ interface ActorBase {
 }
 
 interface ProctoringBaseProctoring extends WebVariablesBase {
+  /**
+   * Переменные по умолчанию
+   * @default true
+   */
   is_basic_variables: XmlElem<boolean | null>;
+  /** Система прокторинга */
   proctoring_system_id: XmlElem<number | null, ProctoringSystemCatalogDocumentTopElem>;
 }
 
 interface ProctoringBase {
+  /** Использовать прокторинг */
   use_proctoring: XmlElem<boolean | null>;
   proctoring: XmlElem<ProctoringBaseProctoring | null>;
 }
@@ -2878,15 +3440,35 @@ interface ResultFieldsBaseResultField {
   title: XmlElem<string | null>;
   /** Описание */
   desc: XmlElem<string | null>;
+  /**
+   * "Центр аналитики": Поля значений
+   * @default false
+   */
   for_analytics: XmlElem<boolean>;
+  /**
+   * "Центр аналитики": Поля группировки
+   * @default false
+   */
   for_analytics_aggregation: XmlElem<boolean>;
+  /** "Центр аналитики": Тип группировки */
   for_analytics_aggregation_type: XmlElem<string | null, typeof common.aggregation_types>;
+  /** "Центр аналитики": Поле с максимумом шкалы */
   for_analytics_scale_maximum: XmlElem<string | null>;
   /** Ширина */
-  width: XmlElem<number | null>;
+  width: XmlElem<string | null>;
+  /** Формула цвета фона ячейки */
   bk_color: XmlElem<string | null>;
+  /** Формула цвета текста ячейки */
   text_color: XmlElem<string | null>;
+  /**
+   * Без сортировки
+   * @default false
+   */
   prohibit_sort: XmlElem<boolean>;
+  /** Поле для связи */
+  foreign_field: XmlElem<string | null>;
+  /** Поле каталога */
+  foreign_catalog_field: XmlElem<string | null>;
 }
 
 interface ResultFieldsBase {
@@ -2910,7 +3492,10 @@ interface ExecCodeBaseExecCodeBinFile {
   file_path: XmlElem<string | null>;
   /** Текст */
   value: XmlElem<string | null>;
-  /** Позиция */
+  /**
+   * Позиция
+   * @default 0
+   */
   position: XmlElem<number>;
   /** Дата */
   timestamp: XmlElem<Date | null>;
@@ -2923,6 +3508,7 @@ interface ExecCodeBaseExecCode {
   code_text: XmlElem<string | null>;
   entry_point: XmlElem<string | null>;
   code_hash: XmlElem<string | null>;
+  /** @default Release */
   configuration: XmlElem<string | null>;
   /** Файлы */
   bin_files: XmlMultiElem<ExecCodeBaseExecCodeBinFile | null>;
@@ -2953,8 +3539,11 @@ interface ViewBaseLinkCatalog {
 }
 
 interface ViewBase extends ViewDispButtonBase, ViewColumnsBase {
+  /** @default false */
   is_hier: XmlElem<boolean>;
+  /** @default false */
   disp_dlg_new_button: XmlElem<boolean>;
+  /** @default t */
   sort_field: XmlElem<string>;
   link_catalogs: XmlMultiElem<ViewBaseLinkCatalog | null>;
 }
@@ -2962,17 +3551,21 @@ interface ViewBase extends ViewDispButtonBase, ViewColumnsBase {
 interface QaTestParamBase extends WebVariablesBase {
   /** Сотрудник */
   cur_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** @default true */
   use_cur_object: XmlElem<boolean>;
   /** Тип объекта */
   cur_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Объект */
   cur_object_id: XmlElem<number | null>;
+  /** @default false */
   use_cur_web_design: XmlElem<boolean>;
   /** Дизайн портала */
   cur_web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
+  /** @default false */
   use_cur_site: XmlElem<boolean>;
   /** Сайт */
   cur_site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
+  /** @default false */
   use_cur_lng: XmlElem<boolean>;
   /** Язык интерфейса */
   cur_lng: XmlElem<string | null>;
@@ -2985,13 +3578,21 @@ interface QaTestFixtureBaseFixture {
 }
 
 interface QaTestFixtureBase {
+  /** Тип подготовки тестового окружения */
   fixture_type_id: XmlElem<string | null, typeof common.qa_fixture_types>;
+  /** выгрузки */
   fixture_load_code: XmlElem<string | null>;
+  /** Код выгрузки окружения */
   fixture_unload_code: XmlElem<string | null>;
+  /** Библиотека с кодом подготовки тестового окружения */
   fixture_library_id: XmlElem<number | null, CodeLibraryCatalogDocumentTopElem>;
+  /** Имя функции инициализации окружения */
   fixture_load_function_name: XmlElem<string | null>;
+  /** Имя функции выгрузки окружения */
   fixture_unload_function_name: XmlElem<string | null>;
+  /** Пакет тестовых данных */
   fixture_packet_uri: XmlElem<string | null>;
+  /** @default false */
   clear_fixture_packet: XmlElem<boolean>;
   fixtures: XmlMultiElem<QaTestFixtureBaseFixture | null>;
 }
@@ -3000,11 +3601,23 @@ interface QaTestAssertBaseAssert {
   id: XmlElem<string | null>;
   /** Наименование */
   name: XmlElem<string | null>;
+  /** Тип проверки */
   assert_type: XmlElem<string | null, typeof common.qa_test_assert_types>;
+  /**
+   * Инверсия проверки
+   * @default false
+   */
   check_inversion: XmlElem<boolean>;
+  /** Проверяемый параметр */
   check_property: XmlElem<string | null>;
+  /**
+   * Перечень эталонов
+   * @default false
+   */
   template_is_collection: XmlElem<boolean>;
+  /** Тип эталона */
   template_type: XmlElem<string | null, typeof common.qa_test_assert_template_types>;
+  /** Эталон */
   template: XmlElem<string | null>;
 }
 
