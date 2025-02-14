@@ -256,7 +256,7 @@ interface EssentialsBaseEssentials extends EssentialBase {
 }
 
 interface EssentialsBase {
-  essentials: XmlElem<EssentialsBaseEssentials | null>;
+  essentials: XmlMultiElemObject<EssentialsBaseEssentials | null>;
 }
 
 interface EventSettingsBaseEventSettings {
@@ -873,9 +873,9 @@ interface InsertFileBase {
 }
 
 interface FileActionBase {
-  AssignFile(fileUrl: unknown, source: unknown, params: unknown): unknown;
+  AssignFile(fileUrl: string, source: unknown, params: Object): unknown;
   DeleteFile(source: unknown): unknown;
-  SaveFile(fileUrl: unknown): unknown;
+  SaveFile(fileUrl: string): unknown;
   AddFile(fileId: number, source: unknown): void;
 }
 
@@ -886,7 +886,7 @@ interface FileBase {
 interface FileListBase {
   /** Файлы */
   files: XmlMultiElem<FileBase | null>;
-  AddFile(fileId: number, docResource: unknown): void;
+  AddFile(fileId: number, resource: ResourceDocument): void;
 }
 
 interface CoursePartBase {
@@ -1172,6 +1172,9 @@ interface WorkflowDataBase {
   workflow_state: XmlElem<string | null>;
   workflow_state_name: XmlElem<string | null>;
   workflow_state_last_date: XmlElem<Date | null>;
+  get_workflow_state_name(workflowDoc: WorkflowDocument): string;
+  set_workflow_state_last_date(param: unknown): unknown;
+  add_workflow_log_entry(param: unknown): unknown;
   /** @default false */
   is_workflow_init: XmlElem<boolean>;
   workflow_fields: XmlMultiElem<WorkflowDataBaseWorkflowField | null>;
@@ -1809,7 +1812,7 @@ interface WorkflowFieldsAssessmentBase {
   workflow_fields: XmlMultiElem<WorkflowFieldsAssessmentBaseWorkflowField | null>;
 }
 
-interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatusesStatus {
+interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatus {
   status_id: XmlElem<string | null, typeof common.assessment_appraise_participants>;
   /** @default 0 */
   mark: XmlElem<number>;
@@ -1817,10 +1820,6 @@ interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatusesStatu
   count: XmlElem<number>;
   /** @default 0 */
   weight: XmlElem<number>;
-}
-
-interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatuses {
-  status: XmlMultiElemObject<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatusesStatus | null>;
 }
 
 interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetence {
@@ -1834,7 +1833,7 @@ interface ViewAssessmentAppraiseCompetenceReportBaseBlockCompetence {
   test_mark: XmlElem<number | null>;
   /** @default 0 */
   test_weight: XmlElem<number>;
-  statuses: XmlElem<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatuses | null>;
+  statuses: XmlMultiElem<ViewAssessmentAppraiseCompetenceReportBaseBlockCompetenceStatus | null>;
 }
 
 interface ViewAssessmentAppraiseCompetenceReportBaseBlockGlobalResults {
@@ -2070,7 +2069,7 @@ interface CriterionBaseCriterion {
   and_or: XmlElem<string>;
   /** @default false */
   is_custom_field: XmlElem<boolean>;
-  catalog_chains: XmlMultiElem<FieldNamesBase | null>;
+  catalog_chains: XmlMultiElem<CriterionBaseCriterionCatalogChain | null>;
   /** @default false */
   flag_value_filter: XmlElem<boolean>;
   /** @default false */
@@ -2120,10 +2119,10 @@ interface CustomReportBase extends CriterionBase, ColumnBase, ChartReportGraphBa
   show_table: XmlElem<boolean>;
   /** @default false */
   show_chart: XmlElem<boolean>;
-  get_report_data(reportId: number, userId: number): unknown;
+  get_report_data(reportID: number, userID: number): unknown;
   get_crit_hash(): unknown;
   extractVolatileData(): unknown;
-  condenseVolatileData(volatile: unknown): unknown;
+  condenseVolatileData(volatile: Object): unknown;
   report_result_date: XmlElem<Date | null>;
   report_result_author: XmlElem<string | null>;
   performance_launch_time: XmlElem<Date | null>;
@@ -2304,24 +2303,39 @@ interface TableDataBase {
 interface TableDataBaseExtended {
   excel_file_url: XmlElem<string | null>;
   data: XmlElem<TableDataBase | null>;
-  fnGetFile(fileId: number): unknown;
+  fnGetFile(fileID: number): unknown;
+}
+
+interface ObjectiveBaseScore {
+  raw: XmlElem<number | null>;
+  max: XmlElem<number | null>;
+  min: XmlElem<number | null>;
+  scaled: XmlElem<number | null>;
 }
 
 interface ObjectiveBase {
   objective_id: XmlElem<string | null>;
-  score: XmlElem<string | null>;
+  score: XmlElem<ObjectiveBaseScore | null>;
   status: XmlElem<string | null, typeof common.learning_states>;
   completion_status: XmlElem<string | null, typeof common.objective_status_types>;
   success_status: XmlElem<string | null, typeof common.objective_success_status_types>;
   description: XmlElem<string | null>;
 }
 
+interface InteractionBaseObjectives {
+  objective_id: XmlMultiElemObject<string | null>;
+}
+
+interface InteractionBaseCorrectResponses {
+  pattern: XmlMultiElemObject<string | null>;
+}
+
 interface InteractionBase {
   interaction_id: XmlElem<string | null>;
   time: XmlElem<string | null>;
-  objectives: XmlElem<string | null>;
+  objectives: XmlElem<InteractionBaseObjectives | null>;
   type_interaction: XmlElem<string | null, typeof common.interaction_types>;
-  correct_responses: XmlElem<string | null>;
+  correct_responses: XmlElem<InteractionBaseCorrectResponses | null>;
   student_response: XmlElem<string | null>;
   result: XmlElem<string | null>;
   weighting: XmlElem<string | null>;
@@ -2329,14 +2343,27 @@ interface InteractionBase {
   description: XmlElem<string | null>;
 }
 
+interface AnnalsObjectsBaseObjectDataAssessmentTimestamp {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataAssessmentLatency {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataAssessmentDuration {
+  value: XmlElem<string | null>;
+}
+
 interface AnnalsObjectsBaseObjectDataAssessment {
-  ident: XmlElem<unknown | null>;
-  viewed: XmlElem<unknown | null>;
-  answered: XmlElem<unknown | null>;
-  completed: XmlElem<unknown | null>;
-  timestamp: XmlElem<string | null>;
-  latency: XmlElem<string | null>;
-  duration: XmlElem<string | null>;
+  ident: XmlElem<string | null>;
+  viewed: XmlElem<string | null>;
+  answered: XmlElem<string | null>;
+  completed: XmlElem<string | null>;
+  timestamp: XmlElem<AnnalsObjectsBaseObjectDataAssessmentTimestamp | null>;
+  latency: XmlElem<AnnalsObjectsBaseObjectDataAssessmentLatency | null>;
+  duration: XmlElem<AnnalsObjectsBaseObjectDataAssessmentDuration | null>;
+}
 }
 
 interface AnnalsObjectsBaseObjectDataSectionItemlistSectionitem {
@@ -2437,7 +2464,7 @@ interface AnnalsObjectsBaseObjectData {
 }
 
 interface AnnalsObjectsBaseObject {
-  id: XmlElem<unknown | null>;
+  id: XmlElem<string | null>;
   attempt_id: XmlElem<string | null>;
   file: XmlElem<string | null>;
   objtype: XmlElem<string | null>;
@@ -2500,6 +2527,7 @@ interface CoreLessonBase {
 }
 
 interface CoreLessonInfoBase {
+  /** Раздел курса */
   learning_part_id: XmlElem<number | null, LearningPartCatalogDocumentTopElem>;
   filing_learning_part(setChanged: boolean): unknown;
   save_learning_part(save: boolean): unknown;
@@ -2514,6 +2542,7 @@ interface LearningAssessmentBase extends AnnalsObjectsBase {
   assessment_code: XmlElem<string | null>;
   /** QTI теста */
   qti_text: XmlElem<string | null>;
+  /** Дата генерации QTI */
   qti_date: XmlElem<Date | null>;
   /** @default false */
   expert_eval: XmlElem<boolean>;
@@ -2564,6 +2593,7 @@ interface LearningPartBase extends CoreLessonInfoBase, CoreLessonBase, LearningO
   score: XmlElem<number>;
   /** Строка баллов */
   score_str: XmlElem<string | null>;
+  /** Максимальный набранный балл из всех попыток прохождения */
   max_score_per_attempt: XmlElem<number>;
   /** Дата активации */
   start_usage_date: XmlElem<Date | null>;
@@ -2583,6 +2613,7 @@ interface LearningPartBase extends CoreLessonInfoBase, CoreLessonBase, LearningO
    * @default 1
    */
   cur_attempt_num: XmlElem<number>;
+  /** Использовать прокторинг */
   use_proctoring: XmlElem<boolean | null>;
   logs: XmlMultiElem<LearningPartBaseLog | null>;
   statements: XmlMultiElem<LearningPartBaseStatement | null>;
@@ -2597,6 +2628,8 @@ interface WebVariablesBaseWvarEntry {
   type: XmlElem<string | null, typeof common.template_field_types>;
   /** Тип объекта */
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Выборка */
+  remote_collection_id: XmlElem<number | null, RemoteCollectionCatalogDocumentTopElem>;
 }
 
 interface WebVariablesBaseWvarViewCondition {
@@ -2638,13 +2671,18 @@ interface WebVariablesBaseWvar {
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Условие XQuery (относительно $elem) */
   xquery_qual: XmlElem<string | null>;
+  /** Выборка */
+  remote_collection_id: XmlElem<number | null, RemoteCollectionCatalogDocumentTopElem>;
   /** Значения */
   entries: XmlMultiElem<WebVariablesBaseWvarEntry | null>;
   /** Заголовок */
   title: XmlElem<string | null>;
   /** Описание */
   description: XmlElem<string | null>;
-  /** @default false */
+  /**
+   * Служебная (скрытая) переменная
+   * @default false
+   */
   silent: XmlElem<boolean>;
   /**
    * Позиция
@@ -2652,7 +2690,10 @@ interface WebVariablesBaseWvar {
    */
   position: XmlElem<number>;
   view: XmlElem<WebVariablesBaseWvarView | null>;
-  /** @default false */
+  /**
+   * Требует значения
+   * @default false
+   */
   required: XmlElem<boolean>;
 }
 
@@ -2766,10 +2807,6 @@ interface EduMethodTestingBasePostTesting {
 interface EduMethodTestingBase {
   prev_testing: XmlElem<EduMethodTestingBasePrevTesting | null>;
   post_testing: XmlElem<EduMethodTestingBasePostTesting | null>;
-}
-
-interface EduMethodTestingBaseAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
 }
 
 interface SkillsBaseSkill {
@@ -3022,7 +3059,7 @@ interface DownloadPackageLogBaseDeletedObjectsObject {
 }
 
 interface DownloadPackageLogBaseDeletedObjects {
-  object: XmlElem<DownloadPackageLogBaseDeletedObjectsObject | null>;
+  object: XmlMultiElemObject<DownloadPackageLogBaseDeletedObjectsObject | null>;
 }
 
 interface DownloadPackageLogBaseCustomTemplate {
@@ -3165,6 +3202,10 @@ interface AdminAccessCatalogBase {
   backup_object_version: XmlElem<boolean>;
 }
 
+type SamplePhone = string;
+
+type SampleString = string;
+
 interface ObjectCodeNameBase {
   id: XmlElem<number | null>;
   /** Код */
@@ -3196,7 +3237,10 @@ interface CourseSettingsBaseSettings {
    * @default false
    */
   open_next_after_completed: XmlElem<boolean>;
-  /** @default false */
+  /**
+   * Не показывать сообщения, информирующие об изменении статуса прохождения
+   * @default false
+   */
   no_display_status_msg: XmlElem<boolean>;
   /**
    * Разрешить пользователю завершать курс
@@ -3220,11 +3264,18 @@ interface CourseSettingsBaseSettings {
    * @default alert
    */
   after_checks: XmlElem<string>;
+  /** Показ панели структуры курса */
   launch_type: XmlElem<string | null>;
+  /** Показывать структуру курса при старте */
   panel: XmlElem<boolean | null>;
-  /** @default close_msg */
+  /**
+   * Действие после автоматического завершения курса
+   * @default close_msg
+   */
   course_finish_action: XmlElem<string | null>;
+  /** Сообщение после автоматического завершения курса */
   course_finish_msg: XmlElem<string | null>;
+  /** Сообщение после нажатия кнопки "Завершить курс" в диалоговом окне предупреждения */
   course_manually_finish_msg: XmlElem<string | null>;
 }
 
@@ -3243,7 +3294,7 @@ interface WebChecksBaseChecksBrowserCheck {
 
 interface WebChecksBaseChecksBrowser {
   /** Браузер */
-  check: XmlElem<WebChecksBaseChecksBrowserCheck | null>;
+  check: XmlMultiElemObject<WebChecksBaseChecksBrowserCheck | null>;
 }
 
 interface WebChecksBaseChecksPluginCheck {
@@ -3257,7 +3308,7 @@ interface WebChecksBaseChecksPluginCheck {
 
 interface WebChecksBaseChecksPlugin {
   /** Плагин */
-  check: XmlElem<WebChecksBaseChecksPluginCheck | null>;
+  check: XmlMultiElemObject<WebChecksBaseChecksPluginCheck | null>;
 }
 
 interface WebChecksBaseChecks {
@@ -3272,33 +3323,6 @@ interface WebChecksBase {
   checks: XmlElem<WebChecksBaseChecks | null>;
 }
 
-interface WebChecksBaseBrowserCheck {
-  /** Тип */
-  type: XmlElem<string | null, typeof lists.web_requirements>;
-  /** Условие */
-  cond: XmlElem<string | null, typeof common.all_option_types>;
-  /** Версия */
-  version: XmlElem<number | null>;
-}
-
-interface WebChecksBaseBrowser {
-  /** Браузер */
-  check: XmlElem<WebChecksBaseBrowserCheck | null>;
-}
-
-interface WebChecksBasePluginCheck {
-  /** Тип */
-  type: XmlElem<string | null, typeof lists.web_requirements>;
-  /** Условие */
-  cond: XmlElem<string | null, typeof common.all_option_types>;
-  /** Версия */
-  version: XmlElem<number | null>;
-}
-
-interface WebChecksBasePlugin {
-  /** Плагин */
-  check: XmlElem<WebChecksBasePluginCheck | null>;
-}
 
 interface ObjectTypeBase {
   /** Тип объекта */
@@ -3336,6 +3360,7 @@ interface SelectLearningOptionBase {
   commenting: XmlElem<boolean | null>;
   /** Использовать прокторинг */
   use_proctoring: XmlElem<boolean | null>;
+  /** Предпочтительный проктор */
   proctor_prefer_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** @default 1 */
   skip_dismissed: XmlElem<boolean>;
@@ -3472,6 +3497,7 @@ interface ResultFieldsBaseResultField {
 }
 
 interface ResultFieldsBase {
+  /** Поля результата */
   result_fields: XmlMultiElem<ResultFieldsBaseResultField | null>;
 }
 
@@ -3516,21 +3542,6 @@ interface ExecCodeBaseExecCode {
 
 interface ExecCodeBase {
   exec_code: XmlElem<ExecCodeBaseExecCode | null>;
-}
-
-interface ExecCodeBaseBinFile {
-  /** Название */
-  name: XmlElem<string | null>;
-  /** Родительский элемент */
-  parent_file_name: XmlElem<string | null>;
-  /** Путь до файла */
-  file_path: XmlElem<string | null>;
-  /** Текст */
-  value: XmlElem<string | null>;
-  /** Позиция */
-  position: XmlElem<number>;
-  /** Дата */
-  timestamp: XmlElem<Date | null>;
 }
 
 interface ViewBaseLinkCatalog {
