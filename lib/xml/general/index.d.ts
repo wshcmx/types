@@ -2119,7 +2119,7 @@ interface CustomReportBase extends CriterionBase, ColumnBase, ChartReportGraphBa
   show_table: XmlElem<boolean>;
   /** @default false */
   show_chart: XmlElem<boolean>;
-  get_report_data(reportID: number, userID: number): unknown;
+  get_report_data(reportId: number, userId: number): unknown;
   get_crit_hash(): unknown;
   extractVolatileData(): unknown;
   condenseVolatileData(volatile: Object): unknown;
@@ -2303,7 +2303,7 @@ interface TableDataBase {
 interface TableDataBaseExtended {
   excel_file_url: XmlElem<string | null>;
   data: XmlElem<TableDataBase | null>;
-  fnGetFile(fileID: number): unknown;
+  fnGetFile(fileId: number): unknown;
 }
 
 interface ObjectiveBaseScore {
@@ -3322,7 +3322,6 @@ interface WebChecksBase {
   /** Требование к клиенту */
   checks: XmlElem<WebChecksBaseChecks | null>;
 }
-
 
 interface ObjectTypeBase {
   /** Тип объекта */

@@ -107,7 +107,7 @@ interface MsWeekScheduleBase {
   type: XmlElem<string>;
   /** Дни недели */
   week_days: XmlMultiElem<MsWeekScheduleBaseWeekDay | null>;
-  check_week_schedule(curUserID: number, curUser: CurUser, session: Session): unknown;
+  check_week_schedule(curUserId: number, curUser: CurUser, session: Session): unknown;
 }
 
 interface WorkflowElemOperationBaseRemoteActionBlock extends WebVariablesBase {

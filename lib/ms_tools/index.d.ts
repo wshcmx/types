@@ -4,7 +4,7 @@ declare namespace ms_tools {
   function view_delete_doc(catalogName: unknown): unknown;
   function raise_system_event(code: unknown, systemEventId: number, objectDocId: number, objectDoc: unknown): unknown;
   function raise_system_event_env(systemEventId: unknown, params: unknown): unknown;
-  let notes_var: XmlElem<unknown>;
+  let notes_var: XmlElem<unknown | null>;
   function notes_verify_password(clearPassword: unknown, hashPassword: unknown): unknown;
   function set_ui_lng(uiLngId: number): unknown;
   function get_const(uiLngId: number): unknown;
@@ -94,8 +94,8 @@ declare namespace ms_tools {
   function run_view_action(topElem: unknown, screen: unknown, gridItemName: string): unknown;
   function convert_exec_code(fldExecTarget: unknown, fldUrlTarget: unknown, fldTextTarget: unknown): unknown;
   function convert_host_auth(topElem: unknown): unknown;
-  function foreign_elem_title(fieldSource: unknown, fieldName: string, defauldText: string): unknown;
-  let menu_arrs_env: XmlElem<unknown>;
+  function foreign_elem_title(fldSource: unknown, fieldName: string, defauldText: string): unknown;
+  let menu_arrs_env: XmlElem<unknown | null>;
   function get_menu_blocks(): unknown;
   function get_object_source_server(objectId: number): unknown;
   function calculate_statistic_rec_obj(statisticRecId: number, objectId: number, personId: number): unknown;
@@ -109,6 +109,6 @@ declare namespace ms_tools {
   function disp_application_complex_block(blockId: string, noTab: boolean, onlyUrl: boolean): unknown;
   function update_access_blocks_doc_types(fldAccessBlocks: unknown): unknown;
   function update_claims_by_object(objectId: number, objectType: string, claimTypes: string): unknown;
-  function get_doc_screen_wvars(doc: unknown): unknown;
+  function get_doc_screen_wvars(doc: XmlDocument): unknown;
   function evaluate_convert_post(lastVersion: string): unknown;
 }
