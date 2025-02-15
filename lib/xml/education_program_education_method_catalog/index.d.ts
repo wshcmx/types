@@ -14,15 +14,24 @@ type EducationProgramEducationMethodCatalogDocumentTopElem = XmlTopElem & {
   cost: XmlElem<number | null>;
   /** Валюта */
   currency: XmlElem<string | null, typeof lists.currency_types>;
-  /** Способ оплаты */
+  /**
+   * Способ оплаты
+   * @default person
+   */
   cost_type: XmlElem<string | null, typeof common.cost_types>;
   /** Длительность в часах */
   duration: XmlElem<number | null>;
   /** Количество участников */
   person_num: XmlElem<number | null>;
-  /** Тип учебной программы */
+  /**
+   * Тип учебной программы
+   * @default org
+   */
   type: XmlElem<string, typeof common.education_method_types>;
-  /** Признак открытой учебной программы */
+  /**
+   * Признак открытой учебной программы
+   * @default false
+   */
   is_open: XmlElem<boolean>;
   /** Длительность в днях */
   duration_days: XmlElem<number | null>;

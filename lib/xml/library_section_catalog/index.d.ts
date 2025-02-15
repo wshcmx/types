@@ -11,6 +11,7 @@ AdminAccessBase & {
   position: XmlElem<number | null>;
   /** Ссылка */
   link: XmlElem<string | null>;
+  /** Идентификатор во внешнем источнике */
   external_id: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

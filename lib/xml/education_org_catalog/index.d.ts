@@ -18,11 +18,15 @@ AdminAccessBase & {
   /** Факс */
   fax: XmlElem<string | null>;
   email: XmlElem<string | null>;
-  /** Является поставщиком электронных курсов */
+  /**
+   * Является поставщиком электронных курсов
+   * @default 0
+   */
   is_provider_courses: XmlElem<boolean>;
+  /** Тип провайдера курсов */
   provider_course_type_id: XmlElem<number | null, ProviderCourseTypeCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

@@ -1,7 +1,7 @@
 declare namespace tools_app {
-  let object_library: XmlElem<unknown>;
+  let object_library: XmlElem<unknown | null>;
   function get_str_app_instance_id(applicationInstanceId: number): unknown;
-  function get_application(object: unknown): unknown;
+  function get_application(object: string | number): ApplicationDocumentTopElem | null;
   function get_application_instance(object: unknown, applicationId: number): unknown;
   let cur_application: XmlElem<unknown>;
   function get_cur_application(applicationId: number, applicationInstanceId: number, objectId: number, objectTopElem: unknown): unknown;

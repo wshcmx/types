@@ -17,7 +17,10 @@ PersonFillingBase & {
   phase_name: XmlElem<string | null>;
   /** Этап */
   phase_id: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string, typeof common.submission_states>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

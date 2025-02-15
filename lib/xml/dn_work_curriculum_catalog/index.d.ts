@@ -5,9 +5,15 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default active
+   */
   status_id: XmlElem<string | null, typeof common.prog_discipl_states>;
-  /** Тип */
+  /**
+   * Тип
+   * @default general
+   */
   type: XmlElem<string, typeof common.curriculum_types>;
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;

@@ -7,7 +7,10 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Тип */
   type: XmlElem<string | null, typeof lists.object_resource_types>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default available
+   */
   state_id: XmlElem<string | null, typeof common.object_resource_states>;
   /** Расположение */
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;

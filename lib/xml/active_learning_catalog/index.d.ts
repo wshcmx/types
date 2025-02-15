@@ -43,7 +43,10 @@ AdminAccessBase & {
   max_score: XmlElem<number | null>;
   /** Баллы */
   score: XmlElem<number | null>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Время модулей */
   time: XmlElem<number | null>;
@@ -61,6 +64,10 @@ AdminAccessBase & {
   modification_user_id: XmlElem<number | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   OnBuild(): void;
 };

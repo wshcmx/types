@@ -6,9 +6,15 @@ type BossTypeCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Операции */
   operations: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
