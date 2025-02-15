@@ -428,6 +428,7 @@ interface GlobalSettingsBaseWebRules {
 
 interface GlobalSettingsBaseRequiredField {
   name: XmlElem<string | null>;
+  title: XmlElem<string | null>;
   /** @default false */
   is_web_edit: XmlElem<boolean>;
   /** @default false */
@@ -1209,6 +1210,8 @@ interface ConditionsBase {
   desc_str: XmlElem<string | null>;
   /** @default false */
   has_error: XmlElem<boolean>;
+  warning_str: XmlElem<string | null>;
+  error_str: XmlElem<string | null>;
   /** @default false */
   is_false: XmlElem<boolean>;
   error_eval(): unknown;
@@ -1365,6 +1368,9 @@ interface CatalogListBaseCatalog {
 
 interface CatalogListBase {
   catalogs: XmlMultiElem<CatalogListBaseCatalog | null>;
+  catalogs_catalog_type: XmlElem<string | null>;
+  /** @default false */
+  catalogs_sel_all_objects: XmlElem<boolean>;
 }
 
 interface ExpenseDistributionBaseExpenseItem {
@@ -2364,94 +2370,125 @@ interface AnnalsObjectsBaseObjectDataAssessment {
   latency: XmlElem<AnnalsObjectsBaseObjectDataAssessmentLatency | null>;
   duration: XmlElem<AnnalsObjectsBaseObjectDataAssessmentDuration | null>;
 }
+
+interface AnnalsObjectsBaseObjectDataSectionTimestamp {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataSectionLatency {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataSectionDuration {
+  value: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataSectionItemlistSectionitem {
-  ident: XmlElem<unknown | null>;
+  ident: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataSectionItemlist {
-  sectionitem: XmlElem<AnnalsObjectsBaseObjectDataSectionItemlistSectionitem | null>;
+  sectionitem: XmlMultiElemObject<AnnalsObjectsBaseObjectDataSectionItemlistSectionitem | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataSection {
-  ident: XmlElem<unknown | null>;
-  viewed: XmlElem<unknown | null>;
-  answered: XmlElem<unknown | null>;
-  completed: XmlElem<unknown | null>;
-  timestamp: XmlElem<string | null>;
-  latency: XmlElem<string | null>;
-  duration: XmlElem<string | null>;
+  ident: XmlElem<string | null>;
+  viewed: XmlElem<string | null>;
+  answered: XmlElem<string | null>;
+  completed: XmlElem<string | null>;
+  timestamp: XmlElem<AnnalsObjectsBaseObjectDataSectionTimestamp | null>;
+  latency: XmlElem<AnnalsObjectsBaseObjectDataSectionLatency | null>;
+  duration: XmlElem<AnnalsObjectsBaseObjectDataSectionDuration | null>;
   itemlist: XmlElem<AnnalsObjectsBaseObjectDataSectionItemlist | null>;
 }
 
+interface AnnalsObjectsBaseObjectDataItemTimestamp {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataItemLatency {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataItemDuration {
+  value: XmlElem<string | null>;
+}
+
+interface AnnalsObjectsBaseObjectDataItemAttemptsAttempt {
+  timestamp: XmlElem<string | null>;
+  timevalue: XmlElem<string | null>;
+  latency: XmlElem<string | null>;
+  latencyvalue: XmlElem<string | null>;
+  status: XmlElem<string | null>;
+}
+
 interface AnnalsObjectsBaseObjectDataItemAttempts {
-  max: XmlElem<unknown | null>;
-  attempt: XmlMultiElemObject<string | null>;
+  max: XmlElem<string | null>;
+  attempt: XmlMultiElemObject<AnnalsObjectsBaseObjectDataItemAttemptsAttempt | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataItemObjectivesObj {
-  id: XmlElem<unknown | null>;
-  type: XmlElem<unknown | null>;
-  value: XmlElem<unknown | null>;
+  id: XmlElem<string | null>;
+  type: XmlElem<string | null>;
+  value: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataItemObjectives {
-  obj: XmlElem<AnnalsObjectsBaseObjectDataItemObjectivesObj | null>;
+  obj: XmlMultiElemObject<AnnalsObjectsBaseObjectDataItemObjectivesObj | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataItem {
-  ident: XmlElem<unknown | null>;
-  viewed: XmlElem<unknown | null>;
-  answered: XmlElem<unknown | null>;
-  completed: XmlElem<unknown | null>;
-  status: XmlElem<unknown | null>;
-  type: XmlElem<unknown | null>;
-  itemnumber: XmlElem<unknown | null>;
-  scoring: XmlElem<unknown | null>;
-  shuffle: XmlElem<unknown | null>;
-  maxnumber: XmlElem<unknown | null>;
-  minnumber: XmlElem<unknown | null>;
-  timestamp: XmlElem<string | null>;
-  latency: XmlElem<string | null>;
-  duration: XmlElem<string | null>;
+  ident: XmlElem<string | null>;
+  viewed: XmlElem<string | null>;
+  answered: XmlElem<string | null>;
+  completed: XmlElem<string | null>;
+  status: XmlElem<string | null>;
+  type: XmlElem<string | null>;
+  itemnumber: XmlElem<string | null>;
+  scoring: XmlElem<string | null>;
+  shuffle: XmlElem<string | null>;
+  maxnumber: XmlElem<string | null>;
+  minnumber: XmlElem<string | null>;
+  timestamp: XmlElem<AnnalsObjectsBaseObjectDataItemTimestamp | null>;
+  latency: XmlElem<AnnalsObjectsBaseObjectDataItemLatency | null>;
+  duration: XmlElem<AnnalsObjectsBaseObjectDataItemDuration | null>;
   attempts: XmlElem<AnnalsObjectsBaseObjectDataItemAttempts | null>;
   objectives: XmlElem<AnnalsObjectsBaseObjectDataItemObjectives | null>;
   comment: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataObjective {
-  ident: XmlElem<unknown | null>;
-  type: XmlElem<unknown | null>;
-  value: XmlElem<unknown | null>;
+  ident: XmlElem<string | null>;
+  type: XmlElem<string | null>;
+  value: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataActiveTask {
-  ident: XmlElem<unknown | null>;
+  ident: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataActive {
-  screen: XmlElem<unknown | null>;
+  screen: XmlElem<string | null>;
   task: XmlElem<AnnalsObjectsBaseObjectDataActiveTask | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataSequenceScreenTask {
-  ident: XmlElem<unknown | null>;
-  num: XmlElem<unknown | null>;
-  layout: XmlElem<unknown | null>;
-  secnum: XmlElem<unknown | null>;
+  ident: XmlElem<string | null>;
+  num: XmlElem<string | null>;
+  layout: XmlElem<string | null>;
+  secnum: XmlElem<string | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataSequenceScreen {
-  num: XmlElem<unknown | null>;
-  type: XmlElem<unknown | null>;
-  task: XmlElem<AnnalsObjectsBaseObjectDataSequenceScreenTask | null>;
+  num: XmlElem<string | null>;
+  type: XmlElem<string | null>;
+  task: XmlMultiElemObject<AnnalsObjectsBaseObjectDataSequenceScreenTask | null>;
 }
 
 interface AnnalsObjectsBaseObjectDataSequence {
-  type: XmlElem<unknown | null>;
-  select: XmlElem<unknown | null>;
-  screen: XmlElem<AnnalsObjectsBaseObjectDataSequenceScreen | null>;
+  type: XmlElem<string | null>;
+  select: XmlElem<string | null>;
+  screen: XmlMultiElemObject<AnnalsObjectsBaseObjectDataSequenceScreen | null>;
 }
 
 interface AnnalsObjectsBaseObjectData {
@@ -3578,7 +3615,7 @@ interface QaTestParamBase extends WebVariablesBase {
   /** @default false */
   use_cur_lng: XmlElem<boolean>;
   /** Язык интерфейса */
-  cur_lng: XmlElem<string | null>;
+  cur_lng: XmlElem<string | null, LngCatalogDocumentTopElem>;
 }
 
 interface QaTestFixtureBaseFixture {
