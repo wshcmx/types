@@ -51,7 +51,10 @@ interface MsViewCatalogBase extends ViewConditionsBase {
   /** @default false */
   is_parametric: XmlElem<boolean>;
   category_field: XmlElem<string | null>;
-  /** @default .xls */
+  /**
+   * @temp
+   * @default .xls
+   */
   export_type: XmlElem<string>;
 }
 

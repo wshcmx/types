@@ -428,6 +428,7 @@ interface GlobalSettingsBaseWebRules {
 
 interface GlobalSettingsBaseRequiredField {
   name: XmlElem<string | null>;
+  /** @temp */
   title: XmlElem<string | null>;
   /** @default false */
   is_web_edit: XmlElem<boolean>;
@@ -1210,7 +1211,9 @@ interface ConditionsBase {
   desc_str: XmlElem<string | null>;
   /** @default false */
   has_error: XmlElem<boolean>;
+  /** @temp */
   warning_str: XmlElem<string | null>;
+  /** @temp */
   error_str: XmlElem<string | null>;
   /** @default false */
   is_false: XmlElem<boolean>;
@@ -1368,8 +1371,12 @@ interface CatalogListBaseCatalog {
 
 interface CatalogListBase {
   catalogs: XmlMultiElem<CatalogListBaseCatalog | null>;
+  /** @temp */
   catalogs_catalog_type: XmlElem<string | null>;
-  /** @default false */
+  /**
+   * @temp
+   * @default false
+   */
   catalogs_sel_all_objects: XmlElem<boolean>;
 }
 
@@ -1377,6 +1384,11 @@ interface ExpenseDistributionBaseExpenseItem {
   expense_item_id: XmlElem<number | null, ExpenseItemCatalogDocumentTopElem>;
   /** @default 0.0 */
   sum: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default 0.0
+   */
+  total_sum: XmlElem<number | null>;
   /** @default 0.0 */
   unnamed_person_sum: XmlElem<number | null>;
 }
@@ -1687,10 +1699,43 @@ interface LastAttemptTestLearningsBase {
   test_learnings: XmlMultiElem<LastAttemptTestLearningsBaseTestLearning | null>;
 }
 
+interface DescBaseDesc {
+  /** @temp */
+  id: XmlElem<string | null>;
+  /** @temp */
+  variant: XmlElem<unknown | null>;
+  /** @temp */
+  desc_temp: XmlElem<string | null>;
+  /** @temp */
+  desc_temp_dir: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  desc_updated: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  desc_show: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default desc
+   */
+  desc_field_name: XmlElem<string>;
+  desc_cleanup(): unknown;
+  desc_startup(source: unknown): unknown;
+  desc_update_hyper_object(): unknown;
+  desc_save(): unknown;
+  desc_destroy(): unknown;
+}
+
 interface DescBase {
   desc_update_hyper_object(): unknown;
   desc_save(descOff: boolean): unknown;
   get_desc(source: unknown): string;
+  /** @temp */
+  descs: XmlMultiElem<DescBaseDesc | null>;
 }
 
 interface AccessBlockBaseStructureItemItemItem {
@@ -1741,6 +1786,11 @@ interface AccessBlockBase {
   license_catalogs: XmlElem<string | null>;
   list_index: XmlElem<number | null>;
   structure: XmlElem<AccessBlockBaseStructure | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  never_saved: XmlElem<boolean>;
   /** @default false */
   is_default: XmlElem<boolean | null>;
 }
@@ -1903,6 +1953,11 @@ interface DevelopmentPlanDataBaseCompetenceAim {
 }
 
 interface DevelopmentPlanDataBaseCompetence extends WorkflowFieldsAssessmentBase {
+  /**
+   * @temp
+   * @default development_methods
+   */
+  tab_child: XmlElem<string>;
   competence_id: XmlElem<number | null, CompetenceCatalogDocumentTopElem>;
   /** Способы развития */
   development_methods: XmlMultiElem<DevelopmentPlanDataBaseCompetenceDevelopmentMethod | null>;
@@ -1941,6 +1996,11 @@ interface DevelopmentPlanDataBaseIndicatorAim {
 }
 
 interface DevelopmentPlanDataBaseIndicator extends WorkflowFieldsAssessmentBase {
+  /**
+   * @temp
+   * @default development_methods
+   */
+  tab_child: XmlElem<string>;
   indicator_id: XmlElem<number | null, IndicatorCatalogDocumentTopElem>;
   /** Способы развития */
   development_methods: XmlMultiElem<DevelopmentPlanDataBaseIndicatorDevelopmentMethod | null>;
@@ -1979,6 +2039,11 @@ interface DevelopmentPlanDataBasePlaindevelopmentAim {
 }
 
 interface DevelopmentPlanDataBasePlaindevelopment extends WorkflowFieldsAssessmentBase {
+  /**
+   * @temp
+   * @default development_methods
+   */
+  tab_child: XmlElem<string>;
   name: XmlElem<string | null>;
   /** Способы развития */
   development_methods: XmlMultiElem<DevelopmentPlanDataBasePlaindevelopmentDevelopmentMethod | null>;
@@ -1999,8 +2064,69 @@ interface DevelopmentPlanDataBase {
   plaindevelopments: XmlMultiElem<DevelopmentPlanDataBasePlaindevelopment | null>;
 }
 
-interface FieldNamesBase {
+interface FieldNameBase {
+  /** @temp */
+  name: XmlElem<string | null>;
+  /** @temp */
+  title: XmlElem<string | null>;
+  /** @temp */
+  type: XmlElem<string | null>;
+  /** @temp */
+  foreign_array: XmlElem<unknown | null>;
+  /** @temp */
+  foreign_catalog: XmlElem<string | null>;
+  /** @temp */
+  value_int: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  is_custom_field: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  is_multiple: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  is_array: XmlElem<boolean>;
+  /** @temp */
+  value_multiple: XmlMultiElemObject<string | null>;
+}
 
+interface FieldNamesBaseFieldNameFieldNameFieldName extends FieldNameBase {
+  /**
+   * @temp
+   * @default 2
+   */
+  level: XmlElem<number | null>;
+}
+
+interface FieldNamesBaseFieldNameFieldName extends FieldNameBase {
+  /**
+   * @temp
+   * @default 1
+   */
+  level: XmlElem<number | null>;
+  /** @temp */
+  field_names: XmlMultiElem<FieldNamesBaseFieldNameFieldNameFieldName | null>;
+}
+
+interface FieldNamesBaseFieldName extends FieldNameBase {
+  /**
+   * @temp
+   * @default 0
+   */
+  level: XmlElem<number | null>;
+  /** @temp */
+  field_names: XmlMultiElem<FieldNamesBaseFieldNameFieldName | null>;
+}
+
+interface FieldNamesBase {
+  /** @temp */
+  field_names: XmlMultiElem<FieldNamesBaseFieldName | null>;
 }
 
 interface ColumnBaseColumnCCondition {
@@ -2036,6 +2162,11 @@ interface ColumnBaseColumn {
   flag_formula: XmlElem<boolean>;
   /** @default false */
   flag_formula_post_process: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  flag_color: XmlElem<boolean>;
   /** @default true */
   flag_visible: XmlElem<boolean>;
   /** @default false */
@@ -2057,6 +2188,11 @@ interface ChartReportGraphBase {
   flag_showvalues: XmlElem<boolean | null>;
   /** @default clustered */
   plot_type: XmlElem<string>;
+  /**
+   * @temp
+   * @default false
+   */
+  flag_open_graph_tun_section: XmlElem<boolean>;
 }
 
 interface CriterionBaseCriterionCatalogChain extends FieldNamesBase, ViewConditionsBase {
@@ -2092,6 +2228,28 @@ interface CriterionBase extends FieldNamesBase {
   criterions: XmlMultiElem<CriterionBaseCriterion | null>;
 }
 
+interface CustomReportBaseViewTemp {
+  /**
+   * @temp
+   * @default 223,223,223
+   */
+  color_main: XmlElem<string>;
+  /**
+   * @temp
+   * @default 255,255,255
+   */
+  color_secondary: XmlElem<string>;
+  /**
+   * @temp
+   * @default 200,200,200
+   */
+  color_total: XmlElem<string>;
+  /** @temp */
+  expanded_temporary: XmlElem<boolean | null>;
+  /** @temp */
+  cur_lng: XmlElem<string | null>;
+}
+
 interface CustomReportBaseSort {
   col_index: XmlElem<number | null>;
   /** @default false */
@@ -2125,6 +2283,10 @@ interface CustomReportBase extends CriterionBase, ColumnBase, ChartReportGraphBa
   show_table: XmlElem<boolean>;
   /** @default false */
   show_chart: XmlElem<boolean>;
+  /** @temp */
+  view_temp: XmlElem<CustomReportBaseViewTemp | null>;
+  /** @temp */
+  report_result: XmlElem<unknown | null>;
   get_report_data(reportId: number, userId: number): unknown;
   get_crit_hash(): unknown;
   extractVolatileData(): unknown;
@@ -2207,6 +2369,11 @@ interface KnowledgePartsKpBase extends KnowledgePartsFieldsBase {
   kp_start_date: XmlElem<Date | null>;
   /** Дата окончания действия */
   kp_end_date: XmlElem<Date | null>;
+  /**
+   * @temp
+   * Классификатор
+   */
+  view_knowledge_classifier_id: XmlElem<number | null>;
 }
 
 interface KnowledgePartsBaseTag {
@@ -2240,6 +2407,11 @@ interface KnowledgePartsBase extends KnowledgePartsFieldsBase {
   kp_start_date: XmlElem<Date | null>;
   /** Дата окончания действия */
   kp_end_date: XmlElem<Date | null>;
+  /**
+   * @temp
+   * Классификатор
+   */
+  view_knowledge_classifier_id: XmlElem<number | null>;
 }
 
 interface KnowledgePartsBaseOld {
@@ -2256,10 +2428,17 @@ interface CustomElemsBaseCustomElem {
   value: XmlElem<string | null>;
 }
 
+interface CustomElemsBaseCustomReportFiction extends CustomReportBase {
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
+}
+
 interface CustomElemsBase {
   /** Настраиваемые поля */
   custom_elems: XmlMultiElem<CustomElemsBaseCustomElem | null>;
   check_fields_default_value(curUser: CurUser): unknown;
+  /** @temp */
+  custom_report_fictions: XmlMultiElem<CustomElemsBaseCustomReportFiction | null>;
 }
 
 interface EstimationLevelsBaseEstimationLevel {
@@ -2307,6 +2486,11 @@ interface TableDataBase {
 }
 
 interface TableDataBaseExtended {
+  /**
+   * @temp
+   * @default general
+   */
+  tab_selector_type: XmlElem<string>;
   excel_file_url: XmlElem<string | null>;
   data: XmlElem<TableDataBase | null>;
   fnGetFile(fileId: number): unknown;
@@ -2568,6 +2752,16 @@ interface CoreLessonInfoBase {
   learning_part_id: XmlElem<number | null, LearningPartCatalogDocumentTopElem>;
   filing_learning_part(setChanged: boolean): unknown;
   save_learning_part(save: boolean): unknown;
+  /**
+   * @temp
+   * @default false
+   */
+  core_lesson_changed: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  core_lesson_filled: XmlElem<boolean>;
 }
 
 interface LearningAssessmentBase extends AnnalsObjectsBase {
@@ -2717,6 +2911,12 @@ interface WebVariablesBaseWvar {
   /** Описание */
   description: XmlElem<string | null>;
   /**
+   * @temp
+   * Завершить редактирование
+   * @default false
+   */
+  is_modify: XmlElem<boolean>;
+  /**
    * Служебная (скрытая) переменная
    * @default false
    */
@@ -2737,6 +2937,8 @@ interface WebVariablesBaseWvar {
 interface WebVariablesBase {
   /** Переменные */
   wvars: XmlMultiElem<WebVariablesBaseWvar | null>;
+  /** @temp */
+  wvars_selector: XmlElem<string | null>;
   wvars_num(): unknown;
 }
 
@@ -2819,6 +3021,11 @@ interface CostCentersBaseCostCenter {
 interface CostCentersBase {
   /** Центры затрат */
   cost_centers: XmlMultiElem<CostCentersBaseCostCenter | null>;
+  /**
+   * @temp
+   * @default 0.0
+   */
+  expense_sum: XmlElem<number | null>;
 }
 
 interface EduMethodTestingBasePrevTestingAssessment {
@@ -3447,6 +3654,10 @@ interface ClLocalizationsBaseLocalization {
 interface ClLocalizationsBase {
   /** Локализации */
   localizations: XmlMultiElem<ClLocalizationsBaseLocalization | null>;
+  /** @temp */
+  cl_localization_id: XmlElem<number | null, ClLocalizationCatalogDocumentTopElem>;
+  /** @temp */
+  cl_localization_tip_text: XmlElem<string | null>;
 }
 
 interface I18nBaseI18nParam {
@@ -3541,8 +3752,66 @@ interface PersonObjectLinksBasePersonObjectProfile {
   person_object_profile_id: XmlElem<number | null, PersonObjectProfileCatalogDocumentTopElem>;
 }
 
+interface PersonObjectLinksBasePersonObjectLinkObject {
+  /** @temp */
+  object_id: XmlElem<number | null>;
+  /** @temp */
+  object_name: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  can_edit: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  can_delete: XmlElem<boolean>;
+  /**
+   * @temp
+   * Уровень доступа
+   */
+  access_level: XmlElem<number | null>;
+}
+
+interface PersonObjectLinksBasePersonObjectLink {
+  /** @temp */
+  object_catalog: XmlElem<string | null, typeof common.exchange_object_types>;
+  /**
+   * @temp
+   * @default false
+   */
+  all_can_create: XmlElem<boolean>;
+  /** @temp */
+  amount: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  all_can_edit: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  all_can_delete: XmlElem<boolean>;
+  /** @temp */
+  objects: XmlMultiElem<PersonObjectLinksBasePersonObjectLinkObject | null>;
+}
+
 interface PersonObjectLinksBase {
+  /**
+   * @temp
+   * @default false
+   */
+  pol_loaded: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  pol_changed: XmlElem<boolean>;
   person_object_profiles: XmlMultiElem<PersonObjectLinksBasePersonObjectProfile | null>;
+  /** @temp */
+  person_object_links: XmlMultiElem<PersonObjectLinksBasePersonObjectLink | null>;
 }
 
 interface ExecCodeBaseExecCodeBinFile {
@@ -3554,6 +3823,12 @@ interface ExecCodeBaseExecCodeBinFile {
   file_path: XmlElem<string | null>;
   /** Текст */
   value: XmlElem<string | null>;
+  /**
+   * @temp
+   * Завершить редактирование
+   * @default false
+   */
+  is_modify: XmlElem<boolean>;
   /**
    * Позиция
    * @default 0
@@ -3568,12 +3843,20 @@ interface ExecCodeBaseExecCode {
   code_url: XmlElem<string | null>;
   /** Выполняемый код */
   code_text: XmlElem<string | null>;
+  /** @temp */
+  is_init: XmlElem<boolean | null>;
+  /** @temp */
+  code_temp: XmlElem<string | null>;
   entry_point: XmlElem<string | null>;
   code_hash: XmlElem<string | null>;
   /** @default Release */
   configuration: XmlElem<string | null>;
+  /** @temp */
+  is_compiling: XmlElem<boolean | null>;
   /** Файлы */
   bin_files: XmlMultiElem<ExecCodeBaseExecCodeBinFile | null>;
+  /** @temp */
+  bfiles_selector: XmlElem<string | null>;
 }
 
 interface ExecCodeBase {
