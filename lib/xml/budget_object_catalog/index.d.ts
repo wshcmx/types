@@ -15,7 +15,7 @@ type BudgetObjectCatalogDocumentTopElem = XmlTopElem & {
   all: XmlElem<boolean>;
   /** Объект */
   object_id: XmlElem<number | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };
