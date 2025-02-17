@@ -1,10 +1,14 @@
 type SubscriptionCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   id: XmlElem<number | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default document
+   */
   type: XmlElem<string, typeof common.exchange_object_types>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
+  /** Действует до */
   date_to: XmlElem<Date | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -14,7 +18,10 @@ AdminAccessBase & {
   person_org_name: XmlElem<string | null>;
   /** Объект */
   document_id: XmlElem<number | null>;
-  /** Включает дочерние элементы */
+  /**
+   * Включает дочерние элементы
+   * @default false
+   */
   include_subdocs: XmlElem<boolean>;
   /** Дата последнего действия */
   date_last_action: XmlElem<Date | null>;

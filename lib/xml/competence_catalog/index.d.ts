@@ -15,12 +15,13 @@ AdminAccessBase & {
   app_instance_id: XmlElem<string | null>;
   /** Все значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;
   /** Все упражнения */
   exercises: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

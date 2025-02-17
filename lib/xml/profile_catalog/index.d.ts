@@ -6,6 +6,7 @@ type ProfileCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Тип */
   type: XmlElem<string | null>;
+  /** Текст Агента */
   agent_json_str: XmlElem<string | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;

@@ -15,6 +15,7 @@ AdminAccessBase & {
   app_instance_id: XmlElem<string | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

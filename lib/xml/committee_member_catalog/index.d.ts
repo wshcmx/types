@@ -11,10 +11,17 @@ AdminAccessBase & {
   object_name: XmlElem<string | null>;
   /** Тип участника проекта */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
+  /** Кадровый комитет */
   personnel_committee_id: XmlElem<number | null, PersonnelCommitteeCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default not_confirmed
+   */
   status: XmlElem<string, typeof common.committee_member_status_types>;
-  /** Тип участника проекта */
+  /**
+   * Тип участника проекта
+   * @default participant
+   */
   committee_member_type: XmlElem<string, typeof common.committee_member_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

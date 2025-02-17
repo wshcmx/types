@@ -13,17 +13,25 @@ type WebRuleCatalogDocumentTopElem = XmlTopElem & {
   use_matches: XmlElem<boolean | null>;
   redirect_url: XmlElem<string | null>;
   redirect_type: XmlElem<number | null>;
+  /** Тип страницы */
   redirect_web_mode_id: XmlElem<number | null, WebModeCatalogDocumentTopElem>;
+  /** Вес */
   weight: XmlElem<number | null>;
   /** Дизайн */
   web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
   /** Сайт */
   site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
-  /** Является системным */
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

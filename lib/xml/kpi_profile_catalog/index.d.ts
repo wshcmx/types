@@ -8,13 +8,14 @@ AdminAccessBase & {
   /** Семейство */
   competence_profile_family_id: XmlElem<number | null, CompetenceProfileFamilyCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Родительски профиль KPI */
   parent_kpi_profile_id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
   /** КПЭ */
   kpi_id: XmlMultiElemObject<number | null, KpiCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

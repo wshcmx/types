@@ -8,12 +8,18 @@ type CustomAdminTemplateCatalogDocumentTopElem = XmlTopElem & {
   category: XmlElem<string | null>;
   /** Название формы */
   form_name: XmlElem<string | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

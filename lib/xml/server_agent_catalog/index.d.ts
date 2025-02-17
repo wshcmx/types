@@ -10,12 +10,18 @@ MsPeriodityBase & {
   /** Блок, к которому прикреплен */
   block: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
   check_time_step(curDate: unknown, sleepSec: number): unknown;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

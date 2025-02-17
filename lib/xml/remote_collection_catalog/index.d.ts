@@ -8,14 +8,38 @@ type RemoteCollectionCatalogDocumentTopElem = XmlTopElem & {
   category: XmlElem<string | null>;
   /** Тип объекта */
   catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;
+  /**
+   * Версия API
+   * @default 0
+   */
   api_ver: XmlElem<string | null>;
+  /**
+   * Готова к использованию в "Центре аналитики"
+   * @default false
+   */
   ready_to_analytics: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * По умолчанию на портале
+   * @default false
+   */
+  default_for_portal: XmlElem<boolean>;
+  /**
+   * По умолчанию в приложениях
+   * @default false
+   */
+  default_for_admin: XmlElem<boolean>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

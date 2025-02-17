@@ -11,9 +11,15 @@ type LibraryMaterialSourceTypeCatalogDocumentTopElem = XmlTopElem & {
   /** Фильтр имен файлов */
   filenamemask: XmlElem<string | null>;
   library_player_id: XmlElem<number | null, LibraryPlayerCatalogDocumentTopElem>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

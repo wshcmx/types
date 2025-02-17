@@ -7,7 +7,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default 0
+   */
   type: XmlElem<number, typeof common.indicator_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
@@ -15,10 +18,11 @@ AdminAccessBase & {
   app_instance_id: XmlElem<string | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

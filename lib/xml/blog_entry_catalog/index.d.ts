@@ -10,7 +10,10 @@ AdminAccessBase & {
   create_date: XmlElem<Date | null>;
   /** Комментарии разрешены */
   allow_comment: XmlElem<boolean | null>;
-  /** Заблокировано */
+  /**
+   * Заблокировано
+   * @default false
+   */
   blocked: XmlElem<boolean>;
   /** Ярлыки сообщения */
   labels: XmlElem<string | null>;
@@ -20,6 +23,7 @@ AdminAccessBase & {
   person_fullname: XmlElem<string | null>;
   /** Блог */
   blog_id: XmlElem<number | null, BlogCatalogDocumentTopElem>;
+  /** ID статьи в ленте */
   feed_item_id: XmlElem<string | null>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -27,6 +31,7 @@ AdminAccessBase & {
   comment_num: XmlElem<number | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

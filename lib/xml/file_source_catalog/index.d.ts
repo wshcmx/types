@@ -7,13 +7,25 @@ AccessDocBase & {
   name: XmlElem<string | null>;
   /** Категория */
   category: XmlElem<string | null>;
-  /** Доступен поиск по источнику */
+  /**
+   * Доступен поиск по источнику
+   * @default false
+   */
   search_available: XmlElem<boolean>;
-  /** Доступен выбор файлов из источника */
+  /**
+   * Доступен выбор файлов из источника
+   * @default false
+   */
   selection_available: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

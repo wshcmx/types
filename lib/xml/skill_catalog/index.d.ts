@@ -14,6 +14,6 @@ AdminAccessBase & {
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

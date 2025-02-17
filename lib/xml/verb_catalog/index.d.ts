@@ -4,10 +4,14 @@ type VerbCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Обрабатывать данные */
   processed: XmlElem<boolean | null>;
   /** Является системным */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

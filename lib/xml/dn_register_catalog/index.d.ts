@@ -4,7 +4,10 @@ AdminAccessBase & {
   /** Код */
   code: XmlElem<string | null>;
   control_event_id: XmlElem<number | null, DnControlEventCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default ordinary
+   */
   type_id: XmlElem<string, typeof common.registr_types>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;

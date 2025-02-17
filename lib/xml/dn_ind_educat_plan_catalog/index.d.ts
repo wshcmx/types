@@ -7,7 +7,10 @@ type DnIndEducatPlanCatalogDocumentTopElem = XmlTopElem & {
   prog_discipl_id: XmlElem<number | null, DnProgramDisciplCatalogDocumentTopElem>;
   /** Форма итогового контроля */
   control_form_id: XmlElem<number | null, DnControlFormCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default paper
+   */
   is_course_work: XmlElem<string, typeof common.work_types>;
   theme_course_work: XmlElem<string | null>;
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;

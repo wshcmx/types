@@ -1,20 +1,39 @@
 type ChatbotChatCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
-  id: XmlElem<number>;
-  code: XmlElem<string>;
-  name: XmlElem<string>;
-  last_message_date: XmlElem<Date>;
-  creation_date: XmlElem<Date>;
-  bot_id: XmlElem<string>;
-  chatbot_stage_id: XmlElem<number, ChatbotStageCatalogDocumentTopElem>;
-  chatbot_type_id: XmlElem<number, ChatbotTypeCatalogDocumentTopElem>;
-  chatbot_id: XmlElem<number, ChatbotCatalogDocumentTopElem>;
-  conversation_id: XmlElem<number, ConversationCatalogDocumentTopElem>;
-  state_id: XmlElem<string, typeof common.conversation_participant_states>;
-  person_id: XmlElem<number, CollaboratorCatalogDocumentTopElem>;
-  use_escalation: XmlElem<boolean>;
-  escalation_date: XmlElem<Date>;
-  modification_date: XmlElem<Date>;
-  app_instance_id: XmlElem<string>;
+  id: XmlElem<number | null>;
+  /** Код */
+  code: XmlElem<string | null>;
+  /** Название */
+  name: XmlElem<string | null>;
+  last_message_date: XmlElem<Date | null>;
+  creation_date: XmlElem<Date | null>;
+  bot_id: XmlElem<string | null>;
+  /** Этап чат-бота */
+  chatbot_stage_id: XmlElem<number | null, ChatbotStageCatalogDocumentTopElem>;
+  /** Тип чат-бота */
+  chatbot_type_id: XmlElem<number | null, ChatbotTypeCatalogDocumentTopElem>;
+  /** Чат-бот */
+  chatbot_id: XmlElem<number | null, ChatbotCatalogDocumentTopElem>;
+  /** Разговор */
+  conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
+  /**
+   * Статус
+   * @default active
+   */
+  state_id: XmlElem<string | null, typeof common.conversation_participant_states>;
+  /** Время продолжения */
+  prolongation_date: XmlElem<Date | null>;
+  /** Действие эскалации */
+  escalation_action: XmlElem<string | null>;
+  /** Сотрудник */
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Использовать эскалацию */
+  use_escalation: XmlElem<boolean | null>;
+  /** Дата эскалации */
+  escalation_date: XmlElem<Date | null>;
+  /** Дата модификации */
+  modification_date: XmlElem<Date | null>;
+  /** Код сервера */
+  app_instance_id: XmlElem<string | null>;
   OnBuild(): void;
 };

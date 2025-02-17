@@ -6,7 +6,10 @@ AdminAccessBase & {
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default active
+   */
   state_id: XmlElem<string | null, typeof common.academ_debt_states>;
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
   /** Учебная группа */

@@ -1,13 +1,11 @@
-type VclassSettingCatalogDocumentTopElem = XmlTopElem & {
+type WikiRagIndexCatalogDocumentTopElem = XmlTopElem & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Мероприятие */
-  event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
-  /** Разговор */
-  conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
+  /** Ресурс базы */
+  resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

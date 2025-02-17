@@ -5,8 +5,12 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Родительское семейство должностей */
   parent_position_family_id: XmlElem<number | null, PositionFamilyCatalogDocumentTopElem>;
-  /** Является динамической */
+  /**
+   * Является динамической
+   * @default false
+   */
   is_dynamic: XmlElem<boolean>;
   /** Профиль премирования */
   bonus_profile_id: XmlElem<number | null, BonusProfileCatalogDocumentTopElem>;
@@ -18,6 +22,7 @@ AdminAccessBase & {
   kpi_profiles_id: XmlMultiElemObject<number | null, KpiProfileCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

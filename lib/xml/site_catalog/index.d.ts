@@ -7,12 +7,18 @@ type SiteCatalogDocumentTopElem = XmlTopElem & {
   /** Дизайн */
   web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
   /** Язык */
-  lng_id: XmlElem<string | null>;
+  lng_id: XmlElem<string | null, LngCatalogDocumentTopElem>;
   /** Объект */
   object_id: XmlElem<number | null>;
-  /** Является встроенным */
+  /**
+   * Является встроенным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

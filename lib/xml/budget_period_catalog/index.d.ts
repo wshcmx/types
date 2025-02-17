@@ -11,10 +11,13 @@ AdminAccessBase & {
   start_date: XmlElem<Date | null>;
   /** Дата окончания */
   finish_date: XmlElem<Date | null>;
-  /** Период */
+  /**
+   * Период
+   * @default none
+   */
   period_type: XmlElem<string, typeof common.perioditys>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

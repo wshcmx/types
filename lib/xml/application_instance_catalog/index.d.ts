@@ -6,6 +6,7 @@ type ApplicationInstanceCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Статус */
   status: XmlElem<string | null, typeof common.progress_types>;
+  /** Приложение */
   application_id: XmlElem<number | null, ApplicationCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

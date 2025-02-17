@@ -19,8 +19,11 @@ AccessDocBase & {
   /** Статус */
   status_in_knowledge_map: XmlElem<string | null, typeof common.status_in_knowledge_map_types>;
   knowledge_part_type_id: XmlElem<number | null, KnowledgePartTypeCatalogDocumentTopElem>;
-  confirmation_type: XmlElem<string | null, typeof common.confirmation_types>;
+  /** Тип подтверждения */
+  confirmation_type: XmlElem<string | null>;
+  /** Индекс уровня экспертизы */
   expertise_level_index: XmlElem<number | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;

@@ -16,6 +16,7 @@ type BenefitItemCatalogDocumentTopElem = XmlTopElem & {
   person_fullname: XmlElem<string | null>;
   /** Бюджетный период */
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
+  /** Тип привилегий */
   benefit_id: XmlElem<number | null, BenefitCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

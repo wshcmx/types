@@ -6,13 +6,22 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип вступления */
+  /**
+   * Тип вступления
+   * @default close
+   */
   join_mode: XmlElem<string, typeof common.join_mode_types>;
   /** Родительская квалификация */
   parent_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.qualification_statuss>;
-  /** Разрешить самостоятельное назначение испытаний по квалификации */
+  /**
+   * Разрешить самостоятельное назначение испытаний по квалификации
+   * @default true
+   */
   yourself_start: XmlElem<boolean>;
   /** Требуемые квалификации */
   qualification_id: XmlMultiElemObject<number | null>;
@@ -22,9 +31,10 @@ AdminAccessBase & {
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

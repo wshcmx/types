@@ -9,7 +9,10 @@ AdminAccessBase & {
   group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
   /** Модульная программа */
   compound_program_id: XmlElem<number | null, CompoundProgramCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default collaborator
+   */
   type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -23,18 +26,27 @@ AdminAccessBase & {
   person_org_name: XmlElem<string | null>;
   /** Мероприятие */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
+  /**
+   * Обновлять статусы и активности онлайн
+   * @default false
+   */
   update_status_and_activity: XmlElem<boolean>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /** Фактическая дата завершения */
   fact_finish_date: XmlElem<Date | null>;
   /** Планируемая дата */
   plan_date: XmlElem<Date | null>;
+  /** Последняя активность */
   last_activity_date: XmlElem<Date | null>;
   /** Оценка */
   mark: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.education_learning_states>;
   /** Процент готовности */
   readiness_percent: XmlElem<number | null>;

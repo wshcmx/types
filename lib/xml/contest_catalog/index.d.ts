@@ -5,15 +5,24 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Открытый конкурс */
+  /**
+   * Открытый конкурс
+   * @default true
+   */
   is_open: XmlElem<boolean>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.contest_states>;
   /** Дата начала */
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
-  /** Способ оценки работ */
+  /**
+   * Способ оценки работ
+   * @default voting
+   */
   estimation_id: XmlElem<string | null, typeof common.contest_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

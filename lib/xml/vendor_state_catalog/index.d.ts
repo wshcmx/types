@@ -5,7 +5,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default assigned
+   */
   vendor_status_type_id: XmlElem<string, typeof common.vendor_status_types>;
   /** Организация */
   education_org_id: XmlElem<number | null, EducationOrgCatalogDocumentTopElem>;

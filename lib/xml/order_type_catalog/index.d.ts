@@ -16,7 +16,10 @@ type OrderTypeCatalogDocumentTopElem = XmlTopElem & {
   responsible_person_fullname: XmlElem<string | null>;
   /** ФИО исполнителя по умолчанию */
   performer_person_fullname: XmlElem<string | null>;
-  /** Флаг использования установки во вновь формируемых приказах */
+  /**
+   * Флаг использования установки во вновь формируемых приказах
+   * @default false
+   */
   default_flag: XmlElem<boolean | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

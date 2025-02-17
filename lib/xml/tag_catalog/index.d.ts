@@ -10,11 +10,14 @@ AdminAccessBase & {
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Значение карты знаний */
   knowledge_part_id: XmlElem<number | null, KnowledgePartCatalogDocumentTopElem>;
-  /** Требует подтверждения эксперта */
+  /**
+   * Требует подтверждения эксперта
+   * @default false
+   */
   require_acknowledgement: XmlElem<boolean>;
   /** Эксперты */
   experts: XmlElem<string | null>;
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

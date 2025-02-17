@@ -8,10 +8,17 @@ type ComponentPackageCatalogDocumentTopElem = XmlTopElem & {
   download_package_file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Дата загрузки */
   download_date: XmlElem<Date | null>;
+  /** Тип компонента */
   type_id: XmlElem<string | null, typeof common.access_block_types>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата загрузки */
   component_modification_date: XmlElem<Date | null>;
@@ -21,6 +28,7 @@ type ComponentPackageCatalogDocumentTopElem = XmlTopElem & {
   app_instance_id: XmlElem<string | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

@@ -4,7 +4,10 @@ type BlogEntryCommentCatalogDocumentTopElem = XmlTopElem & {
   create_date: XmlElem<Date | null>;
   /** Сообщение блога */
   blog_entry_id: XmlElem<number | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default blog_entry
+   */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Имя объекта */
   object_name: XmlElem<string | null>;

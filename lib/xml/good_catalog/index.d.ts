@@ -4,14 +4,20 @@ ObjectCodeNameBase & {
   good_type_id: XmlElem<number | null, GoodTypeCatalogDocumentTopElem>;
   /** Объект */
   object_id: XmlElem<number | null>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default active
+   */
   state_id: XmlElem<string, typeof common.good_states>;
+  /** Не доступно для выбора в магазине */
   is_cant_chose: XmlElem<boolean | null>;
   /** Общая стоимость */
   cost_desc: XmlElem<string | null>;
+  /** Стоимость в Магазине призов */
   bonus_shop_cost: XmlElem<number | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /** @default unlimit */
   delivery_type: XmlElem<string, typeof common.delivery_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

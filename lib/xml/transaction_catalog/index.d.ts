@@ -6,7 +6,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Дата */
   date: XmlElem<Date | null>;
-  /** Приход или расход */
+  /**
+   * Приход или расход
+   * @default 2
+   */
   direction: XmlElem<number>;
   /** Биллинговый счет */
   account_id: XmlElem<number | null, AccountCatalogDocumentTopElem>;

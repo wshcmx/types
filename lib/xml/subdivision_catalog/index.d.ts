@@ -8,10 +8,14 @@ type SubdivisionCatalogDocumentTopElem = XmlTopElem & {
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Подразделение */
   parent_object_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
-  /** Подразделение расформировано */
+  /**
+   * Подразделение расформировано
+   * @default false
+   */
   is_disbanded: XmlElem<boolean | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;
@@ -27,7 +31,10 @@ type SubdivisionCatalogDocumentTopElem = XmlTopElem & {
   bonus_profile_id: XmlElem<number | null, BonusProfileCatalogDocumentTopElem>;
   /** Центр затрат */
   cost_center_id: XmlElem<number | null, CostCenterCatalogDocumentTopElem>;
-  /** Факультет */
+  /**
+   * Факультет
+   * @default false
+   */
   is_faculty: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

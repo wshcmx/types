@@ -4,7 +4,10 @@ type ActionReportCatalogDocumentTopElem = XmlTopElem & {
   type: XmlElem<string | null, typeof common.action_report_types>;
   /** Статус */
   status: XmlElem<string | null, typeof common.action_status_types>;
-  /** Признак завершения */
+  /**
+   * Признак завершения
+   * @default false
+   */
   completed: XmlElem<boolean>;
   /** Сервер */
   exchange_server_id: XmlElem<number | null, ExchangeServerCatalogDocumentTopElem>;

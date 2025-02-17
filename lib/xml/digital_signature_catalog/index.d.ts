@@ -21,7 +21,10 @@ AdminAccessBase & {
   create_date: XmlElem<Date | null>;
   /** Дата подписания */
   sign_date: XmlElem<Date | null>;
-  /** Подписана */
+  /**
+   * Подписана
+   * @default false
+   */
   is_signed: XmlElem<boolean>;
   /** Шаблон */
   custom_web_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;

@@ -9,7 +9,10 @@ AdminAccessBase & {
   library_url: XmlElem<string | null>;
   /** Является системным */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
