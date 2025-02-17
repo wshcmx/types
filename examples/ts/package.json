@@ -1,8 +1,0 @@
-{
-  "name": "ts",
-  "version": "1.0.0",
-  "dependencies": {
-    "@umbrik/webtutor-types": "^9.0.1",
-    "typescript": "^5.4.5"
-  }
-}

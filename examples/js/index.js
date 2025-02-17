@@ -13,12 +13,12 @@
  * @param {string} command - Команда для исполнения
  */
 function select(command) {
-  return ArraySelectAll(tools.xquery<T>(command));
+  return ArraySelectAll(tools.xquery(command));
 }
 
 /**
  * Возвращает информацию о функциональных руководителях по типу
- * @param {[string="main"]} bossTypeCode - Код типа функционального руководителя
+ * @param {string} [bossTypeCode=main] - Код типа функционального руководителя
  * @returns {Managers[]}
  */
 function getManagersByType(bossTypeCode) {
@@ -35,12 +35,13 @@ function getManagersByType(bossTypeCode) {
 
   /** @type {Managers[]} result */
   var result = [];
+  /** @type {CollaboratorDocument | undefined} */
   var collaboratorDocument;
   var personId;
 
   for (let i = 0; i < query.length; i++) {
     personId = query[i].person_id.Value;
-    collaboratorDocument = tools.open_doc<CollaboratorDocument>(personId);
+    collaboratorDocument = tools.open_doc(personId);
 
     if (collaboratorDocument === undefined) {
       alert("Невозможно открыть документ сотрудника по id \"${personId}\"");
@@ -52,7 +53,7 @@ function getManagersByType(bossTypeCode) {
       fullname: collaboratorDocument.TopElem.fullname()
     });
   }
-  
+
   return result;
 }
 
