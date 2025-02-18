@@ -4,6 +4,7 @@ type ActivityStateCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Текст Агента */
   agent_json_str: XmlElem<string | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
@@ -15,6 +16,7 @@ type ActivityStateCatalogDocumentTopElem = XmlTopElem & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** ФИО сотрудника */
   person_fullname: XmlElem<string | null>;
+  /** Строка регистрации */
   registration: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

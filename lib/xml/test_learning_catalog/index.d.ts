@@ -36,12 +36,16 @@ AdminAccessBase & {
   score: XmlElem<number | null>;
   /** Описание итога */
   text_result: XmlElem<string | null>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Время модуля */
   time: XmlElem<number | null>;
   /** Максимальный балл */
   max_score: XmlElem<number | null>;
+  /** Ссылка на отчет внешней системы тестирования */
   link_report: XmlElem<string | null>;
   /** План обучения */
   education_plan_id: XmlElem<number | null, EducationPlanCatalogDocumentTopElem>;
@@ -61,6 +65,10 @@ AdminAccessBase & {
   app_instance_id: XmlElem<string | null>;
   /** Назначен самостоятельно */
   is_self_enrolled: XmlElem<boolean | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   OnBuild(): void;
 };

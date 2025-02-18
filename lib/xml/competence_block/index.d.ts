@@ -1,3 +1,11 @@
+interface CompetenceBlockDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type CompetenceBlockDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   Doc: CompetenceBlockDocument;
@@ -11,6 +19,8 @@ AdminAccessBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<CompetenceBlockDocumentView | null>;
 };
 
 type CompetenceBlockDocument = XmlDocument & {

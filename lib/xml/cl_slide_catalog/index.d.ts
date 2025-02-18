@@ -18,6 +18,11 @@ AdminAccessBase & {
   /** Является выскакивающим экраном */
   is_splash: XmlElem<boolean | null>;
   sid: XmlElem<number | null>;
+  /**
+   * Заблокировано
+   * @default false
+   */
+  flag_locked: XmlElem<unknown | null>;
   /** Владелец ресурса */
   greedy_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Имя владельца */

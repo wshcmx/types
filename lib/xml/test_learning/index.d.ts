@@ -40,7 +40,10 @@ CustomElemsBase & {
   education_plan_id: XmlElem<number | null, EducationPlanCatalogDocumentTopElem>;
   /** Группа */
   group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Баллы */
   score: XmlElem<number>;
@@ -62,6 +65,7 @@ CustomElemsBase & {
   /** Максимальный балл */
   max_score: XmlElem<number | null>;
   qti_text: XmlElem<string | null>;
+  /** Дата генерации QTI */
   qti_date: XmlElem<Date | null>;
   /** Результаты по разделам */
   sections: XmlMultiElem<TestLearningDocumentSection | null>;
@@ -73,11 +77,16 @@ CustomElemsBase & {
   active_test_learning_deleted: XmlElem<boolean | null>;
   /** Назначен самостоятельно */
   is_self_enrolled: XmlElem<boolean | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** Ссылка на отчет во внешней системе тестирования */
   link_report: XmlElem<string | null>;
 };
 

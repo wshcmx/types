@@ -8,7 +8,10 @@ type ScaleCatalogDocumentTopElem = XmlTopElem & {
   max_limit: XmlElem<number | null>;
   /** Ограничение */
   min_limit: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string | null, typeof common.kpi_states>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

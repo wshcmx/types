@@ -12,7 +12,10 @@ interface EventAssessmentPlanDocumentCompetenceIndicator extends WorkflowFieldsA
   plan: XmlElem<string | null>;
   /** Оценка */
   mark: XmlElem<string | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
 }
 
@@ -23,12 +26,38 @@ interface EventAssessmentPlanDocumentCompetence extends WorkflowFieldsAssessment
   plan: XmlElem<string | null>;
   /** Оценка */
   mark: XmlElem<string | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   /** Упражнения */
   exercises: XmlMultiElem<EventAssessmentPlanDocumentCompetenceExercise | null>;
   /** Индикаторы */
   indicators: XmlMultiElem<EventAssessmentPlanDocumentCompetenceIndicator | null>;
+}
+
+interface EventAssessmentPlanDocumentViewScale {
+  /** @temp */
+  id: XmlElem<string | null>;
+  /** @temp */
+  name: XmlElem<string | null>;
+  /** @temp */
+  percent: XmlElem<number | null>;
+}
+
+interface EventAssessmentPlanDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @temp */
+  temp_id: XmlElem<number | null>;
+  /** @temp */
+  flag_mark: XmlElem<boolean | null>;
+  /** @temp */
+  scales: XmlMultiElem<EventAssessmentPlanDocumentViewScale | null>;
 }
 
 type EventAssessmentPlanDocumentTopElem = XmlTopElem &
@@ -46,11 +75,17 @@ CustomElemsBase & {
   date_start: XmlElem<Date | null>;
   /** Тип оценки */
   assessment_type: XmlElem<string | null>;
-  /** Код типа оценки */
+  /**
+   * Код типа оценки
+   * @default comp;add
+   */
   assessment_type_id: XmlElem<string>;
   /** Статус оценивающего */
   status: XmlElem<string | null, typeof common.assessment_appraise_participants>;
-  /** Признак завершенности */
+  /**
+   * Признак завершенности
+   * @default false
+   */
   is_done: XmlElem<boolean>;
   /** Компетенции */
   competences: XmlMultiElem<EventAssessmentPlanDocumentCompetence | null>;
@@ -61,6 +96,8 @@ CustomElemsBase & {
   temp: XmlElem<string | null>;
   file_name: XmlElem<string | null>;
   file_url: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<EventAssessmentPlanDocumentView | null>;
   event_result_type_id: XmlElem<number | null, EventResultTypeCatalogDocumentTopElem>;
 };
 

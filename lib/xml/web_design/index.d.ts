@@ -20,11 +20,19 @@ WebVariablesBase & {
   xaml_interpreter_css_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;
   /** Дополнительный шаблон CSS */
   additional_css_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;
+  /** Шаблон индикатора подгрузки */
   throbber_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;
+  /** Шаблон наборов настроек виджетов */
   lp_custom_web_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;

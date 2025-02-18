@@ -33,7 +33,10 @@ AdminAccessBase & {
   start_usage_date: XmlElem<Date | null>;
   /** Дата начала обучения */
   start_learning_date: XmlElem<Date | null>;
-  /** Назначен самостоятельно */
+  /**
+   * Назначен самостоятельно
+   * @default false
+   */
   is_self_enrolled: XmlElem<boolean>;
   /** Дата последнего посещ. */
   last_usage_date: XmlElem<Date | null>;
@@ -63,6 +66,10 @@ AdminAccessBase & {
   modification_user_id: XmlElem<number | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   OnBuild(): void;
 };

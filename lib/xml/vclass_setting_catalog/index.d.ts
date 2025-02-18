@@ -6,6 +6,7 @@ type VclassSettingCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Мероприятие */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
+  /** Разговор */
   conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

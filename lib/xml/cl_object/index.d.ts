@@ -12,6 +12,14 @@ interface ClObjectDocumentMethod {
   xmlcontent: XmlElem<string | null>;
 }
 
+interface ClObjectDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type ClObjectDocumentTopElem = XmlTopElem & {
   Doc: ClObjectDocument;
   /** Код */
@@ -33,9 +41,17 @@ type ClObjectDocumentTopElem = XmlTopElem & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является системным */
+  /** @temp */
+  view: XmlElem<ClObjectDocumentView | null>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
 };
 

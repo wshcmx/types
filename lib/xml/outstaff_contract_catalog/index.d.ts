@@ -7,9 +7,15 @@ AdminAccessBase & {
   /** Название */
   name: XmlElem<string | null>;
   date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
-  /** Тип */
+  /**
+   * Тип
+   * @default outstaff_persons
+   */
   type_id: XmlElem<string, typeof common.outstaff_contract_types>;
   /** Номер договора */
   number: XmlElem<string | null>;

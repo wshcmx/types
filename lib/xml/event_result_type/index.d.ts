@@ -8,7 +8,7 @@ type EventResultTypeDocumentTopElem = XmlTopElem & {
   doc_info: XmlElem<DocInfoBase | null>;
   comment: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type EventResultTypeDocument = XmlDocument & {

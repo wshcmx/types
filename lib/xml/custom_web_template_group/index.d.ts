@@ -6,9 +6,25 @@ interface CustomWebTemplateGroupDocumentTemplate extends WebVariablesBase {
   statistic_rec_id: XmlElem<number | null, StatisticRecCatalogDocumentTopElem>;
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   parent_template_id: XmlElem<string | null>;
+  /** @default 0 */
   position: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default 0
+   */
+  hier_level: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default true
+   */
+  hier_expanded: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+}
+
+interface CustomWebTemplateGroupDocumentView {
+  /** @temp */
+  sel_template_id: XmlElem<string | null>;
 }
 
 type CustomWebTemplateGroupDocumentTopElem = XmlTopElem & {
@@ -21,8 +37,10 @@ type CustomWebTemplateGroupDocumentTopElem = XmlTopElem & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<CustomWebTemplateGroupDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type CustomWebTemplateGroupDocument = XmlDocument & {

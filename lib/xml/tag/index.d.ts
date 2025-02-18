@@ -11,7 +11,10 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Ресурс базы */
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
-  /** Требует подтверждения эксперта */
+  /**
+   * Требует подтверждения эксперта
+   * @default false
+   */
   require_acknowledgement: XmlElem<boolean>;
   /** Значение карты знаний */
   knowledge_part_id: XmlElem<number | null, KnowledgePartCatalogDocumentTopElem>;
@@ -23,7 +26,7 @@ AdminAccessBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type TagDocument = XmlDocument & {

@@ -1,3 +1,11 @@
+interface WalkthroughDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type WalkthroughDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -13,6 +21,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<WalkthroughDocumentView | null>;
 };
 
 type WalkthroughDocument = XmlDocument & {

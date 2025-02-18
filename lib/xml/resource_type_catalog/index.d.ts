@@ -10,5 +10,5 @@ type ResourceTypeCatalogDocumentTopElem = XmlTopElem & {
   app_instance_id: XmlElem<string | null>;
   OnBuild(): void;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };

@@ -9,9 +9,15 @@ AdminAccessBase & {
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
   OnBuild(): void;
 };

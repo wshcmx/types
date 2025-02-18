@@ -12,7 +12,10 @@ interface VclassSettingDocumentProgram {
   duration: XmlElem<number | null>;
   /** Количество участников */
   person_num: XmlElem<number | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default course
+   */
   type: XmlElem<string | null>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -28,12 +31,24 @@ interface VclassSettingDocumentProgram {
   /** Вес, % */
   weight: XmlElem<number | null>;
   start_type: XmlElem<string | null>;
-  /** Обязательный раздел */
+  /**
+   * Обязательный раздел
+   * @default true
+   */
   required: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Доступ после завершения разделов */
   completed_parent_programs: XmlMultiElem<VclassSettingDocumentProgramCompletedParentProgram | null>;
+}
+
+interface VclassSettingDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default 0
+   */
+  part_index: XmlElem<number>;
+  filter: XmlElem<AuFtFilter | null>;
 }
 
 type VclassSettingDocumentTopElem = XmlTopElem &
@@ -46,9 +61,12 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Мероприятие */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
+  /** Разговор */
   conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
   /** Разделы учебной программы */
   programs: XmlMultiElem<VclassSettingDocumentProgram | null>;
+  /** @temp */
+  view: XmlElem<VclassSettingDocumentView | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

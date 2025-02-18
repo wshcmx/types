@@ -14,6 +14,16 @@ type RemoteApplicationDocumentTopElem = XmlTopElem & {
   access: XmlElem<AccessBase | null>;
   /** Категория */
   category_id: XmlMultiElemObject<string | null, CategoryCatalogDocumentTopElem>;
+  /**
+   * Является системным
+   * @default false
+   */
+  is_std: XmlElem<boolean>;
+  /**
+   * Измененный
+   * @default false
+   */
+  changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

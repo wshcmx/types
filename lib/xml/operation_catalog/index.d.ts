@@ -14,20 +14,39 @@ type OperationCatalogDocumentTopElem = XmlTopElem & {
   operation_catalog_list: XmlElem<string | null>;
   /** Название операции */
   object_name: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Группа */
   group: XmlElem<string | null>;
   /** Является системным */
   is_system: XmlElem<boolean | null>;
   /** Удаленное действие */
   remote_action_id: XmlElem<number | null, RemoteActionCatalogDocumentTopElem>;
+  /**
+   * Использовать программный код
+   * @default false
+   */
   use_script: XmlElem<boolean>;
+  /**
+   * Использовать условия видимости
+   * @default false
+   */
   use_access_eval: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /**
+   * Приоритет
+   * @default 0
+   */
   priority: XmlElem<number>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

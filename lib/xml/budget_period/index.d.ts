@@ -23,10 +23,11 @@ CustomElemsBase & {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /** @default none */
   period_type: XmlElem<string, typeof common.perioditys>;
   days: XmlMultiElem<BudgetPeriodDocumentDay | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

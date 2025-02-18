@@ -1,5 +1,6 @@
 interface ClCourseDocumentModule {
   id: XmlElem<number | null, ClModuleCatalogDocumentTopElem>;
+  /** @default 0 */
   path_id: XmlElem<string>;
   folder_id: XmlElem<number | null>;
 }
@@ -7,6 +8,7 @@ interface ClCourseDocumentModule {
 interface ClCourseDocumentWindow {
   module_id: XmlElem<number | null, ClModuleCatalogDocumentTopElem>;
   zoom: XmlElem<number | null>;
+  /** @default false */
   active: XmlElem<boolean>;
   slide_id: XmlElem<number | null, ClSlideCatalogDocumentTopElem>;
 }
@@ -37,6 +39,7 @@ interface ClCourseDocumentPlanTablePlanRow {
   start_date: XmlElem<Date | null>;
   plan_date: XmlElem<Date | null>;
   fact_date: XmlElem<Date | null>;
+  /** @default 0 */
   completion: XmlElem<number>;
   name: XmlElem<string | null>;
   responsible_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -46,12 +49,32 @@ interface ClCourseDocumentPlanTablePlanRow {
 }
 
 interface ClCourseDocumentPlanTable {
-  plan_row: XmlElem<ClCourseDocumentPlanTablePlanRow | null>;
+  plan_row: XmlMultiElemObject<ClCourseDocumentPlanTablePlanRow | null>;
 }
 
 interface ClCourseDocumentAuxConst {
   code: XmlElem<string | null>;
   cl_const_id: XmlElem<number | null, ClConstCatalogDocumentTopElem>;
+}
+
+interface ClCourseDocumentViewNewAuthors {
+  id: XmlMultiElemObject<number | null>;
+}
+
+interface ClCourseDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @temp */
+  view_part_selector: XmlElem<number | null>;
+  /** @temp */
+  module_href: XmlElem<string | null>;
+  /** @temp */
+  module_view_selector: XmlElem<number | null>;
+  /** @temp */
+  new_authors: XmlElem<ClCourseDocumentViewNewAuthors | null>;
 }
 
 type ClCourseDocumentTopElem = XmlTopElem &
@@ -64,6 +87,7 @@ CustomElemsBase & {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   end_date: XmlElem<Date | null>;
+  /** @default 0 */
   state_id: XmlElem<number, typeof common.cl_states>;
   platform: XmlElem<string | null>;
   modules: XmlMultiElem<ClCourseDocumentModule | null>;
@@ -79,7 +103,7 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   forum_id: XmlElem<number | null, ForumCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */

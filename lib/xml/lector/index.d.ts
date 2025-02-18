@@ -1,3 +1,8 @@
+interface LectorDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type LectorDocumentTopElem = XmlTopElem &
 PersonBase &
 PassportDataBase &
@@ -8,7 +13,10 @@ PathSubsBase & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default invitee
+   */
   type: XmlElem<string, typeof common.lector_types>;
   /** Ресурс базы */
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
@@ -22,17 +30,25 @@ PathSubsBase & {
   person_position_name: XmlElem<string | null>;
   /** Подразделение */
   person_subdivision_name: XmlElem<string | null>;
-  /** Разрешена публикация на портале описания и контактной информации */
+  /**
+   * Разрешена публикация на портале описания и контактной информации
+   * @default false
+   */
   allow_publication: XmlElem<boolean>;
-  /** Является уволенным */
+  /**
+   * Является уволенным
+   * @default false
+   */
   is_dismiss: XmlElem<boolean>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
-  lector_fullname(): unknown;
+  /** @temp */
+  view: XmlElem<LectorDocumentView | null>;
+  lector_fullname(): string;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type LectorDocument = XmlDocument & {

@@ -6,7 +6,9 @@ KnowledgePartsBase & {
   Doc: ProjectParticipantRoleDocument;
   /** Проект */
   project_id: XmlElem<number | null, ProjectCatalogDocumentTopElem>;
+  /** Количество участников */
   participant_num: XmlElem<number | null>;
+  /** Продукт/услуга(CRM) */
   provider_id: XmlElem<number | null, ProviderCatalogDocumentTopElem>;
   /** Описание */
   desc: XmlElem<string | null>;
@@ -15,6 +17,8 @@ KnowledgePartsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type ProjectParticipantRoleDocument = XmlDocument & {

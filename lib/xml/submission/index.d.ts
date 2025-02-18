@@ -1,3 +1,9 @@
+interface SubmissionDocumentView extends DescBase {
+  /** @temp */
+  submission_type_doc: XmlElem<unknown | null>;
+  fill_submission_type_doc(): unknown;
+}
+
 type SubmissionDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 FileListBase &
@@ -21,7 +27,10 @@ CustomElemsBase & {
   date_start: XmlElem<Date | null>;
   /** Дата окончания заполнения */
   date_finish: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string, typeof common.submission_states>;
   decline_desc: XmlElem<string | null>;
   /** Этап */
@@ -32,6 +41,8 @@ CustomElemsBase & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<SubmissionDocumentView | null>;
 };
 
 type SubmissionDocument = XmlDocument & {

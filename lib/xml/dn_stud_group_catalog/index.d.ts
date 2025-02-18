@@ -6,7 +6,10 @@ AdminAccessBase & {
   /** Название */
   name: XmlElem<string | null>;
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default activ
+   */
   status_id: XmlElem<string | null, typeof common.stud_group_states>;
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
   special_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;

@@ -1,3 +1,11 @@
+interface LibraryMaterialTypeDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type LibraryMaterialTypeDocumentTopElem = XmlTopElem & {
   Doc: LibraryMaterialTypeDocument;
   /** Код */
@@ -8,6 +16,8 @@ type LibraryMaterialTypeDocumentTopElem = XmlTopElem & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<LibraryMaterialTypeDocumentView | null>;
 };
 
 type LibraryMaterialTypeDocument = XmlDocument & {

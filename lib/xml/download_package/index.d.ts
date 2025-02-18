@@ -10,7 +10,10 @@ DownloadPackageLogBase & {
   base_url: XmlElem<string | null>;
   /** Адрес скачивания */
   url: XmlElem<string | null>;
-  /** Статус пакета */
+  /**
+   * Статус пакета
+   * @default init
+   */
   status: XmlElem<string, typeof common.package_status_types>;
   /** Файл пакета */
   local_file_url: XmlElem<string | null>;
@@ -21,6 +24,7 @@ DownloadPackageLogBase & {
   /** Дата пакета */
   package_date: XmlElem<Date | null>;
   application_code: XmlElem<string | null>;
+  /** Приложение */
   application_id: XmlElem<number | null, ApplicationCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;

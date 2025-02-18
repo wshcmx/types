@@ -7,7 +7,10 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Раздел */
   section: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default 1
+   */
   type: XmlElem<string, typeof common.supplementary_question_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

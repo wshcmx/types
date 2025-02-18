@@ -15,11 +15,17 @@ interface RecruitmentPlanDocumentCandidateSource {
 
 interface RecruitmentPlanDocumentCoordinator extends PersonFillingBase {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
-  /** Является ответственным */
+  /**
+   * Является ответственным
+   * @default false
+   */
   is_responsible: XmlElem<boolean>;
   comment: XmlElem<string | null>;
 }
@@ -30,12 +36,16 @@ CustomElemsBase &
 AdminAccessBase & {
   Doc: RecruitmentPlanDocument;
   id: XmlElem<number | null>;
+  /** @default name */
   position_type: XmlElem<string | null>;
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
   position_name: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   state: XmlElem<string, typeof common.recruitment_plan_state_types>;
   /** Бюджетный период */
   budget_period_id: XmlElem<number | null>;

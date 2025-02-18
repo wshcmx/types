@@ -9,6 +9,22 @@ interface PositionDocumentKpiProfile {
   period_type_id: XmlElem<string | null, typeof common.perioditys>;
 }
 
+interface PositionDocumentView extends DescBase {
+  /** @temp */
+  basic_collaborator_id: XmlElem<number | null>;
+  /** @temp */
+  org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** @temp */
+  name: XmlElem<string | null>;
+  /** @temp */
+  parent_object_id: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  drop_pers_hier_entry: XmlElem<boolean | null>;
+}
+
 type PositionDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 FileListBase &
@@ -22,7 +38,10 @@ CustomElemsBase & {
   basic_collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & MsPersonSdInnerBase;
   /** Ставка */
   basic_rate: XmlElem<number | null>;
-  /** Является руководителем */
+  /**
+   * Является руководителем
+   * @default false
+   */
   is_boss: XmlElem<boolean>;
   /** Дата вступления в должность */
   position_date: XmlElem<Date | null>;
@@ -53,18 +72,24 @@ CustomElemsBase & {
   position_family_id: XmlElem<number | null, PositionFamilyCatalogDocumentTopElem>;
   /** Дата завершения работы в должности */
   position_finish_date: XmlElem<Date | null>;
-  /** Действие назначения прекращено */
+  /**
+   * Действие назначения прекращено
+   * @default false
+   */
   is_position_finished: XmlElem<boolean | null>;
   /** Тип назначения */
   position_assignment_type: XmlElem<string | null, typeof common.position_assignment_types>;
   /** Тип назначения */
   position_appointment_type_id: XmlElem<number | null, AppointmentTypeCatalogDocumentTopElem>;
+  /** Позиция штатного рассписания */
   staff_position_id: XmlElem<number | null, StaffPositionCatalogDocumentTopElem>;
   /** Описание */
   desc: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<PositionDocumentView | null>;
 };
 
 type PositionDocument = XmlDocument & {

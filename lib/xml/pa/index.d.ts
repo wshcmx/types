@@ -1,3 +1,45 @@
+interface PaDocumentPersonIdSd {
+  /** ФИО сотрудника */
+  fullname: XmlElem<string | null>;
+  /** Название должности */
+  position_name: XmlElem<string | null>;
+  /** Должность */
+  position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
+  /** Название подразделения */
+  position_parent_name: XmlElem<string | null>;
+  /** Подразделение */
+  position_parent_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Название организации */
+  org_name: XmlElem<string | null>;
+  /** Является уволенным */
+  is_dismiss: XmlElem<boolean | null>;
+}
+
+interface PaDocumentPersonId {
+  sd: XmlElem<PaDocumentPersonIdSd | null>;
+}
+
+interface PaDocumentExpertPersonIdSd {
+  /** ФИО сотрудника */
+  fullname: XmlElem<string | null>;
+  /** Название должности */
+  position_name: XmlElem<string | null>;
+  /** Должность */
+  position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
+  /** Название подразделения */
+  position_parent_name: XmlElem<string | null>;
+  /** Подразделение */
+  position_parent_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Название организации */
+  org_name: XmlElem<string | null>;
+  /** Является уволенным */
+  is_dismiss: XmlElem<boolean | null>;
+}
+
+interface PaDocumentExpertPersonId {
+  sd: XmlElem<PaDocumentExpertPersonIdSd | null>;
+}
+
 interface PaDocumentKpiProfile {
   /** Профиль KPI */
   id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
@@ -40,7 +82,10 @@ interface PaDocumentCompetenceIndicator extends WorkflowFieldsAssessmentBase {
   mark: XmlElem<string | null>;
   mark_text: XmlElem<string | null>;
   mark_value: XmlElem<number | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   comment: XmlElem<string | null>;
 }
@@ -55,7 +100,10 @@ interface PaDocumentCompetence extends WorkflowFieldsAssessmentBase {
   mark: XmlElem<string | null>;
   mark_text: XmlElem<string | null>;
   mark_value: XmlElem<number | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   comment: XmlElem<string | null>;
   type: XmlElem<string | null, typeof lists.competence_types>;
@@ -77,7 +125,10 @@ interface PaDocumentKpi extends WorkflowFieldsAssessmentBase {
   fact: XmlElem<string | null>;
   /** Оценка */
   mark: XmlElem<string | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   source_pa_id: XmlElem<number | null, PaCatalogDocumentTopElem>;
   kpi_value_id: XmlElem<number | null, KpiValueCatalogDocumentTopElem>;
@@ -100,7 +151,10 @@ interface PaDocumentProject extends WorkflowFieldsAssessmentBase {
   fact: XmlElem<string | null>;
   /** Оценка */
   mark: XmlElem<number | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   standard_project_id: XmlElem<number | null, KpiCatalogDocumentTopElem>;
 }
@@ -126,7 +180,10 @@ interface PaDocumentObjective extends WorkflowFieldsAssessmentBase {
   objective_id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   /** Оценка */
   mark: XmlElem<number | null>;
@@ -140,7 +197,10 @@ interface PaDocumentObjective extends WorkflowFieldsAssessmentBase {
 
 interface PaDocumentTask {
   task_id: XmlElem<number | null, TaskCatalogDocumentTopElem>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   position: XmlElem<number | null>;
   value_text: XmlElem<string | null>;
@@ -152,7 +212,9 @@ interface PaDocumentTask {
 interface PaDocumentCustomExpert {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   person_type: XmlElem<number | null>;
+  /** @default false */
   is_done: XmlElem<boolean>;
+  /** @default false */
   responsible: XmlElem<boolean>;
   expert_code: XmlElem<string | null>;
 }
@@ -164,8 +226,32 @@ interface PaDocumentCustomComment {
   comment_date: XmlElem<Date | null>;
 }
 
+interface PaDocumentViewScale {
+  /** @temp */
+  id: XmlElem<string | null>;
+  /** @temp */
+  name: XmlElem<string | null>;
+  /** @temp */
+  percent: XmlElem<number | null>;
+}
+
+interface PaDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @temp */
+  flag_mark: XmlElem<boolean | null>;
+  /** @temp */
+  scales: XmlMultiElem<PaDocumentViewScale | null>;
+}
+
 interface PaDocumentLastData {
-  /** Признак завершения */
+  /**
+   * Признак завершения
+   * @default false
+   */
   is_done: XmlElem<boolean>;
   workflow_state: XmlElem<string | null>;
 }
@@ -181,13 +267,22 @@ interface PaDocumentStageCustomField {
 interface PaDocumentStage {
   id: XmlElem<string | null>;
   name: XmlElem<string | null>;
+  /**
+   * Направление должностного перемещения
+   * @default vertical
+   */
   career_transition_direction: XmlElem<string, typeof common.career_transition_direction_types>;
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
+  /**
+   * Проверять требования при согласовании
+   * @default true
+   */
   check_requirements: XmlElem<boolean>;
   /** Плановая дата выполнения */
   plan_date: XmlElem<Date | null>;
   /** Фактическая дата выполнения */
   fact_date: XmlElem<Date | null>;
+  /** @default plan */
   status: XmlElem<string, typeof common.career_reserve_status_types>;
   position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
@@ -211,18 +306,24 @@ FileListBase & {
   /** Название */
   name(): string;
   /** Сотрудник */
-  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  person_id: XmlElem<PaDocumentPersonId | null, CollaboratorCatalogDocumentTopElem>;
   /** Оценивающий */
-  expert_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  expert_person_id: XmlElem<PaDocumentExpertPersonId | null, CollaboratorCatalogDocumentTopElem>;
   /** Ограничить оценивающих по группе */
   restrict_by_group: XmlElem<number | null, GroupCatalogDocumentTopElem>;
   /** Подразделение */
   department_id: XmlElem<number | null>;
   /** Название подразделения */
   department_name: XmlElem<string | null>;
-  /** Оценить структуру */
+  /**
+   * Оценить структуру
+   * @default false
+   */
   flag_appraise_department: XmlElem<boolean>;
-  /** Объект оценки */
+  /**
+   * Объект оценки
+   * @default collaborator
+   */
   assessment_object_type: XmlElem<string>;
   /** Процедура оценки */
   assessment_appraise_id: XmlElem<number | null, AssessmentAppraiseCatalogDocumentTopElem>;
@@ -230,12 +331,22 @@ FileListBase & {
   assessment_plan_id: XmlElem<number | null, AssessmentPlanCatalogDocumentTopElem>;
   /** Статус */
   status: XmlElem<string | null, typeof common.assessment_appraise_participants>;
-  /** Признак завершения */
+  /**
+   * Признак завершения
+   * @default false
+   */
   is_done: XmlElem<boolean>;
-  /** Признак готовности (для параллельной оценки) */
+  /**
+   * Признак готовности (для параллельной оценки)
+   * @default false
+   */
   is_ready: XmlElem<boolean>;
-  /** Признак результирующей формы */
+  /**
+   * Признак результирующей формы
+   * @default false
+   */
   is_final: XmlElem<boolean>;
+  /** @default false */
   flag_is_processed: XmlElem<boolean>;
   /** Тип процедуры */
   assessment_appraise_type: XmlElem<string | null, typeof common.assessment_appraise_types>;
@@ -284,14 +395,19 @@ FileListBase & {
   comment: XmlElem<string | null>;
   file_name: XmlElem<string | null>;
   file_url: XmlElem<string | null>;
+  /** @default 0 */
   index: XmlElem<number>;
+  /** @temp */
+  view: XmlElem<PaDocumentView | null>;
   /** Сохраненные данные */
   last_data: XmlElem<PaDocumentLastData | null>;
+  /** @default external */
   career_plan_type: XmlElem<string | null>;
+  /** Карьерный план */
   career_plan_id: XmlElem<number | null, CareerPlanCatalogDocumentTopElem>;
   stages: XmlMultiElem<PaDocumentStage | null>;
   experiment_foo(string: string): unknown;
-  calculate(params: unknown): unknown;
+  calculate(params: Object): unknown;
   load_kpi_values(): unknown;
 };
 

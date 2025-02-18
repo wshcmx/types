@@ -8,7 +8,10 @@ interface BudgetDocumentTransfer {
   login: XmlElem<string | null>;
   /** Сумма */
   sum: XmlElem<number | null>;
-  /** Приход или расход */
+  /**
+   * Приход или расход
+   * @default false
+   */
   direction: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
@@ -24,7 +27,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   state: XmlElem<string, typeof common.budget_state_types>;
   /** Тип бюджета */
   type_id: XmlElem<number | null, BudgetTypeCatalogDocumentTopElem>;
@@ -34,7 +40,10 @@ CustomElemsBase & {
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
   /** Статья затрат */
   expense_item_id: XmlElem<number | null, ExpenseItemCatalogDocumentTopElem>;
-  /** Утвержден */
+  /**
+   * Утвержден
+   * @default false
+   */
   is_approved: XmlElem<boolean>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
@@ -46,6 +55,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type BudgetDocument = XmlDocument & {

@@ -5,12 +5,22 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
-  /** Закрытый форум */
+  /**
+   * Закрытый форум
+   * @default false
+   */
   closed: XmlElem<boolean>;
-  /** Закрепить тему */
+  /**
+   * Закрепить тему
+   * @default false
+   */
   pinned: XmlElem<boolean | null>;
-  /** Способ отображения */
+  /**
+   * Способ отображения
+   * @default realname
+   */
   how2show: XmlElem<string, typeof common.forum_person_info_types>;
+  /** Информация об авторе */
   author_info: XmlElem<string | null>;
   /** Сотрудник */
   user_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -22,10 +32,16 @@ AdminAccessBase & {
   parent_forum_entry_id: XmlElem<number | null, ForumEntryCatalogDocumentTopElem>;
   /** Корневая статья формума */
   main_forum_entry_id: XmlElem<number | null, ForumEntryCatalogDocumentTopElem>;
-  /** Одобрена модератором */
+  /**
+   * Одобрена модератором
+   * @default false
+   */
   is_moder_approved: XmlElem<boolean>;
+  /** Предыдущая дата создания */
   last_create_date: XmlElem<Date | null>;
+  /** Количество дочерних */
   child_num: XmlElem<number | null>;
+  /** Удаленный IP */
   remote_ip: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

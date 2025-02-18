@@ -6,6 +6,7 @@ type QaTestCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Статус */
   status: XmlElem<string | null, typeof common.qa_test_states>;
+  /** Тип теста */
   type: XmlElem<string | null, typeof common.qa_test_types>;
   /** Тип объектов */
   object_type_name: XmlElem<string | null>;
@@ -14,7 +15,7 @@ type QaTestCatalogDocumentTopElem = XmlTopElem & {
   /** Дата создания */
   create_date: XmlElem<Date | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

@@ -17,6 +17,7 @@ AdminAccessBase & {
   position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
   /** Название должности */
   position_name: XmlElem<string | null>;
+  /** Дата перемещения */
   move_date: XmlElem<Date | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

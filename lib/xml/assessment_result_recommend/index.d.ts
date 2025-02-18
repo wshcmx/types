@@ -1,3 +1,11 @@
+interface AssessmentResultRecommendDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type AssessmentResultRecommendDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -12,6 +20,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<AssessmentResultRecommendDocumentView | null>;
 };
 
 type AssessmentResultRecommendDocument = XmlDocument & {

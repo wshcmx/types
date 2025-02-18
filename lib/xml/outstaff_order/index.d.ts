@@ -5,6 +5,7 @@ interface OutstaffOrderDocumentPeriodHour {
   finish_hour: XmlElem<number | null>;
   hour_num: XmlElem<number | null>;
   full_time: XmlElem<boolean | null>;
+  /** @default 0 */
   person_num: XmlElem<number>;
 }
 
@@ -18,6 +19,10 @@ interface OutstaffOrderDocumentPeriod {
   sum_person_hour(): number;
 }
 
+interface OutstaffOrderDocumentView extends DescBase {
+  last_status: XmlElem<string | null>;
+}
+
 type OutstaffOrderDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 FileListBase &
@@ -29,7 +34,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name(): string;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
   /** Дата формирования */
   formed_date: XmlElem<Date | null>;
@@ -53,6 +61,7 @@ CustomElemsBase & {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /** @default detail */
   period_type: XmlElem<string>;
   periods: XmlMultiElem<OutstaffOrderDocumentPeriod | null>;
   periods_sum_person(): unknown;
@@ -73,6 +82,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<OutstaffOrderDocumentView | null>;
   update_periods(): unknown;
 };
 

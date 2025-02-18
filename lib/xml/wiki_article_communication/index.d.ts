@@ -11,9 +11,13 @@ CustomElemsBase & {
   name_value: XmlElem<string | null>;
   /** Ресурс базы */
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
+  /** Тип связи */
   wiki_article_communication_type_id: XmlElem<number | null, WikiArticleCommunicationTypeCatalogDocumentTopElem>;
+  /** Тип связи */
   wiki_article_comm_type_id: XmlElem<number | null, WikiArticleCommunicationTypeCatalogDocumentTopElem>;
+  /** Родительская wiki статья */
   base_wiki_article_id: XmlElem<number | null, WikiArticleCatalogDocumentTopElem>;
+  /** Дочерняя wiki статья */
   child_wiki_article_id: XmlElem<number | null, WikiArticleCatalogDocumentTopElem>;
   /** Позиция в списке */
   position: XmlElem<number | null>;
@@ -24,6 +28,8 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type WikiArticleCommunicationDocument = XmlDocument & {

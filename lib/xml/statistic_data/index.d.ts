@@ -39,6 +39,7 @@ type StatisticDataDocumentTopElem = XmlTopElem & {
   period_quarter: XmlElem<number | null>;
   /** Год */
   period_year: XmlElem<number | null>;
+  /** System flag */
   flag: XmlElem<number | null>;
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;

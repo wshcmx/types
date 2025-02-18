@@ -13,7 +13,10 @@ AdminAccessBase & {
   person_subdivision_name: XmlElem<string | null>;
   /** Тип кадрового резерва */
   career_reserve_type_id: XmlElem<number | null, CareerReserveTypeCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.tutor_status_types>;
   typical_development_program_id: XmlMultiElemObject<number | null, TypicalDevelopmentProgramCatalogDocumentTopElem>;
   subdivision_id: XmlMultiElemObject<number | null, SubdivisionCatalogDocumentTopElem>;

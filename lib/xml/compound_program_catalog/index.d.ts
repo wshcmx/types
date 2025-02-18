@@ -11,11 +11,15 @@ AdminAccessBase & {
   min_person_num: XmlElem<number | null>;
   /** Продолжительность */
   duration: XmlElem<number | null>;
+  /**
+   * Разрешить самоназначение
+   * @default false
+   */
   allow_self_assignment: XmlElem<boolean>;
   /** Преподаватель */
   lectors_id: XmlMultiElemObject<number | null, LectorCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

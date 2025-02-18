@@ -4,7 +4,10 @@ type GoodInstanceCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default in_stock
+   */
   status: XmlElem<string, typeof common.good_instance_status_types>;
   /** Товар */
   good_id: XmlElem<number | null, GoodCatalogDocumentTopElem>;

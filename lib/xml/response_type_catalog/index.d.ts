@@ -8,10 +8,12 @@ type ResponseTypeCatalogDocumentTopElem = XmlTopElem & {
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Блок, в котором отображается */
   access_block_type: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
+  /** Основное поле с описанием */
   basic_desc_field: XmlElem<string | null>;
+  /** Основное поле с оценкой */
   basic_score_field: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

@@ -14,12 +14,17 @@ interface DocTypeDocumentFieldSubFieldEntry {
 interface DocTypeDocumentFieldSubField {
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип поля */
+  /**
+   * Тип поля
+   * @default string
+   */
   type: XmlElem<string | null, typeof common.template_field_types>;
   title: XmlElem<string | null>;
   catalog: XmlElem<string | null>;
   set_value_action: XmlElem<string | null>;
+  /** @default false */
   flag_extended: XmlElem<boolean>;
+  /** @default false */
   is_readonly: XmlElem<boolean>;
   xquery_qual: XmlElem<string | null>;
   entries: XmlMultiElem<DocTypeDocumentFieldSubFieldEntry | null>;
@@ -34,7 +39,10 @@ interface DocTypeDocumentFieldControlElement {
 interface DocTypeDocumentField {
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип поля */
+  /**
+   * Тип поля
+   * @default string
+   */
   type: XmlElem<string | null, typeof common.template_field_types>;
   title: XmlElem<string | null>;
   catalog: XmlElem<string | null>;
@@ -42,17 +50,36 @@ interface DocTypeDocumentField {
   entries: XmlMultiElem<DocTypeDocumentFieldEntry | null>;
   /** Страница */
   sheet_id: XmlElem<string | null>;
+  /** @default false */
   flag_extended: XmlElem<boolean>;
+  /** @default false */
   indexed: XmlElem<boolean>;
-  /** Поле в каталоге */
+  /**
+   * Поле в каталоге
+   * @default false
+   */
   in_catalog: XmlElem<boolean>;
+  /** @default 0 */
   hide_level: XmlElem<number | null>;
+  /** @default false */
   is_multiple: XmlElem<boolean>;
+  /** @default false */
   is_readonly: XmlElem<boolean>;
+  /** @default false */
   translatable: XmlElem<boolean>;
   xquery_qual: XmlElem<string | null>;
   sub_fields: XmlMultiElem<DocTypeDocumentFieldSubField | null>;
   control_elements: XmlMultiElem<DocTypeDocumentFieldControlElement | null>;
+}
+
+interface DocTypeDocumentView extends DescBase {
+  /** @default false */
+  is_edit_mode: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default 0
+   */
+  dummy_buff: XmlElem<number>;
 }
 
 type DocTypeDocumentTopElem = XmlTopElem &
@@ -64,14 +91,21 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Категория */
   category: XmlElem<string | null>;
-  /** Имя объекта */
+  /**
+   * Имя объекта
+   * @default cc_
+   */
   object_name: XmlElem<string>;
   /** Страницы */
   sheets: XmlMultiElem<DocTypeDocumentSheet | null>;
   /** Поля */
   fields: XmlMultiElem<DocTypeDocumentField | null>;
+  /** @default false */
   is_hier: XmlElem<boolean>;
-  /** Форма требует перезагрузки сервера */
+  /**
+   * Форма требует перезагрузки сервера
+   * @default false
+   */
   is_crave_for_reboot: XmlElem<boolean>;
   /** Web шаблон */
   custom_web_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;
@@ -91,8 +125,10 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<DocTypeDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type DocTypeDocument = XmlDocument & {

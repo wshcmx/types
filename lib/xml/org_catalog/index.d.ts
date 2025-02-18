@@ -18,6 +18,7 @@ type OrgCatalogDocumentTopElem = XmlTopElem & {
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Тэги */
   tag_id: XmlMultiElemObject<number | null, TagCatalogDocumentTopElem>;
@@ -26,6 +27,6 @@ type OrgCatalogDocumentTopElem = XmlTopElem & {
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

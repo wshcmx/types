@@ -17,10 +17,15 @@ AdminAccessBase & {
   educ_type_id: XmlElem<string | null, typeof common.educ_types>;
   /** Тип занятости */
   employment_type_id: XmlElem<string | null, typeof common.employment_types>;
+  /** Условия труда */
   work_condition_id: XmlElem<number | null, WorkConditionCatalogDocumentTopElem>;
+  /** Режим работы */
   work_mode_id: XmlElem<number | null, WorkModeCatalogDocumentTopElem>;
+  /** Система оплаты труда */
   wage_system_id: XmlElem<number | null, WageSystemCatalogDocumentTopElem>;
+  /** Материальная ответственность */
   material_liability_id: XmlElem<number | null, MaterialLiabilityCatalogDocumentTopElem>;
+  /** Причина вакансии */
   vacancy_reason_id: XmlElem<number | null, VacancyReasonCatalogDocumentTopElem>;
   /** Опыт работы */
   work_experience_id: XmlElem<number | null, WorkExperienceCatalogDocumentTopElem>;
@@ -54,7 +59,10 @@ AdminAccessBase & {
   pub_period: XmlElem<number | null>;
   /** Дата закрытия */
   close_date: XmlElem<Date | null>;
-  /** Закрыта */
+  /**
+   * Закрыта
+   * @default false
+   */
   is_closed: XmlElem<boolean | null>;
   /** Вакансию разместил */
   collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

@@ -13,7 +13,18 @@ interface SiteDocumentMenuDocument {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** @default 0 */
   position: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default 0
+   */
+  hier_level: XmlElem<number | null>;
+  /**
+   * @temp
+   * @default true
+   */
+  hier_expanded: XmlElem<boolean>;
   /** Ссылка на изображение */
   icon_url: XmlElem<string | null>;
   /** Класс */
@@ -37,6 +48,11 @@ interface SiteDocumentAnonymousMode {
   mode: XmlElem<string | null>;
 }
 
+interface SiteDocumentView extends DescBase {
+  /** @temp */
+  sel_sist_obj: XmlElem<string | null>;
+}
+
 type SiteDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 ObjectTypeBase &
@@ -51,12 +67,21 @@ CustomElemsBase & {
   /** Дизайн */
   web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
   /** Язык */
-  lng_id: XmlElem<string | null>;
-  /** Сотрудники */
+  lng_id: XmlElem<string | null, LngCatalogDocumentTopElem>;
+  /**
+   * Сотрудники
+   * @default false
+   */
   owner_collaborator: XmlElem<boolean | null>;
-  /** Кандидаты */
+  /**
+   * Кандидаты
+   * @default false
+   */
   owner_candidate: XmlElem<boolean | null>;
-  /** Временный персонал */
+  /**
+   * Временный персонал
+   * @default false
+   */
   owner_outstaff: XmlElem<boolean | null>;
   /** Владельцы */
   owner_objects: XmlMultiElem<SiteDocumentOwnerObject | null>;
@@ -72,10 +97,18 @@ CustomElemsBase & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является встроенным */
+  /**
+   * Является встроенным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  view: XmlElem<SiteDocumentView | null>;
 };
 
 type SiteDocument = XmlDocument & {

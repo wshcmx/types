@@ -6,7 +6,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Активная */
+  /**
+   * Активная
+   * @default true
+   */
   is_active: XmlElem<boolean>;
   /** Родительская статья затрат */
   parent_id: XmlElem<number | null, ExpenseItemCatalogDocumentTopElem>;

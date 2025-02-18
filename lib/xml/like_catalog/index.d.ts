@@ -6,6 +6,10 @@ type LikeCatalogDocumentTopElem = XmlTopElem & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** ФИО сотрудника */
   person_fullname: XmlElem<string | null>;
+  /**
+   * Тип реакции
+   * @default like
+   */
   type_id: XmlElem<string | null, typeof common.reaction_types>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -17,7 +21,9 @@ type LikeCatalogDocumentTopElem = XmlTopElem & {
   sec_object_id: XmlElem<number | null>;
   /** Тип объекта */
   sec_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Реакция */
   reaction: XmlElem<string | null>;
+  /** Сообщение */
   message_id: XmlElem<string | null>;
   /** Вес */
   weight: XmlElem<number | null>;

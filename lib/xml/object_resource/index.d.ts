@@ -5,7 +5,10 @@ CustomElemsBase & {
   Doc: ObjectResourceDocument;
   /** Тип ресурса */
   type: XmlElem<string | null, typeof lists.object_resource_types>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default available
+   */
   state_id: XmlElem<string | null, typeof common.object_resource_states>;
   /** Количество */
   count: XmlElem<number | null>;
@@ -21,6 +24,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type ObjectResourceDocument = XmlDocument & {

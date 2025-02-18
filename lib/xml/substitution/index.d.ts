@@ -10,11 +10,17 @@ CustomElemsBase & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
+  /** @default active */
   status: XmlElem<string, typeof common.substitution_status_types>;
+  /** Тип замещения */
   substitution_type_id: XmlElem<number | null, SubstitutionTypeCatalogDocumentTopElem>;
+  /** Тип целевого объекта */
   target_object_type: XmlElem<string | null>;
+  /** Список целевых объектов */
   target_object_selector: XmlElem<string | null>;
+  /** Целевые объекты */
   target_objects: XmlMultiElem<SubstitutionDocumentTargetObject | null>;
+  /** Нестандартные права (строка или JSON с информацией о правах) */
   data_str: XmlElem<string | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
@@ -22,6 +28,10 @@ CustomElemsBase & {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /**
+   * Выбор сотрудников
+   * @default person
+   */
   person_selector: XmlElem<string | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

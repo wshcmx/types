@@ -6,10 +6,17 @@ CustomElemsBase & {
   Doc: ProfessionalAreaDocument;
   /** Корневой элемент */
   parent_id: XmlElem<number | null, ProfessionalAreaCatalogDocumentTopElem>;
+  /** Тип профессиональной области */
   professional_area_type_id: XmlElem<number | null, ProfessionalAreaTypeCatalogDocumentTopElem>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Описание */
   desc: XmlElem<string | null>;
@@ -18,6 +25,8 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type ProfessionalAreaDocument = XmlDocument & {

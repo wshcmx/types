@@ -4,7 +4,10 @@ type SubdivisionGroupCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Признак динамической группы */
+  /**
+   * Признак динамической группы
+   * @default false
+   */
   is_dynamic: XmlElem<boolean>;
   /** Профиль KPI */
   kpi_profile_id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
@@ -18,6 +21,7 @@ type SubdivisionGroupCatalogDocumentTopElem = XmlTopElem & {
   app_instance_id: XmlElem<string | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

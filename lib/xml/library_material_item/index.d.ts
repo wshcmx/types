@@ -34,7 +34,10 @@ AdminAccessBase & {
   location: XmlElem<string | null>;
   /** Формат материала */
   format_id: XmlElem<string | null, typeof common.material_format_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default available
+   */
   state_id: XmlElem<string | null, typeof common.availability_states>;
   /** Текущая страница */
   current_page_id: XmlElem<string | null>;
@@ -47,8 +50,8 @@ AdminAccessBase & {
   /** Дата возврата */
   return_date: XmlElem<Date | null>;
   change_logs: XmlMultiElem<LibraryMaterialItemDocumentChangeLog | null>;
-  clear_data(sourceTopElem: unknown): unknown;
-  add_log_record(materialItemTopElem: unknown): unknown;
+  clear_data(sourceTopElem: XmlTopElem): unknown;
+  add_log_record(materialItemTopElem: XmlTopElem): unknown;
 };
 
 type LibraryMaterialItemDocument = XmlDocument & {

@@ -1,7 +1,9 @@
 interface PersonObjectLinkDocumentObject {
   object_id: XmlElem<number | null>;
   object_name: XmlElem<string | null>;
+  /** @default false */
   can_edit: XmlElem<boolean>;
+  /** @default false */
   can_delete: XmlElem<boolean>;
   /** Уровень доступа */
   access_level: XmlElem<number | null>;
@@ -20,12 +22,21 @@ type PersonObjectLinkDocumentTopElem = XmlTopElem & {
   object_catalog: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Заголовок */
   title(): string;
-  /** Может создавать */
+  /**
+   * Может создавать
+   * @default false
+   */
   all_can_create: XmlElem<boolean>;
   amount: XmlElem<number | null>;
-  /** Может редактировать */
+  /**
+   * Может редактировать
+   * @default false
+   */
   all_can_edit: XmlElem<boolean>;
-  /** Может удалять */
+  /**
+   * Может удалять
+   * @default false
+   */
   all_can_delete: XmlElem<boolean>;
   objects: XmlMultiElem<PersonObjectLinkDocumentObject | null>;
   /** Информация об объекте */

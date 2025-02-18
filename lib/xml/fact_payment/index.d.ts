@@ -8,12 +8,19 @@ CustomElemsBase & {
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Клиент */
   client_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Организация-партнер */
   agent_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Юридическое лицо (клиент) */
   client_legal: XmlElem<string | null>;
+  /** Юридическое лицо (поставщик) */
   provider_legal: XmlElem<string | null>;
+  /** Юридическое лицо (партнер) */
   agent_legal: XmlElem<string | null>;
+  /** Юридическое лицо (клиент) */
   client_legal_name: XmlElem<string | null>;
+  /** Юридическое лицо (поставщик) */
   provider_legal_name: XmlElem<string | null>;
+  /** Юридическое лицо (партнер) */
   agent_legal_name: XmlElem<string | null>;
   /** Валюта */
   cost_currency_type_id: XmlElem<string | null, typeof lists.currency_types>;

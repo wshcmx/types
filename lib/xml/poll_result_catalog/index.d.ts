@@ -31,6 +31,10 @@ AdminAccessBase & {
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   OnBuild(): void;
 };

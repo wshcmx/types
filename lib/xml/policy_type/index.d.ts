@@ -6,7 +6,10 @@ FileListBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Провайдер */
   provider: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   /** Описание */
   desc: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;

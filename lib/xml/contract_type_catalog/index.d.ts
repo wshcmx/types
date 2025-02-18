@@ -10,7 +10,10 @@ type ContractTypeCatalogDocumentTopElem = XmlTopElem & {
   prefix: XmlElem<string | null>;
   /** Суффикс приказа */
   suffix: XmlElem<string | null>;
-  /** Флаг использования установки во вновь формируемых приказах */
+  /**
+   * Флаг использования установки во вновь формируемых приказах
+   * @default false
+   */
   default_flag: XmlElem<boolean | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

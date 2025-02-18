@@ -21,18 +21,30 @@ WebVariablesBase & {
   web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
   /** Сайт */
   site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
-  /** Позиция в списке */
+  /**
+   * Позиция в списке
+   * @default 0
+   */
   weight: XmlElem<number>;
-  /** Включен */
+  /**
+   * Включен
+   * @default true
+   */
   is_enabled: XmlElem<boolean>;
   cache_static: XmlElem<string | null>;
   cache_dynamic: XmlElem<string | null>;
   cache_html: XmlElem<string | null>;
   cache_vars: XmlElem<string | null>;
   cache_refresh: XmlElem<boolean | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
@@ -40,7 +52,7 @@ WebVariablesBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   comment: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type OverrideWebTemplateDocument = XmlDocument & {

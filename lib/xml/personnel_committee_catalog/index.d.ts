@@ -15,6 +15,10 @@ AdminAccessBase & {
   career_reserve_type_id: XmlElem<number | null, CareerReserveTypeCatalogDocumentTopElem>;
   /** Статус */
   status: XmlElem<string | null, typeof common.personnel_committee_status_types>;
+  /**
+   * Статус состава участников
+   * @default not_confirmed
+   */
   participants_status: XmlElem<string, typeof common.committee_member_status_types>;
   /** Дата создания */
   creation_date: XmlElem<Date | null>;
@@ -27,6 +31,6 @@ AdminAccessBase & {
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

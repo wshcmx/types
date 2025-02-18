@@ -11,12 +11,18 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Дата загрузки */
   download_date: XmlElem<Date | null>;
+  /** @default false */
   is_download: XmlElem<boolean | null>;
+  /** @default false */
   is_install: XmlElem<boolean | null>;
   type_id: XmlElem<string | null, typeof common.access_block_types>;
   component_modification_date: XmlElem<Date | null>;
+  /** @default false */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Пакет (*.zip) */
   download_package_file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;

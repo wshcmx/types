@@ -2,7 +2,10 @@ type GoodInstanceDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 PersonFillingBase & {
   Doc: GoodInstanceDocument;
-  /** Статус */
+  /**
+   * Статус
+   * @default in_stock
+   */
   status: XmlElem<string, typeof common.good_instance_status_types>;
   /** Товар */
   good_id: XmlElem<number | null, GoodCatalogDocumentTopElem>;
@@ -19,6 +22,8 @@ PersonFillingBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   clear_status(): unknown;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type GoodInstanceDocument = XmlDocument & {

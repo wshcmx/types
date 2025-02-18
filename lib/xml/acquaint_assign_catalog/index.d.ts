@@ -12,15 +12,24 @@ type AcquaintAssignCatalogDocumentTopElem = XmlTopElem & {
   normative_date: XmlElem<Date | null>;
   /** Дата ознакомления */
   finish_date: XmlElem<Date | null>;
-  /** Периодичность повторного обновления в днях */
+  /**
+   * Периодичность повторного обновления в днях
+   * @default 0
+   */
   reacquaintance_period: XmlElem<number>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Ознакомление */
   acquaint_id: XmlElem<number | null, AcquaintCatalogDocumentTopElem>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default 0
+   */
   state_id: XmlElem<string | null, typeof common.acquaint_states>;
-  /** Количество попыток */
+  /**
+   * Количество попыток
+   * @default 0
+   */
   attempt_num: XmlElem<number>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

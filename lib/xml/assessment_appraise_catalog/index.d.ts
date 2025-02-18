@@ -7,11 +7,20 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Статус */
   status: XmlElem<string | null, typeof common.assessment_appraise_statuses>;
-  /** Является эталонной */
+  /**
+   * Является эталонной
+   * @default false
+   */
   is_model: XmlElem<boolean>;
-  /** Просмотр результатов */
+  /**
+   * Просмотр результатов
+   * @default true
+   */
   web_display: XmlElem<boolean>;
-  /** Объект хранения статуса */
+  /**
+   * Объект хранения статуса
+   * @default true
+   */
   flag_use_plan: XmlElem<boolean>;
   /** Игнорировать присутствие */
   ignore_presence: XmlElem<boolean | null>;
@@ -25,15 +34,25 @@ AdminAccessBase & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Документооборот */
   workflow_id: XmlElem<number | null, WorkflowCatalogDocumentTopElem>;
-  /** Оцениваемые */
+  /**
+   * Оцениваемые
+   * @default false
+   */
   is_visible_auditorys: XmlElem<boolean>;
+  /** @default false */
   is_visible_evaluatings: XmlElem<boolean>;
-  /** Эксперты */
+  /**
+   * Эксперты
+   * @default false
+   */
   is_visible_experts: XmlElem<boolean>;
-  /** Способ отображения */
+  /**
+   * Способ отображения
+   * @default 1
+   */
   player: XmlElem<number>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

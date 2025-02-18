@@ -10,7 +10,10 @@ type ChangeDocumentTopElem = XmlTopElem & {
   person_fullname: XmlElem<string | null>;
   /** Объект */
   object_id: XmlElem<number | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default document
+   */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Имя объекта */
   object_name: XmlElem<string | null>;
@@ -20,6 +23,8 @@ type ChangeDocumentTopElem = XmlTopElem & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type ChangeDocument = XmlDocument & {

@@ -18,7 +18,10 @@ type EventAssessmentPlanCatalogDocumentTopElem = XmlTopElem & {
   expert_person_position_name: XmlElem<string | null>;
   /** Дата */
   date_start: XmlElem<Date | null>;
-  /** Признак завершенности */
+  /**
+   * Признак завершенности
+   * @default false
+   */
   is_done: XmlElem<boolean>;
   /** Тип оценки */
   assessment_type: XmlElem<string | null>;

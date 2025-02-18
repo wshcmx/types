@@ -4,11 +4,17 @@ interface OrderDocumentGoodGoodInstance {
   name: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Стоимость */
+  /**
+   * Стоимость
+   * @default 0.0
+   */
   cost: XmlElem<number>;
   /** Дата резервирования */
   reserved_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default in_stock
+   */
   status: XmlElem<string, typeof common.good_instance_status_types>;
   /** Заявка */
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
@@ -20,18 +26,33 @@ interface OrderDocumentGood {
   name: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Количество */
+  /**
+   * Количество
+   * @default 0
+   */
   number: XmlElem<number>;
   /** Дата резервирования */
   reserved_date: XmlElem<Date | null>;
   good_instances: XmlMultiElem<OrderDocumentGoodGoodInstance | null>;
+  /** @default unlimit */
   delivery_type: XmlElem<string, typeof common.delivery_types>;
-  /** Стоимость */
+  /**
+   * Стоимость
+   * @default 0.0
+   */
   cost: XmlElem<number>;
   /** Общая стоимость */
   sum(): number;
+  /**
+   * @temp
+   * @default true
+   */
+  hier_expanded: XmlElem<boolean | null>;
   add_good_instance(goodInstanceId: number): unknown;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
   /** Заявка */
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
@@ -47,7 +68,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

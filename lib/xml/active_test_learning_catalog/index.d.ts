@@ -26,7 +26,9 @@ AdminAccessBase & {
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
   /** Группа */
   group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
+  /** Предпочтительный проктор */
   proctor_prefer_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Ссылка на внешнюю сессию тестирования */
   testing_link: XmlElem<string | null>;
   /** Дата активации */
   start_usage_date: XmlElem<Date | null>;
@@ -38,10 +40,17 @@ AdminAccessBase & {
   max_end_date: XmlElem<Date | null>;
   /** Баллы */
   score: XmlElem<number | null>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Время модуля */
   time: XmlElem<number | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   /** Назначен самостоятельно */
   is_self_enrolled: XmlElem<boolean | null>;

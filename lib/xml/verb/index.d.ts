@@ -4,6 +4,7 @@ type VerbDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Обрабатывать данные */
   processed: XmlElem<boolean | null>;
   /** Ссылка на файл выполняемого кода */
   processing_code_url: XmlElem<string | null>;
@@ -12,7 +13,10 @@ type VerbDocumentTopElem = XmlTopElem & {
   code_process(): void;
   /** Является системным */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;

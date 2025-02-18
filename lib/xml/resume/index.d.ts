@@ -51,10 +51,13 @@ interface ResumeDocumentEducation {
   education_type_id: XmlElem<number | null, EducationTypeCatalogDocumentTopElem>;
   /** Форма обучения */
   form: XmlElem<number | null, EducationFormCatalogDocumentTopElem>;
+  /** Способ получения образования */
   mode: XmlElem<number | null, EducationModeCatalogDocumentTopElem>;
   /** Дата окончания */
   date: XmlElem<number | null>;
+  /** Тип профессиональной области */
   professional_area_type_id: XmlElem<number | null, ProfessionalAreaTypeCatalogDocumentTopElem>;
+  /** Специальность по диплому */
   professional_area_id: XmlElem<number | null, ProfessionalAreaCatalogDocumentTopElem>;
   /** Родительский элемент */
   parent_id: XmlElem<number | null, ProfessionalAreaCatalogDocumentTopElem>;
@@ -97,6 +100,11 @@ interface ResumeDocumentLng {
   level: XmlElem<number | null, typeof common.language_levels>;
 }
 
+interface ResumeDocumentView extends DescBase {
+  /** @temp */
+  person_id: XmlElem<number | null>;
+}
+
 type ResumeDocumentTopElem = XmlTopElem &
 MsPersonSdBase &
 FileListBase &
@@ -110,13 +118,22 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Ресурс базы */
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
-  /** Является кандидатом */
+  /**
+   * Является кандидатом
+   * @default false
+   */
   is_candidate: XmlElem<boolean>;
   /** Оценивающий */
   creator_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & MsPersonSdInnerBase;
-  /** Запретить удаление резюме на Портале */
+  /**
+   * Запретить удаление резюме на Портале
+   * @default false
+   */
   forbid_portal_delete: XmlElem<boolean>;
-  /** Тип заполнения */
+  /**
+   * Тип заполнения
+   * @default usual
+   */
   filling_type: XmlElem<string>;
   /** Пол */
   sex: XmlElem<string | null>;
@@ -150,6 +167,7 @@ CustomElemsBase & {
   profession_area_id: XmlElem<string | null, typeof lists.professional_areas>;
   /** Профессиональная область */
   profession_id: XmlElem<number | null, ProfessionalAreaCatalogDocumentTopElem>;
+  /** Специальность по диплому */
   professional_area_type_id: XmlElem<string | null, ProfessionalAreaTypeCatalogDocumentTopElem>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
@@ -163,8 +181,14 @@ CustomElemsBase & {
   vacancy_source_id: XmlElem<number | null, VacancySourceCatalogDocumentTopElem>;
   /** Стаж */
   exp_years: XmlElem<number | null>;
+  /** Готовность к командировкам */
   willingness_travel_type_id: XmlElem<string | null, typeof common.willingness_travel_types>;
+  /**
+   * Готовность к переезду
+   * @default false
+   */
   is_willing_relocate: XmlElem<boolean>;
+  /** Предпочтительные регионы переезда */
   relocate_name: XmlElem<string | null>;
   children_num: XmlElem<number | null>;
   /** Образование */
@@ -173,7 +197,10 @@ CustomElemsBase & {
   education_type_id: XmlElem<number | null, EducationTypeCatalogDocumentTopElem>;
   /** Требуемые навыки */
   skills: XmlMultiElem<ResumeDocumentSkill | null>;
-  /** Архив */
+  /**
+   * Архив
+   * @default false
+   */
   is_archive: XmlElem<boolean>;
   /** Профессиональный опыт */
   work_experiences: XmlMultiElem<ResumeDocumentWorkExperience | null>;
@@ -198,6 +225,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ResumeDocumentView | null>;
 };
 
 type ResumeDocument = XmlDocument & {

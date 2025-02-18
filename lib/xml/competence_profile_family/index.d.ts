@@ -2,6 +2,14 @@ interface CompetenceProfileFamilyDocumentCompetenceProfile {
   competence_profile_id: XmlElem<number | null, CompetenceProfileCatalogDocumentTopElem>;
 }
 
+interface CompetenceProfileFamilyDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type CompetenceProfileFamilyDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   Doc: CompetenceProfileFamilyDocument;
@@ -15,6 +23,8 @@ AdminAccessBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<CompetenceProfileFamilyDocumentView | null>;
 };
 
 type CompetenceProfileFamilyDocument = XmlDocument & {

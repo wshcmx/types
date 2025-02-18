@@ -14,7 +14,10 @@ interface KpiDocumentOwner extends PersonFillingBase {
 
 interface KpiDocumentResponsiblePerson extends PersonFillingBase {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
@@ -24,7 +27,10 @@ interface KpiDocumentResponsibleGroup {
   group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
   /** Название */
   group_name: XmlElem<string | null>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
@@ -34,7 +40,10 @@ interface KpiDocumentResponsibleStaff {
   staff_position_id: XmlElem<number | null, StaffPositionCatalogDocumentTopElem>;
   /** Название */
   staff_position_name: XmlElem<string | null>;
-  /** Является непосредственным руководителем */
+  /**
+   * Является непосредственным руководителем
+   * @default false
+   */
   is_native: XmlElem<boolean>;
   /** Тип руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
@@ -42,13 +51,28 @@ interface KpiDocumentResponsibleStaff {
 
 interface KpiDocumentCustomDataColumn {
   title: XmlElem<string | null>;
+  /** @default string */
   type: XmlElem<string, typeof common.spxml_types>;
 }
 
 interface KpiDocumentCustomData {
+  /** @default false */
   on: XmlElem<boolean>;
   columns: XmlMultiElem<KpiDocumentCustomDataColumn | null>;
   custom_data_formula: XmlElem<string | null>;
+}
+
+interface KpiDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /**
+   * @temp
+   * @default false
+   */
+  flag_bad_formula: XmlElem<boolean>;
 }
 
 type KpiDocumentTopElem = XmlTopElem &
@@ -62,9 +86,14 @@ KnowledgePartsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default auto
+   */
   type: XmlElem<string | null, typeof common.kpi_types>;
+  /** @default active */
   status: XmlElem<string, typeof common.kpi_states>;
+  /** @default true */
   is_kpi: XmlElem<boolean>;
   /** KPI */
   parent_object_id: XmlElem<number | null, KpiCatalogDocumentTopElem>;
@@ -75,6 +104,7 @@ KnowledgePartsBase & {
   /** Максимальное значение */
   range_max: XmlElem<number | null>;
   norma: XmlElem<number | null>;
+  /** @default avg */
   calc_type: XmlElem<string, typeof common.kpi_calc_types>;
   /** Формула */
   formula_id: XmlElem<number | null, FormulaCatalogDocumentTopElem>;
@@ -86,14 +116,22 @@ KnowledgePartsBase & {
   owners: XmlMultiElem<KpiDocumentOwner | null>;
   /** Ответственные сотрудники */
   responsible_persons: XmlMultiElem<KpiDocumentResponsiblePerson | null>;
+  /** Группы... */
   responsible_groups: XmlMultiElem<KpiDocumentResponsibleGroup | null>;
+  /** Позиции штатного расписания... */
   responsible_staffs: XmlMultiElem<KpiDocumentResponsibleStaff | null>;
   /** Формула */
   auto_formula: XmlElem<string | null>;
   load_formula: XmlElem<string | null>;
-  /** Источник премирования */
+  /**
+   * Источник премирования
+   * @default false
+   */
   is_bonus_source: XmlElem<boolean>;
-  /** Глобальный показатель */
+  /**
+   * Глобальный показатель
+   * @default false
+   */
   is_global: XmlElem<boolean>;
   /** Единица измерения */
   unit_of_measurement: XmlElem<string | null>;
@@ -108,8 +146,10 @@ KnowledgePartsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   disp_block: XmlElem<MsDispBlockBase | null>;
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<KpiDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type KpiDocument = XmlDocument & {

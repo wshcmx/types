@@ -6,7 +6,10 @@ AdminAccessBase & {
   assignment_date: XmlElem<Date | null>;
   /** Дата истечения */
   expiration_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default assigned
+   */
   status: XmlElem<string, typeof common.qualification_assignment_states>;
   /** Квалификация */
   qualification_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
@@ -20,6 +23,7 @@ AdminAccessBase & {
   reason: XmlElem<string | null>;
   /** Мероприятие */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
+  /** Является наградой */
   is_reward: XmlElem<boolean | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

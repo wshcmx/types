@@ -1,6 +1,6 @@
 interface GroupDocumentCollaborator extends PersonForeignBase {
   collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  collaborator_fullname(): unknown;
+  collaborator_fullname(): string;
   position_id: XmlMultiElemObject<number | null, PositionCatalogDocumentTopElem>;
   /** Должности */
   position_position_names(): unknown;
@@ -11,8 +11,16 @@ interface GroupDocumentKpiProfile {
   /** Профиль KPI */
   id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
   period_type_id: XmlElem<string | null, typeof common.perioditys>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
+}
+
+interface GroupDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
 }
 
 type GroupDocumentTopElem = XmlTopElem &
@@ -27,21 +35,39 @@ KnowledgePartsBaseOld &
 ViewConditionsBase &
 PersonObjectLinksBase & {
   Doc: GroupDocument;
-  /** Показывать подробную информациюна портале */
+  /**
+   * Показывать подробную информациюна портале
+   * @default false
+   */
   show_detailed: XmlElem<boolean | null>;
-  /** Является динамической */
+  /**
+   * Является динамической
+   * @default false
+   */
   is_dynamic: XmlElem<boolean>;
-  /** Является учебной */
+  /**
+   * Является учебной
+   * @default false
+   */
   is_educ: XmlElem<boolean>;
-  /** Скрытая группа */
+  /**
+   * Скрытая группа
+   * @default false
+   */
   is_hidden: XmlElem<boolean>;
-  /** Возможно оставлять сообщения на ленту */
+  /**
+   * Возможно оставлять сообщения на ленту
+   * @default false
+   */
   allow_social_post: XmlElem<boolean>;
-  /** По должности */
+  /**
+   * По должности
+   * @default false
+   */
   is_position: XmlElem<boolean>;
   /** Сотрудники */
   collaborators: XmlMultiElem<GroupDocumentCollaborator | null>;
-  person_num(): number;
+  person_num(): unknown;
   /** Форум */
   forum_id: XmlElem<number | null, ForumCatalogDocumentTopElem>;
   /** Профиль KPI */
@@ -49,8 +75,12 @@ PersonObjectLinksBase & {
   kpi_profiles: XmlMultiElem<GroupDocumentKpiProfile | null>;
   /** Профиль премирования */
   bonus_profile_id: XmlElem<number | null, BonusProfileCatalogDocumentTopElem>;
+  /** Тип графика */
   schedule_type_id: XmlElem<number | null, ScheduleTypeCatalogDocumentTopElem>;
-  /** Тип вступления */
+  /**
+   * Тип вступления
+   * @default close
+   */
   join_mode: XmlElem<string, typeof common.join_mode_types>;
   /** Тип заявки по умолчанию */
   default_request_type_id: XmlElem<number | null, RequestTypeCatalogDocumentTopElem>;
@@ -62,13 +92,15 @@ PersonObjectLinksBase & {
   access: XmlElem<AccessDocBase | null>;
   /** Описание */
   desc: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<GroupDocumentView | null>;
   dynamic_select_person(clearList: unknown): unknown;
   start_action(itemName: unknown): number;
   activateCourseToPersons(input: unknown): unknown;
   add_collaborator(personId: number, docPerson: unknown): unknown;
   remove_collaborator(personId: number): unknown;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type GroupDocument = XmlDocument & {

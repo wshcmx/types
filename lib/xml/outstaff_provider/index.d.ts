@@ -1,3 +1,8 @@
+interface OutstaffProviderDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type OutstaffProviderDocumentTopElem = XmlTopElem &
 OrgBase &
 AdminAccessBase &
@@ -18,6 +23,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<OutstaffProviderDocumentView | null>;
 };
 
 type OutstaffProviderDocument = XmlDocument & {

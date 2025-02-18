@@ -1,22 +1,35 @@
 interface PersonalAssistantDocumentChatbotsBlockChatbot {
-  chatbot_id: XmlElem<number, ChatbotCatalogDocumentTopElem>;
+  /** Чат-бот */
+  chatbot_id: XmlElem<number | null, ChatbotCatalogDocumentTopElem>;
 }
 
 interface PersonalAssistantDocumentChatbotsBlock {
-  chatbots: XmlMultiElem<PersonalAssistantDocumentChatbotsBlockChatbot>;
+  /** Чат-боты */
+  chatbots: XmlMultiElem<PersonalAssistantDocumentChatbotsBlockChatbot | null>;
 }
 
 type PersonalAssistantDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 PersonFillingBase & {
   Doc: PersonalAssistantDocument;
+  /**
+   * Активное уведомление
+   * @default true
+   */
   is_enabled: XmlElem<boolean>;
-  person_id: XmlElem<number, CollaboratorCatalogDocumentTopElem>;
-  sex: XmlElem<string>;
-  chatbots_block: XmlElem<PersonalAssistantDocumentChatbotsBlock>;
-  comment: XmlElem<string>;
-  doc_info: XmlElem<DocInfoBase>;
-  access: XmlElem<AccessDocBase>;
+  /** Сотрудник */
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Пол */
+  sex: XmlElem<string | null>;
+  chatbots_block: XmlElem<PersonalAssistantDocumentChatbotsBlock | null>;
+  /** Комментарий */
+  comment: XmlElem<string | null>;
+  /** Информация об объекте */
+  doc_info: XmlElem<DocInfoBase | null>;
+  /** Доступ */
+  access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<unknown | null>;
 };
 
 type PersonalAssistantDocument = XmlDocument & {

@@ -1,3 +1,13 @@
+interface CustomAdminTemplateDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @default true */
+  form_name_correct: XmlElem<boolean | null>;
+}
+
 type CustomAdminTemplateDocumentTopElem = XmlTopElem &
 ExecCodeBase &
 WebVariablesBase & {
@@ -17,12 +27,22 @@ WebVariablesBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Измененный */
+  /** @temp */
+  view: XmlElem<CustomAdminTemplateDocumentView | null>;
+  /** @temp */
+  converter: XmlElem<boolean | null>;
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type CustomAdminTemplateDocument = XmlDocument & {

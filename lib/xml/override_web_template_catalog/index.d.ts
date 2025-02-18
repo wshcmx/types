@@ -21,15 +21,22 @@ type OverrideWebTemplateCatalogDocumentTopElem = XmlTopElem & {
   site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
   /** Позиция в списке */
   weight: XmlElem<number | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Включен */
   is_enabled: XmlElem<boolean | null>;
+  /** Количество переменных */
   wvars_num: XmlElem<number | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

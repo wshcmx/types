@@ -6,7 +6,7 @@ declare namespace tools_library {
   function word_to_html(fileUrl: string, useCutter: boolean, setTags: boolean): unknown;
   function pdf_to_html(fileUrl: string, useCutter: boolean, setTags: boolean): unknown;
   function convert_to_simple_html(htmlText: string, sourceFile: string, applyGlobalCutter: boolean, setTags: boolean): unknown;
-  function get_article_html(articleId: number, articleTopElem: unknown, flush: boolean): unknown;
+  function get_article_html(articleId: number, articleTopElem: XmlTopElem, flush: boolean): unknown;
   function heal_html(partProcess: string, objRegExpRef: unknown): unknown;
   function slice_pages(symbolLength: number, fatText: string): unknown;
   function slice_by_global_cutter(fatHtml: string): unknown;
@@ -14,10 +14,11 @@ declare namespace tools_library {
   function unravel_class(className: string, tagName: string, classes: string): unknown;
   function preprocess_html(aHtmlParts: unknown): unknown;
   function ui_pack_import(): unknown;
-  function old_import_book_from_word(bookId: number, fileUrl: unknown): unknown;
-  function GetLibraryObjectsList(rootId: number, personId: number, session: unknown, sectionSortField: string, curLngId: number, addAll: unknown, extrafields: unknown): unknown;
+  function old_import_book_from_word(bookId: number, fileUrl: string): unknown;
+  function GetLibraryObjectsList(rootId: number, personId: number, session: Session, sectionSortField: string, curLngId: string, addAll: unknown, extrafields: unknown): unknown;
   function convert_pdf_libratry_material(materialId: number): unknown;
   function check_cmi5_support(objectId: number): unknown;
   function append_path(folder: string, path: string): unknown;
   function convert_mp4_to_m3u(srcResId: number): unknown;
+  let KurentoClient: XmlElem<unknown | null>;
 }

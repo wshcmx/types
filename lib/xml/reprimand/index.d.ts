@@ -1,3 +1,11 @@
+interface ReprimandDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type ReprimandDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: ReprimandDocument;
@@ -13,6 +21,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ReprimandDocumentView | null>;
 };
 
 type ReprimandDocument = XmlDocument & {

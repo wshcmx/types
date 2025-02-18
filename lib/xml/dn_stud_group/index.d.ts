@@ -2,6 +2,11 @@ interface DnStudGroupDocumentSubfaculty {
   subfac_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
 }
 
+interface DnStudGroupDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnStudGroupDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -11,7 +16,10 @@ CustomElemsBase & {
   /** Название */
   name: XmlElem<string | null>;
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default activ
+   */
   status_id: XmlElem<string | null, typeof common.stud_group_states>;
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
   special_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;
@@ -24,6 +32,8 @@ CustomElemsBase & {
   group_size: XmlElem<number | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnStudGroupDocumentView | null>;
 };
 
 type DnStudGroupDocument = XmlDocument & {

@@ -1,11 +1,23 @@
 type ChatbotTypeCatalogDocumentTopElem = XmlTopElem & {
-  id: XmlElem<number>;
-  code: XmlElem<string>;
-  name: XmlElem<string>;
-  script_url: XmlElem<string>;
+  id: XmlElem<number | null>;
+  /** Код */
+  code: XmlElem<string | null>;
+  /** Название */
+  name: XmlElem<string | null>;
+  script_url: XmlElem<string | null>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
-  modification_date: XmlElem<Date>;
-  app_instance_id: XmlElem<string>;
+  /** Дата модификации */
+  modification_date: XmlElem<Date | null>;
+  /** Код сервера */
+  app_instance_id: XmlElem<string | null>;
   OnBuild(): void;
 };

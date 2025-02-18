@@ -3,13 +3,24 @@ ObjectTypeBase & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.substitution_status_types>;
+  /** Тип замещения */
   substitution_type_id: XmlElem<number | null, SubstitutionTypeCatalogDocumentTopElem>;
+  /** Тип целевого объекта */
   target_object_type: XmlElem<string | null>;
+  /** Список целевых объектов */
   target_object_selector: XmlElem<string | null>;
   target_object_id: XmlMultiElemObject<number | null>;
+  /** Нестандартные права (строка или JSON с информацией о правах) */
   data_str: XmlElem<string | null>;
+  /**
+   * Выбор сотрудников
+   * @default person
+   */
   person_selector: XmlElem<string | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

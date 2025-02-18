@@ -8,6 +8,7 @@ interface WorkflowDocumentFieldGroup {
 interface WorkflowDocumentAction extends WorkflowElemOperationsBase, ConditionsBase {
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;
+  /** явл¤етс¤ триггером */
   is_trigger: XmlElem<boolean | null>;
 }
 
@@ -36,8 +37,11 @@ interface WorkflowDocumentEscalation extends WorkflowElemOperationsBase {
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;
   workflow_state_id: XmlElem<string | null>;
+  /** @default true */
   auto_escalation: XmlElem<boolean>;
+  /** @default true */
   auto_escalation_by_end_date: XmlElem<boolean>;
+  /** @default 0 */
   auto_escalation_days: XmlElem<number>;
   auto_escalation_repeat: XmlElem<boolean | null>;
   escalation_eval_str: XmlElem<string | null>;
@@ -55,13 +59,22 @@ interface WorkflowDocumentTuneFieldTuneFieldChain {
   path: XmlElem<string | null>;
   catalog_name: XmlElem<string | null>;
   type: XmlElem<string | null>;
+  /** @default false */
   is_multiple: XmlElem<boolean | null>;
   pk: XmlElem<string | null>;
   value: XmlElem<string | null>;
 }
 
 interface WorkflowDocumentTuneField {
-  tune_field_chain: XmlElem<WorkflowDocumentTuneFieldTuneFieldChain | null>;
+  tune_field_chain: XmlMultiElemObject<WorkflowDocumentTuneFieldTuneFieldChain | null>;
+}
+
+interface WorkflowDocumentView {
+  /**
+   * @temp
+   * @default true
+   */
+  disp_add: XmlElem<boolean>;
 }
 
 type WorkflowDocumentTopElem = XmlTopElem &
@@ -74,23 +87,32 @@ WorkflowFieldsStatesBase & {
   add_conditions: XmlElem<ConditionsBase | null>;
   field_groups: XmlMultiElem<WorkflowDocumentFieldGroup | null>;
   actions: XmlMultiElem<WorkflowDocumentAction | null>;
+  /** Содержит триггеры */
   use_triggers(): boolean;
   /** Эскалации заявки */
   escalations: XmlMultiElem<WorkflowDocumentEscalation | null>;
   default_state: XmlElem<string | null>;
   default_action: XmlElem<string | null>;
+  /** @default true */
   auto_submit_fields: XmlElem<boolean>;
   comment: XmlElem<string | null>;
+  /** @default assessment_appraise */
   destination_object_name: XmlElem<string | null, typeof common.exchange_object_types>;
   tune_fields: XmlMultiElem<WorkflowDocumentTuneField | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   doc_info: XmlElem<DocInfoBase | null>;
   run_action(action: string): void;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type WorkflowDocument = XmlDocument & {

@@ -24,7 +24,10 @@ CustomElemsBase & {
   delivery_date: XmlElem<Date | null>;
   /** Истекает */
   expire_date: XmlElem<Date | null>;
-  /** Действителен */
+  /**
+   * Действителен
+   * @default true
+   */
   valid: XmlElem<boolean>;
   /** Подписан */
   signed_by_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -34,9 +37,11 @@ CustomElemsBase & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  update_expire_date(): void;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
+  update_expire_date(): unknown;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type CertificateDocument = XmlDocument & {

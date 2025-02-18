@@ -12,6 +12,7 @@ AdminAccessBase & {
   number: XmlElem<string | null>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Организация клиента */
   client_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Проект */
   project_id: XmlElem<number | null, ProjectCatalogDocumentTopElem>;

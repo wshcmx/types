@@ -11,7 +11,8 @@ AdminAccessBase & {
   /** Тэги */
   tag_id: XmlMultiElemObject<number | null, TagCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /** Платформа */
   platform: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

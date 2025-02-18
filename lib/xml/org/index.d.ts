@@ -2,8 +2,21 @@ interface OrgDocumentKpiProfile {
   /** Профиль KPI */
   id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
   period_type_id: XmlElem<string | null, typeof common.perioditys>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
+}
+
+interface OrgDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default false
+   */
+  do_update_document_persons: XmlElem<boolean>;
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
 }
 
 type OrgDocumentTopElem = XmlTopElem &
@@ -22,7 +35,7 @@ CustomElemsBase & {
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
   /** Язык веб интерфейса */
-  lng_id: XmlElem<string | null>;
+  lng_id: XmlElem<string | null, LngCatalogDocumentTopElem>;
   /** Расположение файлов учебных материалов */
   location_id: XmlElem<string | null, typeof lists.locations>;
   /** Расположение */
@@ -33,9 +46,15 @@ CustomElemsBase & {
   access_time_start: XmlElem<string | null>;
   /** Время доступа по */
   access_time_end: XmlElem<string | null>;
-  /** Показывать подробную информацию */
+  /**
+   * Показывать подробную информацию
+   * @default true
+   */
   show_detailed: XmlElem<boolean | null>;
-  /** Показывать информацию о дочерних подразделениях */
+  /**
+   * Показывать информацию о дочерних подразделениях
+   * @default false
+   */
   show_children: XmlElem<boolean | null>;
   /** Профиль KPI */
   kpi_profile_id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
@@ -48,9 +67,28 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<OrgDocumentView | null>;
+  /** @temp */
+  rows: XmlElem<unknown | null>;
+  /**
+   * @temp
+   * @default fullname
+   */
+  row_disp_elem: XmlElem<string>;
+  /**
+   * @temp
+   * @default .Env.ListElem
+   */
+  row_list_field: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default .PrimaryKey
+   */
+  row_key_field: XmlElem<string | null>;
   start_action(type: string): number;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type OrgDocument = XmlDocument & {

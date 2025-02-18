@@ -4,7 +4,10 @@ type CustomReportCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default exchange_object_types
+   */
   object_name_type: XmlElem<string>;
   /** Объект */
   object_name: XmlElem<string | null>;

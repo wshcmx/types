@@ -3,7 +3,10 @@ ObjectCodeNameBase &
 QaTestParamBase &
 QaTestAssertBase & {
   Doc: QaTestParamsetDocument;
-  /** Статус */
+  /**
+   * Статус
+   * @default project
+   */
   status: XmlElem<string, typeof common.qa_test_states>;
   /** Комментарий */
   comment: XmlElem<string | null>;

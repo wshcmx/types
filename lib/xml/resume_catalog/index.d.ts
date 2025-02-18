@@ -26,9 +26,15 @@ AdminAccessBase & {
   creator_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Сотрудник, заполнивший резюме */
   creator_person_fullname: XmlElem<string | null>;
-  /** Запретить удаление резюме на Портале */
+  /**
+   * Запретить удаление резюме на Портале
+   * @default false
+   */
   forbid_portal_delete: XmlElem<boolean>;
-  /** Тип заполнения */
+  /**
+   * Тип заполнения
+   * @default usual
+   */
   filling_type: XmlElem<string>;
   /** Зарплата от */
   min_wage: XmlElem<number | null>;
@@ -54,15 +60,26 @@ AdminAccessBase & {
   vacancy_source_id: XmlElem<number | null, VacancySourceCatalogDocumentTopElem>;
   /** Стаж */
   exp_years: XmlElem<number | null>;
+  /** Готовность к командировкам */
   willingness_travel_type_id: XmlElem<string | null, typeof common.willingness_travel_types>;
+  /**
+   * Готовность к переезду
+   * @default false
+   */
   is_willing_relocate: XmlElem<boolean>;
   /** ID уровня образования */
   main_educ_type_id: XmlElem<string | null, typeof common.educ_types>;
   /** Уровень образования */
   education: XmlElem<string | null>;
-  /** Архив */
+  /**
+   * Архив
+   * @default false
+   */
   is_archive: XmlElem<boolean>;
-  /** Является кандидатом */
+  /**
+   * Является кандидатом
+   * @default false
+   */
   is_candidate: XmlElem<boolean>;
   lng_id: XmlMultiElemObject<string | null, typeof common.languages>;
   educ_type_id: XmlMultiElemObject<string | null, typeof common.expended_educ_types>;

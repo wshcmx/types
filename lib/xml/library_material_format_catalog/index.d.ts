@@ -5,7 +5,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default physical
+   */
   format_type_id: XmlElem<string | null, typeof common.material_format_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

@@ -1,59 +1,92 @@
 interface ChatbotChatDocumentMessage {
-  id: XmlElem<string>;
-  date: XmlElem<Date>;
-  text: XmlElem<string>;
-  last_chatbot_stage_id: XmlElem<number, ChatbotStageCatalogDocumentTopElem>;
-  next_chatbot_stage_id: XmlElem<number, ChatbotStageCatalogDocumentTopElem>;
+  id: XmlElem<string | null>;
+  /** Дата */
+  date: XmlElem<Date | null>;
+  /** Текст сообщения */
+  text: XmlElem<string | null>;
+  /** Предыдущий этап чат-бота */
+  last_chatbot_stage_id: XmlElem<number | null, ChatbotStageCatalogDocumentTopElem>;
+  /** Следующий этап чат-бота */
+  next_chatbot_stage_id: XmlElem<number | null, ChatbotStageCatalogDocumentTopElem>;
 }
 
 interface ChatbotChatDocumentTempValue {
-  id: XmlElem<string>;
-  value: XmlElem<string>;
+  id: XmlElem<string | null>;
+  value: XmlElem<string | null>;
 }
 
 interface ChatbotChatDocumentAimlData {
-  custom_chatbot_template_id: XmlElem<number, CustomChatbotTemplateCatalogDocumentTopElem>;
-  data: XmlElem<string>;
+  custom_chatbot_template_id: XmlElem<number | null, CustomChatbotTemplateCatalogDocumentTopElem>;
+  data: XmlElem<string | null>;
 }
 
 interface ChatbotChatDocumentEscalationWorkedEscalationStage {
-  escalation_id: XmlElem<string>;
+  escalation_id: XmlElem<string | null>;
 }
 
 interface ChatbotChatDocumentEscalation {
-  start_date: XmlElem<Date>;
-  escalation_date: XmlElem<Date>;
-  use_escalation: XmlElem<boolean>;
-  worked_escalation_stages: XmlMultiElem<ChatbotChatDocumentEscalationWorkedEscalationStage>;
+  /** Дата начала отсчета */
+  start_date: XmlElem<Date | null>;
+  /** Дата эскалации */
+  escalation_date: XmlElem<Date | null>;
+  /** Использовать эскалацию */
+  use_escalation: XmlElem<boolean | null>;
+  /** Отработанные сценарии эскалации */
+  worked_escalation_stages: XmlMultiElem<ChatbotChatDocumentEscalationWorkedEscalationStage | null>;
 }
 
 type ChatbotChatDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 CustomElemsBase & {
   Doc: ChatbotChatDocument;
-  id: XmlElem<number>;
-  code: XmlElem<string>;
-  name: XmlElem<string>;
-  resource_id: XmlElem<number, ResourceCatalogDocumentTopElem>;
-  bot_id: XmlElem<string>;
-  object_type: XmlElem<string, typeof common.exchange_object_types>;
-  object_id: XmlElem<number>;
-  chatbot_stage_id: XmlElem<number, ChatbotStageCatalogDocumentTopElem>;
-  chatbot_type_id: XmlElem<number, ChatbotTypeCatalogDocumentTopElem>;
-  chatbot_id: XmlElem<number, ChatbotCatalogDocumentTopElem>;
-  conversation_id: XmlElem<number, ConversationCatalogDocumentTopElem>;
-  state_id: XmlElem<string, typeof common.conversation_participant_states>;
-  lng_id: XmlElem<string>;
-  person_id: XmlElem<number, CollaboratorCatalogDocumentTopElem>;
-  json_string: XmlElem<string>;
-  messages: XmlMultiElem<ChatbotChatDocumentMessage>;
-  temp_values: XmlMultiElem<ChatbotChatDocumentTempValue>;
-  aiml_datas: XmlMultiElem<ChatbotChatDocumentAimlData>;
-  escalation: XmlElem<ChatbotChatDocumentEscalation>;
-  last_message_id: XmlElem<string>;
-  last_message_xml: XmlElem<string>;
-  doc_info: XmlElem<DocInfoBase>;
-  calculate_escalation_date(stageTopElem: unknown): boolean;
+  id: XmlElem<number | null>;
+  /** Код */
+  code: XmlElem<string | null>;
+  /** Название */
+  name: XmlElem<string | null>;
+  /** Ресурс базы */
+  resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
+  bot_id: XmlElem<string | null>;
+  /** Тип объекта */
+  object_type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Объект */
+  object_id: XmlElem<number | null>;
+  /** Этап чат-бота */
+  chatbot_stage_id: XmlElem<number | null, ChatbotStageCatalogDocumentTopElem>;
+  /** Тип чат-бота */
+  chatbot_type_id: XmlElem<number | null, ChatbotTypeCatalogDocumentTopElem>;
+  /** Чат-бот */
+  chatbot_id: XmlElem<number | null, ChatbotCatalogDocumentTopElem>;
+  /** Разговор */
+  conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
+  /**
+   * Статус
+   * @default active
+   */
+  state_id: XmlElem<string | null, typeof common.conversation_participant_states>;
+  /** Язык веб интерфейса */
+  lng_id: XmlElem<string | null, LngCatalogDocumentTopElem>;
+  /** Сотрудник */
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Json объект для хранения временных данных */
+  json_string: XmlElem<string | null>;
+  /** Время продолжения */
+  prolongation_date: XmlElem<Date | null>;
+  /** Действие эскалации */
+  escalation_action: XmlElem<string | null>;
+  /** Сообщения */
+  messages: XmlMultiElem<ChatbotChatDocumentMessage | null>;
+  temp_values: XmlMultiElem<ChatbotChatDocumentTempValue | null>;
+  /** AIML */
+  aiml_datas: XmlMultiElem<ChatbotChatDocumentAimlData | null>;
+  /** Эскалация */
+  escalation: XmlElem<ChatbotChatDocumentEscalation | null>;
+  last_message_id: XmlElem<string | null>;
+  /** Данные последнего сообщения пользователя в блоке */
+  last_bm_message: XmlElem<unknown | null>;
+  last_message_xml: XmlElem<string | null>;
+  doc_info: XmlElem<DocInfoBase | null>;
+  calculate_escalation_date(stageTopElem: XmlTopElem): unknown;
 };
 
 type ChatbotChatDocument = XmlDocument & {

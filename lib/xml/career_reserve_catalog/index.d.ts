@@ -25,8 +25,12 @@ AdminAccessBase & {
   personnel_reserve_id: XmlElem<number | null, PersonnelReserveCatalogDocumentTopElem>;
   /** Преемник */
   successor_id: XmlElem<number | null, SuccessorCatalogDocumentTopElem>;
+  /** Карьерный план */
   career_plan_id: XmlElem<number | null, CareerPlanCatalogDocumentTopElem>;
-  /** Тип развития */
+  /**
+   * Тип развития
+   * @default position
+   */
   position_type: XmlElem<string>;
   /** Цель */
   position_name: XmlElem<string | null>;
@@ -39,7 +43,7 @@ AdminAccessBase & {
   /** Типовая программа развития */
   development_programs_id: XmlMultiElemObject<number | null, TypicalDevelopmentProgramCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

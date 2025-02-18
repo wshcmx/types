@@ -1,3 +1,11 @@
+interface KnowledgeClassifierDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type KnowledgeClassifierDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: KnowledgeClassifierDocument;
@@ -16,6 +24,8 @@ CustomElemsBase & {
   access: XmlElem<AccessDocBase | null>;
   /** Описание */
   desc: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<KnowledgeClassifierDocumentView | null>;
 };
 
 type KnowledgeClassifierDocument = XmlDocument & {

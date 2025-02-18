@@ -1,3 +1,17 @@
+interface ExpertQuestionDocumentView extends DescBase {
+  /**
+   * @temp
+   * Классификатор
+   */
+  knowledge_classifier_id: XmlElem<number | null>;
+  /**
+   * @temp
+   * Сортировать по
+   * @default name
+   */
+  knowledge_sort_type_id: XmlElem<string | null>;
+}
+
 type ExpertQuestionDocumentTopElem = XmlTopElem &
 MsPersonSdBase &
 KnowledgePartsBase &
@@ -19,9 +33,15 @@ FileListBase & {
   answer_date: XmlElem<Date | null>;
   /** Эксперт */
   expert_id: XmlElem<number | null, ExpertCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default false
+   */
   status: XmlElem<boolean>;
-  /** Является часто задаваемым вопросом */
+  /**
+   * Является часто задаваемым вопросом
+   * @default false
+   */
   is_faq: XmlElem<boolean>;
   /** Отобразить вопрос в общем списке */
   is_disclosed: XmlElem<boolean>;
@@ -31,6 +51,8 @@ FileListBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ExpertQuestionDocumentView | null>;
   /** Файл */
   question_file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Файл */
