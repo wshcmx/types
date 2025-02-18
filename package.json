@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/umbrik/webtutor-types.git"
+    "url": "git+https://github.com/wshcmx/types.git"
   },
   "keywords": [
     "types",
@@ -27,9 +27,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/umbrik/webtutor-types/issues"
+    "url": "https://github.com/wshcmx/types/issues"
   },
-  "homepage": "https://github.com/umbrik/webtutor-types#readme",
+  "homepage": "https://github.com/wshcmx/types#readme",
   "devDependencies": {
     "@types/node": "^20.4.5",
     "@typescript-eslint/eslint-plugin": "^5.26.0",

@@ -1,9 +1,9 @@
 <h1 align="center">WT Types</h1>
 <div align="center">
   Typescript типы для WebSoft HCM.
-  
-  [![main](https://github.com/umbrik/webtutor-types/actions/workflows/main.check.yml/badge.svg)](https://github.com/umbrik/webtutor-types/actions/workflows/main.check.yml)
-  ![npm](https://img.shields.io/npm/dw/@umbrik/webtutor-types)
+
+  [![main](https://github.com/wshcmx/types/actions/workflows/main.check.yml/badge.svg)](https://github.com/wshcmx/types/actions/workflows/main.check.yml)
+  ![npm](https://img.shields.io/npm/dw/@wshcmx/types)
 </div>
 
 ## Зачем?
@@ -27,14 +27,14 @@
 
 ```bash
 npm i typescript@4.4.4 -D
-npm i @umbrik/webtutor-types -D
+npm i @wshcmx/types -D
 ```
 
 ### or yarn
 
 ```bash
 yarn add typescript@4.4.4 -D
-yarn add @umbrik/webtutor-types -D
+yarn add @wshcmx/types -D
 ```
 
 ## 🔨 Настройка
@@ -63,8 +63,8 @@ npx tsc -init
     "baseUrl": "src",
     "noLib": true,
     "typeRoots": [
-      "node_modules/@umbrik/webtutor-types/lib",
-      "node_modules/@umbrik/webtutor-types/lib/xml"
+      "node_modules/@wshcmx/types/lib",
+      "node_modules/@wshcmx/types/lib/xml"
     ]
   }
 }
