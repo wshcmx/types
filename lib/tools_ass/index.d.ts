@@ -1,6 +1,6 @@
 declare namespace tools_ass {
-  function assessment_person_filling(source: unknown, personId: number, personDoc: unknown): unknown;
-  function is_dismissed_by_id(personId: unknown): unknown;
+  function assessment_person_filling(source: unknown, personId: number, person: unknown): unknown;
+  function is_dismissed_by_id(personId: number): unknown;
   function pick_experts(aSSESSMENTId: number, uSERPERSONId: number, pARTICIPANT: unknown, iSHUMAN: unknown, lOG: unknown, iSCLEAN: unknown, nOTDISMISSED: unknown): unknown;
   function strip_workflow_from_assessment(cURSTATUS: unknown, cURTYPE: unknown): unknown;
   function generate_participant_by_plan(aSSESSMENTId: number, pARTICIPANTCODE: unknown, aSSESSMENTPLANId: number, eXPERTId: number, nEWPA: unknown): unknown;
@@ -19,7 +19,7 @@ declare namespace tools_ass {
   function get_workflow_state_parameter(cURSTATE: unknown, pARAMNAME: unknown): unknown;
   function readParametersV2(pARAMSTR: unknown, curPA: unknown): unknown;
   function generate_position_assessment_form(aSSESSMENTId: number): unknown;
-  function generate_assessment_plan(aSSESSMENTId: number, pLANONLY: unknown, iSCLEAN: unknown, kILL: unknown, fLOORBOUND: unknown, aCOUNT: unknown, gROUPId: number, aUDITORISIdS: unknown): unknown;
+  function generate_assessment_plan(aSSESSMENTId: number, pLANONLY: unknown, iSCLEAN: unknown, kILL: unknown, fLOORBOUND: unknown, aCOUNT: unknown, gROUPId: number, aUDITORISIdS: unknown, o: Object): unknown;
   function link_plans_and_pas(aSSESSMENTId: number): unknown;
   function create_event_assessment_plans(eventId: number): unknown;
   function generate_poll_procedure_result_card(pOLLPROCEDUREId: number, pOLLPROCEDUREDOC: unknown, pERSONId: number, pOLLId: number, pOLL: unknown, dONOTIFY: unknown): unknown;
@@ -28,5 +28,5 @@ declare namespace tools_ass {
   function manual_run_bonus_calc(): unknown;
   function run_bonus_calc(assessmentId: number, budgetPeriodId: number): unknown;
   function ui_set_competence_plan(selRows: unknown, flagMark: unknown): unknown;
-  function ass_create_notification(type: unknown, objectId: number): unknown;
+  function ass_create_notification(type: Object, objectId: number): unknown;
 }

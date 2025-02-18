@@ -1,5 +1,5 @@
 declare namespace tools_web {
-  function put_query_string(paramStr: unknown, pageName: unknown): unknown;
+  function put_query_string(str: string, pageName: unknown): unknown;
 
   /**
    * Путь до wt/web директории сервера.
@@ -13,7 +13,7 @@ declare namespace tools_web {
    * @returns {string} Ссылка на документ.
    */
   function doc_link(attributes: Object): unknown;
-  function get_object_link(objectName: string, objectId: number, teObject: unknown, docId: number): unknown;
+  function get_object_link(objectName: string, objectId: number, objectTopElem: XmlTopElem, docId: number): unknown;
 
   /**
    * Получение текстового значения языкового параметра из curLngWeb.
@@ -31,41 +31,41 @@ declare namespace tools_web {
    * @param {number} sessionId - Id сессии.
    * @returns {number} Сумма Id объекта и Id сессии.
    */
-  function get_sum_sid(id: number, sessionId: number): unknown;
-  function check_sum_sid(id: number, sum: string, sessionId: number): unknown;
-  function custom_elems_filling(fldTarget: unknown, source: Object, arrCustomElems: unknown, params: Object): unknown;
-  function web_custom_elems_filling(catalog: unknown, topId: number, source: unknown, requestForm: unknown, valueFlag: unknown, charset: string, arrFields: unknown): unknown;
-  function update_object_from_context(object: unknown, context: Object, arrFieldNames: unknown, prefix: string): unknown;
+  function get_sum_sid(id: string, sessionId: number): unknown;
+  function check_sum_sid(id: string, sum: string, sessionId: number): unknown;
+  function custom_elems_filling(fldTarget: unknown, source: Object, arrCustomElems: unknown[], params: Object): unknown;
+  function web_custom_elems_filling(catalog: unknown, topId: number, source: unknown, requestForm: unknown, valueFlag: unknown, charset: string, arrFields: unknown[]): unknown;
+  function update_object_from_context(object: unknown, context: Object, arrFieldNames: unknown[], prefix: string): unknown;
   function get_query_string_from_url(url: string, flag: unknown, params: unknown): unknown;
   function get_query_string(flag: unknown, params: unknown): unknown;
   function get_url_protocol(url: string): unknown;
   function set_url_protocol(url: string): unknown;
-  function get_cur_lng_name(text: string, shortId: number): string;
-  function check_access(source: unknown, personDocId: number, personDoc: PersonDocument, session: Session): unknown;
-  function get_web_param(listParamsTarget: unknown, paramName: string, defaultValue: string, emptyFlag: boolean, overrIdeWebTemplateId: number): unknown;
+  function get_cur_lng_name(text: string, shortId: string): string;
+  function check_access(source: unknown, personDocId: number, personDoc: CollaboratorDocument, session: Session): unknown;
+  function get_web_param(listParamsTarget: unknown, paramName: string, defaultValue: string, emptyFlag: boolean, overrIdeWebTemplateId: string): unknown;
   function set_web_params(listParamsTarget: unknown, listWvars: unknown, rewriteFlag: boolean, overrIdeWebTemplateId: number): unknown;
   function write_custom_web_template(customWebTemplate: Object): unknown;
-  function get_override_web_template(overrIdeWebTemplateId: number, session: Session, curUserId: number, curUser: CurUser, curAnonymousAccess: unknown, teActiveWebTemplate: unknown, adding: boolean): unknown;
+  function get_override_web_template(overrIdeWebTemplateId: number, session: Session, curUserId: number, curUser: CurUser, curAnonymousAccess: unknown, activeWebTemplateTopElem: XmlTopElem, adding: boolean): unknown;
   function get_override_web_templates(session: Session, zone: Object, curActiveWebTemplate: unknown, addWebTemplate: boolean, envObj: Object): unknown;
   function place_zone(zone: string, createFCache: boolean, lPEPreview: boolean): unknown;
   function place_override_web_template(overrIdeWebTemplateId: number, insertCustomCodeParams: Object): unknown;
   function get_operation_script(oPERATIONId: number, sSCRIPTTYPE: unknown, oPARAMS: unknown): unknown;
   function eval_operation_script(oPERATIONId: number, sSCRIPTTYPE: unknown, oPARAMS: unknown): unknown;
-  function is_moderator_forum(forumId: number, userId: number, teForum: unknown): unknown;
-  function is_privilege_collaborator(forumEntryId: number, teUser: unknown, userId: number, teForumEntry: unknown): unknown;
+  function is_moderator_forum(forumId: number, userId: number, forumTopElem: XmlTopElem): unknown;
+  function is_privilege_collaborator(forumEntryId: number, userTopElem: XmlTopElem, userId: number, forumEntryTopElem: XmlTopElem): unknown;
   function is_forum_readed(forumId: number, userId: number): unknown;
-  function check_forum_entry_access(catForumEntry: unknown, teUser: unknown, userId: number, teForum: unknown): unknown;
+  function check_forum_entry_access(catForumEntry: unknown, userTopElem: XmlTopElem, userId: number, forumTopElem: XmlTopElem): unknown;
   function remove_forum_entry(forumEntryId: number): unknown;
   function close_forum_entry(forumEntryId: number, forumEntry: unknown): unknown;
   function draw_calendar(objectName: unknown, objectValue: unknown, format: unknown): unknown;
   function web_files_process(sourceFiles: unknown): unknown;
   function convert_xhttp_res(textArea: unknown, sourceDesc: unknown): unknown;
-  function get_my_person_object_link_card(cATALOG: unknown, uSERId: number, dOCHIMSELF: DOCHIMSELFDocument, mAKENEWONABSENCE: unknown): unknown;
-  function get_person_object_info(catalog: string, userId: number, teUser: unknown): unknown;
-  function set_person_object_info(catalog: string, userId: number, teUser: unknown, aObjectsMeta: unknown): unknown;
+  function get_my_person_object_link_card(cATALOG: unknown, uSERId: number, dOCHIMSELF: XmlDocument, mAKENEWONABSENCE: unknown): unknown;
+  function get_person_object_info(catalog: string, userId: number, userTopElem: XmlTopElem): unknown;
+  function set_person_object_info(catalog: string, userId: number, userTopElem: XmlTopElem, aObjectsMeta: unknown): unknown;
   function get_object_owners(objectId: number, catalog: string): unknown;
-  function insert_custom_code(customWebTemplateId: number, teCustomWebTemplate: unknown, eval: boolean, naked: boolean, depth: number, aOfFldNativeParamsArr: unknown, externalEnvelope: boolean): string;
-  function place_xaml(customWebTemplateId: number, teCWebTemplate: unknown, placeXamlParams: Object): unknown;
+  function insert_custom_code(customWebTemplateId: number, customWebTemplateTopElem: XmlTopElem, eval: boolean, naked: boolean, depth: number, aOfFldNativeParamsArr: unknown, externalEnvelope: boolean): string;
+  function place_xaml(customWebTemplateId: number, cWebTemplateTopElem: XmlTopElem, placeXamlParams: Object): unknown;
   function place_xaml_player(customWebTemplate: number, curWebDesign: unknown, request: unknown, placeXamlParams: Object): unknown;
   function convert_xss(text: string, type: string): unknown;
   function xss_neutralize(text: string): unknown;
@@ -97,23 +97,23 @@ declare namespace tools_web {
 
   /**
    * Возвращает значение true/false в завимости от передаваемого параметра.
-   * @param {T} value - Параметр.
+   * @param {T} o - Параметр.
    * @returns {boolean} Значение аргумента в булевом представлении.
    */
   function is_true(o: Object): unknown;
   function init_cur_active_web_template(env: unknown, create: boolean): unknown;
-  function save_cur_active_web_template(teActiveWebTemplateDoc: TeActiveWebTemplateDocument, finishSave: boolean): unknown;
+  function save_cur_active_web_template(activeWebTemplateDocTopElem: XmlTopElem, finishSave: boolean): unknown;
   function drop_active_web_templates(): unknown;
   function get_session_lng(session: Session): unknown;
-  function check_site_access(tePerson: unknown, site: Object): unknown;
+  function check_site_access(personTopElem: XmlTopElem, site: Object): unknown;
   function get_resource_url(objectId: number, session: Session): unknown;
   function get_custom_web_template_url(templateId: number): unknown;
 
   /**
    * Получение url ссылки объекта по Id.
-   * @param {string} catalogName - Каталог объекта.
+   * @param {string} catalogType - Каталог объекта.
    * @param {number} objectId - Id объекта.
-   * @param {unknown} oParams - Параметры для определения хоста/сессии/etc.
+   * @param {unknown} params - Параметры для определения хоста/сессии/etc.
    * @returns {string} Url.
    */
   function get_object_source_url(catalogType: string, objectId: number, params: Object): unknown;
@@ -123,39 +123,41 @@ declare namespace tools_web {
   function set_var_eval(varNama: string, curVars: unknown, eval: Object, evalType: string): unknown;
   function get_var_eval(varNama: string, curVars: unknown, eval: Object, evalType: string): unknown;
   function convert_desc_to_html(desc: string): unknown;
-  function get_user_recommended_learning(userId: number, teUser: unknown): unknown;
+  function get_user_recommended_learning(userId: number, userTopElem: XmlTopElem): unknown;
 
   /**
    * Создание кэша по коду.
-   * @param {string} userDataCode - Код кэша.
+   * @param {string} conditions - Код кэша.
    * @param {T} value - Payload.
-   * @param {number} ttl - Время жизни кэша.
+   * @param {number} duration - Время жизни кэша.
+   * @param {string} listName - Данные.
+   * @returns {unknown}.
    */
-  function set_user_data(conditions: Object, value: Object, duration: number, listName: string): unknown;
+  function set_user_data<T>(conditions: Object, value: T, duration: number, listName: string): unknown;
 
   /**
    * Получение кэша по коду.
-   * @param {string} userDataCode - Код кэша.
+   * @param {string} conditions - Код кэша.
    * @returns {string | null} Значение кэша.
    */
-  function get_user_data(conditions: Object): unknown;
+  function get_user_data(conditions: Object): string | null;
   function remove_user_data(key: string, listName: string): unknown;
   function remove_user_data_by_prefix(key: string): unknown;
-  function obtain_text_area(docId: number, teDocTarget: unknown): unknown;
+  function obtain_text_area(docId: number, docTargetTopElem: XmlTopElem): unknown;
   function get_host_name(url: string): string;
-  function get_cur_host_name(teHost: unknown, request: Object): string;
-  function get_cur_host_path(teHost: unknown, request: Object): unknown;
-  function get_cur_host_path_by_url(teHost: unknown, url: string): unknown;
+  function get_cur_host_name(hostTopElem: XmlTopElem, request: Object): string;
+  function get_cur_host_path(hostTopElem: XmlTopElem, request: Object): unknown;
+  function get_cur_host_path_by_url(hostTopElem: XmlTopElem, url: string): unknown;
   function get_cur_hosts(request: Object): unknown;
   function get_cur_host(request: Object): unknown;
-  function is_correct_question(fldquestion: unknown, teItem: unknown): unknown;
+  function is_correct_question(fldquestion: unknown, itemTopElem: XmlTopElem): unknown;
   function save_cur_object_doc(object: unknown, env: Object): unknown;
   function build_query_url(url: string, hostAndPath: string): unknown;
   function build_relative_url(url: string): unknown;
   function set_modified_response_status(requestTarget: Object, url: string, dtLastModified: unknown): unknown;
   function str_utc_mime_date(dtDate: unknown): unknown;
   function get_tracking_url(fldLocation: unknown, curHostPath: unknown): unknown;
-  function create_resource_from_attacment(attachment: Object, personId: number, tePerson: unknown): unknown;
+  function create_resource_from_attacment(attachment: Object, personId: number, personTopElem: XmlTopElem): unknown;
   function get_key_positions_list(personId: number, struct: Object): unknown;
 
   /**
@@ -174,40 +176,41 @@ declare namespace tools_web {
   /**
    * Отправка файла в response stream.
    * @param {string} url - Url файла.
-   * @param {Request} req - Объект запроса Request.
+   * @param {Request} request - Объект запроса Request.
+   * @returns {unknown}.
    */
   function write_url_to_response(url: string, request: Object): unknown;
 
   /**
    * Декоратор для простого шифрования функцией StrSimpleEncrypt({objectId}_{date}).
-   * @param {number} objectId - Id объекта.
-   * @param {Date} date - Дата.
+   * @param {string} launchId - Id объекта.
+   * @param {Date} endDate - Дата.
    * @returns {string} Значение StrSimpleEncrypt({objectId}_{date}).
    */
-  function encrypt_launch_id(launchId: number, endDate: Date): unknown;
-  function decrypt_launch_id(launchId: number): unknown;
+  function encrypt_launch_id(launchId: string, endDate: Date): string;
+  function decrypt_launch_id(launchId: string): unknown;
   function get_valid_url(url: string): unknown;
-  function get_active_web_template_hash(mode: string, accessLevel: string, accessRole: string, siteId: number, webDesignId: number): unknown;
+  function get_active_web_template_hash(mode: string, accessLevel: string, accessRole: string, siteId: string, webDesignId: string): unknown;
   function build_submatched_string(sourceString: string, realString: string, destString: string): unknown;
   function get_auth_hash(source: string): unknown;
   function get_user_id_by_login(authLogin: string, authParams: Object): unknown;
   function set_cookie_auth(request: unknown, curHost: unknown, auth: Object): unknown;
   function set_x_auth_id(request: unknown, curUser: CurUser, curHost: unknown): unknown;
-  function get_portal_auth_type_obj(request: unknown, curHost: unknown, arrIdmClaims: unknown): unknown;
+  function get_portal_auth_type_obj(request: unknown, curHost: unknown, arrIdmClaims: unknown[]): unknown;
 
   /**
    * Инициализаяция пользователя.
-   * @param {Request} req - Объект Request.
-   * @param {object} query - Параметры.
+   * @param {Request} request - Объект Request.
+   * @param {object} o - Параметры.
    * @returns {IToolsWebUserInit} Результат инициализации пользователя из запроса.
    */
   function user_init(request: unknown, o: Object): unknown;
-  function GetProjectManagementObjectsList(personId: number, arrCurLng: unknown, addFuncSubordinates: boolean, hIdeDissmissed: boolean, showProjectManagers: boolean, overdue: boolean, projectTree: boolean, checkTaskSeeRights: boolean, vBossType: unknown, struct: Object): unknown;
-  function CheckRelativeFileVisibility(fldFile: unknown, userId: number, objectId: number, teObject: unknown): unknown;
-  function get_date_passed_string(date: Date, curLngId: number): unknown;
-  function get_date_remain_string(date: Date, curLngId: number): unknown;
+  function GetProjectManagementObjectsList(personId: number, arrCurLng: unknown[], addFuncSubordinates: boolean, hIdeDissmissed: boolean, showProjectManagers: boolean, overdue: boolean, projectTree: boolean, checkTaskSeeRights: boolean, vBossType: unknown, struct: Object): unknown;
+  function CheckRelativeFileVisibility(fldFile: unknown, userId: number, objectId: number, objectTopElem: XmlTopElem): unknown;
+  function get_date_passed_string(date: Date, curLngId: string): unknown;
+  function get_date_remain_string(date: Date, curLngId: string): unknown;
   function get_host_obj(request: unknown): unknown;
-  function get_cur_lng_obj(id: number): unknown;
+  function get_cur_lng_obj(id: Object): unknown;
   function get_cur_object_by_field(env: unknown, field: string): unknown;
   function get_cur_web_design(env: unknown): unknown;
   function get_cur_site(env: unknown): unknown;
@@ -217,7 +220,7 @@ declare namespace tools_web {
   function get_default_lng_web(user: Object): unknown;
   function get_profiling_statistic_rec_id(): unknown;
   function start_profiling_record(params: Object): unknown;
-  function finish_profiling_record(id: number): unknown;
+  function finish_profiling_record(id: string): unknown;
   function GetVacancyResponseStatus(obVacancyResponse: unknown, vacancyResponseId: number, curLngCommon: unknown): unknown;
   function html_decode(s: string): string;
   function html_to_imput_value(s: string): unknown;
@@ -241,15 +244,15 @@ declare namespace tools_web {
   function replace_condition_operators(conditions: Object, value: number): unknown;
   function get_header_obj(header: string): unknown;
   function get_multipart_array(request: unknown): unknown;
-  function get_game_rating(curUser: CurUser, checkLevel: boolean, currencyTypeId: number, allLevel: boolean, dispSub: boolean, subDepth: number, grpColl: number, paging: Object, curUserId: number, range: boolean, amntCollsRating: number, gap: string, samePlace: boolean, showTopRating: boolean, orgId: number): unknown;
-  function get_game_rating_awards_or_badges(tePerson: unknown, allLevel: boolean, checkLevel: boolean, levelId: number, amntCollsRating: number, dispSub: boolean, subdivId: number, subdivNum: number, currencyTypeId: number, grpColl: number, paging: Object, range: boolean): unknown;
-  function get_game_rating_all(allLevel: boolean, checkLevel: boolean, levelId: number, dispSub: boolean, subdivId: number, subdivNum: number, currencyTypeId: number, grpColl: number, paging: Object, range: boolean, amntCollsRating: number, samePlace: boolean, showTopRating: boolean, orgId: number): unknown;
+  function get_game_rating(curUser: CurUser, checkLevel: boolean, currencyTypeId: string, allLevel: boolean, dispSub: boolean, subDepth: number, grpColl: number, paging: Object, curUserId: number, range: boolean, amntCollsRating: number, gap: string, samePlace: boolean, showTopRating: boolean, orgId: number): unknown;
+  function get_game_rating_awards_or_badges(personTopElem: XmlTopElem, allLevel: boolean, checkLevel: boolean, levelId: number, amntCollsRating: number, dispSub: boolean, subdivId: number, subdivNum: number, currencyTypeId: string, grpColl: number, paging: Object, range: boolean): unknown;
+  function get_game_rating_all(allLevel: boolean, checkLevel: boolean, levelId: number, dispSub: boolean, subdivId: number, subdivNum: number, currencyTypeId: string, grpColl: number, paging: Object, range: boolean, amntCollsRating: number, samePlace: boolean, showTopRating: boolean, orgId: number): unknown;
   function get_timezone(objectId: number, catObject: unknown, returnNull: boolean): unknown;
   function get_timezone_date(date: Date, catTimeZone1: unknown, catTimeZone2: unknown): unknown;
   function get_class_for_status(status: string): unknown;
   function get_url_query(url: string): unknown;
   function transform_fancy_url(source: unknown): unknown;
-  function get_lng_fullname(tePerson: unknown, fldLng: unknown): string;
+  function get_lng_fullname(personTopElem: XmlTopElem, fldLng: unknown): string;
   function get_language_desc(desc: string, env: Object): string;
   function set_override_web_params(curParamsTarget: unknown, catOverrIdeWebTemplate: unknown): unknown;
   function access_exists(fldAccess: unknown): unknown;
@@ -275,11 +278,11 @@ declare namespace tools_web {
   function check_object(xmCurObject: unknown, type: string): unknown;
   function check_redirect_url(url: string, requestUrl: string): unknown;
   function check_web_rule_by_url(url: string, request: unknown): unknown;
-  function check_learning_schedule(learning: Object, teObject: unknown): unknown;
+  function check_learning_schedule(learning: Object, objectTopElem: XmlTopElem): unknown;
   function set_user_status(curUserId: number, status: Object): unknown;
   function get_user_status(curUserId: number): unknown;
   function terminate_learning_connection(objectId: number): unknown;
-  function create_learning_connection(teObject: unknown, teUser: unknown, partCode: string): unknown;
+  function create_learning_connection(objectTopElem: XmlTopElem, userTopElem: XmlTopElem, partCode: string): unknown;
   function log_learning_connection(type: string, connection: Object): unknown;
   function set_data_cache(key: string, value: Object, duration: number): unknown;
   function get_data_cache(key: string): unknown;
