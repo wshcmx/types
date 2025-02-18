@@ -77,7 +77,7 @@ declare namespace tools_web {
    * MultiLine = true.
    * @returns {Websoft.RegExp.RegExp} Экземпляр библиотеки.
    */
-  function reg_exp_init(): unknown;
+  function reg_exp_init(): Websoft.RegExp.RegExp;
   function convert_bbcode_to_html(messageSource: string, objRegExp: unknown): unknown;
   function convert_html_to_bbcode(messageSource: string, objRegExp: unknown): string;
   function convert_bbtags_to_html(messageSource: string, objRegExp: unknown): unknown;
@@ -224,7 +224,7 @@ declare namespace tools_web {
   function GetVacancyResponseStatus(obVacancyResponse: unknown, vacancyResponseId: number, curLngCommon: unknown): unknown;
   function html_decode(s: string): string;
   function html_to_imput_value(s: string): unknown;
-  let content_types: XmlElem<unknown | null>;
+  let content_types: XmlElem<ToolsWebContentTypes>;
   function get_app_ui(): unknown;
   function set_st_category(curUser: CurUser): unknown;
   function get_child_by_key_value(fldSource: unknown, key: string, defaultValue: string): unknown;

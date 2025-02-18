@@ -10,12 +10,12 @@ declare namespace tools_i18n {
   function get_active_i18n(): unknown;
   let components_obj: XmlElem<unknown | null>;
   function components(): unknown;
-  function t(param: string, i18n: Object): {
+  function t(param: string, i18n: Object): unknown;
+  function get_cur_i18n(i18n: Object, locale: string): {
     locale: string;
     code: string;
     load_path: unknown[];
   };
-  function get_cur_i18n(i18n: Object, locale: string): unknown;
   function get_const_key(locale: string, code: string, constant: string): unknown;
   function get_locale_cache_field(fieldName: string): unknown;
   function put_locale_cache_field(fieldName: string, fieldValue: string): unknown;
