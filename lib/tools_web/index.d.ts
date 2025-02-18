@@ -200,11 +200,21 @@ declare namespace tools_web {
 
   /**
    * Инициализаяция пользователя.
-   * @param {Request} request - Объект Request.
-   * @param {object} o - Параметры.
-   * @returns {IToolsWebUserInit} Результат инициализации пользователя из запроса.
+   * @param {Request} req - Объект Request.
+   * @param {object} query - Параметры.
+   * @returns {object} Результат инициализации пользователя из запроса.
    */
-  function user_init(request: unknown, o: Object): unknown;
+  function user_init(req: Request, query: Object): {
+    auth_type: string | undefined;
+    anonymous: boolean;
+    auth_login: string | null | undefined;
+    access_time_start: number;
+    access_time_end: number;
+    error_code: string;
+    error_text: string;
+    redirect: string;
+    access: boolean;
+  };
   function GetProjectManagementObjectsList(personId: number, arrCurLng: unknown[], addFuncSubordinates: boolean, hIdeDissmissed: boolean, showProjectManagers: boolean, overdue: boolean, projectTree: boolean, checkTaskSeeRights: boolean, vBossType: unknown, struct: Object): unknown;
   function CheckRelativeFileVisibility(fldFile: unknown, userId: number, objectId: number, objectTopElem: XmlTopElem): unknown;
   function get_date_passed_string(date: Date, curLngId: string): unknown;
