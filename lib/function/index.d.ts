@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Function { }
 interface FunctionConstructor { }
 

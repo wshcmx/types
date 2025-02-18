@@ -1,13 +1,13 @@
 declare namespace Screen {
-  var Doc: XmlDocument;
-  var EditMode: boolean;
-  var ExposeItemBySource: string;
-  var FocusItem: string;
-  var FrameName: string;
-  var HolderElem: string;
-  var LinkedDocs: string;
-  var OptHolderElem: string;
-  var Ps: string;
+  let Doc: XmlDocument;
+  let EditMode: boolean;
+  let ExposeItemBySource: string;
+  let FocusItem: string;
+  let FrameName: string;
+  let HolderElem: string;
+  let LinkedDocs: string;
+  let OptHolderElem: string;
+  let Ps: string;
 
   function AskFileSave(): void;
   function AddExternalEditor(): void;

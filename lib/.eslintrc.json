@@ -18,6 +18,8 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-wrapper-object-types": "off",
+    "@typescript-eslint/no-empty-object-type": "error",
     "jsdoc/check-alignment": "error",
     "jsdoc/check-indentation": "error",
     "jsdoc/check-param-names": "error",

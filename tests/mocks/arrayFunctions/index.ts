@@ -16,6 +16,8 @@ const testArrayOfObjects: TestObj[] = [
   },
 ];
 
+const doc = tools.new_doc_by_name<CollaboratorDocument>("collaborator");
+alert(doc.TempData);
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const xmlDocumentForTesting = tools.open_doc<CareerReserveDocument>(1)!;
@@ -24,4 +26,10 @@ const arrayFunctionsNegativeTestStringValue = "testString";
 const arrayFunctionsNegativeTestNumberValue = 1234;
 
 
-export { testPrimitivesArray, testArrayOfObjects, xmlDocumentForTesting, arrayFunctionsNegativeTestStringValue, arrayFunctionsNegativeTestNumberValue};
+export {
+  testPrimitivesArray,
+  testArrayOfObjects,
+  xmlDocumentForTesting,
+  arrayFunctionsNegativeTestStringValue,
+  arrayFunctionsNegativeTestNumberValue
+};
