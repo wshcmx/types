@@ -3046,3 +3046,11 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  * ```
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
+
+/**
+ * Создает экран для заданного документа.
+ * @param {XmlDocument} xmlDoc - Документ, который будет отображен на экране.
+ * @param {string} formUrl - Url формы, при помощи которой документ будет открыт.
+ * @returns {typeof Screen} Объект Screen.
+ */
+declare function CreateDocScreen(xmlDoc: XmlDocument, formUrl: string): typeof Screen;
