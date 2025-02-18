@@ -1,12 +1,28 @@
-interface RemoteSecurityProfileDocumentMethodAccess {
+interface RemoteSecurityProfileDocumentMethodAccessListMethodAccess {
   access_block_id: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
   library_profile: XmlElem<string | null>;
 }
 
-interface RemoteSecurityProfileDocumentLibAccess {
+interface RemoteSecurityProfileDocumentMethodAccessList {
+  method_access: XmlMultiElemObject<RemoteSecurityProfileDocumentMethodAccessListMethodAccess | null>;
+}
+
+interface RemoteSecurityProfileDocumentLibAccessListLibAccess {
   library_id: XmlElem<number | null, CodeLibraryCatalogDocumentTopElem>;
   library_code: XmlElem<string | null>;
   filter: XmlElem<string | null>;
+}
+
+interface RemoteSecurityProfileDocumentLibAccessList {
+  lib_access: XmlMultiElemObject<RemoteSecurityProfileDocumentLibAccessListLibAccess | null>;
+}
+
+interface RemoteSecurityProfileDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
 }
 
 type RemoteSecurityProfileDocumentTopElem = XmlTopElem & {
@@ -15,17 +31,26 @@ type RemoteSecurityProfileDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** @default 0 */
   source: XmlElem<number>;
-  method_access_list: XmlMultiElem<RemoteSecurityProfileDocumentMethodAccess | null>;
-  lib_access_list: XmlMultiElem<RemoteSecurityProfileDocumentLibAccess | null>;
+  method_access_list: XmlElem<RemoteSecurityProfileDocumentMethodAccessList | null>;
+  lib_access_list: XmlElem<RemoteSecurityProfileDocumentLibAccessList | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<RemoteSecurityProfileDocumentView | null>;
 };
 
 type RemoteSecurityProfileDocument = XmlDocument & {

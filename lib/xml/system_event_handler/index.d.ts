@@ -3,7 +3,10 @@ ObjectCodeNameBase &
 ExecCodeBase &
 WebVariablesBase & {
   Doc: SystemEventHandlerDocument;
-  /** Включен */
+  /**
+   * Включен
+   * @default false
+   */
   is_enabled: XmlElem<boolean>;
   /** Системное событие */
   system_event_id: XmlElem<number | null, SystemEventCatalogDocumentTopElem>;
@@ -13,13 +16,24 @@ WebVariablesBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  view: XmlElem<unknown | null>;
   /** Системное событие */
   last_system_event_id: XmlElem<number | null, SystemEventCatalogDocumentTopElem>;
-  /** Включен */
+  /**
+   * Включен
+   * @default false
+   */
   last_is_enabled: XmlElem<boolean>;
 };
 

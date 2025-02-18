@@ -18,8 +18,19 @@ interface SubmissionTypeDocumentPhase {
   date_start: XmlElem<Date | null>;
   /** Дата окончания заполнения */
   date_finish: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   collect_state: XmlElem<string, typeof common.collect_states>;
+}
+
+interface SubmissionTypeDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default 0
+   */
+  flag_delete_doc: XmlElem<number>;
 }
 
 type SubmissionTypeDocumentTopElem = XmlTopElem &
@@ -29,9 +40,15 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Периодичность */
+  /**
+   * Периодичность
+   * @default month
+   */
   periodity_id: XmlElem<string | null, typeof common.perioditys>;
-  /** Срок формирования этапов */
+  /**
+   * Срок формирования этапов
+   * @default 2
+   */
   period_form: XmlElem<number | null>;
   /** Получатели */
   recipients: XmlMultiElem<SubmissionTypeDocumentRecipient | null>;
@@ -39,9 +56,15 @@ CustomElemsBase & {
   senders: XmlMultiElem<SubmissionTypeDocumentSender | null>;
   /** Этапы */
   phases: XmlMultiElem<SubmissionTypeDocumentPhase | null>;
-  /** Требует подтверждения */
+  /**
+   * Требует подтверждения
+   * @default false
+   */
   confirm_req: XmlElem<boolean>;
-  /** Использовать форму для отображения на портале */
+  /**
+   * Использовать форму для отображения на портале
+   * @default true
+   */
   use_form: XmlElem<boolean>;
   /** Программный код заполнения данных */
   eval_prev_form: XmlElem<string | null>;
@@ -55,6 +78,8 @@ CustomElemsBase & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<SubmissionTypeDocumentView | null>;
 };
 
 type SubmissionTypeDocument = XmlDocument & {

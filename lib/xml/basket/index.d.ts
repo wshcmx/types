@@ -1,5 +1,6 @@
 interface BasketDocumentGood {
   good_id: XmlElem<number | null, GoodCatalogDocumentTopElem>;
+  /** @default 0 */
   number: XmlElem<number>;
   reserved_date: XmlElem<Date | null>;
 }

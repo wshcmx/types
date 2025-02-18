@@ -1,3 +1,8 @@
+interface DnSpecializationDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnSpecializationDocumentTopElem = XmlTopElem &
 FileListBase &
 CustomElemsBase & {
@@ -10,6 +15,8 @@ CustomElemsBase & {
   /** Описание */
   desc: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnSpecializationDocumentView | null>;
 };
 
 type DnSpecializationDocument = XmlDocument & {

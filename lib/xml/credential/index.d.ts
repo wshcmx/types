@@ -5,12 +5,16 @@ type CredentialDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default basic
+   */
   type: XmlElem<string>;
   /** Логин */
   login: XmlElem<string | null>;
   /** Пароль */
   password: XmlElem<string | null>;
+  /** Профиль безопасности */
   remote_security_profile_id: XmlElem<number | null, RemoteSecurityProfileCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;

@@ -1,3 +1,8 @@
+interface BannerDocumentView extends DescBase {
+  web_img_name: XmlElem<string | null>;
+  temp_url: XmlElem<string | null>;
+}
+
 type BannerDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   Doc: BannerDocument;
@@ -5,7 +10,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default img
+   */
   type: XmlElem<string>;
   /** Зона */
   zone: XmlElem<string | null>;
@@ -15,7 +23,9 @@ AdminAccessBase & {
   url: XmlElem<string | null>;
   /** HTML текст */
   html_text: XmlElem<string | null>;
+  /** Дата начала показа */
   start_date: XmlElem<Date | null>;
+  /** Дата окончания показа */
   finish_date: XmlElem<Date | null>;
   /** Rich текст */
   desc: XmlElem<string | null>;
@@ -25,8 +35,10 @@ AdminAccessBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<BannerDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type BannerDocument = XmlDocument & {

@@ -9,11 +9,16 @@ ObjectTypeBase &
 CustomElemsBase & {
   Doc: ObjectLinkDocument;
   id: XmlElem<number | null>;
+  /** Рекомендательный алгоритм */
   recommender_algorithm_id: XmlElem<number | null, RecommenderAlgorithmCatalogDocumentTopElem>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default active
+   */
   state_id: XmlElem<string | null, typeof common.status_in_knowledge_map_types>;
   /** Объект */
   links: XmlMultiElem<ObjectLinkDocumentLink | null>;
+  /** Дата расчета */
   calc_date: XmlElem<Date | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;

@@ -6,7 +6,10 @@ CustomElemsBase & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status: XmlElem<string, typeof common.response_status_types>;
   /** Тип отзыва */
   response_type_id: XmlElem<number | null, ResponseTypeCatalogDocumentTopElem>;
@@ -30,12 +33,15 @@ CustomElemsBase & {
   object_code: XmlElem<string | null>;
   /** Дата */
   object_start_date: XmlElem<Date | null>;
+  /** @default false */
   is_public: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** Оценка */
   basic_score: XmlElem<number | null>;
+  /** Описание */
   basic_desc: XmlElem<string | null>;
   calc_basic_values(): void;
 };

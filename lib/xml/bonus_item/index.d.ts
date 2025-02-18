@@ -8,7 +8,17 @@ interface BonusItemDocumentBonusesBonus {
 }
 
 interface BonusItemDocumentBonuses {
-  bonus: XmlElem<BonusItemDocumentBonusesBonus | null>;
+  bonus: XmlMultiElemObject<BonusItemDocumentBonusesBonus | null>;
+}
+
+interface BonusItemDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @default false */
+  is_edit_mode: XmlElem<boolean>;
 }
 
 type BonusItemDocumentTopElem = XmlTopElem &
@@ -25,10 +35,12 @@ AdminAccessBase & {
   bonuses: XmlElem<BonusItemDocumentBonuses | null>;
   /** Результат */
   result: XmlElem<number | null>;
-  calc_result(): number;
+  calc_result(): unknown;
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<BonusItemDocumentView | null>;
 };
 
 type BonusItemDocument = XmlDocument & {

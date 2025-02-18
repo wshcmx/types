@@ -1,3 +1,8 @@
+interface DnSubjectPlanDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnSubjectPlanDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -14,6 +19,8 @@ CustomElemsBase & {
   hours: XmlElem<number | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnSubjectPlanDocumentView | null>;
 };
 
 type DnSubjectPlanDocument = XmlDocument & {

@@ -7,11 +7,13 @@ interface SaleContractDocumentCost {
 
 interface SaleContractDocumentPrice {
   id: XmlElem<string | null>;
+  /** Прайс */
   price_id: XmlElem<number | null, PriceCatalogDocumentTopElem>;
 }
 
 interface SaleContractDocumentProlongationInfo {
   id: XmlElem<string | null>;
+  /** Сумма */
   cost: XmlElem<number | null>;
   /** Валюта */
   cost_currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
@@ -32,7 +34,12 @@ AdminAccessBase & {
   state_id: XmlElem<number | null, ContractStateCatalogDocumentTopElem>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /**
+   * Агентский договор
+   * @default false
+   */
   is_agent_contract: XmlElem<boolean | null>;
+  /** Организация-агент */
   agent_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Клиент */
   client_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
@@ -54,13 +61,20 @@ AdminAccessBase & {
   subject_contract: XmlElem<string | null>;
   prev_contract_id: XmlElem<number | null, SaleContractCatalogDocumentTopElem>;
   contract_type: XmlElem<number | null, SaleContractTypeCatalogDocumentTopElem>;
+  /** Подписывается договор у контрагента */
   contract_signature: XmlElem<string | null>;
   /** Договор */
   client_legal: XmlElem<string | null>;
   /** Договор */
   provider_legal: XmlElem<string | null>;
+  /** Юридическое лицо (клиент) */
   client_legal_name: XmlElem<string | null>;
+  /** Юридическое лицо (поставщик) */
   provider_legal_name: XmlElem<string | null>;
+  /**
+   * Безнадежный долг
+   * @default false
+   */
   bad_debt: XmlElem<boolean | null>;
   /** Стоимость */
   contract_cost: XmlElem<number | null>;
@@ -76,8 +90,12 @@ AdminAccessBase & {
   sent_messenger_service_id: XmlElem<number | null, MessengerServiceCatalogDocumentTopElem>;
   back_sent_type: XmlElem<string | null, typeof common.document_sent_types>;
   back_sent_messenger_service_id: XmlElem<number | null, MessengerServiceCatalogDocumentTopElem>;
-  /** Получено */
+  /**
+   * Получено
+   * @default false
+   */
   is_received: XmlElem<boolean | null>;
+  /** Дата получения */
   received_date: XmlElem<Date | null>;
   /** Комментарий */
   docs_comment: XmlElem<string | null>;

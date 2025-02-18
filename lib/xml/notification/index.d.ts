@@ -13,6 +13,14 @@ interface NotificationDocumentNotificationSystem {
   notification_system_id: XmlElem<number | null, NotificationSystemCatalogDocumentTopElem>;
 }
 
+interface NotificationDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type NotificationDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: NotificationDocument;
@@ -23,28 +31,48 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Адресаты */
   recipients: XmlMultiElem<NotificationDocumentRecipient | null>;
+  /** @default auto */
   field_recipient_type: XmlElem<string | null>;
   notification_systems: XmlMultiElem<NotificationDocumentNotificationSystem | null>;
-  /** Активное уведомление */
+  /**
+   * Активное уведомление
+   * @default true
+   */
   active: XmlElem<boolean>;
+  /**
+   * Активный сценарий бота
+   * @default true
+   */
   active_chatbot_script: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Шаблон уведомления */
   notification_template_id: XmlElem<number | null, NotificationTemplateCatalogDocumentTopElem>;
+  /** @default 0 */
   date_shift_selector: XmlElem<number>;
+  /** @default 0.0 */
   date_shift: XmlElem<number>;
+  /** @default 0 */
   sender_selector: XmlElem<number>;
   sender_email: XmlElem<string | null>;
+  /** Прикрепленный сценарий */
   chatbot_id: XmlElem<number | null, ChatbotCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<NotificationDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type NotificationDocument = XmlDocument & {

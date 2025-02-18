@@ -1,3 +1,11 @@
+interface ExerciseDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type ExerciseDocumentTopElem = XmlTopElem & {
   Doc: ExerciseDocument;
   /** Код */
@@ -8,9 +16,11 @@ type ExerciseDocumentTopElem = XmlTopElem & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ExerciseDocumentView | null>;
 };
 
 type ExerciseDocument = XmlDocument & {

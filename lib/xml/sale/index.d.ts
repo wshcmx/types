@@ -1,4 +1,5 @@
 interface SaleDocumentDocument {
+  /** @default tools.random_string( 6 ) */
   id: XmlElem<string | null>;
   name: XmlElem<string | null>;
   sent_by_us: XmlElem<boolean | null>;
@@ -24,6 +25,7 @@ CustomElemsBase & {
   number: XmlElem<string | null>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Организация клиента */
   client_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Проект */
   project_id: XmlElem<number | null, ProjectCatalogDocumentTopElem>;
@@ -46,6 +48,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type SaleDocument = XmlDocument & {

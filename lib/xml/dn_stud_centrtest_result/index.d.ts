@@ -1,3 +1,8 @@
+interface DnStudCentrtestResultDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnStudCentrtestResultDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -13,6 +18,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnStudCentrtestResultDocumentView | null>;
 };
 
 type DnStudCentrtestResultDocument = XmlDocument & {

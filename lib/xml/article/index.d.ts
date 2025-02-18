@@ -1,3 +1,8 @@
+interface ArticleDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type ArticleDocumentTopElem = XmlTopElem &
 CatalogListBase &
 FileListBase &
@@ -25,6 +30,8 @@ CustomElemsBase & {
   access: XmlElem<AccessDocBase | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ArticleDocumentView | null>;
 };
 
 type ArticleDocument = XmlDocument & {

@@ -2944,7 +2944,6 @@ declare namespace tools {
   function person_hierarchy_build(aInstructions: unknown): unknown;
   function person_hierarchy_build_all(): unknown;
   let file_sources_obj: XmlElem<unknown | null>;
-  let file_sources_obj: XmlElem<unknown | null>;
   let cache_code_librarys_obj: XmlElem<unknown | null>;
   function update_file_sources(fileSourceId: number, fileSourceTopElem: XmlTopElem): unknown;
   function init_cache_code_librarys(codeLibraryId: number): unknown;

@@ -6,6 +6,7 @@ PersonFillingBase & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Период */
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
+  /** Тип ограничения */
   restriction_type_id: XmlElem<number | null, RestrictingTypeCatalogDocumentTopElem>;
   /** Состояние */
   state_id: XmlElem<string | null, typeof common.agreement_status_types>;

@@ -1,3 +1,35 @@
+interface TraningOrderDocumentSigningPersonIdSd {
+  fullname: XmlElem<string | null>;
+}
+
+interface TraningOrderDocumentSigningPersonId {
+  sd: XmlElem<TraningOrderDocumentSigningPersonIdSd | null> & XmlElem<number>;
+}
+
+interface TraningOrderDocumentResponsiblePersonIdSd {
+  fullname: XmlElem<string | null>;
+}
+
+interface TraningOrderDocumentResponsiblePersonId {
+  sd: XmlElem<TraningOrderDocumentResponsiblePersonIdSd | null> & XmlElem<number>;
+}
+
+interface TraningOrderDocumentPerformerPersonIdSd {
+  fullname: XmlElem<string | null>;
+}
+
+interface TraningOrderDocumentPerformerPersonId {
+  sd: XmlElem<TraningOrderDocumentPerformerPersonIdSd | null> & XmlElem<number>;
+}
+
+interface TraningOrderDocumentView {
+  /**
+   * @temp
+   * @default false
+   */
+  disp_collarorators: XmlElem<boolean | null>;
+}
+
 type TraningOrderDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: TraningOrderDocument;
@@ -20,18 +52,23 @@ CustomElemsBase & {
   cost: XmlElem<number | null>;
   /** Валюта */
   currency: XmlElem<string | null, typeof lists.currency_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default form
+   */
   status: XmlElem<string | null, typeof common.traning_order_states>;
   /** Подписывающий приказ */
-  signing_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  signing_person_id: XmlElem<TraningOrderDocumentSigningPersonId | null, CollaboratorCatalogDocumentTopElem>;
   /** Ответственный за платеж */
-  responsible_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  responsible_person_id: XmlElem<TraningOrderDocumentResponsiblePersonId | null, CollaboratorCatalogDocumentTopElem>;
   /** Исполнитель */
-  performer_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  performer_person_id: XmlElem<TraningOrderDocumentPerformerPersonId | null, CollaboratorCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<TraningOrderDocumentView | null>;
 };
 
 type TraningOrderDocument = XmlDocument & {

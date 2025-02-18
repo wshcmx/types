@@ -1,10 +1,11 @@
 interface KpiPlanDocumentCustomDataHeaderColumn {
   title: XmlElem<string | null>;
+  /** @default string */
   type: XmlElem<string, typeof common.spxml_types>;
 }
 
 interface KpiPlanDocumentCustomDataHeader {
-  column: XmlElem<KpiPlanDocumentCustomDataHeaderColumn | null>;
+  column: XmlMultiElemObject<KpiPlanDocumentCustomDataHeaderColumn | null>;
 }
 
 interface KpiPlanDocumentCustomDataDataRowColumn {
@@ -16,7 +17,7 @@ interface KpiPlanDocumentCustomDataDataRow {
 }
 
 interface KpiPlanDocumentCustomDataData {
-  row: XmlElem<KpiPlanDocumentCustomDataDataRow | null>;
+  row: XmlMultiElemObject<KpiPlanDocumentCustomDataDataRow | null>;
 }
 
 interface KpiPlanDocumentCustomData {
@@ -32,6 +33,14 @@ interface KpiPlanDocumentWorkflowMatching {
   id: XmlElem<string | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+}
+
+interface KpiPlanDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
 }
 
 type KpiPlanDocumentTopElem = XmlTopElem &
@@ -82,7 +91,9 @@ AdminAccessBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  obtain_custom_data(kPITopElem: unknown, aData: unknown): unknown;
+  /** @temp */
+  view: XmlElem<KpiPlanDocumentView | null>;
+  obtain_custom_data(kPITopElem: XmlTopElem, aData: unknown): unknown;
   calc_data(formula: string): unknown;
 };
 

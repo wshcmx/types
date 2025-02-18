@@ -2,6 +2,7 @@ interface PriceDocumentServiceProvider {
   /** Код */
   code: XmlElem<string | null>;
   provider_id: XmlElem<number | null, ProviderCatalogDocumentTopElem>;
+  /** @default 0 */
   cost_value: XmlElem<number | null>;
   type_id: XmlElem<string | null, typeof common.service_provider_types>;
   start_date: XmlElem<Date | null>;

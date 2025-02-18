@@ -1,6 +1,7 @@
 interface PositionCommonDocumentParentPositionCommon {
   /** Типовая должность */
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
+  /** Направление должностного перемещения */
   career_transition_direction: XmlElem<string | null, typeof common.career_transition_direction_types>;
 }
 
@@ -16,7 +17,10 @@ interface PositionCommonDocumentPositionName {
 
 interface PositionCommonDocumentBonusType {
   id: XmlElem<string | null>;
-  /** Активно */
+  /**
+   * Активно
+   * @default false
+   */
   checked: XmlElem<boolean>;
   /** Название */
   name: XmlElem<string | null>;
@@ -24,7 +28,10 @@ interface PositionCommonDocumentBonusType {
   min_value: XmlElem<number | null>;
   /** Макс. премия */
   max_value: XmlElem<number | null>;
-  /** Тип расчета */
+  /**
+   * Тип расчета
+   * @default abs
+   */
   value_type: XmlElem<string>;
   /** Комментарий */
   comment: XmlElem<string | null>;
@@ -56,7 +63,10 @@ interface PositionCommonDocumentKpiProfile {
   id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
   /** Период */
   period_type_id: XmlElem<string | null, typeof common.perioditys>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
@@ -112,6 +122,22 @@ interface PositionCommonDocumentLevel {
   qualifications: XmlMultiElem<PositionCommonDocumentLevelQualification | null>;
 }
 
+interface PositionCommonDocumentView extends DescBase {
+  /** @temp */
+  benefit_id: XmlElem<string | null>;
+  /**
+   * @temp
+   * Классификатор
+   */
+  knowledge_classifier_id: XmlElem<number | null>;
+  /**
+   * @temp
+   * Сортировать по
+   * @default name
+   */
+  knowledge_sort_type_id: XmlElem<string | null>;
+}
+
 type PositionCommonDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 RequirementsBase &
@@ -127,8 +153,12 @@ AdminAccessBase & {
   max_grade: XmlElem<number | null>;
   /** Сумма весов привилегий */
   benefit_sum: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string | null, typeof common.position_common_statuss>;
+  /** Возможные должностные перемещения */
   parent_position_commons: XmlMultiElem<PositionCommonDocumentParentPositionCommon | null>;
   /** Семействa должностей */
   position_familys: XmlMultiElem<PositionCommonDocumentPositionFamily | null>;
@@ -140,7 +170,10 @@ AdminAccessBase & {
   max_salary: XmlElem<number | null>;
   /** Валюта */
   currency: XmlElem<string | null, typeof lists.currency_types>;
-  /** Можно привлекать временный персонал */
+  /**
+   * Можно привлекать временный персонал
+   * @default false
+   */
   allow_outstaff: XmlElem<boolean>;
   /** Способы премирования */
   bonus_types: XmlMultiElem<PositionCommonDocumentBonusType | null>;
@@ -174,8 +207,10 @@ AdminAccessBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<PositionCommonDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type PositionCommonDocument = XmlDocument & {

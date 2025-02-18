@@ -1,6 +1,8 @@
 interface QaTestSetDocumentTest {
   id: XmlElem<string | null>;
+  /** Тест программного кода */
   test_id: XmlElem<number | null, QaTestCatalogDocumentTopElem>;
+  /** Набор параметров */
   paramset_id: XmlElem<number | null, QaTestParamsetCatalogDocumentTopElem>;
 }
 
@@ -10,7 +12,10 @@ QaTestParamBase &
 QaTestFixtureBase &
 QaTestAssertBase & {
   Doc: QaTestSetDocument;
-  /** Статус */
+  /**
+   * Статус
+   * @default project
+   */
   status: XmlElem<string, typeof common.qa_test_states>;
   tests: XmlMultiElem<QaTestSetDocumentTest | null>;
   /** Описание */
@@ -20,7 +25,7 @@ QaTestAssertBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type QaTestSetDocument = XmlDocument & {

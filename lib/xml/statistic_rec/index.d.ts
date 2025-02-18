@@ -1,11 +1,15 @@
 interface StatisticRecDocumentAnalyticsParamWvar {
+  /** Переменные (модификаторы) показателя для "Центра аналитики" */
   wvar_id: XmlElem<string | null>;
 }
 
 interface StatisticRecDocumentAnalytics {
   param_wvars: XmlMultiElem<StatisticRecDocumentAnalyticsParamWvar | null>;
+  /** Поле отбора - дата начала периода */
   filter_start_date: XmlElem<string | null>;
+  /** Поле отбора - дата конца периода */
   filter_finish_date: XmlElem<string | null>;
+  /** Поле отбора - ID сотрудников */
   filter_person_ids: XmlElem<string | null>;
 }
 
@@ -23,14 +27,25 @@ interface StatisticRecDocumentCatalog {
   /** Тип объекта */
   catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;
   xquery_qual: XmlElem<string | null>;
+  /** @default true */
   enabled: XmlElem<boolean>;
 }
 
 interface StatisticRecDocumentInformer {
+  /** @default false */
   auto_use: XmlElem<boolean>;
   color: XmlElem<string | null>;
   title: XmlElem<string | null>;
   output_type: XmlElem<string | null>;
+}
+
+interface StatisticRecDocumentView extends ObjectTypeBase {
+  /** @temp */
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** @temp */
+  test_result_obj: XmlElem<unknown | null>;
+  /** @temp */
+  referer_url: XmlElem<string | null>;
 }
 
 type StatisticRecDocumentTopElem = XmlTopElem &
@@ -42,16 +57,31 @@ I18nBase & {
   Doc: StatisticRecDocument;
   /** Ссылка на файл */
   url: XmlElem<string | null>;
-  /** Включен */
+  /**
+   * Включен
+   * @default true
+   */
   is_enabled: XmlElem<boolean>;
-  /** Рассчитывать автоматически */
+  /**
+   * Рассчитывать автоматически
+   * @default false
+   */
   auto_calc: XmlElem<boolean>;
   /** Дата последнего расчета */
   last_calculate_date: XmlElem<Date | null>;
-  /** Периодичность вычисления */
+  /**
+   * Периодичность вычисления
+   * @default 0
+   */
   calc_period: XmlElem<number | null>;
+  /** Вычисление контекста */
   context_calc: XmlElem<boolean | null>;
+  /**
+   * Показатель готов к использованию в "Центре аналитики"
+   * @default false
+   */
   ready_to_analytics: XmlElem<boolean>;
+  /** @default none */
   period_calc_type: XmlElem<string, typeof common.period_calc_types>;
   analytics: XmlElem<StatisticRecDocumentAnalytics | null>;
   period_types: XmlMultiElem<StatisticRecDocumentPeriodType | null>;
@@ -75,15 +105,25 @@ I18nBase & {
   disp_block: XmlElem<MsDispBlockBase | null>;
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  view: XmlElem<StatisticRecDocumentView | null>;
+  /** @temp */
+  converter: XmlElem<boolean | null>;
   calculate_on_server(objectId: number): unknown;
   calculate(object: unknown, from: Date, to: Date, period: string, option: unknown): unknown;
   calculate_context(objectTopElem: unknown, env: unknown, configuration: string): unknown;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type StatisticRecDocument = XmlDocument & {

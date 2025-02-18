@@ -7,6 +7,11 @@ interface EstaffEventDocumentMember extends PersonFillingBase {
   collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
 }
 
+interface EstaffEventDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type EstaffEventDocumentTopElem = XmlTopElem &
 MsPersonSdBase &
 CatalogListBase &
@@ -35,7 +40,10 @@ AdminAccessBase & {
   estaff_event_type_name: XmlElem<string | null>;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default document
+   */
   object_type: XmlElem<string, typeof common.exchange_object_types>;
   objects: XmlMultiElem<EstaffEventDocumentObject | null>;
   /** Объект */
@@ -43,13 +51,18 @@ AdminAccessBase & {
   /** Название объекта */
   object_name: XmlElem<string | null>;
   linked_object_url: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default start
+   */
   event_status_id: XmlElem<string | null, typeof common.estaff_event_status_types>;
   estaff_event_eid: XmlElem<number | null>;
   /** Ответственные за проведение */
   members: XmlMultiElem<EstaffEventDocumentMember | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<EstaffEventDocumentView | null>;
 };
 
 type EstaffEventDocument = XmlDocument & {

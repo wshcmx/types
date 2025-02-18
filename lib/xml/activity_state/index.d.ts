@@ -2,6 +2,7 @@ interface ActivityStateDocumentRequest {
   content_type: XmlElem<string | null>;
   json_str: XmlElem<string | null>;
   agent_json_str: XmlElem<string | null>;
+  /** Агент */
   agent: XmlElem<ActorBase | null>;
 }
 

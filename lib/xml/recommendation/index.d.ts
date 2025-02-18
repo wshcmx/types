@@ -20,7 +20,10 @@ AdminAccessBase & {
   work_phone: XmlElem<string | null>;
   /** Мобильный телефон */
   mobile_phone: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default not_considered
+   */
   status: XmlElem<string | null, typeof common.vacancy_response_status_types>;
   /** HTML-описание резюме */
   desc: XmlElem<string | null>;
@@ -36,6 +39,8 @@ AdminAccessBase & {
   letter_text: XmlElem<string | null>;
   /** Комментарий рекрутера */
   comment_recruiter: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   set_status(newStatus: string, sendNotifications: boolean): void;

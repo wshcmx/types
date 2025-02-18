@@ -20,6 +20,14 @@ interface ActiveNotificationDocumentRecipient {
   collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
 }
 
+interface ActiveNotificationDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type ActiveNotificationDocumentTopElem = XmlTopElem & {
   Doc: ActiveNotificationDocument;
   /** Тип уведомления */
@@ -36,18 +44,30 @@ type ActiveNotificationDocumentTopElem = XmlTopElem & {
   last_send_date: XmlElem<Date | null>;
   /** Дата отправки */
   send_date: XmlElem<Date | null>;
-  /** Уведомление заполняется пользователем */
+  /**
+   * Уведомление заполняется пользователем
+   * @default false
+   */
   is_custom: XmlElem<boolean>;
-  /** Статус */
+  /**
+   * Статус
+   * @default create
+   */
   status: XmlElem<string, typeof common.active_notification_status_types>;
-  /** Количество попыток */
+  /**
+   * Количество попыток
+   * @default 0
+   */
   send_counter: XmlElem<number | null>;
   sender: XmlElem<ActiveNotificationDocumentSender | null>;
   date: XmlElem<Date | null>;
   /** Тема */
   subject: XmlElem<string | null>;
   body: XmlElem<string | null>;
-  /** Формат сообщения */
+  /**
+   * Формат сообщения
+   * @default plane
+   */
   body_type: XmlElem<string | null>;
   attachments: XmlMultiElem<ActiveNotificationDocumentAttachment | null>;
   /** Адресаты */
@@ -56,6 +76,8 @@ type ActiveNotificationDocumentTopElem = XmlTopElem & {
   notification_system_id: XmlElem<number | null, NotificationSystemCatalogDocumentTopElem>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ActiveNotificationDocumentView | null>;
 };
 
 type ActiveNotificationDocument = XmlDocument & {

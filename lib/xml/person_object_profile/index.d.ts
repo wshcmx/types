@@ -1,7 +1,9 @@
 interface PersonObjectProfileDocumentPersonObjectLinkObject {
   object_id: XmlElem<number | null>;
   object_name: XmlElem<string | null>;
+  /** @default false */
   can_edit: XmlElem<boolean>;
+  /** @default false */
   can_delete: XmlElem<boolean>;
   /** Уровень доступа */
   access_level: XmlElem<number | null>;
@@ -9,8 +11,11 @@ interface PersonObjectProfileDocumentPersonObjectLinkObject {
 
 interface PersonObjectProfileDocumentPersonObjectLink {
   object_catalog: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** @default false */
   all_can_create: XmlElem<boolean>;
+  /** @default false */
   all_can_edit: XmlElem<boolean>;
+  /** @default false */
   all_can_delete: XmlElem<boolean>;
   max_amount: XmlElem<number | null>;
   max_total_size: XmlElem<number | null>;

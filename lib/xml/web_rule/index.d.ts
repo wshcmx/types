@@ -14,7 +14,9 @@ type WebRuleDocumentTopElem = XmlTopElem & {
   /** Включен */
   is_enabled: XmlElem<boolean>;
   redirect_url: XmlElem<string | null>;
+  /** @default 0 */
   redirect_type: XmlElem<number>;
+  /** Тип страницы */
   redirect_web_mode_id: XmlElem<number | null, WebModeCatalogDocumentTopElem>;
   /** Дизайн */
   web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;
@@ -22,10 +24,16 @@ type WebRuleDocumentTopElem = XmlTopElem & {
   site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
   weight: XmlElem<number | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
-  /** Является системным */
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;

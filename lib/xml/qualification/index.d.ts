@@ -50,6 +50,14 @@ interface QualificationDocumentEvalCondition {
   max_value: XmlElem<number | null>;
 }
 
+interface QualificationDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default course
+   */
+  tab_selector: XmlElem<string>;
+}
+
 type QualificationDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 GameBonusBase &
@@ -58,21 +66,35 @@ AdminAccessBase &
 CustomElemsBase &
 KnowledgePartsBase & {
   Doc: QualificationDocument;
-  /** Тип вступления */
+  /**
+   * Тип вступления
+   * @default close
+   */
   join_mode: XmlElem<string, typeof common.join_mode_types>;
   /** Уровень */
   level_id: XmlElem<number | null, LevelCatalogDocumentTopElem>;
   /** Родительская квалификация */
   parent_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.qualification_statuss>;
-  /** При приеме на работу */
+  /**
+   * При приеме на работу
+   * @default true
+   */
   test_on_hire: XmlElem<boolean>;
   /** Количество дней до следующего подтверждения */
   days_for_check: XmlElem<number | null>;
+  /** Срок прохождения (число дней) */
   term_days: XmlElem<number | null>;
+  /** Число дней до срока истечения квалификации (число дней) */
   expires_days: XmlElem<number | null>;
-  /** Разрешить самостоятельное назначение испытаний по квалификации */
+  /**
+   * Разрешить самостоятельное назначение испытаний по квалификации
+   * @default true
+   */
   yourself_start: XmlElem<boolean>;
   is_reward: XmlElem<boolean | null>;
   work_experience_type: XmlElem<string | null>;
@@ -97,7 +119,7 @@ KnowledgePartsBase & {
   eval_conditions: XmlMultiElem<QualificationDocumentEvalCondition | null>;
   eval_assignment_query: XmlElem<string | null>;
   get_assignment_persons(): unknown;
-  get_scaled_progress(personId: number, param: unknown): unknown;
+  get_scaled_progress(personId: number, param: Object): unknown;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
   /** Описание */
@@ -107,7 +129,9 @@ KnowledgePartsBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /** @temp */
+  view: XmlElem<QualificationDocumentView | null>;
 };
 
 type QualificationDocument = XmlDocument & {

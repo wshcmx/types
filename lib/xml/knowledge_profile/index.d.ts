@@ -1,9 +1,20 @@
 interface KnowledgeProfileDocumentKnowledgePart {
   knowledge_part_id: XmlElem<number | null, KnowledgePartCatalogDocumentTopElem>;
   name: XmlElem<string | null>;
+  /** Целевой уровень */
   target_level_id: XmlElem<string | null>;
+  /** Индекс целевого уровня */
   target_level_index: XmlElem<number | null>;
+  /** Целевой уровень */
   target_level_name: XmlElem<string | null>;
+}
+
+interface KnowledgeProfileDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
 }
 
 type KnowledgeProfileDocumentTopElem = XmlTopElem & {
@@ -21,6 +32,8 @@ type KnowledgeProfileDocumentTopElem = XmlTopElem & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<KnowledgeProfileDocumentView | null>;
 };
 
 type KnowledgeProfileDocument = XmlDocument & {

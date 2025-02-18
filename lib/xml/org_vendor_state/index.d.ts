@@ -13,7 +13,10 @@ CustomElemsBase & {
   education_org_id: XmlElem<number | null, EducationOrgCatalogDocumentTopElem>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default assigned
+   */
   vendor_status_type_id: XmlElem<string, typeof common.vendor_status_types>;
   /** Дата начала */
   start_date: XmlElem<Date | null>;
@@ -25,6 +28,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type OrgVendorStateDocument = XmlDocument & {

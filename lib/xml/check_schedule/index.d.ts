@@ -7,16 +7,28 @@ WebVariablesBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Включен */
+  /**
+   * Включен
+   * @default false
+   */
   is_enabled: XmlElem<boolean>;
-  /** Тип */
+  /**
+   * Тип
+   * @default warning
+   */
   type_id: XmlElem<string, typeof common.check_schedule_types>;
   library_url: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   doc_info: XmlElem<DocInfoBase | null>;
 };

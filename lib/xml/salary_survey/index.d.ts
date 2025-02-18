@@ -22,6 +22,7 @@ CustomElemsBase & {
   min_salary: XmlElem<number | null>;
   /** Максимальная зарплата */
   max_salary: XmlElem<number | null>;
+  /** Средняя зарплата */
   avg_salary: XmlElem<number | null>;
   /** Валюта */
   currency: XmlElem<string | null, typeof lists.currency_types>;

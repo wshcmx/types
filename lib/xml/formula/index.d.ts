@@ -25,6 +25,7 @@ interface FormulaDocumentFormulaElement {
   kpi_id: XmlElem<number | null, KpiCatalogDocumentTopElem>;
   kpi_type: XmlElem<string>;
   kpi_type_value: XmlElem<string | null>;
+  /** @default 0 */
   value: XmlElem<string>;
   desc: XmlElem<string | null>;
   begin_bracket: XmlElem<string | null>;
@@ -42,6 +43,7 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Код формулы */
   formula_code: XmlElem<string | null>;
   /** Тип */
   type: XmlElem<string | null>;

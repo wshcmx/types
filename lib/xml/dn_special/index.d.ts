@@ -11,6 +11,8 @@ CustomElemsBase & {
   /** Описание */
   desc: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type DnSpecialDocument = XmlDocument & {

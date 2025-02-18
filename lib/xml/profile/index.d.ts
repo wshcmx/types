@@ -4,6 +4,7 @@ interface ProfileDocumentRequestAgentAccount {
 }
 
 interface ProfileDocumentRequestAgent {
+  /** @default Agent */
   objectType: XmlElem<string | null>;
   name: XmlElem<string | null>;
   mbox: XmlElem<string | null>;

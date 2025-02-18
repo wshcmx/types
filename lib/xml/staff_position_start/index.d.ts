@@ -20,9 +20,11 @@ CustomElemsBase & {
   position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
   /** Название должности */
   position_name: XmlElem<string | null>;
+  /** Позиция штатного рассписания */
   staff_position_id: XmlElem<number | null, StaffPositionCatalogDocumentTopElem>;
   /** Дата вступления в должность */
   position_date: XmlElem<Date | null>;
+  /** Нормативный документ */
   document: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;

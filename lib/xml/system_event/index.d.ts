@@ -18,9 +18,15 @@ interface SystemEventDocumentSection {
   actions: XmlMultiElem<SystemEventDocumentSectionAction | null>;
 }
 
+interface SystemEventDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type SystemEventDocumentTopElem = XmlTopElem &
 MsVariablesBase & {
   Doc: SystemEventDocument;
+  id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
@@ -33,20 +39,31 @@ MsVariablesBase & {
   linked_system_event_id: XmlElem<number | null, SystemEventCatalogDocumentTopElem>;
   /** Условия выполнения */
   perfom_condition: XmlElem<string | null>;
-  /** Активное событие */
+  /**
+   * Активное событие
+   * @default true
+   */
   is_active: XmlElem<boolean>;
   /** Блоки операций */
   sections: XmlMultiElem<SystemEventDocumentSection | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<SystemEventDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type SystemEventDocument = XmlDocument & {

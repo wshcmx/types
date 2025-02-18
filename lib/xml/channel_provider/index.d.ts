@@ -7,15 +7,23 @@ WebVariablesBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Библиотека программного кода */
   code_library_id: XmlElem<number | null, CodeLibraryCatalogDocumentTopElem>;
+  /** Имя функции получения ленты */
   root_function_name: XmlElem<string>;
   /** Описание */
   desc: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;

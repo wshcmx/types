@@ -16,20 +16,31 @@ FileListBase & {
   subject: XmlElem<string | null>;
   /** Сообщение */
   body: XmlElem<string | null>;
-  /** Формат сообщения */
+  /**
+   * Формат сообщения
+   * @default plane
+   */
   body_type: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   main_object: XmlElem<NotificationTemplateDocumentMainObject | null>;
-  add_text_to_edit(screen: unknown, text: string, field: Date): unknown;
+  add_text_to_edit(screen: Object, text: string, field: Date): unknown;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type NotificationTemplateDocument = XmlDocument & {

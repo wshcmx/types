@@ -5,7 +5,10 @@ PersonFillingBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string | null, typeof common.agreement_status_types>;
   /** Каталог */
   catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;

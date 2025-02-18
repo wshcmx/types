@@ -1,3 +1,8 @@
+interface RemoteActionDocumentView {
+  /** @temp */
+  referer_url: XmlElem<string | null>;
+}
+
 type RemoteActionDocumentTopElem = XmlTopElem &
 ExecCodeBase &
 WebVariablesBase &
@@ -9,7 +14,10 @@ I18nBase & {
   code: XmlElem<string | null>;
   /** Название курса */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default eval
+   */
   type: XmlElem<string, typeof common.eval_types>;
   /** Комментарий */
   category: XmlElem<string | null>;
@@ -17,26 +25,48 @@ I18nBase & {
   /** Тип объекта */
   catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;
   link_name: XmlElem<string | null>;
+  /**
+   * Использовать в видах
+   * @default true
+   */
   show_in_list: XmlElem<boolean>;
+  /**
+   * Использовать в карточке объекта
+   * @default true
+   */
   show_in_form: XmlElem<boolean>;
   /** Ссылка на шаблон */
   url: XmlElem<string | null>;
   /** Код */
   script: XmlElem<string | null>;
+  /**
+   * Выводить типовые диалоги при выполнении действия
+   * @default false
+   */
   default_disp_evaluate: XmlElem<boolean>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  evaluate(resultType: string, request: Request, argVars: unknown, configuration: string): unknown;
+  /** @temp */
+  view: XmlElem<RemoteActionDocumentView | null>;
+  /** @temp */
+  converter: XmlElem<boolean | null>;
+  evaluate(resultType: string, request: Request, argVars: Object, configuration: string): unknown;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type RemoteActionDocument = XmlDocument & {

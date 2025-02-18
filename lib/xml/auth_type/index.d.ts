@@ -3,7 +3,10 @@ ObjectCodeNameBase &
 ExecCodeBase &
 WebVariablesBase & {
   Doc: AuthTypeDocument;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;

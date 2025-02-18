@@ -11,6 +11,7 @@ CustomElemsBase & {
   parent_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
+  /** Временные зоны */
   timezone_id: XmlElem<number | null, typeof common.timezones>;
   /** Адрес */
   address: XmlElem<string | null>;
@@ -20,6 +21,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type PlaceDocument = XmlDocument & {

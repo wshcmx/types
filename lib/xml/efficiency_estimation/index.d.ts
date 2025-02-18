@@ -14,10 +14,18 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type EfficiencyEstimationDocument = XmlDocument & {

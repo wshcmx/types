@@ -1,8 +1,10 @@
 interface AdminConfigurationDocumentFuncBlockSectionApplication {
   application_id: XmlElem<number | null, ApplicationCatalogDocumentTopElem>;
+  code: XmlElem<string | null>;
   name: XmlElem<string | null>;
   comment: XmlElem<string | null>;
   resource_id: XmlElem<string | null, ResourceCatalogDocumentTopElem>;
+  color: XmlElem<string | null>;
 }
 
 interface AdminConfigurationDocumentFuncBlockSection {
@@ -35,12 +37,20 @@ ObjectCodeNameBase & {
   access: XmlElem<AccessDocBase | null>;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Измененный */
+  /** @temp */
+  view: XmlElem<DescBase | null>;
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type AdminConfigurationDocument = XmlDocument & {

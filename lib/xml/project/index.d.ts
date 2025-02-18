@@ -6,7 +6,10 @@ interface ProjectDocumentParticipantTypeParticipantTypeObject {
   object_id: XmlElem<number | null>;
   /** Название объекта */
   object_name: XmlElem<string | null>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   is_required: XmlElem<boolean>;
 }
 
@@ -19,11 +22,28 @@ interface ProjectDocumentParticipantType {
 }
 
 interface ProjectDocumentParticipantRole {
+  /** Роль участника проекта */
   participant_role_id: XmlElem<number | null, ProjectParticipantRoleCatalogDocumentTopElem>;
 }
 
 interface ProjectDocumentFile extends FileBase {
+  /** @default all */
   visibility: XmlElem<string>;
+}
+
+interface ProjectDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default empty
+   */
+  tab_selector: XmlElem<string>;
+  /**
+   * @temp
+   * @default collaborator
+   */
+  participant_catalog: XmlElem<string, typeof common.exchange_object_types>;
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
 }
 
 type ProjectDocumentTopElem = XmlTopElem &
@@ -52,17 +72,38 @@ CustomElemsBase & {
   sale_contract_id: XmlElem<number | null, SaleContractCatalogDocumentTopElem>;
   /** Документооборот по умолчанию */
   workflow_id: XmlElem<number | null, WorkflowCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default project
+   */
   status: XmlElem<string, typeof common.project_status_types>;
-  /** Эталонный проект */
+  /**
+   * Эталонный проект
+   * @default false
+   */
   is_model: XmlElem<boolean>;
+  /** Плановые трудозатраты */
   plan_labor_costs: XmlElem<number | null>;
+  /** Фактические трудозатраты */
   fact_labor_costs: XmlElem<number | null>;
+  /** Процент выполнения */
   percent_complete: XmlElem<number | null>;
+  /**
+   * Команда подобрана
+   * @default false
+   */
   team_selected: XmlElem<boolean>;
+  /**
+   * Разрешить оценку участников после завершения проекта
+   * @default false
+   */
   allow_assessment: XmlElem<boolean>;
+  /** Результаты */
   text_result: XmlElem<string | null>;
-  /** Тип вступления */
+  /**
+   * Тип вступления
+   * @default close
+   */
   join_mode: XmlElem<string, typeof common.join_mode_types>;
   /** Тип заявки по умолчанию */
   default_request_type_id: XmlElem<number | null, RequestTypeCatalogDocumentTopElem>;
@@ -74,7 +115,15 @@ CustomElemsBase & {
   start_date_fact: XmlElem<Date | null>;
   /** Фактическая дата завершения */
   end_date_fact: XmlElem<Date | null>;
+  /**
+   * Все участники могут видеть все задачи проекта
+   * @default true
+   */
   all_participant_view_task: XmlElem<boolean>;
+  /**
+   * Разрешать назначать задачи не участникам проекта
+   * @default false
+   */
   allow_assigning_tasks_to_all: XmlElem<boolean>;
   participant_types: XmlMultiElem<ProjectDocumentParticipantType | null>;
   participant_roles: XmlMultiElem<ProjectDocumentParticipantRole | null>;
@@ -86,11 +135,32 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
-  set_status(newStatus: string, sendNotifications: boolean, screen: unknown): void;
+  /** @temp */
+  view: XmlElem<ProjectDocumentView | null>;
+  set_status(newStatus: string, sendNotifications: boolean, screen: Object): void;
   create_project_participant(fldParticipant: unknown): unknown;
+  /** @temp */
+  rows: XmlElem<unknown | null>;
+  /**
+   * @temp
+   * @default fullname
+   */
+  row_disp_elem: XmlElem<string>;
+  /**
+   * @temp
+   * @default .Env.ListElem
+   */
+  row_list_field: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default .PrimaryKey
+   */
+  row_key_field: XmlElem<string | null>;
+  /** @temp */
+  list_variant: XmlElem<unknown | null>;
   start_action(type: string): number;
 };
 

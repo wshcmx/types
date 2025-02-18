@@ -10,9 +10,14 @@ interface OutstaffOrderExecutionDocumentStage extends CostCurrencyBase, CustomEl
   date: XmlElem<Date | null>;
   /** Дата */
   fact_date: XmlElem<Date | null>;
+  /** @default 0 */
   hour_num: XmlElem<number>;
+  /** @default 0 */
   hours_worked: XmlElem<number>;
-  /** Присутствие */
+  /**
+   * Присутствие
+   * @default false
+   */
   is_assist: XmlElem<boolean>;
   /** Статус */
   outstaff_order_execution_status_type: XmlElem<string | null, typeof common.outstaff_order_execution_status_types>;
@@ -31,7 +36,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name(): string;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
   /** Дата формирования */
   formed_date: XmlElem<Date | null>;
@@ -63,6 +71,7 @@ CustomElemsBase & {
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
   /** Типовая должность */
   position_common_name: XmlElem<string | null>;
+  /** @default 0 */
   stage_num: XmlElem<number>;
   stages: XmlMultiElem<OutstaffOrderExecutionDocumentStage | null>;
   /** Доступ */
@@ -74,6 +83,8 @@ CustomElemsBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   update_stages(): unknown;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type OutstaffOrderExecutionDocument = XmlDocument & {

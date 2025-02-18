@@ -13,6 +13,14 @@ interface ExternalSystemDocumentSettings {
   custom_web_template_params: XmlElem<WebVariablesBase | null>;
 }
 
+interface ExternalSystemDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type ExternalSystemDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -29,6 +37,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ExternalSystemDocumentView | null>;
 };
 
 type ExternalSystemDocument = XmlDocument & {

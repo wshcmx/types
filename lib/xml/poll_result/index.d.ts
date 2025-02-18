@@ -9,6 +9,25 @@ interface PollResultDocumentQuestion {
   read_only: XmlElem<boolean | null>;
 }
 
+interface PollResultDocumentViewObjectObject {
+  /** @temp */
+  object_id: XmlElem<number | null>;
+}
+
+interface PollResultDocumentViewObject {
+  /** @temp */
+  question_id: XmlElem<number | null>;
+  /** @temp */
+  object_id: XmlElem<number | null>;
+  /** @temp */
+  objects: XmlMultiElem<PollResultDocumentViewObjectObject | null>;
+}
+
+interface PollResultDocumentView {
+  /** @temp */
+  objects: XmlMultiElem<PollResultDocumentViewObject | null>;
+}
+
 type PollResultDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 CustomElemsBase &
@@ -25,12 +44,18 @@ AdminAccessBase & {
   poll_procedure_id: XmlElem<number | null, PollProcedureCatalogDocumentTopElem>;
   /** Пользователь */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Заполнена */
+  /**
+   * Заполнена
+   * @default false
+   */
   is_done: XmlElem<boolean>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
   save_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   status: XmlElem<number>;
   /** План обучения */
   education_plan_id: XmlElem<number | null, EducationPlanCatalogDocumentTopElem>;
@@ -41,8 +66,14 @@ AdminAccessBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<PollResultDocumentView | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
-  update_name(): unknown;
+  update_name(): string;
 };
 
 type PollResultDocument = XmlDocument & {

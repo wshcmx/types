@@ -15,8 +15,12 @@ FileListBase & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Номер */
   number: XmlElem<string | null>;
+  /** Тип полиса */
   policy_type_id: XmlElem<number | null, PolicyTypeCatalogDocumentTopElem>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default active
+   */
   state_id: XmlElem<string, typeof common.budget_state_types>;
   /** Бюджетный период */
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
