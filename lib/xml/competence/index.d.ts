@@ -2,6 +2,25 @@ interface CompetenceDocumentExercise {
   exercise_id: XmlElem<number | null, ExerciseCatalogDocumentTopElem>;
 }
 
+interface CompetenceDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /**
+   * @temp
+   * Классификатор
+   */
+  knowledge_classifier_id: XmlElem<number | null>;
+  /**
+   * @temp
+   * Сортировать по
+   * @default name
+   */
+  knowledge_sort_type_id: XmlElem<string | null>;
+}
+
 type CompetenceDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 CompetenceScaleBase &
@@ -26,8 +45,10 @@ AdminAccessBase & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<CompetenceDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type CompetenceDocument = XmlDocument & {

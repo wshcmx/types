@@ -3,6 +3,7 @@ AdminAccessBase & {
   id: XmlElem<number | null>;
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;
+  /** @default active */
   status_id: XmlElem<string | null, typeof common.prog_discipl_states>;
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;

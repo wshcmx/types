@@ -8,10 +8,13 @@ type ProjectParticipantRoleCatalogDocumentTopElem = XmlTopElem & {
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Проект */
   project_id: XmlElem<number | null, ProjectCatalogDocumentTopElem>;
+  /** Количество участников */
   participant_num: XmlElem<number | null>;
+  /** Продукт/услуга(CRM) */
   provider_id: XmlElem<number | null, ProviderCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

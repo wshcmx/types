@@ -1,3 +1,11 @@
+interface ObjectiveTranslateDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type ObjectiveTranslateDocumentTopElem = XmlTopElem & {
   Doc: ObjectiveTranslateDocument;
   /** Код */
@@ -28,6 +36,8 @@ type ObjectiveTranslateDocumentTopElem = XmlTopElem & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ObjectiveTranslateDocumentView | null>;
 };
 
 type ObjectiveTranslateDocument = XmlDocument & {

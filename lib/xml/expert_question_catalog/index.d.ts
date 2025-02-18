@@ -27,6 +27,7 @@ type ExpertQuestionCatalogDocumentTopElem = XmlTopElem & {
   answer_file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

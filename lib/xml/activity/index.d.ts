@@ -10,7 +10,10 @@ WebVariablesBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Вычислять массив учебных активностей */
+  /**
+   * Вычислять массив учебных активностей
+   * @default false
+   */
   is_eval: XmlElem<boolean>;
   /** Программный код */
   statements_eval: XmlElem<string | null>;

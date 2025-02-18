@@ -14,11 +14,17 @@ type ActiveNotificationCatalogDocumentTopElem = XmlTopElem & {
   send_date: XmlElem<Date | null>;
   /** Адресаты */
   recipient_person_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Уведомление заполняется пользователем */
+  /**
+   * Уведомление заполняется пользователем
+   * @default false
+   */
   is_custom: XmlElem<boolean>;
   /** Статус */
   status: XmlElem<string | null, typeof common.active_notification_status_types>;
-  /** Количество попыток */
+  /**
+   * Количество попыток
+   * @default 0
+   */
   send_counter: XmlElem<number | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

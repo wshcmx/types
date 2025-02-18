@@ -13,7 +13,10 @@ CustomElemsBase & {
   obj: XmlElem<unknown | null>;
   /** Прикрепить к блоку */
   block: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
-  /** Тип агента */
+  /**
+   * Тип агента
+   * @default code
+   */
   type: XmlElem<string, typeof common.server_agent_types>;
   run_code_url: XmlElem<string | null>;
   /** Выполняемый код */
@@ -27,16 +30,26 @@ CustomElemsBase & {
   import_excel_id: XmlElem<number | null>;
   /** Сервер обмена данными */
   exchange_server_id: XmlElem<number | null, ExchangeServerCatalogDocumentTopElem>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<unknown | null>;
+  /** @temp */
+  converter: XmlElem<boolean | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type ServerAgentDocument = XmlDocument & {

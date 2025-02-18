@@ -35,11 +35,20 @@ CustomElemsBase & {
   key_position_threat_id: XmlElem<number | null, KeyPositionThreatCatalogDocumentTopElem>;
   /** Тип кадрового резерва */
   career_reserve_type_id: XmlElem<number | null, CareerReserveTypeCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status: XmlElem<string, typeof common.key_position_status_types>;
-  /** Доступна для преемников с любой должности */
+  /**
+   * Доступна для преемников с любой должности
+   * @default true
+   */
   is_open: XmlElem<boolean>;
-  /** Тип */
+  /**
+   * Тип
+   * @default position
+   */
   position_type: XmlElem<string>;
   risk_levels: XmlMultiElem<KeyPositionDocumentRiskLevel | null>;
   position_commons: XmlMultiElem<KeyPositionDocumentPositionCommon | null>;
@@ -52,6 +61,8 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   /** Категория */
   role_id: XmlMultiElemObject<number | null>;
   EvalThreat(arrRiskLevels: unknown, fldRiskPerspective: unknown, keyPositionId: number): unknown;

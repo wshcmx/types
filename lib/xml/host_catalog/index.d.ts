@@ -10,14 +10,27 @@ type HostCatalogDocumentTopElem = XmlTopElem & {
   port: XmlElem<number | null>;
   /** Узел */
   host: XmlElem<string | null>;
-  /** Аутентификация на портале (по умолчанию) */
+  /**
+   * Аутентификация на портале (по умолчанию)
+   * @default basic
+   */
   portal_auth_type: XmlElem<string>;
+  /**
+   * Разрешить авторизацию для интерфейса Администратора
+   * @default false
+   */
   allow_lds_auth: XmlElem<boolean>;
   /** Сайт */
   site_id: XmlElem<number | null, SiteCatalogDocumentTopElem>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean | null>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

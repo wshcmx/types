@@ -6,10 +6,17 @@ type RequestTypeCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Тип объекта */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Условия для отбора объекта */
   object_query_qual: XmlElem<string | null>;
-  /** Заявка групповая */
+  /**
+   * Заявка групповая
+   * @default false
+   */
   is_group: XmlElem<boolean>;
-  /** Запретить отклонять заявку ее автору */
+  /**
+   * Запретить отклонять заявку ее автору
+   * @default false
+   */
   forbid_rejection: XmlElem<boolean>;
   /** Документооборот по умолчанию */
   workflow_id: XmlElem<number | null, WorkflowCatalogDocumentTopElem>;
@@ -18,10 +25,16 @@ type RequestTypeCatalogDocumentTopElem = XmlTopElem & {
   /** Удаленное действие */
   remote_action_id: XmlElem<number | null, RemoteActionCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
-  /** Является системным */
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

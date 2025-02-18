@@ -1,7 +1,8 @@
 interface UiLngItem {
-  id: XmlElem<string>;
-  val: XmlElem<string>;
-  web: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  val: XmlElem<string | null>;
+  /** @default false */
+  web: XmlElem<boolean | null>;
 }
 
 interface IUiLng {
@@ -11,6 +12,7 @@ interface IUiLng {
   lng_file_url: XmlElem<string>;
   common_url: XmlElem<string>;
   startup_page_document_id: XmlElem<number, DocumentCatalogDocumentTopElem>;
+  /** @default false */
   ui_disp: XmlElem<boolean>;
   recovery_date: XmlElem<Date>;
   fullname_sequence: XmlElem<string>;

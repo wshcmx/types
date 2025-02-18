@@ -8,15 +8,30 @@ type CodingDocumentTopElem = XmlTopElem & {
   catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Префикс */
   prefix: XmlElem<string | null>;
-  /** Индекс */
+  /**
+   * Индекс
+   * @default 1
+   */
   next_index: XmlElem<number>;
-  /** Количество символов */
+  /**
+   * Количество символов
+   * @default 5
+   */
   digits_num: XmlElem<number>;
-  /** Поле */
+  /**
+   * Поле
+   * @default code
+   */
   field_name: XmlElem<string>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;

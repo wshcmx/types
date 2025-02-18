@@ -22,7 +22,10 @@ AdminAccessBase & {
   estaff_event_type_id: XmlElem<number | null, EstaffEventTypeCatalogDocumentTopElem>;
   /** Тип события E-Staff */
   estaff_event_type_name: XmlElem<string | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default document
+   */
   object_type: XmlElem<string, typeof common.exchange_object_types>;
   /** Прикрепленные объекты */
   objects: XmlElem<string | null>;
@@ -31,7 +34,10 @@ AdminAccessBase & {
   /** Название объекта */
   object_name: XmlElem<string | null>;
   linked_object_url: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   event_status_id: XmlElem<string | null, typeof common.estaff_event_status_types>;
   estaff_event_eid: XmlElem<number | null>;
   /** Дата модификации */

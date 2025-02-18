@@ -16,13 +16,20 @@ interface EducationPlanDocumentProgramFinishAssessment {
 
 interface EducationPlanDocumentProgramFinishNotifiation {
   /** Шаблон уведомления */
-  notification_template_id: XmlElem<number | null, NotificationTemplateCatalogDocumentTopElem>;
+  notification_template_id: XmlElem<number | null>;
   /** Тема */
   subject: XmlElem<string | null>;
   /** Сообщение */
   body: XmlElem<string | null>;
-  /** Формат сообщения */
+  /**
+   * Формат сообщения
+   * @default plane
+   */
   body_type: XmlElem<string | null>;
+  /**
+   * Редактировать уведомление
+   * @default false
+   */
   edit_notification: XmlElem<boolean>;
 }
 
@@ -33,16 +40,36 @@ interface EducationPlanDocumentProgramStartNotifiation {
   subject: XmlElem<string | null>;
   /** Сообщение */
   body: XmlElem<string | null>;
-  /** Формат сообщения */
+  /**
+   * Формат сообщения
+   * @default plane
+   */
   body_type: XmlElem<string | null>;
+  /**
+   * Редактировать уведомление
+   * @default false
+   */
   edit_notification: XmlElem<boolean>;
 }
 
 interface EducationPlanDocumentProgramResultObject {
   /** Объект */
   object_id: XmlElem<number | null>;
-  /** Тип результата */
+  /**
+   * Тип результата
+   * @default active_learning
+   */
   result_type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Объект */
+  result_object_id: XmlElem<number | null>;
+}
+
+interface EducationPlanDocumentProgramView {
+  /**
+   * Тип результата
+   * @default active_learning
+   */
+  result_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Объект */
   result_object_id: XmlElem<number | null>;
 }
@@ -77,9 +104,14 @@ interface EducationPlanDocumentProgram extends CustomElemsBase {
   finish_learning_tasks: XmlMultiElem<EducationPlanDocumentProgramFinishLearningTask | null>;
   /** Доступ после завершения разделов */
   finish_assessments: XmlMultiElem<EducationPlanDocumentProgramFinishAssessment | null>;
+  /** Пост-рассылка */
   finish_notifiation: XmlElem<EducationPlanDocumentProgramFinishNotifiation | null>;
+  /** Пред-рассылка */
   start_notifiation: XmlElem<EducationPlanDocumentProgramStartNotifiation | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default folder
+   */
   type: XmlElem<string | null>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -93,8 +125,15 @@ interface EducationPlanDocumentProgram extends CustomElemsBase {
   subject: XmlElem<string | null>;
   /** Сообщение */
   body: XmlElem<string | null>;
-  /** Формат сообщения */
+  /**
+   * Формат сообщения
+   * @default plane
+   */
   body_type: XmlElem<string | null>;
+  /**
+   * Редактировать уведомление
+   * @default false
+   */
   edit_notification: XmlElem<boolean>;
   /** Дней */
   delay_days: XmlElem<number | null>;
@@ -106,7 +145,10 @@ interface EducationPlanDocumentProgram extends CustomElemsBase {
   finish_date: XmlElem<Date | null>;
   /** Планируемая дата */
   plan_date: XmlElem<Date | null>;
-  /** Тип результата */
+  /**
+   * Тип результата
+   * @default active_learning
+   */
   result_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Объект */
   result_object_id: XmlElem<number | null>;
@@ -116,8 +158,12 @@ interface EducationPlanDocumentProgram extends CustomElemsBase {
   result_object_code: XmlElem<string | null>;
   result_object_start_date: XmlElem<Date | null>;
   result_object_finish_date: XmlElem<Date | null>;
+  /** Результаты */
   result_objects: XmlMultiElem<EducationPlanDocumentProgramResultObject | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.education_learning_states>;
   /** Ответственный */
   tutor_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -128,6 +174,8 @@ interface EducationPlanDocumentProgram extends CustomElemsBase {
   start_type: XmlElem<string | null>;
   /** Оценка */
   mark: XmlElem<number | null>;
+  /** @temp */
+  view: XmlElem<EducationPlanDocumentProgramView | null>;
   /** Незаконченный электронный курс */
   active_learning_id: XmlElem<number | null, ActiveLearningCatalogDocumentTopElem>;
   /** Электронный курс */
@@ -135,11 +183,23 @@ interface EducationPlanDocumentProgram extends CustomElemsBase {
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Обязательный раздел */
+  /**
+   * Обязательный раздел
+   * @default true
+   */
   required: XmlElem<boolean>;
   /** Доступ после завершения разделов */
   completed_parent_programs: XmlMultiElem<EducationPlanDocumentProgramCompletedParentProgram | null>;
+  /** Результаты этапа */
   program_results: XmlMultiElem<EducationPlanDocumentProgramProgramResult | null>;
+}
+
+interface EducationPlanDocumentView {
+  /**
+   * @temp
+   * @default 0
+   */
+  part_index: XmlElem<number>;
 }
 
 type EducationPlanDocumentTopElem = XmlTopElem &
@@ -153,7 +213,10 @@ CustomElemsBase & {
   group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
   /** Модульная программа */
   compound_program_id: XmlElem<number | null, CompoundProgramCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default collaborator
+   */
   type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -163,13 +226,23 @@ CustomElemsBase & {
   object_name: XmlElem<string | null>;
   /** Ответственный */
   tutor_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /**
+   * Обновлять статусы и активности онлайн
+   * @default true
+   */
   update_status_and_activity: XmlElem<boolean>;
+  /**
+   * Строгий контроль дат начала обучения
+   * @default true
+   */
   strong_date_control: XmlElem<boolean>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /** Фактическая дата завершения */
   fact_finish_date: XmlElem<Date | null>;
+  /** Последняя активность */
   last_activity_date: XmlElem<Date | null>;
   /** Планируемая дата */
   plan_date: XmlElem<Date | null>;
@@ -179,7 +252,10 @@ CustomElemsBase & {
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
   /** Процент готовности */
   readiness_percent: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.education_learning_states>;
   /** Статус */
   last_state_id: XmlElem<number | null, typeof common.education_learning_states>;
@@ -196,7 +272,9 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  getEducationPlanAccess(objId: number, userId: number, objectTopElem: unknown): unknown;
+  /** @temp */
+  view: XmlElem<EducationPlanDocumentView | null>;
+  getEducationPlanAccess(objId: number, userId: number, objectTopElem: XmlTopElem): unknown;
   calculateMark(): EducationPlanDocument;
 };
 

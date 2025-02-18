@@ -23,6 +23,7 @@ AdminAccessBase & {
   executor_id: XmlElem<number | null>;
   /** Статус */
   status: XmlElem<string | null, typeof common.task_statuses>;
+  /** Настраиваемый статус */
   custom_state_id: XmlElem<string | null>;
   /** Плановая величина */
   plan: XmlElem<string | null>;
@@ -36,11 +37,13 @@ AdminAccessBase & {
   value: XmlElem<number | null>;
   /** Процент готовности */
   readiness_percent: XmlElem<number | null>;
+  /** Приоритет */
   priority: XmlElem<number | null>;
   /** Тип объекта-источника */
   source_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Объект-источник */
   source_object_id: XmlElem<number | null>;
+  /** Этап договора */
   pay_stage_id: XmlElem<number | null, PayStageCatalogDocumentTopElem>;
   /** Тип объекта цели */
   target_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
@@ -64,10 +67,12 @@ AdminAccessBase & {
   plan_budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
   /** Бюджетный период */
   fact_budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
+  /** Плановые трудозатраты */
   plan_labor_costs: XmlElem<number | null>;
+  /** Фактические трудозатраты */
   fact_labor_costs: XmlElem<number | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Описание */
   desc: XmlElem<string | null>;
   /** Комментарий */
@@ -86,8 +91,16 @@ AdminAccessBase & {
   workflow_person_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Тип выборки условий видимости */
   workflow_matching_type: XmlElem<string | null>;
+  /** Разговор */
   conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
   /** Сотрудник */
   preparation_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
+  /**
+   * К задаче прикреплены файлы
+   * @default false
+   */
+  has_files: XmlElem<boolean>;
+  /** Сотрудник */
+  read_by_users: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
   OnBuild(): void;
 };

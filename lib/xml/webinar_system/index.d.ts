@@ -5,10 +5,13 @@ interface WebinarSystemDocumentWebinarSystemFieldEntry {
 
 interface WebinarSystemDocumentWebinarSystemField {
   name: XmlElem<string | null>;
+  /** @default string */
   type: XmlElem<string | null, typeof common.template_field_types>;
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
   title: XmlElem<string | null>;
   tooltip: XmlElem<string | null>;
+  /** Выборка */
+  remote_collection_id: XmlElem<number | null, RemoteCollectionCatalogDocumentTopElem>;
   xquery_qual: XmlElem<string | null>;
   /** Список допустимых значений */
   entries: XmlMultiElem<WebinarSystemDocumentWebinarSystemFieldEntry | null>;
@@ -39,11 +42,19 @@ WebVariablesBase & {
   desc: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   get_setting(settingName: string): string;
   get_settings(): Object;
 };

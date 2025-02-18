@@ -6,7 +6,7 @@ ObjectCodeNameBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
 };

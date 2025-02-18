@@ -10,6 +10,7 @@ FileListBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Этап договора */
   pay_stage_id: XmlElem<number | null, PayStageCatalogDocumentTopElem>;
   /** Тип */
   type_id: XmlElem<string | null, typeof common.payment_types>;
@@ -21,7 +22,10 @@ FileListBase & {
   number: XmlElem<string | null>;
   /** Дата создания */
   expense_create_date: XmlElem<Date | null>;
-  /** Сформирован */
+  /**
+   * Сформирован
+   * @default false
+   */
   is_formed: XmlElem<boolean | null>;
   /** Счета */
   expenses: XmlMultiElem<ClosingDocumentDocumentExpense | null>;
@@ -32,9 +36,13 @@ FileListBase & {
   sent_messenger_service_id: XmlElem<number | null, MessengerServiceCatalogDocumentTopElem>;
   back_sent_type: XmlElem<string | null, typeof common.document_sent_types>;
   back_sent_messenger_service_id: XmlElem<number | null, MessengerServiceCatalogDocumentTopElem>;
-  /** Получено */
+  /**
+   * Получено
+   * @default false
+   */
   is_received: XmlElem<boolean | null>;
   receiving_status_id: XmlElem<number | null, ClosingDocumentStatusCatalogDocumentTopElem>;
+  /** Дата получения */
   received_date: XmlElem<Date | null>;
   /** Комментарий */
   docs_comment: XmlElem<string | null>;

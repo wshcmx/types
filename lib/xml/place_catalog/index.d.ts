@@ -9,6 +9,7 @@ AdminAccessBase & {
   parent_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
+  /** Временные зоны */
   timezone_id: XmlElem<number | null, typeof common.timezones>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

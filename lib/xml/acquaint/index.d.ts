@@ -5,11 +5,20 @@ interface AcquaintDocumentCollaborator {
   collaborator_fullname: XmlElem<string | null>;
   /** Дата */
   date: XmlElem<Date | null>;
-  /** Ознакомлен */
+  /**
+   * Ознакомлен
+   * @default false
+   */
   acquaint: XmlElem<boolean>;
-  /** Не создавать ознакомление */
+  /**
+   * Не создавать ознакомление
+   * @default false
+   */
   bcreateaa: XmlElem<boolean>;
-  /** Только удалить из массива */
+  /**
+   * Только удалить из массива
+   * @default false
+   */
   bonlydelaa: XmlElem<boolean>;
 }
 
@@ -24,7 +33,9 @@ interface AcquaintDocumentGroup {
 }
 
 interface AcquaintDocumentQuestionCondition {
+  /** @default = */
   grading_option_id: XmlElem<string, typeof common.grading_option_types>;
+  /** @default equal */
   sentence_option_id: XmlElem<string, typeof common.sentence_option_types>;
   value: XmlElem<string | null>;
 }
@@ -33,16 +44,20 @@ interface AcquaintDocumentQuestionEntry {
   id: XmlElem<string | null>;
   /** Значение */
   value: XmlElem<string | null>;
-  /** Правильный ответ */
+  /**
+   * Правильный ответ
+   * @default false
+   */
   is_correct: XmlElem<boolean | null>;
 }
 
 interface AcquaintDocumentQuestion {
   /** Вопрос */
   id: XmlElem<string | null>;
+  /** @default false */
   is_custom: XmlElem<boolean | null>;
   /** Вопрос */
-  item_id: XmlElem<number | null>;
+  item_id: XmlElem<number | null, ItemCatalogDocumentTopElem>;
   /** Тип вопроса */
   type_id: XmlElem<string | null, typeof common.acquaint_question_types>;
   /** Заголовок */
@@ -52,6 +67,14 @@ interface AcquaintDocumentQuestion {
   conditions: XmlMultiElem<AcquaintDocumentQuestionCondition | null>;
   /** Варианты ответов */
   entries: XmlMultiElem<AcquaintDocumentQuestionEntry | null>;
+}
+
+interface AcquaintDocumentView {
+  /**
+   * @temp
+   * @default empty
+   */
+  tab_select: XmlElem<string>;
 }
 
 interface AcquaintDocumentSelectType {
@@ -65,7 +88,10 @@ ViewConditionsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default document
+   */
   object_type: XmlElem<string, typeof common.exchange_object_types>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -73,7 +99,10 @@ ViewConditionsBase & {
   object_name: XmlElem<string | null>;
   /** Требуемая дата ознакомления */
   normative_date: XmlElem<Date | null>;
-  /** Периодичность повторного обновления в днях */
+  /**
+   * Периодичность повторного обновления в днях
+   * @default 0
+   */
   reacquaintance_period: XmlElem<number>;
   /** Сотрудники */
   collaborators: XmlMultiElem<AcquaintDocumentCollaborator | null>;
@@ -83,15 +112,20 @@ ViewConditionsBase & {
   groups: XmlMultiElem<AcquaintDocumentGroup | null>;
   /** Программный код */
   eval_code: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default true
+   */
   status: XmlElem<boolean>;
   /** Вопросы */
   questions: XmlMultiElem<AcquaintDocumentQuestion | null>;
+  /** @temp */
+  view: XmlElem<AcquaintDocumentView | null>;
   select_types: XmlMultiElem<AcquaintDocumentSelectType | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

@@ -12,7 +12,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Актуальный */
+  /**
+   * Актуальный
+   * @default true
+   */
   is_active: XmlElem<boolean>;
   /** Родительский центр затрат */
   parent_id: XmlElem<number | null, CostCenterCatalogDocumentTopElem>;

@@ -24,9 +24,13 @@ CustomElemsBase & {
   position_name: XmlElem<string | null>;
   /** Должность */
   move_position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
+  /** Позиция штатного рассписания */
   staff_position_id: XmlElem<number | null, StaffPositionCatalogDocumentTopElem>;
+  /** Позиция штатного рассписания */
   move_staff_position_id: XmlElem<number | null, StaffPositionCatalogDocumentTopElem>;
+  /** Дата перемещения */
   move_date: XmlElem<Date | null>;
+  /** Нормативный документ */
   document: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;

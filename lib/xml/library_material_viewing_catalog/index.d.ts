@@ -13,7 +13,10 @@ AdminAccessBase & {
   person_fullname: XmlElem<string | null>;
   /** Состояние */
   state_id: XmlElem<string | null, typeof common.viewing_states>;
-  /** Продолжительность просмотра */
+  /**
+   * Продолжительность просмотра
+   * @default 0
+   */
   duration: XmlElem<number | null>;
   /** Начало просмотра */
   start_viewing_date: XmlElem<Date | null>;

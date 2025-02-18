@@ -4,7 +4,10 @@ type ActivityCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Вычислять массив учебных активностей */
+  /**
+   * Вычислять массив учебных активностей
+   * @default false
+   */
   is_eval: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

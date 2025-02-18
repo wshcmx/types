@@ -23,9 +23,15 @@ CustomDatasBase & {
   contact_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & MsPersonSdInnerBase;
   /** Организация */
   contact_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.contact_status_types>;
-  /** Дата контакта */
+  /**
+   * Дата контакта
+   * @default Date()
+   */
   contact_date: XmlElem<Date | null>;
   /** Предыдущий контакт */
   previous_contact_id: XmlElem<number | null, ContactCatalogDocumentTopElem>;
@@ -35,6 +41,8 @@ CustomDatasBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   poll_results: XmlMultiElem<ContactDocumentPollResult | null>;
   desc: XmlElem<string | null>;
 };

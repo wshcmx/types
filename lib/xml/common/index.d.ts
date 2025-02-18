@@ -1,1471 +1,1512 @@
 interface CommonOrderType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonItemType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonGradingOptionType {
-  id: XmlElem<string>;
-  option_id: XmlElem<string>;
-  qti_tag: XmlElem<string>;
+  id: XmlElem<string | null>;
+  option_id: XmlElem<string | null>;
+  qti_tag: XmlElem<string | null>;
 }
 
 interface CommonSentenceOptionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPlayerType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  archive_name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  archive_name: XmlElem<string | null>;
 }
 
 interface CommonPlayerPosition {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPlayerLanguage {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPlayerSendType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPlayerDisplayType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPlayerRubricDisplayType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLearningState {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
-  short_descriptor: XmlElem<string>;
-  long_descriptor: XmlElem<string>;
-  text_color: XmlElem<string>;
-  lpe_color: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
+  short_descriptor: XmlElem<string | null>;
+  long_descriptor: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  lpe_color: XmlElem<string | null>;
 }
 
 interface CommonEducationLearningState {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
-  short_descriptor: XmlElem<string>;
-  long_descriptor: XmlElem<string>;
-  text_color: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
+  short_descriptor: XmlElem<string | null>;
+  long_descriptor: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
 }
 
 interface CommonViewingState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonAvailabilityState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonAcquaintState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonAcquaintQuestionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  multiple: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  multiple: XmlElem<boolean | null>;
 }
 
 interface CommonObjectResourceState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonMaterialFormatType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonForumSmileType {
-  id: XmlElem<string>;
-  url: XmlElem<string>;
+  id: XmlElem<string | null>;
+  url: XmlElem<string | null>;
 }
 
 interface CommonAnnalsItemType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  data_id: XmlElem<string>;
-  item_id: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  data_id: XmlElem<string | null>;
+  item_id: XmlElem<string | null>;
 }
 
 interface CommonPassportType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonUploadType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonExchangeObjectType {
-  name: XmlElem<string>;
-  disp_name: XmlElem<string>;
-  title: XmlElem<string>;
-  web_title: XmlElem<string>;
-  web_template: XmlElem<string>;
-  web_const: XmlElem<string>;
-  is_hier: XmlElem<boolean>;
-  is_custom: XmlElem<boolean>;
-  form_url: XmlElem<string>;
+  name: XmlElem<string | null>;
+  disp_name: XmlElem<string | null>;
+  title: XmlElem<string | null>;
+  web_title: XmlElem<string | null>;
+  web_template: XmlElem<string | null>;
+  web_const: XmlElem<string | null>;
+  /** @default false */
+  is_hier: XmlElem<boolean | null>;
+  /** @default false */
+  is_custom: XmlElem<boolean | null>;
+  form_url: XmlElem<string | null>;
+  /** @default 0 */
   form_type: XmlElem<number>;
-  max_records_num: XmlElem<number>;
+  max_records_num: XmlElem<number | null>;
+  /** @default true */
   ft_index: XmlElem<boolean>;
 }
 
 interface CommonAnnalsState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAllOptionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  title: XmlElem<string>;
-  caption: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  title: XmlElem<string | null>;
+  caption: XmlElem<string | null>;
 }
 
 interface CommonActionReportType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonActionStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPackageType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPositionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  mod_name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  mod_name: XmlElem<string | null>;
 }
 
 interface CommonRequestStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  /** @default write */
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonResponseStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonClObjectGroup {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAccountStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  /** @default write */
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonBlockMessageState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProjectStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonPersonnelCommitteeStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonCommitteeMemberType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCommitteeMemberStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEventStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonEventResultStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonEventType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  /** @default false */
   is_std: XmlElem<boolean>;
 }
 
 interface CommonLearningTaskStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEventFileVisibilityType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPackageStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonContactStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonFieldNameType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonFieldType {
-  name: XmlElem<string>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonResultFieldType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonSpxmlType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLectorType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEducationMethodType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTemplateFieldType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  field_type: XmlElem<string>;
-  icon: XmlElem<string>;
-  has_entries: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  field_type: XmlElem<string | null>;
+  icon: XmlElem<string | null>;
+  has_entries: XmlElem<boolean | null>;
 }
 
 interface CommonServerAgentType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTriggerType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonRecipientType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  /** @default false */
   func_man: XmlElem<boolean>;
 }
 
 interface CommonCostType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  short_name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  short_name: XmlElem<string | null>;
 }
 
 interface CommonWebFilterType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPollType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  multiple: XmlElem<boolean>;
-  is_table: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  multiple: XmlElem<boolean | null>;
+  /** @default false */
+  is_table: XmlElem<boolean | null>;
 }
 
 interface CommonWebTemplateType extends WebVariablesBase {
-  id: XmlElem<string>;
+  id: XmlElem<string | null>;
   code(): string;
-  name: XmlElem<string>;
-  url: XmlElem<string>;
-  mode: XmlElem<string>;
+  name: XmlElem<string | null>;
+  url: XmlElem<string | null>;
+  mode: XmlElem<string | null>;
 }
 
 interface CommonDischargeType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  is_import: XmlElem<boolean>;
-  source_name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  is_import: XmlElem<boolean | null>;
+  source_name: XmlElem<string | null>;
 }
 
 interface CommonDischargeDbType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLinkingView {
-  name: XmlElem<string>;
-  catalog_name: XmlElem<string>;
-  disp_name: XmlElem<string>;
-  title: XmlElem<string>;
-  view_url: XmlElem<string>;
+  name: XmlElem<string | null>;
+  catalog_name: XmlElem<string | null>;
+  disp_name: XmlElem<string | null>;
+  title: XmlElem<string | null>;
+  view_url: XmlElem<string | null>;
 }
 
 interface CommonWorkflowOperationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonObjectflowConditionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  is_primary: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  is_primary: XmlElem<boolean | null>;
 }
 
 interface CommonObjectflowOperationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTestProjectType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonItemStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonCareerReserveStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonKeyPositionStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonSuccessorStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonTutorStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonPersonnelReserveStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonPersonnelReserveTaskStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonPrintFormType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  content_type: XmlElem<string>;
-  extension: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  content_type: XmlElem<string | null>;
+  extension: XmlElem<string | null>;
 }
 
 interface CommonInteractionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonObjectiveStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  short_descriptor: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  short_descriptor: XmlElem<string | null>;
 }
 
 interface CommonObjectiveSuccessStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  short_descriptor: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  short_descriptor: XmlElem<string | null>;
 }
 
 interface CommonWeekDayType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  short_name: XmlElem<string>;
-  index: XmlElem<number>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  short_name: XmlElem<string | null>;
+  index: XmlElem<number | null>;
 }
 
 interface CommonContestType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  desc: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  desc: XmlElem<string | null>;
 }
 
 interface CommonContestState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonContestWebTemplate {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLibrarySectionWebTemplate {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLibraryState {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCourseTestState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonKpiType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonKpiState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonKpiCalcType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAssessmentAppraiseParticipant {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  index: XmlElem<number>;
-  usable: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  index: XmlElem<number | null>;
+  /** @default true */
+  usable: XmlElem<boolean | null>;
 }
 
 interface CommonAssessmentAppraiseType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  general: XmlElem<boolean>;
-  index: XmlElem<number>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  general: XmlElem<boolean | null>;
+  index: XmlElem<number | null>;
 }
 
 interface CommonAssessmentAppraiseParameterStatus {
-  status_id: XmlElem<string>;
+  status_id: XmlElem<string | null>;
 }
 
 interface CommonAssessmentAppraiseParameter {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  statuses: XmlMultiElem<CommonAssessmentAppraiseParameterStatus>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  statuses: XmlMultiElem<CommonAssessmentAppraiseParameterStatus | null>;
 }
 
 interface CommonAssessmentAppraiseRecommendType {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAssessmentAppraiseStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonIndicatorType {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonSupplementaryQuestionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonChartChartSubtype {
-  chart_subtype_id: XmlElem<string>;
+  chart_subtype_id: XmlElem<string | null>;
 }
 
 interface CommonChart {
-  chart_id: XmlElem<string>;
-  chart_type: XmlElem<string>;
-  chart_subtypes: XmlMultiElem<CommonChartChartSubtype>;
-  chart_name: XmlElem<string>;
-  icon: XmlElem<string>;
-  xcolor: XmlElem<string>;
-  xcolor2: XmlElem<string>;
-  xoverlap: XmlElem<number>;
-  xcolor_line: XmlElem<string>;
-  flag_show_axis: XmlElem<boolean>;
+  chart_id: XmlElem<string | null>;
+  chart_type: XmlElem<string | null>;
+  chart_subtypes: XmlMultiElem<CommonChartChartSubtype | null>;
+  chart_name: XmlElem<string | null>;
+  icon: XmlElem<string | null>;
+  /** @default white */
+  xcolor: XmlElem<string | null>;
+  /** @default white */
+  xcolor2: XmlElem<string | null>;
+  /** @default 0 */
+  xoverlap: XmlElem<number | null>;
+  /** @default yellow,lime,white,red,blue,purple,orange,green,silver,aqua,maroon */
+  xcolor_line: XmlElem<string | null>;
+  /** @default true */
+  flag_show_axis: XmlElem<boolean | null>;
+  /** @default 0 */
   thickness: XmlElem<number>;
-  flag_color_datapoints: XmlElem<boolean>;
-  flag_right_angle_axes: XmlElem<boolean>;
-  flag_foreign_caption: XmlElem<boolean>;
-  flag_show_percent: XmlElem<boolean>;
+  /** @default false */
+  flag_color_datapoints: XmlElem<boolean | null>;
+  /** @default true */
+  flag_right_angle_axes: XmlElem<boolean | null>;
+  /** @default true */
+  flag_foreign_caption: XmlElem<boolean | null>;
+  /** @default false */
+  flag_show_percent: XmlElem<boolean | null>;
 }
 
 interface CommonAssessmentExternalType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAssessmentStageAccess {
-  allow_add: XmlElem<boolean>;
-  allow_delete: XmlElem<boolean>;
-  allow_plan_modify: XmlElem<boolean>;
-  allow_mark_modify: XmlElem<boolean>;
+  /** @default false */
+  allow_add: XmlElem<boolean | null>;
+  /** @default false */
+  allow_delete: XmlElem<boolean | null>;
+  /** @default false */
+  allow_plan_modify: XmlElem<boolean | null>;
+  /** @default false */
+  allow_mark_modify: XmlElem<boolean | null>;
 }
 
 interface CommonAssessmentStage {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
-  is_period_dependent: XmlElem<boolean>;
-  access: XmlElem<CommonAssessmentStageAccess>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
+  /** @default false */
+  is_period_dependent: XmlElem<boolean | null>;
+  access: XmlElem<CommonAssessmentStageAccess | null>;
 }
 
 interface CommonKnowledgePartsObject {
-  knowledge_parts_object_id: XmlElem<string, typeof common.exchange_object_types>;
-  form_url: XmlElem<string>;
-  is_functional: XmlElem<boolean>;
+  knowledge_parts_object_id: XmlElem<string | null, typeof common.exchange_object_types>;
+  form_url: XmlElem<string | null>;
+  /** @default true */
+  is_functional: XmlElem<boolean | null>;
 }
 
 interface CommonLanguage {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLanguageLevel {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
-interface CommonEducTypesEduType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-}
-
-interface CommonEducTypes {
-  edu_type: XmlElem<CommonEducTypesEduType>;
+interface CommonEduType {
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonExpendedEducType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEmploymentKind {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProfessionalArea {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCareerReserveTasksType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCareerReserveMaterialType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCareerReserveTypeTasksType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTraningOrderState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonApplicationState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonServerRunMode {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPossibleStorage {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonOracleDbType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonServerSetting {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  user_name: XmlElem<string>;
-  type: XmlElem<string>;
-  passive_in_modes: XmlElem<string>;
-  default_value: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  user_name: XmlElem<string | null>;
+  type: XmlElem<string | null>;
+  passive_in_modes: XmlElem<string | null>;
+  default_value: XmlElem<string | null>;
 }
 
 interface CommonSystemEventOperationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonForumPersonInfoType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonParticipantState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPeriodity {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  weight: XmlElem<number>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  weight: XmlElem<number | null>;
 }
 
 interface CommonSubmissionState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCollectState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonNodeType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonResourceType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  ext: XmlElem<string>;
-  is_media: XmlElem<boolean>;
-  use_cache: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  ext: XmlElem<string | null>;
+  is_media: XmlElem<boolean | null>;
+  use_cache: XmlElem<boolean | null>;
 }
 
 interface CommonQualificationAssignmentState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonContentItem {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  html_page: XmlElem<string>;
-  access_block: XmlElem<string, typeof common.access_block_types>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  html_page: XmlElem<string | null>;
+  access_block: XmlElem<string | null, typeof common.access_block_types>;
 }
 
 interface CommonCovenantStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCourseExpertType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonActiveNotificationStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonClAuthorType {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonClState {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonClApprovalState {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonOperationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  /** @default 0 */
   type: XmlElem<number>;
-  operation_catalog: XmlElem<string>;
+  operation_catalog: XmlElem<string | null>;
 }
 
 interface CommonCwtType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonOutType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonXamlInterpreter {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  url: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  url: XmlElem<string | null>;
 }
 
 interface CommonPeriodCalcType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonExpertEvalType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonVendorStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonVacancyResponseStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonJoinModeType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEvalType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTemplateCacheType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonBudgetStateType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonRecruitmentPlanStateType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStatusInKnowledgeMapType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStudType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStudentState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStudDocType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStudGroupState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWorkType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLessonState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStudWorkState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWeekDay {
-  id: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPeriodicityType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonRegistrType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAcademDebtState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProgDisciplState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCurriculumType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTypeMark {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonSocialAvatarPriorityType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAzureRoleSizeType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEncodingType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPortalType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonGraphType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAggregationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonDeliveryType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonGoodInstanceStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonOrderStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonOutstaffContractType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEstaffEventStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonAccessObjectType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEmploymentType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
-interface CommonLearningDynamicsCategoryType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+interface CommonCourseDynamicsCategoryType {
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+}
+
+interface CommonTestDynamicsCategoryType {
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLearningStatisticsCategoryType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  /** @default dist,test, */
   type: XmlElem<string>;
 }
 
+interface CommonTestStatisticsCategoryType {
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+}
+
 interface CommonCoursePartType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  ico_url: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  ico_url: XmlElem<string | null>;
 }
 
 interface CommonPositionAssignmentType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonDayType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonMonth {
-  id: XmlElem<string>;
-  number: XmlElem<number>;
-  name: XmlElem<string>;
-  name_genitive: XmlElem<string>;
-  days: XmlElem<number>;
-  quarter: XmlElem<number>;
+  id: XmlElem<string | null>;
+  number: XmlElem<number | null>;
+  name: XmlElem<string | null>;
+  name_genitive: XmlElem<string | null>;
+  days: XmlElem<number | null>;
+  quarter: XmlElem<number | null>;
 }
 
 interface CommonPollItemType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCareerTransitionDirectionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonOutstaffOrderExecutionStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonKeyboardType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonServiceProviderType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  with_date: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  with_date: XmlElem<boolean | null>;
 }
 
 interface CommonPaymentType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  is_can_received: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  is_can_received: XmlElem<boolean | null>;
 }
 
 interface CommonQualificationStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEducationMethodState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLearningCatalog {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonVclassLearningCatalog {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonDocumentSentType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProctoringObject {
-  id: XmlElem<string>;
-  icon_url: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  icon_url: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLearningRecordStatus {
-  id: XmlElem<string>;
-  icon_url: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  icon_url: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCourseImportType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTimezone {
-  id: XmlElem<number>;
-  direction: XmlElem<number>;
-  tm: XmlElem<number>;
-  name: XmlElem<string>;
+  id: XmlElem<number | null>;
+  direction: XmlElem<number | null>;
+  tm: XmlElem<number | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonSubstitutionStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWikiCommunicationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAgreementStatusType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConversationParticipantState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonMessageState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConversationFormat {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConversationVisibleType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAcquaintType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonMessageType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonChatbotOutType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCheckScheduleType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProgressType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonDesignVscodeSaveType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonDesignVscodeAccessType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonViolationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  icon_url: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  icon_url: XmlElem<string | null>;
 }
 
 interface CommonViolationState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProctorState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProctoringSessionState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProhibitionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConversationMessageState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonApplicationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaTestState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaTestType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaFixtureType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaTestResultCompletionState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaTestResultState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaTestAssertType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonQaTestAssertTemplateType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonBlogType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWorkingConditionState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTariffRateType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConversationObjectType {
-  object_type: XmlElem<string, typeof common.exchange_object_types>;
-  is_fix_participants: XmlElem<boolean>;
-  exclude_channel_participant: XmlElem<boolean>;
+  object_type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** @default true */
+  is_fix_participants: XmlElem<boolean | null>;
+  /** @default false */
+  exclude_channel_participant: XmlElem<boolean | null>;
 }
 
 interface CommonKnowledgeAcquaintState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonKnowledgeAcquaintType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConfirmationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonAcquaintConfirmationType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonConfirmationExpertType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWillingnessTravelType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonStatementComponentProperty {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonSignatureType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPersonnelDocumentState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonLayerType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonJobTransferType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPositionCommonStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTypicalDevelopmentProgramStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonFilterType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonGoodState {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWebPersonStateType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWebsoftApp {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonUsageObjectType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonPerfomConditionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEvalCodeType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEvalTextType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonMaterialLocation {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonReactionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonCreateTaskType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonEditTaskType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonViewTaskType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonTaskStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  text_color: XmlElem<string>;
-  bk_color: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  text_color: XmlElem<string | null>;
+  bk_color: XmlElem<string | null>;
 }
 
 interface CommonChatbotTileType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonChatbotActionType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonChatbotButtonType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWorkspaceTheme {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonVideoFormat {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
-  width: XmlElem<number>;
-  height: XmlElem<number>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  width: XmlElem<number | null>;
+  height: XmlElem<number | null>;
 }
 
 interface CommonSchedulerType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWeekType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonProcessingMethod {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonBenefitStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonBenefitItemStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonObjectParamBaseObjectType {
-  name: XmlElem<string>;
-  title: XmlElem<string>;
+  name: XmlElem<string | null>;
+  title: XmlElem<string | null>;
 }
 
 interface CommonWikiBaseType {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface CommonWikiBaseStatus {
-  id: XmlElem<string>;
-  name: XmlElem<string>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+}
+
+interface CommonAiModelType {
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
 }
 
 interface ICommon {
@@ -1570,7 +1611,7 @@ interface ICommon {
   knowledge_parts_objects: XmlMultiElem<CommonKnowledgePartsObject>;
   languages: XmlMultiElem<CommonLanguage>;
   language_levels: XmlMultiElem<CommonLanguageLevel>;
-  educ_types: XmlElem<CommonEducTypes>;
+  educ_types: XmlMultiElem<CommonEduType>;
   expended_educ_types: XmlMultiElem<CommonExpendedEducType>;
   employment_kinds: XmlMultiElem<CommonEmploymentKind>;
   professional_areas: XmlMultiElem<CommonProfessionalArea>;
@@ -1640,8 +1681,10 @@ interface ICommon {
   estaff_event_status_types: XmlMultiElem<CommonEstaffEventStatusType>;
   access_object_types: XmlMultiElem<CommonAccessObjectType>;
   employment_types: XmlMultiElem<CommonEmploymentType>;
-  learning_dynamics_category_types: XmlMultiElem<CommonLearningDynamicsCategoryType>;
+  course_dynamics_category_types: XmlMultiElem<CommonCourseDynamicsCategoryType>;
+  test_dynamics_category_types: XmlMultiElem<CommonTestDynamicsCategoryType>;
   learning_statistics_category_types: XmlMultiElem<CommonLearningStatisticsCategoryType>;
+  test_statistics_category_types: XmlMultiElem<CommonTestStatisticsCategoryType>;
   course_part_types: XmlMultiElem<CommonCoursePartType>;
   position_assignment_types: XmlMultiElem<CommonPositionAssignmentType>;
   day_types: XmlMultiElem<CommonDayType>;
@@ -1733,6 +1776,7 @@ interface ICommon {
   object_param_base_object_types: XmlMultiElem<CommonObjectParamBaseObjectType>;
   wiki_base_types: XmlMultiElem<CommonWikiBaseType>;
   wiki_base_statuses: XmlMultiElem<CommonWikiBaseStatus>;
+  ai_model_types: XmlMultiElem<CommonAiModelType>;
 }
 
 declare const common: XmlElem<ICommon>;

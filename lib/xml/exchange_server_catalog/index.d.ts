@@ -4,7 +4,10 @@ type ExchangeServerCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Сервер зарегистрирован */
+  /**
+   * Сервер зарегистрирован
+   * @default true
+   */
   is_active: XmlElem<boolean>;
   /** Дата последней отправки */
   last_upload_date: XmlElem<Date | null>;
@@ -13,7 +16,7 @@ type ExchangeServerCatalogDocumentTopElem = XmlTopElem & {
   /** Версия сервера при приеме данных */
   server_version: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

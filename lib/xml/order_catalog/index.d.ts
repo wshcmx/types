@@ -4,7 +4,10 @@ type OrderCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

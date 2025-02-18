@@ -33,6 +33,7 @@ interface PayStageDocumentCost {
   min: XmlElem<PayStageDocumentCostMin | null>;
   /** Плановая стоимость */
   max: XmlElem<PayStageDocumentCostMax | null>;
+  /** Фактическая стоимость */
   fact: XmlElem<PayStageDocumentCostFact | null>;
 }
 
@@ -47,20 +48,38 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Организация клиента */
   client_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Договор */
   sale_contract_id: XmlElem<number | null, SaleContractCatalogDocumentTopElem>;
+  /** Договор с клиентом партнёра */
   agent_contract_id: XmlElem<number | null, SaleContractCatalogDocumentTopElem>;
+  /**
+   * Агентский договор
+   * @default false
+   */
   is_agent_sale_contract: XmlElem<boolean | null>;
+  /** Организация-партнёр */
   agent_org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /**
+   * Предоплата
+   * @default false
+   */
   is_prepayment: XmlElem<boolean | null>;
   /** Тип */
   type_id: XmlElem<string | null>;
+  /** Способ закрытия */
   closing_method: XmlElem<string | null>;
   /** Центр затрат */
   cost_center_id: XmlElem<number | null, CostCenterCatalogDocumentTopElem>;
+  /** Тип стоимости этапа */
   cost_type: XmlElem<string | null>;
+  /**
+   * Автозакрытие
+   * @default false
+   */
   is_autoclosing: XmlElem<boolean | null>;
+  /** Срок автозакрытия (дней) */
   autoclosing_period: XmlElem<number | null>;
   /** Дата начала */
   start_date: XmlElem<Date | null>;
@@ -76,6 +95,8 @@ AdminAccessBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type PayStageDocument = XmlDocument & {

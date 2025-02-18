@@ -9,7 +9,10 @@ AdminAccessBase & {
   event_name: XmlElem<string | null>;
   /** Дата начала мероприятия */
   event_start_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.event_result_status_types>;
   /** Пользователь */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -25,15 +28,30 @@ AdminAccessBase & {
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
   /** Тип результата мероприятия */
   event_result_type_id: XmlElem<number | null, EventResultTypeCatalogDocumentTopElem>;
-  /** Признак присутствия */
+  /**
+   * Признак присутствия
+   * @default false
+   */
   is_assist: XmlElem<boolean>;
-  /** Признак подтверждения участия */
+  /**
+   * Признак подтверждения участия
+   * @default false
+   */
   is_confirm: XmlElem<boolean>;
-  /** Доступ запрещен */
+  /**
+   * Доступ запрещен
+   * @default false
+   */
   is_banned: XmlElem<boolean>;
-  /** Отказался от участия */
+  /**
+   * Отказался от участия
+   * @default false
+   */
   not_participate: XmlElem<boolean>;
-  /** Является открытым решением кейса */
+  /**
+   * Является открытым решением кейса
+   * @default false
+   */
   is_open: XmlElem<boolean>;
   /** Баллы */
   score: XmlElem<number | null>;
@@ -43,8 +61,15 @@ AdminAccessBase & {
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
   /** Кост-центр */
   cost_center_id: XmlElem<number | null, CostCenterCatalogDocumentTopElem>;
-  /** Признак: без оплаты */
+  /**
+   * Признак: без оплаты
+   * @default false
+   */
   not_pay: XmlElem<boolean>;
+  /**
+   * Используется гостевой вход
+   * @default false
+   */
   guest: XmlElem<boolean>;
   /** Сумма затрат */
   expense_sum: XmlElem<number | null>;

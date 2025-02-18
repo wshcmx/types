@@ -1,3 +1,11 @@
+interface DeviceRegDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 interface DeviceRegDocumentToken {
   id: XmlElem<number | null>;
   status: XmlElem<string | null>;
@@ -17,6 +25,8 @@ type DeviceRegDocumentTopElem = XmlTopElem & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DeviceRegDocumentView | null>;
   tokens: XmlMultiElem<DeviceRegDocumentToken | null>;
 };
 

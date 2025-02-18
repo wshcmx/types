@@ -1,3 +1,11 @@
+interface LibraryPlayerDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type LibraryPlayerDocumentTopElem = XmlTopElem & {
   Doc: LibraryPlayerDocument;
   id: XmlElem<number | null>;
@@ -10,15 +18,24 @@ type LibraryPlayerDocumentTopElem = XmlTopElem & {
   learning_storage_id: XmlElem<number | null, LearningStorageCatalogDocumentTopElem>;
   /** Учебная активность */
   activity_id: XmlElem<number | null, ActivityCatalogDocumentTopElem>;
+  /** @default false */
   cmi5: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  view: XmlElem<LibraryPlayerDocumentView | null>;
 };
 
 type LibraryPlayerDocument = XmlDocument & {

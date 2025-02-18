@@ -10,9 +10,15 @@ WebVariablesBase & {
   library_url: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   doc_info: XmlElem<DocInfoBase | null>;
 };

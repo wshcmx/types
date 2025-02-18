@@ -11,6 +11,11 @@ interface EstaffEventTypeDocumentCompletionSign {
   id: XmlElem<number | null, EstaffEventTypeCatalogDocumentTopElem>;
 }
 
+interface EstaffEventTypeDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type EstaffEventTypeDocumentTopElem = XmlTopElem &
 WebVariablesBase &
 AdminAccessBase &
@@ -32,6 +37,7 @@ CustomElemsBase & {
   event_type_estaff_name: XmlElem<string | null>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Система подбора персонала */
   recruitment_system_id: XmlElem<number | null, RecruitmentSystemCatalogDocumentTopElem>;
   /** Условие видимости */
   visibility_condition: XmlElem<string | null>;
@@ -45,13 +51,15 @@ CustomElemsBase & {
   check_event_processing: XmlElem<string | null>;
   /** Проверка при обработке события */
   run_check_event_processing_url: XmlElem<string | null>;
-  eval_action_event_occurs(estaffEventId: number, personId: number, objectId: number, candidateEId: number, vacancyEId: number, recruterId: number): unknown;
+  eval_action_event_occurs(estaffEventId: number, personId: number, objectId: number, candIdateEId: number, vacancyEId: number, recruterId: number): unknown;
   eval_check_event_process(estaffEventId: number, personId: number, objectId: number, url: string, action: string, estaffEventStatus: string, source: unknown): unknown;
   eval_visibility_condition(estaffEventId: number, personId: number, curUserId: number, objectId: number): unknown;
   /** Описание */
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<EstaffEventTypeDocumentView | null>;
 };
 
 type EstaffEventTypeDocument = XmlDocument & {

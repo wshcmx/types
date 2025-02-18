@@ -2,7 +2,10 @@ interface StaffPositionDocumentKpiProfile {
   /** Профиль KPI */
   id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;
   period_type_id: XmlElem<string | null, typeof common.perioditys>;
-  /** Обязательный */
+  /**
+   * Обязательный
+   * @default false
+   */
   obligatory: XmlElem<boolean>;
 }
 
@@ -25,6 +28,7 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Статус */
   status: XmlElem<string | null, typeof common.project_status_types>;
+  /** Дата утверждения */
   start_date: XmlElem<Date | null>;
   /** Дата закрытия */
   finish_date: XmlElem<Date | null>;
@@ -38,10 +42,13 @@ CustomElemsBase & {
   subdivision_name: XmlElem<string | null>;
   /** Типовая должность */
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
+  /** Профессия */
   profession_id: XmlElem<number | null, ProfessionCatalogDocumentTopElem>;
+  /** Разряд профессии */
   profession_category_id: XmlElem<number | null, ProfessionCategoryCatalogDocumentTopElem>;
   /** Профиль премирования */
   bonus_profile_id: XmlElem<number | null, BonusProfileCatalogDocumentTopElem>;
+  /** Количество штатных единиц */
   staff_num: XmlElem<number | null>;
   /** Профиль KPI */
   kpi_profile_id: XmlElem<number | null, KpiProfileCatalogDocumentTopElem>;

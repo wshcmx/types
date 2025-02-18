@@ -22,7 +22,10 @@ CustomElemsBase & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Тип кадрового резерва */
   career_reserve_type_id: XmlElem<number | null, CareerReserveTypeCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.tutor_status_types>;
   /** C даты */
   start_date: XmlElem<Date | null>;
@@ -41,6 +44,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type TutorDocument = XmlDocument & {

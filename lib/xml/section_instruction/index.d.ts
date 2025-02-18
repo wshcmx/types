@@ -1,3 +1,11 @@
+interface SectionInstructionDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type SectionInstructionDocumentTopElem = XmlTopElem & {
   Doc: SectionInstructionDocument;
   /** Код */
@@ -12,6 +20,8 @@ type SectionInstructionDocumentTopElem = XmlTopElem & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<SectionInstructionDocumentView | null>;
 };
 
 type SectionInstructionDocument = XmlDocument & {

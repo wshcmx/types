@@ -1,7 +1,10 @@
 type OutstaffOrderExecutionStageCatalogDocumentTopElem = XmlTopElem & {
   id: XmlElem<number | null>;
   outstaff_order_execution_id: XmlElem<number | null, OutstaffOrderExecutionCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
   /** Дата формирования */
   formed_date: XmlElem<Date | null>;
@@ -35,11 +38,14 @@ type OutstaffOrderExecutionStageCatalogDocumentTopElem = XmlTopElem & {
   stage_fact_date: XmlElem<Date | null>;
   stage_hour_num: XmlElem<number | null>;
   stage_hours_worked: XmlElem<number | null>;
-  /** Присутствие */
+  /**
+   * Присутствие
+   * @default false
+   */
   stage_is_assist: XmlElem<boolean>;
   /** Статус */
   stage_status_type: XmlElem<string | null, typeof common.outstaff_order_execution_status_types>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

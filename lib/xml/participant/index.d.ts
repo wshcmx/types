@@ -18,7 +18,10 @@ AdminAccessBase & {
   work_name: XmlElem<string | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.participant_states>;
   /** Описание */
   desc: XmlElem<string | null>;
@@ -32,6 +35,8 @@ AdminAccessBase & {
   place: XmlElem<number | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type ParticipantDocument = XmlDocument & {

@@ -12,7 +12,7 @@ type SubmissionRecipientCatalogDocumentTopElem = XmlTopElem & {
   person_position_name: XmlElem<string | null>;
   /** Название подразделения оцениваемого */
   person_subdivision_name: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

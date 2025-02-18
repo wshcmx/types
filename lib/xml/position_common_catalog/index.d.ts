@@ -14,10 +14,14 @@ type PositionCommonCatalogDocumentTopElem = XmlTopElem & {
   currency: XmlElem<string | null, typeof lists.currency_types>;
   /** Семейство должностей */
   position_familys: XmlElem<string | null>;
-  /** Можно привлекать временный персонал */
+  /**
+   * Можно привлекать временный персонал
+   * @default false
+   */
   allow_outstaff: XmlElem<boolean>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;
@@ -37,6 +41,6 @@ type PositionCommonCatalogDocumentTopElem = XmlTopElem & {
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

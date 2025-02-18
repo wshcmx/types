@@ -7,7 +7,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Баланс */
+  /**
+   * Баланс
+   * @default 0.
+   */
   balance: XmlElem<number>;
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;

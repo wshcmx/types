@@ -21,9 +21,15 @@ AdminAccessBase & {
   /** Является шаблоном */
   is_template: XmlElem<boolean | null>;
   stamp: XmlElem<number | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

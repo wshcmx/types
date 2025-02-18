@@ -12,6 +12,7 @@ type ConnectionDocumentTopElem = XmlTopElem & {
   creation_date: XmlElem<Date | null>;
   delete_date: XmlElem<Date | null>;
   terminate_date: XmlElem<Date | null>;
+  /** @default false */
   unauthorized: XmlElem<boolean>;
   host_path: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;

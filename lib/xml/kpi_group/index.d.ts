@@ -1,3 +1,11 @@
+interface KpiGroupDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type KpiGroupDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: KpiGroupDocument;
@@ -11,10 +19,18 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  view: XmlElem<KpiGroupDocumentView | null>;
 };
 
 type KpiGroupDocument = XmlDocument & {

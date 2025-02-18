@@ -13,12 +13,20 @@ WebVariablesBase & {
   desc: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   doc_info: XmlElem<DocInfoBase | null>;
-  get_setting(settingName: string, proctorObjectTopElem: unknown): string;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
+  get_setting(settingName: string, proctorObjectTopElem: XmlTopElem): string;
   get_settings(): Object;
 };
 

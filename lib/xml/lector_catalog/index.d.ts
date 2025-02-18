@@ -5,7 +5,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Ресурс базы */
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
-  /** Тип преподавателя */
+  /**
+   * Тип преподавателя
+   * @default invitee
+   */
   type: XmlElem<string, typeof common.lector_types>;
   /** ФИО преподавателя */
   lector_fullname: XmlElem<string | null>;
@@ -18,12 +21,18 @@ AdminAccessBase & {
   /** Подразделение */
   person_subdivision_name: XmlElem<string | null>;
   email: XmlElem<string | null>;
-  /** Является уволенным */
+  /**
+   * Является уволенным
+   * @default false
+   */
   is_dismiss: XmlElem<boolean>;
-  /** Разрешена публикация на портале описания и контактной информации */
+  /**
+   * Разрешена публикация на портале описания и контактной информации
+   * @default false
+   */
   allow_publication: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

@@ -27,7 +27,10 @@ AdminAccessBase & {
   efficiency_estimation_id: XmlElem<number | null, EfficiencyEstimationCatalogDocumentTopElem>;
   /** Заявка */
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.successor_status_types>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

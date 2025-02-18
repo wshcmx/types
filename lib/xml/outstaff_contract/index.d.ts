@@ -16,9 +16,10 @@ interface OutstaffContractDocumentRegion {
   /** Подразделение */
   subdivision_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   /** Подразделение */
-  subdivision_name(): unknown;
+  subdivision_name(): string;
   start_date: XmlElem<Date | null>;
   finish_date: XmlElem<Date | null>;
+  /** @default true */
   all_period: XmlElem<boolean>;
   position_commons: XmlMultiElem<OutstaffContractDocumentRegionPositionCommon | null>;
   materials: XmlMultiElem<OutstaffContractDocumentRegionMaterial | null>;
@@ -33,9 +34,15 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name(): string;
-  /** Статус */
+  /**
+   * Статус
+   * @default forming
+   */
   status: XmlElem<string, typeof common.order_status_types>;
-  /** Тип */
+  /**
+   * Тип
+   * @default outstaff_persons
+   */
   type_id: XmlElem<string, typeof common.outstaff_contract_types>;
   date: XmlElem<Date | null>;
   number: XmlElem<string | null>;
@@ -44,7 +51,7 @@ CustomElemsBase & {
   /** Провайдер временного персонала */
   outstaff_provider_id: XmlElem<number | null, OutstaffProviderCatalogDocumentTopElem>;
   /** Условное название */
-  disp_name(): unknown;
+  disp_name(): string;
   regions: XmlMultiElem<OutstaffContractDocumentRegion | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
@@ -54,6 +61,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type OutstaffContractDocument = XmlDocument & {

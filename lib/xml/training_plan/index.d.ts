@@ -21,17 +21,39 @@ interface TrainingPlanDocumentEducationMethodEventGeneratedEvent {
 interface TrainingPlanDocumentEducationMethodEvent {
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
-  /** Количество участников */
+  /**
+   * Количество участников
+   * @default 0
+   */
   participants_num: XmlElem<number | null>;
   /** Сотрудники */
   participants: XmlMultiElem<TrainingPlanDocumentEducationMethodEventParticipant | null>;
-  /** Максимальное количество */
+  /**
+   * Максимальное количество
+   * @default 0
+   */
   max_capacity: XmlElem<number | null>;
-  /** Количество мероприятий */
+  /**
+   * Количество мероприятий
+   * @default 0
+   */
   events_num: XmlElem<number | null>;
-  /** Распределено */
+  /**
+   * Распределено
+   * @default 0
+   */
   distributed: XmlElem<number | null>;
   cost_center_id: XmlElem<number | null, CostCenterCatalogDocumentTopElem>;
+  /**
+   * @temp
+   * @default participant
+   */
+  tab_selector_type: XmlElem<string>;
+  /**
+   * @temp
+   * @default false
+   */
+  is_method: XmlElem<boolean>;
   weeks: XmlMultiElem<TrainingPlanDocumentEducationMethodEventWeek | null>;
   generated_events: XmlMultiElem<TrainingPlanDocumentEducationMethodEventGeneratedEvent | null>;
 }
@@ -40,15 +62,34 @@ interface TrainingPlanDocumentEducationMethod {
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
   education_method_id: XmlElem<number | null, EducationMethodCatalogDocumentTopElem>;
-  /** Количество участников */
+  /**
+   * Количество участников
+   * @default 0
+   */
   participants_num: XmlElem<number | null>;
   /** Сотрудники */
   participants: XmlMultiElem<TrainingPlanDocumentEducationMethodParticipant | null>;
-  /** Максимальное количество */
+  /**
+   * Максимальное количество
+   * @default 0
+   */
   max_capacity: XmlElem<number | null>;
-  /** Количество мероприятий */
+  /**
+   * Количество мероприятий
+   * @default 0
+   */
   events_num: XmlElem<number | null>;
   comment: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default participant
+   */
+  tab_selector_type: XmlElem<string>;
+  /**
+   * @temp
+   * @default true
+   */
+  is_method: XmlElem<boolean>;
   events: XmlMultiElem<TrainingPlanDocumentEducationMethodEvent | null>;
 }
 
@@ -78,6 +119,8 @@ CustomElemsBase & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type TrainingPlanDocument = XmlDocument & {

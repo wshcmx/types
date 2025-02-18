@@ -3,7 +3,10 @@ AdminAccessBase & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default stud
+   */
   type: XmlElem<string, typeof common.stud_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -29,6 +32,7 @@ AdminAccessBase & {
   /** Тип документа */
   stud_dt_id: XmlElem<string | null, typeof common.stud_doc_types>;
   educat_institution: XmlElem<string | null>;
+  /** @default false */
   is_excellent: XmlElem<boolean>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;

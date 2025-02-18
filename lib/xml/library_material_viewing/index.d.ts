@@ -1,5 +1,6 @@
 interface LibraryMaterialViewingDocumentPage {
   page_id: XmlElem<string | null>;
+  /** @default false */
   viewed: XmlElem<boolean | null>;
 }
 
@@ -17,11 +18,18 @@ AdminAccessBase & {
   material_name: XmlElem<string | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Продолжительность просмотра */
+  /**
+   * Продолжительность просмотра
+   * @default 0
+   */
   duration: XmlElem<number | null>;
+  /** @default 0 */
   location: XmlElem<number | null>;
   pages: XmlMultiElem<LibraryMaterialViewingDocumentPage | null>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default plan
+   */
   state_id: XmlElem<string | null, typeof common.viewing_states>;
   /** Текущая страница */
   current_page_id: XmlElem<string | null>;

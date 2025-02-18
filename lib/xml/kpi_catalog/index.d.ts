@@ -7,10 +7,17 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default auto
+   */
   type: XmlElem<string | null, typeof common.kpi_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string | null, typeof common.kpi_states>;
+  /** @default true */
   is_kpi: XmlElem<boolean>;
   /** Группа */
   kpi_group_id: XmlElem<number | null, KpiGroupCatalogDocumentTopElem>;
@@ -25,7 +32,7 @@ AdminAccessBase & {
   /** Шкала */
   scale_id: XmlElem<number | null, ScaleCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
@@ -34,6 +41,7 @@ AdminAccessBase & {
   access_block_type: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

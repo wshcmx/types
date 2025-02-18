@@ -8,9 +8,15 @@ WebVariablesBase & {
   /** Комментарий */
   category: XmlElem<string | null>;
   url: XmlElem<string | null>;
-  /** Доступен поиск по источнику */
+  /**
+   * Доступен поиск по источнику
+   * @default false
+   */
   search_available: XmlElem<boolean>;
-  /** Доступен выбор файлов из источника */
+  /**
+   * Доступен выбор файлов из источника
+   * @default false
+   */
   selection_available: XmlElem<boolean>;
   /** Выполняемый код */
   run_code: XmlElem<string | null>;
@@ -20,10 +26,18 @@ WebVariablesBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
+  /** @temp */
+  path_filling_expr: XmlElem<boolean | null>;
 };
 
 type FileSourceDocument = XmlDocument & {

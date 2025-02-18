@@ -14,7 +14,10 @@ AdminAccessBase & {
   rating: XmlElem<number | null>;
   /** Занятое место */
   place: XmlElem<number | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.participant_states>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

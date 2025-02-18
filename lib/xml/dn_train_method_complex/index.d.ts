@@ -22,7 +22,12 @@ interface DnTrainMethodComplexDocumentAssessment {
 }
 
 interface DnTrainMethodComplexDocumentItem {
-  item_id: XmlElem<number | null>;
+  item_id: XmlElem<number | null, ItemCatalogDocumentTopElem>;
+}
+
+interface DnTrainMethodComplexDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
 }
 
 type DnTrainMethodComplexDocumentTopElem = XmlTopElem &
@@ -48,6 +53,8 @@ CustomElemsBase & {
   courses: XmlMultiElem<DnTrainMethodComplexDocumentCourse | null>;
   assessments: XmlMultiElem<DnTrainMethodComplexDocumentAssessment | null>;
   items: XmlMultiElem<DnTrainMethodComplexDocumentItem | null>;
+  /** @temp */
+  view: XmlElem<DnTrainMethodComplexDocumentView | null>;
   doc_info: XmlElem<DocInfoBase | null>;
 };
 

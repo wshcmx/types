@@ -14,13 +14,19 @@ type PositionCatalogDocumentTopElem = XmlTopElem & {
   basic_collaborator_fullname: XmlElem<string | null>;
   /** Ставка */
   basic_rate: XmlElem<number | null>;
-  /** Является руководителем */
+  /**
+   * Является руководителем
+   * @default false
+   */
   is_boss: XmlElem<boolean>;
   /** Дата вступления в должность */
   position_date: XmlElem<Date | null>;
   /** Дата завершения работы в должности */
   position_finish_date: XmlElem<Date | null>;
-  /** Действие назначения прекращено */
+  /**
+   * Действие назначения прекращено
+   * @default false
+   */
   is_position_finished: XmlElem<boolean | null>;
   /** Тип назначения */
   position_assignment_type: XmlElem<string | null, typeof common.position_assignment_types>;
@@ -40,6 +46,7 @@ type PositionCatalogDocumentTopElem = XmlTopElem & {
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
   /** Семейство должностей */
   position_family_id: XmlElem<number | null, PositionFamilyCatalogDocumentTopElem>;
+  /** Позиция штатного рассписания */
   staff_position_id: XmlElem<number | null, StaffPositionCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

@@ -22,13 +22,19 @@ type CareerReserveTutorCatalogDocumentTopElem = XmlTopElem & {
   person_fullname: XmlElem<string | null>;
   /** Наставник */
   tutor_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default tutor
+   */
   tutor_type: XmlElem<string>;
-  /** Является ответственным */
+  /**
+   * Является ответственным
+   * @default false
+   */
   is_responsible: XmlElem<boolean>;
   /** ФИО наставника */
   tutor_fullname: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

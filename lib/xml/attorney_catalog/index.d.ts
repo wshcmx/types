@@ -1,16 +1,33 @@
 type AttorneyCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
-  id: XmlElem<number>;
-  code: XmlElem<string>;
-  person_id: XmlElem<number, CollaboratorCatalogDocumentTopElem>;
-  start_date: XmlElem<Date>;
-  end_date: XmlElem<Date>;
-  state_id: XmlElem<string, typeof common.education_method_states>;
-  org_id: XmlElem<number, OrgCatalogDocumentTopElem>;
-  essential_id: XmlElem<string>;
-  essential_name: XmlElem<string>;
-  attorney_url: XmlElem<string>;
-  attorney_sig_file_url: XmlElem<string>;
-  upload: XmlElem<boolean>;
+  id: XmlElem<number | null>;
+  /** Код */
+  code: XmlElem<string | null>;
+  /** Сотрудник */
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Дата начала действия */
+  start_date: XmlElem<Date | null>;
+  /** Дата завершения действия */
+  end_date: XmlElem<Date | null>;
+  /**
+   * Состояние
+   * @default active
+   */
+  state_id: XmlElem<string | null, typeof common.education_method_states>;
+  /** Организация */
+  org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Юридическое лицо */
+  essential_id: XmlElem<string | null>;
+  /** Юридическое лицо */
+  essential_name: XmlElem<string | null>;
+  /** Файл доверенности */
+  attorney_url: XmlElem<string | null>;
+  /** Файл с подписью */
+  attorney_sig_file_url: XmlElem<string | null>;
+  /**
+   * Загружена
+   * @default false
+   */
+  upload: XmlElem<boolean | null>;
   OnBuild(): void;
 };

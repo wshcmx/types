@@ -7,7 +7,10 @@ AdminAccessBase & {
   project_id: XmlElem<number | null, ProjectCatalogDocumentTopElem>;
   /** Тип контакта */
   type_id: XmlElem<number | null, ContactTypeCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default done
+   */
   status_id: XmlElem<string | null, typeof common.contact_status_types>;
   /** Результат контакта */
   result_id: XmlElem<number | null, ContactResultCatalogDocumentTopElem>;

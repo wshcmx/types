@@ -4,6 +4,7 @@ type LevelCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Предыдущий уровень */
   prev_level_id: XmlElem<number | null, LevelCatalogDocumentTopElem>;
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;

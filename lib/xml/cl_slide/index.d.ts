@@ -18,11 +18,15 @@ interface ClSlideDocumentSubslideObject {
   line_color: XmlElem<string | null>;
   line_width: XmlElem<string | null>;
   line_style: XmlElem<string | null>;
+  /** @default false */
   draggable: XmlElem<boolean>;
   rotation: XmlElem<number | null>;
   soundsrc: XmlElem<string | null>;
+  /** @default false */
   play: XmlElem<boolean>;
+  /** @default false */
   state_extension: XmlElem<boolean>;
+  /** @default false */
   hide_design: XmlElem<boolean>;
   template: XmlElem<string | null>;
   template_id: XmlElem<number | null, ClObjectCatalogDocumentTopElem>;
@@ -36,6 +40,7 @@ interface ClSlideDocumentSubslide {
   id: XmlElem<string | null>;
   guid: XmlElem<string | null>;
   duration: XmlElem<number | null>;
+  /** @default false */
   infinite: XmlElem<boolean>;
   eventsxml: XmlElem<string | null>;
   actionboxesxml: XmlElem<string | null>;
@@ -48,6 +53,14 @@ interface ClSlideDocumentComment {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   person_fullname: XmlElem<string | null>;
   text: XmlElem<string | null>;
+}
+
+interface ClSlideDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
 }
 
 type ClSlideDocumentTopElem = XmlTopElem & {
@@ -66,11 +79,18 @@ type ClSlideDocumentTopElem = XmlTopElem & {
   master_id: XmlElem<number | null, ClSlideCatalogDocumentTopElem>;
   /** Код слайда-хозяина */
   master_code: XmlElem<string | null>;
-  /** Является хозяином */
+  /**
+   * Является хозяином
+   * @default false
+   */
   is_master: XmlElem<boolean>;
-  /** Является выскакивающим экраном */
+  /**
+   * Является выскакивающим экраном
+   * @default false
+   */
   is_splash: XmlElem<boolean>;
   indent: XmlElem<number | null>;
+  /** @default false */
   infinite: XmlElem<boolean>;
   advance: XmlElem<string | null>;
   transition: XmlElem<number | null>;
@@ -79,23 +99,35 @@ type ClSlideDocumentTopElem = XmlTopElem & {
   actionboxesxml: XmlElem<string | null>;
   subslides: XmlMultiElem<ClSlideDocumentSubslide | null>;
   comments: XmlMultiElem<ClSlideDocumentComment | null>;
-  /** Заблокировано */
+  /**
+   * Заблокировано
+   * @default false
+   */
   flag_locked: XmlElem<boolean>;
   /** Владелец ресурса */
   greedy_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Имя владельца */
   greedy_person_fullname: XmlElem<string | null>;
-  /** Слайд завершен */
+  /**
+   * Слайд завершен
+   * @default false
+   */
   flag_completion: XmlElem<boolean>;
   champion_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   champion_fullname: XmlElem<string | null>;
-  /** Состояние разработки */
+  /**
+   * Состояние разработки
+   * @default 0
+   */
   approval_status: XmlElem<number, typeof common.cl_approval_states>;
   /** Комментарий */
   desc: XmlElem<string | null>;
+  /** @default 0 */
   stamp: XmlElem<number>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ClSlideDocumentView | null>;
 };
 
 type ClSlideDocument = XmlDocument & {

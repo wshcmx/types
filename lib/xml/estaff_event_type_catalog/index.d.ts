@@ -11,6 +11,7 @@ AdminAccessBase & {
   event_type_estaff_id: XmlElem<string | null>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
+  /** Система подбора персонала */
   recruitment_system_id: XmlElem<number | null, RecruitmentSystemCatalogDocumentTopElem>;
   /** Семействa должностей */
   position_commons: XmlElem<string | null>;

@@ -12,15 +12,22 @@ type SubstitutionTypeDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 CustomElemsBase & {
   Doc: SubstitutionTypeDocument;
+  /** Тип объекта */
   object_type: XmlElem<string | null>;
   /** Операции */
   operations: XmlMultiElem<SubstitutionTypeDocumentOperation | null>;
+  /** Действия */
   remote_actions: XmlMultiElem<SubstitutionTypeDocumentRemoteAction | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** Нестандартные права (строка или JSON с информацией о правах) */
   data_str: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /**
+   * Действует
+   * @default true
+   */
   is_active: XmlElem<boolean>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;

@@ -11,6 +11,8 @@ FileListBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Описание */
   desc: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type MessengerServiceDocument = XmlDocument & {

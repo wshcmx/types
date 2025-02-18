@@ -8,6 +8,7 @@ interface LevelDocumentCurrencyType {
 type LevelDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase & {
   Doc: LevelDocument;
+  /** Предыдущий уровень */
   prev_level_id: XmlElem<number | null, LevelCatalogDocumentTopElem>;
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
@@ -20,6 +21,8 @@ ObjectCodeNameBase & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type LevelDocument = XmlDocument & {

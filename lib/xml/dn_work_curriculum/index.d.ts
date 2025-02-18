@@ -14,6 +14,7 @@ interface DnWorkCurriculumDocumentBlockElemDiscipline {
   term_id: XmlElem<number | null, DnTermCatalogDocumentTopElem>;
   control_form_id: XmlElem<number | null, DnControlFormCatalogDocumentTopElem>;
   name_control_form: XmlElem<string | null>;
+  /** @default false */
   is_choice: XmlElem<boolean | null>;
   terms: XmlMultiElem<DnWorkCurriculumDocumentBlockElemDisciplineTerm | null>;
 }
@@ -31,6 +32,16 @@ interface DnWorkCurriculumDocumentBlockElem {
   disciplines: XmlMultiElem<DnWorkCurriculumDocumentBlockElemDiscipline | null>;
 }
 
+interface DnWorkCurriculumDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+  /**
+   * @temp
+   * @default 0
+   */
+  part_index: XmlElem<number>;
+}
+
 type DnWorkCurriculumDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -39,9 +50,15 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default project
+   */
   status_id: XmlElem<string, typeof common.prog_discipl_states>;
-  /** Тип */
+  /**
+   * Тип
+   * @default general
+   */
   type: XmlElem<string, typeof common.curriculum_types>;
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
@@ -58,6 +75,8 @@ CustomElemsBase & {
   block_elems: XmlMultiElem<DnWorkCurriculumDocumentBlockElem | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnWorkCurriculumDocumentView | null>;
 };
 
 type DnWorkCurriculumDocument = XmlDocument & {

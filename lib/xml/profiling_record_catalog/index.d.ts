@@ -5,8 +5,10 @@ type ProfilingRecordCatalogDocumentTopElem = XmlTopElem & {
   url: XmlElem<string | null>;
   sid: XmlElem<string | null>;
   duration: XmlElem<number | null>;
+  /** @default custom_web_template */
   template_type: XmlElem<string | null>;
   template_id: XmlElem<number | null>;
+  /** @default custom_web_template */
   parent_template_type: XmlElem<string | null>;
   parent_template_id: XmlElem<number | null>;
   /** Дата модификации */

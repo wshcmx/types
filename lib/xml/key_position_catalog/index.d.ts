@@ -25,15 +25,21 @@ AdminAccessBase & {
   key_position_threat_id: XmlElem<number | null, KeyPositionThreatCatalogDocumentTopElem>;
   /** Тип кадрового резерва */
   career_reserve_type_id: XmlElem<number | null, CareerReserveTypeCatalogDocumentTopElem>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status: XmlElem<string, typeof common.key_position_status_types>;
-  /** Доступна для преемников с любой должности */
+  /**
+   * Доступна для преемников с любой должности
+   * @default true
+   */
   is_open: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

@@ -10,9 +10,15 @@ AccessDocBase & {
   mode: XmlElem<string | null>;
   /** URL шаблона */
   template: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Включен */
   is_enabled: XmlElem<boolean | null>;
@@ -21,6 +27,6 @@ AccessDocBase & {
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   /** Роль */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   OnBuild(): void;
 };

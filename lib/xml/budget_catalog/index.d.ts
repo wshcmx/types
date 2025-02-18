@@ -6,7 +6,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Утвержден */
+  /**
+   * Утвержден
+   * @default false
+   */
   is_approved: XmlElem<boolean>;
   /** Тип бюджета */
   type_id: XmlElem<number | null, BudgetTypeCatalogDocumentTopElem>;

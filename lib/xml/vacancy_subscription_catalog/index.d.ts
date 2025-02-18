@@ -9,7 +9,10 @@ AdminAccessBase & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** ФИО сотрудника */
   person_fullname: XmlElem<string | null>;
-  /** Активная */
+  /**
+   * Активная
+   * @default true
+   */
   is_active: XmlElem<boolean | null>;
   /** Ключевые слова в тексте вакансии */
   full_text_search_str: XmlElem<string | null>;

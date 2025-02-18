@@ -17,6 +17,16 @@ interface ClShapeDocumentHandle {
   yrange: XmlElem<string | null>;
 }
 
+interface ClShapeDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @temp */
+  ico_url: XmlElem<string | null>;
+}
+
 type ClShapeDocumentTopElem = XmlTopElem & {
   Doc: ClShapeDocument;
   /** Код */
@@ -42,6 +52,8 @@ type ClShapeDocumentTopElem = XmlTopElem & {
   desc: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<ClShapeDocumentView | null>;
 };
 
 type ClShapeDocument = XmlDocument & {

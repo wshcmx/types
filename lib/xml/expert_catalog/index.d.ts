@@ -5,7 +5,10 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default invitee
+   */
   type: XmlElem<string, typeof common.lector_types>;
   /** Эксперт */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

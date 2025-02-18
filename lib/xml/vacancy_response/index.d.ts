@@ -27,12 +27,17 @@ CustomElemsBase & {
   date_invitation: XmlElem<Date | null>;
   /** Сопроводительное письмо */
   desc: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default not_considered
+   */
   status: XmlElem<string | null, typeof common.vacancy_response_status_types>;
   /** Ответ работодателя */
   employer_answer: XmlElem<string | null>;
   /** Адаптация */
   career_reserve_id: XmlElem<number | null, CareerReserveCatalogDocumentTopElem>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   set_status(newStatus: string, sendNotifications: boolean): void;

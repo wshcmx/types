@@ -29,7 +29,10 @@ AdminAccessBase & {
   custom_experts: XmlElem<string | null>;
   /** Согласующие эксперты */
   custom_experts_array: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
-  /** Согласующие эксперты */
+  /**
+   * Согласующие эксперты
+   * @default false
+   */
   is_custom_experts: XmlElem<boolean>;
   /** Подразделение */
   department_id: XmlElem<number | null>;
@@ -37,7 +40,10 @@ AdminAccessBase & {
   department_name: XmlElem<string | null>;
   /** Оценка сотрудника/подразделения */
   flag_appraise_department: XmlElem<boolean | null>;
-  /** Признак завершенности */
+  /**
+   * Признак завершенности
+   * @default false
+   */
   is_done: XmlElem<boolean>;
   /** Тип оценки */
   assessment_appraise_type: XmlElem<string | null, typeof common.assessment_appraise_types>;
@@ -57,7 +63,10 @@ AdminAccessBase & {
   workflow_state_last_date: XmlElem<Date | null>;
   /** ДО инициализирован */
   is_workflow_init: XmlElem<boolean | null>;
-  /** Задействовался/не задействовался */
+  /**
+   * Задействовался/не задействовался
+   * @default false
+   */
   flag_is_processed: XmlElem<boolean>;
   /** Сотрудник */
   workflow_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

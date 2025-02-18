@@ -19,14 +19,21 @@ WebVariablesBase & {
   html: XmlElem<string | null>;
   /** Ссылка на шаблон */
   url: XmlElem<string | null>;
-  /** Кешировать результат шаблона в сессию */
+  /**
+   * Кешировать результат шаблона в сессию
+   * @default false
+   */
   use_session_cache: XmlElem<boolean>;
+  /** @default default */
   cwt_type: XmlElem<string, typeof common.cwt_types>;
+  /** @default undefined */
   out_type: XmlElem<string, typeof common.out_types>;
   mode: XmlElem<string | null>;
   /** URL шаблона */
   template: XmlElem<string | null>;
   tuning: XmlElem<CustomWebTemplateDocumentTuning | null>;
+  /** @temp */
+  zone_selector: XmlElem<string | null>;
   include_custom_web_templates: XmlMultiElem<CustomWebTemplateDocumentIncludeCustomWebTemplate | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
@@ -36,14 +43,27 @@ WebVariablesBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
-  /** Включен */
+  /** @temp */
+  view: XmlElem<DescBase | null>;
+  /** @temp */
+  converter: XmlElem<boolean | null>;
+  /**
+   * Включен
+   * @default true
+   */
   is_enabled: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
 
 type CustomWebTemplateDocument = XmlDocument & {

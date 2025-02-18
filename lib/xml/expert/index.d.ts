@@ -6,6 +6,11 @@ interface ExpertDocumentFaq {
   faq_answer: XmlElem<string | null>;
 }
 
+interface ExpertDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type ExpertDocumentTopElem = XmlTopElem &
 PersonBase &
 CustomElemsBase &
@@ -18,7 +23,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default invitee
+   */
   type: XmlElem<string, typeof common.lector_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -34,6 +42,8 @@ AdminAccessBase & {
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<ExpertDocumentView | null>;
 };
 
 type ExpertDocument = XmlDocument & {

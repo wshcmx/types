@@ -7,7 +7,10 @@ AdminAccessBase & {
   type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Тип заявки */
   request_type_id: XmlElem<number | null, RequestTypeCatalogDocumentTopElem>;
-  /** Состояние */
+  /**
+   * Состояние
+   * @default active
+   */
   status_id: XmlElem<string, typeof common.request_status_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -15,8 +18,12 @@ AdminAccessBase & {
   person_fullname: XmlElem<string | null>;
   /** Организация */
   person_org_name: XmlElem<string | null>;
+  /** Название подразделения сотрудника */
   person_subdivision_name: XmlElem<string | null>;
-  /** Является групповой */
+  /**
+   * Является групповой
+   * @default false
+   */
   is_group: XmlElem<boolean>;
   /** Количество участников */
   person_num: XmlElem<number | null>;
@@ -46,6 +53,7 @@ AdminAccessBase & {
   workflow_main_person_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
   tags: XmlElem<string | null>;
   /** Эксперты */
   experts: XmlElem<string | null>;

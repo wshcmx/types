@@ -45,13 +45,16 @@ interface ClModuleDocumentRuntimeImport {
   comments_top: XmlElem<number | null>;
   comments_width: XmlElem<number | null>;
   comments_height: XmlElem<number | null>;
+  /** @default false */
   import_comments: XmlElem<boolean>;
   commentscolor: XmlElem<string | null>;
+  /** @default false */
   fiximages: XmlElem<boolean>;
 }
 
 interface ClModuleDocumentRuntimeRuntimecheck {
   id: XmlElem<string | null>;
+  /** @default false */
   check: XmlElem<boolean>;
 }
 
@@ -62,6 +65,7 @@ interface ClModuleDocumentRuntimeObjective {
   ss: XmlElem<string | null>;
   scoremin: XmlElem<number | null>;
   scoremax: XmlElem<number | null>;
+  /** @default false */
   module: XmlElem<boolean>;
 }
 
@@ -92,12 +96,19 @@ interface ClModuleDocumentRuntimeRule {
 }
 
 interface ClModuleDocumentRuntime {
+  /** @default false */
   showsplash: XmlElem<boolean>;
+  /** @default false */
   seqslides: XmlElem<boolean>;
+  /** @default false */
   preloadimages: XmlElem<boolean>;
+  /** @default false */
   normalize: XmlElem<boolean>;
+  /** @default false */
   preview_fullscreen: XmlElem<boolean>;
+  /** @default false */
   preview_fitwindow: XmlElem<boolean>;
+  /** @default false */
   fit_small_window: XmlElem<boolean>;
   nextidentity: XmlElem<ClModuleDocumentRuntimeNextidentity | null>;
   import: XmlElem<ClModuleDocumentRuntimeImport | null>;
@@ -108,6 +119,7 @@ interface ClModuleDocumentRuntime {
 
 interface ClModuleDocumentGuideLine {
   pos: XmlElem<number | null>;
+  /** @default false */
   is_vertical: XmlElem<boolean>;
 }
 
@@ -121,6 +133,18 @@ interface ClModuleDocumentTemplateSlide {
   template_slide_xml: XmlElem<string | null>;
 }
 
+interface ClModuleDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @temp */
+  module_view_selector: XmlElem<number | null>;
+  /** @temp */
+  module_href: XmlElem<string | null>;
+}
+
 type ClModuleDocumentTopElem = XmlTopElem & {
   Doc: ClModuleDocument;
   /** Код */
@@ -131,7 +155,10 @@ type ClModuleDocumentTopElem = XmlTopElem & {
   cl_course_id: XmlElem<number | null, ClCourseCatalogDocumentTopElem>;
   /** Ссылка на файлы ресурсов объекта */
   resource_url: XmlElem<string | null>;
-  /** Является шаблоном */
+  /**
+   * Является шаблоном
+   * @default false
+   */
   is_template: XmlElem<boolean>;
   /** Папка */
   category: XmlElem<string | null>;
@@ -152,14 +179,23 @@ type ClModuleDocumentTopElem = XmlTopElem & {
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
   desc: XmlElem<string | null>;
+  /** @default 0 */
   stamp: XmlElem<number>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
-  module_href_get(): false | void;
-  export_2_scorm(): false | void;
-  /** Является системным */
+  module_href_get(): unknown;
+  export_2_scorm(): unknown;
+  /** @temp */
+  view: XmlElem<ClModuleDocumentView | null>;
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
 };
 

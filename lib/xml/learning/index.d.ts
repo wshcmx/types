@@ -3,6 +3,19 @@ interface LearningDocumentEvent {
   score: XmlElem<number | null>;
 }
 
+interface LearningDocumentView {
+  /**
+   * @temp
+   * @default 0
+   */
+  part_index: XmlElem<number>;
+  /**
+   * @temp
+   * @default result
+   */
+  result_tab_selector: XmlElem<string>;
+}
+
 type LearningDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 CustomElemsBase &
@@ -34,7 +47,10 @@ AdminAccessBase & {
   education_plan_id: XmlElem<number | null, EducationPlanCatalogDocumentTopElem>;
   /** Разделы */
   parts: XmlMultiElem<LearningPartBase | null>;
-  /** Не кодировать данные модуля при запуске курса */
+  /**
+   * Не кодировать данные модуля при запуске курса
+   * @default false
+   */
   no_encoding_core_lesson: XmlElem<boolean | null>;
   /** Время модулей */
   time: XmlElem<number | null>;
@@ -43,7 +59,10 @@ AdminAccessBase & {
   /** Дата активации */
   start_usage_date: XmlElem<Date | null>;
   start_learning_date: XmlElem<Date | null>;
-  /** Назначен самостоятельно */
+  /**
+   * Назначен самостоятельно
+   * @default false
+   */
   is_self_enrolled: XmlElem<boolean>;
   /** Дата последнего посещ. */
   last_usage_date: XmlElem<Date | null>;
@@ -51,7 +70,10 @@ AdminAccessBase & {
   max_end_date: XmlElem<Date | null>;
   /** Базовый url */
   base_url: XmlElem<string | null>;
-  /** Максимальный балл */
+  /**
+   * Максимальный балл
+   * @default 0
+   */
   max_score: XmlElem<number>;
   /** Баллы */
   score: XmlElem<number | null>;
@@ -61,11 +83,17 @@ AdminAccessBase & {
   /** Незаконченный курс */
   active_learning_id: XmlElem<number | null, ActiveLearningCatalogDocumentTopElem>;
   active_learning_deleted: XmlElem<boolean | null>;
+  /**
+   * Использовать прокторинг
+   * @default false
+   */
   use_proctoring: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<LearningDocumentView | null>;
 };
 
 type LearningDocument = XmlDocument & {

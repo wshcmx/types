@@ -6,9 +6,15 @@ type RemoteSecurityProfileCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   OnBuild(): void;
 };

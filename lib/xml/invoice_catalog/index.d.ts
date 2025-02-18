@@ -5,9 +5,15 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Дата */
   date: XmlElem<Date | null>;
-  /** Счет оплачен */
+  /**
+   * Счет оплачен
+   * @default false
+   */
   is_paid: XmlElem<boolean>;
-  /** Итоговая сумма */
+  /**
+   * Итоговая сумма
+   * @default 0.0
+   */
   amount: XmlElem<number | null>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;

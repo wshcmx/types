@@ -6,13 +6,16 @@ type SubdivisionGroupSubdivisionCatalogDocumentTopElem = XmlTopElem & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Признак динамической группы */
+  /**
+   * Признак динамической группы
+   * @default false
+   */
   is_dynamic: XmlElem<boolean>;
   /** Подразделение */
   subdivision_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   /** Название подразделения */
   subdivision_name: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

@@ -20,6 +20,23 @@ interface RequestDocumentCustomElement {
   value: XmlElem<string | null>;
 }
 
+interface RequestDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+  /** @temp */
+  workflow_state: XmlElem<string>;
+  /** @temp */
+  workflow_action_result: XmlElem<unknown | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  workflow_create_break: XmlElem<boolean>;
+}
+
 type RequestDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 KnowledgePartsBase &
@@ -39,7 +56,10 @@ AdminAccessBase & {
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
   /** Тип объекта */
   type: XmlElem<string | null, typeof common.exchange_object_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status_id: XmlElem<string, typeof common.request_status_types>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
@@ -57,8 +77,12 @@ AdminAccessBase & {
   object_code: XmlElem<string | null>;
   /** Дата */
   object_start_date: XmlElem<Date | null>;
+  /** @default id */
   object_type: XmlElem<string | null>;
-  /** Групповая заявка */
+  /**
+   * Групповая заявка
+   * @default false
+   */
   is_group: XmlElem<boolean>;
   /** Сотрудники */
   persons: XmlMultiElem<RequestDocumentPerson | null>;
@@ -71,10 +95,32 @@ AdminAccessBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** @default false */
   is_create_init: XmlElem<boolean | null>;
   custom_elements: XmlMultiElem<RequestDocumentCustomElement | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<RequestDocumentView | null>;
+  /** @temp */
+  list_variant: XmlElem<unknown | null>;
+  /** @temp */
+  rows: XmlElem<unknown | null>;
+  /**
+   * @temp
+   * @default fullname
+   */
+  row_disp_elem: XmlElem<string>;
+  /**
+   * @temp
+   * @default .Env.ListElem
+   */
+  row_list_field: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default .PrimaryKey
+   */
+  row_key_field: XmlElem<string | null>;
   start_action(type: string): number;
 };
 

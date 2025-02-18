@@ -11,7 +11,7 @@ type DnRegisterStudentCatalogDocumentTopElem = XmlTopElem & {
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   /** Имя сотрудника */
   person_fullname: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

@@ -2,7 +2,9 @@ interface AssessmentAppraiseMatrixDocumentTimeTableCondition {
   field: XmlElem<string | null>;
   value: XmlElem<string | null>;
   type: XmlElem<string | null>;
+  /** @default eq */
   option_type: XmlElem<string, typeof common.all_option_types>;
+  /** @default false */
   is_custom_field: XmlElem<boolean>;
 }
 
@@ -29,6 +31,14 @@ interface AssessmentAppraiseMatrixDocumentPeriod {
   name: XmlElem<string | null>;
 }
 
+interface AssessmentAppraiseMatrixDocumentView extends DescBase {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type AssessmentAppraiseMatrixDocumentTopElem = XmlTopElem &
 FieldNamesBase &
 AdminAccessBase & {
@@ -37,7 +47,10 @@ AdminAccessBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Объект */
+  /**
+   * Объект
+   * @default collaborator
+   */
   object_name: XmlElem<string>;
   /** Расписание */
   time_tables: XmlMultiElem<AssessmentAppraiseMatrixDocumentTimeTable | null>;
@@ -49,6 +62,8 @@ AdminAccessBase & {
   desc: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<AssessmentAppraiseMatrixDocumentView | null>;
 };
 
 type AssessmentAppraiseMatrixDocument = XmlDocument & {

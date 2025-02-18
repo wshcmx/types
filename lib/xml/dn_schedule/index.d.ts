@@ -14,6 +14,11 @@ interface DnScheduleDocumentScheduleElem {
   auditor_id: XmlElem<number | null, DnAuditoriumCatalogDocumentTopElem>;
 }
 
+interface DnScheduleDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnScheduleDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -28,6 +33,8 @@ CustomElemsBase & {
   schedule_elems: XmlMultiElem<DnScheduleDocumentScheduleElem | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnScheduleDocumentView | null>;
 };
 
 type DnScheduleDocument = XmlDocument & {

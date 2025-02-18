@@ -1,3 +1,11 @@
+interface TransactionDocumentView {
+  /**
+   * @temp
+   * @default false
+   */
+  is_create: XmlElem<boolean>;
+}
+
 type TransactionDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 ObjectTypeBase &
@@ -8,7 +16,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Дата */
   date: XmlElem<Date | null>;
-  /** Приход расход */
+  /**
+   * Приход расход
+   * @default 2
+   */
   direction: XmlElem<number>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
@@ -24,6 +35,8 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<TransactionDocumentView | null>;
 };
 
 type TransactionDocument = XmlDocument & {

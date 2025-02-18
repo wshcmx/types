@@ -11,7 +11,10 @@ AdminAccessBase & {
   required_quantity: XmlElem<number | null>;
   /** Нормативный срок */
   duration: XmlElem<number | null>;
-  /** Бессрочно */
+  /**
+   * Бессрочно
+   * @default false
+   */
   forever: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

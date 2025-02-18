@@ -8,6 +8,30 @@ interface AvailabilityPlanDocumentPeriod {
   comment: XmlElem<string | null>;
 }
 
+interface AvailabilityPlanDocumentViewPeriodHour {
+  hour: XmlElem<number | null>;
+  /** @default false */
+  checked: XmlElem<boolean>;
+}
+
+interface AvailabilityPlanDocumentViewPeriod {
+  /** Дата начала */
+  start_date: XmlElem<Date | null>;
+  hours: XmlMultiElem<AvailabilityPlanDocumentViewPeriodHour | null>;
+  /** Комментарий */
+  comment: XmlElem<string | null>;
+  /** @default false */
+  checked: XmlElem<boolean>;
+}
+
+interface AvailabilityPlanDocumentView extends DescBase {
+  /** Периоды */
+  periods: XmlMultiElem<AvailabilityPlanDocumentViewPeriod | null>;
+  obtain_peroids(): unknown;
+  init_periods(): unknown;
+  save_periods(): unknown;
+}
+
 type AvailabilityPlanDocumentTopElem = XmlTopElem &
 FileListBase &
 CustomElemsBase & {
@@ -25,7 +49,9 @@ CustomElemsBase & {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
+  /** @default 8 */
   start_hour: XmlElem<number>;
+  /** @default 21 */
   finish_hour: XmlElem<number>;
   /** Периоды */
   periods: XmlMultiElem<AvailabilityPlanDocumentPeriod | null>;
@@ -35,6 +61,8 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<AvailabilityPlanDocumentView | null>;
 };
 
 type AvailabilityPlanDocument = XmlDocument & {

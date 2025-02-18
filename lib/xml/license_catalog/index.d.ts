@@ -14,6 +14,10 @@ type LicenseCatalogDocumentTopElem = XmlTopElem & {
   domain_name: XmlElem<string | null>;
   domain_short_name: XmlElem<string | null>;
   user_name: XmlElem<string | null>;
+  /**
+   * Временная
+   * @default false
+   */
   is_temporary: XmlElem<boolean>;
   /** Статус */
   status_id: XmlElem<string | null, typeof common.status_in_knowledge_map_types>;
@@ -22,9 +26,11 @@ type LicenseCatalogDocumentTopElem = XmlTopElem & {
   start_date: XmlElem<Date | null>;
   /** Дата окончания */
   finish_date: XmlElem<Date | null>;
+  /** Даты действия технической поддержки */
   maintaince_date: XmlElem<Date | null>;
   /** Дата окончания */
   users_num: XmlElem<number | null>;
+  /** @default false */
   demo: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

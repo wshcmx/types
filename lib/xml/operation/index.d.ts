@@ -9,17 +9,31 @@ WebVariablesBase & {
   name: XmlElem<string | null>;
   /** Комментарий */
   category: XmlElem<string | null>;
-  /** Является системной */
+  /**
+   * Является системной
+   * @default false
+   */
   is_system: XmlElem<boolean>;
+  /**
+   * Приоритет
+   * @default 0
+   */
   priority: XmlElem<number>;
   /** Операция */
   action: XmlElem<string | null>;
-  /** Тип */
+  /**
+   * Тип
+   * @default 0
+   */
   operation_type: XmlElem<number>;
-  /** Объект базы */
+  /**
+   * Объект базы
+   * @default collaborator
+   */
   object_name: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Применимо к следующим объектам */
   operation_catalog_list: XmlElem<string | null>;
+  /** Группа */
   group: XmlElem<string | null>;
   /** Код JS */
   script: XmlElem<string | null>;
@@ -31,17 +45,24 @@ WebVariablesBase & {
   remote_action_id: XmlElem<number | null, RemoteActionCatalogDocumentTopElem>;
   /** Формула условия видимости */
   access_eval_code: XmlElem<string | null>;
+  /** Использовать условия видимости */
   use_access_eval(): unknown;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   execute(parameters: unknown, variables: unknown): unknown;
 };
 
