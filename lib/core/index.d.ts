@@ -1,4 +1,4 @@
-// #region Функции для работы с объектами
+//#region Функции для работы с объектами
 
 /**
  * Функция ядра, которая удаленно (на сервере) вызывает метод с параметрами для конкретного объекта.
@@ -116,9 +116,9 @@ declare function SetObjectProperty<T, K extends keyof T, V>(object: T, propertyN
  */
 declare function SetObjectPropertyWithLock<T, K extends keyof T, V>(object: T, propertyName: K | string, propertyValue: V, lock: Lock): void | never;
 
-// #endregion
+//#endregion
 
-// #region Преобразование типов данных
+//#region Преобразование типов данных
 
 /**
  * Функция Compare() сравнивает два произвольных значения.
@@ -329,7 +329,238 @@ declare function StrRealFixed(arg: number, precision?: number, addGroupDelim?: b
  */
 declare function TextInt(arg: number, gender: 0 | 1): string;
 
-// #endregion
+//#endregion
+
+//#region Преобразование форматов и кодировок
+
+/**
+ * Проверяет строку в UTF-8 на валидность.
+ * Если в строке обнаруживается некорректная для UTF-8 последовательность байт, она заменяется на символ '?'.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Возвращается исходная либо измененная строка.
+ */
+declare function AdjustUtf8(str: string): string;
+
+/**
+ * Функция проверяет, является ли строка валидной строкой в кодировке UTF-8.
+ * Если да, возвращает саму строку.
+ * Если нет, декодирует строку, как если бы она была в однобайтовой кодировке, установленной по умолчанию (обычно windows-1251).
+ * Если приложение работает не в кодировке UTF-8, функция возвращает исходную строку без изменений.
+ * Функция поддерживается только на сервере или десктопном клиенте.
+ * @returns {string} Возвращается исходная либо измененная строка.
+ */
+declare function AutoDecodeCharset(): string;
+
+/**
+ * Функция кодирует строку, которая будет использоваться внутри MIME-заголовка,
+ * при условии что содержимое труебует кодирование (наппример, содержит не ASCII символы).
+ * Результат имеет вид "=?utf-8?B?<base64data>".
+ * @param {string} str - Исходная строка.
+ * @returns {string} Возвращается исходная либо измененная строка.
+ */
+declare function EncodeMimeHeaderValue(str: string): unknown;
+
+/**
+ * Функция преобразует строку в формате конфигурационного файла (.ini) в стандартный объект.
+ * @param {string} configData - Данные конфигурационного файла.
+ * @returns {{[key: string]: unknown}} Результат.
+ */
+declare function ParseConfig(configData: string): {[key: string]: unknown};
+
+/**
+ * Функция преобразует строку со значением поля MIME заголовка в стандартный объект,
+ * содержащий список вспомогательных параметров.
+ * @param {string} string - Строка со значением поля MIME заголовка.
+ * @returns {{[key: string]: string}} Результат.
+ */
+declare function ParseHeaderPairs(string: string): {[key: string]: string};
+
+/**
+ * Проверяет строку на некорректную кодировку, вызванную одним из типовых случаев неправильной двойной конвертации.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Возвращает новую в правильной кодировку, если ее удалось восстановить. В противном случае возвращается исходная строка.
+ */
+declare function RestoreBrokenCharsetEncoding(str: string): string;
+
+/**
+ * Преобразует строку из формата UTF-16 в UTF-8.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Результат.
+ */
+declare function Utf16ToUtf8(str: string): string;
+
+/**
+ * Маскирует определенные символы в строке, чтобы результат мог быть использован в XML - между тегами либо внутри атрибута.
+ * @param {string} str - Исходная строка.
+ * @example XmlEscape("aaa < bbb & ccc > ddd"); // "aaa &lt; bbb &amp; ccc &gt; ddd"
+ * @returns {string} Результат.
+ */
+declare function XmlEscape(str: string): string;
+
+/**
+ * Переводит строку из заданной кодировки в кодировку, используемой в программе по умолчанию.
+ * @param {string} str - Строка, которую нужно перевести.
+ * @param {string} charset - Название кодировки, в которую нужно перевести строку.
+ * @returns {string} Результат.
+ */
+declare function DecodeCharset(str: string, charset: WebtutorCharsets): string;
+
+/**
+ * Декодирует данные из формата Base64. Данные возвращаются в виде строки, которая может содержать бинарные данные.
+ * @param {string} str - Строка в Base64.
+ * @returns {string} Результат.
+ */
+declare function Base64Decode(str: string): string;
+
+/**
+ * Переводит строку из кодировки, используемой  в программе по умолчанию, в заданную кодировку.
+ * @param {string} str - Строка.
+ * @param {string} charset - Имя кодировки, в которую нужно перевести строку.
+ * @returns {string} Результат.
+ */
+declare function EncodeCharset(str: string, charset: WebtutorCharsets): string;
+
+/**
+ * Кодирует строку в формат Base64.
+ * @param {string} str - Строка. Может содержать бинарные данные.
+ * @returns {string} Результат.
+ */
+declare function Base64Encode(str: string): string;
+
+/**
+ * Преобразует 16-ричное представление в строку из байт.
+ * @param {string} str - Строка в 16-ричном представлении.
+ * @returns {string} Результат.
+ * Смотри также {@link HexData}()
+ */
+declare function DataFromHex(str: string): string;
+
+/**
+ * Преобразует массив байт в 16-ое представление.
+ * @param {string} arg - Строка, содержащая массив байт.
+ * @example HexData("апрол"); // "E0EFF0EEEB"
+ * @returns {string} Результат.
+ */
+declare function HexData(arg: string): string;
+
+/**
+ * Кодирует обычный текст в формат rtf.
+ * @param {string} str - Строка, которую нужно преобразовать.
+ * @returns {string} Результат.
+ */
+declare function RtfEncode(str: string): string;
+
+/**
+ * Переводит текст в формате rtf в обычный текст.
+ * @param {string} str - Текст в формате rtf.
+ * @returns {string} Результат.
+ */
+declare function RtfToPlainText(str: string): string;
+
+/**
+ * Кодирует значение как константу (литерал) языка SQL.
+ * Функция используется при генерировании выражений на SQL из программы.
+ * @param {any} arg - Аргумент произвольного типа.
+ * @returns {string}
+ * Значение типа string заключается в кавычки, при этом существующие кавычки внутри строки маскируются по правилам SQL.
+ * Значение типа integer переводится в соответствующее строковое значение.
+ * Значение типа date переводится в строку, содержащую дату в формате SQL.
+ */
+declare function SqlLiteral(arg: string | number | Date | null): string;
+
+/**
+ * Дешифрует строку, зашифрованную встроенным алгоритмом шифрования.
+ * @param {string} str - Зашифрованная строка.
+ * @returns {string} Расшифрованная строка.
+ */
+declare function StrStdDecrypt(str: string): string;
+
+/**
+ * Шифрует строку встроенным алгоритмом шифрования
+ * @param {string} str - Шифруемая строка.
+ * @returns {string} Зашифрованная строка.
+ */
+declare function StrStdDecrypt(str: string): string;
+
+/**
+ * Декодирует строчку по стандартным правилам декодирования url, т.е. Заменяет знак "%код" на соответствующий символ.
+ * @param {string} url - Url.
+ * @example UrlDecode("qwerty%2D%E0%EF%F0%EE%EB%2Ehtm"); // "qwerty-апрол.htm"
+ * @returns {string} Результат.
+ */
+declare function UrlDecode(url: string): string;
+
+/**
+ * Кодирует строку символов для использования в качестве параметра url.
+ * @param {string} str - Строка.
+ * @example UrlEncode("qwerty-апрол.htm"); // "qwerty%2D%E0%EF%F0%EE%EB%2Ehtm"
+ * @returns {string} Результат.
+ */
+declare function UrlEncode(str: string): string;
+
+/**
+ * Кодирует строку символов для использования в качестве параметра url, используя UTF-16.
+ * @param {string} str - Строка.
+ * @example UrlEncode("qwerty-апрол.htm"); // "qwerty%2D%u0430%u043F%u0440%u043E%u043B%2Ehtm"
+ * @returns {string} Результат.
+ */
+declare function UrlEncode16(str: string): string;
+
+/**
+ * Преобразует объект типа Object в строку вида "name1=value1&name2=value2&..."
+ * для использования в качестве запроса в url.
+ * @param {object} obj - Объект, содержащий список значений.
+ * @returns {string} Результат.
+ */
+declare function UrlEncodeQuery(obj: Object): string;
+
+/**
+ * Преобразует объект типа Object в строку вида "name1=value1&name2=value2&..."
+ * для использования в качестве запроса в url.
+ * @param {object} obj - Объект, содержащий список значений.
+ * @param {string} [charset] - Целевая кодировка.
+ * @returns {string} Результат.
+ */
+declare function UrlEncodeQueryExt(obj: Object, charset: string): string;
+
+/**
+ * Формирует тело http запроса для последующей отправки методом POST в формате multipart/form-data.
+ * @param {object} obj - Объект, содержащий атрибуты и их значения (Object).
+ * @returns {string} Результат.
+ */
+declare function MultipartFormEncode(obj: Object): string;
+
+/**
+ * Маскирует аргумент для вставки в xml в качестве значения атрибута.
+ * В результате действия функции символы перевода строки, табуляции,
+ * символы & и < и двойные кавычки маскируются последовательностями &#10;, &#09;, &lt;, &amp; и &quot;.
+ * @param {string} str - Аргумент.
+ * @returns {string} Результат.
+ */
+declare function XmlAttrEncode(str: string): string;
+
+/**
+ * Формирует строку с xml тегом.
+ * @param {string} name - Имя тега.
+ * @param {string} text - Значение тега.
+ * @returns {string}
+ * XmlStr( 'text', 'Hotel "Ariana"' ) возвращает '<text>'Hotel &quot;Ariana&quot;</text>'.
+ */
+declare function XmlStr(name: string, text: string): string;
+
+/**
+ * Кодирует аргумент как константу XQuery. Функция используется при генерировании выражений XQuery из программы.
+ * @param {string | number| Date} arg - Аргумент.
+ * @returns {string}
+ * Значение типа string заключается в одинарные кавычки,
+ * при этом существующие кавычки внутри строки маскируются по правилам XQuery.
+ * Значение типа integer или real переводится в соответствующее строковое значение
+ * Значение типа bool переводится в строку 'true()' или 'false()'.
+ * Значение типа date переводится в строку вида date( '2011-01-30T10:30:00' ).
+ */
+declare function XQueryLiteral(arg: string | number | Date): string;
+
+//#endregion
 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
@@ -2019,8 +2250,6 @@ declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefine
  */
 declare function RegisterSubForm(formUrl: string, formPath: string): string;
 
-declare function ParseHeaderPairs(string: string): Object;
-
 /**
  * Кодирует строку, содержащую текст, для использования внутри HTML.
  * В результате символы & и < заменяются на &amp; и &lt;, соответственно, а переводы строк - на <br/>.
@@ -2030,34 +2259,11 @@ declare function ParseHeaderPairs(string: string): Object;
 declare function HtmlEncode(str: string): string;
 
 /**
- * Декодирует данные из формата Base64. Данные возвращаются в виде строки, которая может содержать бинарные данные.
- * @param {string} str - Строка в Base64.
- * @returns {string} Результат.
- */
-declare function Base64Decode(str: string): string;
-
-/**
- * Переводит строку из кодировки, используемой  в программе по умолчанию, в заданную кодировку.
- * @param {string} str - Строка.
- * @param {string} charset - Имя кодировки, в которую нужно перевести строку.
- * @returns {string} Результат.
- */
-declare function EncodeCharset(str: string, charset: WebtutorCharsets): string;
-
-/**
  * Преобразует строку, содержащую HTML, в простой текст.
  * @param {string} html - Строка, содержащая HTML.
  * @returns {string} Результат.
  */
 declare function HtmlToPlainText(html: string): string;
-
-/**
- * Преобразует массив байт в 16-ое представление.
- * @param {string} arg - Строка, содержащая массив байт.
- * @returns {string}
- * HexData( 'апрол' ) вернет 'E0EFF0EEEB'.
- */
-declare function HexData(arg: string): string;
 
 /**
  * Преобразует строку, содержащую обычный текст в полный HTML-документ.
@@ -2068,125 +2274,6 @@ declare function HexData(arg: string): string;
  * @returns {string} Результат.
  */
 declare function HtmlEncodeDoc(str: string): string;
-
-/**
- * Формирует тело http запроса для последующей отправки методом POST в формате multipart/form-data.
- * @param {object} obj - Объект, содержащий атрибуты и их значения (Object).
- * @returns {string} Результат.
- */
-declare function MultipartFormEncode(obj: Object): string;
-
-/**
- * Кодирует строку в формат Base64.
- * @param {string} str - Строка. Может содержать бинарные данные.
- * @returns {string} Результат.
- */
-declare function Base64Encode(str: string): string;
-
-/**
- * Переводит строку из заданной кодировки в кодировку, используемой в программе по умолчанию.
- * @param {string} str - Строка, которую нужно перевести.
- * @param {string} charset - Название кодировки, в которую нужно перевести строку.
- * @returns {string} Результат.
- */
-declare function DecodeCharset(str: string, charset: WebtutorCharsets): string;
-
-/**
- * Кодирует обычный текст в формат rtf.
- * @param {string} str - Строка, которую нужно преобразовать.
- * @returns {string} Результат.
- */
-declare function RtfEncode(str: string): string;
-
-/**
- * Переводит текст в формате rtf в обычный текст.
- * @param {string} str - Текст в формате rtf.
- * @returns {string} Результат.
- */
-declare function RtfToPlainText(str: string): string;
-
-/**
- * Декодирует строчку по стандартным правилам декодирования url, т.е. Заменяет знак "%код" на соответствующий символ.
- * @param {string} url - Url.
- * @returns {string}
- * UrlDecode( 'qwerty%2D%E0%EF%F0%EE%EB%2Ehtm' ) вернет 'qwerty-апрол.htm'.
- */
-declare function UrlDecode(url: string): string;
-
-/**
- * Кодирует строку символов для использования в качестве параметра url, используя UTF-16.
- * @param {string} str - Строка.
- * @returns {string}
- * UrlEncode( 'qwerty-апрол.htm' ) вернет 'qwerty%2D%u0430%u043F%u0440%u043E%u043B%2Ehtm'.
- */
-declare function UrlEncode16(str: string): string;
-
-/**
- * Кодирует строку символов для использования в качестве параметра url.
- * @param {string} str - Строка.
- * @returns {string}
- * UrlEncode( 'qwerty-апрол.htm' ) вернет 'qwerty%2D%E0%EF%F0%EE%EB%2Ehtm'.
- */
-declare function UrlEncode(str: string): string;
-
-/**
- * Кодирует значение как константу (литерал) языка SQL.
- * Функция используется при генерировании выражений на SQL из программы.
- * @param {any} arg - Аргумент произвольного типа.
- * @returns {string}
- * Значение типа string заключается в кавычки, при этом существующие кавычки внутри строки маскируются по правилам SQL.
- * Значение типа integer переводится в соответствующее строковое значение.
- * Значение типа date переводится в строку, содержащую дату в формате SQL.
- */
-declare function SqlLiteral(arg: string | number | Date | null): string;
-
-/**
- * Преобразует объект типа Object в строку вида 'name1=value1&name2=value2&...'
- * для использования в качестве запроса в url.
- * @param {object} obj - Объект, содержащий список значений (Object).
- * @returns {string} Результат.
- */
-declare function UrlEncodeQuery(obj: Object): string;
-
-/**
- * Маскирует аргумент для вставки в xml в качестве значения атрибута.
- * В результате действия функции символы перевода строки, табуляции,
- * символы & и < и двойные кавычки маскируются последовательностями &#10;, &#09;, &lt;, &amp; и &quot;.
- * @param {string} str - Аргумент.
- * @returns {string} Результат.
- */
-declare function XmlAttrEncode(str: string): string;
-
-/**
- * Преобразует объект типа Object в строку вида 'name1=value1&name2=value2&...'
- * для использования в качестве запроса в url.
- * @param {object} obj - Объект, содержащий список значений (Object).
- * @param {string} [charset] - Целевая кодировка.
- * @returns {string} Результат.
- */
-declare function UrlEncodeQueryExt(obj: Object, charset: string): string;
-
-/**
- * Формирует строку с xml тегом.
- * @param {string} name - Имя тега.
- * @param {string} text - Значение тега.
- * @returns {string}
- * XmlStr( 'text', 'Hotel "Ariana"' ) возвращает '<text>'Hotel &quot;Ariana&quot;</text>'.
- */
-declare function XmlStr(name: string, text: string): string;
-
-/**
- * Кодирует аргумент как константу XQuery. Функция используется при генерировании выражений XQuery из программы.
- * @param {string | number| Date} arg - Аргумент.
- * @returns {string}
- * Значение типа string заключается в одинарные кавычки,
- * при этом существующие кавычки внутри строки маскируются по правилам XQuery.
- * Значение типа integer или real переводится в соответствующее строковое значение
- * Значение типа bool переводится в строку 'true()' или 'false()'.
- * Значение типа date переводится в строку вида date( '2011-01-30T10:30:00' ).
- */
-declare function XQueryLiteral(arg: string | number | Date): string;
-
 
 /**
  * Возвращает путь к директории, из которой запущено приложение.
@@ -2650,7 +2737,7 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
 
-// #region Функции Web-сервера
+//#region Функции Web-сервера
 
 /**
  * Сбрасывает авторизованную веб-сессию по логину.
@@ -2672,9 +2759,9 @@ declare function DropWebSessionByLogin(login: string): unknown;
  */
 declare function RegisterWebUrlHandler(urlPath: string, lib: XmlDocument, methodName: string): unknown;
 
-// #endregion
+//#endregion
 
-// #region Управление сервером приложения
+//#region Управление сервером приложения
 
 /**
  * Определяет статус зарегистрированного сервера приложения (службы Windows).
@@ -2730,9 +2817,9 @@ declare function RegisterDaemon(daemonID: string, daemonName: string, filePath: 
  */
 declare function UnregisterDaemon(daemonID: string): unknown;
 
-// #endregion
+//#endregion
 
-// #region Системные функции
+//#region Системные функции
 
 /**
  * GetSysUserDefaultUiLanguage() возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
@@ -2742,7 +2829,7 @@ declare function UnregisterDaemon(daemonID: string): unknown;
  */
 declare function GetSysUserDefaultUiLanguage(): string;
 
-// #region Прочие функции
+//#region Прочие функции
 
 /**
  * Выдает сообщение, содержащее значение параметра.
@@ -3328,9 +3415,9 @@ declare function ZipCreate(archivePath: string, filesArray: string[], options: O
  */
 declare function ZipExtract(archivePath: string, destPath: string): undefined;
 
-// #endregion
+//#endregion
 
-// #region Эксперементальные и узкоспециализированные функции
+//#region Эксперементальные и узкоспециализированные функции
 
 /**
  * Экспериментальная функция.
@@ -3487,7 +3574,7 @@ declare function UnifyPhones(str: string): string;
  */
 declare function DropXQueryCache(): unknown;
 
-// #region Устаревшие функции
+//#region Устаревшие функции
 
 /**
  * Устаревшая функция.
@@ -3819,4 +3906,4 @@ declare function UrlFromDocID(documentId: number, databaseName?: string): string
  */
 declare function WordExecute(): unknown;
 
-// #endregion
+//#endregion
