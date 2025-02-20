@@ -3200,3 +3200,160 @@ declare function ZipCreate(archivePath: string, filesArray: string[], options: O
  * @returns {undefined}
  */
 declare function ZipExtract(archivePath: string, destPath: string): undefined;
+
+/** Эксперементальные и узкоспециализированные функции */
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function CreateDocWebScreen(): unknown;
+
+/**
+ * Очишает кэш от загруженного зашифрованного модуля.
+ * @param {string} url - Url модуля.
+ * @returns {unknown} -
+ */
+declare function DropDbPackage(url: string): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function EvalRichCodePageUrl(): unknown;
+
+/**
+ * Динамически подключает к программе дополнительный модуль.
+ * Если модуль уже подключен, функция не производит никаких действий.
+ * Редко используемая функция.
+ * @param {string} moduleName - Наименование модуля.
+ * @example FetchAppModule("app2");
+ */
+declare function FetchAppModule(moduleName: string): undefined;
+
+/**
+ * Редко используемая фукнция.
+ * @returns {unknown} -
+ */
+declare function GetScreenFormTitle(): unknown;
+
+/**
+ * Узкоспециализированная функция.
+ * @returns {boolean} - Возращает true, если вызов происходит в главном (UI) потоке в SpXml.exe.
+ */
+declare function IsMainThread(): boolean;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function LdsGetModDeletedObjects(): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function LdsGetModObjects(): unknown;
+
+/**
+ * Загружает приложение по имени корневого модуля, не открывая его главную страницу.
+ * Функция используется в редких случаях, например для выбора запускаемого приложения при старте.
+ * @param {string} mainModuleName - Имя корневого модуля.
+ * @example LoadAppSpec("rcr");
+ */
+declare function LoadAppSpec(mainModuleName: string): undefined;
+
+/**
+ * Выдает наименование модуля, в котором находится файл, по заданному url со схемой x-app.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ */
+declare function ModuleNameFromUrl(url: string): string;
+
+/**
+ * Возвращает обработанное условное наименование юридического лица, предназначенное для показа пользователю..
+ * @param {string} orgName - Полное наименование юридического лица.
+ * @param {string} [orgShortName] - Cокращенное наименование юридического лица.
+ * @returns {string} - Результат.
+ */
+declare function OrgDispName(orgName: string, orgShortName?: string): string;
+
+/**
+ * Разбирает поле типа OLE объект, хранящееся в MS Access.
+ * @param {string} str - Строка, содержащая поле.
+ * @example
+ * ```
+ * // объект типа JS содержит следующие поля:
+ * // Class FileName - имя файла
+ * // Data - содержимое файла
+ * ParseStoredOleObject(str);
+ * ```
+ * @returns {{[K: string]: unknown}} - Результат.
+ */
+declare function ParseStoredOleObject(str: string): {[K: string]: unknown};
+
+/**
+ * .
+ */
+declare function PersonGender(): undefined;
+
+/**
+ * Добавляет объект, содержащий набор методов или свойств, в список глобальных объектов окружения.
+ * После вызова данной функции все свойства и метода объекта становятся доступны всему приложению
+ * в качестве глобальных переменных и функций.
+ * При совпадении имен свойств или методов с существующими приоритет будет за именами,
+ * находящимися в объекте, добавленном последним.
+ * Экспериментальная функция.
+ * @param {{[K: string]: unknown}} obj - Объект.
+ * @returns {unknown} -
+ */
+declare function RegisterGlobalEnvObject(obj: {[K: string]: unknown}): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function ReportToHtml(): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function ReportToRtf(): unknown;
+
+/**
+ * Включает режим приложения без показа сообщений через UI.
+ * Доступна только в SpXml.exe.
+ * Обычно используется для написания инсталляторов.
+ * @returns {unknown} -
+ */
+declare function SetAppSilentMode(): unknown;
+
+/**
+ * Функция вызывает падение приложения.
+ * Используется для тестирования целостности данных к падению сервера.
+ */
+declare function SimulateCrash(): never;
+
+/**
+ * Узкоспециализированная функция.
+ * Работает аналогично {@link Sleep}(), но с продолжением обработки очереди сообщений в главном потоке в SpXml.exe.
+ * Будучи вызванной не в главном потоке, либо не в SpXml.exe, работает в точности как {@link Sleep}().
+ * @param {number} timeout - Таймаут в миллисекундах
+ * @returns {unknown} -
+ */
+declare function UiSleep(timeout: number): unknown;
+
+/**
+ * Экспериментальная функция.
+ * Приводит список телефонов к стандартному виду.
+ * @param {string} str - Строка с номером телефона
+ * @returns {string} - Результат.
+ */
+declare function UnifyPhones(str: string): string;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function DropXQueryCache(): unknown;
