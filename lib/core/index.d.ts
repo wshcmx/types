@@ -1461,7 +1461,7 @@ declare function GetCachedDoc(url: string): XmlDocument;
 /**
  * Удаляет на сервере приложения документ с заданным url.
  * Используется в специализированном коде, предназначенном для синхронизации баз данных или обмена данными между базами.
- * Аргументы: docUrl - url документа (String) options - опции, необязательный аргумент (String).
+ * Аргументы: docUrl - url документа (String) options - опции, необязательный аргумент.
  * LdsDeleteDoc( 'x-db-obj://data/candidate/042D8A4596B679/E0.xml', 'lds-server=test2.datex.ru:9000' ).
  */
 declare function LdsDeleteDoc(): undefined;
@@ -2557,6 +2557,62 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  * ```
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
+
+/** Управление сервером приложения */
+
+/**
+ * Определяет статус зарегистрированного сервера приложения (службы Windows).
+ * Значения статуса:
+ * * 0 - сервер выключен
+ * * 1 - сервер включен
+ * * 2 - сервер начинает работу
+ * * 3 - сервер завершает работу
+ * @param {string} serverId - Идентификатор сервера.
+ * @example DaemonGetState("EStaff_Server");
+ * @returns {number} Результат.
+ */
+declare function DaemonGetState(serverId: string): number;
+
+/**
+ * Возвращает значение параметра, обозначающее текущй статус задачи, выполняемой при старте сервера,
+ * например перестройки фалов каталога или конвертации данных из предыдущей версии программы.
+ * @param {string} serverId - Идентификатор сервера.
+ * @param {"CurTask" | "CurMsg"} paramName - Имя параметра.
+ * Поддерживаемые значения: "CurTask" и "CurMsg", определяемые вызовами функций {@link StartModalTask}() и {@link ModalTaskMsg}() на сервере.
+ * @example DaemonGetStateParam("EStaff_Server", "CurTask");
+ * @returns {string} Результат.
+ */
+declare function DaemonGetStateParam(serverId: string, paramName: "CurTask" | "CurMsg"): string;
+
+/**
+ * Включает установленный сервер.
+ * @param {string} id - Идентификатор сервера.
+ */
+declare function DaemonStart(id: string): undefined;
+
+/**
+ * Выключает установленный сервер.
+ * @param {string} id - Идентификатор сервера.
+ */
+declare function DaemonStop(id: string): undefined;
+
+/**
+ * Регистрирует серверную службу (только Windows).
+ * @param {string} daemonID - ID службы.
+ * @param {string} daemonName - Имя службы.
+ * @param {string} filePath - Путь к файлу xHttp_x64.exe.
+ * @param {string} [cmdArgsStr] - Аргументы командной строки. По умолчанию "/s".
+ * @param {boolean} [autoRestart=true] - Включить автоматический перезапуск службы в случае падение серверного процесса.
+ * @returns {unknown} -
+ */
+declare function RegisterDaemon(daemonID: string, daemonName: string, filePath: string, cmdArgsStr?: string, autoRestart?: boolean): unknown;
+
+/**
+ * Удаляет зарегистрированную службу (только Windows).
+ * @param {string} daemonID - ID службы.
+ * @returns {unknown} -
+ */
+declare function UnregisterDaemon(daemonID: string): unknown;
 
 /** Системные функции */
 

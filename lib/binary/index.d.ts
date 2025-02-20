@@ -55,7 +55,7 @@ interface Binary {
 
   /**
    * Загружает в текущий бинарный объект данные из определенного url.
-   * @param url - (String).
+   * @param url - Url.
    */
   LoadFromUrl(url: string): undefined;
 
