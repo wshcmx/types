@@ -1,91 +1,4 @@
 /**
- * Проверяет строку на соответствие контрольной сумме, вычисленной по алгоритму PamMd5.
- * @param {string} str - Проверяемая строка.
- * @param {string} arg - Контрольная сумма.
- * @returns {boolean} Результат.
- * @example
- * ```
- * CheckPamMd5(str,arg)
- * ```
- */
-declare function CheckPamMd5(str: string, arg: string): boolean;
-
-/**
- * Возвращает true, если пользователем в буфер `Clipboard` скопировано нечто заданного формата.
- * Возвращает false, если нет (буфер пуст или его содержимое не того формата).
- * Обычно формат `text/plain` или `text/html`.
- * @param {string} format - Наименование формата.
- * @returns {boolean} Результат.
- */
-declare function ClipboardFormatAvailable(format: string): boolean;
-
-/**
- * Вычисляет контрольную сумму по алгоритму CRC.
- * @param {string} arg - Строка, содержащая массив байт.
- * @returns {number} Контрольная сумма.
- */
-declare function CRC(arg: string): number;
-
-/**
- * Выдает сообщение, содержащее значение параметра.
- * На сервере сообщение записывается в журнал 'xhttp',
- * на рабочем месте - в виде всплывающего окна {@link MsgBox}.
- * @param {T} val - Значение.
- * @returns {T} Значение.
- * @example
- * ```
- * LoadUrlData(alert(url));
- * ```
- */
-declare function alert<T>(val: T): T;
-
-/**
- * Выдает true, если модуль, наименование которого указано в качестве аргумента,
- * используется программой, и false, если указанный модуль программой не используется.
- * Наименования стандартных модулей считывается из файла описания структуры приложения,
- * наименование подключаемого модуля считывается из файла первичных настроек
- * при запуске исполнимого файла. Функция используется, например, в ядре программы,
- * если необходимо по-разному его настраивать для работы с различными подключаемыми модулями.
- * @param {string} moduleName - Наименование модуля.
- * @example
- * ```
- * AppModuleUsed("module_datex");
- * ```
- * @returns {boolean} Результат.
- */
-declare function AppModuleUsed(moduleName: string): boolean;
-
-/**
- * Вызывает исключение специального типа, аналогичное нажатию кнопки "Cancel" пользователями.
- * Позволяет генерировать исключение, на которое не будет выдаваться сообщение об ошибке.
- */
-declare function Cancel(): never;
-
-/**
- * Проверяет не должен ли текущий поток завершиться (обычно после прерывания его пользователем).
- * Если да, вызывает исключение аналогично функции {@link Cancel}().
- * @returns {undefined} Если поток вызывает в цикле функцию {@link Sleep}(),
- * либо любую функцию, вызывающее сетевой запрос, то вызывать функцию
- * {@link CheckCurThread}() нет необходимости, поскольку вышеназванные функции
- * сами проверяют запрос на отмену выполнения потока.
- */
-declare function CheckCurThread(): undefined;
-
-/**
- * Увеличивает яркость цвета, переданного в качестве аргумента.
- * @param {string} color - Цвет в формате RGB.
- * @param {number} ratio - Действительное число обозначающее на сколько увеличивается/уменьшается яркость.
- * @returns {string} Результат.
- */
-declare function ColorNewBrightness(color: string, ratio: number): string;
-
-/**
- * Сигнализирует о завершении длительного процесса с упрощенным индикатором,
- * начатым при помощи функции {@link StartModalTask}().
- */
-declare function FinishModalTask(): undefined;
-
-/**
  * Извлекает содержимое составного документа html
  * (с вложенными файлами в формате <compound-attc/>) в файл,
  * сохраняя все вложенные файлы относительно него.
@@ -95,245 +8,6 @@ declare function FinishModalTask(): undefined;
 declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
 
 /**
- * Выполняет заданный код в основном потоке на следующее системное событие.
- * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
- * Эта функция блокирует поток, и дожидается окончания выполнения вызванного кода.
- * Смотрите также {@link EvalAsync}.
- * @param {string} code - Код, который необходимо выполнить.
- * @param {T} args - Последующие аргументы - передаются выполняемому коду.
- */
-declare function EvalSync<T>(code: string, args: T): void;
-
-/**
- * Включает/выключает заданный журнал.
- * @param {string} name - Название журнала.
- * @param {boolean} [enable=true] - Включить/выключить (Bool).
- * @example
- * ```
- * EnableLog("xquery", true);
- * ```
- */
-declare function EnableLog(name: string, enable?: boolean): undefined;
-
-/**
- * Выполняет заданный код в основном потоке на следующее системное событие.
- * Обычно, если код выполняется в отдельном потоке, из него нельзя обращаться к пользовательскому интерфейсу.
- * Если же нужно сделать, например, обновление экрана, то этот код нужно вызывать через EvalAsync.
- * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
- * См. Также {@link EvalSync}.
- * @param {string} code - Код, который необходимо выполнить.
- * @param {T} args - И последующие аргументы - передаются выполняемому коду. Необязательные аргументы.
- */
-declare function EvalAsync<T>(code: string, args: T): void;
-
-/**
- * Возвращает значение системной переменной окружения.
- * @param {string} name - Имя переменной.
- * @returns {string} Значение.
- * GetSysEnvironmentVariable( 'windir' );.
- */
-declare function GetSysEnvironmentVariable(name: string): string;
-
-/**
- * Возвращает имя пользователя операционной системы под которым выполняется текущий процесс.
- * @returns {string} Результат.
- */
-declare function GetSysUserName(): string;
-
-/**
- * Включает заданный журнал.
- * В отличие от функции {@link EnableLog}() позволяет задать дополнительные опции ведения журнала.
- * Возможные опции: life-time - период, на который заводится новый файла журнала ("day", "month", "permanent").
- * По умолчанию свой файл журнала заводится на каждую дату ("day") `base-dir` - директория,
- * в которой будут заводиться журнал.
- * По умолчанию используется директория `Logs` в установочной директории `use-std-event-prefix` - включать в начало
- * каждой строки журнала стандартный префикс (дата, время, Id потока) `boolean`.
- * По умолчанию `true`.
- * `header-str` - строка заголовка, добавляемая в начало каждого нового файла журнала.
- * По умолчанию строка заголовка не добавляется.
- * @param {string} name - Название журнала.
- * @param {string} options - Набор опций вида 'param1=value1;param2=value2;...'.
- * @returns {undefined}
- * @example
- * ```
- * EnableLogExt("web-request", "header-str=date\turl\tquery;use-std-event-prefix=0");
- * ```
- */
-declare function EnableLogExt(name: string, options?: string): undefined;
-
-/**
- * Проверяет, не нажата ли какая-либо клавиша в данный момент.
- * Обычно проверятся Ctrl или Shift.
- * @param {number} arg1 - Код клавиши.
- * @returns {boolean} Результат.
- */
-declare function IsKeyPressed(arg1: number): boolean;
-
-/**
- * Конструктор объекта MailMessage, предназначенной для хранения E-mail - сообщения.
- * Объект строится по форме x-app://app/sx_mail_message.xmd и является обычным объектом типа XmlElem.
- * @returns {MailMessage} Результат.
- */
-declare function MailMessage(): MailMessage;
-
-/**
- * Делает запись в файл лога определенного типа.
- * @param {string} type - Тип лога.
- * @param {string} text - Текст.
- * @example
- * ```
- * LogEvent(type, text).
- * ```
- */
-declare function LogEvent(type: string, text: string): undefined;
-
-/**
- * Создает объект типа MailMessage на основании почтового сообщения в формате MIME.
- * @param {string} mimeData - Почтовое сообщение в формате MIME.
- * @returns {MailMessage} Результат.
- */
-declare function MailMessageFromMimeStr(mimeData: string): MailMessage;
-
-/**
- * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в бинарном формате (массив байт).
- * @param {string} data - Строка, содержащая массив байт.
- * @returns {string} Контрольная сумма.
- */
-declare function Md5(data: string): string;
-
-/**
- * Возвращает тип склонения существительного в русском языке для заданного числа.
- * @param {number} num - Число.
- * @returns {number} Возвращает тип склонения существительного в русском языке (0,1,2) для заданного числа:
- * 0 - "штук";
- * 1 - "штука";
- * 2 - "штуки".
- */
-declare function IntModType(num: number): number;
-
-/**
- * Максимальное значение из нескольких аргументов.
- * @param {number} number - Число 1.
- * @param {number[]} numbers - Числа.
- * @returns {number} Возвращает максимальное значение из нескольких аргументов.
- */
-declare function Max(number: number, ...numbers: number[]): number;
-
-/**
- * Выполняет HTTP-запрос.
- * @param {string} url - Url.
- * @param {string} [method="get"] - Метод `get` или `post`.
- * @param {string} [body] - Тело запроса.
- * @param {string} headers - Список дополнительных полей заголовка http-запроса
- * в соответствующем формате (имя:значение перевод строки).
- * Необязательный аргумент. Список также может содержать дополнительные опции.
- * Среди списка дополнительных полей заголовка возможно использование следующих опций,
- * которые обрабатываются отдельно и не попадают в передаваемый заголовок:
- * Ignore-Errors - Игнорировать наличие кода ошибки HTTP в ответе.
- * Если указана эта опция, код ошибки можно получить через атрибут RespCode возвращаемого объекта.
- * По умолчанию функция завершается с ошибкой в случае получения кода ошибки по HTTP.
- * Auto-Redirect - Автоматически следовать редиректам HTTP 303, HTTP 304. По умолчанию true.
- * @returns {HttpResponse} Объект ответа.
- * @example
- * ```
- * HttpRequest("http://reg.datex-soft.com/")
- * HttpRequest("http://reg.datex-soft.com/login.htm", "post", UrlEncodeQuery({ login: "xxx", password: "xxx" }))
- * HttpRequest(
- *   "http://reg.datex-soft.com/login.htm",
- *   "post",
- *   "<xxx>111</xxx>",
- *   "Content-type: text/xml\nIgnore-Errors: 1\n"
- * )
- * ```
- */
-declare function HttpRequest(url: string, method?: string, body?: string, headers?: string): HttpResponse;
-
-/**
- * Возвращает минимальное значение из нескольких аргументов.
- * @param {number} number - Число.
- * @param {number[]} numbers - Числа.
- * @returns {number} Результат.
- * @example
- * ```
- * Min(2, 5, 10, 15) === 2;
- * ```
- */
-declare function Min(number: number, ...numbers: number[]): number;
-
-/**
- * Возвращает Полное имя человека в виде "Фамилия И.О.".
- * @param {string} lastname - Фамилия.
- * @param {string} firstname - Имя.
- * @param {string} [middlename] - Отчество.
- * @returns {string} Результат.
- */
-declare function PersonShortName(lastname: string, firstname: string, middlename?: string): string;
-
-/**
- * Вычисляет контрольную сумму по алгоритму PamMd5.
- * @param {string} arg - Строка, содержащая массив байт.
- * @returns {string} Результат.
- */
-declare function PamMd5(arg: string): string;
-
-/**
- * Смешивает два цвета в заданной пропорции.
- * @param {string} color1 - Цвет в формате RGB.
- * @param {string} color2 - Цвет в формате RGB.
- * @param {number} [arg] - Пропорции. В случае его отсутствия цвета будут смешаны в пропорции 1 к 1.
- * @returns {string} Результат.
- */
-declare function MixColors(color1: string, color2: string, arg?: number): string;
-
-/**
- * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в виде HEX-строки.
- * @param {string} data - Строка, содержащая массив байт.
- * @returns {string} Результат.
- */
-declare function Md5Hex(data: string): string;
-
-/**
- * Возвращает случайное целое число в заданном диапазоне.
- * @param {number} minVal - Нижняя граница диапазона.
- * @param {number} maxVal - Верхняя граница диапазона.
- * @returns {number} Результат.
- */
-declare function Random(minVal: number, maxVal: number): number;
-
-/**
- * Вызывает отправку почтового сообщения через тот способ, который был выбран в настройках, как правило - Simple MAPI.
- * В качестве параметра передается объект, созданный функцией {@link MailMessage}.
- * @param {ReturnType<typeof MailMessage>} arg1 - Объект, созданный при помощи функции
- * {@link MailMessage} (Object SpXml).
- */
-declare function SendMailMessage(arg1: ReturnType<typeof MailMessage>): void;
-
-/**
- * Вызывает выполнение процесса.
- * `work-dir` - рабочая директория для процесса
- * `sys` - системный процесс `boolean`, в этом случае в качестве первого аргумента
- * функции можно указывать не путь до исполняемого файла,
- * а имя системного процесса `wait` - дожидаться завершения процесса `boolean`.
- * Если указана опция `wait=1`, функция вернет код завершения процесса (`0` - успешное завершение, иначе - ошибка).
- * В остальных случаях функция ничего не возвращает.
- * `hidden` - запуск без пользовательского интерфейса `boolean`
- * (рекомендуется включать, если функция вызывается с сервера).
- * @param {string} path - Путь к исполняемому файлу, или имя исполняемого файла.
- * @param {string} [cmdLine] - Аргументы командной строки.
- * @param {string} [options] - Набор опций через ";", в виде "имя опции=значение; ...".
- * @returns {number} Результат.
- * @example
- * ```
- * ProcessExecute(
- *   "C:\Temp\pkzipc.exe",
- *   " -add -rec -path=current xxx.zip 1.htm 2.htm",
- *   "wait=1;hidden=1;work-dir=C:\Temp"
- * );
- * ```
- */
-declare function ProcessExecute(path: string, cmdLine: string, options: string): number;
-
-/**
  * Устанавливает авторизацию, используемую клиентом по умолчанию.
  * Можно использовать только на `spxml`, так как он не делает одновременных запросов по разным адресам.
  * @param {string} log - Логин.
@@ -341,85 +15,6 @@ declare function ProcessExecute(path: string, cmdLine: string, options: string):
  * @returns {undefined}
  */
 declare function SetHttpDefaultAuth(log: string, pass: string): undefined;
-
-/**
- * Вычисляет hash функцию по алгоритму SHA1.
- * @param {string} str - Строка, содержащая массив байт.
- * @returns {string} Результат.
- */
-declare function SHA1(str: string): string;
-
-/**
- * Создает временную задержку, не загружая процессор.
- * @param {number} ticks - Величина задержки в миллисекундах.
- * @returns {undefined}
- */
-declare function Sleep(ticks: number): undefined;
-
-/**
- * Записывает текст в сроку состояния в главном окне программы.
- * Обычно используется для показа количества найденных объектов в списке.
- * @param {string} msg - Строка.
- * @example
- * ```
- * StatusMsg("Записей в списке: " + n);
- * ```
- * @returns {undefined}
- */
-declare function StatusMsg(msg: string): undefined;
-
-/**
- * Вычисляет hash функцию по алгоритму SHA1 и возвращает строку, закодированную в Base64.
- * @param {string} str - Строка, содержащая массив байт.
- * @returns {string} Результат.
- */
-declare function SHA1Base64(str: string): string;
-
-/**
- * Вызывает действие для Windows Shell.
- * @param {string} action - Вызываемое действие (как правило, "open" или "print").
- * @param {string} target - Путь к вызываемому файлу, или url.
- * @param {string?} args - Аргументы для вызываемой программы (если url определяет исполняемый файл).
- * @returns {undefined}
- * @example
- * ```
- * ShellExecute("open", "calc.exe");
- * ```
- * @example
- * ```
- * ShellExecute("print", "C:\\Temp\\xxx.doc");
- * ```
- * @example
- * ```
- * ShellExecute("open", "http://www.e-staff.ru/");
- * ```
- * @example
- * ```
- * ShellExecute("open", "mailto:support@e-staff.ru");
- * ```
- */
-declare function ShellExecute(action: string, target: string, args?: string): undefined;
-
-/**
- * Создает zip архив.
- * @param {string} archivePath - Путь (или url) к создаваемому архиву.
- * @param {Array} filesArray - Массив, содержащий список файлов или папок, которые нужно заархивировать (Array).
- * @param {any} [options] - Объект с параметрами (Object).
- * @returns {undefined}
- * @example
- * ```
- * ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
- * ```
- */
-declare function ZipCreate(archivePath: string, filesArray: string[], options: Object): undefined;
-
-/**
- * Распаковывает архив.
- * @param {string} archivePath - Путь до архива.
- * @param {string} destPath - Путь до папки, в которую нужно распаковать.
- * @returns {undefined}
- */
-declare function ZipExtract(archivePath: string, destPath: string): undefined;
 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
@@ -608,7 +203,7 @@ declare function ArrayExtract<T, K>(array: XmlMultiElem<T>, fieldExpr: string | 
  * Если такой элемент не найден, возвращается undefined.
  * @param {Array} array - Массив.
  * @param {K} value - Значение ключа.
- * @param {string} name - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
  * @returns {T | undefined} Результат.
  */
 declare function ArrayOptFindByKey<T, K>(array: T[], value: K, name?: string): T | undefined;
@@ -617,7 +212,7 @@ declare function ArrayOptFindByKey<T, K>(array: T[], value: K, name?: string): T
  * Если такой элемент не найден, возвращается undefined.
  * @param {XmlMultiElem<T>} array - Массив.
  * @param {K} value - Значение ключа.
- * @param {string} name - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
  * @returns {XmlElem<T> | undefined} Результат.
  */
 declare function ArrayOptFindByKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
@@ -1179,8 +774,8 @@ declare function Second(date: Date): number;
 /**
  * Преобразует дату в строку, с двухсимвольным форматом года.
  * @param {Date} date - Дата, которую преобразуется.
- * @param {boolean} showTime - Включать время (Bool). По умолчанию true.
- * @param {boolean} showSeconds - Включать секунды во времени (Bool). По умолчанию true.
+ * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
  * @returns {string} Строка с датой.
  */
 declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
@@ -1189,8 +784,8 @@ declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: bool
  * Преобразует дату в строку в формате, используемом по умолчанию в операционной системе.
  * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
  * @param {Date} date - Объект даты.
- * @param {boolean} showTime - Включать время (Bool). По умолчанию true.
- * @param {boolean} showSeconds - Включать секунды во времени (Bool). По умолчанию true.
+ * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
  * @returns {string} Строка с датой.
  */
 declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
@@ -1504,9 +1099,8 @@ declare function StrLen(str: string): number;
  * Проверяет, начинается ли строка на другую строку.
  * @param {string} str - Строка, в которой ищут.
  * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} ignoreCase - Не учитывать регистр.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
  * @returns {boolean} Результат.
- * StrBegins(str, subStr, ignoreCase).
  */
 declare function StrBegins(str: string, subStr: string, ignoreCase?: boolean): boolean;
 
@@ -1514,9 +1108,8 @@ declare function StrBegins(str: string, subStr: string, ignoreCase?: boolean): b
  * Проверяет, содержит ли строка другую строку в качестве подстроки.
  * @param {string} str - Строка, в которой ищут.
  * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} ignoreCase - Не учитывать регистр.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
  * @returns {boolean} Результат.
- * StrContains(str, subStr, ignoreCase).
  */
 declare function StrContains(str: string, subStr: string, ignoreCase?: boolean): boolean;
 
@@ -1524,9 +1117,8 @@ declare function StrContains(str: string, subStr: string, ignoreCase?: boolean):
  * Проверяет, оканчивается ли строка на другую строку.
  * @param {string} str - Строка, в которой ищут.
  * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} ignoreCase - Не учитывать регистр.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
  * @returns {boolean} Результат.
- * StrEnds(str, subStr, ignoreCase).
  */
 declare function StrEnds(str: string, subStr: string, ignoreCase?: boolean): boolean;
 
@@ -1708,12 +1300,9 @@ declare function PutUrlData(url: string, dataStr: string): undefined;
 /**
  * Преобразует путь файловой системы в локальный `URL` типа `file:` или `x-local:`.
  * @param {string} path - Путь файловой системы.
- * @param {string} baseUrl - Базовый `URL`, к схеме которого будет приводиться путь.
+ * @param {string} [baseUrl] - Базовый `URL`, к схеме которого будет приводиться путь.
  * @returns {string} Результат.
- * @example
- * ```
- * FilePathToUrl("C:\\Temp\\1.htm") == "file:///C:/Temp/1.htm"
- * ```
+ * @example FilePathToUrl("C:\\Temp\\1.htm") == "file:///C:/Temp/1.htm"
  */
 declare function FilePathToUrl(path: string, baseUrl?: string): string;
 
@@ -1910,8 +1499,8 @@ declare function ObjectIDFromUrl(url: string): number;
 /**
  * Удаляет документ с заданным url.
  * @param {string} url - Url документа.
- * @param {boolean} permanent - Удалить мимо корзины. По умолчанию - false.
- * DeleteDoc( 'x-db-obj://data/candidate/0x4DF75B9F13FE5160.xml' ).
+ * @param {boolean} [permanent] - Удалить мимо корзины. По умолчанию - false.
+ * @example DeleteDoc("x-db-obj://data/candidate/0x4DF75B9F13FE5160.xml");
  */
 declare function DeleteDoc(url: string, permanent?: boolean): undefined;
 
@@ -2193,8 +1782,8 @@ declare function StrHexInt(num: number): string;
 /**
  * Преобразует вещественный аргумент в строку.
  * @param {number} value - Вещественный аргумент.
- * @param {number} precision - Максимальное число знаков после запятой. По умолчанию 6.
- * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
+ * @param {number} [precision=6] - Максимальное число знаков после запятой. По умолчанию 6.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
  * @returns {string} Результат.
  * @example
  * ```
@@ -2241,8 +1830,8 @@ declare function StrIntZero(arg: number, digitsNum: number, addGroupDelim: boole
 /**
  * Преобразует вещественный аргумент в строку.
  * @param {number} arg - Вещественный аргумент.
- * @param {number} precision - Число символов в дробной части числа. Недостающие символы компенсируются нулями.
- * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
+ * @param {number} [precision] - Число символов в дробной части числа. Недостающие символы компенсируются нулями.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
  * @returns {string} Результат.
  * @example
  * ```
@@ -2283,13 +1872,7 @@ declare function StrInt(arg: number, digitsNum?: number, addGroupDelim?: boolean
 // eslint-disable-next-line no-magic-numbers
 declare function TextInt(arg: number, gender: 0 | 1): string;
 
-/**
- * Возвращает уникальный Id.
- * @returns {number} Id.
- */
-declare function UniqueID(): number;
 declare function ParseHeaderPairs(string: string): Object;
-
 
 /**
  * Кодирует строку, содержащую текст, для использования внутри HTML.
@@ -2685,41 +2268,6 @@ declare function OptReal<T, K = undefined>(value: T, defaultValue?: K): number |
  */
 declare function UrlFromDocID(documentId: number, databaseName?: string): string;
 
-type EncodeJsonOptions = {
-  /** @type форматирование с отступами и переводами строк. */
-  PrettyFormat: boolean;
-  /** @type Экспортировать целые числа, значение которых больше 0x7FFFFFFF, в виде строковой константы в кавычках. */
-  ExportLargeIntegersAsStrings: boolean;
-};
-
-/**
- * Преобразует базовый объект, массив, либо скалярное значение в строку в формате JSON.
- * Функция работает аналогично функции JSON.stringify() в JavaScript,
- * однако второй аргумент представляет из себя набор опций.
- * @param {T} value - Значение.
- * @param {EncodeJsonOptions} [options] - Базовый объект, содержащий набор опций.
- * @returns {string} Сериализованный объект.
- */
-declare function EncodeJson<T>(value: T, options?: EncodeJsonOptions): string;
-
-type ParseJsonOptions = {
-  StrictMode: boolean;
-};
-
-/**
- * Преобразует строку, содержащую JSON, в базовый объект, массив, либо скалярное значение.
- * Функция работает аналогично функции JSON.parse() в JavaScript,
- * однако второй аргумент представляет из себя набор опций.
- * Также ParseJson() менее требовательна к формату,
- * и по умолчанию обрабатывает строки не только в формате JSON,
- * но и JavaScript literal, разрешая в том числе любые типы кавычек,
- * а также значения undefined.
- * @param {string} value - Строка.
- * @param {ParseJsonOptions} [options] - Опции.
- * @returns {T} JSON объект.
- */
-declare function ParseJson<T>(value: string, options?: ParseJsonOptions): T;
-
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
  * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
@@ -2798,7 +2346,7 @@ declare function OpenCodeLibrary<T>(url: string): T;
  * См. Также tools.call_code_library_method.
  * @param {object} object - Тип: Объект без задания структуры (variant). Объект, для которого производится вызов метода.
  * @param {string} method - Тип: Строка. Название вызываемого метода объекта.
- * @param {T} params - (необязательный). Тип: Массив без описания структуры элементов. Массив параметров.
+ * @param {T} [params] - (необязательный). Тип: Массив без описания структуры элементов. Массив параметров.
  * В качестве элементов массива могут быть объекты разного типа – строки, числа, объекты, массивы…
  * Порядок следования элементов в массиве должен соответствовать порядку параметров метода.
  * Параметры могут быть перечислены через запятую, а весь массив - заключен в квадратные скобки.
@@ -2819,10 +2367,10 @@ declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
 /**
  * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
- * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors.
- * @param {string} envType - Тип окружения: "Global", либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
- * @param {XmlDocument | ScreenItem} baseObject - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
- * @param {unknown[]} extraEnv - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors.
+ * @param {string} [envType] - Тип окружения: "Global", либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {XmlDocument | ScreenItem} [baseObject] - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
+ * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
  * ```
  * Поддерживаемые опции:
  * asp-style (bool) - поддерживать стиль <%=%>. Включена по умолчанию.
@@ -2921,7 +2469,7 @@ declare function ServerEval(code: string): string;
  * Другие переменные и объекты (системные или описанные в коде, внутри которого был вызван `SafeEval`) недоступны.
  * Смотрите также функцию {@link eval}.
  * @param {string} code - Код.
- * @param {unknown[]} args - Объект, содержащий набор свойств, определяющих окружение, в котором будет исполнятся код.
+ * @param {unknown[]} [args] - Объект, содержащий набор свойств, определяющих окружение, в котором будет исполнятся код.
  * Если данный аргумент не указан, то программный код исполняется в пустом окружении.
  * Однако, обычно данный аргумент указывается.
  * @returns {unknown} Результат.
@@ -2932,7 +2480,7 @@ declare function SafeEval(code: string, args?: unknown[]): unknown;
  * Выполняет код JS, который, возможно, завершится с ошибкой,
  * с возвратом заданного значения по умолчанию в случае ошибки.
  * @param {string} code - Код JScript.
- * @param {any} defaultValue - Значение, возвращаемое в случае ошибки
+ * @param {any} [defaultValue] - Значение, возвращаемое в случае ошибки
  * Если аргумент не указан, а код завершается с ошибкой, возвращается undefined.
  * @returns {T | undefined} Результат.
  * @example
@@ -2989,7 +2537,7 @@ declare function OpenCodeLib<T = XmlDocument>(url: string): T;
  * а также объекты {@link XmlElem} и {@link XmlDoc}.
  * @param {string} libraryName - Имя библиотеки либо `URL` библиотеки.
  * @param {string} methodName - Имя метода.
- * @param {unknown[]} arguments - Стандартный массив значений аргументов,
+ * @param {unknown[]} [arguments] - Стандартный массив значений аргументов,
  * либо стандартный объект, содержащий значения аргументов.
  * @returns {unknown} Результат.
  */
@@ -3033,14 +2581,6 @@ declare function StrToCharArray(str: string): string[];
 declare function StrFromCharCode(code: number): string;
 
 /**
- * Вычисляет контрольную сумму (64 бита) по алгоритму SHA256.
- * Возвращает бинарную строку длиной 32 байта.
- * @param {string} value - Строка (интерпретируется как массив байт).
- * @returns {string} Бинарная строка.
- */
-declare function SHA256(value: string): string;
-
-/**
  * Преобразует целочисленный аргумент в строку.
  * Используется в том числе для того что бы вывести отрицательное число.
  * @param {number} value - Целочисленный аргумент.
@@ -3074,3 +2614,589 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  * ```
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
+
+/** Прочие функции */
+
+/**
+ * Выдает сообщение, содержащее значение параметра.
+ * На сервере сообщение записывается в журнал 'xhttp',
+ * на рабочем месте - в виде всплывающего окна {@link MsgBox}.
+ * @param {T} val - Значение.
+ * @returns {T} Значение.
+ * @example LoadUrlData(alert(url));
+ */
+declare function alert<T>(val: T): T;
+
+/**
+ * Возвращает путь к базовой директории хранения данных приложения (серверной или клиентской части).
+ * По умолчанию совпадает с установочной директорией, если иное не задано в app_config.xml.
+ * @returns {string} - Путь к базовой директории хранения данных приложения (серверной или клиентской части)
+ */
+declare function AppDataDirectoryPath(): string;
+
+/**
+ * Выдает true, если модуль, наименование которого указано в качестве аргумента,
+ * используется программой, и false, если указанный модуль программой не используется.
+ * Наименования стандартных модулей считывается из файла описания структуры приложения,
+ * наименование подключаемого модуля считывается из файла первичных настроек
+ * при запуске исполнимого файла. Функция используется, например, в ядре программы,
+ * если необходимо по-разному его настраивать для работы с различными подключаемыми модулями.
+ * @param {string} moduleName - Наименование модуля.
+ * @example AppModuleUsed("module_datex");
+ * @returns {boolean} Результат.
+ */
+declare function AppModuleUsed(moduleName: string): boolean;
+
+/**
+ * Вызывает исключение специального типа, аналогичное нажатию кнопки "Cancel" пользователями.
+ * Позволяет генерировать исключение, на которое не будет выдаваться сообщение об ошибке.
+ */
+declare function Cancel(): never;
+
+/**
+ * Проверяет не должен ли текущий поток завершиться (обычно после прерывания его пользователем).
+ * Если да, вызывает исключение аналогично функции {@link Cancel}().
+ * @returns {undefined} Если поток вызывает в цикле функцию {@link Sleep}(),
+ * либо любую функцию, вызывающее сетевой запрос, то вызывать функцию
+ * {@link CheckCurThread}() нет необходимости, поскольку вышеназванные функции
+ * сами проверяют запрос на отмену выполнения потока.
+ */
+declare function CheckCurThread(): undefined;
+
+/**
+ * Проверяет строку на соответствие контрольной сумме, вычисленной по алгоритму PamMd5.
+ * @param {string} str - Проверяемая строка.
+ * @param {string} arg - Контрольная сумма.
+ * @returns {boolean} Результат.
+ * @example CheckPamMd5(str, arg)
+ */
+declare function CheckPamMd5(str: string, arg: string): boolean;
+
+/**
+ * Возвращает true, если пользователем в буфер `Clipboard` скопировано нечто заданного формата.
+ * Возвращает false, если нет (буфер пуст или его содержимое не того формата).
+ * Обычно формат `text/plain` или `text/html`.
+ * @param {string} format - Наименование формата.
+ * @returns {boolean} Результат.
+ */
+declare function ClipboardFormatAvailable(format: string): boolean;
+
+/**
+ * Увеличивает яркость цвета, переданного в качестве аргумента.
+ * @param {string} color - Цвет в формате RGB.
+ * @param {number} ratio - Действительное число обозначающее на сколько увеличивается/уменьшается яркость.
+ * @returns {string} Результат.
+ */
+declare function ColorNewBrightness(color: string, ratio: number): string;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму CRC.
+ * @param {string} arg - Строка, содержащая массив байт.
+ * @returns {number} Контрольная сумма.
+ */
+declare function CRC(arg: string): number;
+
+/**
+ * Модификация функции {@link alert}(), предназначенная для целей отладки.
+ * В отличие от последней, {@link DebugMsg}() может быть оставлена в релизном коде.
+ * Если в SpXml.ini указан параметр SHOW-DEBUG-MSG, функция работает аналогично {@link alert}().
+ * В остальных случаях она осуществляет запись значения в журнал по умолчанию.
+ * @param {T} value - Произвольное значение.
+ * @returns {T} Возвращает переданное значение.
+ */
+declare function DebugMsg<T>(value:T ): T;
+
+/**
+ * Включает/выключает заданный журнал.
+ * @param {string} name - Название журнала.
+ * @param {boolean} [enable=true] - Включить/выключить (Bool).
+ * @example EnableLog("xquery", true);
+ */
+declare function EnableLog(name: string, enable?: boolean): undefined;
+
+/**
+ * Включает заданный журнал.
+ * В отличие от функции {@link EnableLog}() позволяет задать дополнительные опции ведения журнала.
+ * Возможные опции: life-time - период, на который заводится новый файла журнала ("day", "month", "permanent").
+ * По умолчанию свой файл журнала заводится на каждую дату ("day") `base-dir` - директория,
+ * в которой будут заводиться журнал.
+ * По умолчанию используется директория `Logs` в установочной директории `use-std-event-prefix` - включать в начало
+ * каждой строки журнала стандартный префикс (дата, время, Id потока) `boolean`.
+ * По умолчанию `true`.
+ * `header-str` - строка заголовка, добавляемая в начало каждого нового файла журнала.
+ * По умолчанию строка заголовка не добавляется.
+ * @param {string} name - Название журнала.
+ * @param {string} [options] - Набор опций вида 'param1=value1;param2=value2;...'.
+ * @returns {undefined}
+ * @example EnableLogExt("web-request", "header-str=date\turl\tquery;use-std-event-prefix=0");
+ */
+declare function EnableLogExt(name: string, options?: string): undefined;
+
+type EncodeJsonOptions = {
+  /** форматирование с отступами и переводами строк. */
+  PrettyFormat: boolean;
+  /** Экспортировать целые числа, значение которых больше 0x7FFFFFFF, в виде строковой константы в кавычках. */
+  ExportLargeIntegersAsStrings: boolean;
+};
+
+/**
+ * Преобразует базовый объект, массив, либо скалярное значение в строку в формате JSON.
+ * Функция работает аналогично функции JSON.stringify() в JavaScript,
+ * однако второй аргумент представляет из себя набор опций.
+ * @param {T} value - Значение.
+ * @param {EncodeJsonOptions} [options] - Базовый объект, содержащий набор опций.
+ * @returns {string} Сериализованный объект.
+ */
+declare function EncodeJson<T>(value: T, options?: EncodeJsonOptions): string;
+
+/**
+ * Выполняет заданный код в основном потоке на следующее системное событие.
+ * Обычно, если код выполняется в отдельном потоке, из него нельзя обращаться к пользовательскому интерфейсу.
+ * Если же нужно сделать, например, обновление экрана, то этот код нужно вызывать через {@link EvalAsync}.
+ * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
+ * Смотрите также {@link EvalSync}.
+ * @param {string} code - Код, который необходимо выполнить.
+ * @param {T} args - И последующие аргументы - передаются выполняемому коду. Необязательные аргументы.
+ */
+declare function EvalAsync<T>(code: string, args: T): void;
+
+/**
+ * Выполняет заданный код в основном потоке на следующее системное событие.
+ * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
+ * Эта функция блокирует поток, и дожидается окончания выполнения вызванного кода.
+ * Смотрите также {@link EvalAsync}.
+ * @param {string} code - Код, который необходимо выполнить.
+ * @param {T} args - Последующие аргументы - передаются выполняемому коду.
+ */
+declare function EvalSync<T>(code: string, args: T): void;
+
+/**
+ * Сигнализирует о завершении длительного процесса с упрощенным индикатором,
+ * начатым при помощи функции {@link StartModalTask}().
+ */
+declare function FinishModalTask(): undefined;
+
+/**
+ * Вычисялет контрольную сумму  по алгоритму FNV1a. Возвращает целое число (64 бита).
+ * @param {string} data - Строка (интерпретируется как массив байт)
+ * @returns {number} Результат.
+ */
+declare function FNV1a64(data: string): number;
+
+/**
+ * Возвращает данные заданого формата из буфера (Clipboard).
+ * @param {string} [format] - Формат, в котором должны быть данные.
+ * @returns {string} Результат.
+ */
+declare function GetClipboard(format?: string): string;
+
+
+/**
+ * Извлекает кодировку, явно указанную в HTML-строке в теге <meta>.
+ * Если кодировка не указана, возвращает пустую строку.
+ * @param {string} htmlStr - HTML строка.
+ * @returns {string} Кодировка или пустая строка.
+ */
+declare function GetHtmlCharset(htmlStr: string): string;
+
+/**
+ * Возвращает значение системной переменной окружения.
+ * @param {string} name - Имя переменной.
+ * @returns {string} Значение.
+ * GetSysEnvironmentVariable( 'windir' );.
+ */
+declare function GetSysEnvironmentVariable(name: string): string;
+
+/**
+ * Возвращает имя пользователя операционной системы под которым выполняется текущий процесс.
+ * @returns {string} Результат.
+ */
+declare function GetSysUserName(): string;
+
+/**
+ * Выполняет HTTP-запрос.
+ * @param {string} url - Url.
+ * @param {string} [method="get"] - Метод `get` или `post`.
+ * @param {string} [body] - Тело запроса.
+ * @param {string} [headers] - Список дополнительных полей заголовка http-запроса
+ * в соответствующем формате (имя:значение перевод строки).
+ * Необязательный аргумент. Список также может содержать дополнительные опции.
+ * Среди списка дополнительных полей заголовка возможно использование следующих опций,
+ * которые обрабатываются отдельно и не попадают в передаваемый заголовок:
+ * Ignore-Errors - Игнорировать наличие кода ошибки HTTP в ответе.
+ * Если указана эта опция, код ошибки можно получить через атрибут RespCode возвращаемого объекта.
+ * По умолчанию функция завершается с ошибкой в случае получения кода ошибки по HTTP.
+ * Auto-Redirect - Автоматически следовать редиректам HTTP 303, HTTP 304. По умолчанию true.
+ * @returns {HttpResponse} Объект ответа.
+ * @example
+ * ```
+ * HttpRequest("http://reg.datex-soft.com/")
+ * HttpRequest("http://reg.datex-soft.com/login.htm", "post", UrlEncodeQuery({ login: "xxx", password: "xxx" }))
+ * HttpRequest(
+ *   "http://reg.datex-soft.com/login.htm",
+ *   "post",
+ *   "<xxx>111</xxx>",
+ *   "Content-type: text/xml\nIgnore-Errors: 1\n"
+ * )
+ * ```
+ */
+declare function HttpRequest(url: string, method?: string, body?: string, headers?: string): HttpResponse;
+
+/**
+ * Редко используемая функция.
+ * @returns {unknown} unknown
+ */
+declare function InitAppConsole(): unknown;
+
+/**
+ * -
+ * @param {number} num - Целое число
+ * @param {string} optionsStr - Строка, содержащая три варианта фразы, разделенных символом "|"
+ * @example yearsNum + ' ' + IntModSelector(yearsNum, "лет|год|года")
+ * @returns {unknown} unknown
+ */
+declare function IntModSelector(num: number, optionsStr: string): unknown;
+
+/**
+ * Возвращает тип склонения существительного в русском языке для заданного числа.
+ * @param {number} num - Число.
+ * @returns {number} Возвращает тип склонения существительного в русском языке (0,1,2) для заданного числа:
+ * 0 - "штук";
+ * 1 - "штука";
+ * 2 - "штуки".
+ */
+declare function IntModType(num: number): number;
+
+/**
+ * Проверяет, не нажата ли какая-либо клавиша в данный момент.
+ * Обычно проверятся Ctrl или Shift.
+ * @param {number} arg1 - Код клавиши.
+ * @returns {boolean} Результат.
+ */
+declare function IsKeyPressed(arg1: number): boolean;
+
+/**
+ * Делает запись в файл лога определенного типа.
+ * @param {string} type - Тип лога.
+ * @param {string} text - Текст.
+ * @example
+ * ```
+ * LogEvent(type, text).
+ * ```
+ */
+declare function LogEvent(type: string, text: string): undefined;
+
+/**
+ * Конструктор объекта MailMessage, предназначенной для хранения E-mail - сообщения.
+ * Объект строится по форме x-app://app/sx_mail_message.xmd и является обычным объектом типа XmlElem.
+ * @returns {MailMessage} Результат.
+ */
+declare function MailMessage(): MailMessage;
+
+/**
+ * Создает объект типа MailMessage на основании почтового сообщения в формате MIME.
+ * @param {string} mimeData - Почтовое сообщение в формате MIME.
+ * @returns {MailMessage} Результат.
+ */
+declare function MailMessageFromMimeStr(mimeData: string): MailMessage;
+
+/**
+ * Максимальное значение из нескольких аргументов.
+ * @param {number} number - Число 1.
+ * @param {number[]} numbers - Числа.
+ * @returns {number} Возвращает максимальное значение из нескольких аргументов.
+ */
+declare function Max(number: number, ...numbers: number[]): number;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в бинарном формате (массив байт).
+ * @param {string} data - Строка, содержащая массив байт.
+ * @returns {string} Контрольная сумма.
+ */
+declare function Md5(data: string): string;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в виде HEX-строки.
+ * @param {string} data - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function Md5Hex(data: string): string;
+
+/**
+ * Возвращает минимальное значение из нескольких аргументов.
+ * @param {number} number - Число.
+ * @param {number[]} numbers - Числа.
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * Min(2, 5, 10, 15) === 2;
+ * ```
+ */
+declare function Min(number: number, ...numbers: number[]): number;
+
+/**
+ * Смешивает два цвета в заданной пропорции.
+ * @param {string} color1 - Цвет в формате RGB.
+ * @param {string} color2 - Цвет в формате RGB.
+ * @param {number} [arg] - Пропорции. В случае его отсутствия цвета будут смешаны в пропорции 1 к 1.
+ * @returns {string} Результат.
+ */
+declare function MixColors(color1: string, color2: string, arg?: number): string;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму PamMd5.
+ * @param {string} arg - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function PamMd5(arg: string): string;
+
+type ParseJsonOptions = {
+  StrictMode: boolean;
+};
+
+/**
+ * Преобразует строку, содержащую JSON, в базовый объект, массив, либо скалярное значение.
+ * Функция работает аналогично функции JSON.parse() в JavaScript,
+ * однако второй аргумент представляет из себя набор опций.
+ * Также ParseJson() менее требовательна к формату,
+ * и по умолчанию обрабатывает строки не только в формате JSON,
+ * но и JavaScript literal, разрешая в том числе любые типы кавычек,
+ * а также значения undefined.
+ * @param {string} value - Строка.
+ * @param {ParseJsonOptions} [options] - Опции.
+ * @returns {T} JSON объект.
+ */
+declare function ParseJson<T>(value: string, options?: ParseJsonOptions): T;
+
+/**
+ * Вычисляет хэш заданной строки (обычно пароля) по встроенному алгоритму по умолчанию.
+ * @param {string} str - Строка.
+ * Смотрите также {@link PasswordVerify}().
+ * @returns {unknown} -
+ */
+declare function PasswordHash(str: string): unknown;
+
+/**
+ * Проверяет соответствие заданной стоки (обычно пароля) и ее хэша.
+ * @param {string} str - строка.
+ * @param {string} hash - hash.
+ * Смотрите также {@link PasswordHash}().
+ * @returns {boolean} - Результат.
+ */
+declare function PasswordVerify(str: string, hash: string): boolean;
+
+/**
+ * Возвращает Полное имя человека в виде "Фамилия И.О.".
+ * @param {string} lastname - Фамилия.
+ * @param {string} firstname - Имя.
+ * @param {string} [middlename] - Отчество.
+ * @returns {string} Результат.
+ */
+declare function PersonShortName(lastname: string, firstname: string, middlename?: string): string;
+
+/**
+ * Функция PlaySound() проигрывает один из стандартных системных звуков.
+ * Функция доступна только в десктопном клиенте.
+ * @param {string} soundName - Наименование одного из стандартных звуков.
+ * Примеры значений: "MailBeep", "SystemAsterisk", ""SystemExclamation".
+ * @returns {unknown} -
+ */
+declare function PlaySound(soundName: string): unknown;
+
+/**
+ * Вызывает выполнение процесса.
+ * `work-dir` - рабочая директория для процесса
+ * `sys` - системный процесс `boolean`, в этом случае в качестве первого аргумента
+ * функции можно указывать не путь до исполняемого файла,
+ * а имя системного процесса `wait` - дожидаться завершения процесса `boolean`.
+ * Если указана опция `wait=1`, функция вернет код завершения процесса (`0` - успешное завершение, иначе - ошибка).
+ * В остальных случаях функция ничего не возвращает.
+ * `hidden` - запуск без пользовательского интерфейса `boolean`
+ * (рекомендуется включать, если функция вызывается с сервера).
+ * @param {string} path - Путь к исполняемому файлу, или имя исполняемого файла.
+ * @param {string} [cmdLine] - Аргументы командной строки.
+ * @param {string} [options] - Набор опций через ";", в виде "имя опции=значение; ...".
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * ProcessExecute(
+ *   "C:\Temp\pkzipc.exe",
+ *   " -add -rec -path=current xxx.zip 1.htm 2.htm",
+ *   "wait=1;hidden=1;work-dir=C:\Temp"
+ * );
+ * ```
+ */
+declare function ProcessExecute(path: string, cmdLine?: string, options?: string): number;
+
+/**
+ * Вызывает завершение текущего приложения.
+ * Редко используемая функция.
+ * Используется в конвертерах, программах обновления.
+ */
+declare function QuitApp(): never;
+
+/**
+ * Возвращает случайное целое число в заданном диапазоне.
+ * @param {number} minVal - Нижняя граница диапазона.
+ * @param {number} maxVal - Верхняя граница диапазона.
+ * @returns {number} Результат.
+ */
+declare function Random(minVal: number, maxVal: number): number;
+
+/**
+ * Регистрирует url файла в схеме (дистрибутиве) приложения, который будет заранее загружаться при запуске веб-интерфейса.
+ * Такой файл будет загружен единым сжатым пакетом, что более эффективно по сравнению с загрузкой каждого файла по отдельности.
+ * Функция обычно вызывается при старте сервера приложения.
+ * @param {string} url - Url файла.
+ * @returns {unknown} -
+ */
+declare function RegisterPreloadedDesignUrl(url: string): unknown;
+
+/**
+ * Вызывает отправку почтового сообщения через тот способ, который был выбран в настройках, как правило - Simple MAPI.
+ * В качестве параметра передается объект, созданный функцией {@link MailMessage}.
+ * @param {ReturnType<typeof MailMessage>} arg1 - Объект, созданный при помощи функции
+ * {@link MailMessage} (Object SpXml).
+ */
+declare function SendMailMessage(arg1: ReturnType<typeof MailMessage>): void;
+
+/**
+ * Вызывает копирование указанной информации в буфер (Clipboard).
+ * @param {string} value - Информация, которую необходимо скорировать в буфер.
+ * @example SetClipboard("0x" + StrHexInt(objectID));
+ * @returns {unknown} -
+ */
+declare function SetClipboard(value: string): unknown;
+
+/**
+ * Устанавливает описание текущей активности текущего потока.
+ * Описание используется исключительно в отладочных целях (например показывается через страницу xhttp_info)
+ * и не влияет на работу программы.
+ * @param {string} desc - Строка с описанием.
+ * Смотрите также {@link SetCurThreadDesc}().
+ * @returns {unknown} -
+ */
+declare function SetCurThreadActivityName(desc: string): unknown;
+
+/**
+ * Устанавливает описание текущего потока.
+ * Описание используется исключительно в отладочных целях (например показывается через страницу xhttp_info)
+ * и не влияет на работу программы.
+ * @param {string} desc - Строка с описанием.
+ * @returns {unknown} -
+ */
+declare function SetCurThreadDesc(desc: string): unknown;
+
+/**
+ * Вычисляет hash функцию по алгоритму SHA1.
+ * @param {string} str - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function SHA1(str: string): string;
+
+/**
+ * Вычисляет hash функцию по алгоритму SHA1 и возвращает строку, закодированную в Base64.
+ * @param {string} str - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function SHA1Base64(str: string): string;
+
+/**
+ * Вычисляет контрольную сумму (64 бита) по алгоритму SHA256.
+ * Возвращает бинарную строку длиной 32 байта.
+ * @param {string} value - Строка (интерпретируется как массив байт).
+ * @returns {string} Бинарная строка.
+ */
+declare function SHA256(value: string): string;
+
+/**
+ * Вычисляет контрольную сумму (64 бита) по алгоритму SHA256.
+ * @param {string} value - Строка (интерпретируется как массив байт).
+ * @returns {string} Возвращает hex-строку длиной 64 байта.
+ */
+declare function SHA256Hex(value: string): string;
+
+/**
+ * Вызывает действие для Windows Shell.
+ * @param {string} action - Вызываемое действие (как правило, "open" или "print").
+ * @param {string} target - Путь к вызываемому файлу, или url.
+ * @param {string?} [args] - Аргументы для вызываемой программы (если url определяет исполняемый файл).
+ * @returns {undefined}
+ * @example
+ * ```
+ * ShellExecute("open", "calc.exe");
+ * ShellExecute("print", "C:\\Temp\\xxx.doc");
+ * ShellExecute("open", "http://www.e-staff.ru/");
+ * ShellExecute("open", "mailto:support@e-staff.ru");
+ * ```
+ */
+declare function ShellExecute(action: string, target: string, args?: string): undefined;
+
+/**
+ * Создает временную задержку, не загружая процессор.
+ * @param {number} ticks - Величина задержки в миллисекундах.
+ * @returns {undefined}
+ */
+declare function Sleep(ticks: number): undefined;
+
+/**
+ * Записывает текст в сроку состояния в главном окне программы.
+ * Обычно используется для показа количества найденных объектов в списке.
+ * @param {string} msg - Строка.
+ * @example StatusMsg("Записей в списке: " + n);
+ * @returns {undefined}
+ */
+declare function StatusMsg(msg: string): undefined;
+
+/**
+ * Создает объект типа Error, содержащий словесное описание ошибки, предназначенное для восприятия обычным пользователем.
+ * Такая ошибка в пользовательском интерфейсе будет показана без какой-либо отладочной информации.
+ * @param {string} desc - Текст ошибки
+ * @example throw UiError("Permission denied");
+ * @returns {unknown} -
+ */
+declare function UiError(desc: string): unknown;
+
+/**
+ * Возвращает уникальный Id.
+ * @returns {number} Id.
+ */
+declare function UniqueID(): number;
+
+/**
+ * Генерирует уникальную строку заданной длины для использования в качестве идентификаторов, ключей и пр.
+ * @param {number} [len=64] - Трубуемая длина строки.
+ * @returns {string} Результат.
+ */
+declare function UniqueStrID(len?: number): string;
+
+/**
+ * Создает объект типа {@link Error}, содержащий словесное описание ошибки, пригодное для восприятия обычным пользователем.
+ * Такая ошибка в пользовательском интерфейсе будет показана с изначально скрытой отладочной информацией,
+ * но которую можно будет раскрыть. Если такая ошибка будет возвращена обработчиком веб-сервиса,
+ * то в ответ запишется только словесное описание, без отладочной информации.
+ * @param {string} desc - Текст ошибки
+ * @param {string} [innerError] - Исходная ошибка, вызвавшая данную ошибку.
+ */
+declare function UserError(desc: string, innerError?: string): never;
+
+/**
+ * Создает zip архив.
+ * @param {string} archivePath - Путь (или url) к создаваемому архиву.
+ * @param {Array} filesArray - Массив, содержащий список файлов или папок, которые нужно заархивировать (Array).
+ * @param {any} [options] - Объект с параметрами (Object).
+ * @returns {undefined}
+ * @example
+ * ```
+ * ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
+ * ```
+ */
+declare function ZipCreate(archivePath: string, filesArray: string[], options: Object): undefined;
+
+/**
+ * Распаковывает архив.
+ * @param {string} archivePath - Путь до архива.
+ * @param {string} destPath - Путь до папки, в которую нужно распаковать.
+ * @returns {undefined}
+ */
+declare function ZipExtract(archivePath: string, destPath: string): undefined;
