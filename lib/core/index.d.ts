@@ -8,15 +8,6 @@
 declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
 
 /**
- * Устанавливает авторизацию, используемую клиентом по умолчанию.
- * Можно использовать только на `spxml`, так как он не делает одновременных запросов по разным адресам.
- * @param {string} log - Логин.
- * @param {string} pass - Пароль.
- * @returns {undefined}
- */
-declare function SetHttpDefaultAuth(log: string, pass: string): undefined;
-
-/**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
  * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
@@ -920,20 +911,6 @@ declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
  * @returns {XmlDatabase} XmlDatabase.
  */
 declare function FetchDb(name: string): unknown;
-
-/**
- * Ищет каталог по имени во всех используемых базах данных.
- * Если не находит - выдает ошибку.
- * Функция по историческим причинам называется не совсем корректно.
- * Ее ближайший эквивалент - {@link FindOptCatalog} имеет правильное название.
- * @param {string} name - Наименование каталога базы данных.
- * @returns {object} Результат.
- * @example
- * ```
- * const catalog = FindSharedCatalog("events");
- * ```
- */
-declare function FindSharedCatalog(name: string): Object;
 
 /**
  * Аналог функции {@link LoadUrlData}, позволяющий явно указать адрес сервера приложения,
@@ -1952,25 +1929,11 @@ declare function DecodeCharset(str: string, charset: WebtutorCharsets): string;
 declare function RtfEncode(str: string): string;
 
 /**
- * Шифрует строку простым встроенным алгоритмом шифрования.
- * @param {string} str - Шифруемая строка.
- * @returns {string} Результат.
- */
-declare function StrSimpleEncrypt(str: string): string;
-
-/**
  * Переводит текст в формате rtf в обычный текст.
  * @param {string} str - Текст в формате rtf.
  * @returns {string} Результат.
  */
 declare function RtfToPlainText(str: string): string;
-
-/**
- * Дешифрует строку, зашифрованную простым встроенным алгоритмом.
- * @param {string} str - Дешифруемая строка.
- * @returns {string} Результат.
- */
-declare function StrSimpleDecrypt(str: string): string;
 
 /**
  * Декодирует строчку по стандартным правилам декодирования url, т.е. Заменяет знак "%код" на соответствующий символ.
@@ -2259,16 +2222,6 @@ declare function OptInt<T, K = undefined>(value: T, defaultValue?: K): number | 
 declare function OptReal<T, K = undefined>(value: T, defaultValue?: K): number | K;
 
 /**
- * Возвращает `URL` объектного документа с заданным id.
- * @deprecated
- * Устаревшая функция, используемая в старой объектной модели.
- * @param {number} documentId - Id документа.
- * @param {string} databaseName - Имя базы.
- * @returns {string} Результат.
- */
-declare function UrlFromDocID(documentId: number, databaseName?: string): string;
-
-/**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
  * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
  * @param {Error | string} error - Ошибка.
@@ -2452,16 +2405,6 @@ declare function EvalCodeUrl(codeUrl: string, subCode: string): unknown;
  * @returns {undefined}
  */
 declare function ModalTaskMsg(msg: string): undefined;
-
-/**
- * Выполняет заданный код на сервере, и возвращает результат.
- * Результат может быть только в виде строки.
- * Если эта функция вызывается на однопользовательской локальной версии программы,
- * она полностью аналогична функции eval.
- * @param {string} code - Код, который будет выполняться на сервере.
- * @returns {string} Результат.
- */
-declare function ServerEval(code: string): string;
 
 /**
  * Выполняет код в окружении, где доступны только те объекты и переменные,
@@ -3357,3 +3300,335 @@ declare function UnifyPhones(str: string): string;
  * @returns {unknown} -
  */
 declare function DropXQueryCache(): unknown;
+
+/** Устаревшие функции */
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SingleElemArray(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function AddCatalogEntry(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function AddOutlookEvent(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function AdjustHtml(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * Заменена на глобальную переменную {@link AppSn}.
+ * @returns {unknown} -
+ */
+declare function AppSerialNumber(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function BuildCompoundHtml(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function BuildFullReport(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function BuildWebHtml(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ChangeAppSn(): unknown;
+
+/**
+ * Устаревшее название функции {@link ParseJson}().
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function DecodeJson(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * Использовалась в старой объектной модели.
+ * @returns {unknown} -
+ */
+declare function DeleteCatalogEntries(): unknown;
+
+/**
+ * Извлекает id из заданного url объектного документа типа x-local.
+ * Используется только в старой объектной модели.
+ * @deprecated
+ * @param {string} url - Url документа.
+ * @example DocIDFromUrl("x-app://data/objects/0x4DF75B9F13FE51/60.xml"); // Вернет 0x4DF75B9F13FE5160
+ * @returns {number} - Результат.
+ */
+declare function DocIDFromUrl(url: string): number;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function EvalExtCodeLiteral(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ExcelCodePageExecute(): unknown;
+
+/**
+ * Ищет каталог по имени во всех используемых базах данных.
+ * Если не находит - выдает ошибку.
+ * Функция по историческим причинам называется не совсем корректно.
+ * Ее ближайший эквивалент - {@link FindOptCatalog} имеет правильное название.
+ * @deprecated
+ * @param {string} name - Наименование каталога базы данных.
+ * @returns {object} Результат.
+ * @example
+ * ```
+ * const catalog = FindSharedCatalog("events");
+ * ```
+ */
+declare function FindSharedCatalog(name: string): Object;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function FontDescription(): unknown;
+
+/**
+ * Устаревшая функция.
+ * Возвращает true на клиентской части приложения, если текущий пользователь зашел под техническим администратором.
+ * Рекомендуется использовать LdsCurAuthObjectUrl != ''
+ * @returns {boolean} - Результат.
+ */
+declare function IsLdsAdmin(): boolean;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function LoadUrlPlainText(): unknown;
+
+/**
+ * Загружает содержимое файла MS Word и возвращает его содержимое в виде HTML.
+ * Устаревшая функция, не рекомендуется к использованию, с момента появления поддержки OLE.
+ * @deprecated
+ * @param {string} url - Url файла MS Word.
+ * @returns {string} - Результат.
+ */
+declare function LoadWordHtml(url: string): string;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function PutWordHtml(): unknown;
+
+/**
+ * Устаревшая функция, используемая во времена, когда запросы XQuery по множественным ключевым значения выполнялись неэффективно.
+ * В настоящий момент конструкция вида QueryCatalogByKeys("persons", "id", [12359841651, 8498132581, 68496313181]);
+ * просто транслируется в XQuery("for $elem in persons where MatchSome($elem/id, (12359841651, 8498132581, 68496313181)) return $elem");
+ * @deprecated
+ * @param {string} catalogName - Название каталога.
+ * @param {string} keyName - Название поля, по которому строится запрос.
+ * @param {unknown[]} keyValues - Массив значений.
+ * @returns {unknown[]} - Массив записей.
+ */
+declare function QueryCatalogByKeys(catalogName: string, keyName: string, keyValues: unknown[]): unknown[];
+
+/**
+ * Вызывает принудительную перестройку каталога основных объектных файлов.
+ * Устаревшая и редко используемая функция.
+ * Современный способ принудительной перестройки каталога основных объектных файлов - удаление каталога 'secondary' при условии,
+ * что программа (сервер или локальная) остановлена.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function RebuildAllCatalogs(): unknown;
+
+/**
+ * Регистрирует новый каталог в базе данных.
+ * Устаревшая функция, в новой объектной моделе базы данных не используется,
+ * т.к. в новой объектной моделе каталог и форма жестко связаны.
+ * @deprecated
+ * @param {string} catalogUrl - Url каталога.
+ * @param {string} formUrl - Url формы.
+ */
+declare function RegisterCatalog(catalogUrl: string, formUrl: string): undefined;
+
+/**
+ * Извлекает корневой элемент из url формы каталога базы данных, и создает и регистрирует аналогичную форму для объекта.
+ * Устаревшая функция, не используемая в новой объектной модели.
+ * @deprecated
+ * @param {string} formUrl - Url формы каталога.
+ * @returns {string} - Url формы объекта.
+ */
+declare function RegisterCatalogSubForm(formUrl: string): string;
+
+/**
+ * Используется для синхронизации (репликации) одной базы данных в другую, например автономного рабочего места и сервера, или двух серверов.
+ * Устаревшая функция, в новой объектной модели не используется,
+ * т.к. функция синхронизации (реплкации) в новой объектной модели реализована на javascript.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ReplicateDb(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ReportCodePageExecute(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function RichCodePageExecute(): unknown;
+
+/**
+ * Устаревшая функция.
+ * Выполняет заданный код на сервере, и возвращает результат.
+ * Результат может быть только в виде строки.
+ * Если эта функция вызывается на однопользовательской локальной версии программы, она полностью аналогична функции {@link eval}.
+ * @deprecated
+ * @param {string} code - Код, который будет выполняться на сервере.
+ * @returns {string | undefined} - Результат.
+ */
+declare function ServerEval(code: string): string | undefined;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SetDefaultPrintAlign(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SetDefaultPrintFont(): unknown;
+
+/**
+ * Устанавливает авторизацию, используемую клиентом по умолчанию.
+ * Можно использовать только на spxml т.к. он не делает одновременных запросов по разным адресам
+ * Устаревшая функция. Рекомендуется передавать данные авторизации через опции в {@link HttpRequest}().
+ * @deprecated
+ * @param {string} login - Логин.
+ * @param {string} password - Пароль.
+ */
+declare function SetHttpDefaultAuth(login: string, password: string): undefined;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SetMultipageLayout(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function StorageDateStr(): unknown;
+
+/**
+ * Предназначена для принудительной записи в каталоги.
+ * Устаревшая функция.
+ * В новой объктной модели не используется.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function StoreCatalogEntry(): unknown;
+
+/**
+ * Дешифрует строку, зашифрованную простым встроенным алгоритмом.
+ * Устаревшая функция. Рекомендуется использовать {@link StrStdDecrypt}().
+ * @deprecated
+ * @param {string} str - Дешифруемая строка.
+ * @returns {string} - Результат.
+ */
+declare function StrSimpleDecrypt(str: string): string;
+
+/**
+ * Шифрует сроку встроенным алгоритмом шифрования.
+ * Устаревшая функция. Рекомендуется использовать {@link StrStdEncrypt}().
+ * @deprecated
+ * @param {string} str - Шифруемая строка.
+ * @returns {string} - Результат.
+ */
+declare function StrSimpleEncrypt(str: string): unknown;
+
+/**
+ * Устаревшая функция.
+ * Выполняет синхронизацию базы данных. Использовалась в E-Staff 3.x.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SyncDb(): unknown;
+
+/**
+ * Устаревшая функция.
+ * Рекомендуется использовать {@link UrlDecode}()
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function UrlDecode16(): unknown;
+
+/**
+ * Возвращает `URL` объектного документа с заданным id.
+ * @deprecated
+ * Устаревшая функция, используемая в старой объектной модели.
+ * @param {number} documentId - Id документа.
+ * @param {string} databaseName - Имя базы.
+ * @example UrlFromDocID(123502899940580); // Вернет "x-local://data/objects/00007053427ACC/E4.xml"
+ * @returns {string} Результат.
+ */
+declare function UrlFromDocID(documentId: number, databaseName?: string): string;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function WordExecute(): unknown;
