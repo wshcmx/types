@@ -1,3 +1,38 @@
+/** Функции для работы с объектами */
+
+/**
+ * Функция ядра, которая удаленно (на сервере) вызывает метод с параметрами для конкретного объекта.
+ * Примечание - По существу, оператор oResult = CallObjectMethod(oLib, ‘some_function’, [param1, param2])
+ * выполняет почти то же самое, что и oResult = oLib.some_function(param1, param2),
+ * с той разницей, что второй вариант выполнится там, где он вызван (на клиенте или на сервере),
+ * а первый вариант – всегда выполняется на сервере (но результат выполнения возвращается в место вызова).
+ * См. Также tools.call_code_library_method.
+ * @param {object} object - Тип: Объект без задания структуры (variant). Объект, для которого производится вызов метода.
+ * @param {string} method - Тип: Строка. Название вызываемого метода объекта.
+ * @param {T} [params] - (необязательный). Тип: Массив без описания структуры элементов. Массив параметров.
+ * В качестве элементов массива могут быть объекты разного типа – строки, числа, объекты, массивы…
+ * Порядок следования элементов в массиве должен соответствовать порядку параметров метода.
+ * Параметры могут быть перечислены через запятую, а весь массив - заключен в квадратные скобки.
+ * В случае, если параметры метода не предусмотрены, указывается пустой массив ([]).
+ * @returns {unknown} Result.
+ */
+declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
+
+/**
+ * Функция работает аналогично функции {@link CallObjectMethod}(), но с блокировкой доступа через переданный lock.
+ * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
+ * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
+ * {@link GetObjectPropertyWithLock}()
+ * {@link Lock}
+ * {@link SetObjectPropertyWithLock}()
+ * @param {T} object - Объект произвольного типа
+ * @param {string} methodName - Имя метода.
+ * @param {unknown[]} argsArray - Стандартный массив аргументов.
+ * @param {Lock} lock - Объект типа Lock
+ * @returns {unknown} Result.
+ */
+declare function CallObjectMethodWithLock<T>(object: T, methodName: string, argsArray: unknown[], lock: Lock): unknown;
+
 /**
  * Извлекает содержимое составного документа html
  * (с вложенными файлами в формате <compound-attc/>) в файл,
@@ -8,6 +43,80 @@
 declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
 
 /**
+ * Возвращает список имен всех свойств объектов класса.
+ * Возвращается полный список имен, описанных в деларации класса, независио от того,
+ * было ли конкретное свойтсо установлено в данном объекте.
+ * @param {T} object - Объект класса.
+ * @returns {unknown} -
+ */
+declare function GetClassObjectPropertyNames<T>(object: T): unknown;
+
+/**
+ * Функция позволяет получить значение свойства абстрактного объекта по имени динамическим способом.
+ * Таким образом, вызов GetObjectProperty( object, 'xxx' ) эквивалентен выражению object.xxx.
+ * Для стандартного объекта вызов GetObjectProperty( object, propName ) эквивалентен вызову object[propName].
+ * В зависимости от типа объекта при попытке получить свойство, которое отсутствует в объекте,
+ * возможно как срабатывание исключения, так и возращение результата undefined.
+ * @param {T} object - Объект.
+ * @param {string} propertyName - Имя свойства.
+ * @returns {unknown} Результат.
+ */
+declare function GetObjectProperty<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | never;
+
+/**
+ * Функция  эквивалентна {@link GetObjectProperty}() за одним исключением:
+ * если в качестве propertyName передано имя 'This', функция вернет ссылку на переданный объект.
+ * @param {T} object - Объект.
+ * @param {string} propertyName - Имя свойства, либо This.
+ * @returns {unknown} Результат.
+ */
+declare function GetObjectPropertyOrSelf<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | T;
+
+/**
+ * Функция работает аналогично функции {@link GetObjectProperty}(), но с блокировкой доступа через переданный lock.
+ * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
+ * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @param {Lock} lock - Объект типа {@link Lock}.
+ * @returns {unknown} Результат.
+ */
+declare function GetObjectPropertyWithLock<T, K extends keyof T>(object: T, propertyName: K | string, lock: Lock): T[K] | never;
+
+/**
+ * Функция эквивалентна {@link GetObjectProperty}() за одним исключением:
+ * если в объекте отсутствует данное свойство, то функция возвращает undefined.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @returns {unknown} Результат.
+ */
+declare function GetOptObjectProperty<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | undefined;
+
+/**
+ * Функция позволяет установить значение свойства абстрактного объекта по имени динамическим способом.
+ * Таким образом, вызов SetObjectProperty(object, "xxx", value) эквивалентен выражению object.xxx = value.
+ * Для стандартного объекта вызов SetObjectProperty(object, propName, value) эквивалентен вызову object[propName] = value.
+ * В зависимости от типа объекта при попытке установить свойство, которое отсутствует в объекте, возможно срабатывание исключения.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @param {string} propertyValue - Значение свойства
+ * @returns {void | never} - Результат.
+ */
+declare function SetObjectProperty<T, K extends keyof T, V>(object: T, propertyName: K | string, propertyValue: V): void | never;
+
+/**
+ * Функция SetObjectPropertyWithLock() работает аналогично функции SetObjectProperty(), но с блокировкой доступа через переданный lock.
+ * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
+ * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @param {string} propertyValue - Значение свойства
+ * @param {Lock} lock - Объект типа {@link Lock}.
+ * @returns {void | never} - Результат.
+ */
+declare function SetObjectPropertyWithLock<T, K extends keyof T, V>(object: T, propertyName: K | string, propertyValue: V, lock: Lock): void | never;
+
+/**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
  * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
@@ -16,6 +125,7 @@ declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
  * @returns {unknown[]} Результат.
  */
 declare function ArrayExtractKeys<T, K>(array: T[], field: string): K[];
+
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
@@ -2291,24 +2401,6 @@ declare function RegisterCodeLibrary(url: string): void;
 declare function OpenCodeLibrary<T>(url: string): T;
 
 /**
- * Функция ядра, которая удаленно (на сервере) вызывает метод с параметрами для конкретного объекта.
- * Примечание - По существу, оператор oResult = CallObjectMethod (oLib, ‘some_function’, [param1, param2])
- * выполняет почти то же самое, что и oResult = oLib.some_function (param1, param2),
- * с той разницей, что второй вариант выполнится там, где он вызван (на клиенте или на сервере),
- * а первый вариант – всегда выполняется на сервере (но результат выполнения возвращается в место вызова).
- * См. Также tools.call_code_library_method.
- * @param {object} object - Тип: Объект без задания структуры (variant). Объект, для которого производится вызов метода.
- * @param {string} method - Тип: Строка. Название вызываемого метода объекта.
- * @param {T} [params] - (необязательный). Тип: Массив без описания структуры элементов. Массив параметров.
- * В качестве элементов массива могут быть объекты разного типа – строки, числа, объекты, массивы…
- * Порядок следования элементов в массиве должен соответствовать порядку параметров метода.
- * Параметры могут быть перечислены через запятую, а весь массив - заключен в квадратные скобки.
- * В случае, если параметры метода не предусмотрены, указывается пустой массив ([]).
- * @returns {unknown} Result.
- */
-declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
-
-/**
  * Интерпретирует содержимое страницы по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
  * @param {boolean} [raiseErrors] - Завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
@@ -2469,22 +2561,6 @@ declare function StartModalTask(taskTitle: string): undefined;
  * @returns {XmlDocument} XmlDocument.
  */
 declare function OpenCodeLib<T = XmlDocument>(url: string): T;
-
-/**
- * Вызывает метод (функцию) библиотеки на сервере приложения.
- * У метода должна быть установлена мета-директива `"META:ALLOW-CALL-FROM-CLIENT:1"`.
- * Значения аргументов могу быть переданы либо через массив, либо через стандартный объект,
- * содержащий пары "имя аргумента" - "значения аргумента".
- * Не все типы значений могут быть переданы в серверный метод и возвращены обратно.
- * Поддерживаются все скалярные типы, стандартные массивы, стандартные объекты,
- * а также объекты {@link XmlElem} и {@link XmlDoc}.
- * @param {string} libraryName - Имя библиотеки либо `URL` библиотеки.
- * @param {string} methodName - Имя метода.
- * @param {unknown[]} [arguments] - Стандартный массив значений аргументов,
- * либо стандартный объект, содержащий значения аргументов.
- * @returns {unknown} Результат.
- */
-declare function CallServerMethod(libraryName: string, methodName: string, arguments?: unknown[]): unknown;
 
 /**
  * Возвращает тип переданного значения.
