@@ -2558,6 +2558,16 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
 
+/** Системные функции */
+
+/**
+ * GetSysUserDefaultUiLanguage() возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
+ * установленного в операционной системе для текущего пользователя.
+ * Функция доступна только в десктопном приложении.
+ * @returns {string} Результат.
+ */
+declare function GetSysUserDefaultUiLanguage(): string;
+
 /** Прочие функции */
 
 /**
