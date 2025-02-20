@@ -2558,6 +2558,28 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
 
+/** Функции Web-сервера */
+
+/**
+ * Сбрасывает авторизованную веб-сессию по логину.
+ * Работает только на сервере приложения.
+ * Обычно вызывается в случае смены пароля пользователя или блокировки пользователю доступа в систему.
+ * @param {string} login - Логин пользователя.
+ * @returns {unknown} -
+ */
+declare function DropWebSessionByLogin(login: string): unknown;
+
+/**
+ * Регистрирует обработчик HTTP-запросов на заданный url path.
+ * Обработчик принимает единственный параметр - объект типа {@link Request}.
+ * @param {string} urlPath - Абсолютный url path.
+ * @param {XmlDocument} lib - Библиотека.
+ * @param {string} methodName - Имя метода.
+ * @example RegisterWebUrlHandler("/google_auth/oauth_redirect", oauth_lib, "ProcessWebOauthRedirect");
+ * @returns {unknown} -
+ */
+declare function RegisterWebUrlHandler(urlPath: string, lib: XmlDocument, methodName: string): unknown;
+
 /** Управление сервером приложения */
 
 /**
