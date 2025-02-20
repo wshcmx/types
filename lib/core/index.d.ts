@@ -1,4 +1,4 @@
-/** Функции для работы с объектами */
+// #region Функции для работы с объектами
 
 /**
  * Функция ядра, которая удаленно (на сервере) вызывает метод с параметрами для конкретного объекта.
@@ -115,6 +115,221 @@ declare function SetObjectProperty<T, K extends keyof T, V>(object: T, propertyN
  * @returns {void | never} - Результат.
  */
 declare function SetObjectPropertyWithLock<T, K extends keyof T, V>(object: T, propertyName: K | string, propertyValue: V, lock: Lock): void | never;
+
+// #endregion
+
+// #region Преобразование типов данных
+
+/**
+ * Функция Compare() сравнивает два произвольных значения.
+ * Возращает 0, если значения равны, положительное число,
+ * если первое значение больше второго, и отрицательное число,
+ * если первое значение меньше второго.
+ * @param {T} value1 - Значение 1.
+ * @param {K} value2 - Значение 2.
+ * @returns {number} Результат.
+ */
+declare function Compare<T, K>(value1: T, value2: K): -1 | 0 | 1;
+
+/**
+ * Возвращает тип переданного значения.
+ * @param {T} entity - Проверяемое значение.
+ * @returns {string} Результат.
+ */
+declare function DataType<T>(entity: T): string;
+
+/**
+ * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
+ * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
+ * @param {any} arg - Любое значение.
+ * @returns {boolean} Результат.
+ * @example
+ * ```
+ * IsEmptyValue(123) === false
+ * IsEmptyValue("123") === false
+ * IsEmptyValue(null) === true
+ * IsEmptyValue("") === true
+ * ```
+ */
+declare function IsEmptyValue(arg: Object): false;
+
+/**
+ * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
+ * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
+ * @param {any} arg - Любое значение.
+ * @returns {boolean} Результат.
+ * @example
+ * ```
+ * IsEmptyValue(123) === false
+ * IsEmptyValue("123") === false
+ * IsEmptyValue(null) === true
+ * IsEmptyValue("") === true
+ * ```
+ */
+declare function IsEmptyValue(arg: unknown): arg is undefined | null | "";
+
+/**
+ * Возвращает тип переданного значения.
+ * @param {T} entity - Проверяемое значение.
+ * @returns {string} Результат.
+ */
+declare function ObjectType<T>(entity: T): string;
+
+/**
+ * Преобразует значение аргумента к вещественному числу.
+ * Если аргумент не может быть преобразован к вещественному числу,
+ * функция возвращает undefined, либо defaultVal, если оно указано.
+ * @param {T} value - Целое число, вещественное число или строка, содержащая вещественное число.
+ * @param {K} [defaultValue] - Значение по умолчанию.
+ * @returns {number | K} Результат.
+ */
+declare function OptReal<T, K = undefined>(value: T, defaultValue?: K): number | K;
+
+/**
+ * Преобразует значение аргумента к вещественному числу.
+ * @param {string | number} value - Целое число, вещественное число или строка, содержащая вещественное число.
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * Real(12.6);
+ * Real("12.6");
+ * ```
+ */
+declare function Real(value: string | number): number;
+
+/**
+ * Преобразует значение аргумента к целому числу.
+ * @param {number} value - Целое число, вещественное число или строка, содержащая число.
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * Int(123);
+ * Int("123");
+ * Int(123.45);
+ * ```
+ */
+declare function Int(value: string | number): number;
+
+/**
+ * Преобразует значение аргумента к целому числу.
+ * Если преобразование выполнить невозможно, возвращает undefined, либо defaultVal, если оно указано.
+ * @param {T} value - Целое число, вещественное число или строка, содержащая число.
+ * @param {K} [defaultValue] - Значение по умолчанию.
+ * @returns {number | K} Результат.
+ */
+declare function OptInt<T, K = undefined>(value: T, defaultValue?: K): number | K;
+
+/**
+ * Возвращает скалярное значение аргумента, если в качестве аргумента передан объект.
+ * Если передано скалярное значение, возвращается оно же.
+ * @param {XmlElem<T> | T} value - Аргумент (Any).
+ * @returns {T} Результат.
+ */
+declare function RValue<T>(value: XmlElem<T> | T): T;
+
+/**
+ * Преобразует 10 обозначение цвета (RGB) в  шестнадцатеричное, принятое в формате html.
+ * @param {string} color - 10 обозначение цвета .
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrHexColor("128,128,128"); // "808080"
+ * ```
+ */
+declare function StrHexColor(color: string): string;
+
+/**
+ * Возвращает строку, содержащую аргумент в шестнадцатеричном виде (64 бита).
+ * @param {number} num - Число, которую нужно преобразовать.
+ * @returns {string} Строка.
+ * @example
+ * ```
+ * StrHexInt(1000); // "00000000000003E8"
+ * ```
+ */
+declare function StrHexInt(num: number): string;
+
+/**
+ * Преобразует целочисленный аргумент в строку.
+ * @param {number} arg - Целочисленный аргумент.
+ * @param {number} [digitsNum] - Минимальное число символов в строке.
+ * Недостающие символы компенсируются нулями перед числом.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами (Bool).
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrInt(11500) == '11500'
+ * StrInt(11500, 6) == '011500'
+ * StrInt(11500, 0, true) == '11 500'
+ * ```
+ */
+declare function StrInt(arg: number, digitsNum?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Преобразует целочисленный аргумент в строку.
+ * Используется в том числе для того что бы вывести отрицательное число.
+ * @param {number} value - Целочисленный аргумент.
+ * @param {number} [digitsNum] - Минимальное число символов в строке. Необязательный аргумент.
+ * Недостающие символы компенсируются нулями перед числом.
+ * @param {boolean} [addGroupDelim] - Флаг, разделять тысячные разряды пробелами или нет.
+ * @returns {string} Результат преобразования.
+ */
+declare function StrSignedInt(value: number, digitsNum?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Если значение целочисленного аргумента = 0 преобразует его в "-",
+ * иначе в строку (аналогично функции {@link StrInt}()).
+ * @param {number} arg - Целочисленный аргумент.
+ * @param {number} [digitsNum] - Минимальное число символов в строке.
+ * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
+ * @returns {string} Результат.
+ */
+declare function StrIntZero(arg: number, digitsNum: number, addGroupDelim: boolean): string;
+
+/**
+ * Преобразует вещественный аргумент в строку.
+ * @param {number} value - Вещественный аргумент.
+ * @param {number} [precision=6] - Максимальное число знаков после запятой. По умолчанию 6.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrReal(90154.249); // "90154.249"
+ * StrReal(90154.249, 2); // "90154.25"
+ * StrReal(90154.249, 2, true); // "90 154.25"
+ * ```
+ */
+declare function StrReal(value: number, precision?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Преобразует вещественный аргумент в строку.
+ * @param {number} arg - Вещественный аргумент.
+ * @param {number} [precision] - Число символов в дробной части числа. Недостающие символы компенсируются нулями.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrRealFixed(90154.2) == "90154.20";
+ * StrRealFixed(90154.2, 2, true) == "90 154.20";
+ * ```
+ */
+declare function StrRealFixed(arg: number, precision?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Преобразует целое число в словесное строковое представление.
+ * Только для русского языка.
+ * @param {number} arg - Числовой аргумент.
+ * @param {0|1} [gender] - Род (0 - мужской, 1] - женский).
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * TextInt(121) == "сто двадцать один"
+ * TextInt(121, 1) == "сто двадцать одна"
+ * ```
+ */
+declare function TextInt(arg: number, gender: 0 | 1): string;
+
+// #endregion
 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
@@ -1804,161 +2019,6 @@ declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefine
  */
 declare function RegisterSubForm(formUrl: string, formPath: string): string;
 
-/**
- * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
- * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
- * @param {any} arg - Любое значение.
- * @returns {boolean} Результат.
- * @example
- * ```
- * IsEmptyValue(123) === false
- * IsEmptyValue("123") === false
- * IsEmptyValue(null) === true
- * IsEmptyValue("") === true
- * ```
- */
-declare function IsEmptyValue(arg: Object): false;
-
-/**
- * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
- * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
- * @param {any} arg - Любое значение.
- * @returns {boolean} Результат.
- * @example
- * ```
- * IsEmptyValue(123) === false
- * IsEmptyValue("123") === false
- * IsEmptyValue(null) === true
- * IsEmptyValue("") === true
- * ```
- */
-declare function IsEmptyValue(arg: unknown): arg is undefined | null | "";
-
-/**
- * Преобразует значение аргумента к целому числу.
- * @param {number} value - Целое число, вещественное число или строка, содержащая число.
- * @returns {number} Результат.
- * @example
- * ```
- * Int(123);
- * Int("123");
- * Int(123.45);
- * ```
- */
-declare function Int(value: string | number): number;
-
-/**
- * Возвращает скалярное значение аргумента, если в качестве аргумента передан объект.
- * Если передано скалярное значение, возвращается оно же.
- * @param {XmlElem<T> | T} value - Аргумент (Any).
- * @returns {T} Результат.
- */
-declare function RValue<T>(value: XmlElem<T> | T): T;
-
-/**
- * Возвращает строку, содержащую аргумент в шестнадцатеричном виде (64 бита).
- * @param {number} num - Число, которую нужно преобразовать.
- * @returns {string} Строка.
- * @example
- * ```
- * StrHexInt(1000); // "00000000000003E8"
- * ```
- */
-declare function StrHexInt(num: number): string;
-
-/**
- * Преобразует вещественный аргумент в строку.
- * @param {number} value - Вещественный аргумент.
- * @param {number} [precision=6] - Максимальное число знаков после запятой. По умолчанию 6.
- * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
- * @returns {string} Результат.
- * @example
- * ```
- * StrReal(90154.249); // "90154.249"
- * StrReal(90154.249, 2); // "90154.25"
- * StrReal(90154.249, 2, true); // "90 154.25"
- * ```
- */
-declare function StrReal(value: number, precision?: number, addGroupDelim?: boolean): string;
-
-/**
- * Преобразует значение аргумента к вещественному числу.
- * @param {string | number} value - Целое число, вещественное число или строка, содержащая вещественное число.
- * @returns {number} Результат.
- * @example
- * ```
- * Real(12.6);
- * Real("12.6");
- * ```
- */
-declare function Real(value: string | number): number;
-
-/**
- * Преобразует 10 обозначение цвета (RGB) в  шестнадцатеричное, принятое в формате html.
- * @param {string} color - 10 обозначение цвета .
- * @returns {string} Результат.
- * @example
- * ```
- * StrHexColor("128,128,128"); // "808080"
- * ```
- */
-declare function StrHexColor(color: string): string;
-
-/**
- * Если значение целочисленного аргумента = 0 преобразует его в "-",
- * иначе в строку (аналогично функции {@link StrInt}()).
- * @param {number} arg - Целочисленный аргумент.
- * @param {number} [digitsNum] - Минимальное число символов в строке.
- * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
- * @returns {string} Результат.
- */
-declare function StrIntZero(arg: number, digitsNum: number, addGroupDelim: boolean): string;
-
-/**
- * Преобразует вещественный аргумент в строку.
- * @param {number} arg - Вещественный аргумент.
- * @param {number} [precision] - Число символов в дробной части числа. Недостающие символы компенсируются нулями.
- * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
- * @returns {string} Результат.
- * @example
- * ```
- * StrRealFixed(90154.2) == "90154.20";
- * StrRealFixed(90154.2, 2, true) == "90 154.20";
- * ```
- */
-declare function StrRealFixed(arg: number, precision?: number, addGroupDelim?: boolean): string;
-
-/**
- * Преобразует целочисленный аргумент в строку.
- * @param {number} arg - Целочисленный аргумент.
- * @param {number} [digitsNum] - Минимальное число символов в строке.
- * Недостающие символы компенсируются нулями перед числом.
- * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами (Bool).
- * @returns {string} Результат.
- * @example
- * ```
- * StrInt(11500) == '11500'
- * StrInt(11500, 6) == '011500'
- * StrInt(11500, 0, true) == '11 500'
- * ```
- */
-declare function StrInt(arg: number, digitsNum?: number, addGroupDelim?: boolean): string;
-
-/**
- * Преобразует целое число в словесное строковое представление.
- * Только для русского языка.
- * @param {number} arg - Числовой аргумент.
- * @param {0|1} [gender] - Род (0 - мужской, 1] - женский).
- * @returns {string} Результат.
- * @example
- * ```
- * TextInt(121) == "сто двадцать один"
- * TextInt(121, 1) == "сто двадцать одна"
- * ```
- */
-// eslint-disable-next-line no-magic-numbers
-declare function TextInt(arg: number, gender: 0 | 1): string;
-
 declare function ParseHeaderPairs(string: string): Object;
 
 /**
@@ -2313,25 +2373,6 @@ declare function PathIsDirectory(path: string): boolean;
 declare function ReadDirectory(dirUrl: string): string[];
 
 /**
- * Преобразует значение аргумента к целому числу.
- * Если преобразование выполнить невозможно, возвращает undefined, либо defaultVal, если оно указано.
- * @param {T} value - Целое число, вещественное число или строка, содержащая число.
- * @param {K} [defaultValue] - Значение по умолчанию.
- * @returns {number | K} Результат.
- */
-declare function OptInt<T, K = undefined>(value: T, defaultValue?: K): number | K;
-
-/**
- * Преобразует значение аргумента к вещественному числу.
- * Если аргумент не может быть преобразован к вещественному числу,
- * функция возвращает undefined, либо defaultVal, если оно указано.
- * @param {T} value - Целое число, вещественное число или строка, содержащая вещественное число.
- * @param {K} [defaultValue] - Значение по умолчанию.
- * @returns {number | K} Результат.
- */
-declare function OptReal<T, K = undefined>(value: T, defaultValue?: K): number | K;
-
-/**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
  * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
  * @param {Error | string} error - Ошибка.
@@ -2563,20 +2604,6 @@ declare function StartModalTask(taskTitle: string): undefined;
 declare function OpenCodeLib<T = XmlDocument>(url: string): T;
 
 /**
- * Возвращает тип переданного значения.
- * @param {T} entity - Проверяемое значение.
- * @returns {string} Результат.
- */
-declare function DataType<T>(entity: T): string;
-
-/**
- * Возвращает тип переданного значения.
- * @param {T} entity - Проверяемое значение.
- * @returns {string} Результат.
- */
-declare function ObjectType<T>(entity: T): string;
-
-/**
  * Разбивает сроку на одиночные символы.
  * Возвращает массив кодов каждого символа в UTF-16.
  * @param {string} str - Строка.
@@ -2598,17 +2625,6 @@ declare function StrToCharArray(str: string): string[];
  * @returns {string} Результат.
  */
 declare function StrFromCharCode(code: number): string;
-
-/**
- * Преобразует целочисленный аргумент в строку.
- * Используется в том числе для того что бы вывести отрицательное число.
- * @param {number} value - Целочисленный аргумент.
- * @param {number} [digitsNum] - Минимальное число символов в строке. Необязательный аргумент.
- * Недостающие символы компенсируются нулями перед числом.
- * @param {boolean} [addGroupDelim] - Флаг, разделять тысячные разряды пробелами или нет.
- * @returns {string} Результат преобразования.
- */
-declare function StrSignedInt(value: number, digitsNum?: number, addGroupDelim?: boolean): string;
 
 /**
  * Проверяет две строки на равенство, в том числе без учета регистра.
@@ -2634,7 +2650,7 @@ declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boo
  */
 declare function StrOptScan(str: string, pattern: string): string[] | undefined;
 
-/** Функции Web-сервера */
+// #region Функции Web-сервера
 
 /**
  * Сбрасывает авторизованную веб-сессию по логину.
@@ -2656,7 +2672,9 @@ declare function DropWebSessionByLogin(login: string): unknown;
  */
 declare function RegisterWebUrlHandler(urlPath: string, lib: XmlDocument, methodName: string): unknown;
 
-/** Управление сервером приложения */
+// #endregion
+
+// #region Управление сервером приложения
 
 /**
  * Определяет статус зарегистрированного сервера приложения (службы Windows).
@@ -2712,7 +2730,9 @@ declare function RegisterDaemon(daemonID: string, daemonName: string, filePath: 
  */
 declare function UnregisterDaemon(daemonID: string): unknown;
 
-/** Системные функции */
+// #endregion
+
+// #region Системные функции
 
 /**
  * GetSysUserDefaultUiLanguage() возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
@@ -2722,7 +2742,7 @@ declare function UnregisterDaemon(daemonID: string): unknown;
  */
 declare function GetSysUserDefaultUiLanguage(): string;
 
-/** Прочие функции */
+// #region Прочие функции
 
 /**
  * Выдает сообщение, содержащее значение параметра.
@@ -3308,7 +3328,9 @@ declare function ZipCreate(archivePath: string, filesArray: string[], options: O
  */
 declare function ZipExtract(archivePath: string, destPath: string): undefined;
 
-/** Эксперементальные и узкоспециализированные функции */
+// #endregion
+
+// #region Эксперементальные и узкоспециализированные функции
 
 /**
  * Экспериментальная функция.
@@ -3465,7 +3487,7 @@ declare function UnifyPhones(str: string): string;
  */
 declare function DropXQueryCache(): unknown;
 
-/** Устаревшие функции */
+// #region Устаревшие функции
 
 /**
  * Устаревшая функция.
@@ -3796,3 +3818,5 @@ declare function UrlFromDocID(documentId: number, databaseName?: string): string
  * @returns {unknown} -
  */
 declare function WordExecute(): unknown;
+
+// #endregion
