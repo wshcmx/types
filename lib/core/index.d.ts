@@ -2105,12 +2105,292 @@ declare function UserDataDirectoryPath(): string;
 //#region Работа с Url
 
 /**
+ * Возвращает список всех существующих url, начинающихся с заданного базового url.
+ * @param {string} baseUrl - Базовый url.
+ * @returns {unknown} - Результат.
+ */
+declare function EnumerateUrls(baseUrl: string): unknown;
+
+/**
+ * Сохраняет содержимое строки в файл с заданном url, с использованием UTF-8 BOM.
+ * @param {string} url - Url файла.
+ * @param {string} data - Данные.
+ * @returns {unknown} - Результат.
+ */
+declare function PutUrlText(url: string, data: string): unknown;
+
+/**
  * Проверяет существует ли файл (или директория) по указанному url.
  * @param {string} url - Url файла.
  * @returns {boolean} Результат.
  */
 declare function UrlExists(url: string): boolean;
 
+/**
+ * Функция принимает на вход строку, содержащую MIME Content type, и возвращает рекомендуемое расширение имени файла для данного типа.
+ * Если тип не входит во встроенный список, возвращается пустая строка.
+ * Если в качестве аргумента уже передано расширение (строка, начинающаяся на точку), возвращается оно же.
+ * @param {string} contentType - MIME content type.
+ * @returns {string} - Результат.
+ */
+declare function ContentTypeToFileNameSuffix(contentType: string): string;
+
+type LoadUrlTextOptions = {
+  DetectContentCharset: boolean;
+};
+
+/**
+ * Загружает содержимое файла с заданным url с учетом наличия BOM. Если файл начинается на UTF-16 BOM, происходи конвертация из UTF-16 в текущую кодировку (UTF-8).
+ * Если файл начинается на UTF-8 BOM, возвращается содержимое файла после BOM.
+ * Если BOM в файле отсутствует, и не задана опция DetectContentCharset, происходит конвертация из однобайтовой кодировки по умолчанию (например Windows-1251) в текущую (UTF-8).
+ * Если задана опция DetectContentCharset, то функция предварительно пытается определить, не содержит ли файл данные в UTF-8, и, если да, возвращает содержимое файла без изменений.
+ * @see {@link LoadFileText}
+ * @param {string} url - Url файла.
+ * @param {object} options - Стандартный объект, содержащий опции.
+ * @returns {string} - Результат.
+ */
+declare function LoadUrlText(url: string, options: LoadUrlTextOptions): string;
+
+/**
+ * Функция принимает на вход строку, содержащую абсолютный или относительный uri, и возвращает MIME Content type, определяемый по расширении имени файла в этом uri.
+ * Если расширение не входит во встроенный список известных расширений, возвращается пустая строка.
+ * @param {string} url - URI, URI path, либо имя файла.
+ * @returns {string} - Результат.
+ * @example UrlStdContentType("File.txt"); // text/plain
+ * @see {@link ContentTypeToFileNameSuffix}
+ */
+declare function UrlStdContentType(url: string): string;
+
+/**
+ * Копирует содержимое под заданным url в новый url.
+ * @param {string} destUrl - Url, в который производиться копирования.
+ * @param {string} srcUrl - Url, содержимое которого копируется.
+ * @returns {undefined}
+ */
+declare function CopyUrl(destUrl: string, srcUrl: string): undefined;
+
+/**
+ * Удаляет объект с заданным url.
+ * @param {string} url - Url.
+ * @returns {undefined}
+ */
+declare function DeleteUrl(url: string): undefined;
+
+/**
+ * Преобразует заданный url в абсолютный. Если заданный url и так является абсолютным, возвращается он же.
+ * @param {string} url - Относительный url.
+ * @param {string} [baseUrl] - Базовый абсолютный url, относительно которого считается относительный url.
+ * Если аргумент не указан, в качестве базового url используется родительский url файла, содержащий выполняемый код.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * AbsoluteUrl("zz/1.htm", "x-local://data/static") == "x-local://data/static/zz/1.htm"
+ * AbsoluteUrl("zz/1.htm") == "x-app://rcr/zz/1.htm" // вызванный в библиотеке x-app://rcr/rcr_lib_recruit.js
+ * ```
+ */
+declare function AbsoluteUrl(url: string, baseUrl: string): string;
+
+/**
+ * Преобразует заданный url (схемы "x-app") в url, пригодный для использования во встроенном браузере (элемент HYPER).
+ * Для десктоп-версии осуществляется преобразование в url схемы "file",
+ * а для веб-версии - в специальный серверный запрос.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ */
+declare function WebAppUrl(url: string): string;
+
+/**
+ * Регистрирует автоматическую подмену одного url другим.
+ * После вызова функции при попытке любого обращения к url, являющегося дочерним,
+ * по отношению к исходному базовому, будет происходить обращение к новому url,
+ * полученному путем замены исходной базовой части на новую базовую часть.
+ * Функция как правило используется для конвертации данных из предыдущих версий программ в новую,
+ * при которой старые формы .xmd более не существуют и заменяются на новые.
+ * @param {string} baseUrl - Базовый url, который нужно подменить.
+ * @param {string} newBaseUrl - Базовый url, на который нужно подменить.
+ * @returns {undefined}
+ */
+declare function AddUrlMapping(baseUrl: string, newBaseUrl: string): undefined;
+
+/**
+ * Преобразует путь файловой системы в локальный `URL` типа `file:` или `x-local:`.
+ * @param {string} path - Путь файловой системы.
+ * @param {string} [baseUrl] - Базовый `URL`, к схеме которого будет приводиться путь.
+ * @returns {string} Результат.
+ * @example FilePathToUrl("C:\\Temp\\1.htm") == "file:///C:/Temp/1.htm"
+ */
+declare function FilePathToUrl(path: string, baseUrl?: string): string;
+
+/**
+ * Заменяет суффикс (расширение) имени файла в заданном url.
+ * Если заданный url имеет другой суффикс в имени файла, возвращается исходный url.
+ * Функция не осуществляет фактического обращения к файловой системе.
+ * @param {string} url - Url.
+ * @param {string} suffix1 - Расширение, которое нужно заменить.
+ * @param {string} suffix2 - Расширение, на которое нужно заменить.
+ * @returns {string} Результат.
+ * @example ReplaceUrlPathSuffix("http://news.websoft.ru/tree.html?query", "html", "asp"); // "http://news.websoft.ru/tree.asp?query"
+ */
+declare function ReplaceUrlPathSuffix(url: string, suffix1: string, suffix2: string): string;
+
+/**
+ * Загружает содержимое заданного url
+ * и возвращает его в виде строки,
+ * содержащей бинарные данные.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ */
+declare function LoadUrlData(url: string): string;
+
+/**
+ * Сохраняет содержимое строки, содержащей бинарные данные, в заданном `URL`.
+ * @param {string} url - `URL`.
+ * @param {string} dataStr - Строка.
+ * @returns {undefined}
+ */
+declare function PutUrlData(url: string, dataStr: string): undefined;
+
+/**
+ * Проверяет является ли строка абсолютным URL.
+ * Существование объекта под указанным url не проверяется.
+ * @param {string} url - Строка с URL.
+ * @returns {boolean} Результат.
+ * @example IsAbsoluteUrlStr("http://www.ya.ru/search.htm") === true;
+ * @example IsAbsoluteUrlStr("search.htm") === false;
+ */
+declare function IsAbsoluteUrlStr(url: string): boolean;
+
+/**
+ * Добавляет фрагмент пути к заданному url.
+ * @param {string} url - Url.
+ * @param {string} addPath - Добавляемый путь.
+ * @returns {string} Результат.
+ * @example UrlAppendPath("http://www.lin.ru/service", "z/1.htm") == "http://www.lin.ru/service/z/1.htm"
+ */
+declare function UrlAppendPath(url: string, addPath: string): string;
+
+/**
+ * Возвращает хост из переданного в качестве аргумента URL.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx"); // "news.websoft.ru"
+ * ```
+ */
+declare function UrlHost(url: string): string;
+
+/**
+ * Извлекает имя файла из заданного url.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ * @example UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx") == "tree.html"
+ */
+declare function UrlFileName(url: string): string;
+
+/**
+ * Определяет размер файла в байтах по локальному url, переданному в качестве аргумента.
+ * @param {string} url - Локальный url типа file: или x-local:.
+ * @returns {number} Результат.
+ */
+declare function UrlFileSize(url: string): number;
+
+/**
+ * Возвращает дату изменения файла, находящегося по локальному пути типа file: или x-local:.
+ * @param {string} url - Url.
+ * @returns {Date} Дата.
+ */
+declare function UrlModDate(url: string): Date;
+
+/**
+ * Извлекает из url, переданного в качестве аргумента, строку запроса в исходном виде.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ * @example UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx") == "query=xxx"
+ */
+declare function UrlParam(url: string): string;
+
+/**
+ * Извлекает url родительской директории из заданного url.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * UrlParent("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx");
+ * // "http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/"
+ */
+declare function UrlParent(url: string): string;
+
+/**
+ * Извлекает из URL, переданного в качестве аргумента, путь.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * UrlPath("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html");
+ * // "/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html"
+ * ```
+ */
+declare function UrlPath(url: string): string;
+
+/**
+ * Возвращает расширение файла, указанного через url.
+ * @param {string} url - Url.
+ * @returns {string}
+ * UrlPathSuffix( 'http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html' ) вернет '.html'.
+ */
+declare function UrlPathSuffix(url: string): string;
+
+/**
+ * Извлекает из URL, переданного в качестве аргумента, параметры запроса с разбивкой их на пары "имя - значение".
+ * @param {string} url - Url.
+ * @returns {object} Результат.
+ * @example
+ * ```
+ * const obj = UrlQuery("http://news.websoft.ru/en?x=1&y=2&z=3");
+ * alert(obj.x);
+ * alert(obj.y);
+ * ```
+ */
+declare function UrlQuery(url: string): Object;
+
+/**
+ * Возвращает схему URL (file, http, mailto, ftp, x-local).
+ * @param {string} url - Url.
+ * @returns {string}
+ * UrlSchema( 'http://news.websoft.ru/' ) вернет 'http'.
+ */
+declare function UrlScheme(url: string): string;
+
+/**
+ * Функция UrlOrFilePathToFilePath() проверяет, является ли строка урлом либо путем в файловой системе.
+ * В первом случае функция преобразовывает переданный url вида file:, x-app: или x-local: в путь файловой системы.
+ * Во втором случае вернет переданный путь в исходном виде.
+ * @param {string} str - Url файла либо путь к файлу.
+ * @returns {string} - Результат.
+ * @example UrlOrFilePathToFilePath("file:///d:/work/Temp.rar"); // d:\\work\\Temp.rar
+ * @see {@link UrlToFilePath}
+ */
+declare function UrlOrFilePathToFilePath(str: string): string;
+
+/**
+ * Преобразует локальный url типа file: или x-local: в путь файловой системы..
+ * @param {string} url - Локальный url.
+ * @returns {string}
+ * UrlToFilePath( 'file:///d:/work/Temp.rar' ) вернет 'd:\\work\\Temp.rar'.
+ */
+declare function UrlToFilePath(url: string): string;
+
+/**
+ * Преобразует локальный url типа file:, x-app: или x-local: в путь файловой системы.
+ * Если преобразование совершить не удалось (например передан url другого типа, или база располагается не в локальной файловой системе), функция возвращает undefined.
+ * @param {string} url - Url файла.
+ * @returns {string} - Результат.
+ * @example UrlToOptFilePath("file:///d:/work/Temp.rar"); // d:\\work\\Temp.rar
+ * @see {@link FilePathToUrl}
+ * @see {@link UrlOrFilePathToFilePath}
+ */
+declare function UrlToOptFilePath(url: string): string;
 
 //#endregion
 
@@ -2304,232 +2584,6 @@ declare function XQueryLocal<T>(query: string): T;
  * ```
  */
 declare function XQuery<T>(query: string, options?: string): T[];
-
-/**
- * Удаляет объект с заданным url.
- * @param {string} url - Url.
- * @returns {undefined}
- */
-declare function DeleteUrl(url: string): undefined;
-
-/**
- * Копирует содержимое под заданным url в новый url.
- * @param {string} destUrl - Url, в который производиться копирования.
- * @param {string} srcUrl - Url, содержимое которого копируется.
- * @returns {undefined}
- */
-declare function CopyUrl(destUrl: string, srcUrl: string): undefined;
-
-/**
- * Загружает содержимое заданного url
- * и возвращает его в виде строки,
- * содержащей бинарные данные.
- * @param {string} url - Url.
- * @returns {string} Результат.
- */
-declare function LoadUrlData(url: string): string;
-
-declare function LoadUrlText(url: string): string;
-
-/**
- * Проверяет является ли строка абсолютным URL.
- * Существование объекта под указанным url не проверяется.
- * @param {string} url - Строка с URL.
- * @returns {boolean} Результат.
- * @example
- * ```
- * IsAbsoluteUrlStr("http://www.ya.ru/search.htm") === true
- * ```
- * @example
- * ```
- * IsAbsoluteUrlStr("search.htm") === false
- * ```
- */
-declare function IsAbsoluteUrlStr(url: string): boolean;
-
-/**
- * Сохраняет содержимое строки, содержащей бинарные данные, в заданном `URL`.
- * @param {string} url - `URL`.
- * @param {string} dataStr - Строка.
- * @returns {undefined}
- */
-declare function PutUrlData(url: string, dataStr: string): undefined;
-
-/**
- * Преобразует путь файловой системы в локальный `URL` типа `file:` или `x-local:`.
- * @param {string} path - Путь файловой системы.
- * @param {string} [baseUrl] - Базовый `URL`, к схеме которого будет приводиться путь.
- * @returns {string} Результат.
- * @example FilePathToUrl("C:\\Temp\\1.htm") == "file:///C:/Temp/1.htm"
- */
-declare function FilePathToUrl(path: string, baseUrl?: string): string;
-
-/**
- * Заменяет суффикс (расширение) имени файла в заданном url.
- * Если заданный url имеет другой суффикс в имени файла, возвращается исходный url.
- * Функция не осуществляет фактического обращения к файловой системе.
- * @param {string} url - Url.
- * @param {string} suffix1 - Расширение, которое нужно заменить.
- * @param {string} suffix2 - Расширение, на которое нужно заменить.
- * @returns {string} Результат.
- * @example
- * ```
- * ReplaceUrlPathSuffix(
- *   "http://news.websoft.ru/tree.html?query",
- *   "html",
- *   "asp"
- * );
- * // "http://news.websoft.ru/tree.asp?query"
- * ```
- */
-declare function ReplaceUrlPathSuffix(url: string, suffix1: string, suffix2: string): string;
-
-/**
- * Преобразует заданный url в абсолютный. Если заданный url и так является абсолютным, возвращается он же.
- * @param {string} url - Относительный url.
- * @param {string} [baseUrl] - Базовый абсолютный url, относительно которого считается относительный url.
- * Если аргумент не указан, в качестве базового url используется родительский url файла, содержащий выполняемый код.
- * @returns {string} Результат.
- * @example
- * ```
- * AbsoluteUrl("zz/1.htm", "x-local://data/static") == "x-local://data/static/zz/1.htm"
- * AbsoluteUrl("zz/1.htm") == "x-app://rcr/zz/1.htm" // вызванный в библиотеке x-app://rcr/rcr_lib_recruit.js
- * ```
- */
-declare function AbsoluteUrl(url: string, baseUrl: string): string;
-
-/**
- * Регистрирует автоматическую подмену одного url другим.
- * После вызова функции при попытке любого обращения к url, являющегося дочерним,
- * по отношению к исходному базовому, будет происходить обращение к новому url,
- * полученному путем замены исходной базовой части на новую базовую часть.
- * Функция как правило используется для конвертации данных из предыдущих версий программ в новую,
- * при которой старые формы .xmd более не существуют и заменяются на новые.
- * @param {string} baseUrl - Базовый url, который нужно подменить.
- * @param {string} newBaseUrl - Базовый url, на который нужно подменить.
- * @returns {undefined}
- */
-declare function AddUrlMapping(baseUrl: string, newBaseUrl: string): undefined;
-
-/**
- * Добавляет фрагмент пути к заданному url.
- * @param {string} url - Url.
- * @param {string} addPath - Добавляемый путь.
- * @returns {string} Результат.
- * @example UrlAppendPath("http://www.lin.ru/service", "z/1.htm") == "http://www.lin.ru/service/z/1.htm"
- */
-declare function UrlAppendPath(url: string, addPath: string): string;
-
-/**
- * Извлекает url родительской директории из заданного url.
- * @param {string} url - Url.
- * @returns {string} Результат.
- * @example
- * ```
- * UrlParent("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx");
- * // "http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/"
- */
-declare function UrlParent(url: string): string;
-
-/**
- * Извлекает имя файла из заданного url.
- * @param {string} url - Url.
- * @returns {string} Результат.
- * @example UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx") == "tree.html"
- */
-declare function UrlFileName(url: string): string;
-
-/**
- * Определяет размер файла в байтах по локальному url, переданному в качестве аргумента.
- * @param {string} url - Локальный url типа file: или x-local:.
- * @returns {number} Результат.
- */
-declare function UrlFileSize(url: string): number;
-
-/**
- * Извлекает из url, переданного в качестве аргумента, строку запроса в исходном виде.
- * @param {string} url - Url.
- * @returns {string} Результат.
- * @example UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx") == "query=xxx"
- */
-declare function UrlParam(url: string): string;
-
-/**
- * Возвращает дату изменения файла, находящегося по локальному пути типа file: или x-local:.
- * @param {string} url - Url.
- * @returns {Date} Дата.
- */
-declare function UrlModDate(url: string): Date;
-
-/**
- * Возвращает хост из переданного в качестве аргумента URL.
- * @param {string} url - Url.
- * @returns {string} Результат.
- * @example
- * ```
- * UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx"); // "news.websoft.ru"
- * ```
- */
-declare function UrlHost(url: string): string;
-
-/**
- * Извлекает из URL, переданного в качестве аргумента, путь.
- * @param {string} url - Url.
- * @returns {string} Результат.
- * @example
- * ```
- * UrlPath("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html");
- * // "/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html"
- * ```
- */
-declare function UrlPath(url: string): string;
-
-/**
- * Возвращает расширение файла, указанного через url.
- * @param {string} url - Url.
- * @returns {string}
- * UrlPathSuffix( 'http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html' ) вернет '.html'.
- */
-declare function UrlPathSuffix(url: string): string;
-
-/**
- * Извлекает из URL, переданного в качестве аргумента, параметры запроса с разбивкой их на пары "имя - значение".
- * @param {string} url - Url.
- * @returns {object} Результат.
- * @example
- * ```
- * const obj = UrlQuery("http://news.websoft.ru/en?x=1&y=2&z=3");
- * alert(obj.x);
- * alert(obj.y);
- * ```
- */
-declare function UrlQuery(url: string): Object;
-
-/**
- * Преобразует локальный url типа file: или x-local: в путь файловой системы..
- * @param {string} url - Локальный url.
- * @returns {string}
- * UrlToFilePath( 'file:///d:/work/Temp.rar' ) вернет 'd:\\work\\Temp.rar'.
- */
-declare function UrlToFilePath(url: string): string;
-
-/**
- * Возвращает схему URL (file, http, mailto, ftp, x-local).
- * @param {string} url - Url.
- * @returns {string}
- * UrlSchema( 'http://news.websoft.ru/' ) вернет 'http'.
- */
-declare function UrlSchema(url: string): string;
-
-/**
- * Преобразует заданный url (схемы "x-app") в url, пригодный для использования во встроенном браузере (элемент HYPER).
- * Для десктоп-версии осуществляется преобразование в url схемы "file",
- * а для веб-версии - в специальный серверный запрос.
- * @param {string} url - Url.
- * @returns {string} Результат.
- */
-declare function WebAppUrl(url: string): string;
-
 
 /**
  * Возвращает документ с заданным url из кэша.
