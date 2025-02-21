@@ -1519,7 +1519,7 @@ declare function ArrayOptFindBySortedKey<T, K>(array: XmlMultiElem<T>, value: K,
  * @param {K} defaultValue - Значение по умолчанию.
  * @returns {T | K} Результат.
  */
-declare function ArrayOptFirstElem<T, K = undefined>(array: T[], defaultValue: K): T | K;
+declare function ArrayOptFirstElem<T, K = undefined>(array: T[], defaultValue?: K): T | K;
 
 /**
  * Возвращает первый элемент заданного массива.
@@ -1528,7 +1528,7 @@ declare function ArrayOptFirstElem<T, K = undefined>(array: T[], defaultValue: K
  * @param {K} defaultValue - Значение по умолчанию.
  * @returns {XmlElem<T> | K} Результат.
  */
-declare function ArrayOptFirstElem<T, K = undefined>(array: XmlMultiElem<T>, defaultValue: K): XmlElem<T> | K;
+declare function ArrayOptFirstElem<T, K = undefined>(array: XmlMultiElem<T>, defaultValue?: K): XmlElem<T> | K;
 
 /**
  * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
