@@ -3421,29 +3421,61 @@ declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
  * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
  * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2" либо флаг strictErrors.
- * @param {string} [envType] - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
- * @param {XmlDocument | ScreenItem} [baseObject] - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
- * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
- * ```
  * Поддерживаемые опции:
- * asp-style (bool) - поддерживать стиль <%=%>. Включена по умолчанию.
- * bracket-style (bool) - поддерживать стиль [[]].
- * webbinder-style (bool) - поддерживать стиль ::.
- * strict-errors (bool) - при возникновении ошибки в какой-либо вставке, завершать выполнение всей страницы с этой же ошибкой. По умолчанию текст ошибки пишется в текст страницы, и выполнение продолжается.
- * caller-env (bool) - выполнять в вызывающем окружении. Устаревшая опция, не рекомендуется использовать.
- * content-type (string) - тип содержимого странцы. Поддерживается только "text/xml".
- * ```
+ * * asp-style (bool) - поддерживать стиль <%=%>. Включена по умолчанию.
+ * * bracket-style (bool) - поддерживать стиль [[]].
+ * * webbinder-style (bool) - поддерживать стиль ::.
+ * * strict-errors (bool) - при возникновении ошибки в какой-либо вставке, завершать выполнение всей страницы с этой же ошибкой. По умолчанию текст ошибки пишется в текст страницы, и выполнение продолжается.
+ * * caller-env (bool) - выполнять в вызывающем окружении. Устаревшая опция, не рекомендуется использовать.
+ * * content-type (string) - тип содержимого странцы. Поддерживается только "text/xml".
+ * @param {"Global" | "Safe" | undefined} envType - Тип окружения.
+ * @param {undefined} baseObject - Базовый объект окружения.
+ * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
  * Существует также старая нотация данной функции, когда вторым аргументом передается булево значение.
  * В этом случае второй аргумент содержит не опции запуска, а единственную опцию strictErrors.
  * @returns {string} Результат.
  */
-declare function EvalCodePage(
-  pageData: string,
-  options?: string,
-  envType?: "Global" | "Safe" | "Doc" | "ScreenItem",
-  baseObject?: XmlDocument | ScreenItem,
-  extraEnv?: unknown[]
-): string;
+declare function EvalCodePage(pageData: string, options: string, envType: "Global" | "Safe" | undefined, baseObject: undefined, extraEnv?: unknown[]): string;
+
+/**
+ * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2" либо флаг strictErrors.
+ * Поддерживаемые опции:
+ * * asp-style (bool) - поддерживать стиль <%=%>. Включена по умолчанию.
+ * * bracket-style (bool) - поддерживать стиль [[]].
+ * * webbinder-style (bool) - поддерживать стиль ::.
+ * * strict-errors (bool) - при возникновении ошибки в какой-либо вставке, завершать выполнение всей страницы с этой же ошибкой. По умолчанию текст ошибки пишется в текст страницы, и выполнение продолжается.
+ * * caller-env (bool) - выполнять в вызывающем окружении. Устаревшая опция, не рекомендуется использовать.
+ * * content-type (string) - тип содержимого странцы. Поддерживается только "text/xml".
+ * @param {"Doc"} envType - Тип окружения.
+ * @param {XmlDocument} baseObject - Базовый объект окружения.
+ * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * Существует также старая нотация данной функции, когда вторым аргументом передается булево значение.
+ * В этом случае второй аргумент содержит не опции запуска, а единственную опцию strictErrors.
+ * @returns {string} Результат.
+ */
+declare function EvalCodePage(pageData: string, options: string, envType: "Doc", baseObject: XmlDocument, extraEnv?: unknown[]): string;
+
+/**
+ * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2" либо флаг strictErrors.
+ * Поддерживаемые опции:
+ * * asp-style (bool) - поддерживать стиль <%=%>. Включена по умолчанию.
+ * * bracket-style (bool) - поддерживать стиль [[]].
+ * * webbinder-style (bool) - поддерживать стиль ::.
+ * * strict-errors (bool) - при возникновении ошибки в какой-либо вставке, завершать выполнение всей страницы с этой же ошибкой. По умолчанию текст ошибки пишется в текст страницы, и выполнение продолжается.
+ * * caller-env (bool) - выполнять в вызывающем окружении. Устаревшая опция, не рекомендуется использовать.
+ * * content-type (string) - тип содержимого странцы. Поддерживается только "text/xml".
+ * @param {"ScreenItem"} envType - Тип окружения.
+ * @param {ScreenItem} baseObject - Базовый объект окружения
+ * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * Существует также старая нотация данной функции, когда вторым аргументом передается булево значение.
+ * В этом случае второй аргумент содержит не опции запуска, а единственную опцию strictErrors.
+ * @returns {string} Результат.
+ */
+declare function EvalCodePage(pageData: string, options: string, envType: "ScreenItem", baseObject: typeof ScreenItem, extraEnv?: unknown[]): string;
 
 /**
  * Интерпретирует содержимое страницы по правилам ASP.
