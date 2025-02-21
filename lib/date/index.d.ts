@@ -9,3 +9,5 @@ interface DateConstructor {
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 declare let Date: DateConstructor;
+/** Текущая дата системы время системы. */
+declare let CurDate: Date;
