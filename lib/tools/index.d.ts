@@ -2369,8 +2369,7 @@ declare namespace tools {
    * потому в результирующей строке будут представлены название параметра и его значение.
    * @param {string} sFileText - Строка для разбора.
    * @returns {string} Строка с тегами XML.
-   * @example
-   * tools.open_str_win_ini(LoadUrlText(url))string
+   * @example tools.open_str_win_ini(LoadUrlText(url))string
    */
   function open_str_win_ini(sFileText: string): string;
 

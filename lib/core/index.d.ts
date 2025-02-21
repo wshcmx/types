@@ -19,12 +19,12 @@
 declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
 
 /**
- * Функция работает аналогично функции {@link CallObjectMethod}(), но с блокировкой доступа через переданный lock.
+ * Функция работает аналогично функции {@link CallObjectMethod}, но с блокировкой доступа через переданный lock.
  * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
  * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
- * {@link GetObjectPropertyWithLock}()
+ * {@link GetObjectPropertyWithLock}
  * {@link Lock}
- * {@link SetObjectPropertyWithLock}()
+ * {@link SetObjectPropertyWithLock}
  * @param {T} object - Объект произвольного типа
  * @param {string} methodName - Имя метода.
  * @param {unknown[]} argsArray - Стандартный массив аргументов.
@@ -32,15 +32,6 @@ declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: st
  * @returns {unknown} Result.
  */
 declare function CallObjectMethodWithLock<T>(object: T, methodName: string, argsArray: unknown[], lock: Lock): unknown;
-
-/**
- * Извлекает содержимое составного документа html
- * (с вложенными файлами в формате <compound-attc/>) в файл,
- * сохраняя все вложенные файлы относительно него.
- * @param {any} html - Составной html.
- * @param {string} fileUrl - Url файла.
- */
-declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
 
 /**
  * Возвращает список имен всех свойств объектов класса.
@@ -64,7 +55,7 @@ declare function GetClassObjectPropertyNames<T>(object: T): unknown;
 declare function GetObjectProperty<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | never;
 
 /**
- * Функция  эквивалентна {@link GetObjectProperty}() за одним исключением:
+ * Функция  эквивалентна {@link GetObjectProperty} за одним исключением:
  * если в качестве propertyName передано имя 'This', функция вернет ссылку на переданный объект.
  * @param {T} object - Объект.
  * @param {string} propertyName - Имя свойства либо This.
@@ -73,7 +64,7 @@ declare function GetObjectProperty<T, K extends keyof T>(object: T, propertyName
 declare function GetObjectPropertyOrSelf<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | T;
 
 /**
- * Функция работает аналогично функции {@link GetObjectProperty}(), но с блокировкой доступа через переданный lock.
+ * Функция работает аналогично функции {@link GetObjectProperty}, но с блокировкой доступа через переданный lock.
  * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
  * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
  * @param {T} object - Объект произвольного типа.
@@ -84,7 +75,7 @@ declare function GetObjectPropertyOrSelf<T, K extends keyof T>(object: T, proper
 declare function GetObjectPropertyWithLock<T, K extends keyof T>(object: T, propertyName: K | string, lock: Lock): T[K] | never;
 
 /**
- * Функция эквивалентна {@link GetObjectProperty}() за одним исключением:
+ * Функция эквивалентна {@link GetObjectProperty} за одним исключением:
  * если в объекте отсутствует данное свойство, то функция возвращает undefined.
  * @param {T} object - Объект произвольного типа.
  * @param {string} propertyName - Имя свойства.
@@ -231,10 +222,7 @@ declare function RValue<T>(value: XmlElem<T> | T): T;
  * Преобразует 10 обозначение цвета (RGB) в  шестнадцатеричное, принятое в формате html.
  * @param {string} color - 10 обозначение цвета .
  * @returns {string} Результат.
- * @example
- * ```
- * StrHexColor("128,128,128"); // "808080"
- * ```
+ * @example StrHexColor("128,128,128"); // "808080"
  */
 declare function StrHexColor(color: string): string;
 
@@ -242,10 +230,7 @@ declare function StrHexColor(color: string): string;
  * Возвращает строку, содержащую аргумент в шестнадцатеричном виде (64 бита).
  * @param {number} num - Число, которую нужно преобразовать.
  * @returns {string} Строка.
- * @example
- * ```
- * StrHexInt(1000); // "00000000000003E8"
- * ```
+ * @example StrHexInt(1000); // "00000000000003E8"
  */
 declare function StrHexInt(num: number): string;
 
@@ -278,7 +263,7 @@ declare function StrSignedInt(value: number, digitsNum?: number, addGroupDelim?:
 
 /**
  * Если значение целочисленного аргумента = 0 преобразует его в "-",
- * иначе в строку (аналогично функции {@link StrInt}()).
+ * иначе в строку (аналогично функции {@link StrInt}).
  * @param {number} arg - Целочисленный аргумент.
  * @param {number} [digitsNum] - Минимальное число символов в строке.
  * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
@@ -431,7 +416,7 @@ declare function Base64Encode(str: string): string;
  * Преобразует 16-ричное представление в строку из байт.
  * @param {string} str - Строка в 16-ричном представлении.
  * @returns {string} Результат.
- * Смотри также {@link HexData}()
+ * @see {@link HexData}
  */
 declare function DataFromHex(str: string): string;
 
@@ -543,8 +528,8 @@ declare function XmlAttrEncode(str: string): string;
  * Формирует строку с xml тегом.
  * @param {string} name - Имя тега.
  * @param {string} text - Значение тега.
- * @returns {string}
- * XmlStr( 'text', 'Hotel "Ariana"' ) возвращает '<text>'Hotel &quot;Ariana&quot;</text>'.
+ * @returns {string} - Результат.
+ * @example XmlStr("text", "Hotel \"Ariana\""); // <text>Hotel &quot;Ariana&quot;</text>
  */
 declare function XmlStr(name: string, text: string): string;
 
@@ -603,7 +588,7 @@ declare function StrFromCharCodesArray(array: string[]): string;
  * @param {boolean} ignoreCase - Без учета регистра.
  * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
  * @returns {number | undefined} Результат.
- * Смотри также {@link StrOptSubStrRightPos}
+ * @see {@link StrOptSubStrRightPos}
  */
 declare function StrOptSubStrPos(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
 
@@ -616,7 +601,7 @@ declare function StrOptSubStrPos(str: string, subStr: string, ignoreCase?: boole
  * @param {boolean} ignoreCase - Без учета регистра.
  * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
  * @returns {number | undefined} Результат.
- * Смотри также {@link StrOptSubStrRightPos}
+ * @see {@link StrOptSubStrRightPos}
  */
 declare function StrOptSubStrPosB(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
 
@@ -628,7 +613,7 @@ declare function StrOptSubStrPosB(str: string, subStr: string, ignoreCase?: bool
  * @param {boolean} ignoreCase - Без учета регистра.
  * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
  * @returns {number | undefined} Результат.
- * Смотри также {@link StrOptSubStrPos}
+ * @see {@link StrOptSubStrPos}
  */
 declare function StrOptSubStrRightPos(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
 
@@ -915,13 +900,10 @@ declare function GetLocalTimeZone(date: Date): number;
 /**
  * Проверяет валидность даты по календарю.
  * Возвращает true или false.
- * Функция {@link IsValidDate}() может потребоваться, поскольку не все функции,
+ * Функция {@link IsValidDate} может потребоваться, поскольку не все функции,
  * работающие с датами, имеют встроенную проверку на валидность.
  * @param {Date} date - Дата.
- * @example
- * ```
- * IsValidDate(date);
- * ```
+ * @example IsValidDate(date);
  * @returns {boolean} Флаг валидности даты.
  */
 declare function IsValidDate(date: Date): boolean;
@@ -941,12 +923,11 @@ declare function ParseMimeDate(str: string): Date;
  */
 declare function TimeZone(date: Date): number | undefined;
 
-
 /**
  * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
- * Функция {@link OptDate}() рекомендуется для использования,
+ * Функция {@link OptDate} рекомендуется для использования,
  * если необходимо проверить корректность даты (например 29 февраля),
- * где обычная функция {@link Date}() будет вести себя по-разному на десктопной и web-версиях.
+ * где обычная функция {@link Date} будет вести себя по-разному на десктопной и web-версиях.
  * @param {Date} date - Дата.
  * @example
  * ```
@@ -974,12 +955,6 @@ declare function OptDate(year: number, month: number, day: number, hour: number,
  * @returns {number} Результат.
  */
 declare function DateDiff(date1: Date, date2: Date): number;
-
-
-/**
- * Текущая дата системы время системы.
- */
-declare const CurDate: Date;
 
 /**
  * Изменяет значение времени в заданной дате. Возвращает измененную дату.
@@ -1036,7 +1011,7 @@ declare function Minute(date: Date): number;
 
 /**
  * Преобразует строку с датой в большинство известных форматов в дату.
- * В отличие от функции {@link Date}() понимает дату со словесным указанием месяца, например '1 ноября 2011 года'.
+ * В отличие от функции {@link Date} понимает дату со словесным указанием месяца, например '1 ноября 2011 года'.
  * @param {string} date - Строка с датой.
  * @returns {Date} Дата.
  */
@@ -1149,7 +1124,7 @@ declare function UtcToLocalDate(date: Date): Date;
  * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
  * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
  * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
- * @param {Array} array - Массив.
+ * @param {T[]} array - Массив.
  * @returns {number} Результат.
  */
 declare function ArrayCount<T>(array: T[]): number;
@@ -1166,7 +1141,7 @@ declare function ArrayCount<T>(array: XmlMultiElem<T>): number;
 /**
  * Преобразует заданный массив к массиву с прямым индексированием.
  * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
- * В противном случае функция работает аналогично {@link ArraySelectAll}() и возвращает массив типа Array,
+ * В противном случае функция работает аналогично {@link ArraySelectAll} и возвращает массив типа Array,
  * содержащий копию исходного массива.
  * @param {Array} array - Исходный массив.
  * @returns {Array} Результат.
@@ -1176,7 +1151,7 @@ declare function ArrayDirect<T>(array: T[]): T[];
 /**
  * Преобразует заданный массив к массиву с прямым индексированием.
  * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
- * В противном случае функция работает аналогично {@link ArraySelectAll}() и возвращает массив типа Array,
+ * В противном случае функция работает аналогично {@link ArraySelectAll} и возвращает массив типа Array,
  * содержащий копию исходного массива.
  * @param {XmlMultiElem<T>} array - Исходный массив.
  * @returns {Array} Результат.
@@ -1212,7 +1187,7 @@ declare function ArrayExtract<T, K>(array: XmlMultiElem<T>, fieldExpr: string | 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
+ * Функция аналогична более универсальной функции {@link ArrayExtract}, но работает быстрее.
  * @param {Array} array - Исходный массив.
  * @param {string} field - Имя поля.
  * @returns {unknown[]} Результат.
@@ -1222,7 +1197,7 @@ declare function ArrayExtractKeys<T, K>(array: T[], field: string): K[];
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
+ * Функция аналогична более универсальной функции {@link ArrayExtract}, но работает быстрее.
  * @param {XmlMultiElem<T>} array - Исходный массив.
  * @param {string} field - Имя поля.
  * @returns {unknown[]} Результат.
@@ -1358,6 +1333,91 @@ declare function ArrayMin<T>(array: T[], elemExpr: string): T;
  * @returns {XmlElem<T>} Результат.
  */
 declare function ArrayMin<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T>;
+
+/**
+ * Находит первый элемент массива, удовлетворяющий заданному условию.
+ * Если элемент, удовлетворяющий условию, не найден, возвращается undefined.
+ * @param {Array} array - Массив.
+ * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива..
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptFind<T>(array: T[], qualExpr: string): T | undefined;
+
+/**
+ * Находит первый элемент массива, удовлетворяющий заданному условию.
+ * Если элемент, удовлетворяющий условию, не найден, возвращается undefined.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива..
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptFind<T>(array: XmlMultiElem<T>, qualExpr: string): XmlElem<T> | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * @param {Array} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptFindByKey<T, K>(array: T[], value: K, name?: string): T | undefined;
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptFindByKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * Предполагается, что массив предварительно отсортирован по ключевому полю по возрастанию,
+ * что значительно повышает скорость поиска по сравнению с функцией {@link ArrayOptFindByKey}.
+ * Функцию имеет смысл использовать для частого поиска в каком-либо фиксированном справочнике большого размера,
+ * который необходимо заранее отсортировать.
+ * @param {T} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом, если имя ключа не указано, то используется первичный ключ.
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptFindBySortedKey<T, K>(array: T[], value: K, name?: string): T | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * Предполагается, что массив предварительно отсортирован по ключевому полю по возрастанию,
+ * что значительно повышает скорость поиска по сравнению с функцией {@link ArrayOptFindByKey}.
+ * Функцию имеет смысл использовать для частого поиска в каком-либо фиксированном справочнике большого размера,
+ * который необходимо заранее отсортировать.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом, если имя ключа не указано, то используется первичный ключ.
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptFindBySortedKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
+
+/**
+ * Возвращает первый элемент заданного массива.
+ * Если массив не содержит ни одного элемента, функция возвращает второй аргумент.
+ * @param {Array} array - Массив.
+ * @param {K} defaultValue - Значение по умолчанию.
+ * @returns {T | K} Результат.
+ */
+declare function ArrayOptFirstElem<T, K = undefined>(array: T[], defaultValue?: K): T | K;
+
+/**
+ * Возвращает первый элемент заданного массива.
+ * Если массив не содержит ни одного элемента, функция возвращает второй аргумент.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {K} defaultValue - Значение по умолчанию.
+ * @returns {XmlElem<T> | K} Результат.
+ */
+declare function ArrayOptFirstElem<T, K = undefined>(array: XmlMultiElem<T>, defaultValue?: K): XmlElem<T> | K;
 
 /**
  * Находит первый элемент массива, удовлетворяющий заданному условию.
@@ -1552,7 +1612,7 @@ declare function ArraySelectAll<T>(array: XmlMultiElem<T>): XmlElem<T>[];
 
 /**
  * Выбирает элементы массива, с определенным значением заданного поля (ключа) внутри элемента.
- * Функция аналогична более универсальной функции {@link ArraySelect}(), но работает быстрее.
+ * Функция аналогична более универсальной функции {@link ArraySelect}, но работает быстрее.
  * @param {T[]} array - Массив.
  * @param {boolean | string | number} value - Значение ключа.
  * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
@@ -1566,7 +1626,7 @@ declare function ArraySelectByKey<T>(
 
 /**
  * Выбирает элементы массива, с определенным значением заданного поля (ключа) внутри элемента.
- * Функция аналогична более универсальной функции {@link ArraySelect}(), но работает быстрее.
+ * Функция аналогична более универсальной функции {@link ArraySelect}, но работает быстрее.
  * @param {XmlMultiElem<T>} array - Массив.
  * @param {boolean | string | number} value - Значение ключа.
  * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
@@ -1581,7 +1641,7 @@ declare function ArraySelectByKey<T>(
 /**
  * Выбирает элементы массива, с определенным значением  заданного поля (ключа) внутри элемента.
  * Массив должен быть предварительно отсортирован по возрастанию значения ключа,
- * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}().
+ * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}.
  * @param {T[]} array - Массив.
  * @param {string | number} value - Значение ключа.
  * @param {string} name - Имя элемента, являющегося ключом.
@@ -1593,7 +1653,7 @@ declare function ArraySelectBySortedKey<T>(array: T[], value: string | number, n
 /**
  * Выбирает элементы массива, с определенным значением  заданного поля (ключа) внутри элемента.
  * Массив должен быть предварительно отсортирован по возрастанию значения ключа,
- * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}().
+ * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}.
  * @param {XmlMultiElem<T>} array - Массив.
  * @param {string | number} value - Значение ключа.
  * @param {string} name - Имя элемента, являющегося ключом.
@@ -1674,6 +1734,15 @@ declare function ArraySelectDistinctKeys<T>(array: T[], keyVal: string, parentKe
 declare function ArraySelectDistinctKeys<T>(array: XmlMultiElem<T>, keyVal: string, parentKeyName: string): XmlMultiElem<T>;
 
 /**
+ * Производит выборку из массива, содержащего элементы id и parent_id (как правило каталога), иерархического подмножества по заданному parent_id (не сключая головной элемент).
+ * @param {T[]} array - Массив.
+ * @param {K} keyValue - Значение родительского элемента.
+ * @param {string} parentKeyName - Имя родительского элемента (для калогов обычно 'parent_id').
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelectHierSubset<T, K>(array: T[], keyValue: K, parentKeyName: string): T[];
+
+/**
  * Сортирует массив по заданным полям. Возвращает новый массив отсортированных значений.
  * Функция требует нечетного числа аргументов (не менее 3-х),
  * для каждого нового уровня сортировки добавляется 2 новых аргумента.
@@ -1683,10 +1752,7 @@ declare function ArraySelectDistinctKeys<T>(array: XmlMultiElem<T>, keyVal: stri
  * @param {string} [direction] - Направление сортировки ('+' или '-').
  * @param {string} args - Набор дополнительных аргументов для сортировки.
  * @returns {T[]} Результат.
- * @example
- * ```
- * ArraySort(array, "name", "+", "date", "-");
- * ```
+ * @example ArraySort(array, "name", "+", "date", "-");
  */
 declare function ArraySort<T>(
   array: T[],
@@ -1705,10 +1771,7 @@ declare function ArraySort<T>(
  * @param {string} [direction] - Направление сортировки ('+' или '-').
  * @param {string} args - Набор дополнительных аргументов для сортировки.
  * @returns {XmlElem<T>[]} Результат.
- * @example
- * ```
- * ArraySort(array, "name", "+", "date", "-");
- * ```
+ * @example ArraySort(array, "name", "+", "date", "-");
  */
 declare function ArraySort<T>(
   array: XmlMultiElem<T>,
@@ -1947,7 +2010,7 @@ declare function ObtainSessionTempFile(suffix?: string): string;
 /**
  * Создает директорию с уникальным именем внутри директории для временных файлов.
  * Возвращает путь к созданной директории.
- * Смотри также {@link ObtainTempFile}().
+ * @see {@link ObtainTempFile}.
  * @returns {string} Путь к созданной директории.
  */
 declare function ObtainTempDirectoryPath(): string;
@@ -2020,212 +2083,61 @@ declare function UserDataDirectoryPath(): string;
 //#region Работа с Url
 
 /**
+ * Возвращает список всех существующих url, начинающихся с заданного базового url.
+ * @param {string} baseUrl - Базовый url.
+ * @returns {unknown} - Результат.
+ */
+declare function EnumerateUrls(baseUrl: string): unknown;
+
+/**
+ * Сохраняет содержимое строки в файл с заданном url, с использованием UTF-8 BOM.
+ * @param {string} url - Url файла.
+ * @param {string} data - Данные.
+ * @returns {unknown} - Результат.
+ */
+declare function PutUrlText(url: string, data: string): unknown;
+
+/**
  * Проверяет существует ли файл (или директория) по указанному url.
  * @param {string} url - Url файла.
  * @returns {boolean} Результат.
  */
 declare function UrlExists(url: string): boolean;
 
+/**
+ * Функция принимает на вход строку, содержащую MIME Content type, и возвращает рекомендуемое расширение имени файла для данного типа.
+ * Если тип не входит во встроенный список, возвращается пустая строка.
+ * Если в качестве аргумента уже передано расширение (строка, начинающаяся на точку), возвращается оно же.
+ * @param {string} contentType - MIME content type.
+ * @returns {string} - Результат.
+ */
+declare function ContentTypeToFileNameSuffix(contentType: string): string;
 
-//#endregion
+type LoadUrlTextOptions = {
+  DetectContentCharset: boolean;
+};
 
 /**
- * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
- * @param {string} name - Имя элемента.
- * @param {string} type - Тип данных XML-элемента.
- * @returns {XmlElem<unknown>} Динамический элемент.
- * @example CreateDynamicElem("elem_count", "integer");
+ * Загружает содержимое файла с заданным url с учетом наличия BOM. Если файл начинается на UTF-16 BOM, происходи конвертация из UTF-16 в текущую кодировку (UTF-8).
+ * Если файл начинается на UTF-8 BOM, возвращается содержимое файла после BOM.
+ * Если BOM в файле отсутствует, и не задана опция DetectContentCharset, происходит конвертация из однобайтовой кодировки по умолчанию (например Windows-1251) в текущую (UTF-8).
+ * Если задана опция DetectContentCharset, то функция предварительно пытается определить, не содержит ли файл данные в UTF-8, и, если да, возвращает содержимое файла без изменений.
+ * @see {@link LoadFileText}
+ * @param {string} url - Url файла.
+ * @param {object} options - Стандартный объект, содержащий опции.
+ * @returns {string} - Результат.
  */
-declare function CreateDynamicElem(name: string, type: string): XmlElem<unknown>;
+declare function LoadUrlText(url: string, options: LoadUrlTextOptions): string;
 
 /**
- * Создает XML-элемент заданному по фрагменту формы. Созданный элемент не имеет родительского элемента.
- * Функция используется для управления сложными структурами в оперативной памяти компьютера
- * (как альтернатива javascript object), а так же для формирования XML для внешнего использования.
- * @param {string} formUrl - Url xmd-файла, в котором находится форма.
- * @param {string} elemPath - Пусть к фрагменту формы.
- * @returns {XmlElem<unknown>} Элемент.
- * @example CreateElem("//base2/base2_user.xmd", "user");
+ * Функция принимает на вход строку, содержащую абсолютный или относительный uri, и возвращает MIME Content type, определяемый по расширении имени файла в этом uri.
+ * Если расширение не входит во встроенный список известных расширений, возвращается пустая строка.
+ * @param {string} url - URI, URI path, либо имя файла.
+ * @returns {string} - Результат.
+ * @example UrlStdContentType("File.txt"); // text/plain
+ * @see {@link ContentTypeToFileNameSuffix}
  */
-declare function CreateElem(formUrl: string, elemPath: string): XmlElem<unknown>;
-
-/**
- * Выдает целевой элемент массива по значению первичного ключа.
- * Если соответствующей элемент не найден, возвращается undefined.
- * Смотри так же {@link GetForeignElem}().
- * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}()
- * за счет поддержки рекурсивных массивов XML-элементов.
- * @param {T} array - Массив объектов.
- * @param {K} value - Значение ключевого элемента (any).
- * @returns {unknown} Результат.
- * @example GetOptForeignElem(event_types, "interview");
- */
-declare function GetOptForeignElem<T, K>(array: T, value: K): unknown;
-
-/**
- * Загружает массив XML-элементов в строку.
- * Используется для передачи параметров в плагины и
- * другие внешние процедуры.
- * Смотри так же {@link LoadElemsFromStr}.
- * @param {T} arg1 - Массив XML-элементов (array of objects).
- * @returns {string} Результат.
- */
-declare function declareElemsToStr<T>(arg1: T): string;
-
-/**
- * Загружает строку в массив XML-элементов.
- * Используется при обработке параметров,
- * полученных от внешних процедур и плагинов.
- * Смотри также {@link declareElemsToStr}.
- * @param {string} arg1 - Строка.
- * @returns {Array} Результат.
- */
-declare function LoadElemsFromStr(arg1: string): unknown[];
-
-/**
- * Выдает целевой элемент массива по значению первичного ключа.
- * Смотри так же {@link GetOptForeignElem}.
- * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}
- * за счет поддержки рекурсивных массивов XML-элементов.
- * Кроме этого, в новой объектной модели функция никогда не завершается с ошибкой,
- * если соответствующий элемент не найден, а возвращает пустой псевдо-элемент
- * (режим терпимости к незаполненным и битым ссылкам).
- * @param {T} array - Массив объектов.
- * @param {K} value - Значение ключевого элемента.
- * @returns {XmlElem<unknown>}
- * GetForeignElem( event_types, 'interview' ).
- */
-declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
-
-/**
- * Создает новый пустой элемент массива, не добавляя его в в сам массив.
- * Используется для отработки "битых ссылок" на элементы массива и
- * ссылок на удаленные элементы массива.
- * Смотри так же {@link GetOptForeignElem} и {@link GetForeignElem}.
- * В текущей реализации массив может быть только каталогом.
- * @param {T} array - Массив элементов.
- * @returns {XmlElem<unknown>} Результат.
- */
-declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
-
-
-/**
- * Открывает базу данных и помещает ее в список открытых баз.
- * Если база уже открыта, возвращается ссылка на открытую базу из списка.
- * @param {string} name - Наименование базы данных.
- * @returns {XmlDatabase} XmlDatabase.
- */
-declare function FetchDb(name: string): unknown;
-
-/**
- * Аналог функции {@link LoadUrlData}, позволяющий явно указать адрес сервера приложения,
- * с которого будут загружаться данные.
- * Используется как правило для синхронизации данных
- * или обмена данными между несколькими серверами приложений.
- * @param {string} url - Url.
- * @param {string} [options] - Опции.
- * @returns {string} Результат.
- * @example LoadUrlData("x-local://shared/xxx.xml", "lds-server=test2.datex.ru:9000");
- */
-declare function LoadLdsUrlData(url: string, options?: string): string;
-
-/**
- * На основании наименования зашифрованной базы данных (модуля)
- * выдает полный путь до зашифрованного модуля базы данных (XFP - файл).
- * Функция не проверяет фактическое существование файла по указанному пути.
- * @param {string} moduleName - Наименование базы данных.
- * @returns {string} Результат.
- * @example GetDbFilePath("app2") == "С:\Program files\EStaff\app2.xfp";
- */
-declare function GetDbFilePath(moduleName: string): string;
-
-/**
- * Преобразует имя каталога в имя объекта.
- * Фактически функция преобразует имя существительное множественного числа
- * в имя существительное единственного числа по правилам английского языка.
- * @param {string} catalogName - Название каталога.
- * @returns {string} Результат.
- * @example CatalogNameToObjectName("candidates") == "candidate";
- */
-declare function CatalogNameToObjectName(catalogName: string): string;
-
-/**
- * Ищет каталог по имени во всех используемых базах данных.
- * Если не находит - возвращает undefined.
- * @param {string} catalogName - Наименование каталога базы данных.
- * @returns {object} Результат.
- * @example
- * ```
- * const catalog = FindOptCatalog("events");
- * ```
- */
-declare function FindOptCatalog(catalogName: string): Object;
-
-/**
- * Осуществляет загрузку в указанную зашифрованную базу данных
- * (модуль) информации из объекта. Используется, например,
- * при подгрузке интернет-модулей в E-Staff c сайта производителя.
- * Объект, информация из которого может быть загружена в базу данных,
- * создается специальной командой new FilePackage,
- * после чего в объект помещается информация, например,
- * при помощи метода {@link LoadFromStr}.
- * @param {string} dbName - Имя базы данных.
- * @param {object} filePackage - Объект типа FilePackage, информация из которого загружается в базу данных.
- * @returns {undefined}
- */
-declare function SetDbFilePackage(dbName: string, filePackage: Object): undefined;
-
-/**
- * Выдает true, если указанная база данных находится
- * в зашифрованном модуле (XFP - файл), и false, если не содержит.
- * @param {string} dbName - Наименование базы данных.
- * @returns {boolean} Результат.
- * @example IsPackageDb("app2")
- */
-declare function IsPackageDb(dbName: string): boolean;
-
-/**
- * Устанавливает директорию, которую программа будет считать
- * местом расположения базы данных. По умолчанию директория называется так же,
- * как и база И располагается в программной директории.
- * Функция используется, если нужно поместить базу в другую директорию.
- * @param {string} dbName - Наименование базы данных.
- * @param {string} dirUrl - Url директории.
- * @returns {undefined}
- */
-declare function SetDbHostDir(dbName: string, dirUrl: string): undefined;
-
-/**
- * Выполняет заданный запрос XQuery на клиентской машине.
- * Используется для запроса данных из каталогов локальных баз данных.
- * @param {string} query - Строка, содержащая запрос.
- * @returns {Array} Результат.
- */
-declare function XQueryLocal<T>(query: string): T;
-
-/**
- * Выполняет заданный запрос XQuery. В сетевой версии приложения запрос выполняется на сервере.
- * `lds-server` - явный адрес сервера приложения, на который будет отправлен запрос.
- * Используется для обмена данных между серверами.
- * `preload-foreign-data` - заранее кэшировать связанные данные {@link Boolean}.
- * Обычно используется при показе списков в пользовательском интерфейсе сетевой версии,
- * в которых будет использовать связанные данные (ForeignElem).
- * @param {string} query - Строка, содержащая запрос.
- * @param {string} [options] - Набор опций.
- * @returns {Array} Результат.
- * @example
- * ```
- * XQuery("for $elem in candidates order by $elem/fullname return $elem", "preload-foreign-data=1");
- * ```
- */
-declare function XQuery<T>(query: string, options?: string): T[];
-
-/**
- * Удаляет объект с заданным url.
- * @param {string} url - Url.
- * @returns {undefined}
- */
-declare function DeleteUrl(url: string): undefined;
+declare function UrlStdContentType(url: string): string;
 
 /**
  * Копирует содержимое под заданным url в новый url.
@@ -2236,39 +2148,47 @@ declare function DeleteUrl(url: string): undefined;
 declare function CopyUrl(destUrl: string, srcUrl: string): undefined;
 
 /**
- * Загружает содержимое заданного url
- * и возвращает его в виде строки,
- * содержащей бинарные данные.
+ * Удаляет объект с заданным url.
+ * @param {string} url - Url.
+ * @returns {undefined}
+ */
+declare function DeleteUrl(url: string): undefined;
+
+/**
+ * Преобразует заданный url в абсолютный. Если заданный url и так является абсолютным, возвращается он же.
+ * @param {string} url - Относительный url.
+ * @param {string} [baseUrl] - Базовый абсолютный url, относительно которого считается относительный url.
+ * Если аргумент не указан, в качестве базового url используется родительский url файла, содержащий выполняемый код.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * AbsoluteUrl("zz/1.htm", "x-local://data/static") == "x-local://data/static/zz/1.htm"
+ * AbsoluteUrl("zz/1.htm") == "x-app://rcr/zz/1.htm" // вызванный в библиотеке x-app://rcr/rcr_lib_recruit.js
+ * ```
+ */
+declare function AbsoluteUrl(url: string, baseUrl: string): string;
+
+/**
+ * Преобразует заданный url (схемы "x-app") в url, пригодный для использования во встроенном браузере (элемент HYPER).
+ * Для десктоп-версии осуществляется преобразование в url схемы "file",
+ * а для веб-версии - в специальный серверный запрос.
  * @param {string} url - Url.
  * @returns {string} Результат.
  */
-declare function LoadUrlData(url: string): string;
-
-declare function LoadUrlText(url: string): string;
+declare function WebAppUrl(url: string): string;
 
 /**
- * Проверяет является ли строка абсолютным URL.
- * Существование объекта под указанным url не проверяется.
- * @param {string} url - Строка с URL.
- * @returns {boolean} Результат.
- * @example
- * ```
- * IsAbsoluteUrlStr("http://www.ya.ru/search.htm") === true
- * ```
- * @example
- * ```
- * IsAbsoluteUrlStr("search.htm") === false
- * ```
- */
-declare function IsAbsoluteUrlStr(url: string): boolean;
-
-/**
- * Сохраняет содержимое строки, содержащей бинарные данные, в заданном `URL`.
- * @param {string} url - `URL`.
- * @param {string} dataStr - Строка.
+ * Регистрирует автоматическую подмену одного url другим.
+ * После вызова функции при попытке любого обращения к url, являющегося дочерним,
+ * по отношению к исходному базовому, будет происходить обращение к новому url,
+ * полученному путем замены исходной базовой части на новую базовую часть.
+ * Функция как правило используется для конвертации данных из предыдущих версий программ в новую,
+ * при которой старые формы .xmd более не существуют и заменяются на новые.
+ * @param {string} baseUrl - Базовый url, который нужно подменить.
+ * @param {string} newBaseUrl - Базовый url, на который нужно подменить.
  * @returns {undefined}
  */
-declare function PutUrlData(url: string, dataStr: string): undefined;
+declare function AddUrlMapping(baseUrl: string, newBaseUrl: string): undefined;
 
 /**
  * Преобразует путь файловой системы в локальный `URL` типа `file:` или `x-local:`.
@@ -2287,44 +2207,36 @@ declare function FilePathToUrl(path: string, baseUrl?: string): string;
  * @param {string} suffix1 - Расширение, которое нужно заменить.
  * @param {string} suffix2 - Расширение, на которое нужно заменить.
  * @returns {string} Результат.
- * @example
- * ```
- * ReplaceUrlPathSuffix(
- *   "http://news.websoft.ru/tree.html?query",
- *   "html",
- *   "asp"
- * );
- * // "http://news.websoft.ru/tree.asp?query"
- * ```
+ * @example ReplaceUrlPathSuffix("http://news.websoft.ru/tree.html?query", "html", "asp"); // "http://news.websoft.ru/tree.asp?query"
  */
 declare function ReplaceUrlPathSuffix(url: string, suffix1: string, suffix2: string): string;
 
 /**
- * Преобразует заданный url в абсолютный. Если заданный url и так является абсолютным, возвращается он же.
- * @param {string} url - Относительный url.
- * @param {string} [baseUrl] - Базовый абсолютный url, относительно которого считается относительный url.
- * Если аргумент не указан, в качестве базового url используется родительский url файла, содержащий выполняемый код.
+ * Загружает содержимое заданного url
+ * и возвращает его в виде строки,
+ * содержащей бинарные данные.
+ * @param {string} url - Url.
  * @returns {string} Результат.
- * @example
- * ```
- * AbsoluteUrl("zz/1.htm", "x-local://data/static") == "x-local://data/static/zz/1.htm"
- * AbsoluteUrl("zz/1.htm") == "x-app://rcr/zz/1.htm" // вызванный в библиотеке x-app://rcr/rcr_lib_recruit.js
- * ```
  */
-declare function AbsoluteUrl(url: string, baseUrl: string): string;
+declare function LoadUrlData(url: string): string;
 
 /**
- * Регистрирует автоматическую подмену одного url другим.
- * После вызова функции при попытке любого обращения к url, являющегося дочерним,
- * по отношению к исходному базовому, будет происходить обращение к новому url,
- * полученному путем замены исходной базовой части на новую базовую часть.
- * Функция как правило используется для конвертации данных из предыдущих версий программ в новую,
- * при которой старые формы .xmd более не существуют и заменяются на новые.
- * @param {string} baseUrl - Базовый url, который нужно подменить.
- * @param {string} newBaseUrl - Базовый url, на который нужно подменить.
+ * Сохраняет содержимое строки, содержащей бинарные данные, в заданном `URL`.
+ * @param {string} url - `URL`.
+ * @param {string} dataStr - Строка.
  * @returns {undefined}
  */
-declare function AddUrlMapping(baseUrl: string, newBaseUrl: string): undefined;
+declare function PutUrlData(url: string, dataStr: string): undefined;
+
+/**
+ * Проверяет является ли строка абсолютным URL.
+ * Существование объекта под указанным url не проверяется.
+ * @param {string} url - Строка с URL.
+ * @returns {boolean} Результат.
+ * @example IsAbsoluteUrlStr("http://www.ya.ru/search.htm") === true;
+ * @example IsAbsoluteUrlStr("search.htm") === false;
+ */
+declare function IsAbsoluteUrlStr(url: string): boolean;
 
 /**
  * Добавляет фрагмент пути к заданному url.
@@ -2336,15 +2248,15 @@ declare function AddUrlMapping(baseUrl: string, newBaseUrl: string): undefined;
 declare function UrlAppendPath(url: string, addPath: string): string;
 
 /**
- * Извлекает url родительской директории из заданного url.
+ * Возвращает хост из переданного в качестве аргумента URL.
  * @param {string} url - Url.
  * @returns {string} Результат.
  * @example
  * ```
- * UrlParent("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx");
- * // "http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/"
+ * UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx"); // "news.websoft.ru"
+ * ```
  */
-declare function UrlParent(url: string): string;
+declare function UrlHost(url: string): string;
 
 /**
  * Извлекает имя файла из заданного url.
@@ -2362,6 +2274,13 @@ declare function UrlFileName(url: string): string;
 declare function UrlFileSize(url: string): number;
 
 /**
+ * Возвращает дату изменения файла, находящегося по локальному пути типа file: или x-local:.
+ * @param {string} url - Url.
+ * @returns {Date} Дата.
+ */
+declare function UrlModDate(url: string): Date;
+
+/**
  * Извлекает из url, переданного в качестве аргумента, строку запроса в исходном виде.
  * @param {string} url - Url.
  * @returns {string} Результат.
@@ -2370,22 +2289,15 @@ declare function UrlFileSize(url: string): number;
 declare function UrlParam(url: string): string;
 
 /**
- * Возвращает дату изменения файла, находящегося по локальному пути типа file: или x-local:.
- * @param {string} url - Url.
- * @returns {Date} Дата.
- */
-declare function UrlModDate(url: string): Date;
-
-/**
- * Возвращает хост из переданного в качестве аргумента URL.
+ * Извлекает url родительской директории из заданного url.
  * @param {string} url - Url.
  * @returns {string} Результат.
  * @example
  * ```
- * UrlHost("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx"); // "news.websoft.ru"
- * ```
+ * UrlParent("http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/tree.html?query=xxx");
+ * // "http://news.websoft.ru/db/kb/0939DD37D1C5F9B8C3257403003E8F4F/"
  */
-declare function UrlHost(url: string): string;
+declare function UrlParent(url: string): string;
 
 /**
  * Извлекает из URL, переданного в качестве аргумента, путь.
@@ -2421,6 +2333,25 @@ declare function UrlPathSuffix(url: string): string;
 declare function UrlQuery(url: string): Object;
 
 /**
+ * Возвращает схему URL (file, http, mailto, ftp, x-local).
+ * @param {string} url - Url.
+ * @returns {string}
+ * UrlSchema( 'http://news.websoft.ru/' ) вернет 'http'.
+ */
+declare function UrlScheme(url: string): string;
+
+/**
+ * Функция UrlOrFilePathToFilePath() проверяет, является ли строка урлом либо путем в файловой системе.
+ * В первом случае функция преобразовывает переданный url вида file:, x-app: или x-local: в путь файловой системы.
+ * Во втором случае вернет переданный путь в исходном виде.
+ * @param {string} str - Url файла либо путь к файлу.
+ * @returns {string} - Результат.
+ * @example UrlOrFilePathToFilePath("file:///d:/work/Temp.rar"); // d:\\work\\Temp.rar
+ * @see {@link UrlToFilePath}
+ */
+declare function UrlOrFilePathToFilePath(str: string): string;
+
+/**
  * Преобразует локальный url типа file: или x-local: в путь файловой системы..
  * @param {string} url - Локальный url.
  * @returns {string}
@@ -2429,45 +2360,333 @@ declare function UrlQuery(url: string): Object;
 declare function UrlToFilePath(url: string): string;
 
 /**
- * Возвращает схему URL (file, http, mailto, ftp, x-local).
- * @param {string} url - Url.
- * @returns {string}
- * UrlSchema( 'http://news.websoft.ru/' ) вернет 'http'.
+ * Преобразует локальный url типа file:, x-app: или x-local: в путь файловой системы.
+ * Если преобразование совершить не удалось (например передан url другого типа, или база располагается не в локальной файловой системе), функция возвращает undefined.
+ * @param {string} url - Url файла.
+ * @returns {string} - Результат.
+ * @example UrlToOptFilePath("file:///d:/work/Temp.rar"); // d:\\work\\Temp.rar
+ * @see {@link FilePathToUrl}
+ * @see {@link UrlOrFilePathToFilePath}
  */
-declare function UrlSchema(url: string): string;
+declare function UrlToOptFilePath(url: string): string;
+
+//#endregion
+
+//#region Обработка HTML
 
 /**
- * Преобразует заданный url (схемы "x-app") в url, пригодный для использования во встроенном браузере (элемент HYPER).
- * Для десктоп-версии осуществляется преобразование в url схемы "file",
- * а для веб-версии - в специальный серверный запрос.
- * @param {string} url - Url.
+ * Извлекает содержимое составного документа html
+ * (с вложенными файлами в формате <compound-attc/>) в файл,
+ * сохраняя все вложенные файлы относительно него.
+ * @param {any} html - Составной html.
+ * @param {string} fileUrl - Url файла.
+ */
+declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
+
+/**
+ * Кодирует строку, содержащую текст, для использования внутри HTML.
+ * В результате символы & и < заменяются на &amp; и &lt;, соответственно, а переводы строк - на <br/>.
+ * @param {string} str - Строка.
  * @returns {string} Результат.
  */
-declare function WebAppUrl(url: string): string;
-
-
-/**
- * Возвращает документ с заданным url из кэша.
- * Если документ с заданным url в кэше отсутствует, функция завершается с ошибкой.
- * @param {string} url - Url документа.
- * @returns {WTXmlDocument} XmlDocument.
- */
-declare function GetCachedDoc(url: string): XmlDocument;
+declare function HtmlEncode(str: string): string;
 
 /**
- * Удаляет на сервере приложения документ с заданным url.
- * Используется в специализированном коде, предназначенном для синхронизации баз данных или обмена данными между базами.
- * Аргументы: docUrl - url документа (String) options - опции, необязательный аргумент.
- * LdsDeleteDoc( 'x-db-obj://data/candidate/042D8A4596B679/E0.xml', 'lds-server=test2.datex.ru:9000' ).
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} - Результат.
  */
-declare function LdsDeleteDoc(): undefined;
+declare function HtmlNewCharset(): unknown;
 
 /**
- * Выдает Id объектного документа по его url. Смотри так же ObjectDocUrl .
- * @param {string} url - Url объекта.
- * @returns {number} Результат.
+ * Преобразует строку, содержащую HTML, в простой текст.
+ * @param {string} html - Строка, содержащая HTML.
+ * @returns {string} Результат.
  */
-declare function ObjectIDFromUrl(url: string): number;
+declare function HtmlToPlainText(html: string): string;
+
+/**
+ * Преобразует строку, содержащую обычный текст в полный HTML-документ.
+ * Действие функции аналогично действию функции {@link HtmlEncode}, но,
+ * в отличие от последней, {@link HtmlEncodeDoc} формирует завершенный HTML-документ,
+ * содержащий теги <html>, <body> и др.
+ * @param {string} str - Str.
+ * @returns {string} Результат.
+ */
+declare function HtmlEncodeDoc(str: string): string;
+
+//#endregion
+
+//#region Работа с формами данных
+
+/**
+ * Создает форму из строки, содержащей описание в формате XMD. Возвращает объект типа XmlForm.
+ * @param {string} formStr - Строка, содержащая описание формы в формате XMD.
+ * @example var form = CreateFormFromStr("<SPXML-FORM><generic_view></generic_view></SPXML-FORM>");
+ * @returns {unknown} - Результат.
+ * @see {@link RegisterFormFromStr}
+ */
+declare function CreateFormFromStr(formStr: string): unknown;
+
+/**
+ * Создает новый элемент формы. Созданный элемент формы не имеет родительского элемента.
+ * Функция используется в редких случаях, например для динамической генерации форм данных.
+ * @param {string} name - Имя поля `XMD`-формы.
+ * @param {string} type - Тип данных `XMD`-формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function CreateFormElem(name: string, type: string): XmlFormElem;
+
+/**
+ * Если форма с данным `URL` уже находится в кэше, возвращается уже загруженный вариант.
+ * @param {string} formUrl - `URL` формы.
+ */
+declare function FetchForm(formUrl: string): undefined;
+
+/**
+ * Регистрирует XML-форму, описанную в строке. Используется для программной генерации форм "на лету".
+ * @param {string} formUrl - `URL`, по которому будет зарегистрирована форма.
+ * @param {string} formData - Строка с описанием формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function RegisterFormFromStr(formUrl: string, formData: string): XmlForm;
+
+/**
+ * Редко используемая функция.
+ * Регистрирует фрагмент/элемент существующий формы под новым `URL`.
+ * Новый `URL` состоит из `URL` формы и полного наименования элемента формы,
+ * которое включает в себя путь внутри формы от корня до этого элемента.
+ * Возвращает `URL` новой формы.
+ * @param {string} formUrl - `URL` формы.
+ * @param {string} formPath - Полное наименование элемента формы,
+ * включающее в себя путь внутри формы от корня до этого элемента.
+ * @returns {string} Результат.
+ * @example RegisterSubForm("base3_events.xmd", "events.event");
+ */
+declare function RegisterSubForm(formUrl: string, formPath: string): string;
+
+/**
+ * Регистрирует пару (`URL` документа) - (`URL` формы) для автоматически создаваемого документа.
+ * Если где-то из программы будет обращение к этому документу с попыткой его открыть,
+ * а документ еще не создан, то он будет создан по форме и открыт.
+ * Если документ на момент обращения уже будет существовать, то он будет открыт по той же форме.
+ * Используется для регистрации в программе каких-либо файлов, содержащих настройки,
+ * которых изначально нет, но при первой попытки обращения к ним она фактически создаются в базе данных.
+ * @param {string} documentUrl - Url документа.
+ * @param {string} formUrl - Url формы.
+ * @returns {undefined}
+ * @example RegisterAutoDoc("x-local://static/global-settings.xml", "x-app://rcr/rcr_global_settings.xmd");
+ */
+declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefined;
+
+/**
+ * Находит зарегистрированный AutoDoc (т.е пару URL документа - URL формы,
+ * смотри так же функцию RegisterAutoDoc) в списке зарегистрированных автоматически документов,
+ * и возвращает ссылку на форму.
+ * Если соответствующая пара в списке отсутствует, возвращает undefined.
+ * @param {string} documentUrl - URL документа.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function GetOptAutoDocForm(documentUrl: string): XmlForm;
+
+/**
+ * Регистрирует отображение (mapping) одной формы в другую.
+ * Mapping - это таблица, в которой содержит соответствия между старыми и новыми формами документов.
+ * При попытке открыть документ по старой форме, будет автоматически вызвана новая форма,
+ * на которую указывает элемент таблицы. Функция используется в редких случаях,
+ * обычно при конвертации данных из предыдущих версий программы.
+ * @param {string} formUrl - URL старой формы.
+ * @param {string} newForm - URL новой формы.
+ */
+declare function RegisterFormMapping(formUrl: string, newForm: string): undefined;
+
+/**
+ * Удаляет все зарегистрированные при помощи функции {@link RegisterFormMapping} перенаправления форм.
+ * Функция обычно используется при конвертации баз данных из предыдущих версий программы.
+ */
+declare function DeleteAllFormMappings(): undefined;
+
+/**
+ * Удаляет определенные форму из кэша. Функция используется в редких случаях при изменении структур данных на лету.
+ * @param {string} urlPattern - Маска URL формы (т.е. XMD-файла).
+ * @example DropFormsCache("*candidate*")
+ */
+declare function DropFormsCache(urlPattern: string): undefined;
+
+//#endregion
+
+//#region Работа с базой данных приложения
+
+/**
+ * Функция получает на вход массив каталожных записей (например результат XQuery),
+ * и для каждого поля с FOREIGN-ARRAY каждой записи, заносит foreign elem в кэш каталога, при условии, что каталог, на который ссылается FOREIGN-ARRAY, имеет модель кэширования discrete.
+ * Это ровно то же самое, что делает функция {@link XQuery} с опцией preload-foreign-data на клиентской части приложения.
+ * Но, если {@link XQuery} была вызвана на сервере, а результат был передан на клиентскую часть отдельным способом, опция preload-foreign-data не сработает,
+ * и в этом случае на клиентской части может потребоваться вызов PreloadXQueryResultForeignRecords.
+ * Будучи вызванной на сервере со встроенной СУБД, функция PreloadXQueryResultForeignRecords не производит никаких действий,
+ * поскольку встроенная СУБД имеет собственное кэширование.
+ * @param {unknown[]} recordsArray - Массив каталожных записей
+ * @returns {unknown} - Результат.
+ */
+declare function PreloadXQueryResultForeignRecords(recordsArray: unknown[]): unknown;
+
+/**
+ * Функция получает на вход массив каталожных записей (например результат XQuery), и для каждой записивыполняет проверку прав доступа текущего пользователя на чтение.
+ * Если для записи отстутвуют права доступа, поля записи проходят через обфускацию.
+ * Это ровно то же самое, что делает функция {@link XQuery} на сервере, будучи вызванной с клиента.
+ * Но, если {@link XQuery} была вызвана на сервере, а результат будет передан на клиентскую часть отдельным способом, встроенная проверка не сработает,
+ * и в этом случае перед отправкой данных на клиентскую часть может потребоваться вызов {@link PreprocessRecordsByReadAccess}.
+ * Будучи вызванной на сервере со встроенной СУБД, функция {@link PreloadXQueryResultForeignRecords} не производит никаких действий, поскольку встроенная СУБД имеет собственное кэширование.
+ * @param {unknown[]} recordsArray - Массив каталожных записей
+ * @returns {unknown} - Результат.
+ */
+declare function PreprocessRecordsByReadAccess(recordsArray: unknown[]): unknown;
+
+/**
+ * Выполняет заданный запрос XQuery.
+ * В сетевой версии приложения запрос выполняется на сервере.
+ * `lds-server` - явный адрес сервера приложения, на который будет отправлен запрос.
+ * Используется для обмена данных между серверами.
+ * `preload-foreign-data` - заранее кэшировать связанные данные {@link Boolean}.
+ * Обычно используется при показе списков в пользовательском интерфейсе сетевой версии,
+ * в которых будет использовать связанные данные (ForeignElem).
+ * @param {string} query - Строка, содержащая запрос.
+ * @param {string} [options] - Набор опций.
+ * @returns {Array} Результат.
+ * @example XQuery("for $elem in candidates order by $elem/fullname return $elem", "preload-foreign-data=1");
+ */
+declare function XQuery<T>(query: string, options?: string): T[];
+
+/**
+ * Выполняет заданный запрос XQuery на клиентской машине.
+ * Используется для запроса данных из каталогов локальных баз данных.
+ * @param {string} query - Строка, содержащая запрос.
+ * @returns {Array} Результат.
+ */
+declare function XQueryLocal<T>(query: string): T;
+
+/**
+ * Открывает базу данных и помещает ее в список открытых баз.
+ * Если база уже открыта, возвращается ссылка на открытую базу из списка.
+ * @param {string} name - Наименование базы данных.
+ * @returns {Database} XmlDatabase.
+ */
+declare function FetchDb(name: string): Database;
+
+/**
+ * На основании наименования зашифрованной базы данных (модуля)
+ * выдает полный путь до зашифрованного модуля базы данных (XFP - файл).
+ * Функция не проверяет фактическое существование файла по указанному пути.
+ * @param {string} moduleName - Наименование базы данных.
+ * @returns {string} Результат.
+ * @example GetDbFilePath("app2") == "С:\Program files\EStaff\app2.xfp";
+ */
+declare function GetDbFilePath(moduleName: string): string;
+
+/**
+ * Преобразует имя каталога в имя объекта.
+ * Фактически функция преобразует имя существительное множественного числа
+ * в имя существительное единственного числа по правилам английского языка.
+ * @param {string} catalogName - Название каталога.
+ * @returns {string} Результат.
+ * @example CatalogNameToObjectName("candidates") == "candidate";
+ */
+declare function CatalogNameToObjectName(catalogName: string): string;
+
+/**
+ * Аналог функции {@link LoadUrlData}, позволяющий явно указать адрес сервера приложения,
+ * с которого будут загружаться данные.
+ * Используется как правило для синхронизации данных
+ * или обмена данными между несколькими серверами приложений.
+ * @param {string} url - Url.
+ * @param {string} [options] - Опции.
+ * @returns {string} Результат.
+ * @example LoadUrlData("x-local://shared/xxx.xml", "lds-server=test2.datex.ru:9000");
+ */
+declare function LoadLdsUrlData(url: string, options?: string): string;
+
+/**
+ * Устанавливает директорию, которую программа будет считать
+ * местом расположения базы данных. По умолчанию директория называется так же,
+ * как и база И располагается в программной директории.
+ * Функция используется, если нужно поместить базу в другую директорию.
+ * @param {string} dbName - Наименование базы данных.
+ * @param {string} dirUrl - Url директории.
+ * @returns {undefined}
+ */
+declare function SetDbHostDir(dbName: string, dirUrl: string): undefined;
+
+/**
+ * Выдает true, если указанная база данных находится
+ * в зашифрованном модуле (XFP - файл), и false, если не содержит.
+ * @param {string} dbName - Наименование базы данных.
+ * @returns {boolean} Результат.
+ * @example IsPackageDb("app2")
+ */
+declare function IsPackageDb(dbName: string): boolean;
+
+/**
+ * Осуществляет загрузку в указанную зашифрованную базу данных
+ * (модуль) информации из объекта. Используется, например,
+ * при подгрузке интернет-модулей в E-Staff c сайта производителя.
+ * Объект, информация из которого может быть загружена в базу данных,
+ * создается специальной командой new FilePackage,
+ * после чего в объект помещается информация, например,
+ * при помощи метода {@link LoadFromStr}.
+ * @param {string} dbName - Имя базы данных.
+ * @param {object} filePackage - Объект типа FilePackage, информация из которого загружается в базу данных.
+ * @returns {undefined}
+ */
+declare function SetDbFilePackage(dbName: string, filePackage: Object): undefined;
+
+/**
+ * Ищет каталог по имени во всех используемых базах данных.
+ * Если не находит - возвращает undefined.
+ * @param {string} catalogName - Наименование каталога базы данных.
+ * @returns {object} Результат.
+ * @example var catalog = FindOptCatalog("events");
+ */
+declare function FindOptCatalog(catalogName: string): Object;
+
+//#endregion
+
+//#region Работа с документами XML
+
+/**
+ * Опции открытия XML-документа используются в функциях OpenDoc(), OpenDocFromStr() и др.
+ * Опции имеют вид "param1='value1';param2='value2';..."
+ * * form - url формы, используемой при открытии (String). Форма, указанная в самом документе, будет игнорироваться
+ * * ignore-top-elem-name - игнорировать имя корневого элемента (Bool). Позволяет использовать одну общую форму для документов  с разыми именами корневых элементов.
+ * * drop-namespaces - удалять названия пространсв имен в названиях элементов (Bool)
+ * * ui-text - поддерживать загрузку документов с многоязычными данными, загружая данные с языком текущего пользоваетльского интерфейса
+ * * format - формат встроенного конвертора для открытия данных в других форматах в виде Xml. Поддерживаются следующие форматы: "sv" (separated values), "win.ini", "excel", "smml".
+ * * delim - разделитель, используемый для формата "csv". Можно задать симво явно либо использовать значения tab или sem.
+ * * header-line - считать, что первая строка для формата "csv" содержит названия полей (Bool)
+ * * lower-case-names  - приводить названия полей для формата "csv" к нижнему регистру (Bool)
+ */
+type XMLOpenOptions = string;
+
+/**
+ * Опции экспорта XML-документа используются в функциях SaveToUrl(), SaveToStream() и др.
+ * Опции имеют вид "param1='value1';param2='value2';..."
+ * * inline-ext-objects - включать объекты с внешним хранением в экспорт (Bool). Позволяет экспортировать в один файл полное содержимое документа, включая объекты внешнего хранения, например прикрепленные файлы.
+ * * tabs - форматировать XML с использованеим символов табуляции и превода строк для удобсьва чтение человеком (Bool). Значение по умолчанию определяется глобальной настройкой в ini-файле приложения.
+ */
+type XMLExportOptions = string;
+
+/**
+ * Возвращает список всех XML-документов из кэша.
+ * @returns {unknown} - Результат.
+ */
+declare function GetAllCachedDocs(): unknown;
+
+/**
+ * Заменяет документ с заданным url в кэше документов на новый документ.
+ * Функция используется для серверных документов, к которым может идти обращение их нескольких потоков одновременно (например, глобальных настроек).
+ * Поскольку объект XmlDoc не является thread-safe, менять содержимое глобальных документов нельзя, однако можно заменить документ целиком, соблюдая thread-safety.
+ * @returns {unknown} - Результат.
+ */
+declare function ReplaceCachedDoc(): unknown;
 
 /**
  * Удаляет документ с заданным url.
@@ -2478,51 +2697,29 @@ declare function ObjectIDFromUrl(url: string): number;
 declare function DeleteDoc(url: string, permanent?: boolean): undefined;
 
 /**
- * Возвращает url объектного документа по имени базы, типа объекта и Id документа.
- * @param {string} dbName - Наименование базы данных.
- * @param {string} objectType - Наименование типа объекта.
- * @param {string | number} objectID - Id документа (Integer или String).
- * @returns {string} Результат.
- * @example
- * ```
- * ObjectDocUrl("data", "person", 1238461"); // "x-db-obj://data/person/0x000000000012E5BD.xml"
- * ObjectDocUrl("data", "event_type", "interview"); // "x-db-obj://data/event_type/interview.xml"
- * ```
- */
-declare function ObjectDocUrl(dbName: string, objectType: string, objectID: string | number): string;
-
-/**
- * Перемещает XML-документ из одного url в другой url.
- * В отличие от обычного перемещения файла, действие этой функции сопровождается
- * выполнением стандартных свойств OnSave, OnBeforeSave и т.д.
- * Документ сначала пересохраняется по новому url, затем удаляется из предыдущей.
- * Редко используемая функция.
- * @param {string} url - Url существующего документа.
- * @param {string} newUrl - Новый url документа.
- */
-declare function MoveDoc(url: string, newUrl: string): undefined;
-
-/**
  * Открывает XML-документ и помещает его в кэш документов.
  * Если документ с заданным url уже находится в кэше, возвращается уже загруженный в кэш документ.
  * @param {string} url - Url документа.
- * @param {string} [options] - Опции открытия документа.
+ * @param {XMLOpenOptions} [options] - Опции открытия документа.
  * @returns {XmlDocument} XmlDocument.
  */
-declare function FetchDoc(url: string, options: string): XmlDocument;
+declare function FetchDoc(url: string, options?: XMLOpenOptions): XmlDocument;
 
 /**
- * Пытается найти открытую в пользовательском интерфейсе карточку XML-документа.
- * Если таковая карточка найдена, функция возвращает ссылку на документ из этой карточки.
- * В противном случае действие функции аналогично {@link OpenDoc}().
- * Чтобы сохранить измененный документ, необходимо использовать
- * функцию UpdateUiDoc (а не вызвать метод Doc.Save, как при открытии документа при помощи OpenDoc).
- * Если документ был открыт пользователем на экране, то при выполнении функции UpdateUiDoc
- * документ будет изменен прямо на экране, если открытого документа не было - то документ будет просто сохранен.
- * @param {string} docUrl - Url XML-документа.
- * @returns {XmlDocument} XmlDocument.
+ * Возвращает документ с заданным url из кэша.
+ * Если документ с заданным url в кэше отсутствует, функция завершается с ошибкой.
+ * @param {string} url - Url документа.
+ * @returns {WTXmlDocument} XmlDocument.
  */
-declare function ObtainUiDoc(docUrl: string): XmlDocument;
+declare function GetCachedDoc(url: string): XmlDocument;
+
+/**
+ * Пытается найти форму в кэше загруженных форм по заданному `URL`.
+ * Если такая форма была загружена в кэш, возвращает объект ссылка на форму, если нет - возвращает undefined.
+ * @param {string} url - `URL` формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function GetOptCachedForm(url: string): XmlForm;
 
 /**
  * Загружает xml документ в кэш документов и делает его корневой элемент видимым в списке глобальных имен.
@@ -2534,23 +2731,10 @@ declare function RegisterSharedDoc(docUrl: string): XmlDocument;
 /**
  * Открывает XML-документ, содержащийся к строке.
  * @param {string} dataStr - Строка, содержащая данные открываемого документа.
- * @param {string} [options] - Опции открытия документа в виде "param1='value1';param2='value2';...".
- * См. Опции открытия документа XML.
+ * @param {XMLOpenOptions} [options] - Опции открытия документа в виде "param1='value1';param2='value2';...".
  * @returns {XmlDocument} XmlDocument.
  */
-declare function OpenDocFromStr<T extends XmlDocument>(dataStr: string, options?: string): T;
-
-/**
- * Выдает наименование типа объекта по его url. Смотри так же ObjectDocUrl и ObjectIDFromUrl .
- * @param {string} url - Url объекта.
- * @returns {string} Результат.
- * @example
- * ```
- * ObjectNameFromUrl("x-db-obj://data/person/0x000000000012E5BD.xml"); // 'person'
- * ObjectNameFromUrl("x-db-obj://data/event_type/interview.xml"); // 'event_type'
- * ```
- */
-declare function ObjectNameFromUrl(url: string): string;
+declare function OpenDocFromStr<T extends XmlDocument>(dataStr: string, options?: XMLOpenOptions): T;
 
 /**
  * Создает новый XML-документ по заданной форме.
@@ -2569,6 +2753,30 @@ declare function OpenNewDoc<T = XmlDocument>(formUrl: string): T;
 declare function OpenDoc<T = XmlDocument>(url: string, options?: string): T;
 
 /**
+ * Перемещает XML-документ из одного url в другой url.
+ * В отличие от обычного перемещения файла, действие этой функции сопровождается
+ * выполнением стандартных свойств OnSave, OnBeforeSave и т.д.
+ * Документ сначала пересохраняется по новому url, затем удаляется из предыдущей.
+ * Редко используемая функция.
+ * @param {string} url - Url существующего документа.
+ * @param {string} newUrl - Новый url документа.
+ */
+declare function MoveDoc(url: string, newUrl: string): undefined;
+
+/**
+ * Пытается найти открытую в пользовательском интерфейсе карточку XML-документа.
+ * Если таковая карточка найдена, функция возвращает ссылку на документ из этой карточки.
+ * В противном случае действие функции аналогично {@link OpenDoc}.
+ * Чтобы сохранить измененный документ, необходимо использовать
+ * функцию {@link UpdateUiDoc} (а не вызвать метод Doc.Save, как при открытии документа при помощи {@link OpenDoc}).
+ * Если документ был открыт пользователем на экране, то при выполнении функции {@link UpdateUiDoc}
+ * документ будет изменен прямо на экране, если открытого документа не было - то документ будет просто сохранен.
+ * @param {string} docUrl - Url XML-документа.
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function ObtainUiDoc(docUrl: string): XmlDocument;
+
+/**
  * Сохраняет изменения в документе, открытом при помощи функции ObtainUiDoc.
  * Если это был документ, открытый пользователем на экране,
  * то функция устанавливает аргумент метода Doc.SetChanged(true),
@@ -2576,166 +2784,598 @@ declare function OpenDoc<T = XmlDocument>(url: string, options?: string): T;
  * чтобы при закрытии документа пользователю было предложено сохранить изменения.
  * Если это был документ, открытый программой без участия пользователя,
  * действие функции аналогично действию метода Doc.Save().
- * Аргумент doc - открытый документ (объект XmlDoc).
+ * @param {XmlDocument} doc - Открытый документ.
  */
-declare function UpdateUiDoc(): undefined;
+declare function UpdateUiDoc(doc: XmlDocument): undefined;
 
 /**
- * Удаляет определенные форму из кэша. Функция используется в редких случаях при изменении структур данных на лету.
- * @param {string} urlPattern - Маска `URL` формы (т.е. `XMD`-файла).
- * DropFormsCache( '*candidate*' ).
- */
-declare function DropFormsCache(urlPattern: string): undefined;
-
-/**
- * Создает новый элемент формы. Созданный элемент формы не имеет родительского элемента.
- * Функция используется в редких случаях, например для динамической генерации форм данных.
- * @param {string} name - Имя поля `XMD`-формы.
- * @param {string} type - Тип данных `XMD`-формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function CreateFormElem(name: string, type: string): XmlFormElem;
-
-/**
- * Пытается найти форму в кэше загруженных форм по заданному `URL`.
- * Если такая форма была загружена в кэш, возвращает объект ссылка на форму, если нет - возвращает undefined.
- * @param {string} url - `URL` формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function GetOptCachedForm(url: string): XmlForm;
-
-/**
- * Удаляет все зарегистрированные при помощи функции {@link RegisterFormMapping}() перенаправления форм.
- * Функция обычно используется при конвертации баз данных из предыдущих версий программы.
- */
-declare function DeleteAllFormMappings(): undefined;
-
-/**
- * Регистрирует отображение (mapping) одной формы в другую.
- * Mapping - это таблица, в которой содержит соответствия между старыми и новыми формами документов.
- * При попытке открыть документ по старой форме, будет автоматически вызвана новая форма,
- * на которую указывает элемент таблицы. Функция используется в редких случаях,
- * обычно при конвертации данных из предыдущих версий программы.
- * @param {string} formUrl - `URL` старой формы.
- * @param {string} newForm - `URL` новой формы.
- */
-declare function RegisterFormMapping(formUrl: string, newForm: string): undefined;
-
-/**
- * Находит зарегистрированный AutoDoc (т.е пару `URL` документа - `URL` формы,
- * смотри так же функцию RegisterAutoDoc) в списке зарегистрированных автоматически документов,
- * и возвращает ссылку на форму.
- * Если соответствующая пара в списке отсутствует, возвращает undefined.
- * @param {string} documentUrl - `URL` документа.
- * @returns {XmlForm} XmlForm.
- */
-declare function GetOptAutoDocForm(documentUrl: string): XmlForm;
-
-/**
- * Если форма с данным `URL` уже находится в кэше, возвращается уже загруженный вариант.
- * @param {string} formUrl - `URL` формы.
- */
-declare function FetchForm(formUrl: string): undefined;
-
-/**
- * Регистрирует XML-форму, описанную в строке. Используется для программной генерации форм "на лету".
- * @param {string} formUrl - `URL`, по которому будет зарегистрирована форма.
- * @param {string} formData - Строка с описанием формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function RegisterFormFromStr(formUrl: string, formData: string): XmlForm;
-
-/**
- * Регистрирует пару (`URL` документа) - (`URL` формы) для автоматически создаваемого документа.
- * Если где-то из программы будет обращение к этому документу с попыткой его открыть,
- * а документ еще не создан, то он будет создан по форме и открыт.
- * Если документ на момент обращения уже будет существовать, то он будет открыт по той же форме.
- * Используется для регистрации в программе каких-либо файлов, содержащих настройки,
- * которых изначально нет, но при первой попытки обращения к ним она фактически создаются в базе данных.
- * @param {string} documentUrl - Url документа.
- * @param {string} formUrl - Url формы.
- * @returns {undefined}
+ * Возвращает url объектного документа по имени базы, типа объекта и Id документа.
+ * @param {string} dbName - Наименование базы данных.
+ * @param {string} objectType - Наименование типа объекта.
+ * @param {string | number} objectID - Id документа (Integer или String).
+ * @returns {string} Результат.
  * @example
  * ```
- * RegisterAutoDoc("x-local://static/global-settings.xml", "x-app://rcr/rcr_global_settings.xmd");
+ * ObjectDocUrl("data", "person", 1238461"); // "x-db-obj://data/person/0x000000000012E5BD.xml"
+ * ObjectDocUrl("data", "event_type", "interview"); // "x-db-obj://data/event_type/interview.xml"
  * ```
  */
-declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefined;
+declare function ObjectDocUrl(dbName: string, objectType: string, objectID: string | number): string;
+
+/**
+ * Выдает наименование типа объекта по его url.
+ * @param {string} url - Url объекта.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * ObjectNameFromUrl("x-db-obj://data/person/0x000000000012E5BD.xml"); // 'person'
+ * ObjectNameFromUrl("x-db-obj://data/event_type/interview.xml"); // 'event_type'
+ * ```
+ * @see {@link ObjectDocUrl}
+ * @see {@link ObjectIDFromUrl}
+ */
+declare function ObjectNameFromUrl(url: string): string;
+
+/**
+ * Выдает Id объектного документа по его url.
+ * @param {string} url - Url объекта.
+ * @returns {number} Результат.
+ * @see {@link ObjectDocUrl}
+ */
+declare function ObjectIDFromUrl(url: string): number;
+
+/**
+ * Удаляет на сервере приложения документ с заданным url.
+ * Используется в специализированном коде, предназначенном для синхронизации баз данных или обмена данными между базами.
+ * @param {string} docUrl - Url документа.
+ * @param {string} [options] - Опции.
+ * @example LdsDeleteDoc("x-db-obj://data/candidate/042D8A4596B679/E0.xml", "lds-server=test2.datex.ru:9000");
+ */
+declare function LdsDeleteDoc(docUrl: string, options?: string): undefined;
+
+//#endregion
+
+//#region Работа с элементами XML
+
+/**
+ * Создает XML-элемент по заданному элементу формы.
+ * Созданный элемент не имеет родительского элемента.
+ * Редко используемая функция.
+ * @param {XmlFormElem} formElem - Объект вида {@link XmlFormElem}
+ * @returns {XmlFormElem} - Результат.
+ * @example
+ * ```
+ * attachment = CreateElemByFormElem(candidate.attachments.FormElem[0]);
+ * candidate.attachments.AddChildElem(attachment);
+ * // эквивалентно
+ * attachment = candidate.attachments.AddChild();
+ * ```
+ */
+declare function CreateElemByFormElem(formElem: XmlFormElem): XmlFormElem;
+
+/**
+ * Узкоспециализированная функция.
+ * Может использоваться в генераторах интерфейсов.
+ * Функция находит шаблонный элемент формы в списке глобальных шаблонных элементов (описанных с атрибутом SAMPLE="1").
+ * Если шаблонный элемент с данным именем не найден, возвращает undefined.
+ * @param {string} sampleName - Имя шаблонного элемента
+ * @returns {unknown} - Результат.
+ */
+declare function FindSampleFormElem(sampleName: string): unknown;
+
+/**
+ * Создает XML-элемент заданному по фрагменту формы. Созданный элемент не имеет родительского элемента.
+ * Функция используется для управления сложными структурами в оперативной памяти компьютера
+ * (как альтернатива javascript object), а так же для формирования XML для внешнего использования.
+ * @param {string} formUrl - Url xmd-файла, в котором находится форма.
+ * @param {string} elemPath - Пусть к фрагменту формы.
+ * @returns {XmlElem<unknown>} Элемент.
+ * @example CreateElem("//base2/base2_user.xmd", "user");
+ */
+declare function CreateElem(formUrl: string, elemPath: string): XmlElem<unknown>;
+
+/**
+ * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
+ * @param {string} name - Имя элемента.
+ * @param {string} type - Тип данных XML-элемента.
+ * @returns {XmlElem<unknown>} Динамический элемент.
+ * @example CreateDynamicElem("elem_count", "integer");
+ */
+declare function CreateDynamicElem(name: string, type: string): XmlElem<unknown>;
+
+/**
+ * Выдает целевой элемент массива по значению первичного ключа.
+ * Смотри так же {@link GetOptForeignElem}.
+ * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}
+ * за счет поддержки рекурсивных массивов XML-элементов.
+ * Кроме этого, в новой объектной модели функция никогда не завершается с ошибкой,
+ * если соответствующий элемент не найден, а возвращает пустой псевдо-элемент
+ * (режим терпимости к незаполненным и битым ссылкам).
+ * @param {T} array - Массив объектов.
+ * @param {K} value - Значение ключевого элемента.
+ * @returns {XmlElem<unknown>}
+ * GetForeignElem( event_types, 'interview' ).
+ */
+declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
+
+/**
+ * Выдает целевой элемент массива по значению первичного ключа.
+ * Если соответствующей элемент не найден, возвращается undefined.
+ * Смотри так же {@link GetForeignElem}.
+ * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}
+ * за счет поддержки рекурсивных массивов XML-элементов.
+ * @param {T} array - Массив объектов.
+ * @param {K} value - Значение ключевого элемента (any).
+ * @returns {unknown} Результат.
+ * @example GetOptForeignElem(event_types, "interview");
+ */
+declare function GetOptForeignElem<T, K>(array: T, value: K): unknown;
+
+/**
+ * Создает новый пустой элемент массива, не добавляя его в в сам массив.
+ * Используется для отработки "битых ссылок" на элементы массива и
+ * ссылок на удаленные элементы массива.
+ * Смотри так же {@link GetOptForeignElem} и {@link GetForeignElem}.
+ * В текущей реализации массив может быть только каталогом.
+ * @param {T} array - Массив элементов.
+ * @returns {XmlElem<unknown>} Результат.
+ */
+declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
+
+/**
+ * Загружает строку в массив XML-элементов.
+ * Используется при обработке параметров,
+ * полученных от внешних процедур и плагинов.
+ * @see {@link declareElemsToStr}
+ * @param {string} arg1 - Строка.
+ * @returns {Array} Результат.
+ */
+declare function LoadElemsFromStr(arg1: string): unknown[];
+
+/**
+ * Загружает массив XML-элементов в строку.
+ * Используется для передачи параметров в плагины и другие внешние процедуры.
+ * @see {@link LoadElemsFromStr}
+ * @param {string} arg1 - Строка.
+ * @returns {Array} Результат.
+ */
+declare function ExportElemsToStr(arg1: string): unknown[];
+
+/**
+ * Загружает массив XML-элементов в строку.
+ * Используется для передачи параметров в плагины и
+ * другие внешние процедуры.
+ * Смотри так же {@link LoadElemsFromStr}
+ * @param {T} arg1 - Массив XML-элементов (array of objects).
+ * @returns {string} Результат.
+ */
+declare function declareElemsToStr<T>(arg1: T): string;
+
+//#endregion
+
+//#region Работа с экранами
+
+/**
+ * Возвращает одну из встроенных метрик UI.
+ * Метрики UI обычно используются при создании собственных сложных элементов UI.
+ * Поддерживаются следующие метрики:
+ * * TextLineHeight - высота текстовой строки в шрифте по умолчанию.
+ * * ListRowCoreHeight - высота строки списка по умолчанию (не включая разделитель).
+ * @param {"TextLineHeight" | "ListRowCoreHeight"} metricType - Тип метрики.
+ * @returns {unknown} - Результат.
+ */
+declare function GetUiMetric(metricType: "TextLineHeight" | "ListRowCoreHeight"): unknown;
+
+declare function GetSampleParamRec(): unknown;
+
+/**
+ * Вычисляет ширину текста при расположении его в одну строку в шрифте по умолчанию.
+ * @param {string} text - Текст.
+ * @returns {unknown} - Результат.
+ */
+declare function CalcTextScreenWidth(text: string): unknown;
+
+/**
+ * Закрывает все активные выпадающие элементы экрана.
+ * Функция используется как правило при разработке собственных выпадающих элементов.
+ * @returns {unknown} - Результат.
+ */
+declare function CloseAllDropDownItems(): unknown;
+
+/**
+ * Проверяет наличие зарегистрированной экранной формы с заданным url.
+ * @param {string} url - URL экранной формы.
+ * @returns {boolean} - Результат.
+ */
+declare function IsScreenFormRegistered(url: string): boolean;
+
+/**
+ * Динамически регистрирует экранную форму, содержащую набор типовых элементов,
+ * по аналогии с <sample_screen_form> в описании модуля.
+ * @param {string} url - URL формы.
+ * @returns {unknown} - Результат.
+ */
+declare function RegisterSharedSampleScreenForm(url: string): unknown;
+
+/**
+ * Для сложных составных элементов, описанных в виде шаблона (SAMPLE ="1"), таких как, например, object_setector, voc_elem_selector, date_selector,
+ * возвращает сам этот элемент из любого места кода внутри экземпляра этого элемента.
+ * Функция используется для написания сложных составных элементов.
+ * @returns {unknown} - Результат.
+ * @example <IF EXPR="GetSampleItem().IsEnabled">
+ */
+declare function GetSampleItem(): unknown;
+
+/**
+ * Для сложных составных элементов, описанных в виде шаблона (SAMPLE ="1"), таких как, например, object_setector, voc_elem_selector, date_selector,
+ * возвращает сам этот элемент из любого места кода внутри экземпляра этого элемента.
+ * Функция используется для написания сложных составных элементов.
+ * @param {string} paramName - Наименование параметра.
+ * @returns {unknown} - Результат.
+ * @example <LABEL TITLE-EXPR="lib_voc.foreign_voc_title( Ps, GetSampleParam( 'usage' ) )" READ-ONLY="1"  WIDTH="100%" HEIGHT="100"/>
+ */
+declare function GetOptSampleParam(paramName: string): unknown;
+
+/**
+ * Вычисляет (относительно самого элемента) значение параметра, если у этого параметра стоит атрибут EXPR.
+ * @returns {unknown} - Результат.
+ */
+declare function EvalSampleParam(): unknown;
+
+/**
+ * Вычисляет (относительно самого элемента) значение параметра, если у этого параметра стоит атрибут EXPR.
+ * @deprecated
+ * @param {string} paramName - Наименование параметра.
+ * @returns {unknown} - Результат.
+ */
+declare function EvalSampleParamRec(paramName: string): unknown;
 
 /**
  * Редко используемая функция.
- * Регистрирует фрагмент/элемент существующий формы под новым `URL`.
- * Новый `URL` состоит из `URL` формы и полного наименования элемента формы,
- * которое включает в себя путь внутри формы от корня до этого элемента.
- * Возвращает `URL` новой формы.
- * @param {string} formUrl - `URL` формы.
- * @param {string} formPath - Полное наименование элемента формы,
- * включающее в себя путь внутри формы от корня до этого элемента.
- * @returns {string} Результат.
+ * Используется в комбининованных формах *.xmc для добавления новых элементов списка.
+ * @param {XmlElem<unknown>[]} addElems - Добавляемый элемент.
+ * @returns {unknown} - Результат.
+ */
+declare function OpenInnerPage(...addElems: XmlElem<unknown>[]): unknown;
+
+/**
+ * Отображает на экране указанное почтовое сообщение, с использование выбранного способа отображения.
+ * @param {MailMessage} msg - Почтовое сообщение.
+ * @param {string} [methodId] - Способ отображения почтового сообщения.
+ * @example ShowMailMessage(message, local_settings.mail_method_id);
+ * @returns {unknown} - Результат.
+ */
+declare function ShowMailMessage(msg: MailMessage, methodId?: string): unknown;
+
+/**
+ * Создает экран для заданного документа.
+ * @param {XmlDocument} xmlDocument - Документ, который будет отображен на экране.
+ * @param {string} xmsUrl - Url формы, при помощи которой документ будет открыт.
+ * @example screen = CreateDocScreen(doc, "base1_csd.xms");
+ * @returns {Screen} - Объект {@link Screen}.
+ */
+declare function CreateDocScreen(xmlDocument: XmlDocument, xmsUrl: string): typeof Screen;
+
+/**
+ * Если есть какой-либо большой глобальный документ (как правило - это общие настройки или персональные настройки),
+ * и требуется, чтобы он редактировался не в одном гигинтском окне, а в нескольких маленьких разделах,
+ * в этом случае открывает один большой документ, но в окне показыватся его маленький кусочек.
+ * Редко используемая функция.
+ * @see {@link ObtainSubDocScreen}
+ * @param {XmlElem<unknown>} docElem - Раздел документа.
+ * @param {string} xmsUrl - Url экранной формы.
+ * @returns {unknown} - Результат.
+ */
+declare function CreateSubDocScreen(docElem: XmlElem<unknown>, xmsUrl: string): unknown;
+
+/**
+ * Находит экран по url документа, открытого в этом экране.
+ * Проверяет, не открыт ли экран с заданным url, если открыт, то поднимает его на верх, если не открыт, то создает экран и открывает документ.
+ * Обычно эта фукнция вызывается, когда пользователь открывает из списка что-либо двойным щелчком.
+ * @param {string} docUrl - Url документа.
  * @example
  * ```
- * RegisterSubForm("base3_events.xmd", "events.event");
+ * screen = ObtainDocScreen(ObjectDocUrl('trash', 'trash_object', ListElem.id));
+ * screen = ObtainDocScreen(event.candidate_id.ForeignObjectUrl);
  * ```
+ * @returns {Screen} - Объект {@link Screen}.
  */
-declare function RegisterSubForm(formUrl: string, formPath: string): string;
+declare function ObtainDocScreen(docUrl: string): typeof Screen;
 
 /**
- * Кодирует строку, содержащую текст, для использования внутри HTML.
- * В результате символы & и < заменяются на &amp; и &lt;, соответственно, а переводы строк - на <br/>.
- * @param {string} str - Строка.
- * @returns {string} Результат.
+ * Вызывает открытие экрана для объектого документа.
+ * Редко используемая функция.
+ * @param {DataBase} base - База данных.
+ * @param {string} catalog - Наименование каталога.
+ * @param {number} documentId - Url документа.
+ * @example ObtainObjectDocScreen(DefaultDb, "vacancy", ListElem.vacancy_id);
+ * @returns {unknown} - Результат.
  */
-declare function HtmlEncode(str: string): string;
+declare function ObtainObjectDocScreen(base: Database, catalog: string, documentId: number): unknown;
 
 /**
- * Преобразует строку, содержащую HTML, в простой текст.
- * @param {string} html - Строка, содержащая HTML.
- * @returns {string} Результат.
+ * Если есть какой-либо большой глобальный документ (как правило - это общие настройки или персональные настройки),
+ * и требуется, чтобы он редактировался не в одном гигинтском окне, а в нескольких маленьких разделах,
+ * в этом случае открывает один большой документ, но в окне показыватся его маленький кусочек.
+ * @param {XmlElem<unknown>} xmlElem - Раздел документа.
+ * @param {string} xmsUrl - Url экранной формы.
+ * @example ObtainSubDocScreen(ListElem.site_settings, "imod_settings_site.xms");
+ * @see {@link CreateSubDocScreen}
+ * @returns {unknown} - Результат.
  */
-declare function HtmlToPlainText(html: string): string;
+declare function ObtainSubDocScreen(xmlElem: XmlElem<unknown>, xmsUrl: string): unknown;
 
 /**
- * Преобразует строку, содержащую обычный текст в полный HTML-документ.
- * Действие функции аналогично действию функции {@link HtmlEncode}(), но,
- * в отличие от последней, {@link HtmlEncodeDoc}() формирует завершенный HTML-документ,
- * содержащий теги <html>, <body> и др.
- * @param {string} str - Str.
- * @returns {string} Результат.
+ * Ищет экран с заданным именем среди всех существующих экранов.
+ * Если экран не найден возвращает undefined.
+ * @param {string} screenName - Имя экрана.
+ * @returns {typeof Screen | undefined} - Результат.
  */
-declare function HtmlEncodeDoc(str: string): string;
+declare function FindOptScreen(screenName: string): typeof Screen | undefined;
 
 /**
- * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
- * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
- * @param {Error | string} error - Ошибка.
- * @returns {string} Результат.
+ * Ищет экран с заданным именем среди всех существующих экранов.
+ * Если экран не найден возвращает ошибку.
+ * @param {string} screenName - Имя экрана.
+ * @returns {typeof Screen | never} - Результат.
+ * @see {@link FindOptScreen}
+ */
+declare function FindScreen(screenName: string): typeof Screen | never;
+
+/**
+ * Ищет экран с заданным url документа, если экран не найден, возвращает исключение.
+ * @param {string} docUrl - Url документа.
+ * @see {@link FindOptScreenByDocUrl}
+ * @see {@link ObtainDocScreen}
+ * @returns {typeof Screen | never} - Результат.
+ */
+declare function FindScreenByDocUrl(docUrl: string): typeof Screen | never;
+
+/**
+ * Ищет экран с заданным url документа, если экран не найден, возвращает undefined.
+ * @param {string} docUrl - Url документа.
+ * @see {@link FindScreenByDocUrl}
+ * @see {@link ObtainDocScreen}
+ * @returns {typeof Screen | undefined} - Результат.
+ */
+declare function FindOptScreenByDocUrl(docUrl: string): typeof Screen | undefined;
+
+/**
+ * Вызывает обновление экрана с заданными параметрами.
+ * Эту функцию можно вызывать из других потоков, она безопасная.
+ * @param {string} maskScreen - Маска выбора имени экрана.
+ * @param {string} maskForm - Маска выбора имени экранной формы.
  * @example
  * ```
- * try {
- *   HttpRequest( .... );
- * } catch (error) {
- *   alert("Невозможно активировать программу: " + ExtractUserError(error));
- * }
+ * UpdateScreens("*", "*view*"); // Обновление всех экранов, наименование файла экранной формы которых содержит 'view'
+ * UpdateScreens("*", "*"); // Обновление всех экранов
  * ```
+ * @returns {unknown} - Результат.
  */
-declare function ExtractUserError(error: Error | string): string;
+declare function UpdateScreens(maskScreen: string, maskForm: string): unknown;
 
 /**
- * Выполняет код JScript в текущем окружении. В отличие от функции {@link eval} выполняет код на том же уровне
- * (переменные, объявленные внутри кода, будут видны снаружи), и не позволяет возвращать значение.
- * @param {string} code - Выполняемый код JScript.
+ * Редко используемая фукнция.
+ * Сбрасыает данные из кэша.
+ * Используется, когда программа сама модифицирует какие-то формы, и чтобы обновления вступили в силу необходимо сбросить данные из кэша.
+ * @returns {unknown} - Результат.
  */
-declare function InPlaceEval(code: string): undefined;
+declare function DropScreenFormsCache(): unknown;
 
 /**
- * Интерпретирует содержимое страницы по правилам ASP.
- * @param {string} pageUrl - Url, содержащий текст активной страницы.
- * @param {string} [options] - Опции.
- * @returns {string} Результат.
- * Значение strict-errors - завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
- * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
+ * Регистрирует экранную форму, переданную в виде строки.
+ * @param {string} xmsUrl - Url, по которому будет зарегистрирована форма.
+ * @param {string} xmsForm - Экранная форма.
+ * @example
+ * ```
+ * RegisterScreenFormFromStr(ReplaceUrlPathSuffix(formUrl, ".xmd", ".xms"), screenFormData);
+ * RegisterScreenFormFromStr(vocInfo.object_screen_form_url, LoadUrlData("base1_voc_object.xms"));
+ * ```
+ * @returns {unknown} - Результат.
  */
-declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
+declare function RegisterScreenFormFromStr(xmsUrl: string, xmsForm: string): unknown;
+
+/**
+ * Делает объединение двух экранных форм.
+ * Используется для регистрации дополнительных (пользовательских) полей, открываемых дополнительной (пользовательской) экранной формой.
+ * Редко используемая функция.
+ * @see {@link MergeScreenForm}
+ * @returns {unknown} - Результат.
+ */
+declare function AppendScreenForm(): unknown;
+
+/**
+ * Объединяет две формы.
+ * @see {@link AppendScreenForm}
+ * @param {string} mainFormUrl - Url основной формы.
+ * @param {string} addFormUrl - Url дополнительной формы.
+ * @param {string} elemName - Наименование элемента основной формы, после которого будет присоединена дополнительная форма.
+ * @returns {unknown} - Результат.
+ * @example MergeScreenForm("//base2/base2_access_role.xms", "rcr_fields_access_role.xms", "AccessFieldsAnchor");
+ */
+declare function MergeScreenForm(mainFormUrl: string, addFormUrl: string, elemName: string): unknown;
+
+//#endregion
+
+//#region Работа с реестром Windows
+
+/**
+ * Опции при вызове функций работы с реестром Windows
+ * Большинство функций работы с реестром Windows принимают в качестве последнего необязятельного аргумента список опций.
+ * Опции задаются в двойственном формате - либо объект типа Object, как праивло описываемый конструкцией JSON, либо строкой вида namr1=value1;name2=value2;...
+ * Список допустимыйх опций:
+ * * Prefer32View - для 64-битной ОС использовать 32-битную альтернативную ветку реестра, независимо от типа приложения
+ * * Prefer64View - для 64-битной ОС использовать 64-битную основную ветку реестра, независимо от типа приложения
+ */
+type SystemRegistryOptions = string | {
+    Prefer32View?: boolean;
+    Prefer64View?: boolean;
+};
+
+/**
+ * Возвращает массив имен дочерних ключей заданного ключа реестра Windows.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {SystemRegistryOptions} [options] - Опции.
+ * @returns {unknown[]} - Результат.
+ */
+declare function GetSysRegKeyChildNames(path: string, options?: SystemRegistryOptions): unknown[];
+
+/**
+ * Возвращает значение строкового из реестра Windows.
+ * Если элемент не существует, возвращается пустая строка.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {string} [name] - Имя элемента. Если указано пустоое имя элемента, используется элемент по умолчанию.
+ * @example GetSysRegStrValue("HKEY_CURRENT_USER\\Software\\Clients\\Mail\\", "");
+ */
+declare function GetSysRegStrValue(path: string, name?: string): undefined;
+
+/**
+ * Удаляет ключ реестра Windows, если он пустой.
+ * Если ключ содержит другие ключи, функция завершается с ошибкой.
+ * @param {string} path - Путь к ключу реестра.
+ * @example RemoveEmptySysRegKey("HKEY_CURRENT_USER\\Software\\Datex\\");
+ */
+declare function RemoveEmptySysRegKey(path: string): undefined;
+
+/**
+ * Удаляет ключ реестра Windows, включая все вложенные ключи.
+ * @param {string} path - Путь к ключу реестра.
+ * @example RemoveSysRegKey("HKEY_LOCAL_MACHINE\\Software\\Datex\\EStaff");
+ */
+declare function RemoveSysRegKey(path: string): undefined;
+
+/**
+ * Устанавливает целочисленное значение ключа реестра Windows.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {string} name - Имя элемента.
+ * @param {number} value - Целочисленное значение элемента.
+ * @returns {undefined} - Результат.
+ * @example SetSysRegIntegerValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\EStaff", "NoModify", 1);
+ */
+declare function SetSysRegIntegerValue(path: string, name: string, value: number): undefined;
+
+/**
+ * Устанавливает строковое значение ключа реестра Windows.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {string} name - Имя элемента.
+ * @param {number} value - Целочисленное значение элемента.
+ * @returns {undefined} - Результат.
+ * @example SetSysRegStrValue("HKEY_LOCAL_MACHINE\\Software\\Datex\\EStaff", "Sn", "AHYC-52DG-87RT");
+ */
+declare function SetSysRegStrValue(path: string, name: string, value: number): undefined;
+
+/**
+ * Проверяет существует ли ключ реестра Windows.
+ * @param {string} path - Путь к ключу реестра.
+ * @example SysRegKeyExists("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Office\\Word");
+ * @returns {boolean} - Результат.
+ */
+declare function SysRegKeyExists(path: string): boolean;
+
+//#endregion
+
+//#region Выполнение кода
+
+/**
+ * Открывает файл, содержащий код и вызывает описанную внутри функцию.
+ * Загруженный код никак не кэшируется, при повторном вызове загрузка файла произойдет заново.
+ * @deprecated Рекомендуется использовать {@link OpenCodeLib}
+ * @param {string} url - Url, содержщий код.
+ * @param {string} functionName - Имя функции.
+ * @param {unknown[]} [arguments] - Аргументы функции.
+ * @returns {unknown} - Результат.
+ */
+declare function CallCodeUrlFunction(url: string, functionName: string, ...arguments: unknown[]): unknown;
+
+/**
+ * Вызывает метод (функцию) библиотеки на сервере приложения.
+ * У метода должна быть установлена мета-директива "META:ALLOW-CALL-FROM-CLIENT:1".
+ * Значения аргументов могут быть переданы либо через массив, либо через стандартный объект, содержащий пары "имя аргумента" - "значения аргумента".
+ * Не все типы значений могут быть переданы в серверный метод и возвращены обратно.
+ * Поддерживаются все скалярные типы, стандартные массивы, стандартные объекты, а также объекты {@link XmlElem} и {@link XmlDoc}.
+ * @param {string} libName - Имя библиотеки либо url библиотеки.
+ * @param {string} methodName - Имя метода.
+ * @param {unknown[]} argumentsArray - Стандартный массив значений аргументов, либо стандартный объект, содержащий значения аргументов.
+ * @returns {unknown} - Результат.
+ */
+declare function CallServerMethod(libName: string, methodName: string, argumentsArray?: unknown[]): unknown;
+
+/**
+ * Проверяет синтаксис страницы со вставками кода по правилам ASP.
+ * В случае неверного синтаксиса вызывает исключение с описанием ошибки.
+ * @param {string} codeStr - Строка, содержащая вставки кода.
+ * @see {@link EvalCodePage}
+ * @see {@link EvalCodePageUrl}
+ * @returns {unknown} - Результат.
+ */
+declare function CheckCodePageSyntax(codeStr: string): unknown;
+
+/**
+ * Проверяет синтаксис кода на SP-XML Script.
+ * В случае неверного синтаксиса вызывает исключение с описанием ошибки.
+ * @param {string} codeStr - Строка, содержащая код.
+ * @see {@link EvalCodePage}
+ * @see {@link EvalCodePageUrl}
+ * @returns {unknown} - Результат.
+ */
+declare function CheckCodePageSyntax(codeStr: string): unknown;
+
+/**
+ * Проверяет наличие метода с определенным именем в v2-библиотеке.
+ * @param {XmlDocument | object} lib - Библиотека.
+ * @param {string} methodName - Имя метода.
+ * @returns {boolean} - Результат.
+ */
+declare function CodeLibraryMethodExists(lib: XmlDocument | Object, methodName: string): boolean;
+
+/**
+ * Выполняет код спустя заданный временной интервал.
+ * Доступно только на клиентской части приложения.
+ * Код выполняется всегда в главном потоке, независимо от того, в каком потоке была вызвана функция {@link EvalAfterDelay}.
+ * @param {string} codeStr - Строка, содержащая выполняемый код.
+ * @param {number} delay - Интервал в миллисекундах.
+ * @param {object} [envObject] - Дополнительный объект, поля которого будут доступны в выполняемом окружении
+ * @returns {unknown} - Результат.
+ */
+declare function EvalAfterDelay(codeStr: string, delay: number, envObject?: Object): unknown;
+
+/**
+ * Выполняет код в заданном окружении.
+ * @param {string} codeStr - Строка, содержащая выполняемый код.
+ * @param {"Global" | "Safe" | "Doc" | "ScreenItem"} [envType] - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {XmlDocument | ScreenItem} [baseObject] - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для остальных типов окружения необходимо передавать undefined.
+ * @param {unknown[]} [envObjects] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * @returns {unknown} - Результат.
+ */
+declare function ExtEval(codeStr: string, envType?: "Global" | "Safe" | "Doc" | "ScreenItem", baseObject?: XmlDocument | ScreenItem, envObjects?: unknown[]): unknown;
+
+/**
+ * Находит зарегистрированную v2-библиотеку по имени и возвращает ссылку на нее.
+ * Если библиотека с указанным именем не найдена, возвращает undefined.
+ * @param {string} libName - Имя библиотеки.
+ * @returns {unknown} - Результат.
+ */
+declare function GetOptCodeLibrary<T>(libName: string): T | undefined;
+
+/**
+ * Функция динамически загружает библиотеку v2.
+ * У динамически загруженной библиотеки v2,
+ * в отличие от статически описанной в модуле через <code_source_files>,
+ * есть два ограничения:
+ * 1. Namespace, указанный в файле, игнорируется.
+ * 2. Библиотека должна быть описана в одном файле.
+ * @param {string} url - Url файла .bs.
+ * @returns {T} Объект namespace.
+ */
+declare function OpenCodeLibrary<T>(url: string): T;
+
+/**
+ * Выполняет код в безопасном окружении (без доступа к каким-либо глобальным данными приложения).
+ * @param {string} codeStr - Строка, содержащая выполняемый код.
+ * @param {unknown[]} envObjects - Стандартный массив, содержащий список дополнительных объектов, видимых (по аналогии с with {}) в окружении.
+ * @see {@link ExtEval}
+ */
+declare function SafeEval(codeStr: string, envObjects: unknown[]): void;
 
 /**
  * Кодирует аргумент как константу JScript. Используется для генерации выражений.
@@ -2753,25 +3393,20 @@ declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
 declare function CodeLiteral(value: undefined | null | string | number | boolean | Date, quoteChar?: string): string;
 
 /**
- * Динамически регистрирует файл v2-библиотеки,
- * как если бы он был описан в модуле через code_source_file.
- *
- * "META:NAMESPACE:{namespace_name}".
- * @param {string} url - Url файла .bs или .xmi.
+ * Выполняет код JScript в текущем окружении. Аналогична стандартной функции JScript с таким же именем, но,
+ * в отличие от нее выполняет код на отдельном уровне (переменные, объявленные внутри кода, не будут видны снаружи).
+ * @param {string} code - Выполняемый код JScript.
+ * @returns {unknown} Результат.
+ * @see {@link InPlaceEval}
  */
-declare function RegisterCodeLibrary(url: string): void;
+declare function eval(code: string): unknown;
 
 /**
- * Функция динамически загружает библиотеку v2.
- * У динамически загруженной библиотеки v2,
- * в отличие от статически описанной в модуле через <code_source_files>,
- * есть два ограничения:
- * 1. Namespace, указанный в файле, игнорируется.
- * 2. Библиотека должна быть описана в одном файле.
- * @param {string} url - Url файла .bs.
- * @returns {T} Объект namespace.
+ * Выполняет код JScript в текущем окружении. В отличие от функции {@link eval} выполняет код на том же уровне
+ * (переменные, объявленные внутри кода, будут видны снаружи), и не позволяет возвращать значение.
+ * @param {string} code - Выполняемый код JScript.
  */
-declare function OpenCodeLibrary<T>(url: string): T;
+declare function InPlaceEval(code: string): undefined;
 
 /**
  * Интерпретирует содержимое страницы по правилам ASP.
@@ -2811,45 +3446,14 @@ declare function EvalCodePage(
 ): string;
 
 /**
- * Проверяет, является ли заданный объект типа Error ошибкой отменой операции .
- * @param {any} e - Объект типа Error.
- * @returns {boolean} Результат.
- * @example
- * ```
- * try {
- *   HttpRequest( .... );
- * } catch(e) {
- *   if (!IsCancelError(e)) alert('Невозможно активировать программу: ' + ExtractUserError(e));
- * }
- * ```
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageUrl - Url, содержащий текст активной страницы.
+ * @param {string} [options] - Опции.
+ * @returns {string} Результат.
+ * Значение strict-errors - завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
+ * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
  */
-declare function IsCancelError<T>(e: T): boolean;
-
-/**
- * Выполняет код JScript в текущем окружении. Аналогична стандартной функции JScript с таким же именем, но,
- * в отличие от нее выполняет код на отдельном уровне (переменные, объявленные внутри кода, не будут видны снаружи).
- * См. Также `InPlaceEval`.
- * @param {string} code - Выполняемый код JScript.
- * @returns {unknown} Результат.
- */
-declare function eval(code: string): unknown;
-
-/**
- * Выполняет код JScript аналогично функции {@link eval}(), но внутри т.н. Критической секции,
- * что исключает одновременное выполнение кода из разных потоков.
- * Функция как правило используется для доступа к данным, не являющимся thread-safe,
- * например к глобальным XML-документам. Данной функцией следует пользоваться с осторожностью,
- * поскольку глобальная секция является общей для всего приложения.
- * Не следует выполнять внутри критической секции код, который может занять
- * продолжительное время (обращения к диску, сети и д.р.).
- * @param {string} codeString - Объект String, содержащий допустимый код JScript.
- * @returns {unknown} Результат.
- * @example
- * ```
- * EvalCs("global_agents.agent_completed = true");
- * ```
- */
-declare function EvalCs(codeString: string): unknown;
+declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
 
 /**
  * Загружает код на JavaScript из заданного url и выполняет его.
@@ -2858,31 +3462,48 @@ declare function EvalCs(codeString: string): unknown;
  * Необязательный аргумент. Как правило, содержит вызов функции, описанный в основном коде.
  * @returns {unknown}
  * EvalCodeUrl("rcr_lib_backup.js", "RunBackup()") Использование данной функции для вызова функций,
- * описанных в файле, не рекомендуется после появления функции {@link OpenCodeLib}(),
+ * описанных в файле, не рекомендуется после появления функции {@link OpenCodeLib},
  * предлагающей более понятные правила области видимости переменных: `OpenCodeLib("rcr_lib_backup.js").RunBackup()`.
  */
 declare function EvalCodeUrl(codeUrl: string, subCode: string): unknown;
 
 /**
+ * Выполняет код JScript аналогично функции {@link eval}, но внутри т.н. Критической секции,
+ * что исключает одновременное выполнение кода из разных потоков.
+ * Функция как правило используется для доступа к данным, не являющимся thread-safe,
+ * например к глобальным XML-документам. Данной функцией следует пользоваться с осторожностью,
+ * поскольку глобальная секция является общей для всего приложения.
+ * Не следует выполнять внутри критической секции код, который может занять
+ * продолжительное время (обращения к диску, сети и д.р.).
+ * @param {string} codeString - Объект String, содержащий допустимый код JScript.
+ * @returns {unknown} Результат.
+ * @example EvalCs("global_agents.agent_completed = true");
+ */
+declare function EvalCs(codeString: string): unknown;
+
+/**
+ * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
+ * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
+ * @param {Error | string} error - Ошибка.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * try {
+ *   HttpRequest( .... );
+ * } catch (error) {
+ *   alert("Невозможно активировать программу: " + ExtractUserError(error));
+ * }
+ * ```
+ */
+declare function ExtractUserError(error: Error | string): string;
+
+/**
  * Обозначает текущий статус выполнения фрагмент кода с упрощенной индикацией пользователю,
- * начатого путем вызова функции {@link StartModalTask}().
+ * начатого путем вызова функции {@link StartModalTask}.
  * @param {string} msg - Строка статуса.
  * @returns {undefined}
  */
 declare function ModalTaskMsg(msg: string): undefined;
-
-/**
- * Выполняет код в окружении, где доступны только те объекты и переменные,
- * которые описаны (являются свойствами) объекта param_object.
- * Другие переменные и объекты (системные или описанные в коде, внутри которого был вызван `SafeEval`) недоступны.
- * Смотрите также функцию {@link eval}.
- * @param {string} code - Код.
- * @param {unknown[]} [args] - Объект, содержащий набор свойств, определяющих окружение, в котором будет исполнятся код.
- * Если данный аргумент не указан, то программный код исполняется в пустом окружении.
- * Однако, обычно данный аргумент указывается.
- * @returns {unknown} Результат.
- */
-declare function SafeEval(code: string, args?: unknown[]): unknown;
 
 /**
  * Выполняет код JS, который, возможно, завершится с ошибкой,
@@ -2891,10 +3512,7 @@ declare function SafeEval(code: string, args?: unknown[]): unknown;
  * @param {any} [defaultValue] - Значение, возвращаемое в случае ошибки
  * Если аргумент не указан, а код завершается с ошибкой, возвращается undefined.
  * @returns {T | undefined} Результат.
- * @example
- * ```
- * OptEval("doc.TopElem.xxx", "");
- * ```
+ * @example OptEval("doc.TopElem.xxx", "");
  */
 declare function OptEval<T>(code: string, defaultValue?: T): T | undefined;
 
@@ -2917,6 +3535,21 @@ declare function OptEval<T>(code: string, defaultValue?: T): T | undefined;
 declare function StartModalTask(taskTitle: string): undefined;
 
 /**
+ * Проверяет, является ли заданный объект типа Error ошибкой отменой операции .
+ * @param {any} e - Объект типа Error.
+ * @returns {boolean} Результат.
+ * @example
+ * ```
+ * try {
+ *   HttpRequest( .... );
+ * } catch(e) {
+ *   if (!IsCancelError(e)) alert('Невозможно активировать программу: ' + ExtractUserError(e));
+ * }
+ * ```
+ */
+declare function IsCancelError<T>(e: T): boolean;
+
+/**
  * Открывает документ либо с расширением XML, содержащий набор методов,
  * и возвращает его корневой элемент либо с расширением .JS,
  * содержащий функции, возвращает псевдо-документ (псевдо-форму),
@@ -2934,6 +3567,8 @@ declare function StartModalTask(taskTitle: string): undefined;
  * @returns {XmlDocument} XmlDocument.
  */
 declare function OpenCodeLib<T = XmlDocument>(url: string): T;
+
+//#endregion
 
 //#region Функции Web-сервера
 
@@ -2979,7 +3614,7 @@ declare function DaemonGetState(serverId: string): number;
  * например перестройки фалов каталога или конвертации данных из предыдущей версии программы.
  * @param {string} serverId - Идентификатор сервера.
  * @param {"CurTask" | "CurMsg"} paramName - Имя параметра.
- * Поддерживаемые значения: "CurTask" и "CurMsg", определяемые вызовами функций {@link StartModalTask}() и {@link ModalTaskMsg}() на сервере.
+ * Поддерживаемые значения: "CurTask" и "CurMsg", определяемые вызовами функций {@link StartModalTask} и {@link ModalTaskMsg} на сервере.
  * @example DaemonGetStateParam("EStaff_Server", "CurTask");
  * @returns {string} Результат.
  */
@@ -3020,12 +3655,14 @@ declare function UnregisterDaemon(daemonID: string): unknown;
 //#region Системные функции
 
 /**
- * GetSysUserDefaultUiLanguage() возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
+ * Возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
  * установленного в операционной системе для текущего пользователя.
  * Функция доступна только в десктопном приложении.
  * @returns {string} Результат.
  */
 declare function GetSysUserDefaultUiLanguage(): string;
+
+//#endregion
 
 //#region Прочие функции
 
@@ -3067,10 +3704,10 @@ declare function Cancel(): never;
 
 /**
  * Проверяет не должен ли текущий поток завершиться (обычно после прерывания его пользователем).
- * Если да, вызывает исключение аналогично функции {@link Cancel}().
- * @returns {undefined} Если поток вызывает в цикле функцию {@link Sleep}(),
+ * Если да, вызывает исключение аналогично функции {@link Cancel}.
+ * @returns {undefined} Если поток вызывает в цикле функцию {@link Sleep},
  * либо любую функцию, вызывающее сетевой запрос, то вызывать функцию
- * {@link CheckCurThread}() нет необходимости, поскольку вышеназванные функции
+ * {@link CheckCurThread} нет необходимости, поскольку вышеназванные функции
  * сами проверяют запрос на отмену выполнения потока.
  */
 declare function CheckCurThread(): undefined;
@@ -3109,9 +3746,9 @@ declare function ColorNewBrightness(color: string, ratio: number): string;
 declare function CRC(arg: string): number;
 
 /**
- * Модификация функции {@link alert}(), предназначенная для целей отладки.
- * В отличие от последней, {@link DebugMsg}() может быть оставлена в релизном коде.
- * Если в SpXml.ini указан параметр SHOW-DEBUG-MSG, функция работает аналогично {@link alert}().
+ * Модификация функции {@link alert}, предназначенная для целей отладки.
+ * В отличие от последней, {@link DebugMsg} может быть оставлена в релизном коде.
+ * Если в SpXml.ini указан параметр SHOW-DEBUG-MSG, функция работает аналогично {@link alert}.
  * В остальных случаях она осуществляет запись значения в журнал по умолчанию.
  * @param {T} value - Произвольное значение.
  * @returns {T} Возвращает переданное значение.
@@ -3128,7 +3765,7 @@ declare function EnableLog(name: string, enable?: boolean): undefined;
 
 /**
  * Включает заданный журнал.
- * В отличие от функции {@link EnableLog}() позволяет задать дополнительные опции ведения журнала.
+ * В отличие от функции {@link EnableLog} позволяет задать дополнительные опции ведения журнала.
  * Возможные опции: life-time - период, на который заводится новый файла журнала ("day", "month", "permanent").
  * По умолчанию свой файл журнала заводится на каждую дату ("day") `base-dir` - директория,
  * в которой будут заводиться журнал.
@@ -3184,7 +3821,7 @@ declare function EvalSync<T>(code: string, args: T): void;
 
 /**
  * Сигнализирует о завершении длительного процесса с упрощенным индикатором,
- * начатым при помощи функции {@link StartModalTask}().
+ * начатым при помощи функции {@link StartModalTask}.
  */
 declare function FinishModalTask(): undefined;
 
@@ -3383,7 +4020,7 @@ declare function ParseJson<T>(value: string, options?: ParseJsonOptions): T;
 /**
  * Вычисляет хэш заданной строки (обычно пароля) по встроенному алгоритму по умолчанию.
  * @param {string} str - Строка.
- * Смотрите также {@link PasswordVerify}().
+ * Смотрите также {@link PasswordVerify}.
  * @returns {unknown} -
  */
 declare function PasswordHash(str: string): unknown;
@@ -3392,7 +4029,7 @@ declare function PasswordHash(str: string): unknown;
  * Проверяет соответствие заданной стоки (обычно пароля) и ее хэша.
  * @param {string} str - строка.
  * @param {string} hash - hash.
- * Смотрите также {@link PasswordHash}().
+ * Смотрите также {@link PasswordHash}.
  * @returns {boolean} - Результат.
  */
 declare function PasswordVerify(str: string, hash: string): boolean;
@@ -3485,7 +4122,7 @@ declare function SetClipboard(value: string): unknown;
  * Описание используется исключительно в отладочных целях (например показывается через страницу xhttp_info)
  * и не влияет на работу программы.
  * @param {string} desc - Строка с описанием.
- * Смотрите также {@link SetCurThreadDesc}().
+ * Смотрите также {@link SetCurThreadDesc}.
  * @returns {unknown} -
  */
 declare function SetCurThreadActivityName(desc: string): unknown;
@@ -3598,10 +4235,7 @@ declare function UserError(desc: string, innerError?: string): never;
  * @param {Array} filesArray - Массив, содержащий список файлов или папок, которые нужно заархивировать (Array).
  * @param {any} [options] - Объект с параметрами (Object).
  * @returns {undefined}
- * @example
- * ```
- * ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
- * ```
+ * @example ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
  */
 declare function ZipCreate(archivePath: string, filesArray: string[], options: Object): undefined;
 
@@ -3751,8 +4385,8 @@ declare function SimulateCrash(): never;
 
 /**
  * Узкоспециализированная функция.
- * Работает аналогично {@link Sleep}(), но с продолжением обработки очереди сообщений в главном потоке в SpXml.exe.
- * Будучи вызванной не в главном потоке либо не в SpXml.exe, работает в точности как {@link Sleep}().
+ * Работает аналогично {@link Sleep}, но с продолжением обработки очереди сообщений в главном потоке в SpXml.exe.
+ * Будучи вызванной не в главном потоке либо не в SpXml.exe, работает в точности как {@link Sleep}.
  * @param {number} timeout - Таймаут в миллисекундах
  * @returns {unknown} -
  */
@@ -3771,6 +4405,8 @@ declare function UnifyPhones(str: string): string;
  * @returns {unknown} -
  */
 declare function DropXQueryCache(): unknown;
+
+//#endregion
 
 //#region Устаревшие функции
 
@@ -3839,7 +4475,7 @@ declare function BuildWebHtml(): unknown;
 declare function ChangeAppSn(): unknown;
 
 /**
- * Устаревшее название функции {@link ParseJson}().
+ * Устаревшее название функции {@link ParseJson}.
  * @deprecated
  * @returns {unknown} -
  */
@@ -4022,7 +4658,7 @@ declare function SetDefaultPrintFont(): unknown;
 /**
  * Устанавливает авторизацию, используемую клиентом по умолчанию.
  * Можно использовать только на spxml т.к. он не делает одновременных запросов по разным адресам
- * Устаревшая функция. Рекомендуется передавать данные авторизации через опции в {@link HttpRequest}().
+ * Устаревшая функция. Рекомендуется передавать данные авторизации через опции в {@link HttpRequest}.
  * @deprecated
  * @param {string} login - Логин.
  * @param {string} password - Пароль.
@@ -4054,7 +4690,7 @@ declare function StoreCatalogEntry(): unknown;
 
 /**
  * Дешифрует строку, зашифрованную простым встроенным алгоритмом.
- * Устаревшая функция. Рекомендуется использовать {@link StrStdDecrypt}().
+ * Устаревшая функция. Рекомендуется использовать {@link StrStdDecrypt}.
  * @deprecated
  * @param {string} str - Дешифруемая строка.
  * @returns {string} - Результат.
@@ -4063,7 +4699,7 @@ declare function StrSimpleDecrypt(str: string): string;
 
 /**
  * Шифрует сроку встроенным алгоритмом шифрования.
- * Устаревшая функция. Рекомендуется использовать {@link StrStdEncrypt}().
+ * Устаревшая функция. Рекомендуется использовать {@link StrStdEncrypt}.
  * @deprecated
  * @param {string} str - Шифруемая строка.
  * @returns {string} - Результат.
@@ -4080,7 +4716,7 @@ declare function SyncDb(): unknown;
 
 /**
  * Устаревшая функция.
- * Рекомендуется использовать {@link UrlDecode}()
+ * Рекомендуется использовать {@link UrlDecode}
  * @deprecated
  * @returns {unknown} -
  */
