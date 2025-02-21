@@ -2430,6 +2430,115 @@ declare function HtmlEncodeDoc(str: string): string;
 
 //#endregion
 
+//#region Работа с формами данных
+
+/**
+ * Создает форму из строки, содержащей описание в формате XMD. Возвращает объект типа XmlForm.
+ * @param {string} formStr - Строка, содержащая описание формы в формате XMD.
+ * @example var form = CreateFormFromStr("<SPXML-FORM><generic_view></generic_view></SPXML-FORM>");
+ * @returns {unknown} - Результат.
+ * @see {@link RegisterFormFromStr}
+ */
+declare function CreateFormFromStr(formStr: string): unknown;
+
+/**
+ * Создает новый элемент формы. Созданный элемент формы не имеет родительского элемента.
+ * Функция используется в редких случаях, например для динамической генерации форм данных.
+ * @param {string} name - Имя поля `XMD`-формы.
+ * @param {string} type - Тип данных `XMD`-формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function CreateFormElem(name: string, type: string): XmlFormElem;
+
+/**
+ * Если форма с данным `URL` уже находится в кэше, возвращается уже загруженный вариант.
+ * @param {string} formUrl - `URL` формы.
+ */
+declare function FetchForm(formUrl: string): undefined;
+
+/**
+ * Пытается найти форму в кэше загруженных форм по заданному `URL`.
+ * Если такая форма была загружена в кэш, возвращает объект ссылка на форму, если нет - возвращает undefined.
+ * @param {string} url - `URL` формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function GetOptCachedForm(url: string): XmlForm;
+
+/**
+ * Регистрирует XML-форму, описанную в строке. Используется для программной генерации форм "на лету".
+ * @param {string} formUrl - `URL`, по которому будет зарегистрирована форма.
+ * @param {string} formData - Строка с описанием формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function RegisterFormFromStr(formUrl: string, formData: string): XmlForm;
+
+/**
+ * Редко используемая функция.
+ * Регистрирует фрагмент/элемент существующий формы под новым `URL`.
+ * Новый `URL` состоит из `URL` формы и полного наименования элемента формы,
+ * которое включает в себя путь внутри формы от корня до этого элемента.
+ * Возвращает `URL` новой формы.
+ * @param {string} formUrl - `URL` формы.
+ * @param {string} formPath - Полное наименование элемента формы,
+ * включающее в себя путь внутри формы от корня до этого элемента.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * RegisterSubForm("base3_events.xmd", "events.event");
+ * ```
+ */
+declare function RegisterSubForm(formUrl: string, formPath: string): string;
+
+/**
+ * Регистрирует пару (`URL` документа) - (`URL` формы) для автоматически создаваемого документа.
+ * Если где-то из программы будет обращение к этому документу с попыткой его открыть,
+ * а документ еще не создан, то он будет создан по форме и открыт.
+ * Если документ на момент обращения уже будет существовать, то он будет открыт по той же форме.
+ * Используется для регистрации в программе каких-либо файлов, содержащих настройки,
+ * которых изначально нет, но при первой попытки обращения к ним она фактически создаются в базе данных.
+ * @param {string} documentUrl - Url документа.
+ * @param {string} formUrl - Url формы.
+ * @returns {undefined}
+ * @example RegisterAutoDoc("x-local://static/global-settings.xml", "x-app://rcr/rcr_global_settings.xmd");
+ */
+declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefined;
+
+/**
+ * Находит зарегистрированный AutoDoc (т.е пару `URL` документа - `URL` формы,
+ * смотри так же функцию RegisterAutoDoc) в списке зарегистрированных автоматически документов,
+ * и возвращает ссылку на форму.
+ * Если соответствующая пара в списке отсутствует, возвращает undefined.
+ * @param {string} documentUrl - `URL` документа.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function GetOptAutoDocForm(documentUrl: string): XmlForm;
+
+/**
+ * Регистрирует отображение (mapping) одной формы в другую.
+ * Mapping - это таблица, в которой содержит соответствия между старыми и новыми формами документов.
+ * При попытке открыть документ по старой форме, будет автоматически вызвана новая форма,
+ * на которую указывает элемент таблицы. Функция используется в редких случаях,
+ * обычно при конвертации данных из предыдущих версий программы.
+ * @param {string} formUrl - `URL` старой формы.
+ * @param {string} newForm - `URL` новой формы.
+ */
+declare function RegisterFormMapping(formUrl: string, newForm: string): undefined;
+
+/**
+ * Удаляет все зарегистрированные при помощи функции {@link RegisterFormMapping}() перенаправления форм.
+ * Функция обычно используется при конвертации баз данных из предыдущих версий программы.
+ */
+declare function DeleteAllFormMappings(): undefined;
+
+/**
+ * Удаляет определенные форму из кэша. Функция используется в редких случаях при изменении структур данных на лету.
+ * @param {string} urlPattern - Маска `URL` формы (т.е. `XMD`-файла).
+ * @example DropFormsCache("*candidate*")
+ */
+declare function DropFormsCache(urlPattern: string): undefined;
+
+//#endregion
+
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
  * @param {string} name - Имя элемента.
@@ -2754,105 +2863,6 @@ declare function OpenDoc<T = XmlDocument>(url: string, options?: string): T;
  * Аргумент doc - открытый документ (объект XmlDoc).
  */
 declare function UpdateUiDoc(): undefined;
-
-/**
- * Удаляет определенные форму из кэша. Функция используется в редких случаях при изменении структур данных на лету.
- * @param {string} urlPattern - Маска `URL` формы (т.е. `XMD`-файла).
- * DropFormsCache( '*candidate*' ).
- */
-declare function DropFormsCache(urlPattern: string): undefined;
-
-/**
- * Создает новый элемент формы. Созданный элемент формы не имеет родительского элемента.
- * Функция используется в редких случаях, например для динамической генерации форм данных.
- * @param {string} name - Имя поля `XMD`-формы.
- * @param {string} type - Тип данных `XMD`-формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function CreateFormElem(name: string, type: string): XmlFormElem;
-
-/**
- * Пытается найти форму в кэше загруженных форм по заданному `URL`.
- * Если такая форма была загружена в кэш, возвращает объект ссылка на форму, если нет - возвращает undefined.
- * @param {string} url - `URL` формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function GetOptCachedForm(url: string): XmlForm;
-
-/**
- * Удаляет все зарегистрированные при помощи функции {@link RegisterFormMapping}() перенаправления форм.
- * Функция обычно используется при конвертации баз данных из предыдущих версий программы.
- */
-declare function DeleteAllFormMappings(): undefined;
-
-/**
- * Регистрирует отображение (mapping) одной формы в другую.
- * Mapping - это таблица, в которой содержит соответствия между старыми и новыми формами документов.
- * При попытке открыть документ по старой форме, будет автоматически вызвана новая форма,
- * на которую указывает элемент таблицы. Функция используется в редких случаях,
- * обычно при конвертации данных из предыдущих версий программы.
- * @param {string} formUrl - `URL` старой формы.
- * @param {string} newForm - `URL` новой формы.
- */
-declare function RegisterFormMapping(formUrl: string, newForm: string): undefined;
-
-/**
- * Находит зарегистрированный AutoDoc (т.е пару `URL` документа - `URL` формы,
- * смотри так же функцию RegisterAutoDoc) в списке зарегистрированных автоматически документов,
- * и возвращает ссылку на форму.
- * Если соответствующая пара в списке отсутствует, возвращает undefined.
- * @param {string} documentUrl - `URL` документа.
- * @returns {XmlForm} XmlForm.
- */
-declare function GetOptAutoDocForm(documentUrl: string): XmlForm;
-
-/**
- * Если форма с данным `URL` уже находится в кэше, возвращается уже загруженный вариант.
- * @param {string} formUrl - `URL` формы.
- */
-declare function FetchForm(formUrl: string): undefined;
-
-/**
- * Регистрирует XML-форму, описанную в строке. Используется для программной генерации форм "на лету".
- * @param {string} formUrl - `URL`, по которому будет зарегистрирована форма.
- * @param {string} formData - Строка с описанием формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function RegisterFormFromStr(formUrl: string, formData: string): XmlForm;
-
-/**
- * Регистрирует пару (`URL` документа) - (`URL` формы) для автоматически создаваемого документа.
- * Если где-то из программы будет обращение к этому документу с попыткой его открыть,
- * а документ еще не создан, то он будет создан по форме и открыт.
- * Если документ на момент обращения уже будет существовать, то он будет открыт по той же форме.
- * Используется для регистрации в программе каких-либо файлов, содержащих настройки,
- * которых изначально нет, но при первой попытки обращения к ним она фактически создаются в базе данных.
- * @param {string} documentUrl - Url документа.
- * @param {string} formUrl - Url формы.
- * @returns {undefined}
- * @example
- * ```
- * RegisterAutoDoc("x-local://static/global-settings.xml", "x-app://rcr/rcr_global_settings.xmd");
- * ```
- */
-declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefined;
-
-/**
- * Редко используемая функция.
- * Регистрирует фрагмент/элемент существующий формы под новым `URL`.
- * Новый `URL` состоит из `URL` формы и полного наименования элемента формы,
- * которое включает в себя путь внутри формы от корня до этого элемента.
- * Возвращает `URL` новой формы.
- * @param {string} formUrl - `URL` формы.
- * @param {string} formPath - Полное наименование элемента формы,
- * включающее в себя путь внутри формы от корня до этого элемента.
- * @returns {string} Результат.
- * @example
- * ```
- * RegisterSubForm("base3_events.xmd", "events.event");
- * ```
- */
-declare function RegisterSubForm(formUrl: string, formPath: string): string;
 
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
