@@ -2539,6 +2539,143 @@ declare function DropFormsCache(urlPattern: string): undefined;
 
 //#endregion
 
+//#region Работа с базой данных приложения
+
+/**
+ * Функция получает на вход массив каталожных записей (например результат XQuery),
+ * и для каждого поля с FOREIGN-ARRAY каждой записи, заносит foreign elem в кэш каталога, при условии, что каталог, на который ссылается FOREIGN-ARRAY, имеет модель кэширования discrete.
+ * Это ровно то же самое, что делает функция {@link XQuery} с опцией preload-foreign-data на клиентской части приложения.
+ * Но, если {@link XQuery} была вызвана на сервере, а результат был передан на клиентскую часть отдельным способом, опция preload-foreign-data не сработает,
+ * и в этом случае на клиентской части может потребоваться вызов PreloadXQueryResultForeignRecords.
+ * Будучи вызванной на сервере со встроенной СУБД, функция PreloadXQueryResultForeignRecords не производит никаких действий,
+ * поскольку встроенная СУБД имеет собственное кэширование.
+ * @param {unknown[]} recordsArray - Массив каталожных записей
+ * @returns {unknown} - Результат.
+ */
+declare function PreloadXQueryResultForeignRecords(recordsArray: unknown[]): unknown;
+
+/**
+ * Функция получает на вход массив каталожных записей (например результат XQuery), и для каждой записивыполняет проверку прав доступа текущего пользователя на чтение.
+ * Если для записи отстутвуют права доступа, поля записи проходят через обфускацию.
+ * Это ровно то же самое, что делает функция {@link XQuery} на сервере, будучи вызванной с клиента.
+ * Но, если {@link XQuery} была вызвана на сервере, а результат будет передан на клиентскую часть отдельным способом, встроенная проверка не сработает,
+ * и в этом случае перед отправкой данных на клиентскую часть может потребоваться вызов {@link PreprocessRecordsByReadAccess}.
+ * Будучи вызванной на сервере со встроенной СУБД, функция {@link PreloadXQueryResultForeignRecords} не производит никаких действий, поскольку встроенная СУБД имеет собственное кэширование.
+ * @param {unknown[]} recordsArray - Массив каталожных записей
+ * @returns {unknown} - Результат.
+ */
+declare function PreprocessRecordsByReadAccess(recordsArray: unknown[]): unknown;
+
+/**
+ * Выполняет заданный запрос XQuery. В сетевой версии приложения запрос выполняется на сервере.
+ * `lds-server` - явный адрес сервера приложения, на который будет отправлен запрос.
+ * Используется для обмена данных между серверами.
+ * `preload-foreign-data` - заранее кэшировать связанные данные {@link Boolean}.
+ * Обычно используется при показе списков в пользовательском интерфейсе сетевой версии,
+ * в которых будет использовать связанные данные (ForeignElem).
+ * @param {string} query - Строка, содержащая запрос.
+ * @param {string} [options] - Набор опций.
+ * @returns {Array} Результат.
+ * @example
+ * ```
+ * XQuery("for $elem in candidates order by $elem/fullname return $elem", "preload-foreign-data=1");
+ * ```
+ */
+declare function XQuery<T>(query: string, options?: string): T[];
+
+/**
+ * Выполняет заданный запрос XQuery на клиентской машине.
+ * Используется для запроса данных из каталогов локальных баз данных.
+ * @param {string} query - Строка, содержащая запрос.
+ * @returns {Array} Результат.
+ */
+declare function XQueryLocal<T>(query: string): T;
+
+/**
+ * Открывает базу данных и помещает ее в список открытых баз.
+ * Если база уже открыта, возвращается ссылка на открытую базу из списка.
+ * @param {string} name - Наименование базы данных.
+ * @returns {XmlDatabase} XmlDatabase.
+ */
+declare function FetchDb(name: string): unknown;
+
+/**
+ * На основании наименования зашифрованной базы данных (модуля)
+ * выдает полный путь до зашифрованного модуля базы данных (XFP - файл).
+ * Функция не проверяет фактическое существование файла по указанному пути.
+ * @param {string} moduleName - Наименование базы данных.
+ * @returns {string} Результат.
+ * @example GetDbFilePath("app2") == "С:\Program files\EStaff\app2.xfp";
+ */
+declare function GetDbFilePath(moduleName: string): string;
+
+/**
+ * Преобразует имя каталога в имя объекта.
+ * Фактически функция преобразует имя существительное множественного числа
+ * в имя существительное единственного числа по правилам английского языка.
+ * @param {string} catalogName - Название каталога.
+ * @returns {string} Результат.
+ * @example CatalogNameToObjectName("candidates") == "candidate";
+ */
+declare function CatalogNameToObjectName(catalogName: string): string;
+
+/**
+ * Аналог функции {@link LoadUrlData}, позволяющий явно указать адрес сервера приложения,
+ * с которого будут загружаться данные.
+ * Используется как правило для синхронизации данных
+ * или обмена данными между несколькими серверами приложений.
+ * @param {string} url - Url.
+ * @param {string} [options] - Опции.
+ * @returns {string} Результат.
+ * @example LoadUrlData("x-local://shared/xxx.xml", "lds-server=test2.datex.ru:9000");
+ */
+declare function LoadLdsUrlData(url: string, options?: string): string;
+
+/**
+ * Устанавливает директорию, которую программа будет считать
+ * местом расположения базы данных. По умолчанию директория называется так же,
+ * как и база И располагается в программной директории.
+ * Функция используется, если нужно поместить базу в другую директорию.
+ * @param {string} dbName - Наименование базы данных.
+ * @param {string} dirUrl - Url директории.
+ * @returns {undefined}
+ */
+declare function SetDbHostDir(dbName: string, dirUrl: string): undefined;
+
+/**
+ * Выдает true, если указанная база данных находится
+ * в зашифрованном модуле (XFP - файл), и false, если не содержит.
+ * @param {string} dbName - Наименование базы данных.
+ * @returns {boolean} Результат.
+ * @example IsPackageDb("app2")
+ */
+declare function IsPackageDb(dbName: string): boolean;
+
+/**
+ * Осуществляет загрузку в указанную зашифрованную базу данных
+ * (модуль) информации из объекта. Используется, например,
+ * при подгрузке интернет-модулей в E-Staff c сайта производителя.
+ * Объект, информация из которого может быть загружена в базу данных,
+ * создается специальной командой new FilePackage,
+ * после чего в объект помещается информация, например,
+ * при помощи метода {@link LoadFromStr}.
+ * @param {string} dbName - Имя базы данных.
+ * @param {object} filePackage - Объект типа FilePackage, информация из которого загружается в базу данных.
+ * @returns {undefined}
+ */
+declare function SetDbFilePackage(dbName: string, filePackage: Object): undefined;
+
+/**
+ * Ищет каталог по имени во всех используемых базах данных.
+ * Если не находит - возвращает undefined.
+ * @param {string} catalogName - Наименование каталога базы данных.
+ * @returns {object} Результат.
+ * @example var catalog = FindOptCatalog("events");
+ */
+declare function FindOptCatalog(catalogName: string): Object;
+
+//#endregion
+
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
  * @param {string} name - Имя элемента.
@@ -2617,118 +2754,6 @@ declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
  * @returns {XmlElem<unknown>} Результат.
  */
 declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
-
-
-/**
- * Открывает базу данных и помещает ее в список открытых баз.
- * Если база уже открыта, возвращается ссылка на открытую базу из списка.
- * @param {string} name - Наименование базы данных.
- * @returns {XmlDatabase} XmlDatabase.
- */
-declare function FetchDb(name: string): unknown;
-
-/**
- * Аналог функции {@link LoadUrlData}, позволяющий явно указать адрес сервера приложения,
- * с которого будут загружаться данные.
- * Используется как правило для синхронизации данных
- * или обмена данными между несколькими серверами приложений.
- * @param {string} url - Url.
- * @param {string} [options] - Опции.
- * @returns {string} Результат.
- * @example LoadUrlData("x-local://shared/xxx.xml", "lds-server=test2.datex.ru:9000");
- */
-declare function LoadLdsUrlData(url: string, options?: string): string;
-
-/**
- * На основании наименования зашифрованной базы данных (модуля)
- * выдает полный путь до зашифрованного модуля базы данных (XFP - файл).
- * Функция не проверяет фактическое существование файла по указанному пути.
- * @param {string} moduleName - Наименование базы данных.
- * @returns {string} Результат.
- * @example GetDbFilePath("app2") == "С:\Program files\EStaff\app2.xfp";
- */
-declare function GetDbFilePath(moduleName: string): string;
-
-/**
- * Преобразует имя каталога в имя объекта.
- * Фактически функция преобразует имя существительное множественного числа
- * в имя существительное единственного числа по правилам английского языка.
- * @param {string} catalogName - Название каталога.
- * @returns {string} Результат.
- * @example CatalogNameToObjectName("candidates") == "candidate";
- */
-declare function CatalogNameToObjectName(catalogName: string): string;
-
-/**
- * Ищет каталог по имени во всех используемых базах данных.
- * Если не находит - возвращает undefined.
- * @param {string} catalogName - Наименование каталога базы данных.
- * @returns {object} Результат.
- * @example
- * ```
- * const catalog = FindOptCatalog("events");
- * ```
- */
-declare function FindOptCatalog(catalogName: string): Object;
-
-/**
- * Осуществляет загрузку в указанную зашифрованную базу данных
- * (модуль) информации из объекта. Используется, например,
- * при подгрузке интернет-модулей в E-Staff c сайта производителя.
- * Объект, информация из которого может быть загружена в базу данных,
- * создается специальной командой new FilePackage,
- * после чего в объект помещается информация, например,
- * при помощи метода {@link LoadFromStr}.
- * @param {string} dbName - Имя базы данных.
- * @param {object} filePackage - Объект типа FilePackage, информация из которого загружается в базу данных.
- * @returns {undefined}
- */
-declare function SetDbFilePackage(dbName: string, filePackage: Object): undefined;
-
-/**
- * Выдает true, если указанная база данных находится
- * в зашифрованном модуле (XFP - файл), и false, если не содержит.
- * @param {string} dbName - Наименование базы данных.
- * @returns {boolean} Результат.
- * @example IsPackageDb("app2")
- */
-declare function IsPackageDb(dbName: string): boolean;
-
-/**
- * Устанавливает директорию, которую программа будет считать
- * местом расположения базы данных. По умолчанию директория называется так же,
- * как и база И располагается в программной директории.
- * Функция используется, если нужно поместить базу в другую директорию.
- * @param {string} dbName - Наименование базы данных.
- * @param {string} dirUrl - Url директории.
- * @returns {undefined}
- */
-declare function SetDbHostDir(dbName: string, dirUrl: string): undefined;
-
-/**
- * Выполняет заданный запрос XQuery на клиентской машине.
- * Используется для запроса данных из каталогов локальных баз данных.
- * @param {string} query - Строка, содержащая запрос.
- * @returns {Array} Результат.
- */
-declare function XQueryLocal<T>(query: string): T;
-
-/**
- * Выполняет заданный запрос XQuery. В сетевой версии приложения запрос выполняется на сервере.
- * `lds-server` - явный адрес сервера приложения, на который будет отправлен запрос.
- * Используется для обмена данных между серверами.
- * `preload-foreign-data` - заранее кэшировать связанные данные {@link Boolean}.
- * Обычно используется при показе списков в пользовательском интерфейсе сетевой версии,
- * в которых будет использовать связанные данные (ForeignElem).
- * @param {string} query - Строка, содержащая запрос.
- * @param {string} [options] - Набор опций.
- * @returns {Array} Результат.
- * @example
- * ```
- * XQuery("for $elem in candidates order by $elem/fullname return $elem", "preload-foreign-data=1");
- * ```
- */
-declare function XQuery<T>(query: string, options?: string): T[];
 
 /**
  * Возвращает документ с заданным url из кэша.
