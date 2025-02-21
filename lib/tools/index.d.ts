@@ -621,7 +621,7 @@ declare namespace tools {
    * @param {string|number} value - Значение поля в каталоге, по которому происходит поиск.
    * @returns {T} XmlDocument.
    */
-  function obtain_doc_by_key<T extends XmlDocument>(catalogName: unknown, key: unknown, value: string|number): T;
+  function obtain_doc_by_key<T extends XmlDocument>(catalogName: unknown, key: unknown, value: string | number): T;
 
   /**
    * Возвращает продолжительность периода времени в секундах.
@@ -1745,7 +1745,7 @@ declare namespace tools {
    * либо TopElem сотрудника.
    * @returns {number[]} Список каталожных записей из профилей компетенции, указанного сотрудника.
    */
-  function get_user_comp_profiles(objectParam: number | object| XmlTopElem): number[];
+  function get_user_comp_profiles(objectParam: number | object | XmlTopElem): number[];
 
   function get_object_data_from_package_url(urlPackage: string, objectId: number, objectType: string): unknown;
 
@@ -1916,7 +1916,7 @@ declare namespace tools {
    * либо массив элементов (сотрудников, подразделений, организаций, групп).
    * @returns {unknow[]} Массив каталожных записей функциональных руководителей.
    */
-  function get_relative_boss_types(object: number | XmlDocument | XmlTopElem, personParameter: number|unknown[]): unknown[];
+  function get_relative_boss_types(object: number | XmlDocument | XmlTopElem, personParameter: number | unknown[]): unknown[];
 
   /**
    * Возвращает массив каталожных записей операций, определяемых типами руководителей
@@ -1935,7 +1935,7 @@ declare namespace tools {
    * @returns {boolean} Возвращает значение, показывающее, входит ли указанная операция в массив операций
    * (true – операция входит в массив операций, false – операция не входит в массив операций).
    */
-  function check_relative_operation(manager: unknown, operation: string|number): boolean;
+  function check_relative_operation(manager: unknown, operation: string | number): boolean;
 
   /**
    * Возвращает массив из каталожных записей типов функциональных руководителей (boss_types),
@@ -2570,13 +2570,14 @@ declare namespace tools {
    * @param {string} sResourcesDirPath - Путь до папки с ресурсами (изображения, стили и т.д.),
    * которые используются в html. При отсутствии таких ресурсов указывается пустая строка ('').
    * @param {string} sOutFilePath - Путь до файла, в который будет сохранен полученный файл pdf.
+   * @param {0 | 1} iPageOrientation - Ориентация листа. 0 - Вертикальная 1 - Горизонтальная
    * @returns {boolean} Возвращает значение `true`, если преобразование завершилось успешно,
    * или `false` - в противном случае.
    * @example
    * // returns true
    * tools.html_to_pdf(_str, "", UrlToFilePath(_filename));
    */
-  function html_to_pdf(sHtmlText: string, sResourcesDirPath: string, sOutFilePath: string): boolean;
+  function html_to_pdf(sHtmlText: string, sResourcesDirPath: string, sOutFilePath: string, iPageOrientation?: 0 | 1): boolean;
 
   /**
    * Устанавливает тип руководителя для участника проекта.
