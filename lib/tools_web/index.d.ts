@@ -131,7 +131,7 @@ declare namespace tools_web {
    * @param {T} value - Payload.
    * @param {number} duration - Время жизни кэша.
    * @param {string} listName - Данные.
-   * @returns {unknown}.
+   * @returns {unknown} -
    */
   function set_user_data<T>(conditions: Object, value: T, duration: number, listName: string): unknown;
 
@@ -177,7 +177,7 @@ declare namespace tools_web {
    * Отправка файла в response stream.
    * @param {string} url - Url файла.
    * @param {Request} request - Объект запроса Request.
-   * @returns {unknown}.
+   * @returns {unknown} -
    */
   function write_url_to_response(url: string, request: Object): unknown;
 

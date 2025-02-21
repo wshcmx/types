@@ -1,89 +1,37 @@
-/**
- * Проверяет строку на соответствие контрольной сумме, вычисленной по алгоритму PamMd5.
- * @param {string} str - Проверяемая строка.
- * @param {string} arg - Контрольная сумма.
- * @returns {boolean} Результат.
- * @example
- * ```
- * CheckPamMd5(str,arg)
- * ```
- */
-declare function CheckPamMd5(str: string, arg: string): boolean;
+//#region Функции для работы с объектами
 
 /**
- * Возвращает true, если пользователем в буфер `Clipboard` скопировано нечто заданного формата.
- * Возвращает false, если нет (буфер пуст или его содержимое не того формата).
- * Обычно формат `text/plain` или `text/html`.
- * @param {string} format - Наименование формата.
- * @returns {boolean} Результат.
+ * Функция ядра, которая удаленно (на сервере) вызывает метод с параметрами для конкретного объекта.
+ * Примечание - По существу, оператор oResult = CallObjectMethod(oLib, ‘some_function’, [param1, param2])
+ * выполняет почти то же самое, что и oResult = oLib.some_function(param1, param2),
+ * с той разницей, что второй вариант выполнится там, где он вызван (на клиенте или на сервере),
+ * а первый вариант – всегда выполняется на сервере (но результат выполнения возвращается в место вызова).
+ * См. Также tools.call_code_library_method.
+ * @param {object} object - Тип: Объект без задания структуры (variant). Объект, для которого производится вызов метода.
+ * @param {string} method - Тип: Строка. Название вызываемого метода объекта.
+ * @param {T} [params] - (необязательный). Тип: Массив без описания структуры элементов. Массив параметров.
+ * В качестве элементов массива могут быть объекты разного типа – строки, числа, объекты, массивы…
+ * Порядок следования элементов в массиве должен соответствовать порядку параметров метода.
+ * Параметры могут быть перечислены через запятую, а весь массив - заключен в квадратные скобки.
+ * В случае, если параметры метода не предусмотрены, указывается пустой массив ([]).
+ * @returns {unknown} Result.
  */
-declare function ClipboardFormatAvailable(format: string): boolean;
+declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
 
 /**
- * Вычисляет контрольную сумму по алгоритму CRC.
- * @param {string} arg - Строка, содержащая массив байт.
- * @returns {number} Контрольная сумма.
+ * Функция работает аналогично функции {@link CallObjectMethod}(), но с блокировкой доступа через переданный lock.
+ * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
+ * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
+ * {@link GetObjectPropertyWithLock}()
+ * {@link Lock}
+ * {@link SetObjectPropertyWithLock}()
+ * @param {T} object - Объект произвольного типа
+ * @param {string} methodName - Имя метода.
+ * @param {unknown[]} argsArray - Стандартный массив аргументов.
+ * @param {Lock} lock - Объект типа Lock
+ * @returns {unknown} Result.
  */
-declare function CRC(arg: string): number;
-
-/**
- * Выдает сообщение, содержащее значение параметра.
- * На сервере сообщение записывается в журнал 'xhttp',
- * на рабочем месте - в виде всплывающего окна {@link MsgBox}.
- * @param {T} val - Значение.
- * @returns {T} Значение.
- * @example
- * ```
- * LoadUrlData(alert(url));
- * ```
- */
-declare function alert<T>(val: T): T;
-
-/**
- * Выдает true, если модуль, наименование которого указано в качестве аргумента,
- * используется программой, и false, если указанный модуль программой не используется.
- * Наименования стандартных модулей считывается из файла описания структуры приложения,
- * наименование подключаемого модуля считывается из файла первичных настроек
- * при запуске исполнимого файла. Функция используется, например, в ядре программы,
- * если необходимо по-разному его настраивать для работы с различными подключаемыми модулями.
- * @param {string} moduleName - Наименование модуля.
- * @example
- * ```
- * AppModuleUsed("module_datex");
- * ```
- * @returns {boolean} Результат.
- */
-declare function AppModuleUsed(moduleName: string): boolean;
-
-/**
- * Вызывает исключение специального типа, аналогичное нажатию кнопки "Cancel" пользователями.
- * Позволяет генерировать исключение, на которое не будет выдаваться сообщение об ошибке.
- */
-declare function Cancel(): never;
-
-/**
- * Проверяет не должен ли текущий поток завершиться (обычно после прерывания его пользователем).
- * Если да, вызывает исключение аналогично функции {@link Cancel}().
- * @returns {undefined} Если поток вызывает в цикле функцию {@link Sleep}(),
- * либо любую функцию, вызывающее сетевой запрос, то вызывать функцию
- * {@link CheckCurThread}() нет необходимости, поскольку вышеназванные функции
- * сами проверяют запрос на отмену выполнения потока.
- */
-declare function CheckCurThread(): undefined;
-
-/**
- * Увеличивает яркость цвета, переданного в качестве аргумента.
- * @param {string} color - Цвет в формате RGB.
- * @param {number} ratio - Действительное число обозначающее на сколько увеличивается/уменьшается яркость.
- * @returns {string} Результат.
- */
-declare function ColorNewBrightness(color: string, ratio: number): string;
-
-/**
- * Сигнализирует о завершении длительного процесса с упрощенным индикатором,
- * начатым при помощи функции {@link StartModalTask}().
- */
-declare function FinishModalTask(): undefined;
+declare function CallObjectMethodWithLock<T>(object: T, methodName: string, argsArray: unknown[], lock: Lock): unknown;
 
 /**
  * Извлекает содержимое составного документа html
@@ -95,911 +43,835 @@ declare function FinishModalTask(): undefined;
 declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
 
 /**
- * Выполняет заданный код в основном потоке на следующее системное событие.
- * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
- * Эта функция блокирует поток, и дожидается окончания выполнения вызванного кода.
- * Смотрите также {@link EvalAsync}.
- * @param {string} code - Код, который необходимо выполнить.
- * @param {T} args - Последующие аргументы - передаются выполняемому коду.
+ * Возвращает список имен всех свойств объектов класса.
+ * Возвращается полный список имен, описанных в деларации класса, независио от того,
+ * было ли конкретное свойтсо установлено в данном объекте.
+ * @param {T} object - Объект класса.
+ * @returns {unknown} -
  */
-declare function EvalSync<T>(code: string, args: T): void;
+declare function GetClassObjectPropertyNames<T>(object: T): unknown;
 
 /**
- * Включает/выключает заданный журнал.
- * @param {string} name - Название журнала.
- * @param {boolean} [enable=true] - Включить/выключить (Bool).
- * @example
- * ```
- * EnableLog("xquery", true);
- * ```
+ * Функция позволяет получить значение свойства абстрактного объекта по имени динамическим способом.
+ * Таким образом, вызов GetObjectProperty( object, 'xxx' ) эквивалентен выражению object.xxx.
+ * Для стандартного объекта вызов GetObjectProperty( object, propName ) эквивалентен вызову object[propName].
+ * В зависимости от типа объекта при попытке получить свойство, которое отсутствует в объекте,
+ * возможно как срабатывание исключения, так и возращение результата undefined.
+ * @param {T} object - Объект.
+ * @param {string} propertyName - Имя свойства.
+ * @returns {unknown} Результат.
  */
-declare function EnableLog(name: string, enable?: boolean): undefined;
+declare function GetObjectProperty<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | never;
 
 /**
- * Выполняет заданный код в основном потоке на следующее системное событие.
- * Обычно, если код выполняется в отдельном потоке, из него нельзя обращаться к пользовательскому интерфейсу.
- * Если же нужно сделать, например, обновление экрана, то этот код нужно вызывать через EvalAsync.
- * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
- * См. Также {@link EvalSync}.
- * @param {string} code - Код, который необходимо выполнить.
- * @param {T} args - И последующие аргументы - передаются выполняемому коду. Необязательные аргументы.
+ * Функция  эквивалентна {@link GetObjectProperty}() за одним исключением:
+ * если в качестве propertyName передано имя 'This', функция вернет ссылку на переданный объект.
+ * @param {T} object - Объект.
+ * @param {string} propertyName - Имя свойства либо This.
+ * @returns {unknown} Результат.
  */
-declare function EvalAsync<T>(code: string, args: T): void;
+declare function GetObjectPropertyOrSelf<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | T;
 
 /**
- * Возвращает значение системной переменной окружения.
- * @param {string} name - Имя переменной.
- * @returns {string} Значение.
- * GetSysEnvironmentVariable( 'windir' );.
+ * Функция работает аналогично функции {@link GetObjectProperty}(), но с блокировкой доступа через переданный lock.
+ * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
+ * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @param {Lock} lock - Объект типа {@link Lock}.
+ * @returns {unknown} Результат.
  */
-declare function GetSysEnvironmentVariable(name: string): string;
+declare function GetObjectPropertyWithLock<T, K extends keyof T>(object: T, propertyName: K | string, lock: Lock): T[K] | never;
 
 /**
- * Возвращает имя пользователя операционной системы под которым выполняется текущий процесс.
+ * Функция эквивалентна {@link GetObjectProperty}() за одним исключением:
+ * если в объекте отсутствует данное свойство, то функция возвращает undefined.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @returns {unknown} Результат.
+ */
+declare function GetOptObjectProperty<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | undefined;
+
+/**
+ * Функция позволяет установить значение свойства абстрактного объекта по имени динамическим способом.
+ * Таким образом, вызов SetObjectProperty(object, "xxx", value) эквивалентен выражению object.xxx = value.
+ * Для стандартного объекта вызов SetObjectProperty(object, propName, value) эквивалентен вызову object[propName] = value.
+ * В зависимости от типа объекта при попытке установить свойство, которое отсутствует в объекте, возможно срабатывание исключения.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @param {string} propertyValue - Значение свойства
+ * @returns {void | never} - Результат.
+ */
+declare function SetObjectProperty<T, K extends keyof T, V>(object: T, propertyName: K | string, propertyValue: V): void | never;
+
+/**
+ * Функция SetObjectPropertyWithLock() работает аналогично функции SetObjectProperty(), но с блокировкой доступа через переданный lock.
+ * То есть, если во время работы функции, из другого потока будет вызвана другая функция с этим же lock,
+ * то выполнение в другом потоке не начнется, пока не завершится вызов в первом потоке.
+ * @param {T} object - Объект произвольного типа.
+ * @param {string} propertyName - Имя свойства.
+ * @param {string} propertyValue - Значение свойства
+ * @param {Lock} lock - Объект типа {@link Lock}.
+ * @returns {void | never} - Результат.
+ */
+declare function SetObjectPropertyWithLock<T, K extends keyof T, V>(object: T, propertyName: K | string, propertyValue: V, lock: Lock): void | never;
+
+//#endregion
+
+//#region Преобразование типов данных
+
+/**
+ * Функция Compare() сравнивает два произвольных значения.
+ * Возращает 0, если значения равны, положительное число,
+ * если первое значение больше второго, и отрицательное число,
+ * если первое значение меньше второго.
+ * @param {T} value1 - Значение 1.
+ * @param {K} value2 - Значение 2.
+ * @returns {number} Результат.
+ */
+declare function Compare<T, K>(value1: T, value2: K): -1 | 0 | 1;
+
+/**
+ * Возвращает тип переданного значения.
+ * @param {T} entity - Проверяемое значение.
  * @returns {string} Результат.
  */
-declare function GetSysUserName(): string;
+declare function DataType<T>(entity: T): string;
 
 /**
- * Включает заданный журнал.
- * В отличие от функции {@link EnableLog}() позволяет задать дополнительные опции ведения журнала.
- * Возможные опции: life-time - период, на который заводится новый файла журнала ("day", "month", "permanent").
- * По умолчанию свой файл журнала заводится на каждую дату ("day") `base-dir` - директория,
- * в которой будут заводиться журнал.
- * По умолчанию используется директория `Logs` в установочной директории `use-std-event-prefix` - включать в начало
- * каждой строки журнала стандартный префикс (дата, время, Id потока) `boolean`.
- * По умолчанию `true`.
- * `header-str` - строка заголовка, добавляемая в начало каждого нового файла журнала.
- * По умолчанию строка заголовка не добавляется.
- * @param {string} name - Название журнала.
- * @param {string} options - Набор опций вида 'param1=value1;param2=value2;...'.
- * @returns {undefined}
- * @example
- * ```
- * EnableLogExt("web-request", "header-str=date\turl\tquery;use-std-event-prefix=0");
- * ```
- */
-declare function EnableLogExt(name: string, options?: string): undefined;
-
-/**
- * Проверяет, не нажата ли какая-либо клавиша в данный момент.
- * Обычно проверятся Ctrl или Shift.
- * @param {number} arg1 - Код клавиши.
+ * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
+ * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
+ * @param {any} arg - Любое значение.
  * @returns {boolean} Результат.
- */
-declare function IsKeyPressed(arg1: number): boolean;
-
-/**
- * Конструктор объекта MailMessage, предназначенной для хранения E-mail - сообщения.
- * Объект строится по форме x-app://app/sx_mail_message.xmd и является обычным объектом типа XmlElem.
- * @returns {MailMessage} Результат.
- */
-declare function MailMessage(): MailMessage;
-
-/**
- * Делает запись в файл лога определенного типа.
- * @param {string} type - Тип лога.
- * @param {string} text - Текст.
  * @example
  * ```
- * LogEvent(type, text).
+ * IsEmptyValue(123) === false
+ * IsEmptyValue("123") === false
+ * IsEmptyValue(null) === true
+ * IsEmptyValue("") === true
  * ```
  */
-declare function LogEvent(type: string, text: string): undefined;
+declare function IsEmptyValue(arg: Object): false;
 
 /**
- * Создает объект типа MailMessage на основании почтового сообщения в формате MIME.
- * @param {string} mimeData - Почтовое сообщение в формате MIME.
- * @returns {MailMessage} Результат.
- */
-declare function MailMessageFromMimeStr(mimeData: string): MailMessage;
-
-/**
- * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в бинарном формате (массив байт).
- * @param {string} data - Строка, содержащая массив байт.
- * @returns {string} Контрольная сумма.
- */
-declare function Md5(data: string): string;
-
-/**
- * Возвращает тип склонения существительного в русском языке для заданного числа.
- * @param {number} num - Число.
- * @returns {number} Возвращает тип склонения существительного в русском языке (0,1,2) для заданного числа:
- * 0 - "штук";
- * 1 - "штука";
- * 2 - "штуки".
- */
-declare function IntModType(num: number): number;
-
-/**
- * Максимальное значение из нескольких аргументов.
- * @param {number} number - Число 1.
- * @param {number[]} numbers - Числа.
- * @returns {number} Возвращает максимальное значение из нескольких аргументов.
- */
-declare function Max(number: number, ...numbers: number[]): number;
-
-/**
- * Выполняет HTTP-запрос.
- * @param {string} url - Url.
- * @param {string} [method="get"] - Метод `get` или `post`.
- * @param {string} [body] - Тело запроса.
- * @param {string} headers - Список дополнительных полей заголовка http-запроса
- * в соответствующем формате (имя:значение перевод строки).
- * Необязательный аргумент. Список также может содержать дополнительные опции.
- * Среди списка дополнительных полей заголовка возможно использование следующих опций,
- * которые обрабатываются отдельно и не попадают в передаваемый заголовок:
- * Ignore-Errors - Игнорировать наличие кода ошибки HTTP в ответе.
- * Если указана эта опция, код ошибки можно получить через атрибут RespCode возвращаемого объекта.
- * По умолчанию функция завершается с ошибкой в случае получения кода ошибки по HTTP.
- * Auto-Redirect - Автоматически следовать редиректам HTTP 303, HTTP 304. По умолчанию true.
- * @returns {HttpResponse} Объект ответа.
+ * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
+ * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
+ * @param {any} arg - Любое значение.
+ * @returns {boolean} Результат.
  * @example
  * ```
- * HttpRequest("http://reg.datex-soft.com/")
- * HttpRequest("http://reg.datex-soft.com/login.htm", "post", UrlEncodeQuery({ login: "xxx", password: "xxx" }))
- * HttpRequest(
- *   "http://reg.datex-soft.com/login.htm",
- *   "post",
- *   "<xxx>111</xxx>",
- *   "Content-type: text/xml\nIgnore-Errors: 1\n"
- * )
+ * IsEmptyValue(123) === false
+ * IsEmptyValue("123") === false
+ * IsEmptyValue(null) === true
+ * IsEmptyValue("") === true
  * ```
  */
-declare function HttpRequest(url: string, method?: string, body?: string, headers?: string): HttpResponse;
+declare function IsEmptyValue(arg: unknown): arg is undefined | null | "";
 
 /**
- * Возвращает минимальное значение из нескольких аргументов.
- * @param {number} number - Число.
- * @param {number[]} numbers - Числа.
+ * Возвращает тип переданного значения.
+ * @param {T} entity - Проверяемое значение.
+ * @returns {string} Результат.
+ */
+declare function ObjectType<T>(entity: T): string;
+
+/**
+ * Преобразует значение аргумента к вещественному числу.
+ * Если аргумент не может быть преобразован к вещественному числу,
+ * функция возвращает undefined либо defaultVal, если оно указано.
+ * @param {T} value - Целое число, вещественное число или строка, содержащая вещественное число.
+ * @param {K} [defaultValue] - Значение по умолчанию.
+ * @returns {number | K} Результат.
+ */
+declare function OptReal<T, K = undefined>(value: T, defaultValue?: K): number | K;
+
+/**
+ * Преобразует значение аргумента к вещественному числу.
+ * @param {string | number} value - Целое число, вещественное число или строка, содержащая вещественное число.
  * @returns {number} Результат.
  * @example
  * ```
- * Min(2, 5, 10, 15) === 2;
+ * Real(12.6);
+ * Real("12.6");
  * ```
  */
-declare function Min(number: number, ...numbers: number[]): number;
+declare function Real(value: string | number): number;
 
 /**
- * Возвращает Полное имя человека в виде "Фамилия И.О.".
- * @param {string} lastname - Фамилия.
- * @param {string} firstname - Имя.
- * @param {string} [middlename] - Отчество.
+ * Преобразует значение аргумента к целому числу.
+ * @param {number} value - Целое число, вещественное число или строка, содержащая число.
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * Int(123);
+ * Int("123");
+ * Int(123.45);
+ * ```
+ */
+declare function Int(value: string | number): number;
+
+/**
+ * Преобразует значение аргумента к целому числу.
+ * Если преобразование выполнить невозможно, возвращает undefined либо defaultVal, если оно указано.
+ * @param {T} value - Целое число, вещественное число или строка, содержащая число.
+ * @param {K} [defaultValue] - Значение по умолчанию.
+ * @returns {number | K} Результат.
+ */
+declare function OptInt<T, K = undefined>(value: T, defaultValue?: K): number | K;
+
+/**
+ * Возвращает скалярное значение аргумента, если в качестве аргумента передан объект.
+ * Если передано скалярное значение, возвращается оно же.
+ * @param {XmlElem<T> | T} value - Аргумент (Any).
+ * @returns {T} Результат.
+ */
+declare function RValue<T>(value: XmlElem<T> | T): T;
+
+/**
+ * Преобразует 10 обозначение цвета (RGB) в  шестнадцатеричное, принятое в формате html.
+ * @param {string} color - 10 обозначение цвета .
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrHexColor("128,128,128"); // "808080"
+ * ```
+ */
+declare function StrHexColor(color: string): string;
+
+/**
+ * Возвращает строку, содержащую аргумент в шестнадцатеричном виде (64 бита).
+ * @param {number} num - Число, которую нужно преобразовать.
+ * @returns {string} Строка.
+ * @example
+ * ```
+ * StrHexInt(1000); // "00000000000003E8"
+ * ```
+ */
+declare function StrHexInt(num: number): string;
+
+/**
+ * Преобразует целочисленный аргумент в строку.
+ * @param {number} arg - Целочисленный аргумент.
+ * @param {number} [digitsNum] - Минимальное число символов в строке.
+ * Недостающие символы компенсируются нулями перед числом.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами (Bool).
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrInt(11500) == '11500'
+ * StrInt(11500, 6) == '011500'
+ * StrInt(11500, 0, true) == '11 500'
+ * ```
+ */
+declare function StrInt(arg: number, digitsNum?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Преобразует целочисленный аргумент в строку.
+ * Используется в том числе для того что бы вывести отрицательное число.
+ * @param {number} value - Целочисленный аргумент.
+ * @param {number} [digitsNum] - Минимальное число символов в строке. Необязательный аргумент.
+ * Недостающие символы компенсируются нулями перед числом.
+ * @param {boolean} [addGroupDelim] - Флаг, разделять тысячные разряды пробелами или нет.
+ * @returns {string} Результат преобразования.
+ */
+declare function StrSignedInt(value: number, digitsNum?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Если значение целочисленного аргумента = 0 преобразует его в "-",
+ * иначе в строку (аналогично функции {@link StrInt}()).
+ * @param {number} arg - Целочисленный аргумент.
+ * @param {number} [digitsNum] - Минимальное число символов в строке.
+ * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
  * @returns {string} Результат.
  */
-declare function PersonShortName(lastname: string, firstname: string, middlename?: string): string;
+declare function StrIntZero(arg: number, digitsNum: number, addGroupDelim: boolean): string;
 
 /**
- * Вычисляет контрольную сумму по алгоритму PamMd5.
+ * Преобразует вещественный аргумент в строку.
+ * @param {number} value - Вещественный аргумент.
+ * @param {number} [precision=6] - Максимальное число знаков после запятой. По умолчанию 6.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrReal(90154.249); // "90154.249"
+ * StrReal(90154.249, 2); // "90154.25"
+ * StrReal(90154.249, 2, true); // "90 154.25"
+ * ```
+ */
+declare function StrReal(value: number, precision?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Преобразует вещественный аргумент в строку.
+ * @param {number} arg - Вещественный аргумент.
+ * @param {number} [precision] - Число символов в дробной части числа. Недостающие символы компенсируются нулями.
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * StrRealFixed(90154.2) == "90154.20";
+ * StrRealFixed(90154.2, 2, true) == "90 154.20";
+ * ```
+ */
+declare function StrRealFixed(arg: number, precision?: number, addGroupDelim?: boolean): string;
+
+/**
+ * Преобразует целое число в словесное строковое представление.
+ * Только для русского языка.
+ * @param {number} arg - Числовой аргумент.
+ * @param {0|1} [gender] - Род (0 - мужской, 1] - женский).
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * TextInt(121) == "сто двадцать один"
+ * TextInt(121, 1) == "сто двадцать одна"
+ * ```
+ */
+declare function TextInt(arg: number, gender: 0 | 1): string;
+
+//#endregion
+
+//#region Преобразование форматов и кодировок
+
+/**
+ * Проверяет строку в UTF-8 на валидность.
+ * Если в строке обнаруживается некорректная для UTF-8 последовательность байт, она заменяется на символ '?'.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Возвращается исходная либо измененная строка.
+ */
+declare function AdjustUtf8(str: string): string;
+
+/**
+ * Функция проверяет, является ли строка валидной строкой в кодировке UTF-8.
+ * Если да, возвращает саму строку.
+ * Если нет, декодирует строку, как если бы она была в однобайтовой кодировке, установленной по умолчанию (обычно windows-1251).
+ * Если приложение работает не в кодировке UTF-8, функция возвращает исходную строку без изменений.
+ * Функция поддерживается только на сервере или десктопном клиенте.
+ * @returns {string} Возвращается исходная либо измененная строка.
+ */
+declare function AutoDecodeCharset(): string;
+
+/**
+ * Функция кодирует строку, которая будет использоваться внутри MIME-заголовка,
+ * при условии что содержимое труебует кодирование (наппример, содержит не ASCII символы).
+ * Результат имеет вид "=?utf-8?B?<base64data>".
+ * @param {string} str - Исходная строка.
+ * @returns {string} Возвращается исходная либо измененная строка.
+ */
+declare function EncodeMimeHeaderValue(str: string): unknown;
+
+/**
+ * Функция преобразует строку в формате конфигурационного файла (.ini) в стандартный объект.
+ * @param {string} configData - Данные конфигурационного файла.
+ * @returns {{[key: string]: unknown}} Результат.
+ */
+declare function ParseConfig(configData: string): {[key: string]: unknown};
+
+/**
+ * Функция преобразует строку со значением поля MIME заголовка в стандартный объект,
+ * содержащий список вспомогательных параметров.
+ * @param {string} string - Строка со значением поля MIME заголовка.
+ * @returns {{[key: string]: string}} Результат.
+ */
+declare function ParseHeaderPairs(string: string): {[key: string]: string};
+
+/**
+ * Проверяет строку на некорректную кодировку, вызванную одним из типовых случаев неправильной двойной конвертации.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Возвращает новую в правильной кодировку, если ее удалось восстановить. В противном случае возвращается исходная строка.
+ */
+declare function RestoreBrokenCharsetEncoding(str: string): string;
+
+/**
+ * Преобразует строку из формата UTF-16 в UTF-8.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Результат.
+ */
+declare function Utf16ToUtf8(str: string): string;
+
+/**
+ * Маскирует определенные символы в строке, чтобы результат мог быть использован в XML - между тегами либо внутри атрибута.
+ * @param {string} str - Исходная строка.
+ * @example XmlEscape("aaa < bbb & ccc > ddd"); // "aaa &lt; bbb &amp; ccc &gt; ddd"
+ * @returns {string} Результат.
+ */
+declare function XmlEscape(str: string): string;
+
+/**
+ * Переводит строку из заданной кодировки в кодировку, используемой в программе по умолчанию.
+ * @param {string} str - Строка, которую нужно перевести.
+ * @param {string} charset - Название кодировки, в которую нужно перевести строку.
+ * @returns {string} Результат.
+ */
+declare function DecodeCharset(str: string, charset: WebtutorCharsets): string;
+
+/**
+ * Декодирует данные из формата Base64. Данные возвращаются в виде строки, которая может содержать бинарные данные.
+ * @param {string} str - Строка в Base64.
+ * @returns {string} Результат.
+ */
+declare function Base64Decode(str: string): string;
+
+/**
+ * Переводит строку из кодировки, используемой  в программе по умолчанию, в заданную кодировку.
+ * @param {string} str - Строка.
+ * @param {string} charset - Имя кодировки, в которую нужно перевести строку.
+ * @returns {string} Результат.
+ */
+declare function EncodeCharset(str: string, charset: WebtutorCharsets): string;
+
+/**
+ * Кодирует строку в формат Base64.
+ * @param {string} str - Строка. Может содержать бинарные данные.
+ * @returns {string} Результат.
+ */
+declare function Base64Encode(str: string): string;
+
+/**
+ * Преобразует 16-ричное представление в строку из байт.
+ * @param {string} str - Строка в 16-ричном представлении.
+ * @returns {string} Результат.
+ * Смотри также {@link HexData}()
+ */
+declare function DataFromHex(str: string): string;
+
+/**
+ * Преобразует массив байт в 16-ое представление.
  * @param {string} arg - Строка, содержащая массив байт.
+ * @example HexData("апрол"); // "E0EFF0EEEB"
  * @returns {string} Результат.
  */
-declare function PamMd5(arg: string): string;
+declare function HexData(arg: string): string;
 
 /**
- * Смешивает два цвета в заданной пропорции.
- * @param {string} color1 - Цвет в формате RGB.
- * @param {string} color2 - Цвет в формате RGB.
- * @param {number} [arg] - Пропорции. В случае его отсутствия цвета будут смешаны в пропорции 1 к 1.
+ * Кодирует обычный текст в формат rtf.
+ * @param {string} str - Строка, которую нужно преобразовать.
  * @returns {string} Результат.
  */
-declare function MixColors(color1: string, color2: string, arg?: number): string;
+declare function RtfEncode(str: string): string;
 
 /**
- * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в виде HEX-строки.
- * @param {string} data - Строка, содержащая массив байт.
+ * Переводит текст в формате rtf в обычный текст.
+ * @param {string} str - Текст в формате rtf.
  * @returns {string} Результат.
  */
-declare function Md5Hex(data: string): string;
+declare function RtfToPlainText(str: string): string;
 
 /**
- * Возвращает случайное целое число в заданном диапазоне.
- * @param {number} minVal - Нижняя граница диапазона.
- * @param {number} maxVal - Верхняя граница диапазона.
- * @returns {number} Результат.
+ * Кодирует значение как константу (литерал) языка SQL.
+ * Функция используется при генерировании выражений на SQL из программы.
+ * @param {any} arg - Аргумент произвольного типа.
+ * @returns {string}
+ * Значение типа string заключается в кавычки, при этом существующие кавычки внутри строки маскируются по правилам SQL.
+ * Значение типа integer переводится в соответствующее строковое значение.
+ * Значение типа date переводится в строку, содержащую дату в формате SQL.
  */
-declare function Random(minVal: number, maxVal: number): number;
+declare function SqlLiteral(arg: string | number | Date | null): string;
 
 /**
- * Вызывает отправку почтового сообщения через тот способ, который был выбран в настройках, как правило - Simple MAPI.
- * В качестве параметра передается объект, созданный функцией {@link MailMessage}.
- * @param {ReturnType<typeof MailMessage>} arg1 - Объект, созданный при помощи функции
- * {@link MailMessage} (Object SpXml).
+ * Дешифрует строку, зашифрованную встроенным алгоритмом шифрования.
+ * @param {string} str - Зашифрованная строка.
+ * @returns {string} Расшифрованная строка.
  */
-declare function SendMailMessage(arg1: ReturnType<typeof MailMessage>): void;
+declare function StrStdDecrypt(str: string): string;
 
 /**
- * Вызывает выполнение процесса.
- * `work-dir` - рабочая директория для процесса
- * `sys` - системный процесс `boolean`, в этом случае в качестве первого аргумента
- * функции можно указывать не путь до исполняемого файла,
- * а имя системного процесса `wait` - дожидаться завершения процесса `boolean`.
- * Если указана опция `wait=1`, функция вернет код завершения процесса (`0` - успешное завершение, иначе - ошибка).
- * В остальных случаях функция ничего не возвращает.
- * `hidden` - запуск без пользовательского интерфейса `boolean`
- * (рекомендуется включать, если функция вызывается с сервера).
- * @param {string} path - Путь к исполняемому файлу, или имя исполняемого файла.
- * @param {string} [cmdLine] - Аргументы командной строки.
- * @param {string} [options] - Набор опций через ";", в виде "имя опции=значение; ...".
- * @returns {number} Результат.
- * @example
- * ```
- * ProcessExecute(
- *   "C:\Temp\pkzipc.exe",
- *   " -add -rec -path=current xxx.zip 1.htm 2.htm",
- *   "wait=1;hidden=1;work-dir=C:\Temp"
- * );
- * ```
+ * Шифрует строку встроенным алгоритмом шифрования
+ * @param {string} str - Шифруемая строка.
+ * @returns {string} Зашифрованная строка.
  */
-declare function ProcessExecute(path: string, cmdLine: string, options: string): number;
+declare function StrStdDecrypt(str: string): string;
 
 /**
- * Устанавливает авторизацию, используемую клиентом по умолчанию.
- * Можно использовать только на `spxml`, так как он не делает одновременных запросов по разным адресам.
- * @param {string} log - Логин.
- * @param {string} pass - Пароль.
- * @returns {undefined}
- */
-declare function SetHttpDefaultAuth(log: string, pass: string): undefined;
-
-/**
- * Вычисляет hash функцию по алгоритму SHA1.
- * @param {string} str - Строка, содержащая массив байт.
+ * Декодирует строчку по стандартным правилам декодирования url, т.е. Заменяет знак "%код" на соответствующий символ.
+ * @param {string} url - Url.
+ * @example UrlDecode("qwerty%2D%E0%EF%F0%EE%EB%2Ehtm"); // "qwerty-апрол.htm"
  * @returns {string} Результат.
  */
-declare function SHA1(str: string): string;
+declare function UrlDecode(url: string): string;
 
 /**
- * Создает временную задержку, не загружая процессор.
- * @param {number} ticks - Величина задержки в миллисекундах.
- * @returns {undefined}
- */
-declare function Sleep(ticks: number): undefined;
-
-/**
- * Записывает текст в сроку состояния в главном окне программы.
- * Обычно используется для показа количества найденных объектов в списке.
- * @param {string} msg - Строка.
- * @example
- * ```
- * StatusMsg("Записей в списке: " + n);
- * ```
- * @returns {undefined}
- */
-declare function StatusMsg(msg: string): undefined;
-
-/**
- * Вычисляет hash функцию по алгоритму SHA1 и возвращает строку, закодированную в Base64.
- * @param {string} str - Строка, содержащая массив байт.
+ * Кодирует строку символов для использования в качестве параметра url.
+ * @param {string} str - Строка.
+ * @example UrlEncode("qwerty-апрол.htm"); // "qwerty%2D%E0%EF%F0%EE%EB%2Ehtm"
  * @returns {string} Результат.
  */
-declare function SHA1Base64(str: string): string;
+declare function UrlEncode(str: string): string;
 
 /**
- * Вызывает действие для Windows Shell.
- * @param {string} action - Вызываемое действие (как правило, "open" или "print").
- * @param {string} target - Путь к вызываемому файлу, или url.
- * @param {string?} args - Аргументы для вызываемой программы (если url определяет исполняемый файл).
- * @returns {undefined}
- * @example
- * ```
- * ShellExecute("open", "calc.exe");
- * ```
- * @example
- * ```
- * ShellExecute("print", "C:\\Temp\\xxx.doc");
- * ```
- * @example
- * ```
- * ShellExecute("open", "http://www.e-staff.ru/");
- * ```
- * @example
- * ```
- * ShellExecute("open", "mailto:support@e-staff.ru");
- * ```
- */
-declare function ShellExecute(action: string, target: string, args?: string): undefined;
-
-/**
- * Создает zip архив.
- * @param {string} archivePath - Путь (или url) к создаваемому архиву.
- * @param {Array} filesArray - Массив, содержащий список файлов или папок, которые нужно заархивировать (Array).
- * @param {any} [options] - Объект с параметрами (Object).
- * @returns {undefined}
- * @example
- * ```
- * ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
- * ```
- */
-declare function ZipCreate(archivePath: string, filesArray: string[], options: Object): undefined;
-
-/**
- * Распаковывает архив.
- * @param {string} archivePath - Путь до архива.
- * @param {string} destPath - Путь до папки, в которую нужно распаковать.
- * @returns {undefined}
- */
-declare function ZipExtract(archivePath: string, destPath: string): undefined;
-
-/**
- * Выбирает определенное поле (атрибут) из каждого элемента массива.
- * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
- * @param {Array} array - Исходный массив.
- * @param {string} field - Имя поля.
- * @returns {unknown[]} Результат.
- */
-declare function ArrayExtractKeys<T, K>(array: T[], field: string): K[];
-/**
- * Выбирает определенное поле (атрибут) из каждого элемента массива.
- * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @param {string} field - Имя поля.
- * @returns {unknown[]} Результат.
- */
-declare function ArrayExtractKeys<T, K>(array: XmlMultiElem<T>, field: string): K[];
-
-/**
- * Возвращает строку, полученную путем склеивания данных из элементов массива.
- * @param {Array} array - Массив.
- * @param {string} elemExpr - Выражение, вычисляющее значение, используемое для склейки, относительно элемента массива.
- * @param {string} [delim=""] - Строка-разделитель.
+ * Кодирует строку символов для использования в качестве параметра url, используя UTF-16.
+ * @param {string} str - Строка.
+ * @example UrlEncode("qwerty-апрол.htm"); // "qwerty%2D%u0430%u043F%u0440%u043E%u043B%2Ehtm"
  * @returns {string} Результат.
  */
-declare function ArrayMerge<T>(array: T[], elemExpr: string, delim?: string): string;
+declare function UrlEncode16(str: string): string;
+
 /**
- * Возвращает строку, полученную путем склеивания данных из элементов массива.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} elemExpr - Выражение, вычисляющее значение, используемое для склейки, относительно элемента массива.
- * @param {string} [delim=""] - Строка-разделитель.
+ * Преобразует объект типа Object в строку вида "name1=value1&name2=value2&..."
+ * для использования в качестве запроса в url.
+ * @param {object} obj - Объект, содержащий список значений.
  * @returns {string} Результат.
  */
-declare function ArrayMerge<T>(array: XmlMultiElem<T>, elemExpr: string, delim?: string): string;
+declare function UrlEncodeQuery(obj: Object): string;
 
 /**
- * Возвращает массив, содержащий элементы массива 1,
- * у которых значение ключевого поля совпадает хотя бы в с одним элементом массива 2.
- * @param {Array} array1 - Массив 1.
- * @param {Array} array2 - Массив 2.
- * @param {string} [fieldExpr1] - Выражение, вычисляемое относительно каждого элемента массива 1
- * и возвращающее значение ключа для сравнения. Необязательный аргумент.
- * Если аргумент не указан, используется значение самого элемента (This).
- * @param {string} [fieldExpr2] - Выражение, вычисляемое относительно каждого элемента массива 2
- * и возвращающее значение ключа для сравнения. Необязательный аргумент.
- * Если аргумент не указан, используется значение самого элемента (This).
- * @returns {T[]} Результат.
+ * Преобразует объект типа Object в строку вида "name1=value1&name2=value2&..."
+ * для использования в качестве запроса в url.
+ * @param {object} obj - Объект, содержащий список значений.
+ * @param {string} [charset] - Целевая кодировка.
+ * @returns {string} Результат.
  */
-declare function ArrayIntersect<T, K>(
-  array1: T[],
-  array2: K[],
-  fieldExpr1?: string,
-  fieldExpr2?: string
-): T[];
-/**
- * Возвращает массив, содержащий элементы массива 1,
- * у которых значение ключевого поля совпадает хотя бы в с одним элементом массива 2.
- * @param {Array} array1 - Массив 1.
- * @param {Array} array2 - Массив 2.
- * @param {string} [fieldExpr1] - Выражение, вычисляемое относительно каждого элемента массива 1
- * и возвращающее значение ключа для сравнения. Необязательный аргумент.
- * Если аргумент не указан, используется значение самого элемента (This).
- * @param {string} [fieldExpr2] - Выражение, вычисляемое относительно каждого элемента массива 2
- * и возвращающее значение ключа для сравнения. Необязательный аргумент.
- * Если аргумент не указан, используется значение самого элемента (This).
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArrayIntersect<T, K>(
-  array1: XmlMultiElem<T>,
-  array2: XmlMultiElem<K>,
-  fieldExpr1?: string,
-  fieldExpr2?: string
-): XmlElem<T>[];
+declare function UrlEncodeQueryExt(obj: Object, charset: string): string;
 
 /**
- * Возвращает первый элемент заданного массива. Если массив не содержит ни одного элемента,
- * функция завершается с исключением.
- * @param {Array} array - Массив.
- * @returns {T | never} Результат.
+ * Формирует тело http запроса для последующей отправки методом POST в формате multipart/form-data.
+ * @param {object} obj - Объект, содержащий атрибуты и их значения (Object).
+ * @returns {string} Результат.
  */
-// eslint-disable-next-line no-magic-numbers
-declare function ArrayFirstElem<T extends unknown[]>(array: T): T[0] | never;
-/**
- * Возвращает первый элемент заданного массива. Если массив не содержит ни одного элемента,
- * функция завершается с исключением.
- * @param {XmlMultiElem<unknown>} array - Массив.
- * @returns {XmlElem<T> | never} Результат.
- */
-// eslint-disable-next-line no-magic-numbers
-declare function ArrayFirstElem<T extends XmlMultiElem<unknown>>(array: T): T[0] | never;
+declare function MultipartFormEncode(obj: Object): string;
 
 /**
- * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция завершается с исключением.
- * @param {Array} array - Массив.
- * @param {string} expression - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {T} Результат.
+ * Маскирует аргумент для вставки в xml в качестве значения атрибута.
+ * В результате действия функции символы перевода строки, табуляции,
+ * символы & и < и двойные кавычки маскируются последовательностями &#10;, &#09;, &lt;, &amp; и &quot;.
+ * @param {string} str - Аргумент.
+ * @returns {string} Результат.
  */
-declare function ArrayMax<T>(array: T[], expression: string): T;
-/**
- * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция завершается с исключением.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} expression - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {XmlElem<T>} Результат.
- */
-declare function ArrayMax<T>(array: XmlMultiElem<T>, expression: string): XmlElem<T>;
+declare function XmlAttrEncode(str: string): string;
 
 /**
- * Находит первый элемент массива, удовлетворяющий заданному условию.
- * Если элемент, удовлетворяющий условию, не найден, функция завершается с исключением.
- * @param {T[]} array - Массив.
- * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива..
- * @returns {T[] | never} Результат.
+ * Формирует строку с xml тегом.
+ * @param {string} name - Имя тега.
+ * @param {string} text - Значение тега.
+ * @returns {string}
+ * XmlStr( 'text', 'Hotel "Ariana"' ) возвращает '<text>'Hotel &quot;Ariana&quot;</text>'.
  */
-declare function ArrayFind<T>(array: T[], qualExpr: string): T | never;
-/**
- * Находит первый элемент массива, удовлетворяющий заданному условию.
- * Если элемент, удовлетворяющий условию, не найден, функция завершается с исключением.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива..
- * @returns {XmlElem<T> | never} Результат.
- */
-declare function ArrayFind<T>(array: XmlMultiElem<T>, qualExpr: string): XmlElem<T> | never;
+declare function XmlStr(name: string, text: string): string;
 
 /**
- * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
- * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
- * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
- * @param {Array} array - Массив.
- * @returns {number} Результат.
+ * Кодирует аргумент как константу XQuery. Функция используется при генерировании выражений XQuery из программы.
+ * @param {string | number| Date} arg - Аргумент.
+ * @returns {string}
+ * Значение типа string заключается в одинарные кавычки,
+ * при этом существующие кавычки внутри строки маскируются по правилам XQuery.
+ * Значение типа integer или real переводится в соответствующее строковое значение
+ * Значение типа bool переводится в строку 'true()' или 'false()'.
+ * Значение типа date переводится в строку вида date( '2011-01-30T10:30:00' ).
  */
-declare function ArrayCount<T>(array: T[]): number;
-/**
- * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
- * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
- * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
- * @param {XmlMultiElem<T>} array - Массив.
- * @returns {number} Результат.
- */
-declare function ArrayCount<T>(array: XmlMultiElem<T>): number;
+declare function XQueryLiteral(arg: string | number | Date): string;
+
+//#endregion
+
+//#region Работа со строками
 
 /**
- * Преобразует заданный массив к массиву с прямым индексированием.
- * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
- * В противном случае функция работает аналогично {@link ArraySelectAll}() и возвращает массив типа Array,
- * содержащий копию исходного массива.
- * @param {Array} array - Исходный массив.
- * @returns {Array} Результат.
+ * Возвращает фрагмент сроки по заданным позициям (в символах).
+ * @param {number} startPosition - Начальная позиция.
+ * @param {number} endPosition - Конечная позиция.
+ * @returns {string} Результат.
  */
-declare function ArrayDirect<T>(array: T[]): T[];
-/**
- * Преобразует заданный массив к массиву с прямым индексированием.
- * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
- * В противном случае функция работает аналогично {@link ArraySelectAll}() и возвращает массив типа Array,
- * содержащий копию исходного массива.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @returns {Array} Результат.
- */
-declare function ArrayDirect<T>(array: XmlMultiElem<T>): T[];
+declare function StrCharRangePos(startPosition: number, endPosition: number): string;
 
 /**
- * Выбирает определенное значение из каждого элемента массива.
- * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * @param {Array} array - Исходный массив.
- * @param {string} fieldExpr - Выражение, вычисляемое относительно каждого элемента исходного массива.
- * @returns {Array} Результат.
- */
-declare function ArrayExtract<T, K>(array: T[], fieldExpr: string | null): K[];
-
-/**
- * Выбирает определенное значение из каждого элемента массива.
- * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @param {string} fieldExpr - Выражение, вычисляемое относительно каждого элемента исходного массива.
- * @returns {Array} Результат.
- */
-declare function ArrayExtract<T, K>(array: XmlMultiElem<T>, fieldExpr: string | null): K[];
-
-/**
- * Ищет первый элемент массива с заданным значением определенного поля (ключа).
- * Если такой элемент не найден, возвращается undefined.
- * @param {Array} array - Массив.
- * @param {K} value - Значение ключа.
- * @param {string} name - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
- * @returns {T | undefined} Результат.
- */
-declare function ArrayOptFindByKey<T, K>(array: T[], value: K, name?: string): T | undefined;
-/**
- * Ищет первый элемент массива с заданным значением определенного поля (ключа).
- * Если такой элемент не найден, возвращается undefined.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {K} value - Значение ключа.
- * @param {string} name - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
- * @returns {XmlElem<T> | undefined} Результат.
- */
-declare function ArrayOptFindByKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
-
-/**
- * Находит первый элемент массива, удовлетворяющий заданному условию.
- * Если элемент, удовлетворяющий условию, не найден, возвращается undefined.
- * @param {Array} array - Массив.
- * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива..
- * @returns {T | undefined} Результат.
- */
-declare function ArrayOptFind<T>(array: T[], qualExpr: string): T | undefined;
-/**
- * Находит первый элемент массива, удовлетворяющий заданному условию.
- * Если элемент, удовлетворяющий условию, не найден, возвращается undefined.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива..
- * @returns {XmlElem<T> | undefined} Результат.
- */
-declare function ArrayOptFind<T>(array: XmlMultiElem<T>, qualExpr: string): XmlElem<T> | undefined;
-
-/**
- * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция завершается с исключением.
- * @template {Array} T
- * @param {T} array - Массив.
- * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {T} Результат.
- */
-declare function ArrayMin<T>(array: T[], elemExpr: string): T;
-/**
- * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция завершается с исключением.
- * @template {XmlMultiElem<T>} T
- * @param {T} array - Массив.
- * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {XmlElem<T>} Результат.
- */
-declare function ArrayMin<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T>;
-
-/**
- * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция возвращает undefined.
- * @param {Array} array - Массив.
- * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {T | undefined} Результат.
- */
-declare function ArrayOptMax<T>(array: T[], elemExpr: string): T | undefined;
-/**
- * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция возвращает undefined.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {XmlElem<T> | undefined} Результат.
- */
-declare function ArrayOptMax<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T> | undefined;
-
-/**
- * Возвращает фрагмент массива с определенной позиции. Данная функция как правило используется
- * для реализации постраничного просмотра (paging) результатов запроса XQuery.
- * @param {T[]} array - Исходный массив.
- * @param {number} pos - Начальная позиция.
- * @param {number} [elemsNum] - Количество элементов нового массива.
- * Если количество не указано, возвращаются все элементы с начальной позиции.
- * @returns {T[]} Результат.
- */
-declare function ArrayRange<T>(array: T[], pos: number, elemsNum?: number): T[];
-/**
- * Возвращает фрагмент массива с определенной позиции. Данная функция как правило используется
- * для реализации постраничного просмотра (paging) результатов запроса XQuery.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @param {number} pos - Начальная позиция.
- * @param {number} [elemsNum] - Количество элементов нового массива.
- * Если количество не указано, возвращаются все элементы с начальной позиции.
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArrayRange<T>(array: XmlMultiElem<T>, pos: number, elemsNum?: number): XmlElem<T>[];
-
-/**
- * Выбирает элементы массива, удовлетворяющие заданному критерию.
- * @param {T[]} array - Массив.
- * @param {string} expression - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива. (Bool).
- * @returns {T[]} Результат.
- */
-declare function ArraySelect<T>(array: T[], expression: string): T[];
-/**
- * Выбирает элементы массива, удовлетворяющие заданному критерию.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} expression - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива. (Bool).
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArraySelect<T>(array: XmlMultiElem<T>, expression: string): XmlElem<T>[];
-
-/**
- * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция возвращает undefined.
- * @param {T[]} array - Массив.
- * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {T | undefined} Результат.
- */
-declare function ArrayOptMin<T>(array: T[], elemExpr: string): T | undefined;
-/**
- * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
- * Если массив не содержит ни одного элемента, функция возвращает undefined.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
- * @returns {XmlElem<T> | undefined} Результат.
- */
-declare function ArrayOptMin<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T> | undefined;
-
-/**
- * Возвращает первый элемент заданного массива.
- * Если массив не содержит ни одного элемента, функция возвращает `undefined`.
- * @param {T[]} array - Массив.
- * @returns {T | undefined} Результат.
- */
-declare function ArrayOptFirstElem<T>(array: T[]): T | undefined;
-/**
- * Возвращает первый элемент заданного массива.
- * Если массив не содержит ни одного элемента, функция возвращает `undefined`.
- * @param {XmlMultiElem<T>} array - Массив.
- * @returns {XmlElem<T> | undefined} Результат.
- */
-declare function ArrayOptFirstElem<T>(array: XmlMultiElem<T>): XmlElem<T> | undefined;
-
-/**
- * Возвращает первый элемент заданного массива.
- * Если массив не содержит ни одного элемента, функция возвращает второй аргумент.
- * @param {Array} array - Массив.
- * @param {K} defaultValue - Значение по умолчанию.
- * @returns {T | K} Результат.
- */
-declare function ArrayOptFirstElem<T, K = undefined>(array: T[], defaultValue: K): T | K;
-/**
- * Возвращает первый элемент заданного массива.
- * Если массив не содержит ни одного элемента, функция возвращает второй аргумент.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {K} defaultValue - Значение по умолчанию.
- * @returns {XmlElem<T> | K} Результат.
- */
-declare function ArrayOptFirstElem<T, K = undefined>(array: XmlMultiElem<T>, defaultValue: K): XmlElem<T> | K;
-
-/**
- * Ищет первый элемент массива с заданным значением определенного поля (ключа).
- * Если такой элемент не найден, возвращается undefined.
- * Предполагается, что массив предварительно отсортирован по ключевому полю по возрастанию,
- * что значительно повышает скорость поиска по сравнению с функцией {@link ArrayOptFindByKey}.
- * Функцию имеет смысл использовать для частого поиска в каком-либо фиксированном справочнике большого размера,
- * который необходимо заранее отсортировать.
- * @param {T} array - Массив.
- * @param {K} value - Значение ключа.
- * @param {string} [name] - Имя элемента, являющегося ключом, если имя ключа не указано, то используется первичный ключ.
- * @returns {T | undefined} Результат.
- */
-declare function ArrayOptFindBySortedKey<T, K>(array: T[], value: K, name?: string): T | undefined;
-/**
- * Ищет первый элемент массива с заданным значением определенного поля (ключа).
- * Если такой элемент не найден, возвращается undefined.
- * Предполагается, что массив предварительно отсортирован по ключевому полю по возрастанию,
- * что значительно повышает скорость поиска по сравнению с функцией {@link ArrayOptFindByKey}.
- * Функцию имеет смысл использовать для частого поиска в каком-либо фиксированном справочнике большого размера,
- * который необходимо заранее отсортировать.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {K} value - Значение ключа.
- * @param {string} [name] - Имя элемента, являющегося ключом, если имя ключа не указано, то используется первичный ключ.
- * @returns {XmlElem<T> | undefined} Результат.
- */
-declare function ArrayOptFindBySortedKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
-
-/**
- * Возвращает массив, содержащий все элементы исходного массива в виде стандартного массива Array.
- * Функция, как правило, используется в двух случаях: 1.
- * Для сложной либо многократной обработки (особенно с прямым индексированием) "медленных" массивов,
- * таких как результаты XQuery 2.
- * Когда в цикле, осуществляющем проход по массиву, происходит выборочное удаление его элементов.
- * @param {T} array - Исходный массив.
- * @returns {Array} Результат.
- */
-declare function ArraySelectAll<T>(array: T[]): T[];
-
-/**
- * Возвращает массив, содержащий все элементы исходного массива в виде стандартного массива Array.
- * Функция, как правило, используется в двух случаях:
- * 1. Для сложной либо многократной обработки (особенно с прямым индексированием) медленных массивов,
- * таких как результаты {@link XQuery}
- * 2. Когда в цикле, осуществляющем проход по массиву, происходит выборочное удаление его элементов.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArraySelectAll<T>(array: XmlMultiElem<T>): XmlElem<T>[];
-
-/**
- * Возвращает массив уникальных значений элементов заданного массива.
- * @param {T[]} array - Исходный массив.
- * @param {string} [fieldExpr] - Выражение, вычисляемое относительно каждого элемента исходного массива,
- * Если аргумент не указан, используется значение самого элемента `This`.
- * @returns {T[]} Результат.
- */
-declare function ArraySelectDistinct<T>(array: T[], fieldExpr?: string): T[];
-/**
- * Возвращает массив уникальных значений элементов заданного массива.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @param {string} [fieldExpr] - Выражение, вычисляемое относительно каждого элемента исходного массива,
- * Если аргумент не указан, используется значение самого элемента `This`.
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArraySelectDistinct<T>(array: XmlMultiElem<T>, fieldExpr?: string): XmlElem<T>[];
-
-/**
- * Последовательное объединение нескольких массивов в один.
- * @param {T[]} args - Массивы.
- * @returns {T[]} Результат.
- */
-declare function ArrayUnion<T>(...args: T[]): T;
-
-/**
- * Последовательное объединение нескольких массивов в один.
- * @param {unknown[]} args - Массивы.
- * @returns {unknown[]} Результат.
- */
-declare function ArrayUnion(...args: unknown[]): unknown;
-
-/**
- * Проверяет, является ли аргумент массивом.
- * @param {unknown} value - Аргумент.
+ * Проверяет две строки на равенство, в том числе без учета регистра.
+ * @param {string} str1 - Строка 1.
+ * @param {string} str2 - Строка 2.
+ * @param {boolean} ignoreCase - Не учитывать регистр.
  * @returns {boolean} Результат.
  */
-declare function IsArray(value: unknown): value is unknown[] | XmlMultiElem<unknown>;
+declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boolean;
 
 /**
- * Выбирает элементы массива, с определенным значением  заданного поля (ключа) внутри элемента.
- * Массив должен быть предварительно отсортирован по возрастанию значения ключа,
- * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}().
- * @param {T[]} array - Массив.
- * @param {string | number} value - Значение ключа.
- * @param {string} name - Имя элемента, являющегося  ключом.
- * @param {boolean} [ignoreCase] - Игнорировать регистр (для массивов, содержащих строки).
- * @returns {T[]} Результат.
+ * Функция StrFromCharCode преобразует код символа (число) в строку, содержащую этот символ.
+ * @param {number} code - Код символа.
+ * @returns {string} Результат.
  */
-declare function ArraySelectBySortedKey<T>(array: T[], value: string | number, name: string, ignoreCase?: boolean): T[];
-/**
- * Выбирает элементы массива, с определенным значением  заданного поля (ключа) внутри элемента.
- * Массив должен быть предварительно отсортирован по возрастанию значения ключа,
- * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}().
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string | number} value - Значение ключа.
- * @param {string} name - Имя элемента, являющегося  ключом.
- * @param {boolean} [ignoreCase] - Игнорировать регистр (для массивов, содержащих строки).
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArraySelectBySortedKey<T>(
-  array: XmlMultiElem<T>,
-  value: string | number,
-  name: string,
-  ignoreCase?: boolean
-): XmlElem<T>[];
+declare function StrFromCharCode(code: number): string;
 
 /**
- * Выбирает элементы массива, с определенным значением заданного поля (ключа) внутри элемента.
- * Функция аналогична более универсальной функции {@link ArraySelect}(), но работает быстрее.
- * @param {T[]} array - Массив.
- * @param {boolean | string | number} value - Значение ключа.
- * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
- * @returns {T[]} Результат.
+ * Собирает строку из массива кодов каждого символа в UTF-16.
+ * @param {string[]} array - Массив кодов символов
+ * @returns {string} Результат.
  */
-declare function ArraySelectByKey<T>(
-  array: T[],
-  value: boolean | string | number,
-  name?: string
-): T[];
-/**
- * Выбирает элементы массива, с определенным значением заданного поля (ключа) внутри элемента.
- * Функция аналогична более универсальной функции {@link ArraySelect}(), но работает быстрее.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {boolean | string | number} value - Значение ключа.
- * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
- * @returns {XmlElem<T>[]} Результат.
- */
-declare function ArraySelectByKey<T>(
-  array: XmlMultiElem<T>,
-  value: boolean | string | number,
-  name?: string
-): XmlElem<T>[];
+declare function StrFromCharCodesArray(array: string[]): string;
 
 /**
- * Сортирует массив по заданным полям. Возвращает новый массив отсортированных значений.
- * Функция требует нечетного числа аргументов (не менее 3-х),
- * для каждого нового уровня сортировки добавляется 2 новых аргумента.
- * @param {T[]} array - Массив.
- * @param {string} expression - Выражение, вычисляющее значение полей относительно элемента массива,
- * по которым осуществляется сортировка.
- * @param {string} [direction] - Направление сортировки ('+' или '-').
- * @param {string} args - Набор дополнительных аргументов для сортировки.
- * @returns {T[]} Результат.
- * @example
- * ```
- * ArraySort(array, "name", "+", "date", "-");
- * ```
+ * Возвращает позицию (в байтах) подстроки внутри строки.
+ * Если подстрока не найдена, возвращает undefined.
+ * @param {string} str - Строка.
+ * @param {string} subStr - Подстрока.
+ * @param {boolean} ignoreCase - Без учета регистра.
+ * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
+ * @returns {number | undefined} Результат.
+ * Смотри также {@link StrOptSubStrRightPos}
  */
-declare function ArraySort<T>(array: T[], expression: string, direction?: string, ...args: string[]): T[];
-/**
- * Сортирует массив по заданным полям. Возвращает новый массив отсортированных значений.
- * Функция требует нечетного числа аргументов (не менее 3-х),
- * для каждого нового уровня сортировки добавляется 2 новых аргумента.
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} expression - Выражение, вычисляющее значение полей относительно элемента массива,
- * по которым осуществляется сортировка.
- * @param {string} [direction] - Направление сортировки ('+' или '-').
- * @param {string} args - Набор дополнительных аргументов для сортировки.
- * @returns {XmlElem<T>[]} Результат.
- * @example
- * ```
- * ArraySort(array, "name", "+", "date", "-");
- * ```
- */
-declare function ArraySort<T>(
-  array: XmlMultiElem<T>,
-  expression: string,
-  direction?: string,
-  ...args: string[]
-): XmlElem<T>[];
+declare function StrOptSubStrPos(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
 
 /**
- * Возвращает сумму значений определенного поля по всем элементам массива.
- * Внимание! При использовании с массивом примитивов функция будет работать возвращать 0.
- * @example
- * ```
- * var a = [1, 2, 3];
- * ArraySum(a, "This"); // --> 0
- * ```
- * @param {T} array - Массив.
- * @param {string} expression - Выражение, вычисляющее поле, по которому происходит суммирование.
+ * Возвращает позицию (в байтах) подстроки внутри строки с бинарным режимом поиска
+ * (строки могут содержать любые данные, включая символ \0).
+ * Если подстрока не найдена, возвращает undefined.
+ * @param {string} str - Строка.
+ * @param {string} subStr - Подстрока.
+ * @param {boolean} ignoreCase - Без учета регистра.
+ * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
+ * @returns {number | undefined} Результат.
+ * Смотри также {@link StrOptSubStrRightPos}
+ */
+declare function StrOptSubStrPosB(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
+
+/**
+ * Возвращает позицию (в байтах) подстроки внутри строки, при этом поиск осуществяется справа налево.
+ * Если подстрока не найдена, возвращает undefined.
+ * @param {string} str - Строка.
+ * @param {string} subStr - Подстрока.
+ * @param {boolean} ignoreCase - Без учета регистра.
+ * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
+ * @returns {number | undefined} Результат.
+ * Смотри также {@link StrOptSubStrPos}
+ */
+declare function StrOptSubStrRightPos(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
+
+/**
+ * Разбивает сроку на две подстроки, использую заданный разделитель.
+ * Возвращает массив из двух подстрок.
+ * Если разделитель отсутствует, возвращает массив из исходной строки и пустой строки.
+ * @param {string} str - Строка.
+ * @param {boolean} useQuotes - Если true, и значение слева или справа от разделителя обернуто в кавычки, то кавычки удаляются из результата.
+ * @returns {string[]} Результат.
+ */
+declare function StrSplit2(str: string, useQuotes?: boolean): string[];
+
+type StrSplitToLinesOptions = {
+  LineFolding: boolean;
+};
+
+/**
+ * Разбивает сроку на подстроки, использую разделители LF либо CRLF.
+ * @param {string} str - Строка.
+ * @param {object} options - Объект, содержащий набор опций вызова.
+ * @returns {string[]} - Массив подстрок.
+ */
+declare function StrSplitToLines(str: string, options?: StrSplitToLinesOptions): string[];
+
+/**
+ * Разбивает сроку на одиночные символы.
+ * Возвращает массив строк, каждая из которых содержит одиночный символ.
+ * @param {string} str - Строка.
+ * @returns {string[]} Массив символов.
+ */
+declare function StrToCharArray(str: string): string[];
+
+/**
+ * Разбивает сроку на одиночные символы.
+ * Возвращает массив кодов каждого символа в UTF-16.
+ * @param {string} str - Строка.
+ * @returns {number[]} Массив кодов символов.
+ */
+declare function StrToCharCodesArray(str: string): number[];
+
+/**
+ * Проверяет, начинается ли строка на другую строку.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} subStr - Подстрока, которую ищут.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrBegins(str: string, subStr: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Проверяет, содержит ли строка другую строку в качестве подстроки.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} subStr - Подстрока, которую ищут.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrContains(str: string, subStr: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Проверяет, оканчивается ли строка на другую строку.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} subStr - Подстрока, которую ищут.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrEnds(str: string, subStr: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Проверяет состоит ли строка только из цифр или латинских символов.
+ * @param {string} str - Проверяемая строка.
+ * @returns {boolean} Результат.
+ */
+declare function StrIsAlphaNum(str: string): boolean;
+
+/**
+ * Возвращает часть строки str, длиной length, начиная с первого символа переданной строки.
+ * Если второй аргумент больше длины передаваемой строки, возвращается str.
+ * В отличие от StrLeftRange возвращает не биты, а именно символы.
+ * @param {string} str - Строка.
+ * @param {number} length - Длина строки.
+ * @returns {string} Результат.
+ */
+declare function StrLeftCharRange(str: string, length: number): string;
+
+/**
+ * Возвращает часть строки str, длиной length, начиная с первого символа переданной строки.
+ * Если второй аргумент больше длины передаваемой строки, возвращается str.
+ * @param {string} str - Строка.
+ * @param {number} length - Длина строки.
+ * @returns {string} Результат.
+ */
+declare function StrLeftRange(str: string, length: number): string;
+
+/**
+ * Возвращает длину строки в байтах.
+ * Данная длина может быть больше количества символов, если приложение использует кодировку UTF-8.
+ * Для определения количества символов в строке необходимо использовать функцию StrCharCount.
+ * @param {string} str - Строка.
  * @returns {number} Результат.
  */
-declare function ArraySum<T>(array: T[], expression: string): number;
+declare function StrLen(str: string): number;
+
 /**
- * Возвращает сумму значений определенного поля по всем элементам массива.
- * Внимание! При использовании с массивом примитивов функция будет работать возвращать 0.
+ * Переводит все символы строки в нижний регистр.
+ * @param {string} str - Строка, которую необходимо преобразовать.
+ * @returns {string} Результат.
+ */
+declare function StrLowerCase(str: string): string;
+
+/**
+ * Проверяет, удовлетворяет ли строка одной из масок. Маски перечисляются через запятую вторым аргументом.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} pattern - Шаблоны поиска, разделенные запятой.
+ * @returns {boolean} Результат.
+ * @example StrMatchesMultiPattern(str, "aaa*bbb,ccc*ddd*eee");
+ */
+declare function StrMatchesMultiPattern(str: string, pattern: string): boolean;
+
+/**
+ * Проверяет, удовлетворяет ли строка маске поиска, использующей символ "*".
+ * @param {string} str - Строка.
+ * @param {string} mask - Маска.
+ * @returns {boolean} Результат.
+ * @example StrMatchesPattern(str, "aaa*bbb");
+ */
+declare function StrMatchesPattern(str: string, mask: string): boolean;
+
+/**
+ * Переводит первую букву строки в нижний регистр.
+ * @param {string} str - Строка.
+ * @returns {string} Результат.
+ */
+declare function StrNonTitleCase(str: string): string;
+
+/**
+ * Возвращает часть строки по заданным позициям.
+ * @param {string} str - Строка.
+ * @param {number} pos1 - Начальная позиция.
+ * @param {number} pos2 - Конечная позиция.
+ * @returns {string} Результат.
+ */
+declare function StrRangePos(str: string, pos1: number, pos2: number): string;
+
+/**
+ * Заменяет все вхождения одной подстроки на другую в заданной строке, если такие имеются. Возвращает измененную строку.
+ * @param {string} str - Исходная строка.
+ * @param {string} subStr - Исходная подстрока.
+ * @param {string} newSubStr - Новая подстрока.
+ * @returns {string} Результат.
+ */
+declare function StrReplace(str: string, subStr: string, newSubStr: string): string;
+
+/**
+ * Заменяет первое вхождение строки на указанную подстроку.
+ * @param {string} str - Исходная строка.
+ * @param {string} subStr - Исходная подстрока.
+ * @param {string} newSubStr - Новая подстрока.
+ * @returns {string} Результат.
+ */
+declare function StrReplaceOne(str: string, subStr: string, newSubStr: string): string;
+
+/**
+ * Возвращает часть строки, начиная с указанной позиции до конца строки.
+ * @param {string} str - Строка.
+ * @param {number} pos - Позиция.
+ * @returns {string} Результат.
+ */
+declare function StrRightRangePos(str: string, pos: number): string;
+
+/**
+ * Извлекает из строки фрагменты в соответствии с заданным шаблоном. Если строка не соответствует шаблону, возвращается undefined.
+ * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
+ * @param {string} str - Строка.
+ * @param {any} pattern - Шаблон.
+ * @returns {string[] | undefined} Результат.
  * @example
  * ```
- * var a = [1, 2, 3];
- * ArraySum(a, "This"); // --> 0
+ * const obj = StrOptScan("x-local://wtv/tools.xml", "x-local://%*s/%s.xml");
+ * const fileName = obj[0]; // "tools"
  * ```
- * @param {XmlMultiElem<T>} array - Массив.
- * @param {string} expression - Выражение, вычисляющее поле, по которому происходит суммирование.
+ */
+declare function StrOptScan(str: string, pattern: string): string[] | undefined;
+
+/**
+ * Извлекает из строки фрагменты в соответствии с заданным шаблоном.
+ * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
+ * @param {string} str - Строка.
+ * @param {any} arg - Шаблон.
+ * @returns {Array} Результат.
+ * @example
+ * ```
+ * const obj = StrScan(str, "%*s/vacancy/%s.htm");
+ * vacancyID = obj[0];
+ * ```
+ */
+declare function StrScan(str: string, arg: string): string[];
+
+/**
+ * Преобразует первую букву строки в заглавную.
+ * @param {string} str - Строка, которую нужно преобразовать.
+ * @returns {string} Результат.
+ */
+declare function StrTitleCase(str: string): string;
+
+/**
+ * Преобразует строку в нижний регистр.
+ * @param {string} str - Строка, которую нужно преобразовать.
+ * @returns {string} Результат.
+ */
+declare function StrUpperCase(str: string): string;
+
+/**
+ * Экспериментальная.
+ * @returns {undefined}
+ */
+declare function StrWordMatchRating(): undefined;
+
+/**
+ * Удаляет символы пробела, перевода строк и табуляции в начале и конце строки.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Результат.
+ */
+declare function Trim(str: string): string;
+
+/**
+ * Заменяет повторяющиеся последовательности символов пробела,
+ * перевода строк и табуляции в строке на одиночные пробелы.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Результат.
+ */
+declare function UnifySpaces(str: string): string;
+
+/**
+ * Возвращает количество символов в строке.
+ * @param {string} str - Строка.
  * @returns {number} Результат.
  */
-declare function ArraySum<T>(array: XmlMultiElem<T>, expression: string): number;
+declare function StrCharCount(str: string): number;
 
-/**
- * Текущая дата системы время системы.
- */
-declare const CurDate: Date;
+//#endregion
 
-/**
- * Изменяет значение времени в заданной дате. Возвращает измененную дату.
- * Если указан только первый аргумент, функция возвращает дату без времени.
- * @param {Date} date - Дата.
- * @param {number} [hour] - Час.
- * @param {number} [minute] - Минута.
- * @param {number} [second] - Секунда.
- * @returns {Date} Дата.
- */
-declare function DateNewTime(date: Date, hour?: number, minute?: number, second?: number): Date;
-
-/**
- * Возвращает время в миллисекундах, прошедшее с момента запуска операционной системы.
- * @returns {number} Результат.
- */
-declare function GetCurTicks(): number;
-
-/**
- * Возвращает разницу между 2-мя датами в секундах. Если первая дата меньше второй, разница будет отрицательным числом.
- * @param {Date} date1 - Дата 1.
- * @param {Date} date2 - Дата 2.
- * @returns {number} Результат.
- */
-declare function DateDiff(date1: Date, date2: Date): number;
+//#region Работа с датами
 
 /**
  * Меняет значение часового пояса внутри даты, оставляя значение времени суток без изменений.
@@ -1069,65 +941,6 @@ declare function ParseMimeDate(str: string): Date;
  */
 declare function TimeZone(date: Date): number | undefined;
 
-/**
- * Сдвигает дату на указанное число секунд. Если значение второго аргумента отрицательное, дата сдвигается назад.
- * @param {Date} date - Заданная дата.
- * @param {number} seconds - Сдвиг в секундах.
- * @returns {Date} Дата.
- */
-declare function DateOffset(date: Date, seconds: number): Date;
-
-/**
- * Возвращает количество секунд, прошедших с 1970 года до заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function DateToRawSeconds(date: Date): number;
-
-/**
- * Возвращает значение часа для заданной даты. Если дата не содержит времени, возвращается undefined.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Hour(date: Date): number;
-
-/**
- * Возвращает значение дня (1-31) для заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Day(date: Date): number;
-
-/**
- * Возвращает значение минуты для заданной даты. Если дата не содержит времени, возвращается undefined.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Minute(date: Date): number;
-
-/**
- * Возвращает номер месяца (1-12) для заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Month(date: Date): number;
-
-/**
- * Преобразует дату в формат MIME.
- * @param {Date} Date - Дата.
- * @returns {string} Результат.
- * @example StrMimeDate(Date("26.12.2011 10:45")) == 'Mon, 26 Dec 2011 10:45:00 +0400'
- */
-declare function StrMimeDate(Date: Date): string;
-
-/**
- * Преобразует дату в строку в "длинном" формате (со словесным написанием месяца).
- * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
- * @param {Date} date - Дата.
- * @returns {string} Результат.
- * @example StrLongDate(Date("26.12.2011")) == "26 декабря 2011 г."
- */
-declare function StrLongDate(date: Date): string;
 
 /**
  * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
@@ -1155,12 +968,50 @@ declare function OptDate(year: number, month: number, day: number, hour: number,
 declare function OptDate(year: number, month: number, day: number, hour: number, minute: number, second: number): Date;
 
 /**
- * Преобразует строку с датой в большинство известных форматов в дату.
- * В отличие от функции {@link Date}() понимает дату со словесным указанием месяца, например '1 ноября 2011 года'.
- * @param {string} date - Строка с датой.
+ * Возвращает разницу между 2-мя датами в секундах. Если первая дата меньше второй, разница будет отрицательным числом.
+ * @param {Date} date1 - Дата 1.
+ * @param {Date} date2 - Дата 2.
+ * @returns {number} Результат.
+ */
+declare function DateDiff(date1: Date, date2: Date): number;
+
+
+/**
+ * Текущая дата системы время системы.
+ */
+declare const CurDate: Date;
+
+/**
+ * Изменяет значение времени в заданной дате. Возвращает измененную дату.
+ * Если указан только первый аргумент, функция возвращает дату без времени.
+ * @param {Date} date - Дата.
+ * @param {number} [hour] - Час.
+ * @param {number} [minute] - Минута.
+ * @param {number} [second] - Секунда.
  * @returns {Date} Дата.
  */
-declare function ParseDate(date: string): Date;
+declare function DateNewTime(date: Date, hour?: number, minute?: number, second?: number): Date;
+
+/**
+ * Сдвигает дату на указанное число секунд. Если значение второго аргумента отрицательное, дата сдвигается назад.
+ * @param {Date} date - Заданная дата.
+ * @param {number} seconds - Сдвиг в секундах.
+ * @returns {Date} Дата.
+ */
+declare function DateOffset(date: Date, seconds: number): Date;
+
+/**
+ * Возвращает количество секунд, прошедших с 1970 года до заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function DateToRawSeconds(date: Date): number;
+/**
+ * Возвращает значение дня (1-31) для заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Day(date: Date): number;
 
 /**
  * Преобразует количество секунд, прошедших с 1970 года в дату.
@@ -1177,30 +1028,75 @@ declare function RawSecondsToDate(seconds: number): Date;
 declare function Second(date: Date): number;
 
 /**
- * Преобразует дату в строку, с двухсимвольным форматом года.
- * @param {Date} date - Дата, которую преобразуется.
- * @param {boolean} showTime - Включать время (Bool). По умолчанию true.
- * @param {boolean} showSeconds - Включать секунды во времени (Bool). По умолчанию true.
- * @returns {string} Строка с датой.
+ * Возвращает значение минуты для заданной даты. Если дата не содержит времени, возвращается undefined.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
  */
-declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+declare function Minute(date: Date): number;
+
+/**
+ * Преобразует строку с датой в большинство известных форматов в дату.
+ * В отличие от функции {@link Date}() понимает дату со словесным указанием месяца, например '1 ноября 2011 года'.
+ * @param {string} date - Строка с датой.
+ * @returns {Date} Дата.
+ */
+declare function ParseDate(date: string): Date;
 
 /**
  * Преобразует дату в строку в формате, используемом по умолчанию в операционной системе.
  * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
  * @param {Date} date - Объект даты.
- * @param {boolean} showTime - Включать время (Bool). По умолчанию true.
- * @param {boolean} showSeconds - Включать секунды во времени (Bool). По умолчанию true.
+ * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
  * @returns {string} Строка с датой.
  */
 declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
 
 /**
- * Преобразует дату из универсального часового пояса в текущий часовой пояс.
- * @param {Date} date - Дата.
- * @returns {Date} Дата.
+ * Возвращает время в миллисекундах, прошедшее с момента запуска операционной системы.
+ * @returns {number} Результат.
  */
-declare function UtcToLocalDate(date: Date): Date;
+declare function GetCurTicks(): number;
+
+/**
+ * Преобразует дату в строку в "длинном" формате (со словесным написанием месяца).
+ * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
+ * @param {Date} date - Дата.
+ * @returns {string} Результат.
+ * @example StrLongDate(Date("26.12.2011")) == "26 декабря 2011 г."
+ */
+declare function StrLongDate(date: Date): string;
+
+/**
+ * Возвращает значение часа для заданной даты. Если дата не содержит времени, возвращается undefined.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Hour(date: Date): number;
+
+/**
+ * Преобразует дату в формат MIME.
+ * @param {Date} Date - Дата.
+ * @returns {string} Результат.
+ * @example StrMimeDate(Date("26.12.2011 10:45")) == 'Mon, 26 Dec 2011 10:45:00 +0400'
+ */
+declare function StrMimeDate(Date: Date): string;
+
+/**
+ * Преобразует дату в строку, с двухсимвольным форматом года.
+ * @param {Date} date - Дата, которую преобразуется.
+ * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
+ * @returns {string} Строка с датой.
+ */
+declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+
+/**
+ * Возвращает номер месяца (1-12) для заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Month(date: Date): number;
 
 /**
  * Преобразует значение времени внутри даты в строку. Если время не содержится внутри даты, возвращается пустая строка.
@@ -1209,20 +1105,6 @@ declare function UtcToLocalDate(date: Date): Date;
  * @example StrTime(Date("26.12.2011 10:45")) == "10:45"
  */
 declare function StrTime(date: Date): string;
-
-/**
- * Возвращает значение года для заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Год.
- */
-declare function Year(date: Date): number;
-
-/**
- * Возвращает номер дня недели для заданной даты. (0 - Воскресенье, 1 - Понедельник и т.д.).
- * @param {Date} date - Дата.
- * @returns {number} День недели.
- */
-declare function WeekDay(date: Date): number;
 
 /**
  * Преобразует дату в строку в формате, используемом в XML. Данный формат не зависит от региональных настроек в системе.
@@ -1237,6 +1119,915 @@ declare function WeekDay(date: Date): number;
  * ```
  */
 declare function StrXmlDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+
+/**
+ * Возвращает номер дня недели для заданной даты. (0 - Воскресенье, 1 - Понедельник и т.д.).
+ * @param {Date} date - Дата.
+ * @returns {number} День недели.
+ */
+declare function WeekDay(date: Date): number;
+
+/**
+ * Возвращает значение года для заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Год.
+ */
+declare function Year(date: Date): number;
+
+/**
+ * Преобразует дату из универсального часового пояса в текущий часовой пояс.
+ * @param {Date} date - Дата.
+ * @returns {Date} Дата.
+ */
+declare function UtcToLocalDate(date: Date): Date;
+
+//#endregion
+
+//#region Работа с массивами
+
+/**
+ * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
+ * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
+ * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
+ * @param {Array} array - Массив.
+ * @returns {number} Результат.
+ */
+declare function ArrayCount<T>(array: T[]): number;
+
+/**
+ * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
+ * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
+ * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @returns {number} Результат.
+ */
+declare function ArrayCount<T>(array: XmlMultiElem<T>): number;
+
+/**
+ * Преобразует заданный массив к массиву с прямым индексированием.
+ * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
+ * В противном случае функция работает аналогично {@link ArraySelectAll}() и возвращает массив типа Array,
+ * содержащий копию исходного массива.
+ * @param {Array} array - Исходный массив.
+ * @returns {Array} Результат.
+ */
+declare function ArrayDirect<T>(array: T[]): T[];
+
+/**
+ * Преобразует заданный массив к массиву с прямым индексированием.
+ * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
+ * В противном случае функция работает аналогично {@link ArraySelectAll}() и возвращает массив типа Array,
+ * содержащий копию исходного массива.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @returns {Array} Результат.
+ */
+declare function ArrayDirect<T>(array: XmlMultiElem<T>): T[];
+
+/**
+ * Функция получает на входе массив, содержащий в одном из полей подмассивы, в плоский массив.
+ * @param {T[]} array - Исходный массив.
+ * @param {string} elemCode - Выражение, вычисляющее поле элемента исходного массива, содержащего подмассив.
+ * @returns {unknown[]} Результат.
+ */
+declare function ArrayExpand<T>(array: T[], elemCode: string): unknown[];
+
+/**
+ * Выбирает определенное значение из каждого элемента массива.
+ * Возвращает новый массив той же длинны, содержащий выбранные элементы.
+ * @param {Array} array - Исходный массив.
+ * @param {string} fieldExpr - Выражение, вычисляемое относительно каждого элемента исходного массива.
+ * @returns {Array} Результат.
+ */
+declare function ArrayExtract<T, K>(array: T[], fieldExpr: string | null): K[];
+
+/**
+ * Выбирает определенное значение из каждого элемента массива.
+ * Возвращает новый массив той же длинны, содержащий выбранные элементы.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @param {string} fieldExpr - Выражение, вычисляемое относительно каждого элемента исходного массива.
+ * @returns {Array} Результат.
+ */
+declare function ArrayExtract<T, K>(array: XmlMultiElem<T>, fieldExpr: string | null): K[];
+
+/**
+ * Выбирает определенное поле (атрибут) из каждого элемента массива.
+ * Возвращает новый массив той же длинны, содержащий выбранные элементы.
+ * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
+ * @param {Array} array - Исходный массив.
+ * @param {string} field - Имя поля.
+ * @returns {unknown[]} Результат.
+ */
+declare function ArrayExtractKeys<T, K>(array: T[], field: string): K[];
+
+/**
+ * Выбирает определенное поле (атрибут) из каждого элемента массива.
+ * Возвращает новый массив той же длинны, содержащий выбранные элементы.
+ * Функция аналогична более универсальной функции {@link ArrayExtract}(), но работает быстрее.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @param {string} field - Имя поля.
+ * @returns {unknown[]} Результат.
+ */
+declare function ArrayExtractKeys<T, K>(array: XmlMultiElem<T>, field: string): K[];
+
+/**
+ * Находит первый элемент массива, удовлетворяющий заданному условию.
+ * Если элемент, удовлетворяющий условию, не найден, функция завершается с исключением.
+ * @param {T[]} array - Массив.
+ * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива..
+ * @returns {T[] | never} Результат.
+ */
+declare function ArrayFind<T>(array: T[], qualExpr: string): T | never;
+
+/**
+ * Находит первый элемент массива, удовлетворяющий заданному условию.
+ * Если элемент, удовлетворяющий условию, не найден, функция завершается с исключением.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива..
+ * @returns {XmlElem<T> | never} Результат.
+ */
+declare function ArrayFind<T>(array: XmlMultiElem<T>, qualExpr: string): XmlElem<T> | never;
+
+/**
+ * Возвращает первый элемент заданного массива. Если массив не содержит ни одного элемента,
+ * функция завершается с исключением.
+ * @param {Array} array - Массив.
+ * @returns {T | never} Результат.
+ */
+declare function ArrayFirstElem<T extends unknown[]>(array: T): T[0] | never;
+/**
+ * Возвращает первый элемент заданного массива. Если массив не содержит ни одного элемента,
+ * функция завершается с исключением.
+ * @param {XmlMultiElem<unknown>} array - Массив.
+ * @returns {XmlElem<T> | never} Результат.
+ */
+declare function ArrayFirstElem<T extends XmlMultiElem<unknown>>(array: T): T[0] | never;
+
+/**
+ * Возвращает массив, содержащий элементы массива 1,
+ * у которых значение ключевого поля совпадает хотя бы в с одним элементом массива 2.
+ * @param {Array} array1 - Массив 1.
+ * @param {Array} array2 - Массив 2.
+ * @param {string} [fieldExpr1] - Выражение, вычисляемое относительно каждого элемента массива 1
+ * и возвращающее значение ключа для сравнения. Необязательный аргумент.
+ * Если аргумент не указан, используется значение самого элемента (This).
+ * @param {string} [fieldExpr2] - Выражение, вычисляемое относительно каждого элемента массива 2
+ * и возвращающее значение ключа для сравнения. Необязательный аргумент.
+ * Если аргумент не указан, используется значение самого элемента (This).
+ * @returns {T[]} Результат.
+ */
+declare function ArrayIntersect<T, K>(
+  array1: T[],
+  array2: K[],
+  fieldExpr1?: string,
+  fieldExpr2?: string
+): T[];
+
+/**
+ * Возвращает массив, содержащий элементы массива 1,
+ * у которых значение ключевого поля совпадает хотя бы в с одним элементом массива 2.
+ * @param {Array} array1 - Массив 1.
+ * @param {Array} array2 - Массив 2.
+ * @param {string} [fieldExpr1] - Выражение, вычисляемое относительно каждого элемента массива 1
+ * и возвращающее значение ключа для сравнения. Необязательный аргумент.
+ * Если аргумент не указан, используется значение самого элемента (This).
+ * @param {string} [fieldExpr2] - Выражение, вычисляемое относительно каждого элемента массива 2
+ * и возвращающее значение ключа для сравнения. Необязательный аргумент.
+ * Если аргумент не указан, используется значение самого элемента (This).
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArrayIntersect<T, K>(
+  array1: XmlMultiElem<T>,
+  array2: XmlMultiElem<K>,
+  fieldExpr1?: string,
+  fieldExpr2?: string
+): XmlElem<T>[];
+
+/**
+ * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция завершается с исключением.
+ * @param {Array} array - Массив.
+ * @param {string} expression - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {T} Результат.
+ */
+declare function ArrayMax<T>(array: T[], expression: string): T;
+/**
+ * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция завершается с исключением.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} expression - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {XmlElem<T>} Результат.
+ */
+declare function ArrayMax<T>(array: XmlMultiElem<T>, expression: string): XmlElem<T>;
+
+/**
+ * Возвращает строку, полученную путем склеивания данных из элементов массива.
+ * @param {Array} array - Массив.
+ * @param {string} elemExpr - Выражение, вычисляющее значение, используемое для склейки, относительно элемента массива.
+ * @param {string} [delim=""] - Строка-разделитель.
+ * @returns {string} Результат.
+ */
+declare function ArrayMerge<T>(array: T[], elemExpr: string, delim?: string): string;
+
+/**
+ * Возвращает строку, полученную путем склеивания данных из элементов массива.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} elemExpr - Выражение, вычисляющее значение, используемое для склейки, относительно элемента массива.
+ * @param {string} [delim=""] - Строка-разделитель.
+ * @returns {string} Результат.
+ */
+declare function ArrayMerge<T>(array: XmlMultiElem<T>, elemExpr: string, delim?: string): string;
+
+/**
+ * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция завершается с исключением.
+ * @template {Array} T
+ * @param {T} array - Массив.
+ * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {T} Результат.
+ */
+declare function ArrayMin<T>(array: T[], elemExpr: string): T;
+
+/**
+ * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция завершается с исключением.
+ * @template {XmlMultiElem<T>} T
+ * @param {T} array - Массив.
+ * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {XmlElem<T>} Результат.
+ */
+declare function ArrayMin<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T>;
+
+/**
+ * Находит первый элемент массива, удовлетворяющий заданному условию.
+ * Если элемент, удовлетворяющий условию, не найден, возвращается undefined.
+ * @param {Array} array - Массив.
+ * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива..
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptFind<T>(array: T[], qualExpr: string): T | undefined;
+
+/**
+ * Находит первый элемент массива, удовлетворяющий заданному условию.
+ * Если элемент, удовлетворяющий условию, не найден, возвращается undefined.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} qualExpr - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива..
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptFind<T>(array: XmlMultiElem<T>, qualExpr: string): XmlElem<T> | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * @param {Array} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptFindByKey<T, K>(array: T[], value: K, name?: string): T | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptFindByKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * Предполагается, что массив предварительно отсортирован по ключевому полю по возрастанию,
+ * что значительно повышает скорость поиска по сравнению с функцией {@link ArrayOptFindByKey}.
+ * Функцию имеет смысл использовать для частого поиска в каком-либо фиксированном справочнике большого размера,
+ * который необходимо заранее отсортировать.
+ * @param {T} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом, если имя ключа не указано, то используется первичный ключ.
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptFindBySortedKey<T, K>(array: T[], value: K, name?: string): T | undefined;
+
+/**
+ * Ищет первый элемент массива с заданным значением определенного поля (ключа).
+ * Если такой элемент не найден, возвращается undefined.
+ * Предполагается, что массив предварительно отсортирован по ключевому полю по возрастанию,
+ * что значительно повышает скорость поиска по сравнению с функцией {@link ArrayOptFindByKey}.
+ * Функцию имеет смысл использовать для частого поиска в каком-либо фиксированном справочнике большого размера,
+ * который необходимо заранее отсортировать.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {K} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом, если имя ключа не указано, то используется первичный ключ.
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptFindBySortedKey<T, K>(array: XmlMultiElem<T>, value: K, name?: string): XmlElem<T> | undefined;
+
+/**
+ * Возвращает первый элемент заданного массива.
+ * Если массив не содержит ни одного элемента, функция возвращает второй аргумент.
+ * @param {Array} array - Массив.
+ * @param {K} defaultValue - Значение по умолчанию.
+ * @returns {T | K} Результат.
+ */
+declare function ArrayOptFirstElem<T, K = undefined>(array: T[], defaultValue?: K): T | K;
+
+/**
+ * Возвращает первый элемент заданного массива.
+ * Если массив не содержит ни одного элемента, функция возвращает второй аргумент.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {K} defaultValue - Значение по умолчанию.
+ * @returns {XmlElem<T> | K} Результат.
+ */
+declare function ArrayOptFirstElem<T, K = undefined>(array: XmlMultiElem<T>, defaultValue?: K): XmlElem<T> | K;
+
+/**
+ * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция возвращает undefined.
+ * @param {Array} array - Массив.
+ * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptMax<T>(array: T[], elemExpr: string): T | undefined;
+
+/**
+ * Возвращает элемент заданного массива, содержащий максимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция возвращает undefined.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptMax<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T> | undefined;
+
+/**
+ * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция возвращает undefined.
+ * @param {T[]} array - Массив.
+ * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {T | undefined} Результат.
+ */
+declare function ArrayOptMin<T>(array: T[], elemExpr: string): T | undefined;
+
+/**
+ * Возвращает элемент заданного массива, содержащий минимальное значение определенного поля среди его элементов.
+ * Если массив не содержит ни одного элемента, функция возвращает undefined.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} elemExpr - Выражение (строка), вычисляющее значение поля относительно элемента массива.
+ * @returns {XmlElem<T> | undefined} Результат.
+ */
+declare function ArrayOptMin<T>(array: XmlMultiElem<T>, elemExpr: string): XmlElem<T> | undefined;
+
+/**
+ * Функция возвращает размер массива, при условии, что он известен заранее. В противном случае возвращает undefined.
+ * @param {T[]} array - Массив.
+ * @returns {number | undefined} Результат.
+ */
+declare function ArrayOptSize<T>(array: T[]): number | undefined;
+
+/**
+ * Возвращает фрагмент массива с определенной позиции. Данная функция как правило используется
+ * для реализации постраничного просмотра (paging) результатов запроса XQuery.
+ * @param {T[]} array - Исходный массив.
+ * @param {number} pos - Начальная позиция.
+ * @param {number} [elemsNum] - Количество элементов нового массива.
+ * Если количество не указано, возвращаются все элементы с начальной позиции.
+ * @returns {T[]} Результат.
+ */
+declare function ArrayRange<T>(array: T[], pos: number, elemsNum?: number): T[];
+
+/**
+ * Возвращает фрагмент массива с определенной позиции. Данная функция как правило используется
+ * для реализации постраничного просмотра (paging) результатов запроса XQuery.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @param {number} pos - Начальная позиция.
+ * @param {number} [elemsNum] - Количество элементов нового массива.
+ * Если количество не указано, возвращаются все элементы с начальной позиции.
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArrayRange<T>(array: XmlMultiElem<T>, pos: number, elemsNum?: number): XmlElem<T>[];
+
+/**
+ * Выбирает элементы массива, удовлетворяющие заданному критерию.
+ * @param {T[]} array - Массив.
+ * @param {string} expression - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива. (Bool).
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelect<T>(array: T[], expression: string): T[];
+
+/**
+ * Выбирает элементы массива, удовлетворяющие заданному критерию.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} expression - Выражение, определяющее соответствие элемента массива критерию.
+ * Вычисляется относительно элемента массива. (Bool).
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArraySelect<T>(array: XmlMultiElem<T>, expression: string): XmlElem<T>[];
+
+/**
+ * Возвращает массив, содержащий все элементы исходного массива в виде стандартного массива Array.
+ * Функция, как правило, используется в двух случаях: 1.
+ * Для сложной либо многократной обработки (особенно с прямым индексированием) "медленных" массивов,
+ * таких как результаты XQuery 2.
+ * Когда в цикле, осуществляющем проход по массиву, происходит выборочное удаление его элементов.
+ * @param {T} array - Исходный массив.
+ * @returns {Array} Результат.
+ */
+declare function ArraySelectAll<T>(array: T[]): T[];
+
+/**
+ * Возвращает массив, содержащий все элементы исходного массива в виде стандартного массива Array.
+ * Функция, как правило, используется в двух случаях:
+ * 1. Для сложной либо многократной обработки (особенно с прямым индексированием) медленных массивов,
+ * таких как результаты {@link XQuery}
+ * 2. Когда в цикле, осуществляющем проход по массиву, происходит выборочное удаление его элементов.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArraySelectAll<T>(array: XmlMultiElem<T>): XmlElem<T>[];
+
+/**
+ * Выбирает элементы массива, с определенным значением заданного поля (ключа) внутри элемента.
+ * Функция аналогична более универсальной функции {@link ArraySelect}(), но работает быстрее.
+ * @param {T[]} array - Массив.
+ * @param {boolean | string | number} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelectByKey<T>(
+  array: T[],
+  value: boolean | string | number,
+  name?: string
+): T[];
+
+/**
+ * Выбирает элементы массива, с определенным значением заданного поля (ключа) внутри элемента.
+ * Функция аналогична более универсальной функции {@link ArraySelect}(), но работает быстрее.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {boolean | string | number} value - Значение ключа.
+ * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArraySelectByKey<T>(
+  array: XmlMultiElem<T>,
+  value: boolean | string | number,
+  name?: string
+): XmlElem<T>[];
+
+/**
+ * Выбирает элементы массива, с определенным значением  заданного поля (ключа) внутри элемента.
+ * Массив должен быть предварительно отсортирован по возрастанию значения ключа,
+ * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}().
+ * @param {T[]} array - Массив.
+ * @param {string | number} value - Значение ключа.
+ * @param {string} name - Имя элемента, являющегося ключом.
+ * @param {boolean} [ignoreCase] - Игнорировать регистр (для массивов, содержащих строки).
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelectBySortedKey<T>(array: T[], value: string | number, name: string, ignoreCase?: boolean): T[];
+
+/**
+ * Выбирает элементы массива, с определенным значением  заданного поля (ключа) внутри элемента.
+ * Массив должен быть предварительно отсортирован по возрастанию значения ключа,
+ * что делает эту функцию существенно быстрее по сравнению с {@link ArraySelectByKey}().
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string | number} value - Значение ключа.
+ * @param {string} name - Имя элемента, являющегося ключом.
+ * @param {boolean} [ignoreCase] - Игнорировать регистр (для массивов, содержащих строки).
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArraySelectBySortedKey<T>(
+  array: XmlMultiElem<T>,
+  value: string | number,
+  name: string,
+  ignoreCase?: boolean
+): XmlElem<T>[];
+
+/**
+ * Выбирает элементы массива, со значением заданного поля (ключа) внутри элемента, начинающегося на заданные префикс.
+ * Массив должен быть предварительно отсортирован по возрастанию значения ключа, что делает эту функцию существенно более эффективной по сравнению с простым перебором.
+ * Порядок сортировки возвращаемых элементов не определен.
+ * @param {T[]} array - Произвольный массив, поддерживающий прямой доступ по порядковому индексу.
+ * @param {string | number} prefixStr - Префикс.
+ * @param {string} keyName - Имя элемента, являющегося ключом.
+ * @param {boolean} [ignoreCase] - Игнорировать регистр (для массивов, содержащих строки).
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelectBySortedKeyPrefix<T>(array: T[], prefixStr: string | number, keyName: string, ignoreCase?: boolean): T[];
+
+/**
+ * Возвращает массив уникальных значений элементов заданного массива.
+ * @param {T[]} array - Исходный массив.
+ * @param {string} [fieldExpr] - Выражение, вычисляемое относительно каждого элемента исходного массива,
+ * Если аргумент не указан, используется значение самого элемента `This`.
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelectDistinct<T>(array: T[], fieldExpr?: string): T[];
+
+/**
+ * Возвращает массив уникальных значений элементов заданного массива.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @param {string} [fieldExpr] - Выражение, вычисляемое относительно каждого элемента исходного массива,
+ * Если аргумент не указан, используется значение самого элемента `This`.
+ * @returns {XmlElem<T>[]} Результат.
+ */
+declare function ArraySelectDistinct<T>(array: XmlMultiElem<T>, fieldExpr?: string): XmlElem<T>[];
+
+/**
+ * Возвращает массив уникальных значений определенного поля элементов заданного массива.
+ * @param {T[]} array - Исходный массив.
+ * @param {string} [fieldExpr] - Выражение, вычисляемое относительно каждого элемента исходного массива и возвращающее значение поля, массив уникальных значений которого необходимо вернуть.
+ * @returns {T[]} Результат.
+ * @see {@link ArraySelectDistinct}
+ */
+declare function ArraySelectDistinctKeys<T>(array: T[], fieldExpr?: string): T[];
+
+/**
+ * Возвращает массив уникальных значений определенного поля элементов заданного массива.
+ * @param {XmlMultiElem<T>} array - Исходный массив.
+ * @param {string} [fieldExpr] - Выражение, вычисляемое относительно каждого элемента исходного массива и возвращающее значение поля, массив уникальных значений которого необходимо вернуть.
+ * @returns {XmlElem<T>[]} Результат.
+ * @see {@link ArraySelectDistinct}
+ */
+declare function ArraySelectDistinctKeys<T>(array: XmlMultiElem<T>, fieldExpr?: string): XmlElem<T>[];
+
+/**
+ * Производит выборку из массива, содержащего элементы id и parent_id (как правило каталога), иерархического подмножества по заданному parent_id (не сключая головной элемент).
+ * @param {T[]} array - Массив.
+ * @param {string} keyVal - Значение родительского элемента.
+ * @param {string} parentKeyName - Имя родительского элемента (для калогов обычно 'parent_id').
+ * @returns {T[]} Результат.
+ */
+declare function ArraySelectDistinctKeys<T>(array: T[], keyVal: string, parentKeyName: string): T[];
+
+/**
+ * Производит выборку из массива, содержащего элементы id и parent_id (как правило каталога), иерархического подмножества по заданному parent_id (не сключая головной элемент).
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} keyVal - Значение родительского элемента.
+ * @param {string} parentKeyName - Имя родительского элемента (для калогов обычно 'parent_id').
+ * @returns {XmlMultiElem<T>} Результат.
+ */
+declare function ArraySelectDistinctKeys<T>(array: XmlMultiElem<T>, keyVal: string, parentKeyName: string): XmlMultiElem<T>;
+
+/**
+ * Сортирует массив по заданным полям. Возвращает новый массив отсортированных значений.
+ * Функция требует нечетного числа аргументов (не менее 3-х),
+ * для каждого нового уровня сортировки добавляется 2 новых аргумента.
+ * @param {T[]} array - Массив.
+ * @param {string} expression - Выражение, вычисляющее значение полей относительно элемента массива,
+ * по которым осуществляется сортировка.
+ * @param {string} [direction] - Направление сортировки ('+' или '-').
+ * @param {string} args - Набор дополнительных аргументов для сортировки.
+ * @returns {T[]} Результат.
+ * @example
+ * ```
+ * ArraySort(array, "name", "+", "date", "-");
+ * ```
+ */
+declare function ArraySort<T>(
+  array: T[],
+  expression: string,
+  direction?: string,
+  ...args: string[]
+): T[];
+
+/**
+ * Сортирует массив по заданным полям. Возвращает новый массив отсортированных значений.
+ * Функция требует нечетного числа аргументов (не менее 3-х),
+ * для каждого нового уровня сортировки добавляется 2 новых аргумента.
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} expression - Выражение, вычисляющее значение полей относительно элемента массива,
+ * по которым осуществляется сортировка.
+ * @param {string} [direction] - Направление сортировки ('+' или '-').
+ * @param {string} args - Набор дополнительных аргументов для сортировки.
+ * @returns {XmlElem<T>[]} Результат.
+ * @example
+ * ```
+ * ArraySort(array, "name", "+", "date", "-");
+ * ```
+ */
+declare function ArraySort<T>(
+  array: XmlMultiElem<T>,
+  expression: string,
+  direction?: string,
+  ...args: string[]
+): XmlElem<T>[];
+
+/**
+ * Возвращает сумму значений определенного поля по всем элементам массива.
+ * Внимание! При использовании с массивом примитивов функция будет работать возвращать 0.
+ * @example
+ * ```
+ * var a = [1, 2, 3];
+ * ArraySum(a, "This"); // --> 0
+ * ```
+ * @param {T} array - Массив.
+ * @param {string} expression - Выражение, вычисляющее поле, по которому происходит суммирование.
+ * @returns {number} Результат.
+ */
+declare function ArraySum<T>(array: T[], expression: string): number;
+
+/**
+ * Возвращает сумму значений определенного поля по всем элементам массива.
+ * Внимание! При использовании с массивом примитивов функция будет работать возвращать 0.
+ * @example
+ * ```
+ * var a = [1, 2, 3];
+ * ArraySum(a, "This"); // --> 0
+ * ```
+ * @param {XmlMultiElem<T>} array - Массив.
+ * @param {string} expression - Выражение, вычисляющее поле, по которому происходит суммирование.
+ * @returns {number} Результат.
+ */
+declare function ArraySum<T>(array: XmlMultiElem<T>, expression: string): number;
+
+/**
+ * Последовательное объединение нескольких массивов в один.
+ * @param {T[]} args - Массивы.
+ * @returns {T[]} Результат.
+ */
+declare function ArrayUnion<T>(...args: T[]): T;
+
+/**
+ * Последовательное объединение нескольких массивов в один.
+ * @param {unknown[]} args - Массивы.
+ * @returns {unknown[]} Результат.
+ */
+declare function ArrayUnion(...args: unknown[]): unknown;
+
+/**
+ * Проверяет, является ли аргумент массивом.
+ * @param {unknown} value - Аргумент.
+ * @returns {boolean} Результат.
+ */
+declare function IsArray(value: unknown): value is unknown[] | XmlMultiElem<unknown>;
+
+//#endregion
+
+//#region Работа с файловой системой
+
+/**
+ * Сохраняет содержимое строки в файл с заданном путем с использованием UTF-8 BOM.
+ */
+declare function PutFileText(): void;
+
+/**
+ * Возвращает путь к директории, из которой запущено приложение.
+ * @returns {string} Результат.
+ */
+declare function AppDirectoryPath(): string;
+
+/**
+ * Копирует файл внутри файловой системы.
+ * @param {string} srcFilePath - Путь к исходному файлу.
+ * @param {string} destFilePath - Путь к файлу назначения.
+ */
+declare function CopyFile(srcFilePath: string, destFilePath: string): void;
+
+/**
+ * Создает новую директорию внутри существующей директории.
+ * @param {string} path - Путь до новой директории, или url.
+ * @returns {undefined}
+ */
+declare function CreateDirectory(path: string): undefined;
+
+/**
+ * Создает ярлык на указанный файл.
+ * @param {string} linkPath - Путь (или url) к создаваемому ярлыку.
+ * @param {string} targetPath - Путь (или url) к файлу, на который будет указывать ярлык.
+ * @returns {undefined}
+ */
+declare function CreateShellLink(linkPath: string, targetPath: string): undefined;
+
+/**
+ * Удаляет директорию, включая все вложенные файлы и директории.
+ * @param {string} path - Путь (или url) до удаляемой директории.
+ * @returns {undefined}
+ */
+declare function DeleteDirectory(path: string): undefined;
+
+/**
+ * Удаляет файл.
+ * @param {string} path - Путь (или url) к удаляемому файлу.
+ * @returns {undefined}
+ */
+declare function DeleteFile(path: string): undefined;
+
+/**
+ * Проверяет открыт ли файл в другом приложении.
+ * @param {string} path - Путь (или url) к файлу.
+ * @returns {boolean} Результат.
+ */
+declare function FileIsBusy(path: string): boolean;
+
+/**
+ * Извлекает имя файла из пути, переданного в качестве аргумента.
+ * @param {string} url - Путь к файлу.
+ * @returns {string}
+ * FileName( 'work\data\doc.pdf' ) вернет 'doc.pdf' FileName( 'work\data\' ) вернет 'data'.
+ */
+declare function FileName(url: string): string;
+
+/**
+ * Проверяет, существует ли файл с заданным url либо путем в файловой системе.
+ * @param {string} pathOrUrl - URL либо путь к файлу.
+ * @returns {boolean} Результат.
+ */
+declare function FileExists(pathOrUrl: string): boolean;
+
+/**
+ * Склеивает абсолютный и относительный файловые пути.
+ * Если в качестве относительного пути передан абсолютный путь, вернется он же, а первый аргумент проигнорируется.
+ * Функция унифицирует разделители в относительном пути ("/" и "\") под файловую систему текущей операционной системы.
+ * @param {string} basePath - Базовый абсолютный путь
+ * @param {string} addPath - Добавляемый относительный путь
+ * @returns {string} Результат.
+ */
+declare function FilePath(basePath: string, addPath: string): boolean;
+
+/**
+ * Проверяет существует ли файл (или директория) по указанному пути.
+ * @param {string} path - Путь к файлу.
+ * @returns {boolean} Результат.
+ */
+declare function FilePathExists(path: string): boolean;
+
+/**
+ * Возвращает дату создания файла с заданным путем либо url в файловой системе.
+ * @param {string} pathOrUrl - Путь к файлу либо URL, отображаемый в файловую систему
+ * @returns {Date} - Результат.
+ */
+declare function GetFileCreationDate(pathOrUrl: string): Date;
+
+/**
+ * Возвращает дату модификации файла.
+ * @param {string} path - Путь (или url) к файлу.
+ * @returns {Date} Дата.
+ */
+declare function GetFileModDate(path: string): Date;
+
+/**
+ * Возвращает путь к одной из стандартных директорий Shell.
+ * @returns {string}
+ * AppData - директория для хранения данных пользователя, например "C:\Documents and Settings\User\Application Data".
+ */
+declare function GetShellFolderPath(): string;
+
+/**
+ * Проверяет является ли путь к файлу, переданный в качестве аргумента.
+ * Существование файла по данному пути не проверяется.
+ * @param {string} path - Путь к файлу.
+ * @returns {boolean} Результат.
+ * IsAbsoluteFilePath( 'c:\temp\1.ddd' ) вернет true IsAbsoluteFilePath( 'temp\1.ddd' ) вернет false.
+ */
+declare function IsAbsoluteFilePath(path: string): boolean;
+
+/**
+ * Проверяет, является ли указанный путь (или url) директорией.
+ * @param {string} path - Путь (или url).
+ * @returns {boolean} Результат.
+ */
+declare function IsDirectory(path: string): boolean;
+
+/**
+ * Загружает содержимое файла по заданному пути, результат возвращается в виде строки, содержащей бинарные данные.
+ * @param {string} path - Путь к файлу.
+ * @returns {string} Результат.
+ */
+declare function LoadFileData(path: string): string;
+
+/**
+ * Загружает содержимое фрагмента файла. Возвращает результат в виде бинарной строки.
+ * Если конечная позиция превышает фактический размер файла, возвращается фрагмент до фактической верхней границы.
+ * @param {string} path - Путь к файлу.
+ * @param {number} startPosition - Начальная позиция.
+ * @param {number} endPosition - Конечная позиция.
+ * @returns {string} Результат.
+ */
+declare function LoadFileDataRange(path: string, startPosition: number, endPosition: number): string;
+
+/**
+ * Загружает содержимое файла с заданным путем с учетом наличия BOM.
+ * Если файл начинается на UTF-16 BOM, происходи конвертация из UTF-16 в текущую кодировку (UTF-8).
+ * Если файл начинается на UTF-8 BOM, возвращается содержимое файла после BOM.
+ * Если BOM в файле отсутствует, происходит конвертация из однобайтовой кодировки по умолчанию
+ * (например Windows-1251) в текущую (UTF-8).
+ * @param {string} filepath - Путь до файла.
+ * @returns {string} Содержимое файла.
+ */
+declare function LoadFileText(filepath: string): string;
+
+/**
+ * Перемещает или переименовывает файл.
+ * @param {string} path1 - Исходный путь к файлу.
+ * @param {string} path2 - Новый путь к файлу.
+ * @returns {undefined}
+ */
+declare function MoveFile(path1: string, path2: string): undefined;
+
+/**
+ * Проверяет, существует ли указанная директория, если нет - создает ее.
+ * @param {string} path - Путь (или url) к директории.
+ * @param {boolean} [isRecursive] - Создавать всю цепочку родительских директорий, если они не существуют.
+ * @returns {undefined}
+ */
+declare function ObtainDirectory(path: string, isRecursive?: boolean): undefined;
+
+/**
+ * Возвращает url для временного файла, который будет автоматически удален при следующем запуске приложения.
+ * @param {string} [suffix] - Требуемый суффикс имени файла.
+ * @returns {string} Результат.
+ */
+declare function ObtainSessionTempFile(suffix?: string): string;
+
+/**
+ * Создает директорию с уникальным именем внутри директории для временных файлов.
+ * Возвращает путь к созданной директории.
+ * Смотри также {@link ObtainTempFile}().
+ * @returns {string} Путь к созданной директории.
+ */
+declare function ObtainTempDirectoryPath(): string;
+
+/**
+ * Возвращает url для временного файла.
+ * @param {string} [suffix] - Требуемый суффикс имени файла.
+ * @returns {string} Результат.
+ */
+declare function ObtainTempFile(suffix?: string): string;
+
+/**
+ * Возвращает путь к родительской директории. Фактическое существование директорий не проверяется.
+ * @param {string} path - Путь к исходной директории.
+ * @returns {string} Результат.
+ */
+declare function ParentDirectory(path: string): string;
+
+/**
+ * Проверяет, существует ли директория по указанному пути.
+ * @param {string} path - Путь до директории.
+ * @returns {boolean} Результат.
+ */
+declare function PathIsDirectory(path: string): boolean;
+
+/**
+ * Сохраняет содержимое строки в файл. Содержимое строки интерпретируется как бинарные данные.
+ * @param {string} path - Путь к файлу.
+ * @param {string} str - Данные.
+ * @returns {undefined}
+ */
+declare function PutFileData(path: string, str: string): undefined;
+
+/**
+ * Записывает фрагмент файла.
+ * Если длина строки не равна endPos - startPos, возвращается ошибка.
+ * @param {string} path - Путь к файлу.
+ * @param {number} startPosition - Начальная позиция.
+ * @param {number} endPosition - Конечная позиция.
+ * @param {string} data - Строка, содержащая бинарные данные.
+ * @returns {string} Результат.
+ */
+declare function PutFileDataRange(path: string, startPosition: number, endPosition: number, data: string): string;
+
+/**
+ * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
+ * Каждый элемент массива будет содержать `URL` вложенного файла или директории.
+ * @param {string} dirUrl - Url директории.
+ * @returns {Array} Результат.
+ */
+declare function ReadDirectory(dirUrl: string): string[];
+
+/**
+ * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
+ * Каждый элемент массива будет содержать полный путь ко вложенному файлу или директории.
+ * @param {string} path - Путь до директории.
+ * @returns {Array} Результат.
+ */
+declare function ReadDirectoryByPath(path: string): string[];
+
+/**
+ * Возвращает путь к директории для хранении данных пользователя.
+ * По умолчанию директория совпадает с установочной, если специальными настройками не установлено иное.
+ * @returns {string} Результат.
+ */
+declare function UserDataDirectoryPath(): string;
+
+//#endregion
+
+//#region Работа с Url
+
+/**
+ * Проверяет существует ли файл (или директория) по указанному url.
+ * @param {string} url - Url файла.
+ * @returns {boolean} Результат.
+ */
+declare function UrlExists(url: string): boolean;
+
+
+//#endregion
 
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
@@ -1325,20 +2116,6 @@ declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
  * @returns {XmlDatabase} XmlDatabase.
  */
 declare function FetchDb(name: string): unknown;
-
-/**
- * Ищет каталог по имени во всех используемых базах данных.
- * Если не находит - выдает ошибку.
- * Функция по историческим причинам называется не совсем корректно.
- * Ее ближайший эквивалент - {@link FindOptCatalog} имеет правильное название.
- * @param {string} name - Наименование каталога базы данных.
- * @returns {object} Результат.
- * @example
- * ```
- * const catalog = FindSharedCatalog("events");
- * ```
- */
-declare function FindSharedCatalog(name: string): Object;
 
 /**
  * Аналог функции {@link LoadUrlData}, позволяющий явно указать адрес сервера приложения,
@@ -1443,218 +2220,6 @@ declare function XQueryLocal<T>(query: string): T;
  */
 declare function XQuery<T>(query: string, options?: string): T[];
 
-
-/**
- * Переводит все символы строки в нижний регистр.
- * @param {string} str - Строка, которую необходимо преобразовать.
- * @returns {string} Результат.
- * @example
- * ```
- * StrLowerCase(str);
- * ```
- */
-declare function StrLowerCase(str: string): string;
-
-/**
- * Возвращает часть строки str, длиной length,
- * начиная с первого символа переданной строки.
- * Если второй аргумент больше длины передаваемой строки,
- * возвращается str.
- * @param {string} str - Строка.
- * @param {number} length - Длина строки.
- * @returns {string} Результат.
- * @example StrLeftRange(str, length)
- */
-declare function StrLeftRange(str: string, length: number): string;
-
-/**
- * Возвращает часть строки str, длиной length, начиная с первого символа переданной строки.
- * Если второй аргумент больше длины передаваемой строки, возвращается str.
- * В отличие от StrLeftRange возвращает не биты, а именно символы.
- * @param {string} str - Строка.
- * @param {number} length - Длина строки.
- * @returns {string} Результат.
- * @example
- * ```
- * StrLeftCharRange(str, length);
- * ```
- */
-declare function StrLeftCharRange(str: string, length: number): string;
-
-/**
- * Проверяет состоит ли строка только из цифр или латинских символов.
- * @param {string} str - Проверяемая строка.
- * @returns {boolean} Результат.
- * @example StrIsAlphaNum(str);
- */
-declare function StrIsAlphaNum(str: string): boolean;
-
-/**
- * Возвращает длину строки в байтах.
- * Данная длина может быть больше количества символов,
- * если приложение использует кодировку UTF-8.
- * Для определения количества символов в строке
- * необходимо использовать функцию StrCharCount.
- * @param {string} str - Строка.
- * @returns {number} Результат.
- */
-declare function StrLen(str: string): number;
-
-/**
- * Проверяет, начинается ли строка на другую строку.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} ignoreCase - Не учитывать регистр.
- * @returns {boolean} Результат.
- * StrBegins(str, subStr, ignoreCase).
- */
-declare function StrBegins(str: string, subStr: string, ignoreCase?: boolean): boolean;
-
-/**
- * Проверяет, содержит ли строка другую строку в качестве подстроки.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} ignoreCase - Не учитывать регистр.
- * @returns {boolean} Результат.
- * StrContains(str, subStr, ignoreCase).
- */
-declare function StrContains(str: string, subStr: string, ignoreCase?: boolean): boolean;
-
-/**
- * Проверяет, оканчивается ли строка на другую строку.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} ignoreCase - Не учитывать регистр.
- * @returns {boolean} Результат.
- * StrEnds(str, subStr, ignoreCase).
- */
-declare function StrEnds(str: string, subStr: string, ignoreCase?: boolean): boolean;
-
-/**
- * Возвращает количество символов в строке.
- * @param {string} str - Строка.
- * @returns {number} Результат.
- */
-declare function StrCharCount(str: string): number;
-
-/**
- * Проверяет, удовлетворяет ли строка одной из масок.
- * Маски перечисляются через запятую вторым аргументом.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} pattern - Шаблоны поиска, разделенные запятой.
- * @returns {boolean} Результат.
- * @example StrMatchesMultiPattern(str, "aaa*bbb,ccc*ddd*eee");
- */
-declare function StrMatchesMultiPattern(str: string, pattern: string): boolean;
-
-/**
- * Заменяет первое вхождение строки на указанную подстроку.
- * @param {string} str - Исходная строка.
- * @param {string} subStr - Исходная подстрока.
- * @param {string} newSubStr - Новая подстрока.
- * @returns {string} Результат.
- * @example StrReplaceOne(str1, str2);
- */
-declare function StrReplaceOne(str: string, subStr: string, newSubStr: string): string;
-
-/**
- * Возвращает часть строки, начиная с указанной позиции до конца строки.
- * @param {string} str - Строка.
- * @param {number} pos - Позиция.
- * @returns {string} Результат.
- * @example StrRightRangePos(str, pos);
- */
-declare function StrRightRangePos(str: string, pos: number): string;
-
-/**
- * Проверяет, удовлетворяет ли строка маске поиска, использующей символ '*'.
- * @param {string} str - Строка.
- * @param {string} mask - Маска.
- * @returns {boolean} Результат.
- * StrMatchesPattern( str, 'aaa*bbb' ).
- */
-declare function StrMatchesPattern(str: string, mask: string): boolean;
-
-/**
- * Преобразует строку в нижний регистр.
- * @param {string} str - Строка, которую нужно преобразовать.
- * @returns {string}
- * StrUpperCase(str).
- */
-declare function StrUpperCase(str: string): string;
-
-/**
- * Возвращает часть строки по заданным позициям.
- * @param {string} str - Строка.
- * @param {number} pos1 - Начальная позиция.
- * @param {number} pos2 - Конечная позиция.
- * @returns {string} Результат.
- * @example StrRangePos(str, pos1, pos2);
- */
-declare function StrRangePos(str: string, pos1: number, pos2: number): string;
-
-/**
- * Переводит первую букву строки в нижний регистр.
- * @param {string} str - Строка.
- * @returns {string}
- * StrNonTitleCase(str).
- */
-declare function StrNonTitleCase(str: string): string;
-
-/**
- * Заменяет все вхождения одной подстроки на другую в заданной строке, если такие имеются. Возвращает измененную строку.
- * @param {string} str - Исходная строка.
- * @param {string} subStr - Исходная подстрока.
- * @param {string} newSubStr - Новая подстрока.
- * @returns {string} Результат.
- * @example StrReplace(str, subStr, newSubStr);
- */
-declare function StrReplace(str: string, subStr: string, newSubStr: string): string;
-
-/**
- * Извлекает из строки фрагменты в соответствии с заданным шаблоном.
- * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
- * @param {string} str - Строка.
- * @param {any} arg - Шаблон.
- * @returns {Array} Результат.
- * @example
- * ```
- * const obj = StrScan(str, "%*s/vacancy/%s.htm");
- * vacancyID = obj[0];
- * ```
- */
-declare function StrScan(str: string, arg: string): string[];
-
-/**
- * Преобразует первую букву строки в заглавную.
- * @param {string} str - Строка, которую нужно преобразовать.
- * @returns {string} Результат.
- */
-declare function StrTitleCase(str: string): string;
-
-/**
- * Экспериментальная.
- * @returns {undefined}
- */
-declare function StrWordMatchRating(): undefined;
-
-/**
- * Заменяет повторяющиеся последовательности символов пробела,
- * перевода строк и табуляции в строке на одиночные пробелы.
- * @param {string} str - Исходная строка.
- * @returns {string} Результат.
- */
-declare function UnifySpaces(str: string): string;
-
-/**
- * Удаляет символы пробела, перевода строк и табуляции в начале и конце строки.
- * @param {string} str - Исходная строка.
- * @returns {string}
- * Trim(str).
- */
-declare function Trim(str: string): string;
-
-
 /**
  * Удаляет объект с заданным url.
  * @param {string} url - Url.
@@ -1708,12 +2273,9 @@ declare function PutUrlData(url: string, dataStr: string): undefined;
 /**
  * Преобразует путь файловой системы в локальный `URL` типа `file:` или `x-local:`.
  * @param {string} path - Путь файловой системы.
- * @param {string} baseUrl - Базовый `URL`, к схеме которого будет приводиться путь.
+ * @param {string} [baseUrl] - Базовый `URL`, к схеме которого будет приводиться путь.
  * @returns {string} Результат.
- * @example
- * ```
- * FilePathToUrl("C:\\Temp\\1.htm") == "file:///C:/Temp/1.htm"
- * ```
+ * @example FilePathToUrl("C:\\Temp\\1.htm") == "file:///C:/Temp/1.htm"
  */
 declare function FilePathToUrl(path: string, baseUrl?: string): string;
 
@@ -1895,7 +2457,7 @@ declare function GetCachedDoc(url: string): XmlDocument;
 /**
  * Удаляет на сервере приложения документ с заданным url.
  * Используется в специализированном коде, предназначенном для синхронизации баз данных или обмена данными между базами.
- * Аргументы: docUrl - url документа (String) options - опции, необязательный аргумент (String).
+ * Аргументы: docUrl - url документа (String) options - опции, необязательный аргумент.
  * LdsDeleteDoc( 'x-db-obj://data/candidate/042D8A4596B679/E0.xml', 'lds-server=test2.datex.ru:9000' ).
  */
 declare function LdsDeleteDoc(): undefined;
@@ -1910,8 +2472,8 @@ declare function ObjectIDFromUrl(url: string): number;
 /**
  * Удаляет документ с заданным url.
  * @param {string} url - Url документа.
- * @param {boolean} permanent - Удалить мимо корзины. По умолчанию - false.
- * DeleteDoc( 'x-db-obj://data/candidate/0x4DF75B9F13FE5160.xml' ).
+ * @param {boolean} [permanent] - Удалить мимо корзины. По умолчанию - false.
+ * @example DeleteDoc("x-db-obj://data/candidate/0x4DF75B9F13FE5160.xml");
  */
 declare function DeleteDoc(url: string, permanent?: boolean): undefined;
 
@@ -1977,17 +2539,6 @@ declare function RegisterSharedDoc(docUrl: string): XmlDocument;
  * @returns {XmlDocument} XmlDocument.
  */
 declare function OpenDocFromStr<T extends XmlDocument>(dataStr: string, options?: string): T;
-
-/**
- * Загружает содержимое файла с заданным путем с учетом наличия BOM.
- * Если файл начинается на UTF-16 BOM, происходи конвертация из UTF-16 в текущую кодировку (UTF-8).
- * Если файл начинается на UTF-8 BOM, возвращается содержимое файла после BOM.
- * Если BOM в файле отсутствует, происходит конвертация из однобайтовой кодировки по умолчанию
- * (например Windows-1251) в текущую (UTF-8).
- * @param {string} filepath - Путь до файла.
- * @returns {string} Содержимое файла.
- */
-declare function LoadFileText(filepath: string): string;
 
 /**
  * Выдает наименование типа объекта по его url. Смотри так же ObjectDocUrl и ObjectIDFromUrl .
@@ -2129,169 +2680,6 @@ declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefine
 declare function RegisterSubForm(formUrl: string, formPath: string): string;
 
 /**
- * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
- * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
- * @param {any} arg - Любое значение.
- * @returns {boolean} Результат.
- * @example
- * ```
- * IsEmptyValue(123) === false
- * IsEmptyValue("123") === false
- * IsEmptyValue(null) === true
- * IsEmptyValue("") === true
- * ```
- */
-declare function IsEmptyValue(arg: Object): false;
-
-/**
- * Проверяет, является ли значение `undefined`, `null` либо пустой строкой.
- * Позволяет писать универсальный код, не зная точный тип данных переданного аргумента.
- * @param {any} arg - Любое значение.
- * @returns {boolean} Результат.
- * @example
- * ```
- * IsEmptyValue(123) === false
- * IsEmptyValue("123") === false
- * IsEmptyValue(null) === true
- * IsEmptyValue("") === true
- * ```
- */
-declare function IsEmptyValue(arg: unknown): arg is undefined | null | "";
-
-/**
- * Преобразует значение аргумента к целому числу.
- * @param {number} value - Целое число, вещественное число или строка, содержащая число.
- * @returns {number} Результат.
- * @example
- * ```
- * Int(123);
- * Int("123");
- * Int(123.45);
- * ```
- */
-declare function Int(value: string | number): number;
-
-/**
- * Возвращает скалярное значение аргумента, если в качестве аргумента передан объект.
- * Если передано скалярное значение, возвращается оно же.
- * @param {XmlElem<T> | T} value - Аргумент (Any).
- * @returns {T} Результат.
- */
-declare function RValue<T>(value: XmlElem<T> | T): T;
-
-/**
- * Возвращает строку, содержащую аргумент в шестнадцатеричном виде (64 бита).
- * @param {number} num - Число, которую нужно преобразовать.
- * @returns {string} Строка.
- * @example
- * ```
- * StrHexInt(1000); // "00000000000003E8"
- * ```
- */
-declare function StrHexInt(num: number): string;
-
-/**
- * Преобразует вещественный аргумент в строку.
- * @param {number} value - Вещественный аргумент.
- * @param {number} precision - Максимальное число знаков после запятой. По умолчанию 6.
- * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
- * @returns {string} Результат.
- * @example
- * ```
- * StrReal(90154.249); // "90154.249"
- * StrReal(90154.249, 2); // "90154.25"
- * StrReal(90154.249, 2, true); // "90 154.25"
- * ```
- */
-declare function StrReal(value: number, precision?: number, addGroupDelim?: boolean): string;
-
-/**
- * Преобразует значение аргумента к вещественному числу.
- * @param {string | number} value - Целое число, вещественное число или строка, содержащая вещественное число.
- * @returns {number} Результат.
- * @example
- * ```
- * Real(12.6);
- * Real("12.6");
- * ```
- */
-declare function Real(value: string | number): number;
-
-/**
- * Преобразует 10 обозначение цвета (RGB) в  шестнадцатеричное, принятое в формате html.
- * @param {string} color - 10 обозначение цвета .
- * @returns {string} Результат.
- * @example
- * ```
- * StrHexColor("128,128,128"); // "808080"
- * ```
- */
-declare function StrHexColor(color: string): string;
-
-/**
- * Если значение целочисленного аргумента = 0 преобразует его в "-",
- * иначе в строку (аналогично функции {@link StrInt}()).
- * @param {number} arg - Целочисленный аргумент.
- * @param {number} [digitsNum] - Минимальное число символов в строке.
- * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
- * @returns {string} Результат.
- */
-declare function StrIntZero(arg: number, digitsNum: number, addGroupDelim: boolean): string;
-
-/**
- * Преобразует вещественный аргумент в строку.
- * @param {number} arg - Вещественный аргумент.
- * @param {number} precision - Число символов в дробной части числа. Недостающие символы компенсируются нулями.
- * @param {boolean} addGroupDelim - Разделять тысячные разряды пробелами.
- * @returns {string} Результат.
- * @example
- * ```
- * StrRealFixed(90154.2) == "90154.20";
- * StrRealFixed(90154.2, 2, true) == "90 154.20";
- * ```
- */
-declare function StrRealFixed(arg: number, precision?: number, addGroupDelim?: boolean): string;
-
-/**
- * Преобразует целочисленный аргумент в строку.
- * @param {number} arg - Целочисленный аргумент.
- * @param {number} [digitsNum] - Минимальное число символов в строке.
- * Недостающие символы компенсируются нулями перед числом.
- * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами (Bool).
- * @returns {string} Результат.
- * @example
- * ```
- * StrInt(11500) == '11500'
- * StrInt(11500, 6) == '011500'
- * StrInt(11500, 0, true) == '11 500'
- * ```
- */
-declare function StrInt(arg: number, digitsNum?: number, addGroupDelim?: boolean): string;
-
-/**
- * Преобразует целое число в словесное строковое представление.
- * Только для русского языка.
- * @param {number} arg - Числовой аргумент.
- * @param {0|1} [gender] - Род (0 - мужской, 1] - женский).
- * @returns {string} Результат.
- * @example
- * ```
- * TextInt(121) == "сто двадцать один"
- * TextInt(121, 1) == "сто двадцать одна"
- * ```
- */
-// eslint-disable-next-line no-magic-numbers
-declare function TextInt(arg: number, gender: 0 | 1): string;
-
-/**
- * Возвращает уникальный Id.
- * @returns {number} Id.
- */
-declare function UniqueID(): number;
-declare function ParseHeaderPairs(string: string): Object;
-
-
-/**
  * Кодирует строку, содержащую текст, для использования внутри HTML.
  * В результате символы & и < заменяются на &amp; и &lt;, соответственно, а переводы строк - на <br/>.
  * @param {string} str - Строка.
@@ -2300,34 +2688,11 @@ declare function ParseHeaderPairs(string: string): Object;
 declare function HtmlEncode(str: string): string;
 
 /**
- * Декодирует данные из формата Base64. Данные возвращаются в виде строки, которая может содержать бинарные данные.
- * @param {string} str - Строка в Base64.
- * @returns {string} Результат.
- */
-declare function Base64Decode(str: string): string;
-
-/**
- * Переводит строку из кодировки, используемой  в программе по умолчанию, в заданную кодировку.
- * @param {string} str - Строка.
- * @param {string} charset - Имя кодировки, в которую нужно перевести строку.
- * @returns {string} Результат.
- */
-declare function EncodeCharset(str: string, charset: WebtutorCharsets): string;
-
-/**
  * Преобразует строку, содержащую HTML, в простой текст.
  * @param {string} html - Строка, содержащая HTML.
  * @returns {string} Результат.
  */
 declare function HtmlToPlainText(html: string): string;
-
-/**
- * Преобразует массив байт в 16-ое представление.
- * @param {string} arg - Строка, содержащая массив байт.
- * @returns {string}
- * HexData( 'апрол' ) вернет 'E0EFF0EEEB'.
- */
-declare function HexData(arg: string): string;
 
 /**
  * Преобразует строку, содержащую обычный текст в полный HTML-документ.
@@ -2338,387 +2703,6 @@ declare function HexData(arg: string): string;
  * @returns {string} Результат.
  */
 declare function HtmlEncodeDoc(str: string): string;
-
-/**
- * Формирует тело http запроса для последующей отправки методом POST в формате multipart/form-data.
- * @param {object} obj - Объект, содержащий атрибуты и их значения (Object).
- * @returns {string} Результат.
- */
-declare function MultipartFormEncode(obj: Object): string;
-
-/**
- * Кодирует строку в формат Base64.
- * @param {string} str - Строка. Может содержать бинарные данные.
- * @returns {string} Результат.
- */
-declare function Base64Encode(str: string): string;
-
-/**
- * Переводит строку из заданной кодировки в кодировку, используемой в программе по умолчанию.
- * @param {string} str - Строка, которую нужно перевести.
- * @param {string} charset - Название кодировки, в которую нужно перевести строку.
- * @returns {string} Результат.
- */
-declare function DecodeCharset(str: string, charset: WebtutorCharsets): string;
-
-/**
- * Кодирует обычный текст в формат rtf.
- * @param {string} str - Строка, которую нужно преобразовать.
- * @returns {string} Результат.
- */
-declare function RtfEncode(str: string): string;
-
-/**
- * Шифрует строку простым встроенным алгоритмом шифрования.
- * @param {string} str - Шифруемая строка.
- * @returns {string} Результат.
- */
-declare function StrSimpleEncrypt(str: string): string;
-
-/**
- * Переводит текст в формате rtf в обычный текст.
- * @param {string} str - Текст в формате rtf.
- * @returns {string} Результат.
- */
-declare function RtfToPlainText(str: string): string;
-
-/**
- * Дешифрует строку, зашифрованную простым встроенным алгоритмом.
- * @param {string} str - Дешифруемая строка.
- * @returns {string} Результат.
- */
-declare function StrSimpleDecrypt(str: string): string;
-
-/**
- * Декодирует строчку по стандартным правилам декодирования url, т.е. Заменяет знак "%код" на соответствующий символ.
- * @param {string} url - Url.
- * @returns {string}
- * UrlDecode( 'qwerty%2D%E0%EF%F0%EE%EB%2Ehtm' ) вернет 'qwerty-апрол.htm'.
- */
-declare function UrlDecode(url: string): string;
-
-/**
- * Кодирует строку символов для использования в качестве параметра url, используя UTF-16.
- * @param {string} str - Строка.
- * @returns {string}
- * UrlEncode( 'qwerty-апрол.htm' ) вернет 'qwerty%2D%u0430%u043F%u0440%u043E%u043B%2Ehtm'.
- */
-declare function UrlEncode16(str: string): string;
-
-/**
- * Кодирует строку символов для использования в качестве параметра url.
- * @param {string} str - Строка.
- * @returns {string}
- * UrlEncode( 'qwerty-апрол.htm' ) вернет 'qwerty%2D%E0%EF%F0%EE%EB%2Ehtm'.
- */
-declare function UrlEncode(str: string): string;
-
-/**
- * Кодирует значение как константу (литерал) языка SQL.
- * Функция используется при генерировании выражений на SQL из программы.
- * @param {any} arg - Аргумент произвольного типа.
- * @returns {string}
- * Значение типа string заключается в кавычки, при этом существующие кавычки внутри строки маскируются по правилам SQL.
- * Значение типа integer переводится в соответствующее строковое значение.
- * Значение типа date переводится в строку, содержащую дату в формате SQL.
- */
-declare function SqlLiteral(arg: string | number | Date | null): string;
-
-/**
- * Преобразует объект типа Object в строку вида 'name1=value1&name2=value2&...'
- * для использования в качестве запроса в url.
- * @param {object} obj - Объект, содержащий список значений (Object).
- * @returns {string} Результат.
- */
-declare function UrlEncodeQuery(obj: Object): string;
-
-/**
- * Маскирует аргумент для вставки в xml в качестве значения атрибута.
- * В результате действия функции символы перевода строки, табуляции,
- * символы & и < и двойные кавычки маскируются последовательностями &#10;, &#09;, &lt;, &amp; и &quot;.
- * @param {string} str - Аргумент.
- * @returns {string} Результат.
- */
-declare function XmlAttrEncode(str: string): string;
-
-/**
- * Преобразует объект типа Object в строку вида 'name1=value1&name2=value2&...'
- * для использования в качестве запроса в url.
- * @param {object} obj - Объект, содержащий список значений (Object).
- * @param {string} [charset] - Целевая кодировка.
- * @returns {string} Результат.
- */
-declare function UrlEncodeQueryExt(obj: Object, charset: string): string;
-
-/**
- * Формирует строку с xml тегом.
- * @param {string} name - Имя тега.
- * @param {string} text - Значение тега.
- * @returns {string}
- * XmlStr( 'text', 'Hotel "Ariana"' ) возвращает '<text>'Hotel &quot;Ariana&quot;</text>'.
- */
-declare function XmlStr(name: string, text: string): string;
-
-/**
- * Кодирует аргумент как константу XQuery. Функция используется при генерировании выражений XQuery из программы.
- * @param {string | number| Date} arg - Аргумент.
- * @returns {string}
- * Значение типа string заключается в одинарные кавычки,
- * при этом существующие кавычки внутри строки маскируются по правилам XQuery.
- * Значение типа integer или real переводится в соответствующее строковое значение
- * Значение типа bool переводится в строку 'true()' или 'false()'.
- * Значение типа date переводится в строку вида date( '2011-01-30T10:30:00' ).
- */
-declare function XQueryLiteral(arg: string | number | Date): string;
-
-
-/**
- * Возвращает путь к директории, из которой запущено приложение.
- * @returns {string} Результат.
- */
-declare function AppDirectoryPath(): string;
-
-/**
- * Создает новую директорию внутри существующей директории.
- * @param {string} path - Путь до новой директории, или url.
- * @returns {undefined}
- */
-declare function CreateDirectory(path: string): undefined;
-
-/**
- * Возвращает дату модификации файла.
- * @param {string} path - Путь (или url) к файлу.
- * @returns {Date} Дата.
- */
-declare function GetFileModDate(path: string): Date;
-
-/**
- * Удаляет директорию, включая все вложенные файлы и директории.
- * @param {string} path - Путь (или url) до удаляемой директории.
- * @returns {undefined}
- */
-declare function DeleteDirectory(path: string): undefined;
-
-/**
- * Проверяет существует ли файл (или директория) по указанному пути.
- * @param {string} path - Путь к файлу.
- * @returns {boolean} Результат.
- */
-declare function FilePathExists(path: string): boolean;
-
-/**
- * Проверяет существует ли файл (или директория) по указанному url.
- * @param {string} url - Url файла.
- * @returns {boolean} Результат.
- */
-declare function UrlExists(url: string): boolean;
-
-/**
- * Извлекает имя файла из пути, переданного в качестве аргумента.
- * @param {string} url - Путь к файлу.
- * @returns {string}
- * FileName( 'work\data\doc.pdf' ) вернет 'doc.pdf' FileName( 'work\data\' ) вернет 'data'.
- */
-declare function FileName(url: string): string;
-
-/**
- * Удаляет файл.
- * @param {string} path - Путь (или url) к удаляемому файлу.
- * @returns {undefined}
- */
-declare function DeleteFile(path: string): undefined;
-
-/**
- * Проверяет открыт ли файл в другом приложении.
- * @param {string} path - Путь (или url) к файлу.
- * @returns {boolean} Результат.
- */
-declare function FileIsBusy(path: string): boolean;
-
-/**
- * Создает ярлык на указанный файл.
- * @param {string} linkPath - Путь (или url) к создаваемому ярлыку.
- * @param {string} targetPath - Путь (или url) к файлу, на который будет указывать ярлык.
- * @returns {undefined}
- */
-declare function CreateShellLink(linkPath: string, targetPath: string): undefined;
-
-/**
- * Возвращает путь к одной из стандартных директорий Shell.
- * @returns {string}
- * AppData - директория для хранения данных пользователя, например "C:\Documents and Settings\User\Application Data".
- */
-declare function GetShellFolderPath(): string;
-
-/**
- * Проверяет, является ли указанный путь (или url) директорией.
- * @param {string} path - Путь (или url).
- * @returns {boolean} Результат.
- */
-declare function IsDirectory(path: string): boolean;
-
-/**
- * Возвращает url для временного файла.
- * @param {string} [suffix] - Требуемый суффикс имени файла.
- * @returns {string} Результат.
- */
-declare function ObtainTempFile(suffix?: string): string;
-
-/**
- * Загружает содержимое файла по заданному пути, результат возвращается в виде строки, содержащей бинарные данные.
- * @param {string} path - Путь к файлу.
- * @returns {string} Результат.
- */
-declare function LoadFileData(path: string): string;
-
-/**
- * Проверяет, существует ли указанная директория, если нет - создает ее.
- * @param {string} path - Путь (или url) к директории.
- * @param {boolean} [isRecursive] - Создавать всю цепочку родительских директорий, если они не существуют.
- * @returns {undefined}
- */
-declare function ObtainDirectory(path: string, isRecursive?: boolean): undefined;
-
-/**
- * Проверяет является ли путь к файлу, переданный в качестве аргумента.
- * Существование файла по данному пути не проверяется.
- * @param {string} path - Путь к файлу.
- * @returns {boolean} Результат.
- * IsAbsoluteFilePath( 'c:\temp\1.ddd' ) вернет true IsAbsoluteFilePath( 'temp\1.ddd' ) вернет false.
- */
-declare function IsAbsoluteFilePath(path: string): boolean;
-
-/**
- * Возвращает url для временного файла, который будет автоматически удален при следующем запуске приложения.
- * @param {string} [suffix] - Требуемый суффикс имени файла.
- * @returns {string} Результат.
- */
-declare function ObtainSessionTempFile(suffix?: string): string;
-
-/**
- * Создает директорию с уникальным именем внутри директории для временных файлов.
- * Возвращает путь к созданной директории.
- * Смотри также {@link ObtainTempFile}().
- * @returns {string} Путь к созданной директории.
- */
-declare function ObtainTempDirectoryPath(): string;
-
-/**
- * Перемещает или переименовывает файл.
- * @param {string} path1 - Исходный путь к файлу.
- * @param {string} path2 - Новый путь к файлу.
- * @returns {undefined}
- */
-declare function MoveFile(path1: string, path2: string): undefined;
-
-/**
- * Возвращает путь к родительской директории. Фактическое существование директорий не проверяется.
- * @param {string} path - Путь к исходной директории.
- * @returns {string} Результат.
- */
-declare function ParentDirectory(path: string): string;
-
-/**
- * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
- * Каждый элемент массива будет содержать полный путь ко вложенному файлу или директории.
- * @param {string} path - Путь до директории.
- * @returns {Array} Результат.
- */
-declare function ReadDirectoryByPath(path: string): string[];
-
-/**
- * Возвращает путь к директории для хранении данных пользователя.
- * По умолчанию директория совпадает с установочной, если специальными настройками не установлено иное.
- * @returns {string} Результат.
- */
-declare function UserDataDirectoryPath(): string;
-
-/**
- * Сохраняет содержимое строки в файл. Содержимое строки интерпретируется как бинарные данные.
- * @param {string} path - Путь к файлу.
- * @param {string} str - Данные.
- * @returns {undefined}
- */
-declare function PutFileData(path: string, str: string): undefined;
-
-/**
- * Проверяет, существует ли директория по указанному пути.
- * @param {string} path - Путь до директории.
- * @returns {boolean} Результат.
- */
-declare function PathIsDirectory(path: string): boolean;
-
-/**
- * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
- * Каждый элемент массива будет содержать `URL` вложенного файла или директории.
- * @param {string} dirUrl - Url директории.
- * @returns {Array} Результат.
- */
-declare function ReadDirectory(dirUrl: string): string[];
-
-/**
- * Преобразует значение аргумента к целому числу.
- * Если преобразование выполнить невозможно, возвращает undefined, либо defaultVal, если оно указано.
- * @param {T} value - Целое число, вещественное число или строка, содержащая число.
- * @param {K} [defaultValue] - Значение по умолчанию.
- * @returns {number | K} Результат.
- */
-declare function OptInt<T, K = undefined>(value: T, defaultValue?: K): number | K;
-
-/**
- * Преобразует значение аргумента к вещественному числу.
- * Если аргумент не может быть преобразован к вещественному числу,
- * функция возвращает undefined, либо defaultVal, если оно указано.
- * @param {T} value - Целое число, вещественное число или строка, содержащая вещественное число.
- * @param {K} [defaultValue] - Значение по умолчанию.
- * @returns {number | K} Результат.
- */
-declare function OptReal<T, K = undefined>(value: T, defaultValue?: K): number | K;
-
-/**
- * Возвращает `URL` объектного документа с заданным id.
- * @deprecated
- * Устаревшая функция, используемая в старой объектной модели.
- * @param {number} documentId - Id документа.
- * @param {string} databaseName - Имя базы.
- * @returns {string} Результат.
- */
-declare function UrlFromDocID(documentId: number, databaseName?: string): string;
-
-type EncodeJsonOptions = {
-  /** @type форматирование с отступами и переводами строк. */
-  PrettyFormat: boolean;
-  /** @type Экспортировать целые числа, значение которых больше 0x7FFFFFFF, в виде строковой константы в кавычках. */
-  ExportLargeIntegersAsStrings: boolean;
-};
-
-/**
- * Преобразует базовый объект, массив, либо скалярное значение в строку в формате JSON.
- * Функция работает аналогично функции JSON.stringify() в JavaScript,
- * однако второй аргумент представляет из себя набор опций.
- * @param {T} value - Значение.
- * @param {EncodeJsonOptions} [options] - Базовый объект, содержащий набор опций.
- * @returns {string} Сериализованный объект.
- */
-declare function EncodeJson<T>(value: T, options?: EncodeJsonOptions): string;
-
-type ParseJsonOptions = {
-  StrictMode: boolean;
-};
-
-/**
- * Преобразует строку, содержащую JSON, в базовый объект, массив, либо скалярное значение.
- * Функция работает аналогично функции JSON.parse() в JavaScript,
- * однако второй аргумент представляет из себя набор опций.
- * Также ParseJson() менее требовательна к формату,
- * и по умолчанию обрабатывает строки не только в формате JSON,
- * но и JavaScript literal, разрешая в том числе любые типы кавычек,
- * а также значения undefined.
- * @param {string} value - Строка.
- * @param {ParseJsonOptions} [options] - Опции.
- * @returns {T} JSON объект.
- */
-declare function ParseJson<T>(value: string, options?: ParseJsonOptions): T;
 
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
@@ -2790,24 +2774,6 @@ declare function RegisterCodeLibrary(url: string): void;
 declare function OpenCodeLibrary<T>(url: string): T;
 
 /**
- * Функция ядра, которая удаленно (на сервере) вызывает метод с параметрами для конкретного объекта.
- * Примечание - По существу, оператор oResult = CallObjectMethod (oLib, ‘some_function’, [param1, param2])
- * выполняет почти то же самое, что и oResult = oLib.some_function (param1, param2),
- * с той разницей, что второй вариант выполнится там, где он вызван (на клиенте или на сервере),
- * а первый вариант – всегда выполняется на сервере (но результат выполнения возвращается в место вызова).
- * См. Также tools.call_code_library_method.
- * @param {object} object - Тип: Объект без задания структуры (variant). Объект, для которого производится вызов метода.
- * @param {string} method - Тип: Строка. Название вызываемого метода объекта.
- * @param {T} params - (необязательный). Тип: Массив без описания структуры элементов. Массив параметров.
- * В качестве элементов массива могут быть объекты разного типа – строки, числа, объекты, массивы…
- * Порядок следования элементов в массиве должен соответствовать порядку параметров метода.
- * Параметры могут быть перечислены через запятую, а весь массив - заключен в квадратные скобки.
- * В случае, если параметры метода не предусмотрены, указывается пустой массив ([]).
- * @returns {unknown} Result.
- */
-declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
-
-/**
  * Интерпретирует содержимое страницы по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
  * @param {boolean} [raiseErrors] - Завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
@@ -2819,10 +2785,10 @@ declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
 /**
  * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
- * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors.
- * @param {string} envType - Тип окружения: "Global", либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
- * @param {XmlDocument | ScreenItem} baseObject - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
- * @param {unknown[]} extraEnv - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2" либо флаг strictErrors.
+ * @param {string} [envType] - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {XmlDocument | ScreenItem} [baseObject] - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
+ * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
  * ```
  * Поддерживаемые опции:
  * asp-style (bool) - поддерживать стиль <%=%>. Включена по умолчанию.
@@ -2906,22 +2872,12 @@ declare function EvalCodeUrl(codeUrl: string, subCode: string): unknown;
 declare function ModalTaskMsg(msg: string): undefined;
 
 /**
- * Выполняет заданный код на сервере, и возвращает результат.
- * Результат может быть только в виде строки.
- * Если эта функция вызывается на однопользовательской локальной версии программы,
- * она полностью аналогична функции eval.
- * @param {string} code - Код, который будет выполняться на сервере.
- * @returns {string} Результат.
- */
-declare function ServerEval(code: string): string;
-
-/**
  * Выполняет код в окружении, где доступны только те объекты и переменные,
  * которые описаны (являются свойствами) объекта param_object.
  * Другие переменные и объекты (системные или описанные в коде, внутри которого был вызван `SafeEval`) недоступны.
  * Смотрите также функцию {@link eval}.
  * @param {string} code - Код.
- * @param {unknown[]} args - Объект, содержащий набор свойств, определяющих окружение, в котором будет исполнятся код.
+ * @param {unknown[]} [args] - Объект, содержащий набор свойств, определяющих окружение, в котором будет исполнятся код.
  * Если данный аргумент не указан, то программный код исполняется в пустом окружении.
  * Однако, обычно данный аргумент указывается.
  * @returns {unknown} Результат.
@@ -2932,7 +2888,7 @@ declare function SafeEval(code: string, args?: unknown[]): unknown;
  * Выполняет код JS, который, возможно, завершится с ошибкой,
  * с возвратом заданного значения по умолчанию в случае ошибки.
  * @param {string} code - Код JScript.
- * @param {any} defaultValue - Значение, возвращаемое в случае ошибки
+ * @param {any} [defaultValue] - Значение, возвращаемое в случае ошибки
  * Если аргумент не указан, а код завершается с ошибкой, возвращается undefined.
  * @returns {T | undefined} Результат.
  * @example
@@ -2962,7 +2918,7 @@ declare function StartModalTask(taskTitle: string): undefined;
 
 /**
  * Открывает документ либо с расширением XML, содержащий набор методов,
- * и возвращает его корневой элемент, либо с расширением .JS,
+ * и возвращает его корневой элемент либо с расширением .JS,
  * содержащий функции, возвращает псевдо-документ (псевдо-форму),
  * содержащую те же функции. Действие этой функции похоже
  * на действие функции {@link EvalCodeUrl}, но не тождественны ей.
@@ -2979,58 +2935,583 @@ declare function StartModalTask(taskTitle: string): undefined;
  */
 declare function OpenCodeLib<T = XmlDocument>(url: string): T;
 
+//#region Функции Web-сервера
+
 /**
- * Вызывает метод (функцию) библиотеки на сервере приложения.
- * У метода должна быть установлена мета-директива `"META:ALLOW-CALL-FROM-CLIENT:1"`.
- * Значения аргументов могу быть переданы либо через массив, либо через стандартный объект,
- * содержащий пары "имя аргумента" - "значения аргумента".
- * Не все типы значений могут быть переданы в серверный метод и возвращены обратно.
- * Поддерживаются все скалярные типы, стандартные массивы, стандартные объекты,
- * а также объекты {@link XmlElem} и {@link XmlDoc}.
- * @param {string} libraryName - Имя библиотеки либо `URL` библиотеки.
+ * Сбрасывает авторизованную веб-сессию по логину.
+ * Работает только на сервере приложения.
+ * Обычно вызывается в случае смены пароля пользователя или блокировки пользователю доступа в систему.
+ * @param {string} login - Логин пользователя.
+ * @returns {unknown} -
+ */
+declare function DropWebSessionByLogin(login: string): unknown;
+
+/**
+ * Регистрирует обработчик HTTP-запросов на заданный url path.
+ * Обработчик принимает единственный параметр - объект типа {@link Request}.
+ * @param {string} urlPath - Абсолютный url path.
+ * @param {XmlDocument} lib - Библиотека.
  * @param {string} methodName - Имя метода.
- * @param {unknown[]} arguments - Стандартный массив значений аргументов,
- * либо стандартный объект, содержащий значения аргументов.
- * @returns {unknown} Результат.
+ * @example RegisterWebUrlHandler("/google_auth/oauth_redirect", oauth_lib, "ProcessWebOauthRedirect");
+ * @returns {unknown} -
  */
-declare function CallServerMethod(libraryName: string, methodName: string, arguments?: unknown[]): unknown;
+declare function RegisterWebUrlHandler(urlPath: string, lib: XmlDocument, methodName: string): unknown;
+
+//#endregion
+
+//#region Управление сервером приложения
 
 /**
- * Возвращает тип переданного значения.
- * @param {T} entity - Проверяемое значение.
+ * Определяет статус зарегистрированного сервера приложения (службы Windows).
+ * Значения статуса:
+ * * 0 - сервер выключен
+ * * 1 - сервер включен
+ * * 2 - сервер начинает работу
+ * * 3 - сервер завершает работу
+ * @param {string} serverId - Идентификатор сервера.
+ * @example DaemonGetState("EStaff_Server");
+ * @returns {number} Результат.
+ */
+declare function DaemonGetState(serverId: string): number;
+
+/**
+ * Возвращает значение параметра, обозначающее текущй статус задачи, выполняемой при старте сервера,
+ * например перестройки фалов каталога или конвертации данных из предыдущей версии программы.
+ * @param {string} serverId - Идентификатор сервера.
+ * @param {"CurTask" | "CurMsg"} paramName - Имя параметра.
+ * Поддерживаемые значения: "CurTask" и "CurMsg", определяемые вызовами функций {@link StartModalTask}() и {@link ModalTaskMsg}() на сервере.
+ * @example DaemonGetStateParam("EStaff_Server", "CurTask");
  * @returns {string} Результат.
  */
-declare function DataType<T>(entity: T): string;
+declare function DaemonGetStateParam(serverId: string, paramName: "CurTask" | "CurMsg"): string;
 
 /**
- * Возвращает тип переданного значения.
- * @param {T} entity - Проверяемое значение.
+ * Включает установленный сервер.
+ * @param {string} id - Идентификатор сервера.
+ */
+declare function DaemonStart(id: string): undefined;
+
+/**
+ * Выключает установленный сервер.
+ * @param {string} id - Идентификатор сервера.
+ */
+declare function DaemonStop(id: string): undefined;
+
+/**
+ * Регистрирует серверную службу (только Windows).
+ * @param {string} daemonID - ID службы.
+ * @param {string} daemonName - Имя службы.
+ * @param {string} filePath - Путь к файлу xHttp_x64.exe.
+ * @param {string} [cmdArgsStr] - Аргументы командной строки. По умолчанию "/s".
+ * @param {boolean} [autoRestart=true] - Включить автоматический перезапуск службы в случае падение серверного процесса.
+ * @returns {unknown} -
+ */
+declare function RegisterDaemon(daemonID: string, daemonName: string, filePath: string, cmdArgsStr?: string, autoRestart?: boolean): unknown;
+
+/**
+ * Удаляет зарегистрированную службу (только Windows).
+ * @param {string} daemonID - ID службы.
+ * @returns {unknown} -
+ */
+declare function UnregisterDaemon(daemonID: string): unknown;
+
+//#endregion
+
+//#region Системные функции
+
+/**
+ * GetSysUserDefaultUiLanguage() возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
+ * установленного в операционной системе для текущего пользователя.
+ * Функция доступна только в десктопном приложении.
  * @returns {string} Результат.
  */
-declare function ObjectType<T>(entity: T): string;
+declare function GetSysUserDefaultUiLanguage(): string;
+
+//#region Прочие функции
 
 /**
- * Разбивает сроку на одиночные символы.
- * Возвращает массив кодов каждого символа в UTF-16.
+ * Выдает сообщение, содержащее значение параметра.
+ * На сервере сообщение записывается в журнал 'xhttp',
+ * на рабочем месте - в виде всплывающего окна {@link MsgBox}.
+ * @param {T} val - Значение.
+ * @returns {T} Значение.
+ * @example LoadUrlData(alert(url));
+ */
+declare function alert<T>(val: T): T;
+
+/**
+ * Возвращает путь к базовой директории хранения данных приложения (серверной или клиентской части).
+ * По умолчанию совпадает с установочной директорией, если иное не задано в app_config.xml.
+ * @returns {string} - Путь к базовой директории хранения данных приложения (серверной или клиентской части)
+ */
+declare function AppDataDirectoryPath(): string;
+
+/**
+ * Выдает true, если модуль, наименование которого указано в качестве аргумента,
+ * используется программой, и false, если указанный модуль программой не используется.
+ * Наименования стандартных модулей считывается из файла описания структуры приложения,
+ * наименование подключаемого модуля считывается из файла первичных настроек
+ * при запуске исполнимого файла. Функция используется, например, в ядре программы,
+ * если необходимо по-разному его настраивать для работы с различными подключаемыми модулями.
+ * @param {string} moduleName - Наименование модуля.
+ * @example AppModuleUsed("module_datex");
+ * @returns {boolean} Результат.
+ */
+declare function AppModuleUsed(moduleName: string): boolean;
+
+/**
+ * Вызывает исключение специального типа, аналогичное нажатию кнопки "Cancel" пользователями.
+ * Позволяет генерировать исключение, на которое не будет выдаваться сообщение об ошибке.
+ */
+declare function Cancel(): never;
+
+/**
+ * Проверяет не должен ли текущий поток завершиться (обычно после прерывания его пользователем).
+ * Если да, вызывает исключение аналогично функции {@link Cancel}().
+ * @returns {undefined} Если поток вызывает в цикле функцию {@link Sleep}(),
+ * либо любую функцию, вызывающее сетевой запрос, то вызывать функцию
+ * {@link CheckCurThread}() нет необходимости, поскольку вышеназванные функции
+ * сами проверяют запрос на отмену выполнения потока.
+ */
+declare function CheckCurThread(): undefined;
+
+/**
+ * Проверяет строку на соответствие контрольной сумме, вычисленной по алгоритму PamMd5.
+ * @param {string} str - Проверяемая строка.
+ * @param {string} arg - Контрольная сумма.
+ * @returns {boolean} Результат.
+ * @example CheckPamMd5(str, arg)
+ */
+declare function CheckPamMd5(str: string, arg: string): boolean;
+
+/**
+ * Возвращает true, если пользователем в буфер `Clipboard` скопировано нечто заданного формата.
+ * Возвращает false, если нет (буфер пуст или его содержимое не того формата).
+ * Обычно формат `text/plain` или `text/html`.
+ * @param {string} format - Наименование формата.
+ * @returns {boolean} Результат.
+ */
+declare function ClipboardFormatAvailable(format: string): boolean;
+
+/**
+ * Увеличивает яркость цвета, переданного в качестве аргумента.
+ * @param {string} color - Цвет в формате RGB.
+ * @param {number} ratio - Действительное число обозначающее на сколько увеличивается/уменьшается яркость.
+ * @returns {string} Результат.
+ */
+declare function ColorNewBrightness(color: string, ratio: number): string;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму CRC.
+ * @param {string} arg - Строка, содержащая массив байт.
+ * @returns {number} Контрольная сумма.
+ */
+declare function CRC(arg: string): number;
+
+/**
+ * Модификация функции {@link alert}(), предназначенная для целей отладки.
+ * В отличие от последней, {@link DebugMsg}() может быть оставлена в релизном коде.
+ * Если в SpXml.ini указан параметр SHOW-DEBUG-MSG, функция работает аналогично {@link alert}().
+ * В остальных случаях она осуществляет запись значения в журнал по умолчанию.
+ * @param {T} value - Произвольное значение.
+ * @returns {T} Возвращает переданное значение.
+ */
+declare function DebugMsg<T>(value:T ): T;
+
+/**
+ * Включает/выключает заданный журнал.
+ * @param {string} name - Название журнала.
+ * @param {boolean} [enable=true] - Включить/выключить (Bool).
+ * @example EnableLog("xquery", true);
+ */
+declare function EnableLog(name: string, enable?: boolean): undefined;
+
+/**
+ * Включает заданный журнал.
+ * В отличие от функции {@link EnableLog}() позволяет задать дополнительные опции ведения журнала.
+ * Возможные опции: life-time - период, на который заводится новый файла журнала ("day", "month", "permanent").
+ * По умолчанию свой файл журнала заводится на каждую дату ("day") `base-dir` - директория,
+ * в которой будут заводиться журнал.
+ * По умолчанию используется директория `Logs` в установочной директории `use-std-event-prefix` - включать в начало
+ * каждой строки журнала стандартный префикс (дата, время, Id потока) `boolean`.
+ * По умолчанию `true`.
+ * `header-str` - строка заголовка, добавляемая в начало каждого нового файла журнала.
+ * По умолчанию строка заголовка не добавляется.
+ * @param {string} name - Название журнала.
+ * @param {string} [options] - Набор опций вида 'param1=value1;param2=value2;...'.
+ * @returns {undefined}
+ * @example EnableLogExt("web-request", "header-str=date\turl\tquery;use-std-event-prefix=0");
+ */
+declare function EnableLogExt(name: string, options?: string): undefined;
+
+type EncodeJsonOptions = {
+  /** форматирование с отступами и переводами строк. */
+  PrettyFormat: boolean;
+  /** Экспортировать целые числа, значение которых больше 0x7FFFFFFF, в виде строковой константы в кавычках. */
+  ExportLargeIntegersAsStrings: boolean;
+};
+
+/**
+ * Преобразует базовый объект, массив либо скалярное значение в строку в формате JSON.
+ * Функция работает аналогично функции JSON.stringify() в JavaScript,
+ * однако второй аргумент представляет из себя набор опций.
+ * @param {T} value - Значение.
+ * @param {EncodeJsonOptions} [options] - Базовый объект, содержащий набор опций.
+ * @returns {string} Сериализованный объект.
+ */
+declare function EncodeJson<T>(value: T, options?: EncodeJsonOptions): string;
+
+/**
+ * Выполняет заданный код в основном потоке на следующее системное событие.
+ * Обычно, если код выполняется в отдельном потоке, из него нельзя обращаться к пользовательскому интерфейсу.
+ * Если же нужно сделать, например, обновление экрана, то этот код нужно вызывать через {@link EvalAsync}.
+ * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
+ * Смотрите также {@link EvalSync}.
+ * @param {string} code - Код, который необходимо выполнить.
+ * @param {T} args - И последующие аргументы - передаются выполняемому коду. Необязательные аргументы.
+ */
+declare function EvalAsync<T>(code: string, args: T): void;
+
+/**
+ * Выполняет заданный код в основном потоке на следующее системное событие.
+ * Функция помещает этот код в очередь, и на следующем системном событии он выполняется.
+ * Эта функция блокирует поток, и дожидается окончания выполнения вызванного кода.
+ * Смотрите также {@link EvalAsync}.
+ * @param {string} code - Код, который необходимо выполнить.
+ * @param {T} args - Последующие аргументы - передаются выполняемому коду.
+ */
+declare function EvalSync<T>(code: string, args: T): void;
+
+/**
+ * Сигнализирует о завершении длительного процесса с упрощенным индикатором,
+ * начатым при помощи функции {@link StartModalTask}().
+ */
+declare function FinishModalTask(): undefined;
+
+/**
+ * Вычисялет контрольную сумму  по алгоритму FNV1a. Возвращает целое число (64 бита).
+ * @param {string} data - Строка (интерпретируется как массив байт)
+ * @returns {number} Результат.
+ */
+declare function FNV1a64(data: string): number;
+
+/**
+ * Возвращает данные заданого формата из буфера (Clipboard).
+ * @param {string} [format] - Формат, в котором должны быть данные.
+ * @returns {string} Результат.
+ */
+declare function GetClipboard(format?: string): string;
+
+
+/**
+ * Извлекает кодировку, явно указанную в HTML-строке в теге <meta>.
+ * Если кодировка не указана, возвращает пустую строку.
+ * @param {string} htmlStr - HTML строка.
+ * @returns {string} Кодировка или пустая строка.
+ */
+declare function GetHtmlCharset(htmlStr: string): string;
+
+/**
+ * Возвращает значение системной переменной окружения.
+ * @param {string} name - Имя переменной.
+ * @returns {string} Значение.
+ * GetSysEnvironmentVariable( 'windir' );.
+ */
+declare function GetSysEnvironmentVariable(name: string): string;
+
+/**
+ * Возвращает имя пользователя операционной системы под которым выполняется текущий процесс.
+ * @returns {string} Результат.
+ */
+declare function GetSysUserName(): string;
+
+/**
+ * Выполняет HTTP-запрос.
+ * @param {string} url - Url.
+ * @param {string} [method="get"] - Метод `get` или `post`.
+ * @param {string} [body] - Тело запроса.
+ * @param {string} [headers] - Список дополнительных полей заголовка http-запроса
+ * в соответствующем формате (имя:значение перевод строки).
+ * Необязательный аргумент. Список также может содержать дополнительные опции.
+ * Среди списка дополнительных полей заголовка возможно использование следующих опций,
+ * которые обрабатываются отдельно и не попадают в передаваемый заголовок:
+ * Ignore-Errors - Игнорировать наличие кода ошибки HTTP в ответе.
+ * Если указана эта опция, код ошибки можно получить через атрибут RespCode возвращаемого объекта.
+ * По умолчанию функция завершается с ошибкой в случае получения кода ошибки по HTTP.
+ * Auto-Redirect - Автоматически следовать редиректам HTTP 303, HTTP 304. По умолчанию true.
+ * @returns {HttpResponse} Объект ответа.
+ * @example
+ * ```
+ * HttpRequest("http://reg.datex-soft.com/")
+ * HttpRequest("http://reg.datex-soft.com/login.htm", "post", UrlEncodeQuery({ login: "xxx", password: "xxx" }))
+ * HttpRequest(
+ *   "http://reg.datex-soft.com/login.htm",
+ *   "post",
+ *   "<xxx>111</xxx>",
+ *   "Content-type: text/xml\nIgnore-Errors: 1\n"
+ * )
+ * ```
+ */
+declare function HttpRequest(url: string, method?: string, body?: string, headers?: string): HttpResponse;
+
+/**
+ * Редко используемая функция.
+ * @returns {unknown} unknown
+ */
+declare function InitAppConsole(): unknown;
+
+/**
+ * -
+ * @param {number} num - Целое число
+ * @param {string} optionsStr - Строка, содержащая три варианта фразы, разделенных символом "|"
+ * @example yearsNum + ' ' + IntModSelector(yearsNum, "лет|год|года")
+ * @returns {unknown} unknown
+ */
+declare function IntModSelector(num: number, optionsStr: string): unknown;
+
+/**
+ * Возвращает тип склонения существительного в русском языке для заданного числа.
+ * @param {number} num - Число.
+ * @returns {number} Возвращает тип склонения существительного в русском языке (0,1,2) для заданного числа:
+ * 0 - "штук";
+ * 1 - "штука";
+ * 2 - "штуки".
+ */
+declare function IntModType(num: number): number;
+
+/**
+ * Проверяет, не нажата ли какая-либо клавиша в данный момент.
+ * Обычно проверятся Ctrl или Shift.
+ * @param {number} arg1 - Код клавиши.
+ * @returns {boolean} Результат.
+ */
+declare function IsKeyPressed(arg1: number): boolean;
+
+/**
+ * Делает запись в файл лога определенного типа.
+ * @param {string} type - Тип лога.
+ * @param {string} text - Текст.
+ * @example
+ * ```
+ * LogEvent(type, text).
+ * ```
+ */
+declare function LogEvent(type: string, text: string): undefined;
+
+/**
+ * Конструктор объекта MailMessage, предназначенной для хранения E-mail - сообщения.
+ * Объект строится по форме x-app://app/sx_mail_message.xmd и является обычным объектом типа XmlElem.
+ * @returns {MailMessage} Результат.
+ */
+declare function MailMessage(): MailMessage;
+
+/**
+ * Создает объект типа MailMessage на основании почтового сообщения в формате MIME.
+ * @param {string} mimeData - Почтовое сообщение в формате MIME.
+ * @returns {MailMessage} Результат.
+ */
+declare function MailMessageFromMimeStr(mimeData: string): MailMessage;
+
+/**
+ * Максимальное значение из нескольких аргументов.
+ * @param {number} number - Число 1.
+ * @param {number[]} numbers - Числа.
+ * @returns {number} Возвращает максимальное значение из нескольких аргументов.
+ */
+declare function Max(number: number, ...numbers: number[]): number;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в бинарном формате (массив байт).
+ * @param {string} data - Строка, содержащая массив байт.
+ * @returns {string} Контрольная сумма.
+ */
+declare function Md5(data: string): string;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму Md5 и возвращает результат в виде HEX-строки.
+ * @param {string} data - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function Md5Hex(data: string): string;
+
+/**
+ * Возвращает минимальное значение из нескольких аргументов.
+ * @param {number} number - Число.
+ * @param {number[]} numbers - Числа.
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * Min(2, 5, 10, 15) === 2;
+ * ```
+ */
+declare function Min(number: number, ...numbers: number[]): number;
+
+/**
+ * Смешивает два цвета в заданной пропорции.
+ * @param {string} color1 - Цвет в формате RGB.
+ * @param {string} color2 - Цвет в формате RGB.
+ * @param {number} [arg] - Пропорции. В случае его отсутствия цвета будут смешаны в пропорции 1 к 1.
+ * @returns {string} Результат.
+ */
+declare function MixColors(color1: string, color2: string, arg?: number): string;
+
+/**
+ * Вычисляет контрольную сумму по алгоритму PamMd5.
+ * @param {string} arg - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function PamMd5(arg: string): string;
+
+type ParseJsonOptions = {
+  StrictMode: boolean;
+};
+
+/**
+ * Преобразует строку, содержащую JSON, в базовый объект, массив либо скалярное значение.
+ * Функция работает аналогично функции JSON.parse() в JavaScript,
+ * однако второй аргумент представляет из себя набор опций.
+ * Также ParseJson() менее требовательна к формату,
+ * и по умолчанию обрабатывает строки не только в формате JSON,
+ * но и JavaScript literal, разрешая в том числе любые типы кавычек,
+ * а также значения undefined.
+ * @param {string} value - Строка.
+ * @param {ParseJsonOptions} [options] - Опции.
+ * @returns {T} JSON объект.
+ */
+declare function ParseJson<T>(value: string, options?: ParseJsonOptions): T;
+
+/**
+ * Вычисляет хэш заданной строки (обычно пароля) по встроенному алгоритму по умолчанию.
  * @param {string} str - Строка.
- * @returns {number[]} Массив кодов символов.
+ * Смотрите также {@link PasswordVerify}().
+ * @returns {unknown} -
  */
-declare function StrToCharCodesArray(str: string): number[];
+declare function PasswordHash(str: string): unknown;
 
 /**
- * Разбивает сроку на одиночные символы.
- * Возвращает массив строк, каждая из которых содержит одиночный символ.
- * @param {string} str - Строка.
- * @returns {string[]} Массив символов.
+ * Проверяет соответствие заданной стоки (обычно пароля) и ее хэша.
+ * @param {string} str - строка.
+ * @param {string} hash - hash.
+ * Смотрите также {@link PasswordHash}().
+ * @returns {boolean} - Результат.
  */
-declare function StrToCharArray(str: string): string[];
+declare function PasswordVerify(str: string, hash: string): boolean;
 
 /**
- * Функция StrFromCharCode преобразует код символа (число) в строку, содержащую этот символ.
- * @param {number} code - Код символа.
+ * Возвращает Полное имя человека в виде "Фамилия И.О.".
+ * @param {string} lastname - Фамилия.
+ * @param {string} firstname - Имя.
+ * @param {string} [middlename] - Отчество.
  * @returns {string} Результат.
  */
-declare function StrFromCharCode(code: number): string;
+declare function PersonShortName(lastname: string, firstname: string, middlename?: string): string;
+
+/**
+ * Функция PlaySound() проигрывает один из стандартных системных звуков.
+ * Функция доступна только в десктопном клиенте.
+ * @param {string} soundName - Наименование одного из стандартных звуков.
+ * Примеры значений: "MailBeep", "SystemAsterisk", ""SystemExclamation".
+ * @returns {unknown} -
+ */
+declare function PlaySound(soundName: string): unknown;
+
+/**
+ * Вызывает выполнение процесса.
+ * `work-dir` - рабочая директория для процесса
+ * `sys` - системный процесс `boolean`, в этом случае в качестве первого аргумента
+ * функции можно указывать не путь до исполняемого файла,
+ * а имя системного процесса `wait` - дожидаться завершения процесса `boolean`.
+ * Если указана опция `wait=1`, функция вернет код завершения процесса (`0` - успешное завершение, иначе - ошибка).
+ * В остальных случаях функция ничего не возвращает.
+ * `hidden` - запуск без пользовательского интерфейса `boolean`
+ * (рекомендуется включать, если функция вызывается с сервера).
+ * @param {string} path - Путь к исполняемому файлу, или имя исполняемого файла.
+ * @param {string} [cmdLine] - Аргументы командной строки.
+ * @param {string} [options] - Набор опций через ";", в виде "имя опции=значение; ...".
+ * @returns {number} Результат.
+ * @example
+ * ```
+ * ProcessExecute(
+ *   "C:\Temp\pkzipc.exe",
+ *   " -add -rec -path=current xxx.zip 1.htm 2.htm",
+ *   "wait=1;hidden=1;work-dir=C:\Temp"
+ * );
+ * ```
+ */
+declare function ProcessExecute(path: string, cmdLine?: string, options?: string): number;
+
+/**
+ * Вызывает завершение текущего приложения.
+ * Редко используемая функция.
+ * Используется в конвертерах, программах обновления.
+ */
+declare function QuitApp(): never;
+
+/**
+ * Возвращает случайное целое число в заданном диапазоне.
+ * @param {number} minVal - Нижняя граница диапазона.
+ * @param {number} maxVal - Верхняя граница диапазона.
+ * @returns {number} Результат.
+ */
+declare function Random(minVal: number, maxVal: number): number;
+
+/**
+ * Регистрирует url файла в схеме (дистрибутиве) приложения, который будет заранее загружаться при запуске веб-интерфейса.
+ * Такой файл будет загружен единым сжатым пакетом, что более эффективно по сравнению с загрузкой каждого файла по отдельности.
+ * Функция обычно вызывается при старте сервера приложения.
+ * @param {string} url - Url файла.
+ * @returns {unknown} -
+ */
+declare function RegisterPreloadedDesignUrl(url: string): unknown;
+
+/**
+ * Вызывает отправку почтового сообщения через тот способ, который был выбран в настройках, как правило - Simple MAPI.
+ * В качестве параметра передается объект, созданный функцией {@link MailMessage}.
+ * @param {ReturnType<typeof MailMessage>} arg1 - Объект, созданный при помощи функции
+ * {@link MailMessage} (Object SpXml).
+ */
+declare function SendMailMessage(arg1: ReturnType<typeof MailMessage>): void;
+
+/**
+ * Вызывает копирование указанной информации в буфер (Clipboard).
+ * @param {string} value - Информация, которую необходимо скорировать в буфер.
+ * @example SetClipboard("0x" + StrHexInt(objectID));
+ * @returns {unknown} -
+ */
+declare function SetClipboard(value: string): unknown;
+
+/**
+ * Устанавливает описание текущей активности текущего потока.
+ * Описание используется исключительно в отладочных целях (например показывается через страницу xhttp_info)
+ * и не влияет на работу программы.
+ * @param {string} desc - Строка с описанием.
+ * Смотрите также {@link SetCurThreadDesc}().
+ * @returns {unknown} -
+ */
+declare function SetCurThreadActivityName(desc: string): unknown;
+
+/**
+ * Устанавливает описание текущего потока.
+ * Описание используется исключительно в отладочных целях (например показывается через страницу xhttp_info)
+ * и не влияет на работу программы.
+ * @param {string} desc - Строка с описанием.
+ * @returns {unknown} -
+ */
+declare function SetCurThreadDesc(desc: string): unknown;
+
+/**
+ * Вычисляет hash функцию по алгоритму SHA1.
+ * @param {string} str - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function SHA1(str: string): string;
+
+/**
+ * Вычисляет hash функцию по алгоритму SHA1 и возвращает строку, закодированную в Base64.
+ * @param {string} str - Строка, содержащая массив байт.
+ * @returns {string} Результат.
+ */
+declare function SHA1Base64(str: string): string;
 
 /**
  * Вычисляет контрольную сумму (64 бита) по алгоритму SHA256.
@@ -3041,36 +3522,586 @@ declare function StrFromCharCode(code: number): string;
 declare function SHA256(value: string): string;
 
 /**
- * Преобразует целочисленный аргумент в строку.
- * Используется в том числе для того что бы вывести отрицательное число.
- * @param {number} value - Целочисленный аргумент.
- * @param {number} [digitsNum] - Минимальное число символов в строке. Необязательный аргумент.
- * Недостающие символы компенсируются нулями перед числом.
- * @param {boolean} [addGroupDelim] - Флаг, разделять тысячные разряды пробелами или нет.
- * @returns {string} Результат преобразования.
+ * Вычисляет контрольную сумму (64 бита) по алгоритму SHA256.
+ * @param {string} value - Строка (интерпретируется как массив байт).
+ * @returns {string} Возвращает hex-строку длиной 64 байта.
  */
-declare function StrSignedInt(value: number, digitsNum?: number, addGroupDelim?: boolean): string;
+declare function SHA256Hex(value: string): string;
 
 /**
- * Проверяет две строки на равенство, в том числе без учета регистра.
- * @param {string} str1 - Строка 1.
- * @param {string} str2 - Строка 2.
- * @param {boolean} ignoreCase - Не учитывать регистр.
- * @returns {boolean} Результат.
- * StrEqual(str1, str2, ignoreCase).
- */
-declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boolean;
-
-/**
- * Извлекает из строки фрагменты в соответствии с заданным шаблоном. Если строка не соответствует шаблону, возвращается undefined.
- * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
- * @param {string} str - Строка.
- * @param {any} pattern - Шаблон.
- * @returns {string[] | undefined} Результат.
+ * Вызывает действие для Windows Shell.
+ * @param {string} action - Вызываемое действие (как правило, "open" или "print").
+ * @param {string} target - Путь к вызываемому файлу, или url.
+ * @param {string?} [args] - Аргументы для вызываемой программы (если url определяет исполняемый файл).
+ * @returns {undefined}
  * @example
  * ```
- * const obj = StrOptScan("x-local://wtv/tools.xml", "x-local://%*s/%s.xml");
- * const fileName = obj[0]; // "tools"
+ * ShellExecute("open", "calc.exe");
+ * ShellExecute("print", "C:\\Temp\\xxx.doc");
+ * ShellExecute("open", "http://www.e-staff.ru/");
+ * ShellExecute("open", "mailto:support@e-staff.ru");
  * ```
  */
-declare function StrOptScan(str: string, pattern: string): string[] | undefined;
+declare function ShellExecute(action: string, target: string, args?: string): undefined;
+
+/**
+ * Создает временную задержку, не загружая процессор.
+ * @param {number} ticks - Величина задержки в миллисекундах.
+ * @returns {undefined}
+ */
+declare function Sleep(ticks: number): undefined;
+
+/**
+ * Записывает текст в сроку состояния в главном окне программы.
+ * Обычно используется для показа количества найденных объектов в списке.
+ * @param {string} msg - Строка.
+ * @example StatusMsg("Записей в списке: " + n);
+ * @returns {undefined}
+ */
+declare function StatusMsg(msg: string): undefined;
+
+/**
+ * Создает объект типа Error, содержащий словесное описание ошибки, предназначенное для восприятия обычным пользователем.
+ * Такая ошибка в пользовательском интерфейсе будет показана без какой-либо отладочной информации.
+ * @param {string} desc - Текст ошибки
+ * @example throw UiError("Permission denied");
+ * @returns {unknown} -
+ */
+declare function UiError(desc: string): unknown;
+
+/**
+ * Возвращает уникальный Id.
+ * @returns {number} Id.
+ */
+declare function UniqueID(): number;
+
+/**
+ * Генерирует уникальную строку заданной длины для использования в качестве идентификаторов, ключей и пр.
+ * @param {number} [len=64] - Трубуемая длина строки.
+ * @returns {string} Результат.
+ */
+declare function UniqueStrID(len?: number): string;
+
+/**
+ * Создает объект типа {@link Error}, содержащий словесное описание ошибки, пригодное для восприятия обычным пользователем.
+ * Такая ошибка в пользовательском интерфейсе будет показана с изначально скрытой отладочной информацией,
+ * но которую можно будет раскрыть. Если такая ошибка будет возвращена обработчиком веб-сервиса,
+ * то в ответ запишется только словесное описание, без отладочной информации.
+ * @param {string} desc - Текст ошибки
+ * @param {string} [innerError] - Исходная ошибка, вызвавшая данную ошибку.
+ */
+declare function UserError(desc: string, innerError?: string): never;
+
+/**
+ * Создает zip архив.
+ * @param {string} archivePath - Путь (или url) к создаваемому архиву.
+ * @param {Array} filesArray - Массив, содержащий список файлов или папок, которые нужно заархивировать (Array).
+ * @param {any} [options] - Объект с параметрами (Object).
+ * @returns {undefined}
+ * @example
+ * ```
+ * ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
+ * ```
+ */
+declare function ZipCreate(archivePath: string, filesArray: string[], options: Object): undefined;
+
+/**
+ * Распаковывает архив.
+ * @param {string} archivePath - Путь до архива.
+ * @param {string} destPath - Путь до папки, в которую нужно распаковать.
+ * @returns {undefined}
+ */
+declare function ZipExtract(archivePath: string, destPath: string): undefined;
+
+//#endregion
+
+//#region Эксперементальные и узкоспециализированные функции
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function CreateDocWebScreen(): unknown;
+
+/**
+ * Очишает кэш от загруженного зашифрованного модуля.
+ * @param {string} url - Url модуля.
+ * @returns {unknown} -
+ */
+declare function DropDbPackage(url: string): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function EvalRichCodePageUrl(): unknown;
+
+/**
+ * Динамически подключает к программе дополнительный модуль.
+ * Если модуль уже подключен, функция не производит никаких действий.
+ * Редко используемая функция.
+ * @param {string} moduleName - Наименование модуля.
+ * @example FetchAppModule("app2");
+ */
+declare function FetchAppModule(moduleName: string): undefined;
+
+/**
+ * Редко используемая фукнция.
+ * @returns {unknown} -
+ */
+declare function GetScreenFormTitle(): unknown;
+
+/**
+ * Узкоспециализированная функция.
+ * @returns {boolean} - Возращает true, если вызов происходит в главном (UI) потоке в SpXml.exe.
+ */
+declare function IsMainThread(): boolean;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function LdsGetModDeletedObjects(): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function LdsGetModObjects(): unknown;
+
+/**
+ * Загружает приложение по имени корневого модуля, не открывая его главную страницу.
+ * Функция используется в редких случаях, например для выбора запускаемого приложения при старте.
+ * @param {string} mainModuleName - Имя корневого модуля.
+ * @example LoadAppSpec("rcr");
+ */
+declare function LoadAppSpec(mainModuleName: string): undefined;
+
+/**
+ * Выдает наименование модуля, в котором находится файл, по заданному url со схемой x-app.
+ * @param {string} url - Url.
+ * @returns {string} Результат.
+ */
+declare function ModuleNameFromUrl(url: string): string;
+
+/**
+ * Возвращает обработанное условное наименование юридического лица, предназначенное для показа пользователю..
+ * @param {string} orgName - Полное наименование юридического лица.
+ * @param {string} [orgShortName] - Cокращенное наименование юридического лица.
+ * @returns {string} - Результат.
+ */
+declare function OrgDispName(orgName: string, orgShortName?: string): string;
+
+/**
+ * Разбирает поле типа OLE объект, хранящееся в MS Access.
+ * @param {string} str - Строка, содержащая поле.
+ * @example
+ * ```
+ * // объект типа JS содержит следующие поля:
+ * // Class FileName - имя файла
+ * // Data - содержимое файла
+ * ParseStoredOleObject(str);
+ * ```
+ * @returns {{[K: string]: unknown}} - Результат.
+ */
+declare function ParseStoredOleObject(str: string): {[K: string]: unknown};
+
+/**
+ * .
+ */
+declare function PersonGender(): undefined;
+
+/**
+ * Добавляет объект, содержащий набор методов или свойств, в список глобальных объектов окружения.
+ * После вызова данной функции все свойства и метода объекта становятся доступны всему приложению
+ * в качестве глобальных переменных и функций.
+ * При совпадении имен свойств или методов с существующими приоритет будет за именами,
+ * находящимися в объекте, добавленном последним.
+ * Экспериментальная функция.
+ * @param {{[K: string]: unknown}} obj - Объект.
+ * @returns {unknown} -
+ */
+declare function RegisterGlobalEnvObject(obj: {[K: string]: unknown}): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function ReportToHtml(): unknown;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function ReportToRtf(): unknown;
+
+/**
+ * Включает режим приложения без показа сообщений через UI.
+ * Доступна только в SpXml.exe.
+ * Обычно используется для написания инсталляторов.
+ * @returns {unknown} -
+ */
+declare function SetAppSilentMode(): unknown;
+
+/**
+ * Функция вызывает падение приложения.
+ * Используется для тестирования целостности данных к падению сервера.
+ */
+declare function SimulateCrash(): never;
+
+/**
+ * Узкоспециализированная функция.
+ * Работает аналогично {@link Sleep}(), но с продолжением обработки очереди сообщений в главном потоке в SpXml.exe.
+ * Будучи вызванной не в главном потоке либо не в SpXml.exe, работает в точности как {@link Sleep}().
+ * @param {number} timeout - Таймаут в миллисекундах
+ * @returns {unknown} -
+ */
+declare function UiSleep(timeout: number): unknown;
+
+/**
+ * Экспериментальная функция.
+ * Приводит список телефонов к стандартному виду.
+ * @param {string} str - Строка с номером телефона
+ * @returns {string} - Результат.
+ */
+declare function UnifyPhones(str: string): string;
+
+/**
+ * Экспериментальная функция.
+ * @returns {unknown} -
+ */
+declare function DropXQueryCache(): unknown;
+
+//#region Устаревшие функции
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SingleElemArray(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function AddCatalogEntry(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function AddOutlookEvent(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function AdjustHtml(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * Заменена на глобальную переменную {@link AppSn}.
+ * @returns {unknown} -
+ */
+declare function AppSerialNumber(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function BuildCompoundHtml(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function BuildFullReport(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function BuildWebHtml(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ChangeAppSn(): unknown;
+
+/**
+ * Устаревшее название функции {@link ParseJson}().
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function DecodeJson(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * Использовалась в старой объектной модели.
+ * @returns {unknown} -
+ */
+declare function DeleteCatalogEntries(): unknown;
+
+/**
+ * Извлекает id из заданного url объектного документа типа x-local.
+ * Используется только в старой объектной модели.
+ * @deprecated
+ * @param {string} url - Url документа.
+ * @example DocIDFromUrl("x-app://data/objects/0x4DF75B9F13FE51/60.xml"); // Вернет 0x4DF75B9F13FE5160
+ * @returns {number} - Результат.
+ */
+declare function DocIDFromUrl(url: string): number;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function EvalExtCodeLiteral(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ExcelCodePageExecute(): unknown;
+
+/**
+ * Ищет каталог по имени во всех используемых базах данных.
+ * Если не находит - выдает ошибку.
+ * Функция по историческим причинам называется не совсем корректно.
+ * Ее ближайший эквивалент - {@link FindOptCatalog} имеет правильное название.
+ * @deprecated
+ * @param {string} name - Наименование каталога базы данных.
+ * @returns {object} Результат.
+ * @example
+ * ```
+ * const catalog = FindSharedCatalog("events");
+ * ```
+ */
+declare function FindSharedCatalog(name: string): Object;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function FontDescription(): unknown;
+
+/**
+ * Устаревшая функция.
+ * Возвращает true на клиентской части приложения, если текущий пользователь зашел под техническим администратором.
+ * Рекомендуется использовать LdsCurAuthObjectUrl != ''
+ * @returns {boolean} - Результат.
+ */
+declare function IsLdsAdmin(): boolean;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function LoadUrlPlainText(): unknown;
+
+/**
+ * Загружает содержимое файла MS Word и возвращает его содержимое в виде HTML.
+ * Устаревшая функция, не рекомендуется к использованию, с момента появления поддержки OLE.
+ * @deprecated
+ * @param {string} url - Url файла MS Word.
+ * @returns {string} - Результат.
+ */
+declare function LoadWordHtml(url: string): string;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function PutWordHtml(): unknown;
+
+/**
+ * Устаревшая функция, используемая во времена, когда запросы XQuery по множественным ключевым значения выполнялись неэффективно.
+ * В настоящий момент конструкция вида QueryCatalogByKeys("persons", "id", [12359841651, 8498132581, 68496313181]);
+ * просто транслируется в XQuery("for $elem in persons where MatchSome($elem/id, (12359841651, 8498132581, 68496313181)) return $elem");
+ * @deprecated
+ * @param {string} catalogName - Название каталога.
+ * @param {string} keyName - Название поля, по которому строится запрос.
+ * @param {unknown[]} keyValues - Массив значений.
+ * @returns {unknown[]} - Массив записей.
+ */
+declare function QueryCatalogByKeys(catalogName: string, keyName: string, keyValues: unknown[]): unknown[];
+
+/**
+ * Вызывает принудительную перестройку каталога основных объектных файлов.
+ * Устаревшая и редко используемая функция.
+ * Современный способ принудительной перестройки каталога основных объектных файлов - удаление каталога 'secondary' при условии,
+ * что программа (сервер или локальная) остановлена.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function RebuildAllCatalogs(): unknown;
+
+/**
+ * Регистрирует новый каталог в базе данных.
+ * Устаревшая функция, в новой объектной моделе базы данных не используется,
+ * т.к. в новой объектной моделе каталог и форма жестко связаны.
+ * @deprecated
+ * @param {string} catalogUrl - Url каталога.
+ * @param {string} formUrl - Url формы.
+ */
+declare function RegisterCatalog(catalogUrl: string, formUrl: string): undefined;
+
+/**
+ * Извлекает корневой элемент из url формы каталога базы данных, и создает и регистрирует аналогичную форму для объекта.
+ * Устаревшая функция, не используемая в новой объектной модели.
+ * @deprecated
+ * @param {string} formUrl - Url формы каталога.
+ * @returns {string} - Url формы объекта.
+ */
+declare function RegisterCatalogSubForm(formUrl: string): string;
+
+/**
+ * Используется для синхронизации (репликации) одной базы данных в другую, например автономного рабочего места и сервера, или двух серверов.
+ * Устаревшая функция, в новой объектной модели не используется,
+ * т.к. функция синхронизации (реплкации) в новой объектной модели реализована на javascript.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ReplicateDb(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function ReportCodePageExecute(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function RichCodePageExecute(): unknown;
+
+/**
+ * Устаревшая функция.
+ * Выполняет заданный код на сервере, и возвращает результат.
+ * Результат может быть только в виде строки.
+ * Если эта функция вызывается на однопользовательской локальной версии программы, она полностью аналогична функции {@link eval}.
+ * @deprecated
+ * @param {string} code - Код, который будет выполняться на сервере.
+ * @returns {string | undefined} - Результат.
+ */
+declare function ServerEval(code: string): string | undefined;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SetDefaultPrintAlign(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SetDefaultPrintFont(): unknown;
+
+/**
+ * Устанавливает авторизацию, используемую клиентом по умолчанию.
+ * Можно использовать только на spxml т.к. он не делает одновременных запросов по разным адресам
+ * Устаревшая функция. Рекомендуется передавать данные авторизации через опции в {@link HttpRequest}().
+ * @deprecated
+ * @param {string} login - Логин.
+ * @param {string} password - Пароль.
+ */
+declare function SetHttpDefaultAuth(login: string, password: string): undefined;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SetMultipageLayout(): unknown;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function StorageDateStr(): unknown;
+
+/**
+ * Предназначена для принудительной записи в каталоги.
+ * Устаревшая функция.
+ * В новой объктной модели не используется.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function StoreCatalogEntry(): unknown;
+
+/**
+ * Дешифрует строку, зашифрованную простым встроенным алгоритмом.
+ * Устаревшая функция. Рекомендуется использовать {@link StrStdDecrypt}().
+ * @deprecated
+ * @param {string} str - Дешифруемая строка.
+ * @returns {string} - Результат.
+ */
+declare function StrSimpleDecrypt(str: string): string;
+
+/**
+ * Шифрует сроку встроенным алгоритмом шифрования.
+ * Устаревшая функция. Рекомендуется использовать {@link StrStdEncrypt}().
+ * @deprecated
+ * @param {string} str - Шифруемая строка.
+ * @returns {string} - Результат.
+ */
+declare function StrSimpleEncrypt(str: string): unknown;
+
+/**
+ * Устаревшая функция.
+ * Выполняет синхронизацию базы данных. Использовалась в E-Staff 3.x.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function SyncDb(): unknown;
+
+/**
+ * Устаревшая функция.
+ * Рекомендуется использовать {@link UrlDecode}()
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function UrlDecode16(): unknown;
+
+/**
+ * Возвращает `URL` объектного документа с заданным id.
+ * @deprecated
+ * Устаревшая функция, используемая в старой объектной модели.
+ * @param {number} documentId - Id документа.
+ * @param {string} databaseName - Имя базы.
+ * @example UrlFromDocID(123502899940580); // Вернет "x-local://data/objects/00007053427ACC/E4.xml"
+ * @returns {string} Результат.
+ */
+declare function UrlFromDocID(documentId: number, databaseName?: string): string;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} -
+ */
+declare function WordExecute(): unknown;
+
+//#endregion
