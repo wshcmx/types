@@ -2854,14 +2854,33 @@ declare function LdsDeleteDoc(docUrl: string, options?: string): undefined;
 
 //#endregion
 
+//#region Работа с элементами XML
+
 /**
- * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
- * @param {string} name - Имя элемента.
- * @param {string} type - Тип данных XML-элемента.
- * @returns {XmlElem<unknown>} Динамический элемент.
- * @example CreateDynamicElem("elem_count", "integer");
+ * Создает XML-элемент по заданному элементу формы.
+ * Созданный элемент не имеет родительского элемента.
+ * Редко используемая функция.
+ * @param {XmlFormElem} formElem - Объект вида {@link XmlFormElem}
+ * @returns {XmlFormElem} - Результат.
+ * @example
+ * ```
+ * attachment = CreateElemByFormElem(candidate.attachments.FormElem[0]);
+ * candidate.attachments.AddChildElem(attachment);
+ * // эквивалентно
+ * attachment = candidate.attachments.AddChild();
+ * ```
  */
-declare function CreateDynamicElem(name: string, type: string): XmlElem<unknown>;
+declare function CreateElemByFormElem(formElem: XmlFormElem): XmlFormElem;
+
+/**
+ * Узкоспециализированная функция.
+ * Может использоваться в генераторах интерфейсов.
+ * Функция находит шаблонный элемент формы в списке глобальных шаблонных элементов (описанных с атрибутом SAMPLE="1").
+ * Если шаблонный элемент с данным именем не найден, возвращает undefined.
+ * @param {string} sampleName - Имя шаблонного элемента
+ * @returns {unknown} - Результат.
+ */
+declare function FindSampleFormElem(sampleName: string): unknown;
 
 /**
  * Создает XML-элемент заданному по фрагменту формы. Созданный элемент не имеет родительского элемента.
@@ -2875,37 +2894,13 @@ declare function CreateDynamicElem(name: string, type: string): XmlElem<unknown>
 declare function CreateElem(formUrl: string, elemPath: string): XmlElem<unknown>;
 
 /**
- * Выдает целевой элемент массива по значению первичного ключа.
- * Если соответствующей элемент не найден, возвращается undefined.
- * Смотри так же {@link GetForeignElem}().
- * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}()
- * за счет поддержки рекурсивных массивов XML-элементов.
- * @param {T} array - Массив объектов.
- * @param {K} value - Значение ключевого элемента (any).
- * @returns {unknown} Результат.
- * @example GetOptForeignElem(event_types, "interview");
+ * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
+ * @param {string} name - Имя элемента.
+ * @param {string} type - Тип данных XML-элемента.
+ * @returns {XmlElem<unknown>} Динамический элемент.
+ * @example CreateDynamicElem("elem_count", "integer");
  */
-declare function GetOptForeignElem<T, K>(array: T, value: K): unknown;
-
-/**
- * Загружает массив XML-элементов в строку.
- * Используется для передачи параметров в плагины и
- * другие внешние процедуры.
- * Смотри так же {@link LoadElemsFromStr}.
- * @param {T} arg1 - Массив XML-элементов (array of objects).
- * @returns {string} Результат.
- */
-declare function declareElemsToStr<T>(arg1: T): string;
-
-/**
- * Загружает строку в массив XML-элементов.
- * Используется при обработке параметров,
- * полученных от внешних процедур и плагинов.
- * Смотри также {@link declareElemsToStr}.
- * @param {string} arg1 - Строка.
- * @returns {Array} Результат.
- */
-declare function LoadElemsFromStr(arg1: string): unknown[];
+declare function CreateDynamicElem(name: string, type: string): XmlElem<unknown>;
 
 /**
  * Выдает целевой элемент массива по значению первичного ключа.
@@ -2923,6 +2918,19 @@ declare function LoadElemsFromStr(arg1: string): unknown[];
 declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
 
 /**
+ * Выдает целевой элемент массива по значению первичного ключа.
+ * Если соответствующей элемент не найден, возвращается undefined.
+ * Смотри так же {@link GetForeignElem}().
+ * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}()
+ * за счет поддержки рекурсивных массивов XML-элементов.
+ * @param {T} array - Массив объектов.
+ * @param {K} value - Значение ключевого элемента (any).
+ * @returns {unknown} Результат.
+ * @example GetOptForeignElem(event_types, "interview");
+ */
+declare function GetOptForeignElem<T, K>(array: T, value: K): unknown;
+
+/**
  * Создает новый пустой элемент массива, не добавляя его в в сам массив.
  * Используется для отработки "битых ссылок" на элементы массива и
  * ссылок на удаленные элементы массива.
@@ -2932,6 +2940,38 @@ declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
  * @returns {XmlElem<unknown>} Результат.
  */
 declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
+
+/**
+ * Загружает строку в массив XML-элементов.
+ * Используется при обработке параметров,
+ * полученных от внешних процедур и плагинов.
+ * Смотри также {@link declareElemsToStr}
+ * @param {string} arg1 - Строка.
+ * @returns {Array} Результат.
+ */
+declare function LoadElemsFromStr(arg1: string): unknown[];
+
+/**
+ * Загружает массив XML-элементов в строку.
+ * Используется для передачи параметров в плагины и другие внешние процедуры.
+ * Смотри также {@link LoadElemsFromStr}
+ * @param {string} arg1 - Строка.
+ * @returns {Array} Результат.
+ */
+declare function ExportElemsToStr(arg1: string): unknown[];
+
+/**
+ * Загружает массив XML-элементов в строку.
+ * Используется для передачи параметров в плагины и
+ * другие внешние процедуры.
+ * Смотри так же {@link LoadElemsFromStr}
+ * @param {T} arg1 - Массив XML-элементов (array of objects).
+ * @returns {string} Результат.
+ */
+declare function declareElemsToStr<T>(arg1: T): string;
+
+//#endregion
+
 
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
