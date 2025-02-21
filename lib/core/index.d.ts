@@ -3216,6 +3216,83 @@ declare function MergeScreenForm(mainFormUrl: string, addFormUrl: string, elemNa
 
 //#endregion
 
+//#region Работа с реестром Windows
+
+/**
+ * Опции при вызове функций работы с реестром Windows
+ * Большинство функций работы с реестром Windows принимают в качестве последнего необязятельного аргумента список опций.
+ * Опции задаются в двойственном формате - либо объект типа Object, как праивло описываемый конструкцией JSON, либо строкой вида namr1=value1;name2=value2;...
+ * Список допустимыйх опций:
+ * * Prefer32View - для 64-битной ОС использовать 32-битную альтернативную ветку реестра, независимо от типа приложения
+ * * Prefer64View - для 64-битной ОС использовать 64-битную основную ветку реестра, независимо от типа приложения
+ */
+type SystemRegistryOptions = string | {
+    Prefer32View?: boolean;
+    Prefer64View?: boolean;
+};
+
+/**
+ * Возвращает массив имен дочерних ключей заданного ключа реестра Windows.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {SystemRegistryOptions} [options] - Опции.
+ * @returns {unknown[]} - Результат.
+ */
+declare function GetSysRegKeyChildNames(path: string, options?: SystemRegistryOptions): unknown[];
+
+/**
+ * Возвращает значение строкового из реестра Windows.
+ * Если элемент не существует, возвращается пустая строка.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {string} [name] - Имя элемента. Если указано пустоое имя элемента, используется элемент по умолчанию.
+ * @example GetSysRegStrValue("HKEY_CURRENT_USER\\Software\\Clients\\Mail\\", "");
+ */
+declare function GetSysRegStrValue(path: string, name?: string): undefined;
+
+/**
+ * Удаляет ключ реестра Windows, если он пустой.
+ * Если ключ содержит другие ключи, функция завершается с ошибкой.
+ * @param {string} path - Путь к ключу реестра.
+ * @example RemoveEmptySysRegKey("HKEY_CURRENT_USER\\Software\\Datex\\");
+ */
+declare function RemoveEmptySysRegKey(path: string): undefined;
+
+/**
+ * Удаляет ключ реестра Windows, включая все вложенные ключи.
+ * @param {string} path - Путь к ключу реестра.
+ * @example RemoveSysRegKey("HKEY_LOCAL_MACHINE\\Software\\Datex\\EStaff");
+ */
+declare function RemoveSysRegKey(path: string): undefined;
+
+/**
+ * Устанавливает целочисленное значение ключа реестра Windows.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {string} name - Имя элемента.
+ * @param {number} value - Целочисленное значение элемента.
+ * @returns {undefined} - Результат.
+ * @example SetSysRegIntegerValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\EStaff", "NoModify", 1);
+ */
+declare function SetSysRegIntegerValue(path: string, name: string, value: number): undefined;
+
+/**
+ * Устанавливает строковое значение ключа реестра Windows.
+ * @param {string} path - Полный путь к ключу реестра.
+ * @param {string} name - Имя элемента.
+ * @param {number} value - Целочисленное значение элемента.
+ * @returns {undefined} - Результат.
+ * @example SetSysRegStrValue("HKEY_LOCAL_MACHINE\\Software\\Datex\\EStaff", "Sn", "AHYC-52DG-87RT");
+ */
+declare function SetSysRegStrValue(path: string, name: string, value: number): undefined;
+
+/**
+ * Проверяет существует ли ключ реестра Windows.
+ * @param {string} path - Путь к ключу реестра.
+ * @example SysRegKeyExists("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Office\\Word");
+ * @returns {boolean} - Результат.
+ */
+declare function SysRegKeyExists(path: string): boolean;
+
+//#endregion
+
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
  * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
@@ -3532,7 +3609,7 @@ declare function UnregisterDaemon(daemonID: string): unknown;
 //#region Системные функции
 
 /**
- * GetSysUserDefaultUiLanguage() возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
+ * Возвращает идентификатор (строка вида "en-US", "ru-RU" и т.п.) языка интерфейса,
  * установленного в операционной системе для текущего пользователя.
  * Функция доступна только в десктопном приложении.
  * @returns {string} Результат.
