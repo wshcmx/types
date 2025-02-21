@@ -160,14 +160,14 @@ IsArray(testArrayOfObjects);
 IsArray(xmlDocumentForTesting.TopElem.tasks);
 IsArray(1);
 
-var result = MailMessage();
+const result = MailMessage();
 result.Send();
 
 DefaultDb.Name = "default_db_name";
 if (DefaultDb.IsShared) {
   DefaultDb.StorageDirectory = "";
-  var document = DefaultDb.OpenNewObjectDoc<VacancyDocument>("vacancy");
-  document.TopElem.Name == "vacancy";
+  const document = DefaultDb.OpenNewObjectDoc<VacancyDocument>("vacancy");
+  alert(document.TopElem.Name == "vacancy");
 }
 
 // eslint-disable-next-line no-new-object
@@ -184,20 +184,20 @@ const stringValue = object1.GetOptProperty("value");
 
 alert(stringValue);
 
-var obj = {
+const obj = {
   key: "value",
   key1: "value",
   key3: "value",
 };
 
 obj.SetProperty("1", "1");
-var propertyValue = obj.GetProperty("key1");
-var propertyValue1 = obj.GetOptProperty<typeof obj, string, number>("key12", 1);
-var propertyValue2 = obj.GetOptProperty("key12", 1);
+const propertyValue = obj.GetProperty("key1");
+const propertyValue1 = obj.GetOptProperty<typeof obj, string, number>("key12", 1);
+const propertyValue2 = obj.GetOptProperty("key12", 1);
 
-propertyValue;
-propertyValue1;
-propertyValue2;
+alert(propertyValue);
+alert(propertyValue1);
+alert(propertyValue2);
 
 DecodeCharset("teststring", "cp-866");
 EncodeCharset("teststring1", "windows-1251");
