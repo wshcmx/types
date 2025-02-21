@@ -203,8 +203,9 @@ DecodeCharset("teststring", "cp-866");
 EncodeCharset("teststring1", "windows-1251");
 EncodeCharset("teststring2", "windows-1252");
 
-const doc = tools.open_doc(1);
+const doc = tools.open_doc(OptInt("identifier"));
 
 if (doc !== undefined) {
-  EvalCodePage("s", "asd", "Doc", doc, []);
+  EvalCodePage("\"Here executable code\"", "", "Doc", doc, []);
+  EvalCodePage("\"Here executable code\"", "", "ScreenItem", ScreenItem, []);
 }
