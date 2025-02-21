@@ -3140,3 +3140,10 @@ declare function CreateDocScreen(xmlDoc: XmlDocument, formUrl: string): typeof S
  * ```
  */
 declare function QueryCatalogByKeys<T>(catalogName: string, keyName: string, keyValues: string | number[]): T[];
+
+/**
+ * Очищает кэш от запроса {@link XQuery}. При отсутствии аргумента очищает кэш от всех запросов {@link XQuery}.
+ * Если функция вызывается с параметром (url документа), то из кеша будут удалены запросы, связанные с этим документом.
+ * @param {string=} url - Url документа
+ */
+declare function DropXQueryCache(url?: string): undefined;

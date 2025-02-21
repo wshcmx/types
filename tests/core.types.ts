@@ -216,3 +216,6 @@ EvalCodePage("<%='Hello ' + name%>", "", "Global");
 EvalCodePage("<%='some text'%>", "", "ScreenItem", ScreenItem);
 
 QueryCatalogByKeys("collaborator", "fullname", "Иванов Иван Иванович");
+
+DropXQueryCache();
+DropXQueryCache("for $elem in collaborators return $elem/id");
