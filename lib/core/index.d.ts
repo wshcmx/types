@@ -871,6 +871,278 @@ declare function StrCharCount(str: string): number;
 
 //#endregion
 
+//#region Работа с датами
+
+/**
+ * Меняет значение часового пояса внутри даты, оставляя значение времени суток без изменений.
+ * Функция обычно используется в локальных вычислениях.
+ * При сохранении даты в базе данных или передачи ее по сети информация
+ * о хранимом часовом поясе внутри даты может потеряться.
+ * @param {Date} date - Дата.
+ * @param {number} timezone - Дата.
+ * @returns {Date} Дата.
+ */
+declare function DateNewTimeZone(date: Date, timezone: number): Date;
+
+/**
+ * Преобразует дату к местному часовому поясу, оставляя глобальное значение даты без изменений.
+ * Функция обычно используется в локальных вычислениях.
+ * При сохранении даты в базе данных или передачи ее по сети информация
+ * о хранимом часовом поясе внутри даты может потеряться.
+ * @param {Date} date - Дата.
+ * @returns {Date} Дата.
+ */
+declare function DateToLocalDate(date: Date): Date;
+
+/**
+ * Преобразует дату к другому часовому поясу, оставляя глобальное значение даты без изменений.
+ * Функция обычно используется в локальных вычислениях.
+ * При сохранении даты в базе данных или передачи ее по сети информация
+ * о хранимом часовом поясе внутри даты может потеряться.
+ * @param {Date} date - Дата.
+ * @param {number} timezone - Дата.
+ * @returns {Date} Дата.
+ */
+declare function DateToTimeZoneDate(date: Date, timezone: number): Date;
+
+/**
+ * Возвращает местный часовой пояс.
+ * @param {Date} date - Дата.
+ * @returns {number} Часовой пояс.
+ */
+declare function GetLocalTimeZone(date: Date): number;
+
+/**
+ * Проверяет валидность даты по календарю.
+ * Возвращает true или false.
+ * Функция {@link IsValidDate}() может потребоваться, поскольку не все функции,
+ * работающие с датами, имеют встроенную проверку на валидность.
+ * @param {Date} date - Дата.
+ * @example
+ * ```
+ * IsValidDate(date);
+ * ```
+ * @returns {boolean} Флаг валидности даты.
+ */
+declare function IsValidDate(date: Date): boolean;
+
+/**
+ * Преобразует строку, содержащую дату в формате MIME, в дату.
+ * @param {string} str - Строка с датой в формате MIME, например "Wed, 21 Oct 2015 07:28:00 GMT".
+ * @returns {Date} Дата.
+ */
+declare function ParseMimeDate(str: string): Date;
+
+/**
+ * Возвращает часовой пояс, хранимый внтури даты.
+ * Если дата не содержит внутри себя часовой пояс, возвращает undefined.
+ * @param {Date} date - Дата.
+ * @returns {number | undefined} Часовой пояс или undefined.
+ */
+declare function TimeZone(date: Date): number | undefined;
+
+
+/**
+ * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
+ * Функция {@link OptDate}() рекомендуется для использования,
+ * если необходимо проверить корректность даты (например 29 февраля),
+ * где обычная функция {@link Date}() будет вести себя по-разному на десктопной и web-версиях.
+ * @param {Date} date - Дата.
+ * @example
+ * ```
+ * OptDate("2019-04-20");
+ * OptDate("2019-04-20T12:30");
+ * OptDate("2019-04-20T12:30:00");
+ * OptDate(2019, 04, 20);
+ * OptDate(2019, 04, 20, 12, 30);
+ * OptDate(2019, 04, 20, 12, 30, 0);
+ * ```
+ * @returns {Date} Дата.
+ */
+declare function OptDate(date: string | Date | null | undefined | number | boolean): Date | undefined;
+declare function OptDate<T>(date: string | Date | null | undefined | number | boolean, defaultDate: T): Date | T;
+declare function OptDate(shortDateString: string): Date;
+declare function OptDate(longDateString: string): Date;
+declare function OptDate(year: number, month: number, day: number): Date;
+declare function OptDate(year: number, month: number, day: number, hour: number, minute: number): Date;
+declare function OptDate(year: number, month: number, day: number, hour: number, minute: number, second: number): Date;
+
+/**
+ * Возвращает разницу между 2-мя датами в секундах. Если первая дата меньше второй, разница будет отрицательным числом.
+ * @param {Date} date1 - Дата 1.
+ * @param {Date} date2 - Дата 2.
+ * @returns {number} Результат.
+ */
+declare function DateDiff(date1: Date, date2: Date): number;
+
+
+/**
+ * Текущая дата системы время системы.
+ */
+declare const CurDate: Date;
+
+/**
+ * Изменяет значение времени в заданной дате. Возвращает измененную дату.
+ * Если указан только первый аргумент, функция возвращает дату без времени.
+ * @param {Date} date - Дата.
+ * @param {number} [hour] - Час.
+ * @param {number} [minute] - Минута.
+ * @param {number} [second] - Секунда.
+ * @returns {Date} Дата.
+ */
+declare function DateNewTime(date: Date, hour?: number, minute?: number, second?: number): Date;
+
+/**
+ * Сдвигает дату на указанное число секунд. Если значение второго аргумента отрицательное, дата сдвигается назад.
+ * @param {Date} date - Заданная дата.
+ * @param {number} seconds - Сдвиг в секундах.
+ * @returns {Date} Дата.
+ */
+declare function DateOffset(date: Date, seconds: number): Date;
+
+/**
+ * Возвращает количество секунд, прошедших с 1970 года до заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function DateToRawSeconds(date: Date): number;
+/**
+ * Возвращает значение дня (1-31) для заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Day(date: Date): number;
+
+/**
+ * Преобразует количество секунд, прошедших с 1970 года в дату.
+ * @param {number} seconds - Количество секунд.
+ * @returns {Date} Дата.
+ */
+declare function RawSecondsToDate(seconds: number): Date;
+
+/**
+ * Возвращает значение секунд для заданной даты. Если дата не содержит значения секунд, возвращается undefined.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Second(date: Date): number;
+
+/**
+ * Возвращает значение минуты для заданной даты. Если дата не содержит времени, возвращается undefined.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Minute(date: Date): number;
+
+/**
+ * Преобразует строку с датой в большинство известных форматов в дату.
+ * В отличие от функции {@link Date}() понимает дату со словесным указанием месяца, например '1 ноября 2011 года'.
+ * @param {string} date - Строка с датой.
+ * @returns {Date} Дата.
+ */
+declare function ParseDate(date: string): Date;
+
+/**
+ * Преобразует дату в строку в формате, используемом по умолчанию в операционной системе.
+ * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
+ * @param {Date} date - Объект даты.
+ * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
+ * @returns {string} Строка с датой.
+ */
+declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+
+/**
+ * Возвращает время в миллисекундах, прошедшее с момента запуска операционной системы.
+ * @returns {number} Результат.
+ */
+declare function GetCurTicks(): number;
+
+/**
+ * Преобразует дату в строку в "длинном" формате (со словесным написанием месяца).
+ * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
+ * @param {Date} date - Дата.
+ * @returns {string} Результат.
+ * @example StrLongDate(Date("26.12.2011")) == "26 декабря 2011 г."
+ */
+declare function StrLongDate(date: Date): string;
+
+/**
+ * Возвращает значение часа для заданной даты. Если дата не содержит времени, возвращается undefined.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Hour(date: Date): number;
+
+/**
+ * Преобразует дату в формат MIME.
+ * @param {Date} Date - Дата.
+ * @returns {string} Результат.
+ * @example StrMimeDate(Date("26.12.2011 10:45")) == 'Mon, 26 Dec 2011 10:45:00 +0400'
+ */
+declare function StrMimeDate(Date: Date): string;
+
+/**
+ * Преобразует дату в строку, с двухсимвольным форматом года.
+ * @param {Date} date - Дата, которую преобразуется.
+ * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
+ * @returns {string} Строка с датой.
+ */
+declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+
+/**
+ * Возвращает номер месяца (1-12) для заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Результат.
+ */
+declare function Month(date: Date): number;
+
+/**
+ * Преобразует значение времени внутри даты в строку. Если время не содержится внутри даты, возвращается пустая строка.
+ * @param {Date} date - Дата.
+ * @returns {string} Дата.
+ * @example StrTime(Date("26.12.2011 10:45")) == "10:45"
+ */
+declare function StrTime(date: Date): string;
+
+/**
+ * Преобразует дату в строку в формате, используемом в XML. Данный формат не зависит от региональных настроек в системе.
+ * @param {Date} date - Объект даты.
+ * @param {boolean} [showTime] - Включать время (Bool).
+ * @param {boolean} [showSeconds] - Включать секунды во времени (Bool).
+ * @returns {string} Строка с датой.
+ * @example
+ * ```
+ * StrXmlDate(Date("26.12.2011")) == "2011-12-26"
+ * StrXmlDate(Date("26.12.2011 10:45")) == "2011-12-26T10:45"
+ * ```
+ */
+declare function StrXmlDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+
+/**
+ * Возвращает номер дня недели для заданной даты. (0 - Воскресенье, 1 - Понедельник и т.д.).
+ * @param {Date} date - Дата.
+ * @returns {number} День недели.
+ */
+declare function WeekDay(date: Date): number;
+
+/**
+ * Возвращает значение года для заданной даты.
+ * @param {Date} date - Дата.
+ * @returns {number} Год.
+ */
+declare function Year(date: Date): number;
+
+/**
+ * Преобразует дату из универсального часового пояса в текущий часовой пояс.
+ * @param {Date} date - Дата.
+ * @returns {Date} Дата.
+ */
+declare function UtcToLocalDate(date: Date): Date;
+
+//#endregion
+
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
@@ -1421,273 +1693,6 @@ declare function ArraySum<T>(array: T[], expression: string): number;
  * @returns {number} Результат.
  */
 declare function ArraySum<T>(array: XmlMultiElem<T>, expression: string): number;
-
-/**
- * Текущая дата системы время системы.
- */
-declare const CurDate: Date;
-
-/**
- * Изменяет значение времени в заданной дате. Возвращает измененную дату.
- * Если указан только первый аргумент, функция возвращает дату без времени.
- * @param {Date} date - Дата.
- * @param {number} [hour] - Час.
- * @param {number} [minute] - Минута.
- * @param {number} [second] - Секунда.
- * @returns {Date} Дата.
- */
-declare function DateNewTime(date: Date, hour?: number, minute?: number, second?: number): Date;
-
-/**
- * Возвращает время в миллисекундах, прошедшее с момента запуска операционной системы.
- * @returns {number} Результат.
- */
-declare function GetCurTicks(): number;
-
-/**
- * Возвращает разницу между 2-мя датами в секундах. Если первая дата меньше второй, разница будет отрицательным числом.
- * @param {Date} date1 - Дата 1.
- * @param {Date} date2 - Дата 2.
- * @returns {number} Результат.
- */
-declare function DateDiff(date1: Date, date2: Date): number;
-
-/**
- * Меняет значение часового пояса внутри даты, оставляя значение времени суток без изменений.
- * Функция обычно используется в локальных вычислениях.
- * При сохранении даты в базе данных или передачи ее по сети информация
- * о хранимом часовом поясе внутри даты может потеряться.
- * @param {Date} date - Дата.
- * @param {number} timezone - Дата.
- * @returns {Date} Дата.
- */
-declare function DateNewTimeZone(date: Date, timezone: number): Date;
-
-/**
- * Преобразует дату к местному часовому поясу, оставляя глобальное значение даты без изменений.
- * Функция обычно используется в локальных вычислениях.
- * При сохранении даты в базе данных или передачи ее по сети информация
- * о хранимом часовом поясе внутри даты может потеряться.
- * @param {Date} date - Дата.
- * @returns {Date} Дата.
- */
-declare function DateToLocalDate(date: Date): Date;
-
-/**
- * Преобразует дату к другому часовому поясу, оставляя глобальное значение даты без изменений.
- * Функция обычно используется в локальных вычислениях.
- * При сохранении даты в базе данных или передачи ее по сети информация
- * о хранимом часовом поясе внутри даты может потеряться.
- * @param {Date} date - Дата.
- * @param {number} timezone - Дата.
- * @returns {Date} Дата.
- */
-declare function DateToTimeZoneDate(date: Date, timezone: number): Date;
-
-/**
- * Возвращает местный часовой пояс.
- * @param {Date} date - Дата.
- * @returns {number} Часовой пояс.
- */
-declare function GetLocalTimeZone(date: Date): number;
-
-/**
- * Проверяет валидность даты по календарю.
- * Возвращает true или false.
- * Функция {@link IsValidDate}() может потребоваться, поскольку не все функции,
- * работающие с датами, имеют встроенную проверку на валидность.
- * @param {Date} date - Дата.
- * @example
- * ```
- * IsValidDate(date);
- * ```
- * @returns {boolean} Флаг валидности даты.
- */
-declare function IsValidDate(date: Date): boolean;
-
-/**
- * Преобразует строку, содержащую дату в формате MIME, в дату.
- * @param {string} str - Строка с датой в формате MIME, например "Wed, 21 Oct 2015 07:28:00 GMT".
- * @returns {Date} Дата.
- */
-declare function ParseMimeDate(str: string): Date;
-
-/**
- * Возвращает часовой пояс, хранимый внтури даты.
- * Если дата не содержит внутри себя часовой пояс, возвращает undefined.
- * @param {Date} date - Дата.
- * @returns {number | undefined} Часовой пояс или undefined.
- */
-declare function TimeZone(date: Date): number | undefined;
-
-/**
- * Сдвигает дату на указанное число секунд. Если значение второго аргумента отрицательное, дата сдвигается назад.
- * @param {Date} date - Заданная дата.
- * @param {number} seconds - Сдвиг в секундах.
- * @returns {Date} Дата.
- */
-declare function DateOffset(date: Date, seconds: number): Date;
-
-/**
- * Возвращает количество секунд, прошедших с 1970 года до заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function DateToRawSeconds(date: Date): number;
-
-/**
- * Возвращает значение часа для заданной даты. Если дата не содержит времени, возвращается undefined.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Hour(date: Date): number;
-
-/**
- * Возвращает значение дня (1-31) для заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Day(date: Date): number;
-
-/**
- * Возвращает значение минуты для заданной даты. Если дата не содержит времени, возвращается undefined.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Minute(date: Date): number;
-
-/**
- * Возвращает номер месяца (1-12) для заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Month(date: Date): number;
-
-/**
- * Преобразует дату в формат MIME.
- * @param {Date} Date - Дата.
- * @returns {string} Результат.
- * @example StrMimeDate(Date("26.12.2011 10:45")) == 'Mon, 26 Dec 2011 10:45:00 +0400'
- */
-declare function StrMimeDate(Date: Date): string;
-
-/**
- * Преобразует дату в строку в "длинном" формате (со словесным написанием месяца).
- * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
- * @param {Date} date - Дата.
- * @returns {string} Результат.
- * @example StrLongDate(Date("26.12.2011")) == "26 декабря 2011 г."
- */
-declare function StrLongDate(date: Date): string;
-
-/**
- * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
- * Функция {@link OptDate}() рекомендуется для использования,
- * если необходимо проверить корректность даты (например 29 февраля),
- * где обычная функция {@link Date}() будет вести себя по-разному на десктопной и web-версиях.
- * @param {Date} date - Дата.
- * @example
- * ```
- * OptDate("2019-04-20");
- * OptDate("2019-04-20T12:30");
- * OptDate("2019-04-20T12:30:00");
- * OptDate(2019, 04, 20);
- * OptDate(2019, 04, 20, 12, 30);
- * OptDate(2019, 04, 20, 12, 30, 0);
- * ```
- * @returns {Date} Дата.
- */
-declare function OptDate(date: string | Date | null | undefined | number | boolean): Date | undefined;
-declare function OptDate<T>(date: string | Date | null | undefined | number | boolean, defaultDate: T): Date | T;
-declare function OptDate(shortDateString: string): Date;
-declare function OptDate(longDateString: string): Date;
-declare function OptDate(year: number, month: number, day: number): Date;
-declare function OptDate(year: number, month: number, day: number, hour: number, minute: number): Date;
-declare function OptDate(year: number, month: number, day: number, hour: number, minute: number, second: number): Date;
-
-/**
- * Преобразует строку с датой в большинство известных форматов в дату.
- * В отличие от функции {@link Date}() понимает дату со словесным указанием месяца, например '1 ноября 2011 года'.
- * @param {string} date - Строка с датой.
- * @returns {Date} Дата.
- */
-declare function ParseDate(date: string): Date;
-
-/**
- * Преобразует количество секунд, прошедших с 1970 года в дату.
- * @param {number} seconds - Количество секунд.
- * @returns {Date} Дата.
- */
-declare function RawSecondsToDate(seconds: number): Date;
-
-/**
- * Возвращает значение секунд для заданной даты. Если дата не содержит значения секунд, возвращается undefined.
- * @param {Date} date - Дата.
- * @returns {number} Результат.
- */
-declare function Second(date: Date): number;
-
-/**
- * Преобразует дату в строку, с двухсимвольным форматом года.
- * @param {Date} date - Дата, которую преобразуется.
- * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
- * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
- * @returns {string} Строка с датой.
- */
-declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
-
-/**
- * Преобразует дату в строку в формате, используемом по умолчанию в операционной системе.
- * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
- * @param {Date} date - Объект даты.
- * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
- * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
- * @returns {string} Строка с датой.
- */
-declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
-
-/**
- * Преобразует дату из универсального часового пояса в текущий часовой пояс.
- * @param {Date} date - Дата.
- * @returns {Date} Дата.
- */
-declare function UtcToLocalDate(date: Date): Date;
-
-/**
- * Преобразует значение времени внутри даты в строку. Если время не содержится внутри даты, возвращается пустая строка.
- * @param {Date} date - Дата.
- * @returns {string} Дата.
- * @example StrTime(Date("26.12.2011 10:45")) == "10:45"
- */
-declare function StrTime(date: Date): string;
-
-/**
- * Возвращает значение года для заданной даты.
- * @param {Date} date - Дата.
- * @returns {number} Год.
- */
-declare function Year(date: Date): number;
-
-/**
- * Возвращает номер дня недели для заданной даты. (0 - Воскресенье, 1 - Понедельник и т.д.).
- * @param {Date} date - Дата.
- * @returns {number} День недели.
- */
-declare function WeekDay(date: Date): number;
-
-/**
- * Преобразует дату в строку в формате, используемом в XML. Данный формат не зависит от региональных настроек в системе.
- * @param {Date} date - Объект даты.
- * @param {boolean} [showTime] - Включать время (Bool).
- * @param {boolean} [showSeconds] - Включать секунды во времени (Bool).
- * @returns {string} Строка с датой.
- * @example
- * ```
- * StrXmlDate(Date("26.12.2011")) == "2011-12-26"
- * StrXmlDate(Date("26.12.2011 10:45")) == "2011-12-26T10:45"
- * ```
- */
-declare function StrXmlDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
 
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
