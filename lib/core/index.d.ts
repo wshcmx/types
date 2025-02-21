@@ -2972,6 +2972,249 @@ declare function declareElemsToStr<T>(arg1: T): string;
 
 //#endregion
 
+//#region Работа с экранами
+
+/**
+ * Возвращает одну из встроенных метрик UI.
+ * Метрики UI обычно используются при создании собственных сложных элементов UI.
+ * Поддерживаются следующие метрики:
+ * * TextLineHeight - высота текстовой строки в шрифте по умолчанию.
+ * * ListRowCoreHeight - высота строки списка по умолчанию (не включая разделитель).
+ * @param {"TextLineHeight" | "ListRowCoreHeight"} metricType - Тип метрики.
+ * @returns {unknown} - Результат.
+ */
+declare function GetUiMetric(metricType: "TextLineHeight" | "ListRowCoreHeight"): unknown;
+
+declare function GetSampleParamRec(): unknown;
+
+/**
+ * Вычисляет ширину текста при расположении его в одну строку в шрифте по умолчанию.
+ * @param {string} text - Текст.
+ * @returns {unknown} - Результат.
+ */
+declare function CalcTextScreenWidth(text: string): unknown;
+
+/**
+ * Закрывает все активные выпадающие элементы экрана.
+ * Функция используется как правило при разработке собственных выпадающих элементов.
+ * @returns {unknown} - Результат.
+ */
+declare function CloseAllDropDownItems(): unknown;
+
+/**
+ * Проверяет наличие зарегистрированной экранной формы с заданным url.
+ * @param {string} url - URL экранной формы.
+ * @returns {boolean} - Результат.
+ */
+declare function IsScreenFormRegistered(url: string): boolean;
+
+/**
+ * Динамически регистрирует экранную форму, содержащую набор типовых элементов,
+ * по аналогии с <sample_screen_form> в описании модуля.
+ * @param {string} url - URL формы.
+ * @returns {unknown} - Результат.
+ */
+declare function RegisterSharedSampleScreenForm(url: string): unknown;
+
+/**
+ * Для сложных составных элементов, описанных в виде шаблона (SAMPLE ="1"), таких как, например, object_setector, voc_elem_selector, date_selector,
+ * возвращает сам этот элемент из любого места кода внутри экземпляра этого элемента.
+ * Функция используется для написания сложных составных элементов.
+ * @returns {unknown} - Результат.
+ * @example <IF EXPR="GetSampleItem().IsEnabled">
+ */
+declare function GetSampleItem(): unknown;
+
+/**
+ * Для сложных составных элементов, описанных в виде шаблона (SAMPLE ="1"), таких как, например, object_setector, voc_elem_selector, date_selector,
+ * возвращает сам этот элемент из любого места кода внутри экземпляра этого элемента.
+ * Функция используется для написания сложных составных элементов.
+ * @param {string} paramName - Наименование параметра.
+ * @returns {unknown} - Результат.
+ * @example <LABEL TITLE-EXPR="lib_voc.foreign_voc_title( Ps, GetSampleParam( 'usage' ) )" READ-ONLY="1"  WIDTH="100%" HEIGHT="100"/>
+ */
+declare function GetOptSampleParam(paramName: string): unknown;
+
+/**
+ * Вычисляет (относительно самого элемента) значение параметра, если у этого параметра стоит атрибут EXPR.
+ * @returns {unknown} - Результат.
+ */
+declare function EvalSampleParam(): unknown;
+
+/**
+ * Вычисляет (относительно самого элемента) значение параметра, если у этого параметра стоит атрибут EXPR.
+ * @deprecated
+ * @param {string} paramName - Наименование параметра.
+ * @returns {unknown} - Результат.
+ */
+declare function EvalSampleParamRec(paramName: string): unknown;
+
+/**
+ * Редко используемая функция.
+ * Используется в комбининованных формах *.xmc для добавления новых элементов списка.
+ * @param {XmlElem<unknown>[]} addElems - Добавляемый элемент.
+ * @returns {unknown} - Результат.
+ */
+declare function OpenInnerPage(...addElems: XmlElem<unknown>[]): unknown;
+
+/**
+ * Отображает на экране указанное почтовое сообщение, с использование выбранного способа отображения.
+ * @param {MailMessage} msg - Почтовое сообщение.
+ * @param {string} [methodId] - Способ отображения почтового сообщения.
+ * @example ShowMailMessage(message, local_settings.mail_method_id);
+ * @returns {unknown} - Результат.
+ */
+declare function ShowMailMessage(msg: MailMessage, methodId?: string): unknown;
+
+/**
+ * Создает экран для заданного документа.
+ * @param {XmlDocument} xmlDocument - Документ, который будет отображен на экране.
+ * @param {string} xmsUrl - Url формы, при помощи которой документ будет открыт.
+ * @example screen = CreateDocScreen(doc, "base1_csd.xms");
+ * @returns {Screen} - Объект {@link Screen}.
+ */
+declare function CreateDocScreen(xmlDocument: XmlDocument, xmsUrl: string): typeof Screen;
+
+/**
+ * Если есть какой-либо большой глобальный документ (как правило - это общие настройки или персональные настройки),
+ * и требуется, чтобы он редактировался не в одном гигинтском окне, а в нескольких маленьких разделах,
+ * в этом случае открывает один большой документ, но в окне показыватся его маленький кусочек.
+ * Редко используемая функция.
+ * @see {@link ObtainSubDocScreen}
+ * @param {XmlElem<unknown>} docElem - Раздел документа.
+ * @param {string} xmsUrl - Url экранной формы.
+ * @returns {unknown} - Результат.
+ */
+declare function CreateSubDocScreen(docElem: XmlElem<unknown>, xmsUrl: string): unknown;
+
+/**
+ * Находит экран по url документа, открытого в этом экране.
+ * Проверяет, не открыт ли экран с заданным url, если открыт, то поднимает его на верх, если не открыт, то создает экран и открывает документ.
+ * Обычно эта фукнция вызывается, когда пользователь открывает из списка что-либо двойным щелчком.
+ * @param {string} docUrl - Url документа.
+ * @example
+ * ```
+ * screen = ObtainDocScreen(ObjectDocUrl('trash', 'trash_object', ListElem.id));
+ * screen = ObtainDocScreen(event.candidate_id.ForeignObjectUrl);
+ * ```
+ * @returns {Screen} - Объект {@link Screen}.
+ */
+declare function ObtainDocScreen(docUrl: string): typeof Screen;
+
+/**
+ * Вызывает открытие экрана для объектого документа.
+ * Редко используемая функция.
+ * @param {DataBase} base - База данных.
+ * @param {string} catalog - Наименование каталога.
+ * @param {number} documentId - Url документа.
+ * @example ObtainObjectDocScreen(DefaultDb, "vacancy", ListElem.vacancy_id);
+ * @returns {unknown} - Результат.
+ */
+declare function ObtainObjectDocScreen(base: Database, catalog: string, documentId: number): unknown;
+
+/**
+ * Если есть какой-либо большой глобальный документ (как правило - это общие настройки или персональные настройки),
+ * и требуется, чтобы он редактировался не в одном гигинтском окне, а в нескольких маленьких разделах,
+ * в этом случае открывает один большой документ, но в окне показыватся его маленький кусочек.
+ * @param {XmlElem<unknown>} xmlElem - Раздел документа.
+ * @param {string} xmsUrl - Url экранной формы.
+ * @example ObtainSubDocScreen(ListElem.site_settings, "imod_settings_site.xms");
+ * @see {@link CreateSubDocScreen}
+ * @returns {unknown} - Результат.
+ */
+declare function ObtainSubDocScreen(xmlElem: XmlElem<unknown>, xmsUrl: string): unknown;
+
+/**
+ * Ищет экран с заданным именем среди всех существующих экранов.
+ * Если экран не найден возвращает undefined.
+ * @param {string} screenName - Имя экрана.
+ * @returns {typeof Screen | undefined} - Результат.
+ */
+declare function FindOptScreen(screenName: string): typeof Screen | undefined;
+
+/**
+ * Ищет экран с заданным именем среди всех существующих экранов.
+ * Если экран не найден возвращает ошибку.
+ * @param {string} screenName - Имя экрана.
+ * @returns {typeof Screen | never} - Результат.
+ * @see {@link FindOptScreen}
+ */
+declare function FindScreen(screenName: string): typeof Screen | never;
+
+/**
+ * Ищет экран с заданным url документа, если экран не найден, возвращает исключение.
+ * @param {string} docUrl - Url документа.
+ * @see {@link FindOptScreenByDocUrl}
+ * @see {@link ObtainDocScreen}
+ * @returns {typeof Screen | never} - Результат.
+ */
+declare function FindScreenByDocUrl(docUrl: string): typeof Screen | never;
+
+/**
+ * Ищет экран с заданным url документа, если экран не найден, возвращает undefined.
+ * @param {string} docUrl - Url документа.
+ * @see {@link FindScreenByDocUrl}
+ * @see {@link ObtainDocScreen}
+ * @returns {typeof Screen | undefined} - Результат.
+ */
+declare function FindOptScreenByDocUrl(docUrl: string): typeof Screen | undefined;
+
+/**
+ * Вызывает обновление экрана с заданными параметрами.
+ * Эту функцию можно вызывать из других потоков, она безопасная.
+ * @param {string} maskScreen - Маска выбора имени экрана.
+ * @param {string} maskForm - Маска выбора имени экранной формы.
+ * @example
+ * ```
+ * UpdateScreens("*", "*view*"); // Обновление всех экранов, наименование файла экранной формы которых содержит 'view'
+ * UpdateScreens("*", "*"); // Обновление всех экранов
+ * ```
+ * @returns {unknown} - Результат.
+ */
+declare function UpdateScreens(maskScreen: string, maskForm: string): unknown;
+
+/**
+ * Редко используемая фукнция.
+ * Сбрасыает данные из кэша.
+ * Используется, когда программа сама модифицирует какие-то формы, и чтобы обновления вступили в силу необходимо сбросить данные из кэша.
+ * @returns {unknown} - Результат.
+ */
+declare function DropScreenFormsCache(): unknown;
+
+/**
+ * Регистрирует экранную форму, переданную в виде строки.
+ * @param {string} xmsUrl - Url, по которому будет зарегистрирована форма.
+ * @param {string} xmsForm - Экранная форма.
+ * @example
+ * ```
+ * RegisterScreenFormFromStr(ReplaceUrlPathSuffix(formUrl, ".xmd", ".xms"), screenFormData);
+ * RegisterScreenFormFromStr(vocInfo.object_screen_form_url, LoadUrlData("base1_voc_object.xms"));
+ * ```
+ * @returns {unknown} - Результат.
+ */
+declare function RegisterScreenFormFromStr(xmsUrl: string, xmsForm: string): unknown;
+
+/**
+ * Делает объединение двух экранных форм.
+ * Используется для регистрации дополнительных (пользовательских) полей, открываемых дополнительной (пользовательской) экранной формой.
+ * Редко используемая функция.
+ * @see {@link MergeScreenForm}
+ * @returns {unknown} - Результат.
+ */
+declare function AppendScreenForm(): unknown;
+
+/**
+ * Объединяет две формы.
+ * @see {@link AppendScreenForm}
+ * @param {string} mainFormUrl - Url основной формы.
+ * @param {string} addFormUrl - Url дополнительной формы.
+ * @param {string} elemName - Наименование элемента основной формы, после которого будет присоединена дополнительная форма.
+ * @returns {unknown} - Результат.
+ * @example MergeScreenForm("//base2/base2_access_role.xms", "rcr_fields_access_role.xms", "AccessFieldsAnchor");
+ */
+declare function MergeScreenForm(mainFormUrl: string, addFormUrl: string, elemName: string): unknown;
+
+//#endregion
 
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
