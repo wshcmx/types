@@ -562,6 +562,315 @@ declare function XQueryLiteral(arg: string | number | Date): string;
 
 //#endregion
 
+//#region Работа со строками
+
+/**
+ * Возвращает фрагмент сроки по заданным позициям (в символах).
+ * @param {number} startPosition - Начальная позиция.
+ * @param {number} endPosition - Конечная позиция.
+ * @returns {string} Результат.
+ */
+declare function StrCharRangePos(startPosition: number, endPosition: number): string;
+
+/**
+ * Проверяет две строки на равенство, в том числе без учета регистра.
+ * @param {string} str1 - Строка 1.
+ * @param {string} str2 - Строка 2.
+ * @param {boolean} ignoreCase - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Функция StrFromCharCode преобразует код символа (число) в строку, содержащую этот символ.
+ * @param {number} code - Код символа.
+ * @returns {string} Результат.
+ */
+declare function StrFromCharCode(code: number): string;
+
+/**
+ * Собирает строку из массива кодов каждого символа в UTF-16.
+ * @param {string[]} array - Массив кодов символов
+ * @returns {string} Результат.
+ */
+declare function StrFromCharCodesArray(array: string[]): string;
+
+/**
+ * Возвращает позицию (в байтах) подстроки внутри строки.
+ * Если подстрока не найдена, возвращает undefined.
+ * @param {string} str - Строка.
+ * @param {string} subStr - Подстрока.
+ * @param {boolean} ignoreCase - Без учета регистра.
+ * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
+ * @returns {number | undefined} Результат.
+ * Смотри также {@link StrOptSubStrRightPos}
+ */
+declare function StrOptSubStrPos(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
+
+/**
+ * Возвращает позицию (в байтах) подстроки внутри строки с бинарным режимом поиска
+ * (строки могут содержать любые данные, включая символ \0).
+ * Если подстрока не найдена, возвращает undefined.
+ * @param {string} str - Строка.
+ * @param {string} subStr - Подстрока.
+ * @param {boolean} ignoreCase - Без учета регистра.
+ * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
+ * @returns {number | undefined} Результат.
+ * Смотри также {@link StrOptSubStrRightPos}
+ */
+declare function StrOptSubStrPosB(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
+
+/**
+ * Возвращает позицию (в байтах) подстроки внутри строки, при этом поиск осуществяется справа налево.
+ * Если подстрока не найдена, возвращает undefined.
+ * @param {string} str - Строка.
+ * @param {string} subStr - Подстрока.
+ * @param {boolean} ignoreCase - Без учета регистра.
+ * @param {number} startPos - Позиция (в байтах), с которой должен начинаться поиск подстроки.
+ * @returns {number | undefined} Результат.
+ * Смотри также {@link StrOptSubStrPos}
+ */
+declare function StrOptSubStrRightPos(str: string, subStr: string, ignoreCase?: boolean, startPos?: number): number | undefined;
+
+/**
+ * Разбивает сроку на две подстроки, использую заданный разделитель.
+ * Возвращает массив из двух подстрок.
+ * Если разделитель отсутствует, возвращает массив из исходной строки и пустой строки.
+ * @param {string} str - Строка.
+ * @param {boolean} useQuotes - Если true, и значение слева или справа от разделителя обернуто в кавычки, то кавычки удаляются из результата.
+ * @returns {string[]} Результат.
+ */
+declare function StrSplit2(str: string, useQuotes?: boolean): string[];
+
+type StrSplitToLinesOptions = {
+  LineFolding: boolean;
+};
+
+/**
+ * Разбивает сроку на подстроки, использую разделители LF либо CRLF.
+ * @param {string} str - Строка.
+ * @param {object} options - Объект, содержащий набор опций вызова.
+ * @returns {string[]} - Массив подстрок.
+ */
+declare function StrSplitToLines(str: string, options?: StrSplitToLinesOptions): string[];
+
+/**
+ * Разбивает сроку на одиночные символы.
+ * Возвращает массив строк, каждая из которых содержит одиночный символ.
+ * @param {string} str - Строка.
+ * @returns {string[]} Массив символов.
+ */
+declare function StrToCharArray(str: string): string[];
+
+/**
+ * Разбивает сроку на одиночные символы.
+ * Возвращает массив кодов каждого символа в UTF-16.
+ * @param {string} str - Строка.
+ * @returns {number[]} Массив кодов символов.
+ */
+declare function StrToCharCodesArray(str: string): number[];
+
+/**
+ * Проверяет, начинается ли строка на другую строку.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} subStr - Подстрока, которую ищут.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrBegins(str: string, subStr: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Проверяет, содержит ли строка другую строку в качестве подстроки.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} subStr - Подстрока, которую ищут.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrContains(str: string, subStr: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Проверяет, оканчивается ли строка на другую строку.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} subStr - Подстрока, которую ищут.
+ * @param {boolean} [ignoreCase] - Не учитывать регистр.
+ * @returns {boolean} Результат.
+ */
+declare function StrEnds(str: string, subStr: string, ignoreCase?: boolean): boolean;
+
+/**
+ * Проверяет состоит ли строка только из цифр или латинских символов.
+ * @param {string} str - Проверяемая строка.
+ * @returns {boolean} Результат.
+ */
+declare function StrIsAlphaNum(str: string): boolean;
+
+/**
+ * Возвращает часть строки str, длиной length, начиная с первого символа переданной строки.
+ * Если второй аргумент больше длины передаваемой строки, возвращается str.
+ * В отличие от StrLeftRange возвращает не биты, а именно символы.
+ * @param {string} str - Строка.
+ * @param {number} length - Длина строки.
+ * @returns {string} Результат.
+ */
+declare function StrLeftCharRange(str: string, length: number): string;
+
+/**
+ * Возвращает часть строки str, длиной length, начиная с первого символа переданной строки.
+ * Если второй аргумент больше длины передаваемой строки, возвращается str.
+ * @param {string} str - Строка.
+ * @param {number} length - Длина строки.
+ * @returns {string} Результат.
+ */
+declare function StrLeftRange(str: string, length: number): string;
+
+/**
+ * Возвращает длину строки в байтах.
+ * Данная длина может быть больше количества символов, если приложение использует кодировку UTF-8.
+ * Для определения количества символов в строке необходимо использовать функцию StrCharCount.
+ * @param {string} str - Строка.
+ * @returns {number} Результат.
+ */
+declare function StrLen(str: string): number;
+
+/**
+ * Переводит все символы строки в нижний регистр.
+ * @param {string} str - Строка, которую необходимо преобразовать.
+ * @returns {string} Результат.
+ */
+declare function StrLowerCase(str: string): string;
+
+/**
+ * Проверяет, удовлетворяет ли строка одной из масок. Маски перечисляются через запятую вторым аргументом.
+ * @param {string} str - Строка, в которой ищут.
+ * @param {string} pattern - Шаблоны поиска, разделенные запятой.
+ * @returns {boolean} Результат.
+ * @example StrMatchesMultiPattern(str, "aaa*bbb,ccc*ddd*eee");
+ */
+declare function StrMatchesMultiPattern(str: string, pattern: string): boolean;
+
+/**
+ * Проверяет, удовлетворяет ли строка маске поиска, использующей символ "*".
+ * @param {string} str - Строка.
+ * @param {string} mask - Маска.
+ * @returns {boolean} Результат.
+ * @example StrMatchesPattern(str, "aaa*bbb");
+ */
+declare function StrMatchesPattern(str: string, mask: string): boolean;
+
+/**
+ * Переводит первую букву строки в нижний регистр.
+ * @param {string} str - Строка.
+ * @returns {string} Результат.
+ */
+declare function StrNonTitleCase(str: string): string;
+
+/**
+ * Возвращает часть строки по заданным позициям.
+ * @param {string} str - Строка.
+ * @param {number} pos1 - Начальная позиция.
+ * @param {number} pos2 - Конечная позиция.
+ * @returns {string} Результат.
+ */
+declare function StrRangePos(str: string, pos1: number, pos2: number): string;
+
+/**
+ * Заменяет все вхождения одной подстроки на другую в заданной строке, если такие имеются. Возвращает измененную строку.
+ * @param {string} str - Исходная строка.
+ * @param {string} subStr - Исходная подстрока.
+ * @param {string} newSubStr - Новая подстрока.
+ * @returns {string} Результат.
+ */
+declare function StrReplace(str: string, subStr: string, newSubStr: string): string;
+
+/**
+ * Заменяет первое вхождение строки на указанную подстроку.
+ * @param {string} str - Исходная строка.
+ * @param {string} subStr - Исходная подстрока.
+ * @param {string} newSubStr - Новая подстрока.
+ * @returns {string} Результат.
+ */
+declare function StrReplaceOne(str: string, subStr: string, newSubStr: string): string;
+
+/**
+ * Возвращает часть строки, начиная с указанной позиции до конца строки.
+ * @param {string} str - Строка.
+ * @param {number} pos - Позиция.
+ * @returns {string} Результат.
+ */
+declare function StrRightRangePos(str: string, pos: number): string;
+
+/**
+ * Извлекает из строки фрагменты в соответствии с заданным шаблоном. Если строка не соответствует шаблону, возвращается undefined.
+ * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
+ * @param {string} str - Строка.
+ * @param {any} pattern - Шаблон.
+ * @returns {string[] | undefined} Результат.
+ * @example
+ * ```
+ * const obj = StrOptScan("x-local://wtv/tools.xml", "x-local://%*s/%s.xml");
+ * const fileName = obj[0]; // "tools"
+ * ```
+ */
+declare function StrOptScan(str: string, pattern: string): string[] | undefined;
+
+/**
+ * Извлекает из строки фрагменты в соответствии с заданным шаблоном.
+ * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
+ * @param {string} str - Строка.
+ * @param {any} arg - Шаблон.
+ * @returns {Array} Результат.
+ * @example
+ * ```
+ * const obj = StrScan(str, "%*s/vacancy/%s.htm");
+ * vacancyID = obj[0];
+ * ```
+ */
+declare function StrScan(str: string, arg: string): string[];
+
+/**
+ * Преобразует первую букву строки в заглавную.
+ * @param {string} str - Строка, которую нужно преобразовать.
+ * @returns {string} Результат.
+ */
+declare function StrTitleCase(str: string): string;
+
+/**
+ * Преобразует строку в нижний регистр.
+ * @param {string} str - Строка, которую нужно преобразовать.
+ * @returns {string} Результат.
+ */
+declare function StrUpperCase(str: string): string;
+
+/**
+ * Экспериментальная.
+ * @returns {undefined}
+ */
+declare function StrWordMatchRating(): undefined;
+
+/**
+ * Удаляет символы пробела, перевода строк и табуляции в начале и конце строки.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Результат.
+ */
+declare function Trim(str: string): string;
+
+/**
+ * Заменяет повторяющиеся последовательности символов пробела,
+ * перевода строк и табуляции в строке на одиночные пробелы.
+ * @param {string} str - Исходная строка.
+ * @returns {string} Результат.
+ */
+declare function UnifySpaces(str: string): string;
+
+/**
+ * Возвращает количество символов в строке.
+ * @param {string} str - Строка.
+ * @returns {number} Результат.
+ */
+declare function StrCharCount(str: string): number;
+
+//#endregion
+
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
@@ -1571,215 +1880,6 @@ declare function XQueryLocal<T>(query: string): T;
  */
 declare function XQuery<T>(query: string, options?: string): T[];
 
-
-/**
- * Переводит все символы строки в нижний регистр.
- * @param {string} str - Строка, которую необходимо преобразовать.
- * @returns {string} Результат.
- * @example
- * ```
- * StrLowerCase(str);
- * ```
- */
-declare function StrLowerCase(str: string): string;
-
-/**
- * Возвращает часть строки str, длиной length,
- * начиная с первого символа переданной строки.
- * Если второй аргумент больше длины передаваемой строки,
- * возвращается str.
- * @param {string} str - Строка.
- * @param {number} length - Длина строки.
- * @returns {string} Результат.
- * @example StrLeftRange(str, length)
- */
-declare function StrLeftRange(str: string, length: number): string;
-
-/**
- * Возвращает часть строки str, длиной length, начиная с первого символа переданной строки.
- * Если второй аргумент больше длины передаваемой строки, возвращается str.
- * В отличие от StrLeftRange возвращает не биты, а именно символы.
- * @param {string} str - Строка.
- * @param {number} length - Длина строки.
- * @returns {string} Результат.
- * @example
- * ```
- * StrLeftCharRange(str, length);
- * ```
- */
-declare function StrLeftCharRange(str: string, length: number): string;
-
-/**
- * Проверяет состоит ли строка только из цифр или латинских символов.
- * @param {string} str - Проверяемая строка.
- * @returns {boolean} Результат.
- * @example StrIsAlphaNum(str);
- */
-declare function StrIsAlphaNum(str: string): boolean;
-
-/**
- * Возвращает длину строки в байтах.
- * Данная длина может быть больше количества символов,
- * если приложение использует кодировку UTF-8.
- * Для определения количества символов в строке
- * необходимо использовать функцию StrCharCount.
- * @param {string} str - Строка.
- * @returns {number} Результат.
- */
-declare function StrLen(str: string): number;
-
-/**
- * Проверяет, начинается ли строка на другую строку.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} [ignoreCase] - Не учитывать регистр.
- * @returns {boolean} Результат.
- */
-declare function StrBegins(str: string, subStr: string, ignoreCase?: boolean): boolean;
-
-/**
- * Проверяет, содержит ли строка другую строку в качестве подстроки.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} [ignoreCase] - Не учитывать регистр.
- * @returns {boolean} Результат.
- */
-declare function StrContains(str: string, subStr: string, ignoreCase?: boolean): boolean;
-
-/**
- * Проверяет, оканчивается ли строка на другую строку.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} subStr - Подстрока, которую ищут.
- * @param {boolean} [ignoreCase] - Не учитывать регистр.
- * @returns {boolean} Результат.
- */
-declare function StrEnds(str: string, subStr: string, ignoreCase?: boolean): boolean;
-
-/**
- * Возвращает количество символов в строке.
- * @param {string} str - Строка.
- * @returns {number} Результат.
- */
-declare function StrCharCount(str: string): number;
-
-/**
- * Проверяет, удовлетворяет ли строка одной из масок.
- * Маски перечисляются через запятую вторым аргументом.
- * @param {string} str - Строка, в которой ищут.
- * @param {string} pattern - Шаблоны поиска, разделенные запятой.
- * @returns {boolean} Результат.
- * @example StrMatchesMultiPattern(str, "aaa*bbb,ccc*ddd*eee");
- */
-declare function StrMatchesMultiPattern(str: string, pattern: string): boolean;
-
-/**
- * Заменяет первое вхождение строки на указанную подстроку.
- * @param {string} str - Исходная строка.
- * @param {string} subStr - Исходная подстрока.
- * @param {string} newSubStr - Новая подстрока.
- * @returns {string} Результат.
- * @example StrReplaceOne(str1, str2);
- */
-declare function StrReplaceOne(str: string, subStr: string, newSubStr: string): string;
-
-/**
- * Возвращает часть строки, начиная с указанной позиции до конца строки.
- * @param {string} str - Строка.
- * @param {number} pos - Позиция.
- * @returns {string} Результат.
- * @example StrRightRangePos(str, pos);
- */
-declare function StrRightRangePos(str: string, pos: number): string;
-
-/**
- * Проверяет, удовлетворяет ли строка маске поиска, использующей символ '*'.
- * @param {string} str - Строка.
- * @param {string} mask - Маска.
- * @returns {boolean} Результат.
- * StrMatchesPattern( str, 'aaa*bbb' ).
- */
-declare function StrMatchesPattern(str: string, mask: string): boolean;
-
-/**
- * Преобразует строку в нижний регистр.
- * @param {string} str - Строка, которую нужно преобразовать.
- * @returns {string}
- * StrUpperCase(str).
- */
-declare function StrUpperCase(str: string): string;
-
-/**
- * Возвращает часть строки по заданным позициям.
- * @param {string} str - Строка.
- * @param {number} pos1 - Начальная позиция.
- * @param {number} pos2 - Конечная позиция.
- * @returns {string} Результат.
- * @example StrRangePos(str, pos1, pos2);
- */
-declare function StrRangePos(str: string, pos1: number, pos2: number): string;
-
-/**
- * Переводит первую букву строки в нижний регистр.
- * @param {string} str - Строка.
- * @returns {string}
- * StrNonTitleCase(str).
- */
-declare function StrNonTitleCase(str: string): string;
-
-/**
- * Заменяет все вхождения одной подстроки на другую в заданной строке, если такие имеются. Возвращает измененную строку.
- * @param {string} str - Исходная строка.
- * @param {string} subStr - Исходная подстрока.
- * @param {string} newSubStr - Новая подстрока.
- * @returns {string} Результат.
- * @example StrReplace(str, subStr, newSubStr);
- */
-declare function StrReplace(str: string, subStr: string, newSubStr: string): string;
-
-/**
- * Извлекает из строки фрагменты в соответствии с заданным шаблоном.
- * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
- * @param {string} str - Строка.
- * @param {any} arg - Шаблон.
- * @returns {Array} Результат.
- * @example
- * ```
- * const obj = StrScan(str, "%*s/vacancy/%s.htm");
- * vacancyID = obj[0];
- * ```
- */
-declare function StrScan(str: string, arg: string): string[];
-
-/**
- * Преобразует первую букву строки в заглавную.
- * @param {string} str - Строка, которую нужно преобразовать.
- * @returns {string} Результат.
- */
-declare function StrTitleCase(str: string): string;
-
-/**
- * Экспериментальная.
- * @returns {undefined}
- */
-declare function StrWordMatchRating(): undefined;
-
-/**
- * Заменяет повторяющиеся последовательности символов пробела,
- * перевода строк и табуляции в строке на одиночные пробелы.
- * @param {string} str - Исходная строка.
- * @returns {string} Результат.
- */
-declare function UnifySpaces(str: string): string;
-
-/**
- * Удаляет символы пробела, перевода строк и табуляции в начале и конце строки.
- * @param {string} str - Исходная строка.
- * @returns {string}
- * Trim(str).
- */
-declare function Trim(str: string): string;
-
-
 /**
  * Удаляет объект с заданным url.
  * @param {string} url - Url.
@@ -2689,53 +2789,6 @@ declare function StartModalTask(taskTitle: string): undefined;
  * @returns {XmlDocument} XmlDocument.
  */
 declare function OpenCodeLib<T = XmlDocument>(url: string): T;
-
-/**
- * Разбивает сроку на одиночные символы.
- * Возвращает массив кодов каждого символа в UTF-16.
- * @param {string} str - Строка.
- * @returns {number[]} Массив кодов символов.
- */
-declare function StrToCharCodesArray(str: string): number[];
-
-/**
- * Разбивает сроку на одиночные символы.
- * Возвращает массив строк, каждая из которых содержит одиночный символ.
- * @param {string} str - Строка.
- * @returns {string[]} Массив символов.
- */
-declare function StrToCharArray(str: string): string[];
-
-/**
- * Функция StrFromCharCode преобразует код символа (число) в строку, содержащую этот символ.
- * @param {number} code - Код символа.
- * @returns {string} Результат.
- */
-declare function StrFromCharCode(code: number): string;
-
-/**
- * Проверяет две строки на равенство, в том числе без учета регистра.
- * @param {string} str1 - Строка 1.
- * @param {string} str2 - Строка 2.
- * @param {boolean} ignoreCase - Не учитывать регистр.
- * @returns {boolean} Результат.
- * StrEqual(str1, str2, ignoreCase).
- */
-declare function StrEqual(str1: string, str2: string, ignoreCase?: boolean): boolean;
-
-/**
- * Извлекает из строки фрагменты в соответствии с заданным шаблоном. Если строка не соответствует шаблону, возвращается undefined.
- * Шаблоны могут содержать элементы: %s - вхождение подстроки (возвращаемое) %*s - вхождение подстроки (невозвращаемое).
- * @param {string} str - Строка.
- * @param {any} pattern - Шаблон.
- * @returns {string[] | undefined} Результат.
- * @example
- * ```
- * const obj = StrOptScan("x-local://wtv/tools.xml", "x-local://%*s/%s.xml");
- * const fileName = obj[0]; // "tools"
- * ```
- */
-declare function StrOptScan(str: string, pattern: string): string[] | undefined;
 
 //#region Функции Web-сервера
 
