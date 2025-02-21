@@ -67,7 +67,7 @@ declare function GetObjectProperty<T, K extends keyof T>(object: T, propertyName
  * Функция  эквивалентна {@link GetObjectProperty}() за одним исключением:
  * если в качестве propertyName передано имя 'This', функция вернет ссылку на переданный объект.
  * @param {T} object - Объект.
- * @param {string} propertyName - Имя свойства, либо This.
+ * @param {string} propertyName - Имя свойства либо This.
  * @returns {unknown} Результат.
  */
 declare function GetObjectPropertyOrSelf<T, K extends keyof T>(object: T, propertyName: K | string): T[K] | T;
@@ -178,7 +178,7 @@ declare function ObjectType<T>(entity: T): string;
 /**
  * Преобразует значение аргумента к вещественному числу.
  * Если аргумент не может быть преобразован к вещественному числу,
- * функция возвращает undefined, либо defaultVal, если оно указано.
+ * функция возвращает undefined либо defaultVal, если оно указано.
  * @param {T} value - Целое число, вещественное число или строка, содержащая вещественное число.
  * @param {K} [defaultValue] - Значение по умолчанию.
  * @returns {number | K} Результат.
@@ -212,7 +212,7 @@ declare function Int(value: string | number): number;
 
 /**
  * Преобразует значение аргумента к целому числу.
- * Если преобразование выполнить невозможно, возвращает undefined, либо defaultVal, если оно указано.
+ * Если преобразование выполнить невозможно, возвращает undefined либо defaultVal, если оно указано.
  * @param {T} value - Целое число, вещественное число или строка, содержащая число.
  * @param {K} [defaultValue] - Значение по умолчанию.
  * @returns {number | K} Результат.
@@ -1768,6 +1768,262 @@ declare function IsArray(value: unknown): value is unknown[] | XmlMultiElem<unkn
 
 //#endregion
 
+//#region Работа с файловой системой
+
+/**
+ * Сохраняет содержимое строки в файл с заданном путем с использованием UTF-8 BOM.
+ */
+declare function PutFileText(): void;
+
+/**
+ * Возвращает путь к директории, из которой запущено приложение.
+ * @returns {string} Результат.
+ */
+declare function AppDirectoryPath(): string;
+
+/**
+ * Копирует файл внутри файловой системы.
+ * @param {string} srcFilePath - Путь к исходному файлу.
+ * @param {string} destFilePath - Путь к файлу назначения.
+ */
+declare function CopyFile(srcFilePath: string, destFilePath: string): void;
+
+/**
+ * Создает новую директорию внутри существующей директории.
+ * @param {string} path - Путь до новой директории, или url.
+ * @returns {undefined}
+ */
+declare function CreateDirectory(path: string): undefined;
+
+/**
+ * Создает ярлык на указанный файл.
+ * @param {string} linkPath - Путь (или url) к создаваемому ярлыку.
+ * @param {string} targetPath - Путь (или url) к файлу, на который будет указывать ярлык.
+ * @returns {undefined}
+ */
+declare function CreateShellLink(linkPath: string, targetPath: string): undefined;
+
+/**
+ * Удаляет директорию, включая все вложенные файлы и директории.
+ * @param {string} path - Путь (или url) до удаляемой директории.
+ * @returns {undefined}
+ */
+declare function DeleteDirectory(path: string): undefined;
+
+/**
+ * Удаляет файл.
+ * @param {string} path - Путь (или url) к удаляемому файлу.
+ * @returns {undefined}
+ */
+declare function DeleteFile(path: string): undefined;
+
+/**
+ * Проверяет открыт ли файл в другом приложении.
+ * @param {string} path - Путь (или url) к файлу.
+ * @returns {boolean} Результат.
+ */
+declare function FileIsBusy(path: string): boolean;
+
+/**
+ * Извлекает имя файла из пути, переданного в качестве аргумента.
+ * @param {string} url - Путь к файлу.
+ * @returns {string}
+ * FileName( 'work\data\doc.pdf' ) вернет 'doc.pdf' FileName( 'work\data\' ) вернет 'data'.
+ */
+declare function FileName(url: string): string;
+
+/**
+ * Проверяет, существует ли файл с заданным url либо путем в файловой системе.
+ * @param {string} pathOrUrl - URL либо путь к файлу.
+ * @returns {boolean} Результат.
+ */
+declare function FileExists(pathOrUrl: string): boolean;
+
+/**
+ * Склеивает абсолютный и относительный файловые пути.
+ * Если в качестве относительного пути передан абсолютный путь, вернется он же, а первый аргумент проигнорируется.
+ * Функция унифицирует разделители в относительном пути ("/" и "\") под файловую систему текущей операционной системы.
+ * @param {string} basePath - Базовый абсолютный путь
+ * @param {string} addPath - Добавляемый относительный путь
+ * @returns {string} Результат.
+ */
+declare function FilePath(basePath: string, addPath: string): boolean;
+
+/**
+ * Проверяет существует ли файл (или директория) по указанному пути.
+ * @param {string} path - Путь к файлу.
+ * @returns {boolean} Результат.
+ */
+declare function FilePathExists(path: string): boolean;
+
+/**
+ * Возвращает дату создания файла с заданным путем либо url в файловой системе.
+ * @param {string} pathOrUrl - Путь к файлу либо URL, отображаемый в файловую систему
+ * @returns {Date} - Результат.
+ */
+declare function GetFileCreationDate(pathOrUrl: string): Date;
+
+/**
+ * Возвращает дату модификации файла.
+ * @param {string} path - Путь (или url) к файлу.
+ * @returns {Date} Дата.
+ */
+declare function GetFileModDate(path: string): Date;
+
+/**
+ * Возвращает путь к одной из стандартных директорий Shell.
+ * @returns {string}
+ * AppData - директория для хранения данных пользователя, например "C:\Documents and Settings\User\Application Data".
+ */
+declare function GetShellFolderPath(): string;
+
+/**
+ * Проверяет является ли путь к файлу, переданный в качестве аргумента.
+ * Существование файла по данному пути не проверяется.
+ * @param {string} path - Путь к файлу.
+ * @returns {boolean} Результат.
+ * IsAbsoluteFilePath( 'c:\temp\1.ddd' ) вернет true IsAbsoluteFilePath( 'temp\1.ddd' ) вернет false.
+ */
+declare function IsAbsoluteFilePath(path: string): boolean;
+
+/**
+ * Проверяет, является ли указанный путь (или url) директорией.
+ * @param {string} path - Путь (или url).
+ * @returns {boolean} Результат.
+ */
+declare function IsDirectory(path: string): boolean;
+
+/**
+ * Загружает содержимое файла по заданному пути, результат возвращается в виде строки, содержащей бинарные данные.
+ * @param {string} path - Путь к файлу.
+ * @returns {string} Результат.
+ */
+declare function LoadFileData(path: string): string;
+
+/**
+ * Загружает содержимое фрагмента файла. Возвращает результат в виде бинарной строки.
+ * Если конечная позиция превышает фактический размер файла, возвращается фрагмент до фактической верхней границы.
+ * @param {string} path - Путь к файлу.
+ * @param {number} startPosition - Начальная позиция.
+ * @param {number} endPosition - Конечная позиция.
+ * @returns {string} Результат.
+ */
+declare function LoadFileDataRange(path: string, startPosition: number, endPosition: number): string;
+
+/**
+ * Загружает содержимое файла с заданным путем с учетом наличия BOM.
+ * Если файл начинается на UTF-16 BOM, происходи конвертация из UTF-16 в текущую кодировку (UTF-8).
+ * Если файл начинается на UTF-8 BOM, возвращается содержимое файла после BOM.
+ * Если BOM в файле отсутствует, происходит конвертация из однобайтовой кодировки по умолчанию
+ * (например Windows-1251) в текущую (UTF-8).
+ * @param {string} filepath - Путь до файла.
+ * @returns {string} Содержимое файла.
+ */
+declare function LoadFileText(filepath: string): string;
+
+/**
+ * Перемещает или переименовывает файл.
+ * @param {string} path1 - Исходный путь к файлу.
+ * @param {string} path2 - Новый путь к файлу.
+ * @returns {undefined}
+ */
+declare function MoveFile(path1: string, path2: string): undefined;
+
+/**
+ * Проверяет, существует ли указанная директория, если нет - создает ее.
+ * @param {string} path - Путь (или url) к директории.
+ * @param {boolean} [isRecursive] - Создавать всю цепочку родительских директорий, если они не существуют.
+ * @returns {undefined}
+ */
+declare function ObtainDirectory(path: string, isRecursive?: boolean): undefined;
+
+/**
+ * Возвращает url для временного файла, который будет автоматически удален при следующем запуске приложения.
+ * @param {string} [suffix] - Требуемый суффикс имени файла.
+ * @returns {string} Результат.
+ */
+declare function ObtainSessionTempFile(suffix?: string): string;
+
+/**
+ * Создает директорию с уникальным именем внутри директории для временных файлов.
+ * Возвращает путь к созданной директории.
+ * Смотри также {@link ObtainTempFile}().
+ * @returns {string} Путь к созданной директории.
+ */
+declare function ObtainTempDirectoryPath(): string;
+
+/**
+ * Возвращает url для временного файла.
+ * @param {string} [suffix] - Требуемый суффикс имени файла.
+ * @returns {string} Результат.
+ */
+declare function ObtainTempFile(suffix?: string): string;
+
+/**
+ * Возвращает путь к родительской директории. Фактическое существование директорий не проверяется.
+ * @param {string} path - Путь к исходной директории.
+ * @returns {string} Результат.
+ */
+declare function ParentDirectory(path: string): string;
+
+/**
+ * Проверяет, существует ли директория по указанному пути.
+ * @param {string} path - Путь до директории.
+ * @returns {boolean} Результат.
+ */
+declare function PathIsDirectory(path: string): boolean;
+
+/**
+ * Сохраняет содержимое строки в файл. Содержимое строки интерпретируется как бинарные данные.
+ * @param {string} path - Путь к файлу.
+ * @param {string} str - Данные.
+ * @returns {undefined}
+ */
+declare function PutFileData(path: string, str: string): undefined;
+
+/**
+ * Записывает фрагмент файла.
+ * Если длина строки не равна endPos - startPos, возвращается ошибка.
+ * @param {string} path - Путь к файлу.
+ * @param {number} startPosition - Начальная позиция.
+ * @param {number} endPosition - Конечная позиция.
+ * @param {string} data - Строка, содержащая бинарные данные.
+ * @returns {string} Результат.
+ */
+declare function PutFileDataRange(path: string, startPosition: number, endPosition: number, data: string): string;
+
+/**
+ * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
+ * Каждый элемент массива будет содержать `URL` вложенного файла или директории.
+ * @param {string} dirUrl - Url директории.
+ * @returns {Array} Результат.
+ */
+declare function ReadDirectory(dirUrl: string): string[];
+
+/**
+ * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
+ * Каждый элемент массива будет содержать полный путь ко вложенному файлу или директории.
+ * @param {string} path - Путь до директории.
+ * @returns {Array} Результат.
+ */
+declare function ReadDirectoryByPath(path: string): string[];
+
+/**
+ * Возвращает путь к директории для хранении данных пользователя.
+ * По умолчанию директория совпадает с установочной, если специальными настройками не установлено иное.
+ * @returns {string} Результат.
+ */
+declare function UserDataDirectoryPath(): string;
+
+//#endregion
+
+/**
+ * Проверяет существует ли файл (или директория) по указанному url.
+ * @param {string} url - Url файла.
+ * @returns {boolean} Результат.
+ */
+declare function UrlExists(url: string): boolean;
+
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
  * @param {string} name - Имя элемента.
@@ -2280,17 +2536,6 @@ declare function RegisterSharedDoc(docUrl: string): XmlDocument;
 declare function OpenDocFromStr<T extends XmlDocument>(dataStr: string, options?: string): T;
 
 /**
- * Загружает содержимое файла с заданным путем с учетом наличия BOM.
- * Если файл начинается на UTF-16 BOM, происходи конвертация из UTF-16 в текущую кодировку (UTF-8).
- * Если файл начинается на UTF-8 BOM, возвращается содержимое файла после BOM.
- * Если BOM в файле отсутствует, происходит конвертация из однобайтовой кодировки по умолчанию
- * (например Windows-1251) в текущую (UTF-8).
- * @param {string} filepath - Путь до файла.
- * @returns {string} Содержимое файла.
- */
-declare function LoadFileText(filepath: string): string;
-
-/**
  * Выдает наименование типа объекта по его url. Смотри так же ObjectDocUrl и ObjectIDFromUrl .
  * @param {string} url - Url объекта.
  * @returns {string} Результат.
@@ -2455,190 +2700,6 @@ declare function HtmlToPlainText(html: string): string;
 declare function HtmlEncodeDoc(str: string): string;
 
 /**
- * Возвращает путь к директории, из которой запущено приложение.
- * @returns {string} Результат.
- */
-declare function AppDirectoryPath(): string;
-
-/**
- * Создает новую директорию внутри существующей директории.
- * @param {string} path - Путь до новой директории, или url.
- * @returns {undefined}
- */
-declare function CreateDirectory(path: string): undefined;
-
-/**
- * Возвращает дату модификации файла.
- * @param {string} path - Путь (или url) к файлу.
- * @returns {Date} Дата.
- */
-declare function GetFileModDate(path: string): Date;
-
-/**
- * Удаляет директорию, включая все вложенные файлы и директории.
- * @param {string} path - Путь (или url) до удаляемой директории.
- * @returns {undefined}
- */
-declare function DeleteDirectory(path: string): undefined;
-
-/**
- * Проверяет существует ли файл (или директория) по указанному пути.
- * @param {string} path - Путь к файлу.
- * @returns {boolean} Результат.
- */
-declare function FilePathExists(path: string): boolean;
-
-/**
- * Проверяет существует ли файл (или директория) по указанному url.
- * @param {string} url - Url файла.
- * @returns {boolean} Результат.
- */
-declare function UrlExists(url: string): boolean;
-
-/**
- * Извлекает имя файла из пути, переданного в качестве аргумента.
- * @param {string} url - Путь к файлу.
- * @returns {string}
- * FileName( 'work\data\doc.pdf' ) вернет 'doc.pdf' FileName( 'work\data\' ) вернет 'data'.
- */
-declare function FileName(url: string): string;
-
-/**
- * Удаляет файл.
- * @param {string} path - Путь (или url) к удаляемому файлу.
- * @returns {undefined}
- */
-declare function DeleteFile(path: string): undefined;
-
-/**
- * Проверяет открыт ли файл в другом приложении.
- * @param {string} path - Путь (или url) к файлу.
- * @returns {boolean} Результат.
- */
-declare function FileIsBusy(path: string): boolean;
-
-/**
- * Создает ярлык на указанный файл.
- * @param {string} linkPath - Путь (или url) к создаваемому ярлыку.
- * @param {string} targetPath - Путь (или url) к файлу, на который будет указывать ярлык.
- * @returns {undefined}
- */
-declare function CreateShellLink(linkPath: string, targetPath: string): undefined;
-
-/**
- * Возвращает путь к одной из стандартных директорий Shell.
- * @returns {string}
- * AppData - директория для хранения данных пользователя, например "C:\Documents and Settings\User\Application Data".
- */
-declare function GetShellFolderPath(): string;
-
-/**
- * Проверяет, является ли указанный путь (или url) директорией.
- * @param {string} path - Путь (или url).
- * @returns {boolean} Результат.
- */
-declare function IsDirectory(path: string): boolean;
-
-/**
- * Возвращает url для временного файла.
- * @param {string} [suffix] - Требуемый суффикс имени файла.
- * @returns {string} Результат.
- */
-declare function ObtainTempFile(suffix?: string): string;
-
-/**
- * Загружает содержимое файла по заданному пути, результат возвращается в виде строки, содержащей бинарные данные.
- * @param {string} path - Путь к файлу.
- * @returns {string} Результат.
- */
-declare function LoadFileData(path: string): string;
-
-/**
- * Проверяет, существует ли указанная директория, если нет - создает ее.
- * @param {string} path - Путь (или url) к директории.
- * @param {boolean} [isRecursive] - Создавать всю цепочку родительских директорий, если они не существуют.
- * @returns {undefined}
- */
-declare function ObtainDirectory(path: string, isRecursive?: boolean): undefined;
-
-/**
- * Проверяет является ли путь к файлу, переданный в качестве аргумента.
- * Существование файла по данному пути не проверяется.
- * @param {string} path - Путь к файлу.
- * @returns {boolean} Результат.
- * IsAbsoluteFilePath( 'c:\temp\1.ddd' ) вернет true IsAbsoluteFilePath( 'temp\1.ddd' ) вернет false.
- */
-declare function IsAbsoluteFilePath(path: string): boolean;
-
-/**
- * Возвращает url для временного файла, который будет автоматически удален при следующем запуске приложения.
- * @param {string} [suffix] - Требуемый суффикс имени файла.
- * @returns {string} Результат.
- */
-declare function ObtainSessionTempFile(suffix?: string): string;
-
-/**
- * Создает директорию с уникальным именем внутри директории для временных файлов.
- * Возвращает путь к созданной директории.
- * Смотри также {@link ObtainTempFile}().
- * @returns {string} Путь к созданной директории.
- */
-declare function ObtainTempDirectoryPath(): string;
-
-/**
- * Перемещает или переименовывает файл.
- * @param {string} path1 - Исходный путь к файлу.
- * @param {string} path2 - Новый путь к файлу.
- * @returns {undefined}
- */
-declare function MoveFile(path1: string, path2: string): undefined;
-
-/**
- * Возвращает путь к родительской директории. Фактическое существование директорий не проверяется.
- * @param {string} path - Путь к исходной директории.
- * @returns {string} Результат.
- */
-declare function ParentDirectory(path: string): string;
-
-/**
- * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
- * Каждый элемент массива будет содержать полный путь ко вложенному файлу или директории.
- * @param {string} path - Путь до директории.
- * @returns {Array} Результат.
- */
-declare function ReadDirectoryByPath(path: string): string[];
-
-/**
- * Возвращает путь к директории для хранении данных пользователя.
- * По умолчанию директория совпадает с установочной, если специальными настройками не установлено иное.
- * @returns {string} Результат.
- */
-declare function UserDataDirectoryPath(): string;
-
-/**
- * Сохраняет содержимое строки в файл. Содержимое строки интерпретируется как бинарные данные.
- * @param {string} path - Путь к файлу.
- * @param {string} str - Данные.
- * @returns {undefined}
- */
-declare function PutFileData(path: string, str: string): undefined;
-
-/**
- * Проверяет, существует ли директория по указанному пути.
- * @param {string} path - Путь до директории.
- * @returns {boolean} Результат.
- */
-declare function PathIsDirectory(path: string): boolean;
-
-/**
- * Возвращает массив, содержащий список файлов и вложенных директорий внутри указанной директории.
- * Каждый элемент массива будет содержать `URL` вложенного файла или директории.
- * @param {string} dirUrl - Url директории.
- * @returns {Array} Результат.
- */
-declare function ReadDirectory(dirUrl: string): string[];
-
-/**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
  * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
  * @param {Error | string} error - Ошибка.
@@ -2719,8 +2780,8 @@ declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
 /**
  * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
- * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors.
- * @param {string} [envType] - Тип окружения: "Global", либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2" либо флаг strictErrors.
+ * @param {string} [envType] - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
  * @param {XmlDocument | ScreenItem} [baseObject] - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
  * @param {unknown[]} [extraEnv] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
  * ```
@@ -2852,7 +2913,7 @@ declare function StartModalTask(taskTitle: string): undefined;
 
 /**
  * Открывает документ либо с расширением XML, содержащий набор методов,
- * и возвращает его корневой элемент, либо с расширением .JS,
+ * и возвращает его корневой элемент либо с расширением .JS,
  * содержащий функции, возвращает псевдо-документ (псевдо-форму),
  * содержащую те же функции. Действие этой функции похоже
  * на действие функции {@link EvalCodeUrl}, но не тождественны ей.
@@ -3086,7 +3147,7 @@ type EncodeJsonOptions = {
 };
 
 /**
- * Преобразует базовый объект, массив, либо скалярное значение в строку в формате JSON.
+ * Преобразует базовый объект, массив либо скалярное значение в строку в формате JSON.
  * Функция работает аналогично функции JSON.stringify() в JavaScript,
  * однако второй аргумент представляет из себя набор опций.
  * @param {T} value - Значение.
@@ -3301,7 +3362,7 @@ type ParseJsonOptions = {
 };
 
 /**
- * Преобразует строку, содержащую JSON, в базовый объект, массив, либо скалярное значение.
+ * Преобразует строку, содержащую JSON, в базовый объект, массив либо скалярное значение.
  * Функция работает аналогично функции JSON.parse() в JavaScript,
  * однако второй аргумент представляет из себя набор опций.
  * Также ParseJson() менее требовательна к формату,
@@ -3686,7 +3747,7 @@ declare function SimulateCrash(): never;
 /**
  * Узкоспециализированная функция.
  * Работает аналогично {@link Sleep}(), но с продолжением обработки очереди сообщений в главном потоке в SpXml.exe.
- * Будучи вызванной не в главном потоке, либо не в SpXml.exe, работает в точности как {@link Sleep}().
+ * Будучи вызванной не в главном потоке либо не в SpXml.exe, работает в точности как {@link Sleep}().
  * @param {number} timeout - Таймаут в миллисекундах
  * @returns {unknown} -
  */
