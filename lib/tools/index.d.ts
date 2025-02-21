@@ -967,11 +967,11 @@ declare namespace tools {
    * Обновляет структуру разделов активных электронных курсов.
    * @param {number} learningId - Id активного электронного курса структуру, которого нужно обновить.
    * @param {CourseDocumentTopElem} courseDocumentTopElem - TopElem электронного курса, структура которого обновляется.
-   * @param {ActiveLearningDocument} activeLearningDocument - Doc активного электронного курса структуру,
+   * @param {ActiveLearningDocument=} activeLearningDocument - Doc активного электронного курса структуру,
    * которого нужно обновить.
    * @returns {true} Всегда возвращается true.
    */
-  function update_course_parts_structure(learningId: unknown, courseDocumentTopElem: CourseDocumentTopElem, activeLearningDocument: ActiveLearningDocument): true;
+  function update_course_parts_structure(learningId: unknown, courseDocumentTopElem: CourseDocumentTopElem, activeLearningDocument?: ActiveLearningDocument): true;
 
   /**
    * Возвращает массив Id сотрудников, состоящий из непосредственных подчиненных указанного сотрудника.
