@@ -202,3 +202,15 @@ propertyValue2;
 DecodeCharset("teststring", "cp-866");
 EncodeCharset("teststring1", "windows-1251");
 EncodeCharset("teststring2", "windows-1252");
+
+EvalCodePage("<%='some text'%>");
+EvalCodePage("'some text'", "asp-style=0");
+EvalCodePage("<%='Hello ' + name%>", "", "Safe", undefined, [{ name: "Petr" }]);
+
+var testCollaboratorDoc = OpenDoc<CollaboratorDocument>(UrlFromDocID(UniqueID())) as CollaboratorDocument;
+EvalCodePage("some", "", "Doc", testCollaboratorDoc);
+
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+var name = "Petr";
+EvalCodePage("<%='Hello ' + name%>", "", "Global");
+EvalCodePage("<%='some text'%>", "", "ScreenItem", ScreenItem);

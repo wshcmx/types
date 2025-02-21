@@ -2471,7 +2471,6 @@ declare function XmlStr(name: string, text: string): string;
  */
 declare function XQueryLiteral(arg: string | number | Date): string;
 
-
 /**
  * Возвращает путь к директории, из которой запущено приложение.
  * @returns {string} Результат.
@@ -2754,6 +2753,84 @@ declare function InPlaceEval(code: string): undefined;
 declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
 
 /**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @returns {string} Результат.
+ */
+
+declare function EvalCodePage(pageData: string): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors (см. примечание).
+ * @returns {string} Результат.
+ */
+
+declare function EvalCodePage(pageData: string, options: string): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {boolean} raiseErrors - Аргумент, указывающий на завершение функции с ошибкой, если таковая возникнет при обработке страницы (true).
+ * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция завершается без ошибки.
+ * @returns {string} Результат.
+ */
+
+declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors (см. примечание).
+ * @returns {string} Результат.
+ */
+
+declare function EvalCodePage(pageData: string, options: string): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors (см. примечание).
+ * @param {"Global" | undefined} envType - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @returns {string} Результат.
+ */
+
+declare function EvalCodePage(pageData: string, options: string, envType?: "Global" | undefined): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors (см. примечание).
+ * @param {"Doc"} envType - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {XmlDocument} baseObject - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
+ * @returns {string} Результат.
+ */
+
+declare function EvalCodePage(pageData: string, options: string, envType: "Doc", baseObject: XmlDocument): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors (см. примечание).
+ * @param {"Safe"} envType - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {undefined} baseObject - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для остальных типов окружения необходимо передавать undefined.
+ * @param {unknown[]} extraEnv - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * @returns {string} Результат.
+ */
+declare function EvalCodePage(pageData: string, options: string, envType: "Global" | "Safe" | undefined, baseObject: undefined, extraEnv: unknown[]): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} options - Строка, содержащая опции запуска в формате "name1=value1;name2=value2", либо флаг strictErrors (см. примечание).
+ * @param {"ScreenItem"} envType - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {ScreenItem} baseObject - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для осталььных типов окружения необходимо передавать undefined.
+ * @returns {string} Результат.
+ */
+declare function EvalCodePage(pageData: string, options: string, envType: "ScreenItem", baseObject: ScreenItem): string;
+
+/**
  * Кодирует аргумент как константу JScript. Используется для генерации выражений.
  * @param {any} value - Аргумент (Any).
  * @param {any} quoteChar - Символ, используемый в качестве кавычки
@@ -2806,15 +2883,6 @@ declare function OpenCodeLibrary<T>(url: string): T;
  * @returns {unknown} Result.
  */
 declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
-
-/**
- * Интерпретирует содержимое страницы по правилам ASP.
- * @param {string} pageData - Строка, содержащая текст страницы.
- * @param {boolean} [raiseErrors] - Завершать функцию  с ошибкой, если таковая возникнет при обработке страницы (Bool).
- * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
- * @returns {string} Результат.
- */
-declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
 
 /**
  * Проверяет, является ли заданный объект типа Error ошибкой отменой операции .
