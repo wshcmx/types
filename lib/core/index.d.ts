@@ -2457,14 +2457,6 @@ declare function CreateFormElem(name: string, type: string): XmlFormElem;
 declare function FetchForm(formUrl: string): undefined;
 
 /**
- * Пытается найти форму в кэше загруженных форм по заданному `URL`.
- * Если такая форма была загружена в кэш, возвращает объект ссылка на форму, если нет - возвращает undefined.
- * @param {string} url - `URL` формы.
- * @returns {XmlForm} XmlForm.
- */
-declare function GetOptCachedForm(url: string): XmlForm;
-
-/**
  * Регистрирует XML-форму, описанную в строке. Используется для программной генерации форм "на лету".
  * @param {string} formUrl - `URL`, по которому будет зарегистрирована форма.
  * @param {string} formData - Строка с описанием формы.
@@ -2676,6 +2668,192 @@ declare function FindOptCatalog(catalogName: string): Object;
 
 //#endregion
 
+//#region Работа с документами XML
+
+/**
+ * Опции открытия XML-документа используются в функциях OpenDoc(), OpenDocFromStr() и др.
+ * Опции имеют вид "param1='value1';param2='value2';..."
+ * * form - url формы, используемой при открытии (String). Форма, указанная в самом документе, будет игнорироваться
+ * * ignore-top-elem-name - игнорировать имя корневого элемента (Bool). Позволяет использовать одну общую форму для документов  с разыми именами корневых элементов.
+ * * drop-namespaces - удалять названия пространсв имен в названиях элементов (Bool)
+ * * ui-text - поддерживать загрузку документов с многоязычными данными, загружая данные с языком текущего пользоваетльского интерфейса
+ * * format - формат встроенного конвертора для открытия данных в других форматах в виде Xml. Поддерживаются следующие форматы: "sv" (separated values), "win.ini", "excel", "smml".
+ * * delim - разделитель, используемый для формата "csv". Можно задать симво явно либо использовать значения tab или sem.
+ * * header-line - считать, что первая строка для формата "csv" содержит названия полей (Bool)
+ * * lower-case-names  - приводить названия полей для формата "csv" к нижнему регистру (Bool)
+ */
+type XMLOpenOptions = string;
+
+/**
+ * Опции экспорта XML-документа используются в функциях SaveToUrl(), SaveToStream() и др.
+ * Опции имеют вид "param1='value1';param2='value2';..."
+ * * inline-ext-objects - включать объекты с внешним хранением в экспорт (Bool). Позволяет экспортировать в один файл полное содержимое документа, включая объекты внешнего хранения, например прикрепленные файлы.
+ * * tabs - форматировать XML с использованеим символов табуляции и превода строк для удобсьва чтение человеком (Bool). Значение по умолчанию определяется глобальной настройкой в ini-файле приложения.
+ */
+type XMLExportOptions = string;
+
+
+/**
+ * Возвращает список всех XML-документов из кэша.
+ * @returns {unknown} - Результат.
+ */
+declare function GetAllCachedDocs(): unknown;
+
+/**
+ * Заменяет документ с заданным url в кэше документов на новый документ.
+ * Функция используется для серверных документов, к которым может идти обращение их нескольких потоков одновременно (например, глобальных настроек).
+ * Поскольку объект XmlDoc не является thread-safe, менять содержимое глобальных документов нельзя, однако можно заменить документ целиком, соблюдая thread-safety.
+ * @returns {unknown} - Результат.
+ */
+declare function ReplaceCachedDoc(): unknown;
+
+/**
+ * Удаляет документ с заданным url.
+ * @param {string} url - Url документа.
+ * @param {boolean} [permanent] - Удалить мимо корзины. По умолчанию - false.
+ * @example DeleteDoc("x-db-obj://data/candidate/0x4DF75B9F13FE5160.xml");
+ */
+declare function DeleteDoc(url: string, permanent?: boolean): undefined;
+
+/**
+ * Открывает XML-документ и помещает его в кэш документов.
+ * Если документ с заданным url уже находится в кэше, возвращается уже загруженный в кэш документ.
+ * @param {string} url - Url документа.
+ * @param {XMLOpenOptions} [options] - Опции открытия документа.
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function FetchDoc(url: string, options?: XMLOpenOptions): XmlDocument;
+
+/**
+ * Возвращает документ с заданным url из кэша.
+ * Если документ с заданным url в кэше отсутствует, функция завершается с ошибкой.
+ * @param {string} url - Url документа.
+ * @returns {WTXmlDocument} XmlDocument.
+ */
+declare function GetCachedDoc(url: string): XmlDocument;
+
+/**
+ * Пытается найти форму в кэше загруженных форм по заданному `URL`.
+ * Если такая форма была загружена в кэш, возвращает объект ссылка на форму, если нет - возвращает undefined.
+ * @param {string} url - `URL` формы.
+ * @returns {XmlForm} XmlForm.
+ */
+declare function GetOptCachedForm(url: string): XmlForm;
+
+/**
+ * Загружает xml документ в кэш документов и делает его корневой элемент видимым в списке глобальных имен.
+ * @param {string} docUrl - Url документа.
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function RegisterSharedDoc(docUrl: string): XmlDocument;
+
+/**
+ * Открывает XML-документ, содержащийся к строке.
+ * @param {string} dataStr - Строка, содержащая данные открываемого документа.
+ * @param {XMLOpenOptions} [options] - Опции открытия документа в виде "param1='value1';param2='value2';...".
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function OpenDocFromStr<T extends XmlDocument>(dataStr: string, options?: XMLOpenOptions): T;
+
+/**
+ * Создает новый XML-документ по заданной форме.
+ * @param {string} formUrl - Url формы.
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function OpenNewDoc<T = XmlDocument>(formUrl: string): T;
+
+/**
+ * Открывает XML-документ. Возвращает объект типа XmlDoc.
+ * @param {string} url - Url документа.
+ * @param {string} [options] - Опции открытия документа в виде "param1='value1';param2='value2';...".
+ * См. Опции открытия документа XML.
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function OpenDoc<T = XmlDocument>(url: string, options?: string): T;
+
+/**
+ * Перемещает XML-документ из одного url в другой url.
+ * В отличие от обычного перемещения файла, действие этой функции сопровождается
+ * выполнением стандартных свойств OnSave, OnBeforeSave и т.д.
+ * Документ сначала пересохраняется по новому url, затем удаляется из предыдущей.
+ * Редко используемая функция.
+ * @param {string} url - Url существующего документа.
+ * @param {string} newUrl - Новый url документа.
+ */
+declare function MoveDoc(url: string, newUrl: string): undefined;
+
+/**
+ * Пытается найти открытую в пользовательском интерфейсе карточку XML-документа.
+ * Если таковая карточка найдена, функция возвращает ссылку на документ из этой карточки.
+ * В противном случае действие функции аналогично {@link OpenDoc}.
+ * Чтобы сохранить измененный документ, необходимо использовать
+ * функцию {@link UpdateUiDoc} (а не вызвать метод Doc.Save, как при открытии документа при помощи {@link OpenDoc}).
+ * Если документ был открыт пользователем на экране, то при выполнении функции {@link UpdateUiDoc}
+ * документ будет изменен прямо на экране, если открытого документа не было - то документ будет просто сохранен.
+ * @param {string} docUrl - Url XML-документа.
+ * @returns {XmlDocument} XmlDocument.
+ */
+declare function ObtainUiDoc(docUrl: string): XmlDocument;
+
+/**
+ * Сохраняет изменения в документе, открытом при помощи функции ObtainUiDoc.
+ * Если это был документ, открытый пользователем на экране,
+ * то функция устанавливает аргумент метода Doc.SetChanged(true),
+ * и больше ничего не делает. Установка этого аргумента необходима,
+ * чтобы при закрытии документа пользователю было предложено сохранить изменения.
+ * Если это был документ, открытый программой без участия пользователя,
+ * действие функции аналогично действию метода Doc.Save().
+ * @param {XmlDocument} doc - Открытый документ.
+ */
+declare function UpdateUiDoc(doc: XmlDocument): undefined;
+
+/**
+ * Возвращает url объектного документа по имени базы, типа объекта и Id документа.
+ * @param {string} dbName - Наименование базы данных.
+ * @param {string} objectType - Наименование типа объекта.
+ * @param {string | number} objectID - Id документа (Integer или String).
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * ObjectDocUrl("data", "person", 1238461"); // "x-db-obj://data/person/0x000000000012E5BD.xml"
+ * ObjectDocUrl("data", "event_type", "interview"); // "x-db-obj://data/event_type/interview.xml"
+ * ```
+ */
+declare function ObjectDocUrl(dbName: string, objectType: string, objectID: string | number): string;
+
+/**
+ * Выдает наименование типа объекта по его url.
+ * @param {string} url - Url объекта.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * ObjectNameFromUrl("x-db-obj://data/person/0x000000000012E5BD.xml"); // 'person'
+ * ObjectNameFromUrl("x-db-obj://data/event_type/interview.xml"); // 'event_type'
+ * ```
+ * @see {@link ObjectDocUrl}
+ * @see {@link ObjectIDFromUrl}
+ */
+declare function ObjectNameFromUrl(url: string): string;
+
+/**
+ * Выдает Id объектного документа по его url.
+ * @param {string} url - Url объекта.
+ * @returns {number} Результат.
+ * @see {@link ObjectDocUrl}
+ */
+declare function ObjectIDFromUrl(url: string): number;
+
+/**
+ * Удаляет на сервере приложения документ с заданным url.
+ * Используется в специализированном коде, предназначенном для синхронизации баз данных или обмена данными между базами.
+ * @param {string} docUrl - Url документа.
+ * @param {string} [options] - Опции.
+ * @example LdsDeleteDoc("x-db-obj://data/candidate/042D8A4596B679/E0.xml", "lds-server=test2.datex.ru:9000");
+ */
+declare function LdsDeleteDoc(docUrl: string, options?: string): undefined;
+
+//#endregion
+
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
  * @param {string} name - Имя элемента.
@@ -2754,140 +2932,6 @@ declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
  * @returns {XmlElem<unknown>} Результат.
  */
 declare function GetFailedForeignElem<T>(array: T): XmlElem<unknown>;
-
-/**
- * Возвращает документ с заданным url из кэша.
- * Если документ с заданным url в кэше отсутствует, функция завершается с ошибкой.
- * @param {string} url - Url документа.
- * @returns {WTXmlDocument} XmlDocument.
- */
-declare function GetCachedDoc(url: string): XmlDocument;
-
-/**
- * Удаляет на сервере приложения документ с заданным url.
- * Используется в специализированном коде, предназначенном для синхронизации баз данных или обмена данными между базами.
- * Аргументы: docUrl - url документа (String) options - опции, необязательный аргумент.
- * LdsDeleteDoc( 'x-db-obj://data/candidate/042D8A4596B679/E0.xml', 'lds-server=test2.datex.ru:9000' ).
- */
-declare function LdsDeleteDoc(): undefined;
-
-/**
- * Выдает Id объектного документа по его url. Смотри так же ObjectDocUrl .
- * @param {string} url - Url объекта.
- * @returns {number} Результат.
- */
-declare function ObjectIDFromUrl(url: string): number;
-
-/**
- * Удаляет документ с заданным url.
- * @param {string} url - Url документа.
- * @param {boolean} [permanent] - Удалить мимо корзины. По умолчанию - false.
- * @example DeleteDoc("x-db-obj://data/candidate/0x4DF75B9F13FE5160.xml");
- */
-declare function DeleteDoc(url: string, permanent?: boolean): undefined;
-
-/**
- * Возвращает url объектного документа по имени базы, типа объекта и Id документа.
- * @param {string} dbName - Наименование базы данных.
- * @param {string} objectType - Наименование типа объекта.
- * @param {string | number} objectID - Id документа (Integer или String).
- * @returns {string} Результат.
- * @example
- * ```
- * ObjectDocUrl("data", "person", 1238461"); // "x-db-obj://data/person/0x000000000012E5BD.xml"
- * ObjectDocUrl("data", "event_type", "interview"); // "x-db-obj://data/event_type/interview.xml"
- * ```
- */
-declare function ObjectDocUrl(dbName: string, objectType: string, objectID: string | number): string;
-
-/**
- * Перемещает XML-документ из одного url в другой url.
- * В отличие от обычного перемещения файла, действие этой функции сопровождается
- * выполнением стандартных свойств OnSave, OnBeforeSave и т.д.
- * Документ сначала пересохраняется по новому url, затем удаляется из предыдущей.
- * Редко используемая функция.
- * @param {string} url - Url существующего документа.
- * @param {string} newUrl - Новый url документа.
- */
-declare function MoveDoc(url: string, newUrl: string): undefined;
-
-/**
- * Открывает XML-документ и помещает его в кэш документов.
- * Если документ с заданным url уже находится в кэше, возвращается уже загруженный в кэш документ.
- * @param {string} url - Url документа.
- * @param {string} [options] - Опции открытия документа.
- * @returns {XmlDocument} XmlDocument.
- */
-declare function FetchDoc(url: string, options: string): XmlDocument;
-
-/**
- * Пытается найти открытую в пользовательском интерфейсе карточку XML-документа.
- * Если таковая карточка найдена, функция возвращает ссылку на документ из этой карточки.
- * В противном случае действие функции аналогично {@link OpenDoc}().
- * Чтобы сохранить измененный документ, необходимо использовать
- * функцию UpdateUiDoc (а не вызвать метод Doc.Save, как при открытии документа при помощи OpenDoc).
- * Если документ был открыт пользователем на экране, то при выполнении функции UpdateUiDoc
- * документ будет изменен прямо на экране, если открытого документа не было - то документ будет просто сохранен.
- * @param {string} docUrl - Url XML-документа.
- * @returns {XmlDocument} XmlDocument.
- */
-declare function ObtainUiDoc(docUrl: string): XmlDocument;
-
-/**
- * Загружает xml документ в кэш документов и делает его корневой элемент видимым в списке глобальных имен.
- * @param {string} docUrl - Url документа.
- * @returns {XmlDocument} XmlDocument.
- */
-declare function RegisterSharedDoc(docUrl: string): XmlDocument;
-
-/**
- * Открывает XML-документ, содержащийся к строке.
- * @param {string} dataStr - Строка, содержащая данные открываемого документа.
- * @param {string} [options] - Опции открытия документа в виде "param1='value1';param2='value2';...".
- * См. Опции открытия документа XML.
- * @returns {XmlDocument} XmlDocument.
- */
-declare function OpenDocFromStr<T extends XmlDocument>(dataStr: string, options?: string): T;
-
-/**
- * Выдает наименование типа объекта по его url. Смотри так же ObjectDocUrl и ObjectIDFromUrl .
- * @param {string} url - Url объекта.
- * @returns {string} Результат.
- * @example
- * ```
- * ObjectNameFromUrl("x-db-obj://data/person/0x000000000012E5BD.xml"); // 'person'
- * ObjectNameFromUrl("x-db-obj://data/event_type/interview.xml"); // 'event_type'
- * ```
- */
-declare function ObjectNameFromUrl(url: string): string;
-
-/**
- * Создает новый XML-документ по заданной форме.
- * @param {string} formUrl - Url формы.
- * @returns {XmlDocument} XmlDocument.
- */
-declare function OpenNewDoc<T = XmlDocument>(formUrl: string): T;
-
-/**
- * Открывает XML-документ. Возвращает объект типа XmlDoc.
- * @param {string} url - Url документа.
- * @param {string} [options] - Опции открытия документа в виде "param1='value1';param2='value2';...".
- * См. Опции открытия документа XML.
- * @returns {XmlDocument} XmlDocument.
- */
-declare function OpenDoc<T = XmlDocument>(url: string, options?: string): T;
-
-/**
- * Сохраняет изменения в документе, открытом при помощи функции ObtainUiDoc.
- * Если это был документ, открытый пользователем на экране,
- * то функция устанавливает аргумент метода Doc.SetChanged(true),
- * и больше ничего не делает. Установка этого аргумента необходима,
- * чтобы при закрытии документа пользователю было предложено сохранить изменения.
- * Если это был документ, открытый программой без участия пользователя,
- * действие функции аналогично действию метода Doc.Save().
- * Аргумент doc - открытый документ (объект XmlDoc).
- */
-declare function UpdateUiDoc(): undefined;
 
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
