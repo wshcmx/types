@@ -34,15 +34,6 @@ declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: st
 declare function CallObjectMethodWithLock<T>(object: T, methodName: string, argsArray: unknown[], lock: Lock): unknown;
 
 /**
- * Извлекает содержимое составного документа html
- * (с вложенными файлами в формате <compound-attc/>) в файл,
- * сохраняя все вложенные файлы относительно него.
- * @param {any} html - Составной html.
- * @param {string} fileUrl - Url файла.
- */
-declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
-
-/**
  * Возвращает список имен всех свойств объектов класса.
  * Возвращается полный список имен, описанных в деларации класса, независио от того,
  * было ли конкретное свойтсо установлено в данном объекте.
@@ -2394,6 +2385,51 @@ declare function UrlToOptFilePath(url: string): string;
 
 //#endregion
 
+//#region Обработка HTML
+
+/**
+ * Извлекает содержимое составного документа html
+ * (с вложенными файлами в формате <compound-attc/>) в файл,
+ * сохраняя все вложенные файлы относительно него.
+ * @param {any} html - Составной html.
+ * @param {string} fileUrl - Url файла.
+ */
+declare function ExtractCompoundHtml(html: string, fileUrl: string): undefined;
+
+/**
+ * Кодирует строку, содержащую текст, для использования внутри HTML.
+ * В результате символы & и < заменяются на &amp; и &lt;, соответственно, а переводы строк - на <br/>.
+ * @param {string} str - Строка.
+ * @returns {string} Результат.
+ */
+declare function HtmlEncode(str: string): string;
+
+/**
+ * Устаревшая функция.
+ * @deprecated
+ * @returns {unknown} - Результат.
+ */
+declare function HtmlNewCharset(): unknown;
+
+/**
+ * Преобразует строку, содержащую HTML, в простой текст.
+ * @param {string} html - Строка, содержащая HTML.
+ * @returns {string} Результат.
+ */
+declare function HtmlToPlainText(html: string): string;
+
+/**
+ * Преобразует строку, содержащую обычный текст в полный HTML-документ.
+ * Действие функции аналогично действию функции {@link HtmlEncode}(), но,
+ * в отличие от последней, {@link HtmlEncodeDoc}() формирует завершенный HTML-документ,
+ * содержащий теги <html>, <body> и др.
+ * @param {string} str - Str.
+ * @returns {string} Результат.
+ */
+declare function HtmlEncodeDoc(str: string): string;
+
+//#endregion
+
 /**
  * Создает динамический (без привязки к форме) XML-элемент. Созданный элемент не имеет родительского элемента.
  * @param {string} name - Имя элемента.
@@ -2817,31 +2853,6 @@ declare function RegisterAutoDoc(documentUrl: string, formUrl: string): undefine
  * ```
  */
 declare function RegisterSubForm(formUrl: string, formPath: string): string;
-
-/**
- * Кодирует строку, содержащую текст, для использования внутри HTML.
- * В результате символы & и < заменяются на &amp; и &lt;, соответственно, а переводы строк - на <br/>.
- * @param {string} str - Строка.
- * @returns {string} Результат.
- */
-declare function HtmlEncode(str: string): string;
-
-/**
- * Преобразует строку, содержащую HTML, в простой текст.
- * @param {string} html - Строка, содержащая HTML.
- * @returns {string} Результат.
- */
-declare function HtmlToPlainText(html: string): string;
-
-/**
- * Преобразует строку, содержащую обычный текст в полный HTML-документ.
- * Действие функции аналогично действию функции {@link HtmlEncode}(), но,
- * в отличие от последней, {@link HtmlEncodeDoc}() формирует завершенный HTML-документ,
- * содержащий теги <html>, <body> и др.
- * @param {string} str - Str.
- * @returns {string} Результат.
- */
-declare function HtmlEncodeDoc(str: string): string;
 
 /**
  * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
