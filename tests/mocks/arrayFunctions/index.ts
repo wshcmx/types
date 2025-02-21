@@ -17,6 +17,7 @@ const testArrayOfObjects: TestObj[] = [
 ];
 
 const doc = tools.new_doc_by_name<CollaboratorDocument>("collaborator");
+doc.BindToDb(DefaultDb);
 alert(doc.TempData);
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
