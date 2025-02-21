@@ -214,3 +214,5 @@ EvalCodePage("some", "", "Doc", testCollaboratorDoc);
 var name = "Petr";
 EvalCodePage("<%='Hello ' + name%>", "", "Global");
 EvalCodePage("<%='some text'%>", "", "ScreenItem", ScreenItem);
+
+QueryCatalogByKeys("collaborator", "fullname", "Иванов Иван Иванович");

@@ -3122,3 +3122,21 @@ declare function StrOptScan(str: string, pattern: string): string[] | undefined;
  * @returns {typeof Screen} Объект Screen.
  */
 declare function CreateDocScreen(xmlDoc: XmlDocument, formUrl: string): typeof Screen;
+
+/**
+ * Устаревшая функция.
+ * Используемая во времена, когда запросы XQuery по множественным ключевым значения выполнялись неэффективно.
+ * @deprecated
+ * @template {XmlElem<unknown>} T
+ * @param {string} catalogName - Название каталога.
+ * @param {string} keyName - Название поля, по которому строится запрос.
+ * @param {number | string[]} keyValues - Название поля, по которому строится запрос.
+ * @returns {Array} Результат.
+ * @example
+ * ```
+ * QueryCatalogByKeys('persons', 'id', [12359841651, 8498132581, 68496313181]);
+ * // Транслируется в
+ * XQuery('for $elem in persons where MatchSome($elem/id, (12359841651, 8498132581, 68496313181)) return $elem');
+ * ```
+ */
+declare function QueryCatalogByKeys<T>(catalogName: string, keyName: string, keyValues: string | number[]): T[];
