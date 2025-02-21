@@ -3662,6 +3662,8 @@ declare function UnregisterDaemon(daemonID: string): unknown;
  */
 declare function GetSysUserDefaultUiLanguage(): string;
 
+//#endregion
+
 //#region Прочие функции
 
 /**
@@ -4403,6 +4405,8 @@ declare function UnifyPhones(str: string): string;
  * @returns {unknown} -
  */
 declare function DropXQueryCache(): unknown;
+
+//#endregion
 
 //#region Устаревшие функции
 
