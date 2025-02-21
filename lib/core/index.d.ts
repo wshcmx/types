@@ -3293,38 +3293,108 @@ declare function SysRegKeyExists(path: string): boolean;
 
 //#endregion
 
-/**
- * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
- * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
- * @param {Error | string} error - Ошибка.
- * @returns {string} Результат.
- * @example
- * ```
- * try {
- *   HttpRequest( .... );
- * } catch (error) {
- *   alert("Невозможно активировать программу: " + ExtractUserError(error));
- * }
- * ```
- */
-declare function ExtractUserError(error: Error | string): string;
+//#region Выполнение кода
 
 /**
- * Выполняет код JScript в текущем окружении. В отличие от функции {@link eval} выполняет код на том же уровне
- * (переменные, объявленные внутри кода, будут видны снаружи), и не позволяет возвращать значение.
- * @param {string} code - Выполняемый код JScript.
+ * Открывает файл, содержащий код и вызывает описанную внутри функцию.
+ * Загруженный код никак не кэшируется, при повторном вызове загрузка файла произойдет заново.
+ * @deprecated Рекомендуется использовать {@link OpenCodeLib}
+ * @param {string} url - Url, содержщий код.
+ * @param {string} functionName - Имя функции.
+ * @param {unknown[]} [arguments] - Аргументы функции.
+ * @returns {unknown} - Результат.
  */
-declare function InPlaceEval(code: string): undefined;
+declare function CallCodeUrlFunction(url: string, functionName: string, ...arguments: unknown[]): unknown;
 
 /**
- * Интерпретирует содержимое страницы по правилам ASP.
- * @param {string} pageUrl - Url, содержащий текст активной страницы.
- * @param {string} [options] - Опции.
- * @returns {string} Результат.
- * Значение strict-errors - завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
- * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
+ * Вызывает метод (функцию) библиотеки на сервере приложения.
+ * У метода должна быть установлена мета-директива "META:ALLOW-CALL-FROM-CLIENT:1".
+ * Значения аргументов могут быть переданы либо через массив, либо через стандартный объект, содержащий пары "имя аргумента" - "значения аргумента".
+ * Не все типы значений могут быть переданы в серверный метод и возвращены обратно.
+ * Поддерживаются все скалярные типы, стандартные массивы, стандартные объекты, а также объекты {@link XmlElem} и {@link XmlDoc}.
+ * @param {string} libName - Имя библиотеки либо url библиотеки.
+ * @param {string} methodName - Имя метода.
+ * @param {unknown[]} argumentsArray - Стандартный массив значений аргументов, либо стандартный объект, содержащий значения аргументов.
+ * @returns {unknown} - Результат.
  */
-declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
+declare function CallServerMethod(libName: string, methodName: string, argumentsArray?: unknown[]): unknown;
+
+/**
+ * Проверяет синтаксис страницы со вставками кода по правилам ASP.
+ * В случае неверного синтаксиса вызывает исключение с описанием ошибки.
+ * @param {string} codeStr - Строка, содержащая вставки кода.
+ * @see {@link EvalCodePage}
+ * @see {@link EvalCodePageUrl}
+ * @returns {unknown} - Результат.
+ */
+declare function CheckCodePageSyntax(codeStr: string): unknown;
+
+/**
+ * Проверяет синтаксис кода на SP-XML Script.
+ * В случае неверного синтаксиса вызывает исключение с описанием ошибки.
+ * @param {string} codeStr - Строка, содержащая код.
+ * @see {@link EvalCodePage}
+ * @see {@link EvalCodePageUrl}
+ * @returns {unknown} - Результат.
+ */
+declare function CheckCodePageSyntax(codeStr: string): unknown;
+
+/**
+ * Проверяет наличие метода с определенным именем в v2-библиотеке.
+ * @param {XmlDocument | object} lib - Библиотека.
+ * @param {string} methodName - Имя метода.
+ * @returns {boolean} - Результат.
+ */
+declare function CodeLibraryMethodExists(lib: XmlDocument | Object, methodName: string): boolean;
+
+/**
+ * Выполняет код спустя заданный временной интервал.
+ * Доступно только на клиентской части приложения.
+ * Код выполняется всегда в главном потоке, независимо от того, в каком потоке была вызвана функция {@link EvalAfterDelay}.
+ * @param {string} codeStr - Строка, содержащая выполняемый код.
+ * @param {number} delay - Интервал в миллисекундах.
+ * @param {object} [envObject] - Дополнительный объект, поля которого будут доступны в выполняемом окружении
+ * @returns {unknown} - Результат.
+ */
+declare function EvalAfterDelay(codeStr: string, delay: number, envObject?: Object): unknown;
+
+/**
+ * Выполняет код в заданном окружении.
+ * @param {string} codeStr - Строка, содержащая выполняемый код.
+ * @param {"Global" | "Safe" | "Doc" | "ScreenItem"} [envType] - Тип окружения: "Global" либо undefined (по умолчанию), "Safe", "Doc", "ScreenItem".
+ * @param {XmlDocument | ScreenItem} [baseObject] - Базовый объект окружения. XmlDoc для окружения типа "Doc", ScreenItem для окружения типа "ScreenItem". Для остальных типов окружения необходимо передавать undefined.
+ * @param {unknown[]} [envObjects] - Массив дополнительных объектов окружения, видимых по аналогии с конструкцией with.
+ * @returns {unknown} - Результат.
+ */
+declare function ExtEval(codeStr: string, envType?: "Global" | "Safe" | "Doc" | "ScreenItem", baseObject?: XmlDocument | ScreenItem, envObjects?: unknown[]): unknown;
+
+/**
+ * Находит зарегистрированную v2-библиотеку по имени и возвращает ссылку на нее.
+ * Если библиотека с указанным именем не найдена, возвращает undefined.
+ * @param {string} libName - Имя библиотеки.
+ * @returns {unknown} - Результат.
+ */
+declare function GetOptCodeLibrary<T>(libName: string): T | undefined;
+
+/**
+ * Функция динамически загружает библиотеку v2.
+ * У динамически загруженной библиотеки v2,
+ * в отличие от статически описанной в модуле через <code_source_files>,
+ * есть два ограничения:
+ * 1. Namespace, указанный в файле, игнорируется.
+ * 2. Библиотека должна быть описана в одном файле.
+ * @param {string} url - Url файла .bs.
+ * @returns {T} Объект namespace.
+ */
+declare function OpenCodeLibrary<T>(url: string): T;
+
+/**
+ * Выполняет код в безопасном окружении (без доступа к каким-либо глобальным данными приложения).
+ * @param {string} codeStr - Строка, содержащая выполняемый код.
+ * @param {unknown[]} envObjects - Стандартный массив, содержащий список дополнительных объектов, видимых (по аналогии с with {}) в окружении.
+ * @see {@link ExtEval}
+ */
+declare function SafeEval(codeStr: string, envObjects: unknown[]): void;
 
 /**
  * Кодирует аргумент как константу JScript. Используется для генерации выражений.
@@ -3342,25 +3412,20 @@ declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
 declare function CodeLiteral(value: undefined | null | string | number | boolean | Date, quoteChar?: string): string;
 
 /**
- * Динамически регистрирует файл v2-библиотеки,
- * как если бы он был описан в модуле через code_source_file.
- *
- * "META:NAMESPACE:{namespace_name}".
- * @param {string} url - Url файла .bs или .xmi.
+ * Выполняет код JScript в текущем окружении. Аналогична стандартной функции JScript с таким же именем, но,
+ * в отличие от нее выполняет код на отдельном уровне (переменные, объявленные внутри кода, не будут видны снаружи).
+ * @param {string} code - Выполняемый код JScript.
+ * @returns {unknown} Результат.
+ * @see {@link InPlaceEval}
  */
-declare function RegisterCodeLibrary(url: string): void;
+declare function eval(code: string): unknown;
 
 /**
- * Функция динамически загружает библиотеку v2.
- * У динамически загруженной библиотеки v2,
- * в отличие от статически описанной в модуле через <code_source_files>,
- * есть два ограничения:
- * 1. Namespace, указанный в файле, игнорируется.
- * 2. Библиотека должна быть описана в одном файле.
- * @param {string} url - Url файла .bs.
- * @returns {T} Объект namespace.
+ * Выполняет код JScript в текущем окружении. В отличие от функции {@link eval} выполняет код на том же уровне
+ * (переменные, объявленные внутри кода, будут видны снаружи), и не позволяет возвращать значение.
+ * @param {string} code - Выполняемый код JScript.
  */
-declare function OpenCodeLibrary<T>(url: string): T;
+declare function InPlaceEval(code: string): undefined;
 
 /**
  * Интерпретирует содержимое страницы по правилам ASP.
@@ -3400,45 +3465,14 @@ declare function EvalCodePage(
 ): string;
 
 /**
- * Проверяет, является ли заданный объект типа Error ошибкой отменой операции .
- * @param {any} e - Объект типа Error.
- * @returns {boolean} Результат.
- * @example
- * ```
- * try {
- *   HttpRequest( .... );
- * } catch(e) {
- *   if (!IsCancelError(e)) alert('Невозможно активировать программу: ' + ExtractUserError(e));
- * }
- * ```
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageUrl - Url, содержащий текст активной страницы.
+ * @param {string} [options] - Опции.
+ * @returns {string} Результат.
+ * Значение strict-errors - завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
+ * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
  */
-declare function IsCancelError<T>(e: T): boolean;
-
-/**
- * Выполняет код JScript в текущем окружении. Аналогична стандартной функции JScript с таким же именем, но,
- * в отличие от нее выполняет код на отдельном уровне (переменные, объявленные внутри кода, не будут видны снаружи).
- * См. Также `InPlaceEval`.
- * @param {string} code - Выполняемый код JScript.
- * @returns {unknown} Результат.
- */
-declare function eval(code: string): unknown;
-
-/**
- * Выполняет код JScript аналогично функции {@link eval}(), но внутри т.н. Критической секции,
- * что исключает одновременное выполнение кода из разных потоков.
- * Функция как правило используется для доступа к данным, не являющимся thread-safe,
- * например к глобальным XML-документам. Данной функцией следует пользоваться с осторожностью,
- * поскольку глобальная секция является общей для всего приложения.
- * Не следует выполнять внутри критической секции код, который может занять
- * продолжительное время (обращения к диску, сети и д.р.).
- * @param {string} codeString - Объект String, содержащий допустимый код JScript.
- * @returns {unknown} Результат.
- * @example
- * ```
- * EvalCs("global_agents.agent_completed = true");
- * ```
- */
-declare function EvalCs(codeString: string): unknown;
+declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
 
 /**
  * Загружает код на JavaScript из заданного url и выполняет его.
@@ -3453,6 +3487,36 @@ declare function EvalCs(codeString: string): unknown;
 declare function EvalCodeUrl(codeUrl: string, subCode: string): unknown;
 
 /**
+ * Выполняет код JScript аналогично функции {@link eval}(), но внутри т.н. Критической секции,
+ * что исключает одновременное выполнение кода из разных потоков.
+ * Функция как правило используется для доступа к данным, не являющимся thread-safe,
+ * например к глобальным XML-документам. Данной функцией следует пользоваться с осторожностью,
+ * поскольку глобальная секция является общей для всего приложения.
+ * Не следует выполнять внутри критической секции код, который может занять
+ * продолжительное время (обращения к диску, сети и д.р.).
+ * @param {string} codeString - Объект String, содержащий допустимый код JScript.
+ * @returns {unknown} Результат.
+ * @example EvalCs("global_agents.agent_completed = true");
+ */
+declare function EvalCs(codeString: string): unknown;
+
+/**
+ * Извлекает из объекта типа {@link Error} пользовательскую часть сообщения об ошибке.
+ * Если объект не содержит пользовательской части, возвращается полное описание ошибки.
+ * @param {Error | string} error - Ошибка.
+ * @returns {string} Результат.
+ * @example
+ * ```
+ * try {
+ *   HttpRequest( .... );
+ * } catch (error) {
+ *   alert("Невозможно активировать программу: " + ExtractUserError(error));
+ * }
+ * ```
+ */
+declare function ExtractUserError(error: Error | string): string;
+
+/**
  * Обозначает текущий статус выполнения фрагмент кода с упрощенной индикацией пользователю,
  * начатого путем вызова функции {@link StartModalTask}().
  * @param {string} msg - Строка статуса.
@@ -3461,29 +3525,13 @@ declare function EvalCodeUrl(codeUrl: string, subCode: string): unknown;
 declare function ModalTaskMsg(msg: string): undefined;
 
 /**
- * Выполняет код в окружении, где доступны только те объекты и переменные,
- * которые описаны (являются свойствами) объекта param_object.
- * Другие переменные и объекты (системные или описанные в коде, внутри которого был вызван `SafeEval`) недоступны.
- * Смотрите также функцию {@link eval}.
- * @param {string} code - Код.
- * @param {unknown[]} [args] - Объект, содержащий набор свойств, определяющих окружение, в котором будет исполнятся код.
- * Если данный аргумент не указан, то программный код исполняется в пустом окружении.
- * Однако, обычно данный аргумент указывается.
- * @returns {unknown} Результат.
- */
-declare function SafeEval(code: string, args?: unknown[]): unknown;
-
-/**
  * Выполняет код JS, который, возможно, завершится с ошибкой,
  * с возвратом заданного значения по умолчанию в случае ошибки.
  * @param {string} code - Код JScript.
  * @param {any} [defaultValue] - Значение, возвращаемое в случае ошибки
  * Если аргумент не указан, а код завершается с ошибкой, возвращается undefined.
  * @returns {T | undefined} Результат.
- * @example
- * ```
- * OptEval("doc.TopElem.xxx", "");
- * ```
+ * @example OptEval("doc.TopElem.xxx", "");
  */
 declare function OptEval<T>(code: string, defaultValue?: T): T | undefined;
 
@@ -3506,6 +3554,21 @@ declare function OptEval<T>(code: string, defaultValue?: T): T | undefined;
 declare function StartModalTask(taskTitle: string): undefined;
 
 /**
+ * Проверяет, является ли заданный объект типа Error ошибкой отменой операции .
+ * @param {any} e - Объект типа Error.
+ * @returns {boolean} Результат.
+ * @example
+ * ```
+ * try {
+ *   HttpRequest( .... );
+ * } catch(e) {
+ *   if (!IsCancelError(e)) alert('Невозможно активировать программу: ' + ExtractUserError(e));
+ * }
+ * ```
+ */
+declare function IsCancelError<T>(e: T): boolean;
+
+/**
  * Открывает документ либо с расширением XML, содержащий набор методов,
  * и возвращает его корневой элемент либо с расширением .JS,
  * содержащий функции, возвращает псевдо-документ (псевдо-форму),
@@ -3523,6 +3586,8 @@ declare function StartModalTask(taskTitle: string): undefined;
  * @returns {XmlDocument} XmlDocument.
  */
 declare function OpenCodeLib<T = XmlDocument>(url: string): T;
+
+//#endregion
 
 //#region Функции Web-сервера
 
@@ -4187,10 +4252,7 @@ declare function UserError(desc: string, innerError?: string): never;
  * @param {Array} filesArray - Массив, содержащий список файлов или папок, которые нужно заархивировать (Array).
  * @param {any} [options] - Объект с параметрами (Object).
  * @returns {undefined}
- * @example
- * ```
- * ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
- * ```
+ * @example ZipCreate("C:\\Temp\1.zip", ["app", "base", "SpXml.exe"], { BaseDir: "C:\\Program Files\\EStaff" });
  */
 declare function ZipCreate(archivePath: string, filesArray: string[], options: Object): undefined;
 
