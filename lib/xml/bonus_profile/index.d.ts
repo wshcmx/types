@@ -46,7 +46,7 @@ AdminAccessBase & {
   script: XmlElem<string | null>;
   /** Ссылка на шаблон */
   url: XmlElem<string | null>;
-  evaluate_pa(pAId: number, pA: unknown): unknown;
+  evaluate_pa(paId: number, pa: unknown): unknown;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

@@ -53,7 +53,10 @@ interface CollaboratorDocumentPersonalConfig {
   nick: XmlElem<string | null>;
   /** Статус */
   status: XmlElem<string | null>;
-  /** Как отображать автора */
+  /**
+   * Как отображать автора
+   * @default realname
+   */
   default_info_type: XmlElem<string, typeof common.forum_person_info_types>;
 }
 
@@ -65,6 +68,7 @@ interface CollaboratorDocumentCustomParam {
 }
 
 interface CollaboratorDocumentCompBenPaymentType {
+  /** Тип выплат */
   payment_type_id: XmlElem<number | null, PaymentTypeCatalogDocumentTopElem>;
   /** Максимальное значение */
   max_value: XmlElem<number | null>;
@@ -77,14 +81,77 @@ interface CollaboratorDocumentCompBen {
   salary: XmlElem<number | null>;
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
+  /**
+   * Период выплаты
+   * @default month
+   */
   payment_period: XmlElem<string | null, typeof common.perioditys>;
   /** Комментарий */
   comment: XmlElem<string | null>;
+  /** Возможные типы выплат */
   payment_types: XmlMultiElem<CollaboratorDocumentCompBenPaymentType | null>;
 }
 
+interface CollaboratorDocumentViewCard {
+  /**
+   * @temp
+   * @default false
+   */
+  is_preview: XmlElem<boolean | null>;
+}
+
+interface CollaboratorDocumentView extends DescBase {
+  /** @temp */
+  card: XmlElem<CollaboratorDocumentViewCard | null>;
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+  /**
+   * @temp
+   * @default false
+   */
+  is_admin: XmlElem<boolean>;
+  /** @temp */
+  user_id: XmlElem<number | null>;
+  /** @temp */
+  position_array: XmlElem<unknown | null>;
+  get_position_array(): unknown;
+  /** @temp */
+  position_doc_ref: XmlElem<unknown | null>;
+  /** @default false */
+  never_saved: XmlElem<boolean>;
+  /**
+   * @temp
+   * Классификатор
+   */
+  knowledge_classifier_id: XmlElem<number | null>;
+  /**
+   * @temp
+   * Сортировать по
+   * @default name
+   */
+  knowledge_sort_type_id: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default true
+   */
+  disp_access: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default true
+   */
+  disp_auth: XmlElem<boolean>;
+  /**
+   * @temp
+   * @default false
+   */
+  drop_pers_hier_entry: XmlElem<boolean | null>;
+}
+
 interface CollaboratorDocumentLastData {
-  /** Временно запрещен доступ на портал */
+  /**
+   * Временно запрещен доступ на портал
+   * @default false
+   */
   web_banned: XmlElem<boolean>;
   /** Логин */
   login: XmlElem<string | null>;
@@ -92,11 +159,25 @@ interface CollaboratorDocumentLastData {
   password: XmlElem<string | null>;
   /** Роль доступа */
   access_role: XmlElem<string | null>;
-  /** Является пользователем интерфейса администратора */
+  /**
+   * Является пользователем интерфейса администратора
+   * @default false
+   */
   is_arm_admin: XmlElem<boolean>;
+  /**
+   * Является пользователем приложений
+   * @default false
+   */
   is_application_admin: XmlElem<boolean>;
+  /**
+   * Является редактором контента
+   * @default false
+   */
   is_content_admin: XmlElem<boolean>;
-  /** В "черном списке" на подачу заявок */
+  /**
+   * В "черном списке" на подачу заявок
+   * @default false
+   */
   in_request_black_list: XmlElem<boolean>;
   /** Должность */
   position_id: XmlElem<number | null>;
@@ -124,6 +205,7 @@ PersonObjectLinksBase & {
   eid: XmlElem<string | null>;
   /** ФИО */
   name(): string;
+  /** Снилс */
   snils: XmlElem<string | null>;
   /** Должность */
   position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
@@ -137,17 +219,29 @@ PersonObjectLinksBase & {
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Название организации */
   org_name: XmlElem<string | null>;
-  /** Сменить пароль при первом входе */
+  /**
+   * Сменить пароль при первом входе
+   * @default false
+   */
   change_password: XmlElem<boolean>;
-  /** Является кандидатом */
+  /**
+   * Является кандидатом
+   * @default false
+   */
   is_candidate: XmlElem<boolean>;
-  /** Является временным */
+  /**
+   * Является временным
+   * @default false
+   */
   is_outstaff: XmlElem<boolean>;
   /** Статус кандидата */
   candidate_status_type_id: XmlElem<number | null, CandidateStatusTypeCatalogDocumentTopElem>;
   /** Кандидат */
   candidate_id: XmlElem<number | null>;
-  /** Является уволенным */
+  /**
+   * Является уволенным
+   * @default false
+   */
   is_dismiss: XmlElem<boolean>;
   /** Дата приема */
   hire_date: XmlElem<Date | null>;
@@ -155,9 +249,14 @@ PersonObjectLinksBase & {
   dismiss_date: XmlElem<Date | null>;
   /** Дата вступления в должность */
   position_date: XmlElem<Date | null>;
-  /** В "черном списке" на подачу заявок */
+  /**
+   * В "черном списке" на подачу заявок
+   * @default false
+   */
   in_request_black_list: XmlElem<boolean>;
+  /** Дата включения в "черный список" */
   request_black_list_data: XmlElem<Date | null>;
+  /** Комментарий включения в "черный список" */
   request_black_list_comment: XmlElem<string | null>;
   /** Расположение */
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
@@ -180,27 +279,60 @@ PersonObjectLinksBase & {
   is_time_access(): boolean;
   /** Описание */
   desc: XmlElem<string | null>;
-  /** Отображать незаполненные поля */
+  /**
+   * Отображать незаполненные поля
+   * @default false
+   */
   disp_empty_fields: XmlElem<boolean>;
-  /** Отображать контактную информацию и фото */
+  /**
+   * Отображать контактную информацию и фото
+   * @default true
+   */
   disp_personal_info: XmlElem<boolean>;
-  /** Отображать логин */
+  /**
+   * Отображать логин
+   * @default true
+   */
   disp_login: XmlElem<boolean>;
-  /** Отображать пол */
+  /**
+   * Отображать пол
+   * @default true
+   */
   disp_sex: XmlElem<boolean>;
-  /** Отображать описание */
+  /**
+   * Отображать описание
+   * @default false
+   */
   disp_desc: XmlElem<boolean>;
-  /** Отображать файлы */
+  /**
+   * Отображать файлы
+   * @default false
+   */
   disp_files: XmlElem<boolean>;
-  /** Отображать дату рождения */
+  /**
+   * Отображать дату рождения
+   * @default true
+   */
   disp_birthdate: XmlElem<boolean>;
-  /** Отображать год рождения */
+  /**
+   * Отображать год рождения
+   * @default true
+   */
   disp_birthdate_year: XmlElem<boolean>;
-  /** Отображать резюме */
+  /**
+   * Отображать резюме
+   * @default false
+   */
   disp_resume: XmlElem<boolean>;
-  /** Разрешить приглашение пользователя к общению */
+  /**
+   * Разрешить приглашение пользователя к общению
+   * @default true
+   */
   allow_personal_chat_request: XmlElem<boolean>;
-  /** Для общения в персональном чате требуется подтверждение */
+  /**
+   * Для общения в персональном чате требуется подтверждение
+   * @default true
+   */
   personal_chat_confirmation_required: XmlElem<boolean>;
   development_potential_id: XmlElem<number | null, DevelopmentPotentialCatalogDocumentTopElem>;
   /** Оценка эффективности */
@@ -221,16 +353,44 @@ PersonObjectLinksBase & {
   last_import_date: XmlElem<Date | null>;
   /** Служебные данные */
   custom_params: XmlMultiElem<CollaboratorDocumentCustomParam | null>;
+  /** Уровень компетентности */
   level_id: XmlElem<number | null, LevelCatalogDocumentTopElem>;
   /** Грейд */
   grade_id: XmlElem<number | null, GradeCatalogDocumentTopElem>;
   comp_ben: XmlElem<CollaboratorDocumentCompBen | null>;
+  /** @default false */
   gdpr: XmlElem<boolean>;
+  /**
+   * Согласие на КЭДО
+   * @default false
+   */
   consent_kedo: XmlElem<boolean>;
+  /** Дата согласия на КЭДО */
   consent_kedo_date: XmlElem<Date | null>;
+  /** @temp */
+  view: XmlElem<CollaboratorDocumentView | null>;
   /** Сохраненные данные */
   last_data: XmlElem<CollaboratorDocumentLastData | null>;
   clear_cur_position(): void;
+  /** @temp */
+  rows: XmlElem<unknown | null>;
+  /**
+   * @temp
+   * @default person_fullname
+   */
+  row_disp_elem: XmlElem<string>;
+  /**
+   * @temp
+   * @default .Env.ListElem
+   */
+  row_list_field: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default .PrimaryKey
+   */
+  row_key_field: XmlElem<string | null>;
+  /** @temp */
+  list_variant: XmlElem<unknown | null>;
   start_action(type: string): number;
   set_basic_position(positionId: number): boolean;
   get_courses(type: string): (ActiveLearningCatalogDocumentTopElem | LearningCatalogDocumentTopElem)[];

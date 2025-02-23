@@ -110,7 +110,9 @@ WorkflowFieldsStatesBase & {
    */
   changed: XmlElem<boolean>;
   doc_info: XmlElem<DocInfoBase | null>;
-  run_action(action: string): void;
+  run_action(action: string): unknown;
+  /** @temp */
+  view: XmlElem<WorkflowDocumentView | null>;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };

@@ -111,6 +111,8 @@ CustomElemsBase & {
   module_href_get(): false | void;
   export_2_scorm(): false | void;
   fix_new_authors(): void;
+  /** @temp */
+  view: XmlElem<ClCourseDocumentView | null>;
 };
 
 type ClCourseDocument = XmlDocument & {

@@ -35,6 +35,11 @@ interface DnProgramDisciplDocumentSpecial {
   specializations: XmlMultiElem<DnProgramDisciplDocumentSpecialSpecialization | null>;
 }
 
+interface DnProgramDisciplDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnProgramDisciplDocumentTopElem = XmlTopElem &
 LectorsBase &
 AdminAccessBase &
@@ -44,7 +49,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default project
+   */
   status_id: XmlElem<string, typeof common.prog_discipl_states>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
@@ -61,6 +69,8 @@ CustomElemsBase & {
   disciplines: XmlMultiElem<DnProgramDisciplDocumentDiscipline | null>;
   subjects: XmlMultiElem<DnProgramDisciplDocumentSubject | null>;
   specials: XmlMultiElem<DnProgramDisciplDocumentSpecial | null>;
+  /** @temp */
+  view: XmlElem<DnProgramDisciplDocumentView | null>;
   doc_info: XmlElem<DocInfoBase | null>;
 };
 

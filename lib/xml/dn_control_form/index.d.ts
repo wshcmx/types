@@ -1,3 +1,11 @@
+interface DnControlFormDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type DnControlFormDocumentTopElem = XmlTopElem &
 CustomElemsBase &
 AdminAccessBase & {
@@ -10,6 +18,8 @@ AdminAccessBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnControlFormDocumentView | null>;
 };
 
 type DnControlFormDocument = XmlDocument & {

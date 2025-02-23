@@ -46,7 +46,7 @@ CustomElemsBase & {
   text_area: XmlElem<string | null>;
   /** Удаленный IP */
   remote_ip: XmlElem<string | null>;
-  author_info(personTopElem: unknown): never | string | XmlElem<string>;
+  author_info(personTopElem: XmlTopElem): never | string | XmlElem<string>;
   privilege_collaborators: XmlMultiElem<ForumEntryDocumentPrivilegeCollaborator | null>;
   /**
    * Одобрена модератором

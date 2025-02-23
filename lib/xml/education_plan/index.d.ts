@@ -16,7 +16,7 @@ interface EducationPlanDocumentProgramFinishAssessment {
 
 interface EducationPlanDocumentProgramFinishNotifiation {
   /** Шаблон уведомления */
-  notification_template_id: XmlElem<number | null>;
+  notification_template_id: XmlElem<number | null, NotificationTemplateCatalogDocumentTopElem>;
   /** Тема */
   subject: XmlElem<string | null>;
   /** Сообщение */
