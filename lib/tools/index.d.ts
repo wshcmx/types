@@ -2924,9 +2924,9 @@ declare namespace tools {
 
   let os_type: XmlElem<string | null>;
 
-  let dotnet_host: XmlElem<unknown | null>;
+  let dotnet_host: DotNetCoreHost | null;
 
-  let object_assembly: XmlElem<unknown | null>;
+  let object_assembly: Variant<Websoft.Interfaces>;
 
   /**
    * Возвращает объект библиотеки.
