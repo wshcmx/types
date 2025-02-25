@@ -2425,7 +2425,7 @@ interface CustomElemsBaseCustomElem {
   /** Название */
   name: XmlElem<string | null>;
   /** Значение */
-  value: XmlElem<string | null>;
+  value: XmlElem<null | undefined | string | Date | number | boolean | null>;
 }
 
 interface CustomElemsBaseCustomReportFiction extends CustomReportBase {
