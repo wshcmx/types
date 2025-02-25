@@ -2782,7 +2782,11 @@ declare namespace tools {
 
   let UNI_CAP_NEURAL_HANDLER_ROLE_TAG: XmlElem<number | null>;
 
-  let spxml_unibridge: XmlElem<unknown | null>;
+  let spxml_unibridge: XmlElem<{
+    Object: {
+      provider: SPXMLUnibridgeProvider;
+    }
+  }>;
 
   let spxml_unibridge_stage: XmlElem<number>;
 
