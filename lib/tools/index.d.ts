@@ -1,99 +1,617 @@
 declare namespace tools {
   let lds_address: XmlElem<string | null>;
 
-  function get_server_protocol(): unknown;
+  /**
+   * Возвращает схему URL.
+   * @returns {string} Схема.
+   * @example
+   * ```
+   * UrlSchema("http://docs.datex.ru/"); // http
+   * ```
+   */
+  function get_server_protocol(): "file" | "http" | "https" | "mailto" | "ftp" | "x-local";
 
   let object_license: XmlElem<unknown | null>;
 
-  function encode_course_folder(code: string): unknown;
+  function encode_course_folder(code: string): string;
 
-  function decode_course_folder(code: string): unknown;
+  function decode_course_folder(code: string): string;
 
-  function load_course(fileUrl: string, fileCharset: string, course: CourseDocument): unknown;
+  /**
+   * Загрузка курса из архива в базу. Курс создается если его нет или обновляется существующий.
+   * @param {string} fileUrl - Адрес до файла (архива) с курсом.
+   * @param {string} [charset="utf-8"] - Кодировка.
+   * @param {CourseDocument} [courseDocument] - Документ курса.
+   * @returns {CourseDocument|never} Документ курса или ошибка.
+   */
+  function load_course(fileUrl: string, charset?: string | null | undefined | "", courseDocument?: CourseDocument | undefined | ""): CourseDocumentTopElem | "" | string | LoadCourseResult;
 
-  function copy_manifest_resources(fileUrl: string, baseUrl: string): unknown;
+  /**
+   * Копирует ресурсы из списка, указанного в файле manifest, в папку получателя.
+   * @param {string} fileUrl - Путь или URL до файла manifest.
+   * @param {string} baseUrl - Путь или URL до папки получателя относительно папки wt/web.
+   * @returns {boolean} Возвращает значение true, если операция завершилась успешно (копирование выполнено),
+   * или false - в противном случае (копирование не выполнено).
+   */
+  function copy_manifest_resources(fileUrl: string, baseUrl: string): BaseToolsResponse;
 
   function open_course_package_server(url: string): unknown;
 
   function copy_url_temp_suffix(destUrl: string, sourceUrl: string): unknown;
 
-  function update_forum_entry(document: XmlDocument, newForumId: number, parentForumEntryId: number): unknown;
+  /**
+   * Обновляет данные о количестве дочерних элементов в родительском форуме.
+   * Если задан forumId, то дочерним записям форума с iParentForumEntryIDParam,
+   * проставляется новое значение форума.
+   * @param {ForumDocument} [forumDocument] - Необязательный, если задан parentForumId – Doc записи форума,
+   * родителя которого нужно обновить.
+   * @param {number} [forumId] - Необязательный – Id форума, к которому нужно привязать элементы.
+   * @param {number|""|null} [parentForumId] - Необязательный, если задан doc – Id родительской записи форума.
+   * @returns {number|null} Целое число (int), количество дочерних элементов вниз по иерархии
+   * в документе определяемом parentForumId.
+   * @example
+   * ```
+   * tools.update_forum_entry(null, null, iParentForumEntryID);
+   * tools.update_forum_entry(TopElem.Doc, TopElem.forum_id);
+   * ```
+   */
+  function update_forum_entry(forumDocument: ForumDocument, forumId?: number | "" | null, parentForumId?: number | null): number;
 
-  function update_document_comment_entry(document: XmlDocument, newPortalDocId: number): unknown;
+  /**
+   * Обновляет данные о количестве дочерних элементов в родительском комментарии к разделу портала.
+   * Если задан iNewPortalDocIDParam, то дочерним записям проставляется новое значение документа портала,
+   * к которому они привязаны.
+   * @param {DocumentDocument} documentDocument - Doc документ записи комментария к разделу портала,
+   * родителя которого нужно обновить.
+   * @param {number|""|null} documentId - Id раздела портала к которому нужно привязать дочерние комментарии.
+   * @returns {number} Целое число , количество дочерних элементов вниз по иерархии в определяемом doc.
+   */
+  function update_document_comment_entry(documentDocument: DocumentDocument, documentId: number | "" | null): number;
 
-  function add_report(actionRepotrId: number, text: string, actionRepotr: ActionReportDocument): unknown;
+  /**
+   * Добавляет строку к событию базы, определяемому `report_id` или документом `source_doc`.
+   * @param {number} actionReportId - Id события базы, к которому нужно добавить строку.
+   * @param {string} text - Строка, которую нужно добавить к событию базы.
+   * @param {ActionReportDocument} actionReportDocument - Документ события базы, к которому нужно добавить строку.
+   * @returns {ActionReportDocument} Сохраненный документ события базы с добавленной строкой.
+   * @example
+   * ```
+   * var reportDocument = OpenNewDoc("x-local://wtv/wtv_action_report.xmd");
+   * var reportId = reportDocument.DocID;
+   * tools.add_report(reportId, "Saving archive: OK.");
+   * ```
+   */
+  function add_report(actionReportId: number, text?: string, actionReportDocument?: ActionReportDocument): ActionReportDocument;
 
-  function upload_data(exchangeSeverId: number, dtLimit: unknown, exchangeObjectId: number): unknown;
+  /**
+   * Загрузка данных на сервер обмена данными.
+   * @param {number} serverId - Id сервера обмена данными, на который нужно отправить данные.
+   * @param {Date} [date] - Дата, начиная с которой нужно грузить данные.
+   * @param {string} type - Описание типа отправки.
+   * @returns {string} Строка с ошибкой или пустая строка в случае успеха.
+   * @example
+   * ```
+   * var date = tools.get_exchange_date(serverDoc.TopElem.upload, serverDoc.TopElem.last_upload_date);
+   * tools.upload_data(serverId, date, "quick");
+   * tools.upload_data(serverId, "", "full");
+   * ```
+   */
+  function upload_data(serverId: number, date: Date, type: string): string;
 
-  function download_data(exchangeSeverId: number): unknown;
+  /**
+   * Получение данных с сервера обмена данными.
+   * @param {number} serverId - Id сервера обмена данными, с которого необходимо получить данные.
+   * @returns {DownloadDataResponse} В случае успеха выполнения функции возвращаются значения oRes.error = 0
+   * и пустая строка в поле oRes.error_text.
+   * В случае возникновения ошибки возвращаются значения oRes.error = 500 и сведения об ошибке в поле oRes.error_text.
+   */
+  function download_data(serverId: number): DownloadDataResponse;
 
-  function create_data_package(exchangeSeverId: number, reportId: number, packId: string, dtLimit: unknown, exchangeObjectId: number, primaryKeyUserData: string): unknown;
+  /**
+   * Создание пакета данных для отправки на сервер обмена данными.
+   * @param {number} serverId - Id сервера обмена данными, для которого формируется пакет.
+   * @param {number} reportId - Id документа событий базы, в который будут записываться отчет.
+   * @param {string} packageId - Строковое выражение Id загружаемого пакета.
+   * @param {Date} [date] - Дата, начиная с которой нужно загружать данные.
+   * @returns {string} Строковое выражение, содержащее путь до сформированного пакета.
+   * @example
+   * ```
+   * var filename = tools.create_data_package(serverId, reportId, packageId, "");
+   * var packageUrl = tools.create_data_package(serverId, reportId, packageId, date, serverId);
+   * var filename = ServerEval("tools.create_data_package(" + serverId + "," + reportId + "," + packageId + ",\"\")");
+   * ```
+   */
+  function create_data_package(serverId: number, reportId: number, packageId: string, date: Date): string;
 
-  function get_exchange_date(source: unknown, lastDate: unknown): unknown;
+  /**
+   * Возвращает последнюю дату обмена данными (отправки или получения) для указанного сервера обмена данными.
+   * @param {ExchangeServerDocumentTopElem} source - Xml элемент, в котором храниться дата (download, upload).
+   * @param {Date} lastDate - Дата последней отправки.
+   * @returns {Date} Дата обмена данными.
+   * @example
+   * ```
+   * _exa2wx5nutv7 = tools.get_exchange_date(curServerDoc.download, curServerDoc.last_download_date);
+   * _exa2wx5nutv7 = tools.get_exchange_date(curServerDoc.upload, curServerDoc.last_upload_date);
+   * ```
+   */
+  function get_exchange_date(source: ExchangeServerDocumentTopElem, lastDate: Date): Date;
 
-  function send_file_to_server(subject: unknown, body: unknown, sendFile: unknown, serverId: number, reportId: number): unknown;
+  /**
+   * Отправляет файл на указанный сервер обмена данными.
+   * Отправление идет как письмо по протоколу Smtp.
+   * Поэтому возможно указать тему и тело сообщения.
+   * @param {string} subject - Строка с темой отправляемого сообщения.
+   * @param {string} body - Строка с телом отправляемого сообщения.
+   * @param {string} sendFile - Строка с адресом до отправляемого файла.
+   * @param {number} serverId - Id сервера обмена данными, для которого формируется пакет.
+   * @param {number} reportId - Id документа событий базы, в который будут записываться отчет.
+   * @returns {string} Строка с адресом до сформированного пакета.
+   * @example
+   * ```
+   * var subject = "data [" + serverDocument.code.Value + "]" + (type == "full" ? " - full" : "");
+   * tools.send_file_to_server(subject, "Id: " + packageId, fileName, serverId, reportId);
+   * ```
+   */
+  function send_file_to_server(subject: string, body: string, sendFile: string, serverId: number, reportId: number): string;
 
-  function post_file_to_server(sendFile: unknown, serverId: number, reportId: number): unknown;
+  /**
+   * Отправляет файл на указанный сервер обмена данными. Отправление идет Post по http протоколу.
+   * @param {string} fileAddress - Строка с адресом до отправляемого файла.
+   * @param {number} serverId - Id сервера обмена данными, для которого формируется пакет.
+   * @param {number} reportId - Id документа событий базы, в который будут записываться отчет.
+   */
+  function post_file_to_server(fileAddress: string, serverId: number, reportId: number): void;
 
-  function date_str(curDate: unknown): unknown;
+  /**
+   * Преобразует дату в строку, разделенную символом _ (нижнее подчеркивание).
+   * Например, дата 01.02.1999 12:34:15 будет преобразована в 1999_02_01_12_34.
+   * @param {Date} [date=Date()] - Дата, подлежащая преобразованию.
+   * Если атрибут не указан, то будут преобразовываться текущие дата и время.
+   * @returns {string} Дата, преобразованная в строку. Результат дейсттвия функции.
+   */
+  function date_str(date?: Date): string;
 
   function uni_process_package(urlPackage: string, fldForm: unknown): unknown;
 
   function process_package(url: string, fldPackagesValId: number, updateObjects: boolean): unknown;
 
-  function get_param_error_text(paramForm: unknown): unknown;
+  /**
+   * Возвращает ошибку формы, переданной как параметр.
+   * @param {XmlDocument} xmlDocument - Документ формы, содержащей ошибку.
+   * @returns {string} Строка с описанием ошибки.
+   */
+  function get_param_error_text(xmlDocument: XmlDocument): string;
 
-  function download_package_list(exchangeSeverId: number): unknown;
+  /**
+   * Загружает указанные пакеты с сервера обмена данными.
+   * @param {number} exchangeServerId - Id сервера обмена данными, с которого загружаются пакеты.
+   * Если Id сервера обмена данными не указан, считается, что сервер локальный.
+   * @param {number} [packageId] - Id пакета, который нужно загрузить.
+   * @param {string} [filePath] - Путь до файла с пакетом.
+   * @returns {DownloadDataResponse} Результирующий объект oRes имеет три свойства:
+   * - код oRes.error;
+   * - URL файла данных oRes.data_file_url;
+   * - и сведения об ошибке oRes.error_text.
+   */
+  function download_package_list(exchangeServerId: number, packageId?: number, filePath?: string): DownloadDataResponse;
 
   function download_package(exchangeSeverId: number, packageId: number, tempUrl: string, fldPackageValId: number, updateObjects: boolean): unknown;
 
-  function package_process(path: unknown, type: unknown, source: unknown, reportId: number, exchangeServerId: number, downloadPackageId: number, updateObjects: boolean, baseUrl: string): unknown;
+  /**
+   * Обрабатывает пакет с данными и загружает содержимое в базу данных.
+   * @param {string} path - Путь до файла с пакетом.
+   * @param {string} type - Тип загрузки.
+   * Возможные значения:
+   * objects и std_objects – загружает объекты в базу;
+   * std_objects применяется для загрузки стандартных объектов из первоначальной установки;
+   * code_update – выгружает файлы из архива в папку wtv сервера WebTutor;
+   * web – выгружает файлы из архива в папку wt/web сервера WebTutor.
+   * @param {XmlDocument} source - Источник данных о типах загружаемых объектов, и других параметров загрузки объектов.
+   * @param {number} reportId - Id документа событий базы, в который будут записываться отчет.
+   * @param {number} exchangeServerId - Id сервера обмена данным, из которого берутся параметры
+   * для фильтрации данных из пакета.
+   * @param {number} downloadPackageId - Id пакета, из которого нужно загрузить данные.
+   * @returns {boolean} Успешная или не успешная загрузка данных (bool).
+   * В случае типа объектов objects и std_objects.
+   * Возвращается форма открытого документа пакета.
+   * @example
+   * ```
+   * var packageProcessResult = tools.package_process(Ps.local_file_url, Ps.type, Ps.Doc.DocID);
+   * common_variables.len_flag = packageProcessResult !== null;
+   * ```
+   */
+  function package_process(path: string, type: string, source: XmlDocument, reportId: number, exchangeServerId: number, downloadPackageId: number): unknown;
 
-  function activate_course_to_person(personId: Object, courseId: number, eventId: number, person: CollaboratorDocument, educationPlanId: number, duration: unknown, startLearningDate: unknown, dtLastLearningDate: unknown, groupId: number, eId: string, skipDismissed: boolean): unknown;
+  /**
+   * Назначение курса участникам указанного мероприятия.
+   * @param {number} personId - Id сотрудника, которому назначается курс.
+   * @param {number} courseId - Id курса, который необходимо назначить.
+   * @param {number} eventId - Id мероприятия, участникам которого назначается курс.
+   * @param {CollaboratorDocumentTopElem} personDoc - TopElem карточки сотрудника, которому назначается курс.
+   * @param {number} educationPlanId - Id плана обучения, в рамках которого назначен курс.
+   * @param {number} duration - Длительность курса в днях. Определяет дату планируемого завершения.
+   * @param {Date} startLearningDate - Дата начала обучения. Если данный аргумент задан,
+   * то обучение невозможно будет начать раньше указанной даты.
+   * @param {Date} lastLearningDate - Контрольная дата завершения предыдущего обучения.
+   * Если параметр задан, то при назначении курса, проверяется,
+   * существует ли в каталоге learnings курс, завершенный после указанной даты.
+   * Если такой курс существует, то Id соответствующей записи из каталога
+   * learnings возвращается как результат работы функции.
+   * @param {number} groupId - Id группы, которой назначен курс.
+   * @param {unknown} eid - Код записи в каталоге active_learnings.
+   * Если он указан, то при назначении курса,
+   * когда производится проверка на уже существующий активный курс
+   * данного сотрудника в каталоге active_learnings, проверяется также,
+   * что у данной записи должен быть указанный в параметре код.
+   * @param {boolean} skipDismissed - Аргумент, указывающий на необходимость пропускать уволенных
+   * сотрудников (true – пропускать, false –не пропускать). По умолчанию true.
+   * @returns {XmlElem<number> | null | ActiveLearningDocument}.
+   * Если курс назначен при выполнении функции,
+   * то возвращается ссылка на вновь созданный документ обучения.
+   * Если курс был назначен ранее, но не завершен, или завершен,
+   * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
+   * то возвращается Id карточки ранее назначенного курса (из каталога active_learning).
+   */
+  function activate_course_to_person(personId: number | string, courseId?: number, eventId?: number, personDoc?: CollaboratorDocumentTopElem, educationPlanId?: number, duration?: number, startLearningDate?: Date, lastLearningDate?: Date, groupId?: number, eid?: unknown, skipDismissed?: boolean): XmlElem<number> | null | ActiveLearningDocument;
 
-  function activate_test_to_person(personId: Object, testId: number, eventId: number, person: CollaboratorDocument, test: AssessmentDocument, event: EventDocument, duration: unknown, startLearningDate: unknown, dtLastLearningDate: unknown, groupId: number, educationPlanId: number, skipDismissed: boolean): unknown;
+  /**
+   * Назначение курса участникам указанного мероприятия.
+   * @param {ActivateCourseToPersonObject} params - Параметры назначения курса.
+   * @returns {XmlElem<number> | null | ActiveLearningDocument}.
+   * Если курс назначен при выполнении функции,
+   * то возвращается ссылка на вновь созданный документ обучения.
+   * Если курс был назначен ранее, но не завершен, или завершен,
+   * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
+   * то возвращается Id карточки ранее назначенного курса (из каталога active_learning).
+   */
+  function activate_course_to_person(params: ActivateCourseToPersonObject): XmlElem<number> | null | ActiveLearningDocument;
 
-  function activate_test_to_event(evenId: number, testId: number, event: unknown, duration: unknown, startLearningDate: unknown, lastLearningDate: unknown, actType: string, skipDismissed: boolean, useProctoring: boolean, proctorPreferId: number, activateOnlyAssist: boolean): unknown;
+  /**
+   * Функция назначения теста пользователю.
+   * @param {ActivateCourseToPersonObject} params - Объект JavaScript (Структура параметров).
+   * @returns {XmlElem<number>|null|XmlDocument} Объект XMLDoc или Целое число.
+   * Если тест назначен при выполнении функции, то возвращается ссылка на вновь созданный документ обучения.
+   * Если тест был назначен ранее, но не завершен, или завершен,
+   * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
+   * то возвращается Id карточки ранее назначенного теста (из каталога active_test_learning).
+   */
+  function activate_test_to_person(params: ActivateTestToPersonParams): XmlElem<number> | null | ActiveTestLearningDocument;
 
-  function activate_course_to_event(evenId: number, courseId: number, event: unknown, duration: unknown, startLearningDate: unknown, lastLearningDate: unknown, skipDismissed: boolean, useProctoring: boolean, proctorPreferId: number, comment: string): unknown;
+  /**
+   * Функция назначения теста пользователю.
+   * @param {number} personId - Id пользователя.
+   * @param {number} assessmentId - Id курса.
+   * @param {number} eventId - Id мероприятия.
+   * @param {CollaboratorDocumentTopElem} personDoc - Документ пользователя.
+   * @param {AssessmentDocumentTopElem} assessmentDocument - Документ теста.
+   * @param {null} eventDocument - Документ мероприятия.
+   * @param {number} duration - Продолжительность тестирования.
+   * @param {Date} startLearningDate - Дата начала тестирования.
+   * @param {Date} lastLearningDate - Дата окончания тестирования.
+   * @param {number} groupId - Id группы.
+   * @param {number} educationPlanId - Id плана обучения.
+   * @param {boolean} skipDismissed - Аргумент, указывающий на необходимость пропускать уволенных сотрудников.
+   * (true – пропускать, false – не пропускать). По умолчанию true.
+   * @returns {XmlElem<number>|null|XmlDocument} Объект XMLDoc или Целое число.
+   * Если тест назначен при выполнении функции, то возвращается ссылка на вновь созданный документ обучения.
+   * Если тест был назначен ранее, но не завершен, или завершен,
+   * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
+   * то возвращается Id карточки ранее назначенного теста (из каталога active_test_learning).
+   */
+  function activate_test_to_person(personId: number, assessmentId: number | string, eventId: number | string | null | undefined, personDoc: CollaboratorDocumentTopElem | null | undefined | "", assessmentDocument: AssessmentDocumentTopElem | null | "", eventDocument?: null, duration?: number | string | null, startLearningDate?: Date | string, lastLearningDate?: Date | string, groupId?: number | string | null, educationPlanId?: number | string | null, skipDismissed?: boolean | null): XmlElem<number> | null | ActiveTestLearningDocument;
 
-  function activate_education_program_to_person(personId: number, educationProgramId: number, person: CollaboratorDocument, educationProgram: EducationProgramDocument): unknown;
+  /**
+   * Назначение теста участникам указанного мероприятия.
+   * @param {number} eventId - Id мероприятия, участникам которого назначается тест.
+   * @param {number} assessmentId - Id теста, который необходимо назначить.
+   * @param {EventDocument} eventDocument - Документ карточки мероприятия.
+   * @param {number} duration - Длительность теста в днях. Определяет дату планируемого завершения.
+   * @param {Date} startLearningDate - Дата начала обучения. Если данный аргумент задан,
+   * то обучение невозможно будет начать раньше указанной даты.
+   * @param {Date} lastLearningDate - Контрольная дата завершения предыдущего обучения.
+   * Если параметр задан, то при назначении теста проверяется, существует ли в каталоге test_learnings тест,
+   * завершенный после указанной даты. Если такой тест существует, то Id соответствующей записи из
+   * каталога test_learnings возвращается как результат работы функции.
+   * @param {string} actType - Строка, указывающая, кому назначать тесты.
+   * Возможные значения:
+   * 'all' - Тесты назначаются всем участникам мероприятия (значение по умолчанию).
+   * 'post' - Тесты назначаются участникам мероприятия, у которых проставлен флаг «Присутствовал на мероприятии».
+   * @param {boolean} skipDismissed - Аргумент, указывающий на необходимость пропускать уволенных сотрудников
+   * (true – пропускать, false – не пропускать). По умолчанию true.
+   * @param {boolean} bUseProctoring - Использовать прокторинг.
+   * @param {number} iProctorPreferID - Id прокторинга.
+   * @param {boolean} bActivateOnlyAssist - Активация мероприятий.
+   * @returns {number} Количество назначенных тестов.
+   */
+  function activate_test_to_event(eventId: number, assessmentId: number, eventDocument?: EventDocument, duration?: number, startLearningDate?: Date, lastLearningDate?: Date, actType?: string, skipDismissed?: boolean, bUseProctoring?: boolean, iProctorPreferID?: number, bActivateOnlyAssist?: boolean): number;
 
-  function get_time_from_duration(duration: unknown): unknown;
+  /**
+   * Назначение курса участникам указанного мероприятия.
+   * @param {number} eventId - Id мероприятия, для участников которого назначается курс.
+   * @param {number} courseId - Id курса, который необходимо назначить.
+   * @param {EventDocument} eventDocument - Документ карточки мероприятия.
+   * @param {number} duration - Длительность курса в днях. Определяет дату планируемого завершения.
+   * @param {Date} startLearningDate - Дата начала обучения. Если данный аргумент задан,
+   * то обучение невозможно будет начать раньше указанной даты.
+   * @param {Date} testLearningDate - Контрольная дата завершения предыдущего обучения.
+   * Если параметр задан, то при назначении курса, проверяется,
+   * существует ли в каталоге learnings курс, завершенный после указанной даты.
+   * Если такой курс существует, то соответствующая запись из каталога
+   * learnings возвращается как результат работы функции.
+   * @returns {number} Количество назначенных курсов.
+   */
+  function activate_course_to_event(eventId: number, courseId: number, eventDocument?: EventDocument, duration?: number, startLearningDate?: Date, testLearningDate?: Date): number;
 
-  function get_time_from_seconds(seconds: unknown): unknown;
+  /**
+   * Назначение сотруднику курсов, которые указаны в учебных программах (с типом "Электронный курс"),
+   * перечисленных в наборе программ. Если в наборе учебных программ указаны учебные программы,
+   * содержащие дистанционное обучение (курсы), то эти курсы будут назначены сотруднику.
+   * @param {number} personId - Id сотрудника, которому назначается набор учебных программ.
+   * @param {number} educationProgramId - Id набора учебных программ.
+   * @param {CollaboratorDocumentTopElem} collaboratorDocumentTopElem - TopElem карточки сотрудника,
+   * которому назначается тест.
+   * @param {EducationProgramDocumentTopElem} educationProgramDocumentTopElem - TopElem карточки набора
+   * учебных программ.
+   * @returns {number} Количество назначенных курсов в составе набора учебных программ.
+   */
+  function activate_education_program_to_person(personId: number, educationProgramId: number, collaboratorDocumentTopElem: CollaboratorDocumentTopElem, educationProgramDocumentTopElem: EducationProgramDocumentTopElem): number;
 
-  function delete_transaction(transactionId: number): unknown;
+  /**
+   * Возвращает время (часы, минуты и секунды) из строки с разделителем T,
+   * например, вида "2015-06-02T07:51:44".
+   * Используется для разбора результатов теста.
+   * Проверка формата исходного аргумента не производится.
+   * @param {string} duration - Строковое выражение даты в формате "2015-06-02T07:51:44".
+   * @returns {string} Строковое выражение времени (часы, минуты и секунды) в формате "07:51:44",
+   * если переданы дата и время, или выражение, находящееся после символа T, если передана строка с таким разделителем.
+   * @example tools.get_time_from_duration("2015-06-02T07:51:44"); // 07:41:44
+   */
+  function get_time_from_duration(duration: string): string;
 
-  function pay_new_transaction_by_object(accountObjectId: number, accountCurrency: string, rSum: unknown, comment: string, objectId: number, personId: number, changeBalance: unknown): unknown;
+  /**
+   * Возвращаете время (часы, минуты и секунды) в виде «часы H минуты M секунды S»,
+   * полученное из количества секунд. Используется для разбора результатов теста.
+   * @param {string} seconds - Количество секунд, которые нужно преобразовать в часы, минуты и секунды.
+   * @returns {string} Строковое значение, содержащее значение времени в формате «часы H минуты M секунды S» в строке,
+   * или пустая строка, если входной параметр (аргумент) не удалось преобразовать в число.
+   * @example tools.get_time_from_seconds(86399); // 23H59M59S
+   */
+  function get_time_from_seconds(seconds: string): string;
 
-  function pay_invoice(invoiceId: number, invoice: unknown): unknown;
+  /**
+   * Отменяет транзакцию. Используется в модуле геймификация.
+   * @param {number} transactionId - Id транзакции, которую нужно отменить.
+   * @returns {number} Id транзакции, отменяющей указанную транзакцию.
+   * @example tools.delete_transaction(Ps.Doc.DocID);
+   */
+  function delete_transaction(transactionId: number): number;
 
-  function pay_courses(orgId: number, amount: unknown, comment: unknown): unknown;
+  /**
+   * Создает транзакцию по списанию указной суммы в указанной валюте с указанного счета.
+   * Используется в модуле геймификация.
+   * Совершает оплату по выбранному объекту.
+   * @param {number} acountId - Id объекта, к которому прикреплен счет, с которого будет происходить списание.
+   * @param {string} accountCurrency - Строка валюты счета, содержащая Id валюты из списка валют в системе.
+   * @param {number} sum - Сумма.
+   * @param {string} comment - Комментарий к транзакции.
+   * @param {number} objectId - Id объекта по которому происходит транзакция.
+   * @returns {TransactionDocument} Документ созданной новой транзакции.
+   * @example
+   * ```
+   * tools.pay_new_transaction_by_object(
+   *   personID,
+   *   fldBonusElem.currency_type_id,
+   *   fldBonusElem.sum,
+   *   "Bonus by qualification \"" + teQualification.name + "\".",
+   *   qualificationID
+   *);
+   * ```
+   */
+  function pay_new_transaction_by_object(acountId: number, accountCurrency: string, sum: number, comment: string, objectId: number): TransactionDocument;
 
-  function set_account(orgId: number, amount: unknown): unknown;
+  /**
+   * Создает транзакцию зачислению суммы из указанной оплаты на счет.
+   * @param {number} invoiceId - Id документа Оплат.
+   * @param {InvoiceDocumentTopElem} [invoiceDocumentTopElem] - TopElem карточки оплаты.
+   * @returns {InvoiceDocument | null} Документ оплаты или null.
+   */
+  function pay_invoice(invoiceId: number, invoiceDocumentTopElem: InvoiceDocumentTopElem): InvoiceDocument | null;
 
-  function personal_pay(orgId: number, requestId: number): unknown;
+  /**
+   * Создает транзакцию по списанию указной суммы со счета указанной организации.
+   * @param {number} orgId - Id организации.
+   * @param {number} amount - Сумма списания.
+   * @param {string} [comment] - Комментарий к транзакции.
+   * @returns {number|null} Id транзакции или null.
+   */
+  function pay_courses(orgId: number, amount: number, comment?: string): number | null;
 
-  function create_notification(type: Object, objectId: number, text: string, secondObjectId: number, object: Object, secondObject: Object, sourceTopElem: XmlTopElem, chatboScriptObject: XmlDocument): unknown;
+  /**
+   * Создает документ об оплате (invoice).
+   * @param {number} orgId - Id организации.
+   * @param {number} amount - Сумма списания.
+   * @returns {number} Id оплаты.
+   */
+  function set_account(orgId: number, amount: number): number;
 
-  function create_template_notification(type: string, objectId: number, subject: string, body: string, object: Object, sourceTopElem: XmlTopElem, objectSecondId: number): unknown;
+  /**
+   * Создает документ об оплате (invoice) для курса из заявки.
+   * @param {number} orgId - Id организации.
+   * @param {number} requestId - Id заявки сотрудника на курс по которой происходит списание.
+   * @returns {number} Id оплаты.
+   */
+  function personal_pay(orgId: number, requestId: number): number;
 
-  function send_notification(activeNotificationId: number): unknown;
+  /**
+   * Создает новое неотправленное уведомление.
+   * В теле уведомления (шаблоне уведомления) обращение к первому параметру идет через objDocID, к документу,
+   * открываемому автоматически при вызове функции по отправке уведомления, objDoc. ObjDoc- это TopElem документа.
+   * Обращение ко второму параметру идет через objDocSecID, к документу, открываемому автоматически при
+   * вызове функции по отправке уведомления objDocSec. ObjDocSec- это TopElem документа.
+   * Если документ отрыт ранее, то для ускорения работы функции отправки уведомления, можно передать открытый
+   * документ в функцию, что позволит избежать его повторного открытия.
+   * Для этого вместо tools.create_notification(code, id1, '', id2)
+   * вызывается функция, куда передаются дополнительные параметры
+   * tools.create_notification(code, id1, '', id2, TopElem1,TopElem2).
+   * @param {string} notificationIdentifier - Код типа уведомления, которое будет отправляться.
+   * Если параметр пустой ('') или равен '0', то в параметр
+   * additionalParams необходимо передавать структуру, из которой будут заполняться типы получателей (recipients),
+   * тип отправителя (sender_selector), тема сообщения (subject), тип текста в теле сообщения (body_type),
+   * тело сообщения (body) и адрес отправителя (sender_email). Если oTypeParam - это реальный код типа уведомления,
+   * то типы получателей (recipients), тип отправителя (sender_selector) и адрес отправителя (sender_email) будут
+   * браться из указанного объекта. А тема сообщения (subject), тип текста в теле сообщения (body_type),
+   * тело сообщения (body) из шаблона уведомления, прикрепленного к типу сообщения с указанным в параметре кодом.
+   * Если в существующих в системе типах уведомления не найдено типа уведомления с указанным кодом,
+   * то уведомление не формируется и функция возвратит значение false.
+   * В определенных случаях в качестве данного аргумента вместо кода типа уведомления
+   * может быть указан Id открытого документа типа уведомления.
+   * @param {string} objectId - Id первого объекта (обыкновенно, по данным первого документа формируется, в частности,
+   * перечень сотрудников, которым нужно отправить сообщение. В теле уведомления (шаблоне уведомления) обращение
+   * к этому параметру идет через objDoc (например, <%=objDoc.name%>) и objDocID.
+   * @param {T} text - Аргумент, к которому можно обращаться в теле шаблона уведомления как к Text (<%=Text%>).
+   * @param {number} secondObjectId - Id второго объекта, который прикрепляется к уведомлению.
+   * В теле уведомления (шаблоне уведомления) обращение этому параметру
+   * идет через objDocSec (например, <%=objDocSec.name%>) и objDocSecID.
+   * @param {XmlTopElem} objectTopElem - TopElem карточки первого объекта, определяемого аргументом objectId.
+   * @param {XmlTopElem} secondObjectTopElem - TopElem карточки второго объекта,
+   * определяемого аргументом secondObjectId.
+   * @param {ICreateNotificationAdditionalParams} additionalParams - Структура, позволяющая создать собственное
+   * (пользовательское) уведомление "на лету".
+   * Из нее берутся данные о типах получателей (recipients), тип отправителя (sender_selector),
+   * тема сообщения (subject), тип текста в теле сообщения (body_type), тело сообщения (body)
+   * и адрес отправителя (sender_email).
+   * @returns {boolean} Результат отправки уведомления.
+   */
+  function create_notification<T>(notificationIdentifier: number | string, objectId: number | string, text?: T, secondObjectId?: number, objectTopElem?: XmlTopElem, secondObjectTopElem?: XmlTopElem, additionalParams?: ICreateNotificationAdditionalParams): boolean;
 
-  function save_certificate(learningId: number): unknown;
+  /**
+   * Отправляет письмо с параметрами, заданными в аргументах.
+   * Если первый параметр равен '0' или пустому значению, то производится отправка по адресам,
+   * заданным в структуре recipients объекта teSourceParam.
+   * Если первый параметр – это код или идентификатор реального типа уведомления,
+   * то в список адресатов будут добавлены адреса, вычисленные по правилам этого объекта (типа уведомления).
+   * Тема (subject) и тело (body) письма будут взяты из аргументов, переданных в функцию,
+   * а не из параметров шаблона уведомления.
+   * @param {string} type - Код типа уведомления, которое будет связано с формируемым шаблоном уведомления.
+   * @param {number} objectId - Id первого прикрепленного документа,
+   * относительного которого будет идти поиск получателей.
+   * В шаблоне уведомления обращение к этому параметру идет через objDocID.
+   * @param {string} [subject] - Строка, в которой содержится тема сообщения.
+   * @param {string} [body] - Строка, в которой содержится тело сообщения.
+   * @param {XmlTopElem} [topElem] - TopElem карточки первого объекта, определяемого аргументом <iObjectIDParam>.
+   * @param {XmlDocument} [teSourceParam] - Структура, из которой будут заполняться:
+   * - типы получателей (recipients);
+   * - тип отправителя (sender_selector);
+   * - тип текста в теле сообщения (body_type);
+   * - адрес отправителя (sender_email).
+   * @param {number} [objectSecondId] - Id документа, который передается,
+   * как второй прикрепленный к уведомлению документ.
+   * В шаблоне уведомления обращение этому параметру идет через objDocSecID.
+   * @returns {boolean} Возвращает значение true, если операция завершилась успешно, или false в противном случае.
+   * @example
+   * ```
+   * tools.create_template_notification(
+   *   0,
+   *   _person_id,
+   *   dlgDoc.TopElem.subject,
+   *   dlgDoc.TopElem.body,
+   *   null,
+   *   dlgDoc.TopElem,
+   *   iSecondID
+   *);
+   * ```
+   */
+   function create_template_notification(type: string, objectId: number, subject?: string, body?: string, topElem?: XmlTopElem, teSourceParam?: XmlDocument, objectSecondId?: number): unknown;
 
-  function random_string(digitNum: unknown, dict: unknown): unknown;
+   /**
+    * Отправляет созданное с помощью функции tools.create_notification неотправленное уведомление.
+    * @param {number} activeNotificationId - Id неотправленного уведомления, которое должно быть отправлено.
+    * @returns {boolean} Флаг успешной или не успешной отправки уведомления.
+    */
+  function send_notification(activeNotificationId: number): boolean;
 
-  function import_excel_persons(paramsXml: string): unknown;
+  /**
+   * Формирует форму сертификата из стандартного шаблона templates/certificate_template.html
+   * на основе завершенного курса.
+   * Используется в карточке завершенного курса.
+   * @param {number} learningId - Id завершенного курса, для которого формируется сертификат.
+   * @returns {string} Сформированный Html сертификат.
+   * @example
+   * ```
+   * text = tools.save_certificate(id);
+   * ```
+   */
+  function save_certificate(learningId: number): string;
 
-  function start_import_excel_persons(ps: unknown): unknown;
+  /**
+   * Возвращает строку символов указанной длины, сформированную случайным образом.
+   * @param {number} length - Количество символов в указанной строке. Длина возвращаемой строки.
+   * @param {string} [dictionary] - Набор символов, из которого формируется строка
+   * (кроме букв и цифр набор может содержать также специальные символы '!@#$%^&*_+-=?').
+   * Для удобства использования набор не должен содержать символы 'o', 'O', '0', 'l', 'I'.
+   * Если параметр не указан (опущен или представлен в виде пустой строки),
+   * то символы берутся из набора 'qwertyuiopasdfghjklzxcvbnm1234567890'.
+   * @returns {string} Cформированное строковое значение.
+   * @example
+   * ```
+   * // строка из 12 случайных символов
+   * password = tools.random_string(12);
+   * // строка из 10 случайных символов (с применением строчных букв и специальных символов)
+   * password = tools.random_string(10, "QWERTYUPASDFGHJKLZXCVBNMqwertyuipasdfghjkzxcvbnm123456789!@#$%^&*_+-=?");
+   * docPerson.TopElem.password = tools.random_string(Ps.password_digits_num);
+   * ```
+   */
+  function random_string(length: number, dictionary?: string): string;
+
+  /**
+   * Загрузка данных по сотрудникам из XML-структуры.
+   * Используется для импорта сотрудников.
+   * Документ XML с данными для загрузки должен быть сформирован
+   * предварительно и соответствовать определенным правилам.
+   * @param {XmlDocument} xmlDocument - Документ XML с данными для загрузки.
+   * @returns {number} Id документа события базы с отчетом о загрузке.
+   * @example
+   * ```
+   * var docId = tools.import_excel_persons(xmlDocument);
+   * var xml = CodeLiteral(fldTE.GetXml({ "tabs": false }));
+   * var importExcelPersonActionReportId = OptInt(tools.import_excel_persons(xml), null);
+   * local_settings.temp.import_excel_person_action_report_id = importExcelPersonActionReportId;
+   * ```
+   */
+  function import_excel_persons(xmlDocument: XmlDocument): number;
+
+  /**
+   * Используется для проверки заполнения схемы импорта перед импортом сотрудников в интерфейсе администратора.
+   * @param {XmlTopElem} topElem - TopElem Xml документа с настройками для загрузки.
+   * @returns {string} Возвращаемый результат – строка с ошибкой или пустая строка в случае успеха.
+   */
+  function start_import_excel_persons(topElem: XmlTopElem): string;
 
   function get_sub_boss_by_person_id(personId: number, person: CollaboratorDocument): unknown;
 
-  function get_main_boss_by_person_id(personId: number): unknown;
+  /**
+   * Возвращает непосредственных руководителей организации указанного сотрудника.
+   * @param {number} personId - Id сотрудника для организации, которого производится поиск руководителей.
+   * @returns {number[]} Массив с Id сотрудников, являющихся непосредственными руководителями организации
+   * указанного сотрудника.
+   */
+  function get_main_boss_by_person_id(personId: number): number[];
 
-  function add_lng(lngUrl: string, doObtain: boolean): unknown;
+  /**
+   * Добавляет новый язык в список используемых в системе языков. Загрузка происходит из XML-файла с константами.
+   * Используется в администраторе в общих настройках, для установки новых языков или обновления существующих.
+   * @param {string} sLngUrlParam - Путь до XML-файла с константами.
+   * @param {boolean} bDoObtainParam - Используется при вызове функции на сервере. Если значение аргумента равно `true`,
+   * то существующие значения констант языка перезаписываются новыми из файла `sLngUrlParam`.
+   * @returns {number} Количество обновленных констант.
+   * @example
+   * ```
+   * tools.add_lng(_url);
+   * tools.add_lng(UrlAppendPath("x-local://custom/", temp_doc.lngs_url), true);
+   * _num = TopElem.add_lng_items(_doc, true);
+   * ```
+   */
+  function add_lng(sLngUrlParam: string, bDoObtainParam?: boolean): number;
 
   /**
    * Получение текстового значения языкового параметра из curLngWeb.
@@ -2870,7 +3388,7 @@ declare namespace tools {
 
   function file_source_upload_file(fileSourceId: number, fileUrl: string, tempFileUrl: string): unknown;
 
-  function file_source_get_file_to_save_url(fileSourceId: number, resourceId: number, uId: string): unknown;
+  function file_source_get_file_to_save_url(fileSourceId: number, resourceId: number, uid: string): string;
 
   function file_source_get_temp_file_to_save_url(fileSourceId: number, resourceId: number, uId: string): unknown;
 

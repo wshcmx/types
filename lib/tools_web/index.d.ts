@@ -14,7 +14,7 @@ declare namespace tools_web {
    */
   function doc_link(attributes: DocumentDocumentTopElem["attributes"]): string;
 
-  function get_object_link(objectName: string, objectId: number, objectTopElem: XmlTopElem, docId: number): unknown;
+  function get_object_link(objectName: string, objectId: number, objectTopElem: XmlTopElem, docId: number): string;
 
   /**
    * Получение текстового значения языкового параметра из curLngWeb.
@@ -35,7 +35,7 @@ declare namespace tools_web {
    * @param {number} sessionId - Id сессии.
    * @returns {number} Сумма Id объекта и Id сессии.
    */
-  function get_sum_sid(id: string, sessionId: number): unknown;
+  function get_sum_sid(id: string, sessionId: number): number;
 
   function check_sum_sid(id: string, sum: string, sessionId: number): unknown;
 
@@ -55,21 +55,21 @@ declare namespace tools_web {
 
   function get_cur_lng_name(text: string, shortId: string): string;
 
-  function check_access(source: unknown, personDocId: number, personDoc: CollaboratorDocument, session: Session): unknown;
+  function check_access(source: unknown, personDocId: number, personDoc: CollaboratorDocument, session: Session): boolean;
 
-  function get_web_param(listParamsTarget: unknown, paramName: string, defaultValue: string, emptyFlag: boolean, overrIdeWebTemplateId: string): unknown;
+  function get_web_param(listParamsTarget: unknown, paramName: string, defaultValue: string, emptyFlag: boolean, overrideWebTemplateId: string): unknown;
 
-  function set_web_params(listParamsTarget: unknown, listWvars: unknown, rewriteFlag: boolean, overrIdeWebTemplateId: number): unknown;
+  function set_web_params(listParamsTarget: unknown, listWvars: unknown, rewriteFlag: boolean, overrideWebTemplateId: number): unknown;
 
   function write_custom_web_template(customWebTemplate: Object): unknown;
 
-  function get_override_web_template(overrIdeWebTemplateId: number, session: Session, curUserId: number, curUser: CurUser, curAnonymousAccess: unknown, activeWebTemplateTopElem: XmlTopElem, adding: boolean): unknown;
+  function get_override_web_template(overrideWebTemplateId: number, session: Session, curUserId: number, curUser: CurUser, curAnonymousAccess: unknown, activeWebTemplateTopElem: XmlTopElem, adding: boolean): unknown;
 
   function get_override_web_templates(session: Session, zone: Object, curActiveWebTemplate: unknown, addWebTemplate: boolean, envObj: Object): unknown;
 
   function place_zone(zone: string, createFCache: boolean, lPEPreview: boolean): unknown;
 
-  function place_override_web_template(overrIdeWebTemplateId: number, insertCustomCodeParams: Object): unknown;
+  function place_override_web_template(overrideWebTemplateId: number, insertCustomCodeParams: Object): unknown;
 
   function get_operation_script(oPERATIONId: number, sSCRIPTTYPE: unknown, oPARAMS: unknown): unknown;
 
@@ -157,7 +157,7 @@ declare namespace tools_web {
    * @param {unknown} o - Параметр.
    * @returns {boolean} Значение аргумента в булевом представлении.
    */
-  function is_true(o: unknown): unknown;
+  function is_true(o: unknown): boolean;
 
   function init_cur_active_web_template(env: unknown, create: boolean): unknown;
 
@@ -180,7 +180,7 @@ declare namespace tools_web {
    * @param {unknown} params - Параметры для определения хоста/сессии/etc.
    * @returns {string} Url.
    */
-  function get_object_source_url(catalogType: string, objectId: number, params: Object): unknown;
+  function get_object_source_url(catalogType: string, objectId: number, params: Object): string;
 
   function GetTalentPoolObjectsList(personId: number, addFuncSubordinates: boolean, hIdeDissmissed: boolean, vBossType: unknown, careerReserveType: number): unknown;
 
@@ -199,19 +199,19 @@ declare namespace tools_web {
   /**
    * Создание кэша по коду.
    * @param {string} conditions - Код кэша.
-   * @param {T} value - Payload.
+   * @param {unknown} value - Payload.
    * @param {number} duration - Время жизни кэша.
    * @param {string} listName - Данные.
    * @returns {unknown} -
    */
-  function set_user_data<T>(conditions: Object, value: T, duration: number, listName: string): unknown;
+  function set_user_data(conditions: Object, value: unknown, duration: number, listName: string): unknown;
 
   /**
    * Получение кэша по коду.
    * @param {string} conditions - Код кэша.
-   * @returns {string | null} Значение кэша.
+   * @returns {T | null} Значение кэша.
    */
-  function get_user_data(conditions: Object): string | null;
+  function get_user_data<T>(conditions: Object): T | null;
 
   function remove_user_data(key: string, listName: string): unknown;
 
@@ -254,7 +254,7 @@ declare namespace tools_web {
    * @param {string} url - Url файла.
    * @returns {string} Content-Type значение.
    */
-  function url_std_content_type(url: string): unknown;
+  function url_std_content_type(url: string): string;
 
   /**
    * Возвращает DOTNETCORE-VFS=='1' из AppConfig.
@@ -266,9 +266,8 @@ declare namespace tools_web {
    * Отправка файла в response stream.
    * @param {string} url - Url файла.
    * @param {Request} request - Объект запроса Request.
-   * @returns {unknown} -
    */
-  function write_url_to_response(url: string, request: Object): unknown;
+  function write_url_to_response(url: string, request: Object): void;
 
   /**
    * Декоратор для простого шифрования функцией StrSimpleEncrypt({objectId}_{date}).
@@ -351,6 +350,7 @@ declare namespace tools_web {
   function html_decode(s: string): string;
 
   function html_to_imput_value(s: string): unknown;
+
   let content_types: XmlElem<ToolsWebContentTypes>;
 
   function get_app_ui(): unknown;
@@ -416,6 +416,7 @@ declare namespace tools_web {
   function access_exists(fldAccess: unknown): unknown;
 
   function str_period_date(dt: unknown, curLngWeb: unknown): unknown;
+
   let web_rules_obj: XmlElem<unknown | null>;
 
   function get_enabled_web_rules(): unknown;
