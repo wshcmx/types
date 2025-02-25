@@ -27,7 +27,7 @@ authorizationLibrary.GetValidateADALWithTokenAttributes(
 const cryptoPro = tools.get_object_assembly("CryptoPro");
 cryptoPro.CloseStore();
 
-tools.current_user_boss_type;
+alert(tools.current_user_boss_type);
 
 const careerReserveDocument = tools.new_doc_by_name<CareerReserveDocument>("career_reserve");
 

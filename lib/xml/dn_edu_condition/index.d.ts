@@ -1,3 +1,11 @@
+interface DnEduConditionDocumentView {
+  /**
+   * @temp
+   * @default common
+   */
+  selector: XmlElem<string>;
+}
+
 type DnEduConditionDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   Doc: DnEduConditionDocument;
@@ -9,6 +17,8 @@ AdminAccessBase & {
   comment: XmlElem<string | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnEduConditionDocumentView | null>;
 };
 
 type DnEduConditionDocument = XmlDocument & {

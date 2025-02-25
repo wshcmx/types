@@ -6,6 +6,11 @@ interface DnControlEventDocumentParticipant {
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
 }
 
+interface DnControlEventDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnControlEventDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -16,6 +21,7 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Дата */
   date_event: XmlElem<Date | null>;
+  /** @default plan */
   status_id: XmlElem<string | null, typeof common.lesson_states>;
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
@@ -34,6 +40,8 @@ CustomElemsBase & {
   participants: XmlMultiElem<DnControlEventDocumentParticipant | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnControlEventDocumentView | null>;
 };
 
 type DnControlEventDocument = XmlDocument & {

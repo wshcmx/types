@@ -2,6 +2,11 @@ interface DnDisciplineDocumentDiscBlock {
   block_id: XmlElem<number | null, DnDisciplineBlockCatalogDocumentTopElem>;
 }
 
+interface DnDisciplineDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnDisciplineDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -19,6 +24,8 @@ CustomElemsBase & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnDisciplineDocumentView | null>;
 };
 
 type DnDisciplineDocument = XmlDocument & {

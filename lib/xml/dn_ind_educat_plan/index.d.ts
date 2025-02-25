@@ -14,6 +14,11 @@ interface DnIndEducatPlanDocumentContrlTermEvent {
   mark_max: XmlElem<number | null>;
 }
 
+interface DnIndEducatPlanDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnIndEducatPlanDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -33,6 +38,8 @@ CustomElemsBase & {
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
   contrl_term_events: XmlMultiElem<DnIndEducatPlanDocumentContrlTermEvent | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnIndEducatPlanDocumentView | null>;
 };
 
 type DnIndEducatPlanDocument = XmlDocument & {

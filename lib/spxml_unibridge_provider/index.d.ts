@@ -518,9 +518,3 @@ declare class SPXMLUnibridgeProvider {
   GetDataCache(distributed: boolean): unknown; // IDataCache
   Dispose(): void;
 }
-
-declare type SPXMLUnibridgeTool = XmlElem<{
-  Object: {
-    provider: SPXMLUnibridgeProvider;
-  }
-}>;

@@ -2,6 +2,11 @@ interface DnAuditoriumDocumentObjectResource {
   object_resource_id: XmlElem<number | null, ObjectResourceCatalogDocumentTopElem>;
 }
 
+interface DnAuditoriumDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnAuditoriumDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -17,6 +22,8 @@ CustomElemsBase & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnAuditoriumDocumentView | null>;
 };
 
 type DnAuditoriumDocument = XmlDocument & {

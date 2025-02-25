@@ -1,3 +1,8 @@
+interface DnAcademDebtDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnAcademDebtDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -7,7 +12,10 @@ CustomElemsBase & {
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default active
+   */
   state_id: XmlElem<string | null, typeof common.academ_debt_states>;
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
   /** Учебная группа */
@@ -19,6 +27,8 @@ CustomElemsBase & {
   liquid_date: XmlElem<Date | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnAcademDebtDocumentView | null>;
 };
 
 type DnAcademDebtDocument = XmlDocument & {

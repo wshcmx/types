@@ -32,6 +32,8 @@ CustomElemsBase & {
   access: XmlElem<AccessDocBase | null>;
   /** Тело статьи */
   text_area: XmlElem<string | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
   load_file(tData: unknown, source: unknown, needInstall: unknown): number | undefined;
 };
 

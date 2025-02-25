@@ -935,9 +935,9 @@ type EventDocument = XmlDocument & {
   TopElem: EventDocumentTopElem;
   event: EventDocumentTopElem;
   OnBeforeSave(): void;
-  OnSave(): unknown;
-  OnInit(): unknown;
+  OnSave(): void;
+  OnInit(): void;
   OnClientSave(): unknown;
-  OnLocalInit(): unknown;
+  OnLocalInit(): void;
   DocDesc(): string;
 };

@@ -162,7 +162,7 @@ AdminAccessBase & {
   /** @temp */
   view: XmlElem<CompoundProgramDocumentView | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   activate_program_to_person(input: unknown): { error: number, errorText: string; result: { id: number, error: number, text: string }[] };
 };
 

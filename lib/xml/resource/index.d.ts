@@ -178,13 +178,13 @@ GameBonusBase & {
   /** @temp */
   view: XmlElem<ResourceDocumentView | null>;
   save_data(): unknown;
-  get_temp_data(url: unknown): unknown;
-  get_data(url: unknown): unknown;
+  get_temp_data(url: string): unknown;
+  get_data(url: string): unknown;
   get_data_add(id: string, url: string): unknown;
-  download(request: unknown, response: unknown): unknown;
-  download_add(id: string, request: unknown, response: unknown): unknown;
+  download(request: Object, response: Object): unknown;
+  download_add(id: string, request: Object, response: Object): unknown;
   check_resource_double(fileName: string, size: number): unknown;
-  put_data(url: unknown, source: unknown, filename: unknown): unknown;
+  put_data(url: string, source: unknown, filename: unknown): unknown;
   put_data_add(url: string, code: string): unknown;
   del_data_add(id: string): unknown;
   put_str(data: string, filename: unknown, source: unknown): unknown;

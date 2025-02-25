@@ -13,6 +13,7 @@ interface DnLessonDocumentStudWork {
 
 interface DnLessonDocumentRegistrStudent {
   stud_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
+  /** @default false */
   is_presence: XmlElem<boolean | null>;
   mark: XmlElem<number | null>;
   lector_comment: XmlElem<string | null>;
@@ -20,6 +21,11 @@ interface DnLessonDocumentRegistrStudent {
 
 interface DnLessonDocumentStudent {
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
+}
+
+interface DnLessonDocumentView extends DescBase {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
 }
 
 type DnLessonDocumentTopElem = XmlTopElem &
@@ -35,7 +41,10 @@ CustomElemsBase & {
   discipline_id: XmlElem<number | null, DnDisciplineCatalogDocumentTopElem>;
   /** Дата */
   lesson_date: XmlElem<Date | null>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.lesson_states>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
@@ -50,6 +59,8 @@ CustomElemsBase & {
   students: XmlMultiElem<DnLessonDocumentStudent | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnLessonDocumentView | null>;
 };
 
 type DnLessonDocument = XmlDocument & {

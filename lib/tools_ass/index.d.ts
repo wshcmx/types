@@ -1,5 +1,5 @@
 declare namespace tools_ass {
-  function assessment_person_filling(source: unknown, personId: number, person: unknown): unknown;
+  function assessment_person_filling(source: unknown, personId: number, person: CollaboratorDocument): unknown;
   function is_dismissed_by_id(personId: number): unknown;
   function pick_experts(aSSESSMENTId: number, uSERPERSONId: number, pARTICIPANT: unknown, iSHUMAN: unknown, lOG: unknown, iSCLEAN: unknown, nOTDISMISSED: unknown): unknown;
   function strip_workflow_from_assessment(cURSTATUS: unknown, cURTYPE: unknown): unknown;
