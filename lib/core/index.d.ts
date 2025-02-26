@@ -16,7 +16,7 @@
  * В случае, если параметры метода не предусмотрены, указывается пустой массив ([]).
  * @returns {unknown} Result.
  */
-declare function CallObjectMethod<T, K>(object: Object | XmlDocument, method: string, params?: K): T;
+declare function CallObjectMethod<T, K>(object: Object | XmlDocument | XmlElem<unknown>, method: string, params?: K): T;
 
 /**
  * Функция работает аналогично функции {@link CallObjectMethod}, но с блокировкой доступа через переданный lock.
@@ -3596,9 +3596,9 @@ declare function IsCancelError<T>(e: T): boolean;
  * {@link EvalCodeUrl}, загружаемый js-файл не может содержать глобальных
  * переменных, а только функции.
  * @param {string} url - Url загружаемого документа с расширением XML или JS.
- * @returns {XmlDocument} XmlDocument.
+ * @returns {XmlElem<unknown>} XmlDocument.
  */
-declare function OpenCodeLib<T = XmlDocument>(url: string): T;
+declare function OpenCodeLib<T = XmlElem<unknown>>(url: string): T;
 
 //#endregion
 
