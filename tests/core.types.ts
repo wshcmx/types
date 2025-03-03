@@ -209,3 +209,15 @@ if (doc !== undefined) {
   EvalCodePage("\"Here executable code\"", "", "Doc", doc, []);
   EvalCodePage("\"Here executable code\"", "", "ScreenItem", ScreenItem, []);
 }
+
+const smtpClient1 = SmtpClient();
+smtpClient1.UseTLSPort = true;
+smtpClient1.UseTLS = true;
+
+const smtpClient2 = new SmtpClient();
+smtpClient2.UseTLSPort = true;
+smtpClient2.UseTLS = true;
+
+const smtpClient3 = new SmtpClient;
+smtpClient3.UseTLSPort = true;
+smtpClient3.UseTLS = true;
