@@ -83,7 +83,7 @@ CustomElemsBase & {
   escalation: XmlElem<ChatbotChatDocumentEscalation | null>;
   last_message_id: XmlElem<string | null>;
   /** Данные последнего сообщения пользователя в блоке */
-  last_bm_message: XmlElem<unknown | null>;
+  last_bm_message: XmlElem<BmMessage | null>;
   last_message_xml: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
   calculate_escalation_date(stageTopElem: XmlTopElem): unknown;

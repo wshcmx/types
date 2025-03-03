@@ -16,7 +16,7 @@ declare namespace tools_i18n {
     code: string;
     load_path: unknown[];
   };
-  function get_const_key(locale: string, code: string, constant: string): unknown;
+  function get_const_key(locale: string, code: string, param: string): unknown;
   function get_locale_cache_field(fieldName: string): unknown;
   function put_locale_cache_field(fieldName: string, fieldValue: string): unknown;
   function get_const_ids_from_func_text(sourceCode: string): unknown;

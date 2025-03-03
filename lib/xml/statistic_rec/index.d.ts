@@ -120,8 +120,8 @@ I18nBase & {
   /** @temp */
   converter: XmlElem<boolean | null>;
   calculate_on_server(objectId: number): unknown;
-  calculate(object: unknown, from: Date, to: Date, period: string, option: unknown): unknown;
-  calculate_context(objectTopElem: unknown, env: unknown, configuration: string): unknown;
+  calculate(object: unknown, from: Date, to: Date, period: string, option: Object): unknown;
+  calculate_context(objectTopElem: XmlTopElem, env: unknown, configuration: string): unknown;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };

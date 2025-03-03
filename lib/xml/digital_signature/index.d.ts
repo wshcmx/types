@@ -18,7 +18,10 @@ CustomElemsBase & {
   create_date: XmlElem<Date | null>;
   /** Дата подписания */
   sign_date: XmlElem<Date | null>;
-  /** Подписана */
+  /**
+   * Подписана
+   * @default false
+   */
   is_signed: XmlElem<boolean>;
   /** Шаблон */
   custom_web_template_id: XmlElem<number | null, CustomWebTemplateCatalogDocumentTopElem>;
@@ -33,6 +36,8 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type DigitalSignatureDocument = XmlDocument & {

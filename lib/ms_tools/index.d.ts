@@ -2,7 +2,7 @@ declare namespace ms_tools {
   function get_url_from_catalog(catalogName: string, id: number): unknown;
   function view_open_doc(catalogName: string, id: number, topElem: unknown): unknown;
   function view_delete_doc(catalogName: unknown): unknown;
-  function raise_system_event(code: unknown, systemEventId: number, objectDocId: number, objectDoc: unknown): unknown;
+  function raise_system_event(code: unknown, systemEventId: number, objectDocId: number, objectDoc: XmlDocument): unknown;
   function raise_system_event_env(systemEventId: number | string, params: Object): unknown;
   let notes_var: XmlElem<unknown | null>;
   function notes_verify_password(clearPassword: unknown, hashPassword: unknown): unknown;

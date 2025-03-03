@@ -4,6 +4,17 @@ interface DnRegisterDocumentStudentMark {
   mark_name: XmlElem<string | null>;
 }
 
+interface DnRegisterDocumentViewStudentMark {
+  stud_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
+}
+
+interface DnRegisterDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+  /** @temp */
+  student_marks: XmlMultiElem<DnRegisterDocumentViewStudentMark | null>;
+}
+
 type DnRegisterDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -11,7 +22,10 @@ CustomElemsBase & {
   /** Код */
   code: XmlElem<string | null>;
   control_event_id: XmlElem<number | null, DnControlEventCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default ordinary
+   */
   type_id: XmlElem<string, typeof common.registr_types>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
@@ -27,6 +41,8 @@ CustomElemsBase & {
   student_marks: XmlMultiElem<DnRegisterDocumentStudentMark | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnRegisterDocumentView | null>;
 };
 
 type DnRegisterDocument = XmlDocument & {

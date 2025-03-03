@@ -1,18 +1,34 @@
 type ItemCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
-  id: XmlElem<number>;
-  code: XmlElem<string>;
-  name: XmlElem<string>;
-  type_id: XmlElem<string, typeof common.item_types>;
+  id: XmlElem<number | null>;
+  /** Код */
+  code: XmlElem<string | null>;
+  /** Название */
+  name: XmlElem<string | null>;
+  /** Тип */
+  type_id: XmlElem<string | null, typeof common.item_types>;
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.tutor_status_types>;
-  title: XmlElem<string>;
-  question_text: XmlElem<string>;
-  question_points: XmlElem<number>;
-  role_id: XmlMultiElemObject<number>;
-  modification_date: XmlElem<Date>;
-  app_instance_id: XmlElem<string>;
-  knowledge_parts: XmlElem<string>;
-  tags: XmlElem<string>;
-  experts: XmlElem<string>;
-  OnBuild(): unknown;
+  /** Название */
+  title: XmlElem<string | null>;
+  /** Вопрос */
+  question_text: XmlElem<string | null>;
+  /** Баллы */
+  question_points: XmlElem<number | null>;
+  /** Категория */
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /** Дата модификации */
+  modification_date: XmlElem<Date | null>;
+  /** Код сервера */
+  app_instance_id: XmlElem<string | null>;
+  /** Значения карты знаний */
+  knowledge_parts: XmlElem<string | null>;
+  /** Тэги */
+  tags: XmlElem<string | null>;
+  /** Эксперты */
+  experts: XmlElem<string | null>;
+  OnBuild(): void;
 };
