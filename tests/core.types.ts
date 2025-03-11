@@ -221,3 +221,14 @@ smtpClient2.UseTLS = true;
 const smtpClient3 = new SmtpClient;
 smtpClient3.UseTLSPort = true;
 smtpClient3.UseTLS = true;
+
+
+let d: Date | undefined | null = OptDate("string");
+
+if (d === undefined) {
+  d = OptDate("string", null);
+}
+
+if (d === null) {
+  d = OptDate(2020, 1, 1, 12, 0);
+}
