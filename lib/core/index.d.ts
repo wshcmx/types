@@ -934,19 +934,71 @@ declare function TimeZone(date: Date): number | undefined;
  * OptDate("2019-04-20");
  * OptDate("2019-04-20T12:30");
  * OptDate("2019-04-20T12:30:00");
- * OptDate(2019, 04, 20);
- * OptDate(2019, 04, 20, 12, 30);
- * OptDate(2019, 04, 20, 12, 30, 0);
  * ```
  * @returns {Date} Дата.
  */
-declare function OptDate(date: string | Date | null | undefined | number | boolean): Date | undefined;
-declare function OptDate<T>(date: string | Date | null | undefined | number | boolean, defaultDate: T): Date | T;
-declare function OptDate(shortDateString: string): Date;
-declare function OptDate(longDateString: string): Date;
+declare function OptDate(date: unknown): Date | undefined;
+
+/**
+ * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
+ * Функция {@link OptDate} рекомендуется для использования,
+ * если необходимо проверить корректность даты (например 29 февраля),
+ * где обычная функция {@link Date} будет вести себя по-разному на десктопной и web-версиях.
+ * @param {Date} date - Дата.
+ * @param {T} defaultDate - Дата по умолчанию.
+ * @example
+ * ```
+ * OptDate("2019-04-20", CurDate);
+ * OptDate("2019-04-20T12:30", CurDate);
+ * OptDate("2019-04-20T12:30:00", CurDate);
+ * ```
+ * @returns {Date | T} Дата.
+ */
+declare function OptDate<T>(date: unknown, defaultDate: T): Date | T;
+
+/**
+ * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
+ * Функция {@link OptDate} рекомендуется для использования,
+ * если необходимо проверить корректность даты (например 29 февраля),
+ * где обычная функция {@link Date} будет вести себя по-разному на десктопной и web-версиях.
+ * @param {number} year - Год.
+ * @param {number} month - Месяц.
+ * @param {number} day - День.
+ * @example OptDate(2019, 04, 20, 12, 30, 0);
+ * @returns {Date | T} Дата.
+ */
 declare function OptDate(year: number, month: number, day: number): Date;
-declare function OptDate(year: number, month: number, day: number, hour: number, minute: number): Date;
-declare function OptDate(year: number, month: number, day: number, hour: number, minute: number, second: number): Date;
+
+/**
+ * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
+ * Функция {@link OptDate} рекомендуется для использования,
+ * если необходимо проверить корректность даты (например 29 февраля),
+ * где обычная функция {@link Date} будет вести себя по-разному на десктопной и web-версиях.
+ * @param {number} year - Год.
+ * @param {number} month - Месяц.
+ * @param {number} day - День.
+ * @param {number} hours - Часы.
+ * @param {number} minutes - Минуты.
+ * @example OptDate(2019, 04, 20, 12, 30);
+ * @returns {Date | T} Дата.
+ */
+declare function OptDate(year: number, month: number, day: number, hours: number, minutes: number): Date;
+
+/**
+ * Конструирует значение типа Date. Возвращает undefined в случае, если указаны недопустимые аргументы.
+ * Функция {@link OptDate} рекомендуется для использования,
+ * если необходимо проверить корректность даты (например 29 февраля),
+ * где обычная функция {@link Date} будет вести себя по-разному на десктопной и web-версиях.
+ * @param {number} year - Год.
+ * @param {number} month - Месяц.
+ * @param {number} day - День.
+ * @param {number} hours - Часы.
+ * @param {number} minutes - Минуты.
+ * @param {number} seconds - Секунды.
+ * @example OptDate(2019, 04, 20, 12, 30, 0);
+ * @returns {Date | T} Дата.
+ */
+declare function OptDate(year: number, month: number, day: number, hours: number, minutes: number, seconds: number): Date;
 
 /**
  * Возвращает разницу между 2-мя датами в секундах. Если первая дата меньше второй, разница будет отрицательным числом.
