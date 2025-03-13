@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/wshcmx/types#readme",
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.26.1",
     "eslint": "^9.22.0",
     "eslint-plugin-jsdoc": "^50.6.6",
     "typescript": "^5.8.2",
