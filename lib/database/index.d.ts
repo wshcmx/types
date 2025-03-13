@@ -52,7 +52,7 @@ interface Database {
     RunSql(cmd: string): unknown;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const Database: Database;
 
 declare const DefaultDb: Database;

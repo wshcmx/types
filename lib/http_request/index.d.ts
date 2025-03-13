@@ -218,5 +218,5 @@ interface Request {
   SetWrongAuth(options: string): void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const Request: Request;

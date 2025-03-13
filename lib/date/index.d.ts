@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface Date { }
 
 interface DateConstructor {
@@ -7,7 +7,7 @@ interface DateConstructor {
   (): Date;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare let Date: DateConstructor;
 /** Текущая дата системы время системы. */
 declare let CurDate: Date;

@@ -3705,7 +3705,6 @@ declare namespace tools {
    * 4 - электронно-цифровая подпись пустая.
    */
   type DigitalVerifyResult = {
-    // eslint-disable-next-line no-magic-numbers
     id: 0 | 1 | 2 | 3 | 4;
     strMessage: string;
   };

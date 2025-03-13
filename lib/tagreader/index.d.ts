@@ -1,4 +1,3 @@
-
 /**
  * Объект TagReader предназначен для последовательного чтения содержимого в формате HTML (реже - XML).
  * В каждый определенный момент `TagReader` указывает на некотрый текщий тэг, до которого дошло чтение.
@@ -207,5 +206,4 @@ interface TagReaderConstructor {
   (data: string): TagReader;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
 declare const TagReader: TagReaderConstructor;

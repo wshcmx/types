@@ -25,8 +25,7 @@ interface Array<T> {
   /**
    * Добавляет элементы в конец массива.
    * Добавляет элементы, начиная с текущей длинны length и возвращает новую, увеличенную длунну массива.
-   * @param {any} element - Аргумент который следует добавить в массив. Обязательный.
-   * @param {...args} аргументы - Которые следует добавить в массив. Необязательный.
+   * @param {unknown[]} args - Аргументы, которые следует добавить в массив.
    * @returns {number}
    */
   push(...args: T[]): number;
@@ -44,5 +43,5 @@ interface ArrayConstructor {
   (...arg: unknown[]): unknown[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+
 declare const Array: ArrayConstructor;

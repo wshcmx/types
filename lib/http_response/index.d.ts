@@ -132,5 +132,5 @@ interface Response {
   WriteBinary(data: XmlElem<string> | Binary): void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const Response: Response;

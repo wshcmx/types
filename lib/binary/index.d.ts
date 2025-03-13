@@ -32,7 +32,7 @@ interface Binary {
 
   /**
    * Добавляет в текущий бинарный объект данные из заданной строки.
-   * @param {string} str - Строка.
+   * @param {string} string - Строка.
    */
   AppendStr(string: string): undefined;
 
@@ -83,5 +83,5 @@ interface BinaryConstructor {
   (...arg: unknown[]): Binary;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+
 declare const Binary: BinaryConstructor;

@@ -1,7 +1,9 @@
-name: Check template
+name: PR Check
 
 on:
-  workflow_call:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   Check:
@@ -9,6 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Check version
+        run: |
+          localVersion=$(cat package.json | jq -r '.version')
+          masterVersion=$(git show origin/main:package.json | jq -r '.version')
+          [ "${localVersion}" = "`echo -e "${localVersion}\n${masterVersion}" | sort -V | head -n1`" ] && echo 'Package version should be upgraded' && exit 1 || exit 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -18,11 +26,5 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Lint
-        run: npm run lint
-
-      - name: Compiling lib folder
-        run: npm run tsc:lib
-
-      - name: Compiling tests folder
-        run: npm run tsc:tests
+      - name: Check
+        run: npm run check

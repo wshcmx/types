@@ -4,5 +4,5 @@ interface categorys extends Object {
   name: XmlElem<string>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const categorys: categorys;

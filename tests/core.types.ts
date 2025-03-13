@@ -170,7 +170,6 @@ if (DefaultDb.IsShared) {
   alert(document.TopElem.Name == "vacancy");
 }
 
-// eslint-disable-next-line no-new-object
 const object1 = new Object();
 const object2 = {};
 const object3 = Object();

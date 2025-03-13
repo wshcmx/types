@@ -333,11 +333,7 @@ interface XmlDocument {
   /**
    * Возвращает элемент документа с полным путем относительно документа.
    * @param {string} path - Путь к элементу (включая корневой элемент).
-   * @param {XmlElem}
-   * @example
-   * ```
-   * doc.SubElem("person.view.last_state_id")
-   * ```
+   * @example doc.SubElem("person.view.last_state_id")
    */
   SubElem<T extends XmlElem<unknown>>(path: string): T;
 
@@ -346,7 +342,6 @@ interface XmlDocument {
    * Если аргумент совпадает с именем дочернего элемента, выдается дочерний элемент.
    * Редко используемая функция.
    * @param {string} elemName - Имя элемента.
-   * @param {XmlElem}
    */
   TopOrChildElem<T extends XmlElem<unknown>>(elemName: string): T;
 

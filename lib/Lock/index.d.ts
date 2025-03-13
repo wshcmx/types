@@ -18,5 +18,5 @@ interface LockConstructor {
   (): unknown;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const Lock: LockConstructor;
