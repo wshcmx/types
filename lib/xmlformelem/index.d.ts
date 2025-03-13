@@ -222,7 +222,7 @@ interface XmlFormElem {
    * Проверяет, существует ли дочерний элемент с заданым именем.
    * @param {string} name - Имя элемента.
    */
-  ChildExists(): boolean;
+  ChildExists(name: string): boolean;
 
   /**
    * Создает клон текущего элемента формы и возвращает ссылку на него.

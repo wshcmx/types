@@ -62,5 +62,5 @@ type ListItem = {
   MoveSel(delta: number): unknown;
 };
 
-/* eslint-disable @typescript-eslint/no-redeclare */
+ 
 declare const ListItem: ListItem;

@@ -16,5 +16,5 @@ type ScreenItem = {
     Type: unknown;
 };
 
-/* eslint-disable @typescript-eslint/no-redeclare */
+ 
 declare const ScreenItem: ScreenItem;

@@ -32,7 +32,6 @@ type Pick<T, K extends keyof T> = {
  * Construct a type with a set of properties K of type T.
  */
 type Record<K extends keyof any, T> = {
-  // eslint-disable-next-line no-unused-vars
   [P in K]: T;
 };
 
@@ -59,5 +58,4 @@ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => i
 /**
  * Obtain the return type of a constructor function type.
  */
-// eslint-disable-next-line max-len
 type InstanceType<T extends abstract new (...args: any) => any> = T extends abstract new (...args: any) => infer R ? R : any;

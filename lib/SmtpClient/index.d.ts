@@ -57,5 +57,5 @@ interface SmtpClientConstructor {
     (): SmtpClient;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const SmtpClient: SmtpClientConstructor;

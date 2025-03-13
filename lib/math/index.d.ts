@@ -24,5 +24,5 @@ interface Math {
   abs(number: number): number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const Math: Math;
