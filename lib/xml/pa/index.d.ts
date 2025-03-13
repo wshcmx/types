@@ -306,9 +306,9 @@ FileListBase & {
   /** Название */
   name(): string;
   /** Сотрудник */
-  person_id: XmlElem<PaDocumentPersonId | null, CollaboratorCatalogDocumentTopElem>;
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & PaDocumentPersonId;
   /** Оценивающий */
-  expert_person_id: XmlElem<PaDocumentExpertPersonId | null, CollaboratorCatalogDocumentTopElem>;
+  expert_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & PaDocumentExpertPersonId;
   /** Ограничить оценивающих по группе */
   restrict_by_group: XmlElem<number | null, GroupCatalogDocumentTopElem>;
   /** Подразделение */

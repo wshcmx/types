@@ -3426,8 +3426,9 @@ declare function OpenCodeLibrary<T>(url: string): T;
  * @param {string} codeStr - Строка, содержащая выполняемый код.
  * @param {unknown[]} envObjects - Стандартный массив, содержащий список дополнительных объектов, видимых (по аналогии с with {}) в окружении.
  * @see {@link ExtEval}
+ * @returns {unknown} - Результат.
  */
-declare function SafeEval(codeStr: string, envObjects: unknown[]): void;
+declare function SafeEval(codeStr: string, envObjects: unknown[]): unknown;
 
 /**
  * Кодирует аргумент как константу JScript. Используется для генерации выражений.
