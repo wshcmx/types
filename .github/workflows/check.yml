@@ -1,4 +1,4 @@
-name: Check template
+name: PR Check
 
 on:
   pull_request:
