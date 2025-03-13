@@ -20,7 +20,6 @@ const doc = tools.new_doc_by_name<CollaboratorDocument>("collaborator");
 doc.BindToDb(DefaultDb);
 alert(doc.TempData);
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const xmlDocumentForTesting = tools.open_doc<CareerReserveDocument>(1)!;
 
 const arrayFunctionsNegativeTestStringValue = "testString";

@@ -6,10 +6,11 @@
     "lib": "lib"
   },
   "scripts": {
-    "lint": "eslint -c ./lib/eslint.config.js lib",
+    "check": "npm run lint:lib && npm run lint:tests && npm run tsc:lib && npm run tsc:tests",
+    "lint:lib": "eslint -c ./lib/eslint.config.js lib",
+    "lint:tests": "eslint -c ./tests/eslint.config.js tests",
     "tsc:lib": "tsc -p lib/tsconfig.json",
-    "tsc:tests": "tsc -p tests/tsconfig.json",
-    "check": "npm run lint && npm run tsc:lib && npm run tsc:tests"
+    "tsc:tests": "tsc -p tests/tsconfig.json"
   },
   "repository": {
     "type": "git",
