@@ -1,11 +1,12 @@
 {
   "name": "@wshcmx/types",
   "version": "11.0.0-beta13",
+  "type": "module",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "lint": "eslint -c ./lib/.eslintrc.json lib",
+    "lint": "eslint -c ./lib/eslint.config.js lib",
     "tsc:lib": "tsc -p lib/tsconfig.json",
     "tsc:tests": "tsc -p tests/tsconfig.json",
     "check": "npm run lint && npm run tsc:lib && npm run tsc:tests"
