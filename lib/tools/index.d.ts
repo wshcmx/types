@@ -2304,10 +2304,10 @@ declare namespace tools {
    * По сути возвращается первый руководитель из массива, полученного из функции
    * tools.get_uni_user_bosses.
    * @param {number | XmlTopElem} objectParam - Либо Id объекта, либо Doc объекта, либо TopElem объекта, для которого идет поиск руководителей.
-   * @param {object} params -
+   * @param {object} [params] -
    * @returns {XmlDocument} Каталожная запись руководителя указанного объекта.
    */
-  function get_uni_user_boss(objectParam: number | XmlTopElem, params: Object): XmlDocument;
+  function get_uni_user_boss(objectParam: number | XmlTopElem, params?: Object): XmlDocument;
 
   /**
    * Вызов эскалации по документообороту.

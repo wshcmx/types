@@ -204,14 +204,14 @@ declare namespace tools_web {
    * @param {string} listName - Данные.
    * @returns {unknown} -
    */
-  function set_user_data(conditions: Object, value: unknown, duration: number, listName: string): unknown;
+  function set_user_data(conditions: string, value: unknown, duration: number, listName?: string): unknown;
 
   /**
    * Получение кэша по коду.
    * @param {string} conditions - Код кэша.
    * @returns {T | null} Значение кэша.
    */
-  function get_user_data<T>(conditions: Object): T | null;
+  function get_user_data<T>(conditions: string): T | null;
 
   function remove_user_data(key: string, listName: string): unknown;
 
