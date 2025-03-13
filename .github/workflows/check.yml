@@ -1,7 +1,9 @@
 name: Check template
 
 on:
-  workflow_call:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   Check:
