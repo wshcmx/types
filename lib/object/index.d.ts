@@ -15,9 +15,10 @@ interface Object {
 
   /**
    * Выдает true, если атрубут с заданным наименованием существует, и false - если не существует.
-   *
-   * Смотри также {@link GetOptProperty}, {@link GetOptProperty} и {@link SetProperty}.
    * @param key - Наименование атрибута объекта.
+   * @see {@link GetOptProperty}
+   * @see {@link GetOptProperty}
+   * @see {@link SetProperty}.
    */
   HasProperty(key: string | number): boolean;
 
@@ -31,29 +32,21 @@ interface Object {
   /**
    * Возвращает значение атрибута объекта. Если атрубут отсутствует, выдает undefined.
    * @param {string} key - Наименование атрибута объекта.
-   * @param {unknown} [defaultValue=undefined] - Значение по умолчанию, возращаемое в случае отсутствия атрибута.
+   * @param {unknown} [defaultValue] - Значение по умолчанию, возращаемое в случае отсутствия атрибута.
    */
-  GetOptProperty<O, K extends string>(
-    this: O,
-    key: K
-  ): K extends keyof O ? O[K] : undefined;
-
-  GetOptProperty<O, K extends string, D>(
+  GetOptProperty<O, K extends string, D = undefined>(
     this: O,
     key: K,
-    defaultValue: D
+    defaultValue?: D
   ): K extends keyof O ? O[K] : D;
 
   /**
    * Выдает значение атрибута объекта. Если атрибут отсутствует, выдает ошибку.
-   *
-   * Смотри также {@link GetOptProperty}() и {@link SetProperty}().
    * @param {string} key - Наименование атрибута объекта.
-   * @example
-   * ```
-   * AppConfig.GetProperty("alt-app-name");
-   * ```
+   * @example AppConfig.GetProperty("alt-app-name");
    * @throws {Error}
+   * @see {@link GetOptProperty}
+   * @see {@link SetProperty}
    */
   GetProperty<O, K extends string>(
     this: O,
@@ -63,10 +56,10 @@ interface Object {
   /**
    * Устанавливает значение атрибута объекта.
    * Если атрубут отсутствует, добавляет его.
-   *
-   * Смотри также {@link GetOptProperty}() и {@link GetProperty}().
    * @param key - Наименование атрибута объекта.
    * @param value - Значение атрибута объекта.
+   * @see {@link GetOptProperty}
+   * @see {@link SetProperty}
    */
   SetProperty<T>(key: string | number, value: T): void;
 }

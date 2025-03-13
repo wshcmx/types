@@ -12,5 +12,8 @@
   "plugins": [
     "@typescript-eslint",
     "jsdoc"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-wrapper-object-types": "off"
+  }
 }
