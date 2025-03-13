@@ -2,7 +2,7 @@
 <div align="center">
   Typescript типы для WebSoft HCM.
 
-  [![main](https://github.com/wshcmx/types/actions/workflows/main.check.yml/badge.svg)](https://github.com/wshcmx/types/actions/workflows/main.check.yml)
+  [![main](https://github.com/wshcmx/types/actions/workflows/check.yml/badge.svg)](https://github.com/wshcmx/types/actions/workflows/check.yml)
   ![npm](https://img.shields.io/npm/dw/@wshcmx/types)
 </div>
 
