@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es6",
+    "target": "ES5",
+    "module": "Preserve",
     "esModuleInterop": true,
     "strict": false,
     "noImplicitAny": true,
