@@ -59,3 +59,8 @@ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => i
  * Obtain the return type of a constructor function type.
  */
 type InstanceType<T extends abstract new (...args: any) => any> = T extends abstract new (...args: any) => infer R ? R : any;
+
+/**
+ * Obtain the parameters of a function type in a tuple
+ */
+type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;
