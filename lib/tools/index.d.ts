@@ -52,8 +52,8 @@ declare namespace tools {
    * @param {ForumDocument} [forumDocument] - Необязательный, если задан parentForumId – Doc записи форума,
    * родителя которого нужно обновить.
    * @param {number} [forumId] - Необязательный – Id форума, к которому нужно привязать элементы.
-   * @param {number|""|null} [parentForumId] - Необязательный, если задан doc – Id родительской записи форума.
-   * @returns {number|null} Целое число (int), количество дочерних элементов вниз по иерархии
+   * @param {number | "" | null} [parentForumId] - Необязательный, если задан doc – Id родительской записи форума.
+   * @returns {number | null} Целое число (int), количество дочерних элементов вниз по иерархии
    * в документе определяемом parentForumId.
    * @example
    * ```
@@ -237,7 +237,7 @@ declare namespace tools {
    * @param {number} exchangeServerId - Id сервера обмена данным, из которого берутся параметры
    * для фильтрации данных из пакета.
    * @param {number} downloadPackageId - Id пакета, из которого нужно загрузить данные.
-   * @returns {boolean} Успешная или не успешная загрузка данных (bool).
+   * @returns {boolean} Успешная или не успешная загрузка данных.
    * В случае типа объектов objects и std_objects.
    * Возвращается форма открытого документа пакета.
    * @example
@@ -295,7 +295,7 @@ declare namespace tools {
   /**
    * Функция назначения теста пользователю.
    * @param {ActivateCourseToPersonObject} params - Объект JavaScript (Структура параметров).
-   * @returns {XmlElem<number>|null|XmlDocument} Объект XMLDoc или Целое число.
+   * @returns {XmlElem<number> | null | XmlDocument} Объект XMLDoc или Целое число.
    * Если тест назначен при выполнении функции, то возвращается ссылка на вновь созданный документ обучения.
    * Если тест был назначен ранее, но не завершен, или завершен,
    * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
@@ -318,7 +318,7 @@ declare namespace tools {
    * @param {number} educationPlanId - Id плана обучения.
    * @param {boolean} skipDismissed - Аргумент, указывающий на необходимость пропускать уволенных сотрудников.
    * (true – пропускать, false – не пропускать). По умолчанию true.
-   * @returns {XmlElem<number>|null|XmlDocument} Объект XMLDoc или Целое число.
+   * @returns {XmlElem<number> | null | XmlDocument} Объект XMLDoc или Целое число.
    * Если тест назначен при выполнении функции, то возвращается ссылка на вновь созданный документ обучения.
    * Если тест был назначен ранее, но не завершен, или завершен,
    * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
@@ -448,7 +448,7 @@ declare namespace tools {
    * @param {number} orgId - Id организации.
    * @param {number} amount - Сумма списания.
    * @param {string} [comment] - Комментарий к транзакции.
-   * @returns {number|null} Id транзакции или null.
+   * @returns {number | null} Id транзакции или null.
    */
   function pay_courses(orgId: number, amount: number, comment?: string): number | null;
 
@@ -1532,7 +1532,7 @@ declare namespace tools {
    * Если аргумент указан, то ссылка на заявку сохранится в результате мероприятия сотрудника.
    * @param {boolean} guestLogin - .
    * @param {boolean} doObtain - .
-   * @returns {EventDocument|null} Документ мероприятия, к которому добавлялся сотрудник
+   * @returns {EventDocument | null} Документ мероприятия, к которому добавлялся сотрудник
    * (если сотрудник ранее не был добавлен в данное мероприятие),
    * или `null` (если сотрудник ранее уже был добавлен).
    * @example
@@ -1580,11 +1580,10 @@ declare namespace tools {
    * Обновляет структуру разделов активных электронных курсов.
    * @param {number} learningId - Id активного электронного курса структуру, которого нужно обновить.
    * @param {CourseDocumentTopElem} courseDocumentTopElem - TopElem электронного курса, структура которого обновляется.
-   * @param {ActiveLearningDocument} activeLearningDocument - Doc активного электронного курса структуру,
-   * которого нужно обновить.
-   * @returns {true} Всегда возвращается true.
+   * @param {ActiveLearningDocument} [activeLearningDocument] - Doc активного электронного курса структуру, которого нужно обновить.
+   * @returns {true} - Всегда возвращается true.
    */
-  function update_course_parts_structure(learningId: number, courseDocumentTopElem: CourseDocumentTopElem, activeLearningDocument: ActiveLearningDocument): true;
+  function update_course_parts_structure(learningId: number, courseDocumentTopElem: CourseDocumentTopElem, activeLearningDocument?: ActiveLearningDocument): true;
 
   /**
    * Возвращает массив Id сотрудников, состоящий из непосредственных подчиненных указанного сотрудника.
@@ -2025,7 +2024,7 @@ declare namespace tools {
    * @param {ActionReportDocument} [actionReportDocument] - Документ отчета.
    * @param {string} [lngShort] - Неизвестный параметр.
    * @param {boolean} [metaOnly] - Неизвестный параметр.
-   * @returns {TaskInfoBase|null} Документ сохраненного настраиваемого отчета.
+   * @returns {TaskInfoBase | null} Документ сохраненного настраиваемого отчета.
    * @example
    * ```
    * tools.build_report_remote (null, null, docCustomReport);
@@ -2226,7 +2225,7 @@ declare namespace tools {
    * передается в параметрах функции при назначении теста/курса сотруднику.
    * @param {boolean} givePoint - Начислять баллы квалификации (вкладка `Бонус`), `true`,
    * если присвоение происходит из контекстного меню интерфейса администратора.
-   * @returns {QualificationAssignmentDocument|null} Документ квалификации или null.
+   * @returns {QualificationAssignmentDocument | null} Документ квалификации или null.
    */
   function assign_qualification_to_person(personId: number, eventId: number | undefined | null, qualificationId: number, assignmentDate: Date | undefined | null, expirationDate: Date | undefined | null, testLearnings: number[] | undefined | null, learnings: number[] | undefined | null, sendMail: number, inProcess: number, assignTests: boolean, assignCourses: boolean, unconditionalAssignment: boolean, qualificationAssignmentDocument: QualificationAssignmentDocument | null, qualificationDocumentTopElem: QualificationDocumentTopElem | undefined | null, collaboratorDocumentTopElem: CollaboratorDocumentTopElem | null, givePoint: boolean): QualificationAssignmentDocument | null;
 
@@ -2242,7 +2241,7 @@ declare namespace tools {
 
   /**
    * Создает xms форму пользовательского интерфейса.
-   * @param {number|XmlTopElem} template - Id или TopElem объекта пользовательский интерфейс.
+   * @param {number | XmlTopElem} template - Id или TopElem объекта пользовательский интерфейс.
    * @returns {boolean} Флаг true – создание успешно завершено, false создание неуспешно.
    */
   function save_custom_ui_form(template: number | XmlTopElem): boolean;
@@ -2329,11 +2328,10 @@ declare namespace tools {
    * Если в должности сотрудника не найдены профили компетенции,
    * то берется профиль из типовой должности, привязанной к должности сотрудника
    * (если такая связь имеется).
-   * @param {number|object|XmlTopElem} objectParam - Id сотрудника, либо документ сотрудника,
-   * либо TopElem сотрудника.
+   * @param {number | object | XmlTopElem} objectParam - Id сотрудника, либо документ сотрудника, либо TopElem сотрудника.
    * @returns {number[]} Список каталожных записей из профилей компетенции, указанного сотрудника.
    */
-  function get_user_comp_profiles(objectParam: number | object| XmlTopElem): number[];
+  function get_user_comp_profiles(objectParam: number | object | XmlTopElem): number[];
 
   function get_object_data_from_package_url(urlPackage: string, objectId: number, objectType: string): {
     error: 0 | 1;
@@ -3168,7 +3166,7 @@ declare namespace tools {
   /**
    * Возвращает объект, составленный из списка полей указанного объекта-источника.
    * Список полей передаётся как аргумент функции.
-   * @param {object|XmlTopElem} fldSPXML - Ссылка на объект или его TopElem.
+   * @param {object | XmlTopElem} fldSPXML - Ссылка на объект или его TopElem.
    * @param {string} fieldList - Строка из названий полей объекта-источника,
    * которые нужно получить (названия полей в строке разделяются символом «точка с запятой» (;)).
    * @param {boolean} [noValidation=true] - Аргумент, определяющий необходимость выполнения проверки в списке полей,
@@ -3185,7 +3183,7 @@ declare namespace tools {
    * Если свойство Doc определено, то функция возвращает его значение.
    * В противном случае функция открывает объект по идентификатору Id и возвращает значение Doc открытого объекта.
    * @param {XmlTopElem} topElem - TopElem объекта.
-   * @returns {XmlDocument|null} Документ объекта или значение null.
+   * @returns {XmlDocument | null} Документ объекта или значение null.
    */
   function get_opened_doc(topElem: XmlTopElem): XmlDocument | null;
 
@@ -3200,12 +3198,12 @@ declare namespace tools {
    * @param {string} sResourcesDirPath - Путь до папки с ресурсами (изображения, стили и т.д.),
    * которые используются в html. При отсутствии таких ресурсов указывается пустая строка ('').
    * @param {string} sOutFilePath - Путь до файла, в который будет сохранен полученный файл pdf.
-   * @param {number} pageOrientation - .
+   * @param {0 | 1} pageOrientation - Ориентация листа. 0 - Вертикальная 1 - Горизонтальная
    * @returns {boolean} Возвращает значение `true`, если преобразование завершилось успешно,
    * или `false` - в противном случае.
    * @example tools.html_to_pdf(_str, "", UrlToFilePath(_filename)); // returns true
    */
-  function html_to_pdf(sHtmlText: string, sResourcesDirPath: string, sOutFilePath: string, pageOrientation: number): boolean;
+  function html_to_pdf(sHtmlText: string, sResourcesDirPath: string, sOutFilePath: string, pageOrientation: 0 | 1): boolean;
 
   /**
    * Устанавливает тип руководителя для участника проекта.
@@ -3244,7 +3242,7 @@ declare namespace tools {
 
   /**
    * Очищает данные статуса экземпляра товара.
-   * @param {number|string} goodInstance - Id экземпляра товара или документ экземпляра товара.
+   * @param {number | string} goodInstance - Id экземпляра товара или документ экземпляра товара.
    * @returns {boolean} Возвращает значение, показывающее,
    * выполнена ли функция успешно (true – функция выполнена успешно, false – функция не выполнена).
    */
@@ -3311,7 +3309,7 @@ declare namespace tools {
    * в поле event_type_id.
    * @param {XmlTopElem} target - TopElem для заполнения.
    * @param {string} eventTypeCode - Cтрока с кодом типа мероприятия.
-   * @returns {number|null} Если тип мероприятия с указным кодом не найден, то null, или id этого типа мероприятия.
+   * @returns {number | null} Если тип мероприятия с указным кодом не найден, то null, или id этого типа мероприятия.
    */
   function set_event_type_id(target: unknown, eventTypeCode: string): number | null;
 

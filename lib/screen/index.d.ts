@@ -31,9 +31,9 @@ declare namespace Screen {
   /**
    * Выдает стандартный диалог Windows с сообщением относительно текущего экрана.
    * @param {string} message - Текст сообщения.
-   * @param {string} subject - Текст заголовка.
-   * @param {string} type - Тип диалогового окна.
-   * @param {string} titles - Наименование кнопок диалогового окна.
+   * @param {string} [subject] - Текст заголовка.
+   * @param {"error" | "quesiton" | "info"} [type] - Тип диалогового окна.
+   * @param {string} [titles] - Наименование кнопок диалогового окна.
    * @returns {boolean} Результат.
    * @example
    * ```
@@ -43,6 +43,7 @@ declare namespace Screen {
    *   "question",
    *   "yes,no"
    * );
+   *
    * Screen.MsgBox(
    *   UiText.messages.changes_require_server_restart,
    *   UiText.messages.info_msg_title,
@@ -50,7 +51,7 @@ declare namespace Screen {
    * );
    * ```
    */
-  function MsgBox(message: string, subject: string, type: string, titles: string): boolean;
+  function MsgBox(message: string, subject?: string, type?: "error" | "quesiton" | "info", titles?: string): boolean;
 
   function Navigate(): void;
   function Print(): void;

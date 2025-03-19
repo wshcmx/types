@@ -2,7 +2,7 @@
  * Объект Response доступен на сервере xHttp.exe при вызове кода веб-страницы.
  * Обозначает ответ сервера к соответствующему HTTP-запросу к странице.
  * В современных приложениях объект Response использовать не рекомендуется,
- * поскольку он доступен только в ASP-коде страницы, но не доступен, например, в коде {@link OnWebRequest}().
+ * поскольку он доступен только в ASP-коде страницы, но не доступен, например, в коде {@link OnWebRequest}.
  * Вместо этого, рекомендуется использовать аналогичные методы объекта Request,
  * которые позже были перенесены из объекта Response.
  */
@@ -48,7 +48,7 @@ interface Response {
   WriteMode: string;
 
   /**
-   * Более старый эквивалент метода {@link AddRespHeader}() объекта Request.
+   * Более старый эквивалент метода {@link AddRespHeader} объекта Request.
    * Добавляет или заменяет поле заголовка HTTP-ответа.
    * Если заголовок уже был отправлен, метод возвращает ошибку.
    * @param {string} fieldName - Имя поля.
@@ -64,7 +64,7 @@ interface Response {
    * для заданной даты модификации файла. Если поле If-Modified-Since
    * присутствует в запросе и его значение меньше либо равно заданной дате,
    * метод возвращает ошибку HTTP 304 Not modified и завершается с
-   * исключением типа {@link Cancel}(), в противном случае метод не производит никаких действий.
+   * исключением типа {@link Cancel}, в противном случае метод не производит никаких действий.
    * Метод обычно используется для скриптов, возвращающих файлы,
    * хранящиеся вне файловой системы, например внутри базы данных приложения.
    * @param {Date} date - Дата последнего изменения файла.
@@ -79,7 +79,7 @@ interface Response {
   HandleStaticFile(filePath: string): void;
 
   /**
-   * Более старый эквивалент метода {@link Redirect}() объекта Request.
+   * Более старый эквивалент метода {@link Redirect} объекта Request.
    * Вызывает отправку статуса HTTP 302 "Object Moved" (перенаправление).
    * Если заголовок уже был отправлен, метод возвращает ошибку.
    * @param {string} redirectUrl - Url, на которое происходит перенаправление.
@@ -87,17 +87,17 @@ interface Response {
   Redirect(redirectUrl: string): void;
 
   /**
-   * Более старый эквивалент метода {@link SetRespStatus}() объекта {@link Request}.
+   * Более старый эквивалент метода {@link SetRespStatus} объекта {@link Request}.
    * Возвращает статус HTTP-ответа. Если заголовок уже был отправлен,
    * метод возвращает ошибку.
    * @param {number} statusCode - Трехзначный код статуса.
    * @param {string} statusDesc - Наименование статуса.
-   * Response.SetRespStatus( 500, 'Invalid server state' );.
+   * @example Response.SetRespStatus( 500, "Invalid server state");
    */
   SetRespStatus(statusCode: number, statusDesc: string): void;
 
   /**
-   * Более старый эквивалент метода {@link SetWrongAuth}() объекта {@link Request}.
+   * Более старый эквивалент метода {@link SetWrongAuth} объекта {@link Request}.
    * Используется для проверки авторизации внутри Web-страницы.
    * Вызывает отправку статуса HTTP 401 "Authorization required".
    * Код Web-страницы обычно вызывает данный метод, если Request.AuthLogin
@@ -114,7 +114,7 @@ interface Response {
    * либо немедленно отправляется в сеть в зависимости от значение атрибута {@link WriteMode}.
    * Именно в это метод транслируется конструкция вида <%=xxx%> в ASP-подобных страницах.
    * @param {T} payload - Строка с данными.
-   * @param {boolean} encode - Маскировать передаваемые данные по правилам HTML (Bool).
+   * @param {boolean} encode - Маскировать передаваемые данные по правилам HTML.
    * Необязательный атрибут, по умолчанию false.
    */
   Write<T>(payload: T, encode?: boolean): void;
@@ -123,14 +123,13 @@ interface Response {
    * Записывает содержимое бинарного объекта в тело HTTP-ответа.
    * Содержимое предварительно накапливается в буфере, либо немедленно
    * отправляется в сеть в зависимости от значение атрибута WriteMode.
-   * Данный метод используется редко по сравнению с методом {@link Write}(),
+   * Данный метод используется редко по сравнению с методом {@link Write},
    * особенно после того, как объекты XmlElem типа "string" и "binary"
    * стали вести себя одинаково.
-   * @param {string|Binary} data - Объект типа XmlElem типа "string" и "binary",
-   * либо объект типа Binary (Object).
+   * @param {string | Binary} data - Объект типа XmlElem типа "string" и "binary", либо объект типа Binary (Object).
    */
   WriteBinary(data: XmlElem<string> | Binary): void;
 }
 
- 
+
 declare const Response: Response;

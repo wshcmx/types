@@ -240,7 +240,7 @@ declare function StrHexInt(num: number): string;
  * @param {number} arg - Целочисленный аргумент.
  * @param {number} [digitsNum] - Минимальное число символов в строке.
  * Недостающие символы компенсируются нулями перед числом.
- * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами (Bool).
+ * @param {boolean} [addGroupDelim] - Разделять тысячные разряды пробелами.
  * @returns {string} Результат.
  * @example
  * ```
@@ -305,7 +305,7 @@ declare function StrRealFixed(arg: number, precision?: number, addGroupDelim?: b
  * Преобразует целое число в словесное строковое представление.
  * Только для русского языка.
  * @param {number} arg - Числовой аргумент.
- * @param {0|1} [gender] - Род (0 - мужской, 1] - женский).
+ * @param {0 | 1} [gender] - Род (0 - мужской, 1] - женский).
  * @returns {string} Результат.
  * @example
  * ```
@@ -1074,8 +1074,8 @@ declare function ParseDate(date: string): Date;
  * Преобразует дату в строку в формате, используемом по умолчанию в операционной системе.
  * Если в качестве аргумента передается null или пустая строка, функция возвращает пустую строку.
  * @param {Date} date - Объект даты.
- * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
- * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
+ * @param {boolean} [showTime] - Включать время. По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени. По умолчанию true.
  * @returns {string} Строка с датой.
  */
 declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
@@ -1113,8 +1113,8 @@ declare function StrMimeDate(Date: Date): string;
 /**
  * Преобразует дату в строку, с двухсимвольным форматом года.
  * @param {Date} date - Дата, которую преобразуется.
- * @param {boolean} [showTime] - Включать время (Bool). По умолчанию true.
- * @param {boolean} [showSeconds] - Включать секунды во времени (Bool). По умолчанию true.
+ * @param {boolean} [showTime] - Включать время. По умолчанию true.
+ * @param {boolean} [showSeconds] - Включать секунды во времени. По умолчанию true.
  * @returns {string} Строка с датой.
  */
 declare function StrShortDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
@@ -1137,8 +1137,8 @@ declare function StrTime(date: Date): string;
 /**
  * Преобразует дату в строку в формате, используемом в XML. Данный формат не зависит от региональных настроек в системе.
  * @param {Date} date - Объект даты.
- * @param {boolean} [showTime] - Включать время (Bool).
- * @param {boolean} [showSeconds] - Включать секунды во времени (Bool).
+ * @param {boolean} [showTime] - Включать время.
+ * @param {boolean} [showSeconds] - Включать секунды во времени.
  * @returns {string} Строка с датой.
  * @example
  * ```
@@ -1627,7 +1627,7 @@ declare function ArrayRange<T>(array: XmlMultiElem<T>, pos: number, elemsNum?: n
  * Выбирает элементы массива, удовлетворяющие заданному критерию.
  * @param {T[]} array - Массив.
  * @param {string} expression - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива. (Bool).
+ * Вычисляется относительно элемента массива..
  * @returns {T[]} Результат.
  */
 declare function ArraySelect<T>(array: T[], expression: string): T[];
@@ -1636,7 +1636,7 @@ declare function ArraySelect<T>(array: T[], expression: string): T[];
  * Выбирает элементы массива, удовлетворяющие заданному критерию.
  * @param {XmlMultiElem<T>} array - Массив.
  * @param {string} expression - Выражение, определяющее соответствие элемента массива критерию.
- * Вычисляется относительно элемента массива. (Bool).
+ * Вычисляется относительно элемента массива..
  * @returns {XmlElem<T>[]} Результат.
  */
 declare function ArraySelect<T>(array: XmlMultiElem<T>, expression: string): XmlElem<T>[];
@@ -2709,7 +2709,7 @@ declare function FindOptCatalog(catalogName: string): Object;
  * Опции открытия XML-документа используются в функциях OpenDoc(), OpenDocFromStr() и др.
  * Опции имеют вид "param1='value1';param2='value2';..."
  * * form - url формы, используемой при открытии (String). Форма, указанная в самом документе, будет игнорироваться
- * * ignore-top-elem-name - игнорировать имя корневого элемента (Bool). Позволяет использовать одну общую форму для документов  с разыми именами корневых элементов.
+ * * ignore-top-elem-name - игнорировать имя корневого элемента. Позволяет использовать одну общую форму для документов  с разыми именами корневых элементов.
  * * drop-namespaces - удалять названия пространсв имен в названиях элементов (Bool)
  * * ui-text - поддерживать загрузку документов с многоязычными данными, загружая данные с языком текущего пользоваетльского интерфейса
  * * format - формат встроенного конвертора для открытия данных в других форматах в виде Xml. Поддерживаются следующие форматы: "sv" (separated values), "win.ini", "excel", "smml".
@@ -2722,8 +2722,8 @@ type XMLOpenOptions = string;
 /**
  * Опции экспорта XML-документа используются в функциях SaveToUrl(), SaveToStream() и др.
  * Опции имеют вид "param1='value1';param2='value2';..."
- * * inline-ext-objects - включать объекты с внешним хранением в экспорт (Bool). Позволяет экспортировать в один файл полное содержимое документа, включая объекты внешнего хранения, например прикрепленные файлы.
- * * tabs - форматировать XML с использованеим символов табуляции и превода строк для удобсьва чтение человеком (Bool). Значение по умолчанию определяется глобальной настройкой в ini-файле приложения.
+ * * inline-ext-objects - включать объекты с внешним хранением в экспорт. Позволяет экспортировать в один файл полное содержимое документа, включая объекты внешнего хранения, например прикрепленные файлы.
+ * * tabs - форматировать XML с использованеим символов табуляции и превода строк для удобсьва чтение человеком. Значение по умолчанию определяется глобальной настройкой в ini-файле приложения.
  */
 type XMLExportOptions = string;
 
@@ -2845,7 +2845,7 @@ declare function UpdateUiDoc(doc: XmlDocument): undefined;
  * Возвращает url объектного документа по имени базы, типа объекта и Id документа.
  * @param {string} dbName - Наименование базы данных.
  * @param {string} objectType - Наименование типа объекта.
- * @param {string | number} objectID - Id документа (Integer или String).
+ * @param {string | number} objectID - Id документа.
  * @returns {string} Результат.
  * @example
  * ```
@@ -2946,8 +2946,8 @@ declare function CreateDynamicElem(name: string, type: string): XmlElem<unknown>
  * (режим терпимости к незаполненным и битым ссылкам).
  * @param {T} array - Массив объектов.
  * @param {K} value - Значение ключевого элемента.
- * @returns {XmlElem<unknown>}
- * GetForeignElem( event_types, 'interview' ).
+ * @returns {XmlElem<unknown>} - Результат.
+ * @example GetForeignElem(event_types, "interview");
  */
 declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
 
@@ -2958,7 +2958,7 @@ declare function GetForeignElem<T, K>(array: T, value: K): XmlElem<unknown>;
  * Действие функции несколько отличается от функции {@link ArrayOptFindByKey}
  * за счет поддержки рекурсивных массивов XML-элементов.
  * @param {T} array - Массив объектов.
- * @param {K} value - Значение ключевого элемента (any).
+ * @param {K} value - Значение ключевого элемента.
  * @returns {unknown} Результат.
  * @example GetOptForeignElem(event_types, "interview");
  */
@@ -2998,9 +2998,9 @@ declare function ExportElemsToStr(arg1: string): unknown[];
  * Загружает массив XML-элементов в строку.
  * Используется для передачи параметров в плагины и
  * другие внешние процедуры.
- * Смотри так же {@link LoadElemsFromStr}
  * @param {T} arg1 - Массив XML-элементов (array of objects).
  * @returns {string} Результат.
+ * @see {@link LoadElemsFromStr}
  */
 declare function declareElemsToStr<T>(arg1: T): string;
 
@@ -3104,7 +3104,7 @@ declare function ShowMailMessage(msg: MailMessage, methodId?: string): unknown;
  * Создает экран для заданного документа.
  * @param {XmlDocument} xmlDocument - Документ, который будет отображен на экране.
  * @param {string} xmsUrl - Url формы, при помощи которой документ будет открыт.
- * @example screen = CreateDocScreen(doc, "base1_csd.xms");
+ * @example var screen = CreateDocScreen(doc, "base1_csd.xms");
  * @returns {Screen} - Объект {@link Screen}.
  */
 declare function CreateDocScreen(xmlDocument: XmlDocument, xmsUrl: string): typeof Screen;
@@ -3465,11 +3465,20 @@ declare function InPlaceEval(code: string): undefined;
 /**
  * Интерпретирует содержимое страницы по правилам ASP.
  * @param {string} pageData - Строка, содержащая текст страницы.
- * @param {boolean} [raiseErrors] - Завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
+ * @param {boolean} [raiseErrors] - Завершать функцию с ошибкой, если таковая возникнет при обработке страницы.
  * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
  * @returns {string} Результат.
  */
 declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
+
+/**
+ * Интерпретирует содержимое страницы по правилам ASP.
+ * @param {string} pageData - Строка, содержащая текст страницы.
+ * @param {string} [options] - Строка, содержащая опции запуска в формате "name1=value1;name2=value2".
+ * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
+ * @returns {string} Результат.
+ */
+declare function EvalCodePage(pageData: string, options?: string): string;
 
 /**
  * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
@@ -3489,7 +3498,7 @@ declare function EvalCodePage(pageData: string, raiseErrors?: boolean): string;
  * В этом случае второй аргумент содержит не опции запуска, а единственную опцию strictErrors.
  * @returns {string} Результат.
  */
-declare function EvalCodePage(pageData: string, options: string, envType: "Global" | "Safe" | undefined, baseObject: undefined, extraEnv?: unknown[]): string;
+declare function EvalCodePage(pageData: string, options: string, envType?: "Global" | "Safe", baseObject?: undefined, extraEnv?: unknown[]): string;
 
 /**
  * Интерпретирует содержимое страницы со вставками кода по правилам ASP.
@@ -3536,7 +3545,7 @@ declare function EvalCodePage(pageData: string, options: string, envType: "Scree
  * @param {string} pageUrl - Url, содержащий текст активной страницы.
  * @param {string} [options] - Опции.
  * @returns {string} Результат.
- * Значение strict-errors - завершать функцию с ошибкой, если таковая возникнет при обработке страницы (Bool).
+ * Значение strict-errors - завершать функцию с ошибкой, если таковая возникнет при обработке страницы.
  * По умолчанию, в случае возникновения ошибки ее текст добавляется к результату, а функция возвращается без ошибки.
  */
 declare function EvalCodePageUrl(pageUrl: string, options?: string): string;
@@ -3844,7 +3853,7 @@ declare function DebugMsg<T>(value:T ): T;
 /**
  * Включает/выключает заданный журнал.
  * @param {string} name - Название журнала.
- * @param {boolean} [enable=true] - Включить/выключить (Bool).
+ * @param {boolean} [enable=true] - Включить/выключить.
  * @example EnableLog("xquery", true);
  */
 declare function EnableLog(name: string, enable?: boolean): undefined;
@@ -4488,9 +4497,13 @@ declare function UnifyPhones(str: string): string;
 
 /**
  * Экспериментальная функция.
+ * Очищает кэш от запроса {@link XQuery}.
+ * При отсутствии аргумента очищает кэш от всех запросов {@link XQuery}.
+ * Если функция вызывается с параметром (url документа), то из кеша будут удалены запросы, связанные с этим документом.
+ * @param {string} [url] - Url документа
  * @returns {unknown} -
  */
-declare function DropXQueryCache(): unknown;
+declare function DropXQueryCache(url?: string): unknown;
 
 //#endregion
 
@@ -4662,7 +4675,7 @@ declare function PutWordHtml(): unknown;
  * @param {unknown[]} keyValues - Массив значений.
  * @returns {unknown[]} - Массив записей.
  */
-declare function QueryCatalogByKeys(catalogName: string, keyName: string, keyValues: unknown[]): unknown[];
+declare function QueryCatalogByKeys<T>(catalogName: string, keyName: string, keyValues: string | unknown[]): T[];
 
 /**
  * Вызывает принудительную перестройку каталога основных объектных файлов.
