@@ -16,7 +16,8 @@
  * В случае, если параметры метода не предусмотрены, указывается пустой массив ([]).
  * @returns {unknown} Result.
  */
-declare function CallObjectMethod<T, K>(object: Object | XmlDocument | XmlElem<unknown>, method: string, params?: K): T;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare function CallObjectMethod<O, M extends keyof O = keyof O>(object: O, method: M, params?: O[M] extends (...args: any) => any ? Parameters<O[M]> : never): O[M] extends (...args: any) => any ? ReturnType<O[M]> : unknown;
 
 /**
  * Функция работает аналогично функции {@link CallObjectMethod}, но с блокировкой доступа через переданный lock.

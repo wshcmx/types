@@ -231,3 +231,23 @@ if (d === undefined) {
 if (d === null) {
   d = OptDate(2020, 1, 1, 12, 0);
 }
+
+type SumLibrary = {
+  sum(number1: number, number2: number): number;
+  sum_second(number1: number, number2: number): number;
+};
+
+type LogLibrary = {
+  information(message: string): void;
+};
+
+const library1 = OpenCodeLib<SumLibrary>("lib1");
+const library2 = OpenCodeLib<LogLibrary>("lib2");
+
+const result1 = CallObjectMethod(library1, "sum_second", [100, 200]);
+alert(result1);
+const result2 = CallObjectMethod(library2, "information");
+alert(result2);
+
+const result3 = CallObjectMethod(OpenCodeLib<LogLibrary>("lib2"), "information");
+alert(result3);
