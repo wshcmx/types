@@ -1,4 +1,10 @@
 declare namespace tools_web {
+  /**
+   * Функция для добавления параметров в строку запроса.
+   * @param {string} str - Строка запроса.
+   * @param {string} pageName - Название страницы.
+   * @returns {string} Строка запроса с добавленными параметрами.
+   */
   function put_query_string(str: string, pageName: string): string;
 
   /**
@@ -14,6 +20,14 @@ declare namespace tools_web {
    */
   function doc_link(attributes: DocumentDocumentTopElem["attributes"]): string;
 
+  /**
+   * Возвращает ссылку на объект.
+   * @param {string} objectName - Название объекта.
+   * @param {number} objectId - Id объекта.
+   * @param {XmlTopElem} objectTopElem - Элемент объекта.
+   * @param {number} docId - Id документа.
+   * @returns {string} Ссылка на объект.
+   */
   function get_object_link(objectName: string, objectId: number, objectTopElem: XmlTopElem, docId: number): string;
 
   /**
@@ -23,27 +37,87 @@ declare namespace tools_web {
    */
   function get_web_str(name: string): string;
 
+  /**
+   * Возвращает значение константы из curLngWeb.
+   * @param {string} name - Название константы.
+   * @param {unknown} fldLng - Языковой объект.
+   * @returns {string} Значение константы.
+   */
   function get_web_const(name: string, fldLng: unknown): string;
 
-  function eval_web_column_const(name: string, fldLng: unknown): unknown;
-
-  function get_web_desc(sourceHtml: string, url: Object, path?: unknown, env?: unknown): string;
+  /**
+   * Если константа содержит подстроку \', то возвращает результат eval данной строки, иначе вызывается {@link get_web_const}
+   * @param {string} name - Название константы.
+   * @param {unknown} fldLng - Языковой объект.
+   * @returns {string} Значение константы.
+   */
+  function eval_web_column_const(name: string, fldLng: unknown): string;
 
   /**
-   * Складывает два `id`.
+   * Форматирование compound-attc HTML описания объекта.
+   * @param {string} sourceHtml - HTML-код.
+   * @param {object} url - Url объекта.
+   * @param {string} path - Путь.
+   * @param {unknown} env - Среда.
+   * @returns {string} HTML-описание объекта.
+   */
+  function get_web_desc(sourceHtml: string, url: Object, path?: string, env?: unknown): string;
+
+  /**
+   * Складывает id объекта и id сессии.
    * @param {number} id - Id объекта.
    * @param {number} sessionId - Id сессии.
    * @returns {number} Сумма Id объекта и Id сессии.
    */
   function get_sum_sid(id: string, sessionId: number): number;
 
-  function check_sum_sid(id: string, sum: string, sessionId: number): unknown;
+  /**
+   * Является ли id объекта и id сессии валидной суммой.
+   * @param {string} id - Id объекта.
+   * @param {string} sum - Сумма Id объекта и Id сессии.
+   * @param {number} sessionId - Id сессии.
+   * @returns {boolean} Результат проверки.
+   */
+  function check_sum_sid(id: string, sum: string, sessionId: number): boolean;
 
-  function custom_elems_filling(fldTarget: unknown, source: Object, arrCustomElems: unknown[], params: Object): unknown;
+  /**
+   * Заполнение настраиваемых полей.
+   * @param {XmlTopElem} fldTarget - Элемент.
+   * @param {object | unknown[]} source - Источник.
+   * @param {CustomFieldsField[] | null | undefined} arrCustomElems - Массив настраиваемых полей.
+   * @param {object | null} params - Параметры.
+   * @returns {unknown} Результат заполнения настраиваемых полей.
+   */
+  function custom_elems_filling(fldTarget: XmlTopElem, source: Object | unknown[], arrCustomElems: CustomFieldsField[] | undefined | null, params: Object | null): {
+    error: 0 | 1;
+    error_text: string;
+    title: string;
+    mandatory_fields: unknown[];
+    condition_fields: unknown[];
+  };
 
-  function web_custom_elems_filling(catalog: unknown, topId: number, source: unknown, requestForm: unknown, valueFlag: unknown, charset: string, arrFields: unknown[]): unknown;
+  /**
+   * Заполнение настраиваемых полей с дополнительной обработкой и передачей bCheckMandatory, bCheckCondition аргументов.
+   * @param {string} catalog - Каталог.
+   * @param {number} topId - Id.
+   * @param {XmlTopElem} source - Источник.
+   * @param {object | unknown[]} requestForm - Форма запроса.
+   * @param {boolean} valueFlag - Флаг значения.
+   * @param {string} charset - Кодировка.
+   * @param {unknown[]} arrFields - Массив полей.
+   * @returns {ReturnType<typeof custom_elems_filling>} Результат заполнения настраиваемых полей.
+   */
+  function web_custom_elems_filling(catalog: string, topId: number, source: XmlTopElem, requestForm: Object | unknown[], valueFlag: boolean, charset: string, arrFields: unknown[]): ReturnType<typeof custom_elems_filling>;
 
-  function update_object_from_context(object: unknown, context: Object, arrFieldNames: unknown[], prefix: string): unknown;
+  /**
+   * Обновление объекта из контекста.
+   * @param {XmlDocument} object - Объект.
+   * @param {object} context - Контекст.
+   * @param {unknown[] | null} arrFieldNames - Массив названий полей.
+   * @param {string} prefix - Префикс.
+   * @returns {ReturnType<typeof web_custom_elems_filling>} Результат обновления объекта из контекста.
+   */
+  function update_object_from_context(object: XmlDocument, context: Object, arrFieldNames: unknown[] | null, prefix: string): ReturnType<typeof web_custom_elems_filling>;
 
   function get_query_string_from_url(url: string, flag: unknown, params: unknown): unknown;
 
@@ -479,5 +553,8 @@ declare namespace tools_web {
 
   function remove_data_cache(key: string): unknown;
 
+  /**
+   * @ignore
+   */
   function is_json(text: string): unknown;
 }

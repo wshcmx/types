@@ -1,6 +1,6 @@
 {
   "name": "@wshcmx/types",
-  "version": "11.0.0-beta21",
+  "version": "11.0.0-beta22",
   "type": "module",
   "directories": {
     "lib": "lib"
