@@ -1,4 +1,5 @@
-tests
 .github
-node_modules
+.husky
 examples
+node_modules
+tests
