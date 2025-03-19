@@ -597,10 +597,7 @@ interface XmElem<T, ForeignElem = never> {
    * Проверяет, существует ли в форме текущего элемента дочерний элемент с таким именем,
    * не являющийся методом.
    * @param {string} name - Имя дочернего элемента.
-   * @example
-   * ```
-   * elem.FormChildExists("xxx") ↔ elem.Form.ChildExists("xxx") && !elem.Form.Child("xxx").IsMethod
-   * ```
+   * @example elem.FormChildExists("xxx") ↔ elem.Form.ChildExists("xxx") && !elem.Form.Child("xxx").IsMethod
    */
   FormChildExists(name: string): boolean;
 
@@ -725,7 +722,7 @@ interface XmElem<T, ForeignElem = never> {
    * содержащей данные в формате XML.
    * Из строки подгружаются только те данные, которые присутствуют в исходном XML.
    * Если необходимо полностью синхронизировать элемент с данными из строки,
-   * перед вызовом данного метода необходимо вызывать метод {@link Clear}().
+   * перед вызовом данного метода необходимо вызывать метод {@link Clear}.
    * @param {string} data - Строка, содержащая данные в формате XML.
    */
   LoadData(data: string): void;
@@ -870,7 +867,7 @@ interface XmElem<T, ForeignElem = never> {
   /**
    * Очищает содержимое элемента и загружает новое из строки, содержащей XML.
    * Имя корневого элемента в XML должно совпадать с именем текущего элемента.
-   * {@link SetInnerXml}().
+   * {@link SetInnerXml}.
    * @param {string} xml - Xml строка.
    */
   SetXml(xml: string): void;

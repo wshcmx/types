@@ -251,3 +251,18 @@ alert(result2);
 
 const result3 = CallObjectMethod(OpenCodeLib<LogLibrary>("lib2"), "information");
 alert(result3);
+
+EvalCodePage("<%='some text'%>");
+EvalCodePage("'some text'", "asp-style=0");
+EvalCodePage("<%='Hello ' + name%>", "", "Safe", undefined, [{ name: "Petr" }]);
+
+const testCollaboratorDoc = OpenDoc<CollaboratorDocument>(UrlFromDocID(UniqueID())) as CollaboratorDocument;
+EvalCodePage("some", "", "Doc", testCollaboratorDoc);
+
+EvalCodePage("<%='Hello ' + name%>", "", "Global");
+EvalCodePage("<%='some text'%>", "", "ScreenItem", ScreenItem);
+
+QueryCatalogByKeys("collaborator", "fullname", "Иванов Иван Иванович");
+
+DropXQueryCache();
+DropXQueryCache("for $elem in collaborators return $elem/id");
