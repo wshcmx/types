@@ -10,7 +10,8 @@
         "declaration": true,
         "esModuleInterop": true,
         "baseUrl": "src",
-        "outDir": "../../lib/ssjs-transpiler"
+        "outDir": "../../lib/ssjs-transpiler",
+        "lib": ["ES6"]
     },
     "include": [
         "**/*.d.ts",

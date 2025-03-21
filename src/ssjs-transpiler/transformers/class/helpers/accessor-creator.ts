@@ -11,7 +11,6 @@ export class AccessorCreator implements IAccessorCreator {
         return ts.factory.createFunctionDeclaration(
             undefined,
             undefined,
-            undefined,
             method.name.getText(),
             undefined,
             method.parameters,

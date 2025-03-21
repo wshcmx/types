@@ -26,7 +26,7 @@ export class ClassTransformer implements IBaseTransformer {
 
             const visitor: ts.Visitor = (node) => this.visitNode(node);
             return (node: ts.SourceFile) => {
-                return ts.visitNode(node, visitor)
+                return ts.visitNode(node, visitor) as ts.SourceFile;
             };
         };
     }

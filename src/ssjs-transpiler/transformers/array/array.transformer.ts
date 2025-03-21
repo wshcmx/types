@@ -20,7 +20,7 @@ export class ArrayMethodTransformer implements it.IBaseTransformer {
     public transform(): ts.TransformerFactory<ts.SourceFile> {
         return (context: ts.TransformationContext) => {
             const visitor: ts.Visitor = (node) => this.visitNode(node, context);
-            return (node: ts.SourceFile) => ts.visitNode(node, visitor);
+            return (node: ts.SourceFile) => ts.visitNode(node, visitor) as ts.SourceFile;
         };
     }
 

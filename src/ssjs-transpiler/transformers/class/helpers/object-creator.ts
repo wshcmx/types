@@ -1,4 +1,4 @@
-﻿import ts from "typescript";
+﻿import ts, {Expression} from "typescript";
 import {IObjectCreator} from "../interfaces/object-creator";
 import {SourceFileResolver} from "../../../core/utils/source-file-resolver";
 import {TSAst} from "../../../core/ts-ast/type-script-ast";
@@ -17,7 +17,7 @@ export class ObjectCreator implements IObjectCreator {
                 const importAst = file.imports?.find(i => i.imports.some(name => name === node.expression.getText()));
                 if (importAst) {
                     const classConstructorArgs = this.getClassConstructorArgs(file.tsFile, node.expression.getText());
-                    const constructorArgs = node.arguments?.map(arg => ts.visitNode(arg, (child) => this.visitNode(child))) ?? [];
+                    const constructorArgs = (node.arguments?.map(arg => ts.visitNode(arg, (child) => this.visitNode(child))) ?? []) as Expression[];
 
                     const countMissingParams = classConstructorArgs.length - constructorArgs.length;
                     for (let i = 0; i < countMissingParams; i++) {

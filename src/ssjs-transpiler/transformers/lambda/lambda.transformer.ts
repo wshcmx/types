@@ -11,7 +11,7 @@ export class ArrowFunctionTransformer implements IBaseTransformer {
     public transform(): ts.TransformerFactory<ts.SourceFile> {
         return (context: ts.TransformationContext) => {
             const visitor: ts.Visitor = (node: ts.Node): ts.Node => this.visitNode(node, context);
-            return (rootNode: ts.SourceFile) => ts.visitNode(rootNode, visitor);
+            return (rootNode: ts.SourceFile) => ts.visitNode(rootNode, visitor) as ts.SourceFile;;
         };
     }
 

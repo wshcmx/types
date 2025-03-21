@@ -1,12 +1,11 @@
 import {IBaseTransformer} from "./base/ibase.transformer";
 import ts from "typescript";
-import {ClassTransformer} from "./class/class-transformer";
 import {ForTransformer} from "./loop/loop.transformer";
 import {ArrayMethodTransformer} from "./array/array.transformer";
-import {ArrowFunctionTransformer} from "./lambda/lambda.transformer";
 import {GlobalConstTransformer} from "./const/global-const.transformer";
 import {ITransformerRegistry} from "../interfaces/transformer-registry.interface";
 import {ProjectFileAggregatorTransformer} from "./project-file-aggregator/project-file-aggregator.transformer";
+import {ConvertorTemplateStringsTransformer} from "./string/convertor-template-strings.transformer";
 
 export class SsjsTransformerRegistry implements ITransformerRegistry {
     private _transformers: IBaseTransformer[] = [];
@@ -31,6 +30,7 @@ export class SsjsTransformerRegistry implements ITransformerRegistry {
         // this._afterTransformers.push(new DecoratorFuncTransformer(this.morphProject));
         this._transformers.push(new ForTransformer());
         this._transformers.push(new ArrayMethodTransformer());
-        this._transformers.push(new ArrowFunctionTransformer());
+        this._transformers.push(new ArrayMethodTransformer());
+        this._transformers.push(new ConvertorTemplateStringsTransformer());
     }
 }

@@ -9,10 +9,10 @@ export class ForTransformer implements IBaseTransformer {
                 node = this.removeVarFromVariables(node, context);
                 node = this.modifyLoopVariableDeclarations(node, context);
 
-                return ts.visitEachChild(node, visitNode, context);
+                return ts.visitEachChild(node, visitNode, context) as ts.SourceFile;
             };
 
-            return (sourceFile: ts.SourceFile) => ts.visitNode(sourceFile, visitNode);
+            return (sourceFile: ts.SourceFile) => ts.visitNode(sourceFile, visitNode) as ts.SourceFile;
         };
     }
 

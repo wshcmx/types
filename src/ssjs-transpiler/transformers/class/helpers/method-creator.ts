@@ -13,7 +13,6 @@ export class MethodCreator implements IMethodCreator {
         return ts.factory.createFunctionDeclaration(
             undefined,
             undefined,
-            undefined,
             method.name.getText(),
             undefined,
             method.parameters,

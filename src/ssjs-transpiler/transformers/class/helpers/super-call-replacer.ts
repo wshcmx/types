@@ -38,7 +38,6 @@ export class SuperCallReplacer implements ISuperCallReplacer {
 
                         return ts.factory.updateConstructorDeclaration(
                             constructorNode,
-                            constructorNode.decorators,
                             constructorNode.modifiers,
                             constructorNode.parameters,
                             factory.createBlock(statements)

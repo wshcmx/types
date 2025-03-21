@@ -10,7 +10,7 @@ export class ImportCallChangeTransformer {
             const visitor: ts.Visitor = (node) => this.visitNode(node);
             return (node: ts.SourceFile) => {
                 this._importSymbols = [];
-                return ts.visitNode(node, visitor)
+                return ts.visitNode(node, visitor) as ts.SourceFile;
             };
         };
     }

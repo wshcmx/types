@@ -11,7 +11,7 @@ export class GlobalConstTransformer implements IBaseTransformer {
             this._context = context;
 
             const visitor: ts.Visitor = (node) => this.visitNode(node);
-            return (node: ts.SourceFile) => ts.visitNode(node, visitor);
+            return (node: ts.SourceFile) => ts.visitNode(node, visitor) as ts.SourceFile;;
         };
     }
 

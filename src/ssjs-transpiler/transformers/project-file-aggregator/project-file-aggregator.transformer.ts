@@ -16,7 +16,7 @@ export class ProjectFileAggregatorTransformer implements IBaseTransformer {
             const visitor: ts.Visitor = (node) => this.visitNode(node);
             return (node: ts.SourceFile) => {
                 if (node.fileName.endsWith('__connector.ts')) {
-                    return ts.visitNode(node, visitor);
+                    return ts.visitNode(node, visitor) as ts.SourceFile;
                 }
                 return node;
             };

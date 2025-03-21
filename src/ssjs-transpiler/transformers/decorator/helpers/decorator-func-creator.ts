@@ -14,7 +14,6 @@ export class DecoratorFuncCreator {
         return ts.factory.createFunctionDeclaration(
             undefined, // modifiers
             undefined, // asterisk for generator
-            undefined,
             ts.factory.createIdentifier("__decorate"), // method name
             undefined, // question mark
             this.createParameters(), // parameters
@@ -103,10 +102,10 @@ export class DecoratorFuncCreator {
 
     private createParameters(): ts.ParameterDeclaration[] {
         return [
-            ts.factory.createParameterDeclaration(undefined, undefined, undefined, ts.factory.createIdentifier("decorators")),
-            ts.factory.createParameterDeclaration(undefined, undefined, undefined, ts.factory.createIdentifier("target")),
-            ts.factory.createParameterDeclaration(undefined, undefined, undefined, ts.factory.createIdentifier("key")),
-            ts.factory.createParameterDeclaration(undefined, undefined, undefined, ts.factory.createIdentifier("desc")),
+            ts.factory.createParameterDeclaration(undefined, undefined, ts.factory.createIdentifier("decorators")),
+            ts.factory.createParameterDeclaration(undefined, undefined, ts.factory.createIdentifier("target")),
+            ts.factory.createParameterDeclaration(undefined, undefined, ts.factory.createIdentifier("key")),
+            ts.factory.createParameterDeclaration(undefined, undefined, ts.factory.createIdentifier("desc")),
         ];
     }
 }

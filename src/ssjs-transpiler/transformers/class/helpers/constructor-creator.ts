@@ -1,4 +1,4 @@
-﻿import ts from 'typescript';
+﻿import ts, {Statement} from 'typescript';
 import {IConstructorCreator} from "../interfaces/constructor-creator";
 import {IObjectCreator} from "../interfaces/object-creator";
 import {ObjectCreator} from "./object-creator";
@@ -18,13 +18,12 @@ export class ConstructorCreator implements IConstructorCreator {
 
         const bodyStatements = constructor.body.statements.map(stmt => {
             return ts.visitNode(stmt, (child) => this.replaceSuperWithCustomCode(child));
-        });
+        }) as Statement[];
 
         const returnThisStatement = ts.factory.createReturnStatement(ts.factory.createIdentifier('This'));
         bodyStatements.push(returnThisStatement);
 
         return ts.factory.createFunctionDeclaration(
-            undefined,
             undefined,
             undefined,
             '__constructor',
