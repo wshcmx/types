@@ -64,7 +64,12 @@ I18nBase & {
   view: XmlElem<RemoteActionDocumentView | null>;
   /** @temp */
   converter: XmlElem<boolean | null>;
-  evaluate(resultType: string, request: Request, argVars: Object, configuration: string): unknown;
+  evaluate(resultType: string, request: Request, argVars: Object, configuration: string): {
+    error: 1 | 0;
+    messageText: string;
+    result: unknown;
+    type: string;
+  };
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };
