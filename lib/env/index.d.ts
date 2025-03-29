@@ -2,6 +2,8 @@ interface Env extends Object {
   curWebDesignID: number;
   curWebDesignUrl: string;
   curLngID: string;
+  curLng: unknown;
+  curLngWeb: unknown;
   curSiteID: number;
   curHostID: number;
   curHostSettings: {
