@@ -34,6 +34,17 @@ interface Thread {
    * ```
    */
   EvalCodeUrl(url: string): unknown;
+
+  /**
+   * Запускает в потоке указанный код после завершения выполнения кода, запущенного методом {@link EvalCode}
+   * @example 
+   * ```
+   * const thread = new Thread;
+   * thread.EvalCode("lib_backup.run_backup()");
+   * thread.SetPostCode("if ((tools.sys_db_capability & tools.UNI_CAP_BASIC) != 0) tools.spxml_unibridge.Object.provider.CleanUpThreadResources()");
+   * ```
+   */
+  SetPostCode(code: string): void;
 }
 
 interface ThreadConstructor {
