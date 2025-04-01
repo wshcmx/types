@@ -51,7 +51,7 @@ declare namespace Screen {
    * );
    * ```
    */
-  function MsgBox(message: string, subject?: string, type?: "error" | "quesiton" | "info", titles?: string): boolean;
+  function MsgBox(message: string, subject?: string, type?: "error" | "question" | "info", titles?: string): boolean;
 
   function Navigate(): void;
   function Print(): void;
