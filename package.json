@@ -1,6 +1,6 @@
 {
     "name": "@globexit/websoft-types",
-    "version": "2.0.5",
+    "version": "2.0.9",
     "directories": {
         "lib": "lib"
     },

@@ -61,7 +61,7 @@ export class ImportParser implements IAtsParser {
                         imports: imports
                     });
                 } catch (e) {
-                    console.log("warning: namedBindings text is undefined");
+
                 }
             }
         }

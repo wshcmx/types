@@ -28,7 +28,7 @@ export class ProjectTransformerRegistry implements ITransformerRegistry {
 
     private registerTransformers(): void {
         this._transformers.push(new ImportCallChangeTransformer());
-        this._transformers.push(new ImportReplacerTransformer());
+        // this._transformers.push(new ImportReplacerTransformer());
         // this._transformers.push(new ClassTransformer(this.program, this.morphProject));
         // this._afterTransformers.push(new DecoratorFuncTransformer(this.morphProject));
         this._transformers.push(new ForTransformer());

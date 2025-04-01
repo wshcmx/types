@@ -24,12 +24,11 @@ export class SsjsTransformerRegistry implements ITransformerRegistry {
     }
 
     private registerTransformers(): void {
-        this._transformers.push(new GlobalConstTransformer());
-        this._transformers.push(new ProjectFileAggregatorTransformer(this.projectFiles));
+        // this._transformers.push(new GlobalConstTransformer());
+        // this._transformers.push(new ProjectFileAggregatorTransformer(this.projectFiles));
         // this._transformers.push(new ClassTransformer(this.program));
         // this._afterTransformers.push(new DecoratorFuncTransformer(this.morphProject));
         this._transformers.push(new ForTransformer());
-        this._transformers.push(new ArrayMethodTransformer());
         this._transformers.push(new ArrayMethodTransformer());
         this._transformers.push(new ConvertorTemplateStringsTransformer());
     }
