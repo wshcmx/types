@@ -1671,10 +1671,10 @@ declare function ArraySelectAll<T>(array: XmlMultiElem<T>): XmlElem<T>[];
  * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
  * @returns {T[]} Результат.
  */
-declare function ArraySelectByKey<T>(
+declare function ArraySelectByKey<T, K extends keyof T>(
   array: T[],
   value: boolean | string | number,
-  name?: string
+  name?: K
 ): T[];
 
 /**
