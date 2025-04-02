@@ -1245,7 +1245,7 @@ declare function ArrayExtract<T, K>(array: XmlMultiElem<T>, fieldExpr: string | 
  * @param {string} field - Имя поля.
  * @returns {unknown[]} Результат.
  */
-declare function ArrayExtractKeys<T, K>(array: T[], field: string): K[];
+declare function ArrayExtractKeys<T, K extends keyof T = keyof T>(array: T[], field: K): K[];
 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
