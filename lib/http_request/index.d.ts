@@ -117,6 +117,12 @@ interface Request {
   Session: Session;
 
   /**
+   * Возвращает время начала запроса в миллисекундах, прошедшее с момента запуска операционной системы.
+   * @example alert(GetCurTicks() - Request.StartTicks)
+   */
+  StartTicks: number;
+
+  /**
    * Возвращает запрашиваемый url текущего HTTP-запроса.
    */
   Url: string;
