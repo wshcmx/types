@@ -4375,6 +4375,12 @@ declare function EvalRichCodePageUrl(): unknown;
 declare function FetchAppModule(moduleName: string): undefined;
 
 /**
+ * Возвращает количество потребляемой процессом памяти в байтах
+ * @returns {number} Результат
+ */
+declare function GetCurProcessUsedMemorySize(): number;
+
+/**
  * Редко используемая фукнция.
  * @returns {unknown} -
  */
