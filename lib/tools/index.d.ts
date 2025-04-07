@@ -2306,7 +2306,7 @@ declare namespace tools {
    * @param {object} [params] -
    * @returns {XmlDocument} Каталожная запись руководителя указанного объекта.
    */
-  function get_uni_user_boss(objectParam: number | XmlTopElem, params?: Object): XmlDocument;
+  function get_uni_user_boss(objectParam: number | XmlTopElem, params?: Object): CollaboratorDocument;
 
   /**
    * Вызов эскалации по документообороту.
