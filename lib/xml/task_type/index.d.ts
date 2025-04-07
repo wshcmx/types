@@ -143,6 +143,16 @@ WebVariablesBase & {
   /** Связанный тип разговора */
   related_conversation_type_id: XmlElem<number | null, ConversationTypeCatalogDocumentTopElem>;
   result_block: XmlElem<TaskTypeDocumentResultBlock | null>;
+  /**
+   * Способ отображения по умолчанию
+   * @default tasklist
+   */
+  default_display_mode: XmlElem<string | null>;
+  /**
+   * Разрешать переключение способа отображения
+   * @default false
+   */
+  can_change_view: XmlElem<boolean | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /**

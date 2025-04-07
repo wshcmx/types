@@ -199,6 +199,11 @@ AdminAccessBase & {
    */
   auto_finish: XmlElem<boolean>;
   /**
+   * Учитывать статус failed от курса для его завершения
+   * @default true
+   */
+  ignore_failed_for_finish: XmlElem<boolean>;
+  /**
    * Не использовать локальное расположение данного курса
    * @default false
    */

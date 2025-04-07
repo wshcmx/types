@@ -30,5 +30,7 @@ PersonFillingBase & {
   participants_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Все входившие участники */
   entered_participants_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Все входившие участники */
+  missed_unread_participants_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
   OnBuild(): void;
 };

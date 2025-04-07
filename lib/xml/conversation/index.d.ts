@@ -125,6 +125,8 @@ CustomElemsBase & {
   keyboards_block: XmlElem<ConversationDocumentKeyboardsBlock | null>;
   /** @temp */
   view: XmlElem<ConversationDocumentView | null>;
+  /** @default true */
+  update_participant: XmlElem<boolean | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Все участники */

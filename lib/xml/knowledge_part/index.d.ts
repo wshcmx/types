@@ -13,7 +13,7 @@ interface KnowledgePartDocumentLevel extends MsConfirmationBase {
    * Тип подтверждения
    * @default none
    */
-  confirmation_type: XmlElem<string>;
+  confirmation_type: XmlElem<string, typeof common.confirmation_types>;
 }
 
 interface KnowledgePartDocumentTempDoc {
@@ -64,7 +64,7 @@ KnowledgePartsBase & {
    * Тип подтверждения
    * @default none
    */
-  confirmation_type: XmlElem<string>;
+  confirmation_type: XmlElem<string, typeof common.confirmation_types>;
   /** Описание */
   text_area: XmlElem<string | null>;
   /**

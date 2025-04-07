@@ -1,5 +1,6 @@
 type CodingDocumentTopElem = XmlTopElem & {
   Doc: CodingDocument;
+  id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */

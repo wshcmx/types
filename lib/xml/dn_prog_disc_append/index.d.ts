@@ -1,3 +1,8 @@
+interface DnProgDiscAppendDocumentView {
+  /** @temp */
+  filter: XmlElem<AuFtFilter | null>;
+}
+
 type DnProgDiscAppendDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
@@ -11,10 +16,12 @@ CustomElemsBase & {
   special_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;
   /** Специализация */
   specialization_id: XmlElem<number | null, DnSpecializationCatalogDocumentTopElem>;
-  educat_form_id: XmlElem<string | null>;
+  educat_form_id: XmlElem<string | null, typeof lists.dn_educat_forms>;
   /** Квалификация */
   qualification_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
   doc_info: XmlElem<DocInfoBase | null>;
+  /** @temp */
+  view: XmlElem<DnProgDiscAppendDocumentView | null>;
 };
 
 type DnProgDiscAppendDocument = XmlDocument & {

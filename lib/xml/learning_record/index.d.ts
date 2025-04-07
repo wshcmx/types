@@ -182,5 +182,6 @@ type LearningRecordDocument = XmlDocument & {
   TopElem: LearningRecordDocumentTopElem;
   learning_record: LearningRecordDocumentTopElem;
   DocDesc(): string;
+  OnSave(): void;
   OnBeforeSave(): void;
 };

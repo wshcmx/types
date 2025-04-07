@@ -36,7 +36,10 @@ PersonFillingBase & {
   list_css: XmlElem<string | null>;
   /** Объекты */
   objects: XmlMultiElemObject<number | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default chat
+   */
   active_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Название объекта */
   active_object_name: XmlElem<string | null>;
@@ -68,5 +71,7 @@ PersonFillingBase & {
    * @default false
    */
   can_show_additional_info: XmlElem<boolean>;
+  /** @default true */
+  update_participant: XmlElem<boolean | null>;
   OnBuild(): void;
 };

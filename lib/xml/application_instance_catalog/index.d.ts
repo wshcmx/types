@@ -8,6 +8,8 @@ type ApplicationInstanceCatalogDocumentTopElem = XmlTopElem & {
   status: XmlElem<string | null, typeof common.progress_types>;
   /** Приложение */
   application_id: XmlElem<number | null, ApplicationCatalogDocumentTopElem>;
+  /** Дата создания */
+  create_date: XmlElem<Date | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

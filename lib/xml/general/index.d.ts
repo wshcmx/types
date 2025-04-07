@@ -2861,6 +2861,8 @@ interface WebVariablesBaseWvarEntry {
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Выборка */
   remote_collection_id: XmlElem<number | null, RemoteCollectionCatalogDocumentTopElem>;
+  /** Параметры */
+  remote_collection_wvars: XmlElem<string | null>;
 }
 
 interface WebVariablesBaseWvarViewCondition {
