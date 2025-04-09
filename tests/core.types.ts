@@ -266,3 +266,16 @@ QueryCatalogByKeys("collaborator", "fullname", "Иванов Иван Ивано
 
 DropXQueryCache();
 DropXQueryCache("for $elem in collaborators return $elem/id");
+
+type ObjType = {
+  key: string;
+  key1: string;
+};
+
+const objObj: ObjType[] = [{
+  "key": "value",
+  "key1": "value",
+}];
+
+ArrayExtractKeys(objObj, "key");
+ArrayExtractKeys(objObj as Object[], "key");

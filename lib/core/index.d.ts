@@ -1177,39 +1177,20 @@ declare function UtcToLocalDate(date: Date): Date;
  * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
  * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
  * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
- * @param {T[]} array - Массив.
+ * @param {XmlMultiElem<unknown> | unknown[]} array - Массив.
  * @returns {number} Результат.
  */
-declare function ArrayCount<T>(array: T[]): number;
-
-/**
- * Возвращает число элементов массива. Для массивов прямого доступа функция срабатывает мгновенно,
- * для сложных массивов (например результатов XQuery) вызов этой функции может повлечь за собой обращение к серверу
- * либо другую длительную по времени операцию, поэтому не следует использовать данную функцию внутри циклов.
- * @param {XmlMultiElem<T>} array - Массив.
- * @returns {number} Результат.
- */
-declare function ArrayCount<T>(array: XmlMultiElem<T>): number;
+declare function ArrayCount(array: XmlMultiElem<unknown> | unknown[]): number;
 
 /**
  * Преобразует заданный массив к массиву с прямым индексированием.
  * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
  * В противном случае функция работает аналогично {@link ArraySelectAll} и возвращает массив типа Array,
  * содержащий копию исходного массива.
- * @param {Array} array - Исходный массив.
- * @returns {Array} Результат.
+ * @param {XmlMultiElem<T> | T[]} array - Исходный массив.
+ * @returns {T[]} Результат.
  */
-declare function ArrayDirect<T>(array: T[]): T[];
-
-/**
- * Преобразует заданный массив к массиву с прямым индексированием.
- * Если заданный массив и так поддерживает прямое индексирование, функция возвращает сам исходный массив.
- * В противном случае функция работает аналогично {@link ArraySelectAll} и возвращает массив типа Array,
- * содержащий копию исходного массива.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @returns {Array} Результат.
- */
-declare function ArrayDirect<T>(array: XmlMultiElem<T>): T[];
+declare function ArrayDirect<T>(array: XmlMultiElem<T> | T[]): T[];
 
 /**
  * Функция получает на входе массив, содержащий в одном из полей подмассивы, в плоский массив.
@@ -1217,35 +1198,26 @@ declare function ArrayDirect<T>(array: XmlMultiElem<T>): T[];
  * @param {string} elemCode - Выражение, вычисляющее поле элемента исходного массива, содержащего подмассив.
  * @returns {unknown[]} Результат.
  */
-declare function ArrayExpand<T>(array: T[], elemCode: string): unknown[];
+declare function ArrayExpand<T>(array: XmlMultiElem<T> | T[], elemCode: string): unknown[];
 
 /**
  * Выбирает определенное значение из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * @param {Array} array - Исходный массив.
+ * @param {XmlMultiElem<unknown> | unknown[]} array - Исходный массив.
  * @param {string} fieldExpr - Выражение, вычисляемое относительно каждого элемента исходного массива.
  * @returns {Array} Результат.
  */
-declare function ArrayExtract<T, K>(array: T[], fieldExpr: string | null): K[];
-
-/**
- * Выбирает определенное значение из каждого элемента массива.
- * Возвращает новый массив той же длинны, содержащий выбранные элементы.
- * @param {XmlMultiElem<T>} array - Исходный массив.
- * @param {string} fieldExpr - Выражение, вычисляемое относительно каждого элемента исходного массива.
- * @returns {Array} Результат.
- */
-declare function ArrayExtract<T, K>(array: XmlMultiElem<T>, fieldExpr: string | null): K[];
+declare function ArrayExtract<T>(array: XmlMultiElem<unknown> | unknown[], fieldExpr: string | null): T[];
 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
  * Возвращает новый массив той же длинны, содержащий выбранные элементы.
  * Функция аналогична более универсальной функции {@link ArrayExtract}, но работает быстрее.
- * @param {Array} array - Исходный массив.
- * @param {string} field - Имя поля.
- * @returns {unknown[]} Результат.
+ * @param {T[]} array - Исходный массив.
+ * @param {keyof T} field - Имя поля.
+ * @returns {K[]} Результат.
  */
-declare function ArrayExtractKeys<T, K>(array: T[], field: string): K[];
+declare function ArrayExtractKeys<T, K extends keyof T = keyof T>(array: T[], field: K): K[];
 
 /**
  * Выбирает определенное поле (атрибут) из каждого элемента массива.
@@ -1671,10 +1643,10 @@ declare function ArraySelectAll<T>(array: XmlMultiElem<T>): XmlElem<T>[];
  * @param {string} [name] - Имя элемента, являющегося ключом. Если имя ключа не указано, используется первичный ключ.
  * @returns {T[]} Результат.
  */
-declare function ArraySelectByKey<T>(
+declare function ArraySelectByKey<T, K extends keyof T>(
   array: T[],
   value: boolean | string | number,
-  name?: string
+  name?: K
 ): T[];
 
 /**
