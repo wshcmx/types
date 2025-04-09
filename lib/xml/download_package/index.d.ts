@@ -1,6 +1,7 @@
 type DownloadPackageDocumentTopElem = XmlTopElem &
 DownloadPackageLogBase & {
   Doc: DownloadPackageDocument;
+  id: XmlElem<number | null>;
   /** ID пакета */
   package_id: XmlElem<string | null>;
   /** Сервер */

@@ -9,6 +9,11 @@ ChangeHashFieldsBase & {
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Wiki база */
   wiki_base_id: XmlElem<number | null, WikiBaseCatalogDocumentTopElem>;
+  /**
+   * Тип контента
+   * @default html
+   */
+  content_type: XmlElem<string | null>;
   /** Тип wiki статьи */
   wiki_article_type_id: XmlElem<number | null, WikiArticleTypeCatalogDocumentTopElem>;
   /**

@@ -76,6 +76,16 @@ type TaskTypeCatalogDocumentTopElem = XmlTopElem & {
    * @default false
    */
   consider_time_in_workspace: XmlElem<boolean>;
+  /**
+   * Способ отображения по умолчанию
+   * @default tasklist
+   */
+  default_display_mode: XmlElem<string | null>;
+  /**
+   * Разрешать переключение способа отображения
+   * @default false
+   */
+  can_change_view: XmlElem<boolean | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
