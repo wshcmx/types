@@ -5,6 +5,7 @@ interface Env extends Object {
   curLng: unknown;
   curLngWeb: unknown;
   curSiteID: number;
+  curSite: SiteDocumentTopElem;
   curHostID: number;
   curHostSettings: {
     default_web_design: string;
