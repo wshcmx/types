@@ -103,5 +103,6 @@ KnowledgePartsBase & {
 type WikiBaseDocument = XmlDocument & {
   TopElem: WikiBaseDocumentTopElem;
   wiki_base: WikiBaseDocumentTopElem;
+  OnSave(): void;
   DocDesc(): string;
 };
