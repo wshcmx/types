@@ -2388,10 +2388,10 @@ declare function UrlQuery(url: string): Object;
 /**
  * Возвращает схему URL (file, http, mailto, ftp, x-local).
  * @param {string} url - Url.
- * @returns {string}
- * UrlSchema( 'http://news.websoft.ru/' ) вернет 'http'.
+ * @returns {string} - Результат.
+ * @example UrlSchema("http://news.websoft.ru/"); // http
  */
-declare function UrlScheme(url: string): string;
+declare function UrlSchema(url: string): string;
 
 /**
  * Функция UrlOrFilePathToFilePath() проверяет, является ли строка урлом либо путем в файловой системе.
