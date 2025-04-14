@@ -17,7 +17,10 @@ AdminAccessBase & {
   date: XmlElem<Date | null>;
   /** Оценивающий сотрудник */
   expert_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & MsPersonSdInnerBase;
-  /** Статус */
+  /**
+   * Статус
+   * @default false
+   */
   status: XmlElem<boolean>;
   /** Объекты */
   objects: XmlMultiElem<RatingDocumentObject | null>;

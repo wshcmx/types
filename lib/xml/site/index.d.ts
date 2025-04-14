@@ -45,6 +45,7 @@ interface SiteDocumentWebDesign {
 }
 
 interface SiteDocumentAnonymousMode {
+  id: XmlElem<string | null>;
   mode: XmlElem<string | null>;
 }
 

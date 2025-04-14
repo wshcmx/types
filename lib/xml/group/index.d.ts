@@ -95,9 +95,25 @@ PersonObjectLinksBase & {
   /** @temp */
   view: XmlElem<GroupDocumentView | null>;
   dynamic_select_person(clearList: unknown): unknown;
-  start_action(itemName: unknown): number;
-  activateCourseToPersons(input: unknown): unknown;
-  add_collaborator(personId: number, docPerson: unknown): unknown;
+  /** @temp */
+  rows: XmlElem<unknown | null>;
+  /**
+   * @temp
+   * @default fullname
+   */
+  row_disp_elem: XmlElem<string>;
+  /**
+   * @temp
+   * @default .Env.ListElem
+   */
+  row_list_field: XmlElem<string | null>;
+  /**
+   * @temp
+   * @default .PrimaryKey
+   */
+  row_key_field: XmlElem<string | null>;
+  /** @temp */
+  list_variant: XmlElem<unknown | null>;
   remove_collaborator(personId: number): unknown;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
