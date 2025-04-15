@@ -1,2 +1,4 @@
 type InteractionCatalogDocumentTopElem = XmlTopElem &
-    InteractionBase & {};
+InteractionBase & {
+
+};

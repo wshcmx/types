@@ -1,2 +1,4 @@
 type LngCatalogDocumentTopElem = XmlTopElem &
-    typeof ui_lng & {};
+typeof ui_lng & {
+
+};

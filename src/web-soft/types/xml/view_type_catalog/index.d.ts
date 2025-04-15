@@ -1,4 +1,4 @@
 type ViewTypeCatalogDocumentTopElem = XmlTopElem &
-    ViewBase & {
-    catalog: XmlElem<string | null>;
+ViewBase & {
+  catalog: XmlElem<string | null>;
 };

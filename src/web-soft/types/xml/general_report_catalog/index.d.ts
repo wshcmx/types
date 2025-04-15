@@ -1,4 +1,4 @@
 type GeneralReportCatalogDocumentTopElem = XmlTopElem &
-    BlockReportsBase & {
-    OnInit(): void;
+BlockReportsBase & {
+  OnInit(): void;
 };

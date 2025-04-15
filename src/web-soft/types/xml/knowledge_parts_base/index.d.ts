@@ -1,9 +1,9 @@
 type KnowledgePartsBaseDocumentTopElem = XmlTopElem &
-    KnowledgePartsBase & {
-    Doc: KnowledgePartsBaseDocument;
+KnowledgePartsBase & {
+  Doc: KnowledgePartsBaseDocument;
 };
 
 type KnowledgePartsBaseDocument = XmlDocument & {
-    TopElem: KnowledgePartsBaseDocumentTopElem;
-    knowledge_parts_base: KnowledgePartsBaseDocumentTopElem;
+  TopElem: KnowledgePartsBaseDocumentTopElem;
+  knowledge_parts_base: KnowledgePartsBaseDocumentTopElem;
 };

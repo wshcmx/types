@@ -1,23 +1,23 @@
 /**
  * Объект параметров агента.
  */
-declare var Param: Object;
+declare let Param: Object;
 /**
  * Id объекта над которым выполняется агент.
  */
-declare var OBJECT_ID: number;
-declare var OBJECTS_ID_STR: string;
+declare let OBJECT_ID: number;
+declare let OBJECTS_ID_STR: string;
 /**
  * Флаг исполнения кода на клиенте.
  */
-declare var LdsIsClient: boolean;
+declare let LdsIsClient: boolean;
 /**
  * Флаг исполнения кода на сервере.
  */
-declare var LdsIsServer: boolean;
+declare let LdsIsServer: boolean;
 
-declare var oData: unknown;
+declare let oData: unknown;
 
-declare const LdsCurUserID: number;
+declare let LdsCurUserID: number;
 
-declare const curParams: Object;
+declare let curParams: Object;

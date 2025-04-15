@@ -1,9 +1,9 @@
 type CatalogListBaseDocumentTopElem = XmlTopElem &
-    CatalogListBase & {
-    Doc: CatalogListBaseDocument;
+CatalogListBase & {
+  Doc: CatalogListBaseDocument;
 };
 
 type CatalogListBaseDocument = XmlDocument & {
-    TopElem: CatalogListBaseDocumentTopElem;
-    catalog_list_base: CatalogListBaseDocumentTopElem;
+  TopElem: CatalogListBaseDocumentTopElem;
+  catalog_list_base: CatalogListBaseDocumentTopElem;
 };

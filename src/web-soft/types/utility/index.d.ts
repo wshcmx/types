@@ -3,37 +3,36 @@
 /**
  * Make all properties in T optional.
  */
-type Partial<T> = {
-    [P in keyof T]?: T[P];
-};
+ type Partial<T> = {
+   [P in keyof T]?: T[P];
+ };
 
 /**
  * Make all properties in T required.
  */
 type Required<T> = {
-    [P in keyof T]-?: T[P];
+  [P in keyof T]-?: T[P];
 };
 
 /**
  * Make all properties in T readonly.
  */
 type Readonly<T> = {
-    readonly [P in keyof T]: T[P];
+  readonly [P in keyof T]: T[P];
 };
 
 /**
  * From T, pick a set of properties whose keys are in the union K.
  */
 type Pick<T, K extends keyof T> = {
-    [P in K]: T[P];
+  [P in K]: T[P];
 };
 
 /**
  * Construct a type with a set of properties K of type T.
  */
 type Record<K extends keyof any, T> = {
-    // eslint-disable-next-line no-unused-vars
-    [P in K]: T;
+  [P in K]: T;
 };
 
 /**
@@ -59,5 +58,9 @@ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => i
 /**
  * Obtain the return type of a constructor function type.
  */
-// eslint-disable-next-line max-len
 type InstanceType<T extends abstract new (...args: any) => any> = T extends abstract new (...args: any) => infer R ? R : any;
+
+/**
+ * Obtain the parameters of a function type in a tuple
+ */
+type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;

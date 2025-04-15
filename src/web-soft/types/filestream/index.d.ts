@@ -1,14 +1,14 @@
 interface IFileStreamOptions {
-    ReadCache: boolean;
+  ReadCache: boolean;
 }
 
 interface FileStream {
-    ReadLine(): string;
+  ReadLine(): string;
 }
 
 interface FileStreamConstructor {
-    new(url: string, options?: IFileStreamOptions): FileStream;
+  new(url: string, options?: IFileStreamOptions): FileStream;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare const FileStream: FileStreamConstructor;

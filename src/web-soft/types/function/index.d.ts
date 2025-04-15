@@ -1,15 +1,10 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-interface Function {
-}
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+ 
+interface Function { }
+interface FunctionConstructor { }
 
-interface FunctionConstructor {
-}
+declare interface CallableFunction extends Function { }
+declare interface NewableFunction extends Function { }
 
-declare interface CallableFunction extends Function {
-}
-
-declare interface NewableFunction extends Function {
-}
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 declare let Function: FunctionConstructor;

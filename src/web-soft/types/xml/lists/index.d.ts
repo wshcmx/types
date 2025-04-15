@@ -1,14 +1,16 @@
 interface ListsViewConditionsScheme extends ViewConditionsBase {
-    id: XmlElem<string>;
-    name: XmlElem<string>;
-    catalog: XmlElem<string>;
-    access_role: XmlElem<string, AccessRoleCatalogDocumentTopElem>;
-    disp_web: XmlElem<boolean>;
-    is_parametric: XmlElem<boolean>;
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  catalog: XmlElem<string | null>;
+  access_role: XmlElem<string | null, AccessRoleCatalogDocumentTopElem>;
+  /** @default false */
+  disp_web: XmlElem<boolean>;
+  /** @default false */
+  is_parametric: XmlElem<boolean>;
 }
 
 interface ILists extends ExchangeListsBase {
-    view_conditions_schemes: XmlMultiElem<ListsViewConditionsScheme>;
+  view_conditions_schemes: XmlMultiElem<ListsViewConditionsScheme>;
 }
 
 declare const lists: XmlElem<ILists>;

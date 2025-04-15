@@ -29,67 +29,30 @@ npm i @globexit/websoft-types -D
 
 ## Настройка Gulp
 
-В вашей конфигурации Gulp необходимо подключить трансформеры и менеджер импортов:
 ```js
-import { TransformerConfigurator } from "@globexit/websoft-types/lib/common/transformers/transformer-configurator";
-import { ImportManager } from "@globexit/websoft-types/lib/common/utils/import-manager";
+const {transformerConfigurator, importManager} = new SsjsProjectBuilder()
+    .setTsConfigPath(TS_CONFIG_PATH)
+    .build();
 
-const transformerConfigurator = new TransformerConfigurator();
-const importManager = new ImportManager();
-```
-
-Далее добавьте функции для обработки импортов в цепочку конфигурации:
-```js
-export const transformTS = (path) => {
-    return src(path, { base: SRC_PATH })
-        .pipe(change(importManager.addFuncImports))
-        .pipe(change(importManager.replaceImports));
-};
-```
-
-## Создание проекта цепочки преобразования в Gulp
-Создайте или подключите в существующий createProject трансформеры для преобразования JS:
-```js
-const tsProject = createProject(TS_CONFIG_PATH, {
-    typescript: transformerConfigurator.ts,
-    getCustomTransformers: () => ({
-        before: transformerConfigurator.getTransformers()
-    })
-});
-```
-
-## Полная конфигурация
-Объедините все части конфигурации в одну цепочку:
-
-```js
-export const transformTS = (path) => {
-    return src(path, { base: SRC_PATH })
-        .pipe(change(importManager.addFuncImports))
-        .pipe(change(importManager.replaceImports))
-        .pipe(include({
+const transformTS = (path: string) => {
+  return baseSrc(path)
+          .pipe(change(importManager.addFuncImports))
+          .pipe(change(importManager.replaceImports))
+          .pipe(include({
             extensions: 'ts',
             hardFail: true,
             separateInputs: true,
             includePaths: [
-                __dirname + "../../node_modules"
+              __dirname + "/node_modules"
             ]
-        }))
-        .pipe(tsProject());
+          }))
+          .pipe(createProject(consts.TS_CONFIG_PATH, {
+            typescript: transformerConfigurator.ts,
+            getCustomTransformers: () => ({
+              before: transformerConfigurator.getTransformers()
+            })
+          })());
 };
-```
-
-## Обработка импортов
-Не забудьте дать доступ трансформерам к `node_modules` добавив в `include`:
-
-```js
-.pipe(include({
-    extensions: 'ts',
-    hardFail: true,
-    separateInputs: true,
-    includePaths: [
-        __dirname + "../../node_modules"
-    ]
-}))
 ```
 
 ## Описание трансформеров

@@ -1,4 +1,4 @@
 type WebParamCatalogDocumentTopElem = XmlTopElem & {
-    name: XmlElem<string | null>;
-    value: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  value: XmlElem<string | null>;
 };

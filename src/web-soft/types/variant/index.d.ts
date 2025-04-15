@@ -1,4 +1,4 @@
 type Variant<T> = Pick<XmlElem<{
-    Object: T;
-    Value: T;
+  Object: T;
+  Value: T;
 }>, XmlElemNonMethodsKeys>;

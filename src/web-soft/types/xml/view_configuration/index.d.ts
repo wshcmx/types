@@ -1,20 +1,32 @@
 type ViewConfigurationDocumentTopElem = XmlTopElem &
-    ObjectCodeNameBase &
-    ViewBase &
-    MsViewConfigurationBase & {
-    Doc: ViewConfigurationDocument;
-    catalog_name: XmlElem<string, typeof common.exchange_object_types>;
-    link_name: XmlElem<string>;
-    link_selector: XmlElem<string>;
-    is_std: XmlElem<boolean>;
-    changed: XmlElem<boolean>;
-    role_id: XmlMultiElemObject<number>;
-    comment: XmlElem<string>;
-    doc_info: XmlElem<DocInfoBase>;
+ObjectCodeNameBase &
+ViewBase &
+MsViewConfigurationBase & {
+  Doc: ViewConfigurationDocument;
+  catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;
+  link_name: XmlElem<string | null>;
+  link_selector: XmlElem<string | null>;
+  /**
+   * Является системным
+   * @default false
+   */
+  is_std: XmlElem<boolean>;
+  /**
+   * Измененный
+   * @default false
+   */
+  changed: XmlElem<boolean>;
+  /** Категория */
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
+  /** Комментарий */
+  comment: XmlElem<string | null>;
+  /** Информация об объекте */
+  doc_info: XmlElem<DocInfoBase | null>;
 };
 
 type ViewConfigurationDocument = XmlDocument & {
-    TopElem: ViewConfigurationDocumentTopElem;
-    view_configuration: ViewConfigurationDocumentTopElem;
-    DocDesc(): string;
+  TopElem: ViewConfigurationDocumentTopElem;
+  view_configuration: ViewConfigurationDocumentTopElem;
+  DocDesc(): string;
+  OnSave(): void;
 };

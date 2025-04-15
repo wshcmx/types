@@ -1,2 +1,4 @@
 type DocAccesCatalogDocumentTopElem = XmlTopElem &
-    AccessDocBase & {};
+AccessDocBase & {
+
+};
