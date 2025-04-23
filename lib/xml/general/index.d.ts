@@ -1005,6 +1005,7 @@ interface ImportExcelPersonsBase {
 }
 
 interface OrgBase extends EssentialsBase {
+  /** Id */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -1020,7 +1021,9 @@ interface OrgBase extends EssentialsBase {
   phone: XmlElem<string | null>;
   /** Факс */
   fax: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
+  /** url */
   web: XmlElem<string | null>;
 }
 
@@ -1111,6 +1114,7 @@ interface AccessRoleBaseFuncBlock {
 }
 
 interface AccessRoleBase {
+  /** Id */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -3705,6 +3709,7 @@ interface ProctoringBase {
 }
 
 interface ResultFieldsBaseResultField {
+  /** Id */
   id: XmlElem<string | null>;
   /** Название поля */
   name: XmlElem<string | null>;
