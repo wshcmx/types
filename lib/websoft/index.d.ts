@@ -101,6 +101,20 @@ declare namespace Websoft {
     }
   }
 
+  namespace Discharge {
+    class Discharge {
+      Init(connection_string: string, db_type: string, AppDirectory: string): boolean;
+      SqlExecute(sql_string: string): boolean;
+      GetEOF(): boolean;
+      GetNext(): boolean;
+      GetRowJson(): string;
+      GetValue(field_name: string): string;
+      Close(): number;
+      CloseSqlResult(): number;
+      GetError(): string;
+    }
+  }
+
   namespace Code {
     class BufferedConsoleStream { }
     class JsonExtensions { }
@@ -116,6 +130,7 @@ declare namespace Websoft {
       ssl_cms_sign(messageData: string): string;
     }
   }
+
 
   namespace CryptoStore {
     class CryptoStore {
