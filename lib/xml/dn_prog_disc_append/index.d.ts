@@ -16,7 +16,7 @@ CustomElemsBase & {
   special_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;
   /** Специализация */
   specialization_id: XmlElem<number | null, DnSpecializationCatalogDocumentTopElem>;
-  educat_form_id: XmlElem<string | null, typeof lists.dn_educat_forms>;
+  educat_form_id: XmlElem<string | null, DnEducatFormCatalogDocumentTopElem>;
   /** Квалификация */
   qualification_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
   doc_info: XmlElem<DocInfoBase | null>;

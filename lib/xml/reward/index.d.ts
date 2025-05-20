@@ -31,7 +31,7 @@ type RewardDocumentTopElem = XmlTopElem & {
    * Статус
    * @default project
    */
-  status: XmlElem<string, typeof common.reward_type_statuses>;
+  status: XmlElem<string>;
   /** Сотрудник */
   collaborator_id: XmlElem<RewardDocumentCollaboratorId | null, CollaboratorCatalogDocumentTopElem>;
   /** Периоды */
