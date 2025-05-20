@@ -2219,7 +2219,7 @@ declare function DeleteUrl(url: string): undefined;
  * AbsoluteUrl("zz/1.htm") == "x-app://rcr/zz/1.htm" // вызванный в библиотеке x-app://rcr/rcr_lib_recruit.js
  * ```
  */
-declare function AbsoluteUrl(url: string, baseUrl: string): string;
+declare function AbsoluteUrl(url: string, baseUrl?: string): string;
 
 /**
  * Преобразует заданный url (схемы "x-app") в url, пригодный для использования во встроенном браузере (элемент HYPER).
