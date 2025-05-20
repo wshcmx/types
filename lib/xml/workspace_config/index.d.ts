@@ -398,6 +398,11 @@ interface WorkspaceConfigDocumentTimeTrackerBlock {
    * @default false
    */
   show_time_tracker: XmlElem<boolean>;
+  /**
+   * Максимальная длина описания задачи
+   * @default 255
+   */
+  max_description_length: XmlElem<number | null>;
 }
 
 type WorkspaceConfigDocumentTopElem = XmlTopElem &

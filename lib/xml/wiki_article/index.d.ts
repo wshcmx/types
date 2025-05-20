@@ -146,5 +146,6 @@ ChangeHashBase & {
 type WikiArticleDocument = XmlDocument & {
   TopElem: WikiArticleDocumentTopElem;
   wiki_article: WikiArticleDocumentTopElem;
+  OnSave(): void;
   DocDesc(): string;
 };

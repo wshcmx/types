@@ -129,6 +129,7 @@ type RequestDocument = XmlDocument & {
   request: RequestDocumentTopElem;
   OnLocalInit(): void;
   OnCreate(): void;
+  OnSave(): void;
   OnBeforeSave(): void;
   DocDesc(): string;
 };

@@ -90,7 +90,8 @@ type TaskDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 WorkflowDataBase &
 AdminAccessBase &
-CustomElemsBase & {
+CustomElemsBase &
+KnowledgePartsKpBase & {
   Doc: TaskDocument;
   /** Тип */
   task_type_id: XmlElem<number | null, TaskTypeCatalogDocumentTopElem>;
@@ -195,6 +196,7 @@ CustomElemsBase & {
 type TaskDocument = XmlDocument & {
   TopElem: TaskDocumentTopElem;
   task: TaskDocumentTopElem;
+  OnSave(): void;
   OnBeforeSave(): void;
   DocDesc(): string;
 };

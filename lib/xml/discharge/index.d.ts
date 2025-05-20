@@ -4,9 +4,11 @@ interface ExportOdbcSourceBase {
   db_login: XmlElem<string | null>;
   db_password: XmlElem<string | null>;
   source_name: XmlElem<string | null>;
+  /** @default file */
   source_type: XmlElem<string>;
   form: XmlElem<string | null>;
   delim: XmlElem<string>;
+  /** @default windows-1251 */
   encoding: XmlElem<string>;
   lotus_id_path: XmlElem<string | null>;
   lotus_undefined_name: XmlElem<string | null>;
