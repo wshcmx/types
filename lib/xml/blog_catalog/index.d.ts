@@ -1,6 +1,7 @@
 type BlogCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name: XmlElem<string | null>;

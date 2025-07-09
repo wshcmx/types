@@ -1,5 +1,6 @@
 type CallCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

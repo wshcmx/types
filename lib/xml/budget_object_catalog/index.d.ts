@@ -1,4 +1,5 @@
 type BudgetObjectCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Бюджет */
   budget_id: XmlElem<number | null, BudgetCatalogDocumentTopElem>;

@@ -1,5 +1,6 @@
 type ResourceCatalogDocumentTopElem = XmlTopElem &
 AccessDocBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -50,6 +51,7 @@ AccessDocBase & {
   person_fullname: XmlElem<string | null>;
   /** Путь */
   file_path: XmlElem<string | null>;
+  /** Checksum */
   checksum: XmlElem<string | null>;
   /** Значения карты знаний */
   knowledge_parts: XmlElem<string | null>;

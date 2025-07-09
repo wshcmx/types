@@ -1,6 +1,7 @@
 type CertificateCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Серия */
   serial: XmlElem<string | null>;

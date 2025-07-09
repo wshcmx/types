@@ -1,4 +1,5 @@
 type CompoundProgramEducationMethodCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Корневой раздел */
   program_id: XmlElem<number | null>;
@@ -18,15 +19,24 @@ type CompoundProgramEducationMethodCatalogDocumentTopElem = XmlTopElem & {
   cost: XmlElem<number | null>;
   /** Валюта */
   currency: XmlElem<string | null, typeof lists.currency_types>;
-  /** Тип оплаты */
+  /**
+   * Тип оплаты
+   * @default person
+   */
   cost_type: XmlElem<string | null, typeof common.cost_types>;
   /** Длительность в часах */
   duration: XmlElem<number | null>;
   /** Количество участников */
   person_num: XmlElem<number | null>;
-  /** Тип учебной программы */
+  /**
+   * Тип учебной программы
+   * @default org
+   */
   type: XmlElem<string, typeof common.education_method_types>;
-  /** Тип */
+  /**
+   * Тип
+   * @default course
+   */
   object_type: XmlElem<string | null>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -34,7 +44,10 @@ type CompoundProgramEducationMethodCatalogDocumentTopElem = XmlTopElem & {
   object_name: XmlElem<string | null>;
   /** Код объекта */
   object_code: XmlElem<string | null>;
-  /** Признак открытой учебной программы */
+  /**
+   * Признак открытой учебной программы
+   * @default false
+   */
   is_open: XmlElem<boolean>;
   /** Длительность в днях */
   duration_days: XmlElem<number | null>;

@@ -1,14 +1,19 @@
 type EventLectorCatalogDocumentTopElem = XmlTopElem &
 EventCatalogBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Мероприятия */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
+  /** @default false */
   is_model: XmlElem<boolean>;
   /** Расположение */
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default invitee
+   */
   type: XmlElem<string, typeof common.lector_types>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -18,11 +23,20 @@ EventCatalogBase & {
   lector_fullname: XmlElem<string | null>;
   /** Кол-во часов */
   hours: XmlElem<number | null>;
-  /** Является преподавателем */
+  /**
+   * Является преподавателем
+   * @default false
+   */
   is_tutor: XmlElem<boolean | null>;
-  /** Является сотрудником */
+  /**
+   * Является сотрудником
+   * @default false
+   */
   is_collaborator: XmlElem<boolean | null>;
-  /** Является ответственным за подготовку */
+  /**
+   * Является ответственным за подготовку
+   * @default false
+   */
   is_preparation: XmlElem<boolean | null>;
   MatchDocTypeExt(): void;
   OnBuildExt(): void;

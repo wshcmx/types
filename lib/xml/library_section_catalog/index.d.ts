@@ -13,6 +13,10 @@ AdminAccessBase & {
   link: XmlElem<string | null>;
   /** Идентификатор во внешнем источнике */
   external_id: XmlElem<string | null>;
+  /** Дата актуализации из внешнего источника */
+  external_import_date: XmlElem<Date | null>;
+  /** Состояние */
+  state_id: XmlElem<number | null, typeof common.library_states>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

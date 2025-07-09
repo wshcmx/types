@@ -1,5 +1,6 @@
 type ObjectParamCatalogDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Активное уведомление

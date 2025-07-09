@@ -1,11 +1,21 @@
 type QtiRoleCatalogDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase & {
-  parent_role_id: XmlElem<number | null>;
-  /** Тип объекта */
+  /** Родительская категория */
+  parent_role_id: XmlElem<number | null, RoleCatalogDocumentTopElem>;
+  /**
+   * Тип объекта
+   * @default item
+   */
   catalog_name: XmlElem<string, typeof common.exchange_object_types>;
-  /** Является системным */
+  /**
+   * Является системным
+   * @default false
+   */
   is_std: XmlElem<boolean>;
-  /** Измененный */
+  /**
+   * Измененный
+   * @default false
+   */
   changed: XmlElem<boolean>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

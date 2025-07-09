@@ -1,4 +1,5 @@
 type DocumentCollaboratorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип объекта */
   parent_object_type: XmlElem<string | null, typeof common.exchange_object_types>;
@@ -18,11 +19,20 @@ type DocumentCollaboratorCatalogDocumentTopElem = XmlTopElem & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Имя сотрудника */
   person_fullname: XmlElem<string | null>;
-  /** Может создавать */
+  /**
+   * Может создавать
+   * @default true
+   */
   can_create: XmlElem<boolean | null>;
-  /** Может редактировать */
+  /**
+   * Может редактировать
+   * @default true
+   */
   can_edit: XmlElem<boolean | null>;
-  /** Может удалять */
+  /**
+   * Может удалять
+   * @default true
+   */
   can_delete: XmlElem<boolean | null>;
   MatchDocTypeExt(): void;
   OnBuildExt(): void;

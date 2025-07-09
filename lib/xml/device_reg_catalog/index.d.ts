@@ -1,5 +1,6 @@
 type DeviceRegCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -11,6 +12,7 @@ AdminAccessBase & {
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
+  /** uf_tokens */
   tokens: XmlMultiElemObject<number | null>;
   OnBuild(): void;
 };

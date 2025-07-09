@@ -1,5 +1,6 @@
 type QtiItemCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -7,14 +8,19 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Тип */
   type_id: XmlElem<string | null, typeof common.item_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   status: XmlElem<string, typeof common.tutor_status_types>;
   /** Название */
   title: XmlElem<string | null>;
+  /** Вопрос */
   question_text: XmlElem<string | null>;
+  /** Баллы */
   question_points: XmlElem<number | null>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

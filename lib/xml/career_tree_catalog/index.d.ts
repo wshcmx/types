@@ -1,4 +1,5 @@
 type CareerTreeCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Текущая должность */
   current_position_name: XmlElem<string | null>;

@@ -1,4 +1,5 @@
 type SelectedVacancyCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name: XmlElem<string | null>;

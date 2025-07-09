@@ -1,5 +1,6 @@
 type EventGroupCatalogDocumentTopElem = XmlTopElem &
 EventCatalogBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Мероприятия */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;

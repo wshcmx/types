@@ -1,5 +1,6 @@
 type ResumeCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -7,6 +8,7 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Пол */
   sex: XmlElem<string | null>;
+  /** Email */
   email: XmlElem<string | null>;
   /** Семейное положение */
   family_status: XmlElem<string | null>;

@@ -1,5 +1,6 @@
 type EducationOrgCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -17,6 +18,7 @@ AdminAccessBase & {
   telephone_mobile: XmlElem<string | null>;
   /** Факс */
   fax: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
   /**
    * Является поставщиком электронных курсов

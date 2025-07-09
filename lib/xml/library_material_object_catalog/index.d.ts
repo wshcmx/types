@@ -1,4 +1,5 @@
 type LibraryMaterialObjectCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   library_material_id: XmlElem<number | null, LibraryMaterialCatalogDocumentTopElem>;
   library_material_name: XmlElem<string | null>;

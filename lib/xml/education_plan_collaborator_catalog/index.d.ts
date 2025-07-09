@@ -1,4 +1,5 @@
 type EducationPlanCollaboratorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Корневой раздел */
   program_id: XmlElem<number | null>;
@@ -22,7 +23,10 @@ type EducationPlanCollaboratorCatalogDocumentTopElem = XmlTopElem & {
   development_plan_id: XmlElem<number | null, DevelopmentPlanCatalogDocumentTopElem>;
   /** Бюджетный период */
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
-  /** Тип */
+  /**
+   * Тип
+   * @default course
+   */
   type: XmlElem<string | null>;
   /** Объект */
   object_id: XmlElem<number | null>;
@@ -32,11 +36,17 @@ type EducationPlanCollaboratorCatalogDocumentTopElem = XmlTopElem & {
   object_code: XmlElem<string | null>;
   /** Дата начала */
   object_start_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default 0
+   */
   state_id: XmlElem<number, typeof common.learning_states>;
   /** Планируемая дата */
   plan_date: XmlElem<Date | null>;
-  /** Тип результата */
+  /**
+   * Тип результата
+   * @default active_learning
+   */
   result_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Объект */
   result_object_id: XmlElem<number | null>;
@@ -64,9 +74,15 @@ type EducationPlanCollaboratorCatalogDocumentTopElem = XmlTopElem & {
   person_org_name: XmlElem<string | null>;
   /** Название подразделения */
   person_subdivision_name: XmlElem<string | null>;
-  /** Является сотрудником */
+  /**
+   * Является сотрудником
+   * @default false
+   */
   is_collaborator: XmlElem<boolean>;
-  /** Является преподавателем */
+  /**
+   * Является преподавателем
+   * @default false
+   */
   is_tutor: XmlElem<boolean>;
   MatchDocTypeExt(): void;
   OnBuildExt(): void;

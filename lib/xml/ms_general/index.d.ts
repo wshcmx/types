@@ -225,6 +225,7 @@ interface MsViewConfigurationBaseViewConfigurationFilter {
 }
 
 interface MsViewConfigurationBaseApiFilter {
+  /** ID */
   id: XmlElem<string | null>;
   /** Заголовок */
   title: XmlElem<string | null>;

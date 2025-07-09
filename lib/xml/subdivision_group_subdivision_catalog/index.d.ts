@@ -1,4 +1,5 @@
 type SubdivisionGroupSubdivisionCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Группа подразделений */
   subdivision_group_id: XmlElem<number | null, SubdivisionGroupCatalogDocumentTopElem>;

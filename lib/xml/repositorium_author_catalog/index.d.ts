@@ -1,4 +1,5 @@
 type RepositoriumAuthorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   repositorium_id: XmlElem<number | null, RepositoriumCatalogDocumentTopElem>;
   repositorium_name: XmlElem<string | null>;

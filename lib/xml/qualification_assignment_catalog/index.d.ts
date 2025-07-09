@@ -1,6 +1,7 @@
 type QualificationAssignmentCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Дата присвоения */
   assignment_date: XmlElem<Date | null>;

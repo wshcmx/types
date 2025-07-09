@@ -1,4 +1,5 @@
 type StatisticDataCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Показатель */
   statistic_rec_id: XmlElem<number | null, StatisticRecCatalogDocumentTopElem>;

@@ -1,4 +1,5 @@
 type PersonObjectLinkObjectCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   person_object_id: XmlElem<number | null>;
   person_object_type: XmlElem<string | null>;

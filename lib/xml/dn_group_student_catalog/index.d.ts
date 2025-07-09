@@ -1,5 +1,6 @@
 type DnGroupStudentCatalogDocumentTopElem = XmlTopElem &
 PersonBase & {
+  /** ID */
   id: XmlElem<number | null>;
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   /** Сотрудник */
@@ -8,7 +9,10 @@ PersonBase & {
   person_fullname: XmlElem<string | null>;
   special_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;
   specialization_id: XmlElem<number | null, DnSpecializationCatalogDocumentTopElem>;
-  /** Статус договора */
+  /**
+   * Статус договора
+   * @default active
+   */
   status_id: XmlElem<string | null, typeof common.student_states>;
   main_group_id: XmlElem<number | null, DnStudGroupCatalogDocumentTopElem>;
   group_id: XmlElem<number | null, DnStudGroupCatalogDocumentTopElem>;

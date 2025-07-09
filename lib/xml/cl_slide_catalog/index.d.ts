@@ -1,5 +1,6 @@
 type ClSlideCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -17,6 +18,7 @@ AdminAccessBase & {
   is_master: XmlElem<boolean | null>;
   /** Является выскакивающим экраном */
   is_splash: XmlElem<boolean | null>;
+  /** SID */
   sid: XmlElem<number | null>;
   /**
    * Заблокировано
@@ -31,6 +33,7 @@ AdminAccessBase & {
   flag_completion: XmlElem<boolean | null>;
   /** Состояние разработки */
   approval_status: XmlElem<number | null, typeof common.cl_approval_states>;
+  /** Stamp */
   stamp: XmlElem<number | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

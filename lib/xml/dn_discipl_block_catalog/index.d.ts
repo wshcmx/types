@@ -1,4 +1,5 @@
 type DnDisciplBlockCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   block_id: XmlElem<number | null, DnBlockDisciplineCatalogDocumentTopElem>;
   /** Код */

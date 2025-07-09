@@ -1,4 +1,5 @@
 type ContestMarkCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Конкурс */
   contest_id: XmlElem<number | null, ContestCatalogDocumentTopElem>;
@@ -11,7 +12,10 @@ type ContestMarkCatalogDocumentTopElem = XmlTopElem & {
   person_fullname: XmlElem<string | null>;
   /** Должность оцениваемого */
   person_position_name: XmlElem<string | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.participant_states>;
   /** Оценка */
   general_mark: XmlElem<string | null>;

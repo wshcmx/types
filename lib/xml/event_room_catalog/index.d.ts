@@ -1,11 +1,21 @@
 type EventRoomCatalogDocumentTopElem = XmlTopElem &
 EventCatalogBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
-  /** Эталонное мероприятие */
+  /**
+   * Эталонное мероприятие
+   * @default false
+   */
   is_model: XmlElem<boolean>;
+  /**
+   * Использовать виртуальный класс
+   * @default false
+   */
   use_vclass: XmlElem<boolean>;
+  /** Виртуальный класс */
   vclass_setting_id: XmlElem<number | null, VclassSettingCatalogDocumentTopElem>;
+  /** Разговор */
   conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
   /** Модульная программа */
   compound_program_id: XmlElem<number | null, CompoundProgramCatalogDocumentTopElem>;
@@ -19,9 +29,15 @@ AdminAccessBase & {
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
   /** Сервер Виртуального класса */
   vclass_host: XmlElem<string | null>;
-  /** Вебинар не записан */
+  /**
+   * Вебинар не записан
+   * @default false
+   */
   record_exists: XmlElem<boolean>;
-  /** Запись доступна для просмотра */
+  /**
+   * Запись доступна для просмотра
+   * @default false
+   */
   show_record: XmlElem<boolean>;
   /** Базовое мероприятие */
   parent_event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
@@ -41,29 +57,47 @@ AdminAccessBase & {
   test_started: XmlElem<number | null>;
   /** Начатых тестов */
   test_began: XmlElem<number | null>;
-  /** Группа сформирована */
+  /**
+   * Группа сформирована
+   * @default false
+   */
   group_formed: XmlElem<boolean>;
   /** Курс */
   course_id: XmlElem<number | null, CourseCatalogDocumentTopElem>;
   /** План мероприятий */
   training_plan_id: XmlElem<number | null, TrainingPlanCatalogDocumentTopElem>;
-  /** Является публичным */
+  /**
+   * Является публичным
+   * @default false
+   */
   is_public: XmlElem<boolean>;
-  /** Является открытым */
+  /**
+   * Является открытым
+   * @default false
+   */
   is_open: XmlElem<boolean>;
   /** Стоимость */
   cost: XmlElem<number | null>;
-  /** Тип стоимости */
+  /**
+   * Тип стоимости
+   * @default person
+   */
   cost_type: XmlElem<string | null, typeof common.cost_types>;
   /** Бюджетный период */
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
-  /** Распределение общей стоимости */
+  /**
+   * Распределение общей стоимости
+   * @default person
+   */
   distribute_cost_type: XmlElem<string>;
   /** Фактическое количество часов */
   duration_fact: XmlElem<number | null>;
   /** Фактическое количество дней */
   duration_days_fact: XmlElem<number | null>;
-  /** Обязательное заполнение отзыва */
+  /**
+   * Обязательное заполнение отзыва
+   * @default false
+   */
   mandatory_fill_response: XmlElem<boolean>;
   /** Форма проведения */
   event_form: XmlElem<string | null, typeof lists.event_forms>;
@@ -84,7 +118,7 @@ AdminAccessBase & {
   /** Опрос */
   poll_id: XmlElem<number | null, PollCatalogDocumentTopElem>;
   /** Категория */
-  role_id: XmlMultiElemObject<number | null>;
+  role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

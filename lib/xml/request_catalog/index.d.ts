@@ -1,5 +1,6 @@
 type RequestCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код заявки */
   code: XmlElem<string | null>;

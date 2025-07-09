@@ -1,4 +1,5 @@
 type UserDataCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
   code: XmlElem<string | null>;

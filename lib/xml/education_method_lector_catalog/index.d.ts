@@ -1,5 +1,6 @@
 type EducationMethodLectorCatalogDocumentTopElem = XmlTopElem &
 CostCurrencyTypeBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Учебная программа */
   education_method_id: XmlElem<number | null, EducationMethodCatalogDocumentTopElem>;
@@ -7,11 +8,20 @@ CostCurrencyTypeBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
-  /** Тип проведения */
+  /**
+   * Тип проведения
+   * @default org
+   */
   type: XmlElem<string, typeof common.education_method_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default active
+   */
   state_id: XmlElem<string, typeof common.education_method_states>;
-  /** Является открытой учебной программой */
+  /**
+   * Является открытой учебной программой
+   * @default false
+   */
   is_open: XmlElem<boolean>;
   /** Организация */
   education_org_id: XmlElem<number | null, EducationOrgCatalogDocumentTopElem>;

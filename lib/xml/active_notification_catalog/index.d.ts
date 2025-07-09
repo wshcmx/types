@@ -1,4 +1,5 @@
 type ActiveNotificationCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип уведомления */
   notification_id: XmlElem<number | null, NotificationCatalogDocumentTopElem>;

@@ -1,4 +1,5 @@
 type TraningOrderCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Номер */
   number: XmlElem<string | null>;

@@ -1,6 +1,7 @@
 type CourseCatalogDocumentTopElem = XmlTopElem &
 AccessDocBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код курса */
   code: XmlElem<string | null>;

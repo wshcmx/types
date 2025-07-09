@@ -1,4 +1,5 @@
 type TaggedObjectCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   catalog: XmlElem<string | null, typeof common.exchange_object_types>;
   object_id: XmlElem<number | null>;

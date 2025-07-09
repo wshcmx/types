@@ -1,6 +1,7 @@
 type ObjectDataCatalogDocumentTopElem = XmlTopElem &
 ObjectTypeBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -1,6 +1,7 @@
 type TestLearningCatalogDocumentTopElem = XmlTopElem &
 AnnalsNumsBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тест */
   assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;

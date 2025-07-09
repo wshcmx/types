@@ -1,4 +1,5 @@
 type ResumeSkillCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** ID резюме */
   resume_id: XmlElem<number | null, ResumeCatalogDocumentTopElem>;

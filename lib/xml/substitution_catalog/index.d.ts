@@ -1,5 +1,6 @@
 type SubstitutionCatalogDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

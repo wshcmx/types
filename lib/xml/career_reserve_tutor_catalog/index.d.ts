@@ -1,4 +1,5 @@
 type CareerReserveTutorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Развитие карьеры */
   career_reserve_id: XmlElem<number | null, CareerReserveCatalogDocumentTopElem>;

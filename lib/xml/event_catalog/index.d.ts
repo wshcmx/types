@@ -1,6 +1,7 @@
 type EventCatalogDocumentTopElem = XmlTopElem &
 EventCatalogBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Эталонное мероприятие

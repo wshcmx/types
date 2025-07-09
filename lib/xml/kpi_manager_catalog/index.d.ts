@@ -1,4 +1,5 @@
 type KpiManagerCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип объекта */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;

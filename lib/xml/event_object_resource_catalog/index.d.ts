@@ -1,4 +1,5 @@
 type EventObjectResourceCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Мероприятия */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
@@ -12,7 +13,10 @@ type EventObjectResourceCatalogDocumentTopElem = XmlTopElem & {
   start_date: XmlElem<Date | null>;
   /** Дата завершения */
   finish_date: XmlElem<Date | null>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.event_status_types>;
   /** Количество участников */
   person_num: XmlElem<number | null>;

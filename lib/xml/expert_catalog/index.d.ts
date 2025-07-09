@@ -1,5 +1,6 @@
 type ExpertCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name: XmlElem<string | null>;

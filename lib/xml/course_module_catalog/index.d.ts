@@ -9,7 +9,9 @@ AdminAccessBase & {
   eid: XmlElem<string | null>;
   /** Название курса */
   name: XmlElem<string | null>;
+  /** Activations */
   activation_count: XmlElem<number | null>;
+  /** Launches */
   launch_count: XmlElem<number | null>;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;

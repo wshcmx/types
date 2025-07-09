@@ -1,4 +1,5 @@
 type EducationOrgLectorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Учебная организация */
   education_org_id: XmlElem<number | null, EducationOrgCatalogDocumentTopElem>;
@@ -8,7 +9,10 @@ type EducationOrgLectorCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Условное название */
   disp_name: XmlElem<string | null>;
-  /** Является поставщиком электронных курсов */
+  /**
+   * Является поставщиком электронных курсов
+   * @default 0
+   */
   is_provider_courses: XmlElem<boolean>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;

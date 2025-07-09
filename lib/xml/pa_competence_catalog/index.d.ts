@@ -1,4 +1,5 @@
 type PaCompetenceCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Формы оценки */
   pa_id: XmlElem<number | null, PaCatalogDocumentTopElem>;
@@ -26,7 +27,10 @@ type PaCompetenceCatalogDocumentTopElem = XmlTopElem & {
   expert_person_position_name: XmlElem<string | null>;
   /** Тип оценки */
   assessment_appraise_type: XmlElem<string | null, typeof common.assessment_appraise_types>;
-  /** Признак завершенности */
+  /**
+   * Признак завершенности
+   * @default false
+   */
   is_done: XmlElem<boolean>;
   /** Компетенция */
   competence_id: XmlElem<number | null, CompetenceCatalogDocumentTopElem>;
@@ -34,7 +38,10 @@ type PaCompetenceCatalogDocumentTopElem = XmlTopElem & {
   plan: XmlElem<string | null>;
   /** Оценка */
   mark: XmlElem<string | null>;
-  /** Вес */
+  /**
+   * Вес
+   * @default 0.0
+   */
   weight: XmlElem<number>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

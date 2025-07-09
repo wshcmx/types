@@ -1,4 +1,5 @@
 type ActionReportCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип */
   type: XmlElem<string | null, typeof common.action_report_types>;

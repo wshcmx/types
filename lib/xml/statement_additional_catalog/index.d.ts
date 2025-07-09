@@ -1,4 +1,5 @@
 type StatementAdditionalCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Путь */
   path: XmlElem<string | null>;

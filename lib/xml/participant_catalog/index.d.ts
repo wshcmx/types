@@ -1,6 +1,7 @@
 type ParticipantCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Название работы */
   work_name: XmlElem<string | null>;

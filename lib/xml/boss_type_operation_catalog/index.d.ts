@@ -1,4 +1,5 @@
 type BossTypeOperationCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
   /** Код */

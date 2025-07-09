@@ -1,5 +1,6 @@
 type LearningRecordCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -58,6 +59,7 @@ AdminAccessBase & {
    * @default false
    */
   download_materials: XmlElem<boolean>;
+  /** Session ID */
   active_session_id: XmlElem<string | null>;
   /** Дата завершения */
   active_session_finish_date: XmlElem<Date | null>;

@@ -140,6 +140,7 @@ interface PersonBase extends PersonNameBase {
    * @default 0
    */
   mobile_phone_conf: XmlElem<boolean | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
   /** Код подтверждения E-mail */
   email_conf_code: XmlElem<string | null>;
@@ -227,7 +228,9 @@ interface EssentialBaseBankAccount extends BankAccountBase {
 interface EssentialBase {
   /** @default false */
   is_foreign: XmlElem<boolean | null>;
+  /** Swift Code */
   swift_code: XmlElem<string | null>;
+  /** IBAN No */
   iban_no: XmlElem<string | null>;
   /** ИНН */
   inn: XmlElem<string | null>;
@@ -281,6 +284,7 @@ interface EventSettingsBase {
 }
 
 interface OutstaffPeriodsBasePeriod {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -320,6 +324,7 @@ interface OutstaffPeriodsBasePeriod {
 }
 
 interface OutstaffPeriodsBaseMaterial {
+  /** ID */
   id: XmlElem<string | null>;
   /** Тип материала */
   outstaff_type_material_id: XmlElem<number | null, OutstaffTypeMaterialCatalogDocumentTopElem>;
@@ -422,7 +427,7 @@ interface GlobalSettingsBaseWebDesign {
 }
 
 interface GlobalSettingsBaseWebRules {
-  /** @default /scripts/,/pics/,/pp/,/icons/,/services/ */
+  /** @default /scripts/,/pics/,/pp/,/icons/,/services/,/proctoring_api.xml */
   exclude_path_list: XmlElem<string | null>;
 }
 
@@ -882,6 +887,7 @@ interface FileActionBase {
 }
 
 interface FileBase {
+  /** ID */
   file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem> & FileActionBase;
 }
 
@@ -1005,7 +1011,7 @@ interface ImportExcelPersonsBase {
 }
 
 interface OrgBase extends EssentialsBase {
-  /** Id */
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -1071,6 +1077,7 @@ interface LectorsBase {
 }
 
 interface AccessRoleBaseAccessBloc {
+  /** ID */
   id: XmlElem<string | null, AccessBlockCatalogDocumentTopElem>;
   /**
    * Чтение
@@ -1114,7 +1121,7 @@ interface AccessRoleBaseFuncBlock {
 }
 
 interface AccessRoleBase {
-  /** Id */
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -1256,7 +1263,7 @@ interface PersonForeignBase {
   person_position_name(): string;
   person_org_name(): string;
   person_subdivision_name(): string;
-  person_instance_id(): unknown;
+  person_instance_id(): string;
   person_code(): string;
 }
 
@@ -1593,7 +1600,7 @@ interface FuncManagersBase {
   func_managers: XmlMultiElem<FuncManagersBaseFuncManager | null>;
   /** Функциональные руководители */
   position_managers: XmlMultiElem<FuncManagersBasePositionManager | null>;
-  obtain_func_manager_by_id(personId: number, isNative: boolean): unknown;
+  obtain_func_manager_by_id(personId: number, isNative: boolean): void;
 }
 
 interface AdminAccessBase {
@@ -1642,6 +1649,7 @@ interface PathSubsBase {
 }
 
 interface AssessmentScaleValueScale {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -2294,7 +2302,7 @@ interface CustomReportBase extends CriterionBase, ColumnBase, ChartReportGraphBa
   get_report_data(reportId: number, userId: number): unknown;
   get_crit_hash(): unknown;
   extractVolatileData(): unknown;
-  condenseVolatileData(volatile: Object): unknown;
+  condenseVolatileData(volatile: unknown): void;
   report_result_date: XmlElem<Date | null>;
   report_result_author: XmlElem<string | null>;
   performance_launch_time: XmlElem<Date | null>;
@@ -2870,6 +2878,7 @@ interface WebVariablesBaseWvarEntry {
 }
 
 interface WebVariablesBaseWvarViewCondition {
+  /** ID */
   id: XmlElem<string | null>;
   /** Параметр */
   wvar_name: XmlElem<string | null>;
@@ -3411,7 +3420,7 @@ interface TalentPoolFuncManagersBaseTalentPoolFuncManager extends PersonFillingB
 
 interface TalentPoolFuncManagersBase {
   talent_pool_func_managers: XmlMultiElem<TalentPoolFuncManagersBaseTalentPoolFuncManager | null>;
-  obtain_talent_pool_func_manager_by_id(personId: number, isNative: boolean): unknown;
+  obtain_talent_pool_func_manager_by_id(personId: number, isNative: boolean): void;
 }
 
 interface SocialObjectAccessBase {
@@ -3457,6 +3466,7 @@ type SamplePhone = string;
 type SampleString = string;
 
 interface ObjectCodeNameBase {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -3640,6 +3650,7 @@ interface TaskInfoBase {
 }
 
 interface GameBonusBaseGameBonus {
+  /** ID */
   id: XmlElem<string | null>;
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
@@ -3709,7 +3720,7 @@ interface ProctoringBase {
 }
 
 interface ResultFieldsBaseResultField {
-  /** Id */
+  /** ID */
   id: XmlElem<string | null>;
   /** Название поля */
   name: XmlElem<string | null>;

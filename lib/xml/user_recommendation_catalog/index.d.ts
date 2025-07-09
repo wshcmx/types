@@ -1,5 +1,6 @@
 type UserRecommendationCatalogDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Объект контекста */
   context_object_id: XmlElem<number | null>;

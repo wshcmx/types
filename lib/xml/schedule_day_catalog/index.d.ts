@@ -1,4 +1,5 @@
 type ScheduleDayCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип графика */
   schedule_type_id: XmlElem<number | null, ScheduleTypeCatalogDocumentTopElem>;

@@ -1,5 +1,6 @@
 type KnowledgePartCatalogDocumentTopElem = XmlTopElem &
 AccessDocBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

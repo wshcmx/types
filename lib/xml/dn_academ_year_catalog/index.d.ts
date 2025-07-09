@@ -1,5 +1,6 @@
 type DnAcademYearCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   start_year: XmlElem<string | null>;
   end_year: XmlElem<string | null>;

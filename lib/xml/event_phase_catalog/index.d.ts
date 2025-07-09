@@ -1,4 +1,5 @@
 type EventPhaseCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Мероприятие */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
@@ -8,11 +9,20 @@ type EventPhaseCatalogDocumentTopElem = XmlTopElem & {
   name: XmlElem<string | null>;
   /** Тип */
   type_id: XmlElem<string | null, typeof common.event_types>;
-  /** Статус */
+  /**
+   * Статус
+   * @default plan
+   */
   status_id: XmlElem<string | null, typeof common.event_status_types>;
-  /** Является публичным */
+  /**
+   * Является публичным
+   * @default false
+   */
   is_public: XmlElem<boolean>;
-  /** Является открытым */
+  /**
+   * Является открытым
+   * @default false
+   */
   is_open: XmlElem<boolean>;
   /** Расположение */
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
