@@ -880,21 +880,21 @@ interface InsertFileBase {
 }
 
 interface FileActionBase {
-  AssignFile(fileUrl: string, source: unknown, params: Object): unknown;
-  DeleteFile(source: unknown): unknown;
-  SaveFile(fileUrl: string): unknown;
+  AssignFile(fileUrl: string, source: unknown, params: unknown): void;
+  DeleteFile(source: unknown): void;
+  SaveFile(fileUrl: string): void;
   AddFile(fileId: number, source: unknown): void;
 }
 
 interface FileBase {
   /** ID */
-  file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem> & FileActionBase;
+  file_id: XmlElem<FileActionBase | null>;
 }
 
 interface FileListBase {
   /** Файлы */
   files: XmlMultiElem<FileBase | null>;
-  AddFile(fileId: number, resource: ResourceDocument): void;
+  AddFile(fileId: number, resource: ResourceDocument): boolean | never;
 }
 
 interface CoursePartBase {
@@ -911,6 +911,7 @@ interface CoursePartBase {
   max_score: XmlElem<number | null>;
   /** Проходной балл */
   mastery_score: XmlElem<number | null>;
+  /** URL */
   url: XmlElem<string | null>;
   /** Ссылка на родительский раздел */
   parent_part_code: XmlElem<string | null>;
@@ -1325,6 +1326,7 @@ interface ViewColumnsBaseColumn {
   name: XmlElem<string | null>;
   /** Тип */
   type: XmlElem<string | null>;
+  /** cl_const */
   const: XmlElem<string | null>;
   /** Ширина */
   width: XmlElem<string | null>;
@@ -1486,6 +1488,7 @@ interface ExchangeListsBasePersonState {
 
 interface ExchangeListsBaseProfessionalArea {
   id: XmlElem<string | null>;
+  /** 1 */
   name: XmlElem<string | null>;
 }
 
@@ -1825,7 +1828,7 @@ interface CompetenceLevelBaseLevelEducationMethod {
 }
 
 interface CompetenceLevelBaseLevelAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   assessment_score: XmlElem<number | null>;
 }
 
@@ -2448,7 +2451,7 @@ interface CustomElemsBaseCustomReportFiction extends CustomReportBase {
 interface CustomElemsBase {
   /** Настраиваемые поля */
   custom_elems: XmlMultiElem<CustomElemsBaseCustomElem | null>;
-  check_fields_default_value(curUser: CurUser): unknown;
+  check_fields_default_value(curUser: CurUser): void;
   /** @temp */
   custom_report_fictions: XmlMultiElem<CustomElemsBaseCustomReportFiction | null>;
 }
@@ -2778,7 +2781,7 @@ interface CoreLessonInfoBase {
 
 interface LearningAssessmentBase extends AnnalsObjectsBase {
   /** Тест */
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /** Название теста */
   assessment_name: XmlElem<string | null>;
   /** Код теста */
@@ -3044,7 +3047,7 @@ interface CostCentersBase {
 }
 
 interface EduMethodTestingBasePrevTestingAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
 }
 
 interface EduMethodTestingBasePrevTesting {
@@ -3054,7 +3057,7 @@ interface EduMethodTestingBasePrevTesting {
 }
 
 interface EduMethodTestingBasePostTestingAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
 }
 
 interface EduMethodTestingBasePostTesting {
@@ -3151,7 +3154,7 @@ interface RequirementsBaseCourse {
 }
 
 interface RequirementsBaseAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
 }
 
 interface RequirementsBaseRecomendedLibraryMaterial {
