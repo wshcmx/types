@@ -51,7 +51,7 @@ type CompoundProgramEducationMethodCatalogDocumentTopElem = XmlTopElem & {
   is_open: XmlElem<boolean>;
   /** Длительность в днях */
   duration_days: XmlElem<number | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

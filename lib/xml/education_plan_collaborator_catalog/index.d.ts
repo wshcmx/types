@@ -84,7 +84,7 @@ type EducationPlanCollaboratorCatalogDocumentTopElem = XmlTopElem & {
    * @default false
    */
   is_tutor: XmlElem<boolean>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

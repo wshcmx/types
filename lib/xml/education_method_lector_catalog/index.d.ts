@@ -33,7 +33,7 @@ CostCurrencyTypeBase & {
   person_num: XmlElem<number | null>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

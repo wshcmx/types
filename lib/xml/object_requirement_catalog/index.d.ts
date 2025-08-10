@@ -26,7 +26,7 @@ type ObjectRequirementCatalogDocumentTopElem = XmlTopElem & {
   requirement_value: XmlElem<string | null>;
   /** Дополнительный параметр */
   additional_param: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

@@ -14,7 +14,7 @@ type PersonObjectLinkObjectCatalogDocumentTopElem = XmlTopElem & {
   can_delete: XmlElem<boolean | null>;
   /** Уровень доступа */
   access_level: XmlElem<number | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

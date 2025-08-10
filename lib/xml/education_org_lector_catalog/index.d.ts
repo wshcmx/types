@@ -20,7 +20,7 @@ type EducationOrgLectorCatalogDocumentTopElem = XmlTopElem & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** ФИО преподавателя */
   person_fullname: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

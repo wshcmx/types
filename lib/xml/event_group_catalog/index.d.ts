@@ -6,7 +6,7 @@ EventCatalogBase & {
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
   /** Группа */
   group_id: XmlElem<number | null, GroupCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

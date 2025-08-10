@@ -8,7 +8,7 @@ ObjectTypeBase & {
   person_fullname: XmlElem<string | null>;
   /** @default expert */
   type: XmlElem<string, typeof common.course_expert_types>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

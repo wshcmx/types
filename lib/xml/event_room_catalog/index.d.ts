@@ -124,7 +124,7 @@ AdminAccessBase & {
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
   OnBuild(): void;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

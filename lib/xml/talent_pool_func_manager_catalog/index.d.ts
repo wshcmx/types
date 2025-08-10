@@ -18,7 +18,7 @@ type TalentPoolFuncManagerCatalogDocumentTopElem = XmlTopElem & {
   is_native: XmlElem<boolean>;
   /** Тип функционального руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

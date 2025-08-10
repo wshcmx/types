@@ -9,7 +9,7 @@ type BossTypeOperationCatalogDocumentTopElem = XmlTopElem & {
   operation_id: XmlElem<number | null, OperationCatalogDocumentTopElem>;
   /** Операции */
   operations: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

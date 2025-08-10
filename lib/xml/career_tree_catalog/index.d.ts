@@ -10,6 +10,6 @@ type CareerTreeCatalogDocumentTopElem = XmlTopElem & {
   /** Должность занимает */
   position_collaborator_fullname: XmlElem<string | null>;
   OnBuildExt(): void;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnDeleteExt(): void;
 };

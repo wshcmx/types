@@ -31,7 +31,7 @@ type GroupCollaboratorCatalogDocumentTopElem = XmlTopElem & {
   /** ФИО сотрудника */
   collaborator_fullname: XmlElem<string | null>;
   position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

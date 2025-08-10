@@ -43,7 +43,7 @@ EventCatalogBase & {
    * @default false
    */
   is_preparation: XmlElem<boolean | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

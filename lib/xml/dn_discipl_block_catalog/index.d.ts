@@ -7,7 +7,7 @@ type DnDisciplBlockCatalogDocumentTopElem = XmlTopElem & {
   /** Название */
   name: XmlElem<string | null>;
   discipl_id: XmlElem<number | null, DnDisciplineCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

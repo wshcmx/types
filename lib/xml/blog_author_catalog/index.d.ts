@@ -16,7 +16,7 @@ type BlogAuthorCatalogDocumentTopElem = XmlTopElem & {
    * @default false
    */
   is_full_moderator: XmlElem<boolean | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

@@ -40,7 +40,10 @@ AdminAccessBase & {
    * @default false
    */
   is_visible_auditorys: XmlElem<boolean>;
-  /** @default false */
+  /**
+   * vaaeb_wnavd6yx2e
+   * @default false
+   */
   is_visible_evaluatings: XmlElem<boolean>;
   /**
    * Эксперты

@@ -28,7 +28,7 @@ type EventObjectResourceCatalogDocumentTopElem = XmlTopElem & {
   object_resource_name: XmlElem<string | null>;
   /** Тип ресурса */
   object_resource_type: XmlElem<string | null, typeof lists.object_resource_types>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

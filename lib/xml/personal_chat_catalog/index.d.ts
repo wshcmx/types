@@ -43,7 +43,7 @@ type PersonalChatCatalogDocumentTopElem = XmlTopElem & {
   last_message_sender_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

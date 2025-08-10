@@ -44,7 +44,7 @@ type FuncManagerCatalogDocumentTopElem = XmlTopElem & {
   parent_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

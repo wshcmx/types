@@ -30,7 +30,7 @@ type ContestMarkCatalogDocumentTopElem = XmlTopElem & {
   modification_date: XmlElem<Date | null>;
   /** Код сервера */
   app_instance_id: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

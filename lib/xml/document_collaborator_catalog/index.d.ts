@@ -34,7 +34,7 @@ type DocumentCollaboratorCatalogDocumentTopElem = XmlTopElem & {
    * @default true
    */
   can_delete: XmlElem<boolean | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

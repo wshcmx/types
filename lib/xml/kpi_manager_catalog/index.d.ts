@@ -16,7 +16,7 @@ type KpiManagerCatalogDocumentTopElem = XmlTopElem & {
   is_owner: XmlElem<boolean | null>;
   /** Тип функционального руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };
