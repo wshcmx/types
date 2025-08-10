@@ -7,7 +7,7 @@ AdminAccessBase & {
   /** Название */
   name: XmlElem<string | null>;
   /** Статус */
-  status: XmlElem<string | null, typeof common.budget_state_types>;
+  status: XmlElem<string | null, typeof common.project_status_types>;
   /** Дата утверждения */
   start_date: XmlElem<Date | null>;
   /** Дата закрытия */
