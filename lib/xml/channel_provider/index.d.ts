@@ -2,6 +2,7 @@ type ChannelProviderDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 WebVariablesBase & {
   Doc: ChannelProviderDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

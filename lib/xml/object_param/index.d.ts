@@ -9,6 +9,7 @@ interface ObjectParamDocumentView {
 type ObjectParamDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
   Doc: ObjectParamDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Активное уведомление

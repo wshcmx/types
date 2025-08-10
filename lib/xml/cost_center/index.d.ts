@@ -7,6 +7,7 @@ FuncManagersBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: CostCenterDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

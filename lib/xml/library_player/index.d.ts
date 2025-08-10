@@ -8,6 +8,7 @@ interface LibraryPlayerDocumentView {
 
 type LibraryPlayerDocumentTopElem = XmlTopElem & {
   Doc: LibraryPlayerDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -18,7 +19,10 @@ type LibraryPlayerDocumentTopElem = XmlTopElem & {
   learning_storage_id: XmlElem<number | null, LearningStorageCatalogDocumentTopElem>;
   /** Учебная активность */
   activity_id: XmlElem<number | null, ActivityCatalogDocumentTopElem>;
-  /** @default false */
+  /**
+   * CMI5
+   * @default false
+   */
   cmi5: XmlElem<boolean>;
   /** Комментарий */
   comment: XmlElem<string | null>;

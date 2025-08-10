@@ -2,6 +2,7 @@ type CheckScheduleDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 WebVariablesBase & {
   Doc: CheckScheduleDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

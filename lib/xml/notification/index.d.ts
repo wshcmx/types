@@ -24,6 +24,7 @@ interface NotificationDocumentView {
 type NotificationDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: NotificationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

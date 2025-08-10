@@ -1,6 +1,7 @@
 type ApplicationInstanceDocumentTopElem = XmlTopElem &
 WebVariablesBase & {
   Doc: ApplicationInstanceDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

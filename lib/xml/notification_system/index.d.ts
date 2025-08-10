@@ -2,6 +2,7 @@ type NotificationSystemDocumentTopElem = XmlTopElem &
 MsParametersBase &
 AdminAccessBase & {
   Doc: NotificationSystemDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
