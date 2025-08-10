@@ -1,0 +1,4 @@
+type FormInteractionCatalogDocumentTopElem = XmlTopElem &
+InteractionBase & {
+
+};

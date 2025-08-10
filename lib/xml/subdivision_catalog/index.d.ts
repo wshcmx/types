@@ -1,9 +1,5 @@
-type SubdivisionCatalogDocumentTopElem = XmlTopElem & {
-  id: XmlElem<number | null>;
-  /** Код */
-  code: XmlElem<string | null>;
-  /** Название */
-  name: XmlElem<string | null>;
+type SubdivisionCatalogDocumentTopElem = XmlTopElem &
+ObjectCodeNameBase & {
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Подразделение */

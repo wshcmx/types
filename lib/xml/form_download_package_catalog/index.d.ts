@@ -1,0 +1,4 @@
+type FormDownloadPackageCatalogDocumentTopElem = XmlTopElem &
+DownloadPackageBase & {
+
+};

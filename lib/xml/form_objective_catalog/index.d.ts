@@ -1,0 +1,4 @@
+type FormObjectiveCatalogDocumentTopElem = XmlTopElem &
+ObjectiveBase & {
+
+};
