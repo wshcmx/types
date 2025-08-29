@@ -2,6 +2,10 @@ type ObjectParamCatalogDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
   /** ID */
   id: XmlElem<number | null>;
+  /** Код */
+  code: XmlElem<string | null>;
+  /** Название */
+  name: XmlElem<string | null>;
   /**
    * Активное уведомление
    * @default true

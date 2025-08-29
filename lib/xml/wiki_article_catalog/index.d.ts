@@ -33,6 +33,8 @@ ChangeHashFieldsBase & {
   author_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Типы руководителей авторов */
   author_boss_type_id: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Позиция в списке */
+  position: XmlElem<number | null>;
   /** Дата публикации */
   publicate_date: XmlElem<Date | null>;
   /** Дата публикации критичных изменений */

@@ -5,6 +5,11 @@ ObjectCodeNameBase & {
   /** Подразделение */
   parent_object_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   /**
+   * Статус
+   * @default active
+   */
+  status: XmlElem<string>;
+  /**
    * Подразделение расформировано
    * @default false
    */
