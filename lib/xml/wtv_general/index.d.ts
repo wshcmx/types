@@ -2793,6 +2793,8 @@ interface LearningAssessmentBase extends AnnalsObjectsBase {
   /** @default false */
   expert_eval: XmlElem<boolean>;
   /** @default false */
+  expert_notif: XmlElem<boolean>;
+  /** @default false */
   adaptive_eval: XmlElem<boolean>;
   /** Назначен самостоятельно */
   is_self_enrolled: XmlElem<boolean | null>;
@@ -2856,7 +2858,7 @@ interface LearningPartBase extends CoreLessonInfoBase, CoreLessonBase, LearningO
   attempts_num: XmlElem<number>;
   /**
    * Текущий номер попытки
-   * @default 1
+   * @default 0
    */
   cur_attempt_num: XmlElem<number>;
   /** Использовать прокторинг */
