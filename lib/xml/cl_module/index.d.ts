@@ -22,6 +22,7 @@ interface ClModuleDocumentDesign {
   slide_width: XmlElem<number | null>;
   slide_height: XmlElem<number | null>;
   font: XmlElem<ClModuleDocumentDesignFont | null>;
+  /** Идентификаторы */
   newids: XmlElem<ClModuleDocumentDesignNewids | null>;
   module_colors: XmlMultiElem<ClModuleDocumentDesignModuleColor | null>;
 }

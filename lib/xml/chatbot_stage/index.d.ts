@@ -27,6 +27,7 @@ interface ChatbotStageDocumentUnknowCommandChatbotStageUnknowCommandChatbotStage
 }
 
 interface ChatbotStageDocumentUnknowCommandChatbotStageUnknowCommandChatbotStage extends MsCodeLibraryCondition {
+  /** ID */
   id: XmlElem<string | null>;
   condition_eval: XmlElem<string | null>;
   /** Сообщение при поступлении неизвестной команды */
@@ -51,6 +52,7 @@ interface ChatbotStageDocumentUnknowCommandChatbotStage {
 }
 
 interface ChatbotStageDocumentInlineKeyboard extends MsCodeLibraryCondition, ObjectTypeBase {
+  /** ID */
   id: XmlElem<string | null>;
   text: XmlElem<string | null>;
   callback_data: XmlElem<string | null>;
@@ -72,6 +74,7 @@ interface ChatbotStageDocumentInlineKeyboard extends MsCodeLibraryCondition, Obj
 }
 
 interface ChatbotStageDocumentKeyboard extends MsCodeLibraryCondition {
+  /** ID */
   id: XmlElem<string | null>;
   text: XmlElem<string | null>;
   /** @default false */
@@ -101,6 +104,7 @@ interface ChatbotStageDocumentCommandCommandActionLibrary extends MsCodeLibraryC
 }
 
 interface ChatbotStageDocumentCommand extends MsCodeLibraryCondition {
+  /** ID */
   id: XmlElem<string | null>;
   /** @default false */
   is_inline_keyboard: XmlElem<boolean | null>;
@@ -129,6 +133,7 @@ interface ChatbotStageDocumentEscalationEscalationStageEscalationActionLibrary e
 }
 
 interface ChatbotStageDocumentEscalationEscalationStage extends MsCodeLibraryCondition {
+  /** ID */
   id: XmlElem<string | null>;
   /**
    * Время эскалации (часов)
@@ -158,6 +163,7 @@ interface ChatbotStageDocumentEscalation {
 }
 
 interface ChatbotStageDocumentTileBlockTileButtonsBlockButton extends ObjectTypeBase {
+  /** ID */
   id: XmlElem<string | null>;
   /** Заголовок */
   title: XmlElem<string | null>;
@@ -181,6 +187,7 @@ interface ChatbotStageDocumentTileBlockTileButtonsBlock {
 }
 
 interface ChatbotStageDocumentTileBlockTile {
+  /** ID */
   id: XmlElem<string | null>;
   /** Заголовок */
   title: XmlElem<string | null>;
@@ -209,7 +216,10 @@ interface ChatbotStageDocumentTileBlock {
 }
 
 interface ChatbotStageDocumentViewReplyMessageDataFiles {
-  /** @temp */
+  /**
+   * @temp
+   * ID
+   */
   id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** @temp */
   type: XmlElem<string | null>;
@@ -272,6 +282,7 @@ interface ChatbotStageDocumentView {
 type ChatbotStageDocumentTopElem = XmlTopElem &
 MsParametersBase & {
   Doc: ChatbotStageDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

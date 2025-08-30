@@ -69,6 +69,7 @@ interface ApplicationDocumentViewConfigurationApplicationUnit {
 }
 
 interface ApplicationDocumentViewConfigurationApiFilter {
+  /** ID */
   id: XmlElem<string | null>;
   /** Заголовок */
   title: XmlElem<string | null>;
