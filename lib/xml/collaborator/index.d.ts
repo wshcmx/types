@@ -1,4 +1,5 @@
 interface CollaboratorDocumentChangeLog extends CustomElemsBase {
+  /** ID */
   id: XmlElem<string | null>;
   /** Должность */
   position_id: XmlElem<number | null, PositionCatalogDocumentTopElem>;
@@ -31,6 +32,7 @@ interface CollaboratorDocumentChangeLog extends CustomElemsBase {
 }
 
 interface CollaboratorDocumentHistoryState {
+  /** ID */
   id: XmlElem<string | null>;
   /** Состояние */
   state_id: XmlElem<string | null, typeof lists.person_states>;
@@ -42,6 +44,8 @@ interface CollaboratorDocumentHistoryState {
   object_id: XmlElem<number | null>;
   /** Тип объекта */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
+  /** Код кадрового события */
+  event_code: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
 }
@@ -62,7 +66,7 @@ interface CollaboratorDocumentPersonalConfig {
 
 interface CollaboratorDocumentCustomParam {
   /** Название */
-  name: XmlElem<string | null>;
+  name: string;
   /** Значение */
   value: XmlElem<string | null>;
 }
@@ -198,6 +202,7 @@ KnowledgePartsBaseOld &
 CustomElemsBase &
 PersonObjectLinksBase & {
   Doc: CollaboratorDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -334,6 +339,7 @@ PersonObjectLinksBase & {
    * @default true
    */
   personal_chat_confirmation_required: XmlElem<boolean>;
+  /** potencialrazvi_9_9 */
   development_potential_id: XmlElem<number | null, DevelopmentPotentialCatalogDocumentTopElem>;
   /** Оценка эффективности */
   efficiency_estimation_id: XmlElem<number | null, EfficiencyEstimationCatalogDocumentTopElem>;
@@ -358,7 +364,10 @@ PersonObjectLinksBase & {
   /** Грейд */
   grade_id: XmlElem<number | null, GradeCatalogDocumentTopElem>;
   comp_ben: XmlElem<CollaboratorDocumentCompBen | null>;
-  /** @default false */
+  /**
+   * GDPR
+   * @default false
+   */
   gdpr: XmlElem<boolean>;
   /**
    * Согласие на КЭДО

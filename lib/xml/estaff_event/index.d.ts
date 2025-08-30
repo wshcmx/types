@@ -20,6 +20,7 @@ DocumentPersonsBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: EstaffEventDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Вакансия */
   vacancy_id: XmlElem<number | null, VacancyCatalogDocumentTopElem>;

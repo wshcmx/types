@@ -21,6 +21,7 @@ WebVariablesBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: EstaffEventTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

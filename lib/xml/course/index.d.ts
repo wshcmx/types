@@ -27,6 +27,7 @@ interface CourseDocumentPart {
   mastery_score: XmlElem<number | null>;
   /** Относительный проходной балл */
   mastery_score_relative: XmlElem<number | null>;
+  /** URL */
   url: XmlElem<string | null>;
   /** Учебный модуль */
   course_module_id: XmlElem<number | null, CourseModuleCatalogDocumentTopElem>;
@@ -73,7 +74,7 @@ interface CourseDocumentPart {
    */
   score_factor: XmlElem<number>;
   /** Тест */
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /**
    * Количество попыток
    * @default 1

@@ -7,6 +7,7 @@ type NotificationTemplateDocumentTopElem = XmlTopElem &
 CustomElemsBase &
 FileListBase & {
   Doc: NotificationTemplateDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

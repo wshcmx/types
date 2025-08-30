@@ -1,5 +1,6 @@
 interface HostDocumentAuthRule extends WebVariablesBase {
   id: XmlElem<string | null>;
+  /** User-Agent */
   user_agent: XmlElem<string | null>;
   /** Тип авторизации */
   auth_type_id: XmlElem<number | null, AuthTypeCatalogDocumentTopElem>;
@@ -43,6 +44,7 @@ type HostDocumentTopElem = XmlTopElem &
 WebVariablesBase &
 CustomElemsBase & {
   Doc: HostDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -139,9 +141,9 @@ CustomElemsBase & {
   /** Комментарий */
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
-  set_auth_type(authType: Object, authRuleId: string): unknown;
+  set_auth_type(authType: unknown, authRuleId: number): unknown;
   /** @temp */
-  converter: XmlElem<boolean | null>;
+  converter(): unknown;
 };
 
 type HostDocument = XmlDocument & {

@@ -133,6 +133,7 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: CareerReserveDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

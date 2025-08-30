@@ -1,4 +1,5 @@
 interface LearningRecordDocumentMediaRecord {
+  /** ID */
   id: XmlElem<string | null>;
   /** Url */
   media_url: XmlElem<string | null>;
@@ -9,6 +10,7 @@ interface LearningRecordDocumentMediaRecord {
 }
 
 interface LearningRecordDocumentLog {
+  /** ID */
   id: XmlElem<string | null>;
   /** Дата */
   date: XmlElem<Date | null>;
@@ -21,6 +23,7 @@ interface LearningRecordDocumentLog {
 }
 
 interface LearningRecordDocumentResultComment {
+  /** ID */
   id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Текст сообщения */
   comment: XmlElem<string | null>;
@@ -41,6 +44,7 @@ interface LearningRecordDocumentViolationInterval {
 }
 
 interface LearningRecordDocumentViolation {
+  /** ID */
   id: XmlElem<string | null>;
   /** Текст сообщения */
   comment: XmlElem<string | null>;
@@ -79,6 +83,7 @@ interface LearningRecordDocumentProctor {
 }
 
 interface LearningRecordDocumentSession {
+  /** ID */
   id: XmlElem<string | null>;
   /**
    * Статус
@@ -97,6 +102,7 @@ FileListBase &
 AdminAccessBase &
 MsParametersBase & {
   Doc: LearningRecordDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

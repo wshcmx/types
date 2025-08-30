@@ -37,6 +37,7 @@ PersonFillingBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: LearningTaskResultDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

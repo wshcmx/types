@@ -1,4 +1,5 @@
 interface CalendarEventDocumentBlockParticipantParticipant {
+  /** c_col */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /**
    * Признак подтверждения участия
@@ -18,6 +19,7 @@ interface CalendarEventDocumentBlockParticipant {
 }
 
 interface CalendarEventDocumentBlockTutorTutor {
+  /** c_col */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
 }
 

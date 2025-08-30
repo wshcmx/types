@@ -1,4 +1,5 @@
 interface BonusProfileDocumentKpi {
+  /** KPI */
   kpi_id: XmlElem<number | null, KpiCatalogDocumentTopElem>;
   /**
    * Вес
@@ -30,6 +31,7 @@ WebVariablesBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: BonusProfileDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -40,6 +42,7 @@ AdminAccessBase & {
    * @default 0
    */
   calc_type: XmlElem<number | null>;
+  /** KPI */
   kpis: XmlMultiElem<BonusProfileDocumentKpi | null>;
   /** Группа KPI */
   kpi_groups: XmlMultiElem<BonusProfileDocumentKpiGroup | null>;
