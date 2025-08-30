@@ -8,9 +8,11 @@ interface DnScheduleDocumentScheduleElem {
   edu_event_form_id: XmlElem<number | null, DnEducatEventCatalogDocumentTopElem>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
+  /** Поток */
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
   /** Учебная группа */
   stud_group_id: XmlElem<number | null, DnStudGroupCatalogDocumentTopElem>;
+  /** Аудитория */
   auditor_id: XmlElem<number | null, DnAuditoriumCatalogDocumentTopElem>;
 }
 
@@ -27,8 +29,10 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Факультет */
   faculty: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
+  /** Семестр */
   term_id: XmlElem<number | null, DnTermCatalogDocumentTopElem>;
   schedule_elems: XmlMultiElem<DnScheduleDocumentScheduleElem | null>;
   /** Информация об объекте */

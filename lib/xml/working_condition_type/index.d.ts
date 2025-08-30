@@ -1,5 +1,6 @@
 type WorkingConditionTypeDocumentTopElem = XmlTopElem & {
   Doc: WorkingConditionTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

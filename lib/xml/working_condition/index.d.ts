@@ -40,6 +40,7 @@ PersonFillingBase &
 FileListBase &
 CustomElemsBase & {
   Doc: WorkingConditionDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

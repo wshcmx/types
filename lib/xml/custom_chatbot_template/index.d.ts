@@ -14,6 +14,7 @@ type CustomChatbotTemplateDocumentTopElem = XmlTopElem &
 ExecCodeBase &
 MsParametersBase & {
   Doc: CustomChatbotTemplateDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

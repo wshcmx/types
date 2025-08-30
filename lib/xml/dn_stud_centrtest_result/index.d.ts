@@ -12,6 +12,7 @@ CustomElemsBase & {
   mark: XmlElem<number | null>;
   /** Дата */
   result_date: XmlElem<Date | null>;
+  /** Студент */
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   student_fullname: XmlElem<string | null>;
   /** Комментарий */

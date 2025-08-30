@@ -19,6 +19,7 @@ CustomElemsBase & {
   desc: XmlElem<string | null>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   disc_blocks: XmlMultiElem<DnDisciplineDocumentDiscBlock | null>;
   /** Комментарий */

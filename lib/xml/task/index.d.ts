@@ -30,6 +30,7 @@ interface TaskDocumentFile extends FileBase {
 }
 
 interface TaskDocumentEditBlockReadByUser {
+  /** ID */
   user_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
 }
 
@@ -177,7 +178,7 @@ KnowledgePartsKpBase & {
   custom_fields: XmlMultiElem<TaskDocumentCustomField | null>;
   files: XmlMultiElem<TaskDocumentFile | null>;
   edit_block: XmlElem<TaskDocumentEditBlock | null>;
-  AddFile(fileId: number): void;
+  AddFile(fileId: number): unknown;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
   desc: XmlElem<string | null>;

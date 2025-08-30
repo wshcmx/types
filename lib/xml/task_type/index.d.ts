@@ -1,10 +1,12 @@
 interface TaskTypeDocumentRole {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
 }
 
 interface TaskTypeDocumentCustomState {
+  /** ID */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -17,6 +19,7 @@ interface TaskTypeDocumentCustomState {
 }
 
 interface TaskTypeDocumentParentTaskBlockParentTaskState {
+  /** ID */
   state_id: XmlElem<string | null, typeof common.task_statuses>;
 }
 
@@ -32,6 +35,7 @@ interface TaskTypeDocumentParentTaskBlock {
 }
 
 interface TaskTypeDocumentResultBlockSelectedField {
+  /** ID */
   field_id: XmlElem<string | null>;
 }
 
@@ -145,12 +149,12 @@ WebVariablesBase & {
   result_block: XmlElem<TaskTypeDocumentResultBlock | null>;
   /**
    * Способ отображения по умолчанию
-   * @default tasklist
+   * @default taskboard
    */
   default_display_mode: XmlElem<string | null>;
   /**
    * Разрешать переключение способа отображения
-   * @default false
+   * @default true
    */
   can_change_view: XmlElem<boolean | null>;
   /** Информация об объекте */

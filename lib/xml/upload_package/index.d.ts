@@ -1,5 +1,6 @@
 type UploadPackageDocumentTopElem = XmlTopElem & {
   Doc: UploadPackageDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** ID пакета */
   code: XmlElem<string | null>;
