@@ -3,6 +3,7 @@ CatalogListBase &
 FileListBase &
 AdminAccessBase & {
   Doc: RecruitmentEventDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Кандидат */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

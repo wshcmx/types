@@ -1,4 +1,5 @@
 interface SaleContractDocumentCost {
+  /** ID */
   id: XmlElem<string | null>;
   /** Валюта */
   cost_currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
@@ -6,12 +7,14 @@ interface SaleContractDocumentCost {
 }
 
 interface SaleContractDocumentPrice {
+  /** ID */
   id: XmlElem<string | null>;
   /** Прайс */
   price_id: XmlElem<number | null, PriceCatalogDocumentTopElem>;
 }
 
 interface SaleContractDocumentProlongationInfo {
+  /** ID */
   id: XmlElem<string | null>;
   /** Сумма */
   cost: XmlElem<number | null>;

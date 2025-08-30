@@ -28,10 +28,15 @@ interface ResumeDocumentWorkExperience {
   profession_id: XmlElem<number | null, ProfessionalAreaCatalogDocumentTopElem>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
+  /** Рабочий телефон организации */
   org_phone: XmlElem<string | null>;
+  /** Факс организации */
   org_fax: XmlElem<string | null>;
+  /** E-mail организации */
   org_email: XmlElem<string | null>;
+  /** Почтовый адрес организации */
   org_address: XmlElem<string | null>;
+  /** Сайт организации */
   org_site: XmlElem<string | null>;
   /** Должность */
   position_name: XmlElem<string | null>;
@@ -65,6 +70,7 @@ interface ResumeDocumentEducation {
   specialisation: XmlElem<string | null>;
   /** Результат */
   result: XmlElem<string | null>;
+  /** Сайт ВУЗа */
   site: XmlElem<string | null>;
   desc: XmlElem<string | null>;
   /** Комментарий */
@@ -73,10 +79,15 @@ interface ResumeDocumentEducation {
 
 interface ResumeDocumentProject {
   id: XmlElem<string | null>;
+  /** Предметная область проекта */
   sphere: XmlElem<string | null>;
+  /** Тип проекта */
   type: XmlElem<string | null>;
+  /** Год проведения экспертизы */
   examination_year: XmlElem<number | null>;
+  /** Год проведения */
   year: XmlElem<number | null>;
+  /** Описание проекта */
   desc: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
@@ -84,9 +95,13 @@ interface ResumeDocumentProject {
 
 interface ResumeDocumentPublication {
   id: XmlElem<string | null>;
+  /** Название */
   name: XmlElem<string | null>;
+  /** Издание */
   publisher: XmlElem<string | null>;
+  /** Дата публикации */
   date: XmlElem<Date | null>;
+  /** Ссылка */
   link: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
@@ -111,6 +126,7 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: ResumeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -141,13 +157,17 @@ CustomElemsBase & {
   family_status: XmlElem<string | null>;
   /** Дата рождения */
   birth_date: XmlElem<Date | null>;
+  /** Ученая степень */
   academic_degree: XmlElem<string | null>;
+  /** Ученое звание */
   academic_heading: XmlElem<string | null>;
   /** Регион */
   location_id: XmlElem<string | null>;
   /** Адрес */
   address: XmlElem<string | null>;
+  /** Регион */
   region: XmlElem<string | null>;
+  /** Город */
   city: XmlElem<string | null>;
   /** Домашний телефон */
   phone: XmlElem<string | null>;
@@ -161,6 +181,7 @@ CustomElemsBase & {
   max_wage: XmlElem<number | null>;
   /** Валюта */
   currency_type_id: XmlElem<string | null, typeof lists.currency_types>;
+  /** E-mail */
   email: XmlElem<string | null>;
   inet_uid: XmlElem<string | null>;
   /** Профессиональная область */
@@ -206,7 +227,9 @@ CustomElemsBase & {
   work_experiences: XmlMultiElem<ResumeDocumentWorkExperience | null>;
   /** Образование */
   educations: XmlMultiElem<ResumeDocumentEducation | null>;
+  /** Научные работы */
   projects: XmlMultiElem<ResumeDocumentProject | null>;
+  /** Публикации */
   publications: XmlMultiElem<ResumeDocumentPublication | null>;
   citizenship: XmlElem<string | null>;
   /** Родной язык */

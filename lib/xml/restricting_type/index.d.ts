@@ -24,6 +24,7 @@ interface RestrictingTypeDocumentRestricting {
 
 type RestrictingTypeDocumentTopElem = XmlTopElem & {
   Doc: RestrictingTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Тип объекта

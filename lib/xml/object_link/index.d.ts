@@ -8,6 +8,7 @@ type ObjectLinkDocumentTopElem = XmlTopElem &
 ObjectTypeBase &
 CustomElemsBase & {
   Doc: ObjectLinkDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Рекомендательный алгоритм */
   recommender_algorithm_id: XmlElem<number | null, RecommenderAlgorithmCatalogDocumentTopElem>;

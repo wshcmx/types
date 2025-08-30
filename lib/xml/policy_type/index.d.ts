@@ -1,6 +1,7 @@
 type PolicyTypeDocumentTopElem = XmlTopElem &
 FileListBase & {
   Doc: PolicyTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

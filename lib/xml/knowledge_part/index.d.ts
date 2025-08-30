@@ -1,4 +1,5 @@
 interface KnowledgePartDocumentLevel extends MsConfirmationBase {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -49,6 +50,7 @@ FileListBase &
 CustomElemsBase &
 KnowledgePartsBase & {
   Doc: KnowledgePartDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
