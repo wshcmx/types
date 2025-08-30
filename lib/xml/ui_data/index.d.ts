@@ -1,6 +1,7 @@
 type UiDataDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
   Doc: UiDataDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

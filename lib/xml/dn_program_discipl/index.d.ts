@@ -12,7 +12,7 @@ interface DnProgramDisciplDocumentTermPlanTheme {
 
 interface DnProgramDisciplDocumentTerm {
   term_id: XmlElem<number | null, DnTermCatalogDocumentTopElem>;
-  laboriousn_all_term: XmlElem<number | null>;
+  laboriousn_all_term(): number;
   laboriousn_audit_term(): number;
   laboriousn_indep_term(): number;
   plan_themes: XmlMultiElem<DnProgramDisciplDocumentTermPlanTheme | null>;
@@ -61,8 +61,8 @@ CustomElemsBase & {
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
   educat_form_id: XmlElem<number | null, DnEducatFormCatalogDocumentTopElem>;
   control_form: XmlElem<number | null, DnControlFormCatalogDocumentTopElem>;
-  all_laboriousn_audit: XmlElem<number | null>;
-  all_laboriousn_indep: XmlElem<number | null>;
+  all_laboriousn_audit(): number;
+  all_laboriousn_indep(): number;
   terms: XmlMultiElem<DnProgramDisciplDocumentTerm | null>;
   /** Описание */
   desc: XmlElem<string | null>;
