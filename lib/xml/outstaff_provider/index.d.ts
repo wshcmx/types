@@ -16,6 +16,7 @@ CustomElemsBase & {
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
+  /** c_collaborator */
   collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Описание */
   desc: XmlElem<string | null>;

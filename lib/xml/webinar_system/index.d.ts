@@ -22,6 +22,7 @@ MsParametersBase &
 AdminAccessBase &
 WebVariablesBase & {
   Doc: WebinarSystemDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

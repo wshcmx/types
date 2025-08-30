@@ -3,10 +3,11 @@ AdminAccessBase &
 CustomElemsBase &
 FileListBase & {
   Doc: EfficiencyGradeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  name: XmlElem<string | null>;
+  name(): string;
   /** Оценка эффективности */
   efficiency_estimation_id: XmlElem<number | null, EfficiencyEstimationCatalogDocumentTopElem>;
   /** Источник оценки */

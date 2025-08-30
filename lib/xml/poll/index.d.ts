@@ -80,7 +80,7 @@ interface PollDocumentItemRowColumn {
   bg_color: XmlElem<string | null>;
   question_id: XmlElem<number | null>;
   value: XmlElem<string | null>;
-  is_title: XmlElem<boolean | null>;
+  is_title: boolean;
 }
 
 interface PollDocumentItemRow {
@@ -107,6 +107,7 @@ interface PollDocumentItem {
    * @default question
    */
   type: XmlElem<string, typeof common.poll_item_types>;
+  /** c_title */
   title: XmlElem<string | null>;
   question_id: XmlElem<number | null>;
   /**
@@ -178,7 +179,7 @@ KnowledgePartsBase & {
   show_comments_in_report: XmlElem<boolean>;
   report_viewers: XmlMultiElem<PollDocumentReportViewer | null>;
   /** @default false */
-  is_multiple_select: XmlElem<boolean>;
+  is_multiple_select(): boolean;
   /**
    * Количество колонок
    * @default 1

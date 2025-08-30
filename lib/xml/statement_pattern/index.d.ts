@@ -1,5 +1,6 @@
 type StatementPatternDocumentTopElem = XmlTopElem & {
   Doc: StatementPatternDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Путь */
   path: XmlElem<string | null>;

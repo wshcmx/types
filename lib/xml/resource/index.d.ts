@@ -67,6 +67,7 @@ interface ResourceDocumentPresentation {
 }
 
 interface ResourceDocumentFileUrl {
+  /** ID */
   id: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;

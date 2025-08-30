@@ -105,6 +105,7 @@ type PollProcedureDocumentTopElem = XmlTopElem &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: PollProcedureDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -165,7 +166,7 @@ AdminAccessBase & {
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Хэш эквивалентности */
-  equal_hash: XmlElem<string | null>;
+  equal_hash(): string;
 };
 
 type PollProcedureDocument = XmlDocument & {

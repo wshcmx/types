@@ -2,6 +2,7 @@ type ProviderCourseTypeDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 WebVariablesBase & {
   Doc: ProviderCourseTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -3,6 +3,7 @@ PersonFillingBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: ResponseDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

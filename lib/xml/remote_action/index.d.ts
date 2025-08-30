@@ -9,6 +9,7 @@ WebVariablesBase &
 ResultFieldsBase &
 I18nBase & {
   Doc: RemoteActionDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

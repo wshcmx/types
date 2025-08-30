@@ -1,6 +1,7 @@
 type OverrideWebTemplateDocumentTopElem = XmlTopElem &
 WebVariablesBase & {
   Doc: OverrideWebTemplateDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -8,6 +9,7 @@ WebVariablesBase & {
   name(): string;
   /** Родительский объект */
   parent_id: XmlElem<number | null, OverrideWebTemplateCatalogDocumentTopElem>;
+  /** Mode */
   mode: XmlElem<string | null>;
   /** Исключения Mode */
   mode_exception: XmlElem<string | null>;

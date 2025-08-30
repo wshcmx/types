@@ -1,5 +1,6 @@
 type StatementAttachmentDocumentTopElem = XmlTopElem & {
   Doc: StatementAttachmentDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Путь */
   path: XmlElem<string | null>;

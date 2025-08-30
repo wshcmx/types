@@ -1,5 +1,6 @@
 type ProfilingRecordDocumentTopElem = XmlTopElem & {
   Doc: ProfilingRecordDocument;
+  /** ID */
   id: XmlElem<number | null>;
   start_date: XmlElem<Date | null>;
   ticks: XmlElem<number | null>;
