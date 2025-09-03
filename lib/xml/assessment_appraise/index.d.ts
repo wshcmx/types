@@ -185,7 +185,7 @@ interface AssessmentAppraiseDocumentParticipant {
 }
 
 interface AssessmentAppraiseDocumentAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   assessment_name: XmlElem<string | null>;
 }
 
@@ -333,7 +333,10 @@ AdminAccessBase & {
    * @default true
    */
   is_visible_auditorys: XmlElem<boolean>;
-  /** @default true */
+  /**
+   * vaaeb_wnavd6yx2e
+   * @default true
+   */
   is_visible_evaluatings: XmlElem<boolean>;
   /**
    * Эксперты

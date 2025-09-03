@@ -2,6 +2,7 @@ type VacationDayDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 AdminAccessBase & {
   Doc: VacationDayDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

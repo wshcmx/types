@@ -31,6 +31,7 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: OutstaffOrderExecutionDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

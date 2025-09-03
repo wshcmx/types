@@ -1,6 +1,7 @@
 type TagCatalogDocumentTopElem = XmlTopElem &
 AccessDocBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

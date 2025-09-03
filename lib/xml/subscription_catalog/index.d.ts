@@ -1,5 +1,6 @@
 type SubscriptionCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Тип объекта

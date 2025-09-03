@@ -1,6 +1,7 @@
 type EventCatalogDocumentTopElem = XmlTopElem &
 EventCatalogBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Эталонное мероприятие
@@ -122,6 +123,8 @@ AdminAccessBase & {
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Время следующего уведомления */
   notification_reminder_date: XmlElem<Date | null>;
+  /** Приоритет */
+  priority: XmlElem<number | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;
   /** Код сервера */

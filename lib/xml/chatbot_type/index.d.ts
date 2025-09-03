@@ -2,6 +2,7 @@ type ChatbotTypeDocumentTopElem = XmlTopElem &
 MsParametersBase &
 AdminAccessBase & {
   Doc: ChatbotTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

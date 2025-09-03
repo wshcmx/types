@@ -1,4 +1,5 @@
 type CollaboratorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -10,6 +11,7 @@ type CollaboratorCatalogDocumentTopElem = XmlTopElem & {
   short_login: XmlElem<string | null>;
   /** Логин в нижнем регистре */
   lowercase_login: XmlElem<string | null>;
+  /** Email */
   email: XmlElem<string | null>;
   /** Телефон */
   phone: XmlElem<string | null>;

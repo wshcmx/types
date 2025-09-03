@@ -7,6 +7,7 @@ interface SkillDocumentLevel {
 type SkillDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   Doc: SkillDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

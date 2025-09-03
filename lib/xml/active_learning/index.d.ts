@@ -48,6 +48,7 @@ PersonFillingBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: ActiveLearningDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -100,7 +101,7 @@ CustomElemsBase & {
   /** Код раздела последнего посещения */
   last_usage_part_code: XmlElem<string | null>;
   /** Дата последнего посещ. */
-  last_usage_date: XmlElem<Date | null>;
+  last_usage_date(): XmlElem<Date | null>;
   /**
    * Максимальный балл
    * @default 0
@@ -119,10 +120,10 @@ CustomElemsBase & {
    * Состояние
    * @default 0
    */
-  state_id: XmlElem<number, typeof common.learning_states>;
+  state_id(): XmlElem<number, typeof common.learning_states>;
   /** Время модулей */
-  time: XmlElem<number | null>;
-  calc_max_end_date(): Date | null;
+  time(): XmlElem<number | null>;
+  calc_max_end_date(): XmlElem<Date | null>;
   /**
    * Не кодировать данные курса
    * @default false

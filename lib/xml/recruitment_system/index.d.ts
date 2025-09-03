@@ -3,6 +3,7 @@ I18nBase &
 AdminAccessBase &
 WebVariablesBase & {
   Doc: RecruitmentSystemDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -21,11 +21,13 @@ interface RewardDocumentCollaboratorId {
 
 type RewardDocumentTopElem = XmlTopElem & {
   Doc: RewardDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** c_reward_type */
   reward_type_id: XmlElem<number | null, RewardTypeCatalogDocumentTopElem>;
   /**
    * Статус
@@ -38,7 +40,9 @@ type RewardDocumentTopElem = XmlTopElem & {
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
   /** Краткое описание */
   short_description: XmlElem<string | null>;
+  /** vrb_reward_initiator */
   initiator_user_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** c_reward_source */
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;

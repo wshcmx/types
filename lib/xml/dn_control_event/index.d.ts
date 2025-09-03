@@ -1,5 +1,5 @@
 interface DnControlEventDocumentControlAssessm {
-  assessm_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessm_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
 }
 
 interface DnControlEventDocumentParticipant {

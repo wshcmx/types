@@ -300,6 +300,7 @@ CustomElemsBase &
 AdminAccessBase &
 FileListBase & {
   Doc: PaDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

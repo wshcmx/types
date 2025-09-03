@@ -88,6 +88,7 @@ FileListBase &
 ExpenseDistributionBase &
 GameBonusBase & {
   Doc: EducationMethodDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -39,6 +39,7 @@ type ChatbotChatDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 CustomElemsBase & {
   Doc: ChatbotChatDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

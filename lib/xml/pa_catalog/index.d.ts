@@ -1,5 +1,6 @@
 type PaCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null, PaCatalogDocumentTopElem>;
   /** Код */
   code: XmlElem<string | null>;

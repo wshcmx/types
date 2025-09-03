@@ -1,5 +1,6 @@
 type CredentialDocumentTopElem = XmlTopElem & {
   Doc: CredentialDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

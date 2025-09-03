@@ -26,6 +26,13 @@ CustomElemsBase & {
   administrators: XmlMultiElem<LibrarySectionDocumentAdministrator | null>;
   /** Идентификатор во внешнем источнике */
   external_id: XmlElem<string | null>;
+  /** Дата актуализации из внешнего источника */
+  external_import_date: XmlElem<Date | null>;
+  /**
+   * Состояние
+   * @default 1
+   */
+  state_id: XmlElem<number, typeof common.library_states>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Описание */

@@ -1,4 +1,5 @@
 interface ChatbotDocumentChatbotType {
+  /** ID */
   bot_id: XmlElem<string | null>;
   chatbot_type_id: XmlElem<number | null, ChatbotTypeCatalogDocumentTopElem>;
   /** Webhook */
@@ -28,6 +29,7 @@ interface ChatbotDocumentUnknowCommandTextLibrary extends MsCodeLibraryCondition
 }
 
 interface ChatbotDocumentUniversalCommand extends MsCodeLibraryCondition {
+  /** ID */
   id: XmlElem<string | null>;
   /** @default false */
   is_inline_keyboard: XmlElem<boolean | null>;
@@ -50,6 +52,7 @@ interface ChatbotDocumentUnknowCommandChatbotStageUnknowCommandChatbotStageUnkno
 }
 
 interface ChatbotDocumentUnknowCommandChatbotStageUnknowCommandChatbotStage extends MsCodeLibraryCondition {
+  /** ID */
   id: XmlElem<string | null>;
   condition_eval: XmlElem<string | null>;
   /** Сообщение при поступлении неизвестной команды */
@@ -91,6 +94,7 @@ type ChatbotDocumentTopElem = XmlTopElem &
 WebVariablesBase &
 CustomElemsBase & {
   Doc: ChatbotDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

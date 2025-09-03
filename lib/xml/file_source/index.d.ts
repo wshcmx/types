@@ -7,6 +7,7 @@ WebVariablesBase & {
   name: XmlElem<string | null>;
   /** Комментарий */
   category: XmlElem<string | null>;
+  /** Путь до файла */
   url: XmlElem<string | null>;
   /**
    * Доступен поиск по источнику
@@ -37,7 +38,7 @@ WebVariablesBase & {
    */
   changed: XmlElem<boolean>;
   /** @temp */
-  path_filling_expr: XmlElem<boolean | null>;
+  path_filling_expr(): boolean;
 };
 
 type FileSourceDocument = XmlDocument & {

@@ -12,6 +12,7 @@ AdminAccessBase &
 GameBonusBase &
 CustomElemsBase & {
   Doc: BlogEntryDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name: XmlElem<string | null>;

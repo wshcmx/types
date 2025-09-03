@@ -1,5 +1,6 @@
 type ConversationCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -73,5 +74,11 @@ PersonFillingBase & {
   can_show_additional_info: XmlElem<boolean>;
   /** @default true */
   update_participant: XmlElem<boolean | null>;
+  /** Значения карты знаний */
+  knowledge_parts: XmlElem<string | null>;
+  /** ID тегов */
+  tags: XmlElem<string | null>;
+  /** Эксперты */
+  experts: XmlElem<string | null>;
   OnBuild(): void;
 };

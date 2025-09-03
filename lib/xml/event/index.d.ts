@@ -2,7 +2,8 @@ interface EventDocumentTest {
   /** @default com.websoft.vclass.vo.test.Test */
   class: XmlElem<string | null>;
   /** Текущий тест */
-  id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
+  /** 6b8507f6b3 */
   title: XmlElem<string | null>;
   /** @default inactive */
   state: XmlElem<string | null>;
@@ -38,7 +39,9 @@ interface EventDocumentEventForm {
 }
 
 interface EventDocumentStage {
+  /** ID */
   stage_id: XmlElem<number | null>;
+  /** parent_id */
   parent_id: XmlElem<number | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -577,7 +580,10 @@ EventSettingsBase & {
    * @default false
    */
   view_with_camera_only: XmlElem<boolean>;
-  /** @default 180 */
+  /**
+   * record_capture_rate
+   * @default 180
+   */
   record_capture_rate: XmlElem<number>;
   /** Текущая презентация */
   current_presentation_id: XmlElem<number | null>;
@@ -647,7 +653,10 @@ EventSettingsBase & {
    * @default false
    */
   is_open: XmlElem<boolean>;
-  /** @default false */
+  /**
+   * Разрешить вход без предварительной регистрации
+   * @default false
+   */
   allow_guest_login: XmlElem<boolean>;
   /** Ограничения для гостевого входа */
   guest_restrictions: XmlElem<number | null>;
@@ -937,7 +946,7 @@ type EventDocument = XmlDocument & {
   OnBeforeSave(): void;
   OnSave(): void;
   OnInit(): void;
-  OnClientSave(): unknown;
+  OnClientSave(): void;
   OnLocalInit(): void;
   DocDesc(): string;
 };

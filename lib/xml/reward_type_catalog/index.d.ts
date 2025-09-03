@@ -1,15 +1,14 @@
-interface RewardDocumentBudgetPeriod {
-  budget_period_id: XmlElem<number, BudgetPeriodCatalogDocumentTopElem>;
+interface RewardTypesDocumentBudgetPeriod {
+  budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
   /** Название */
-  budget_period_name: XmlElem<string>;
+  budget_period_name: XmlElem<string | null>;
   /** Численность */
-  quantity: XmlElem<number>;
+  quantity: XmlElem<number | null>;
   /** Комментарий */
-  comment: XmlElem<string>;
+  comment: XmlElem<string | null>;
 }
 
-type RewardTypeCatalogDocumentTopElem = XmlTopElem &
-AdminAccessBase & {
+type RewardTypeCatalogDocumentTopElem = XmlTopElem & {
   /** ID */
   id: XmlElem<number | null>;
   /** Код */
@@ -22,9 +21,9 @@ AdminAccessBase & {
    */
   status: XmlElem<string>;
   /** Дата начала */
-  start_date: XmlElem<Date, null>;
+  start_date: XmlElem<Date | null>;
   /** Периоды */
-  budget_periods: XmlMultiElem<RewardDocumentBudgetPeriod | null>;
+  budget_periods: XmlMultiElem<RewardTypesDocumentBudgetPeriod | null>;
   /**
    * Является системным
    * @default false

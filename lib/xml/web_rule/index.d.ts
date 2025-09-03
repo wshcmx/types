@@ -1,5 +1,6 @@
 type WebRuleDocumentTopElem = XmlTopElem & {
   Doc: WebRuleDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -9,12 +10,18 @@ type WebRuleDocumentTopElem = XmlTopElem & {
   is_pattern(): boolean;
   /** Использует подстановки */
   use_matches(): boolean;
+  /** URL */
   url: XmlElem<string | null>;
+  /** Script */
   script: XmlElem<string | null>;
   /** Включен */
   is_enabled: XmlElem<boolean>;
+  /** Redirect URL */
   redirect_url: XmlElem<string | null>;
-  /** @default 0 */
+  /**
+   * Redirect type
+   * @default 0
+   */
   redirect_type: XmlElem<number>;
   /** Тип страницы */
   redirect_web_mode_id: XmlElem<number | null, WebModeCatalogDocumentTopElem>;

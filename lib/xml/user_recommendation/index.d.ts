@@ -15,6 +15,7 @@ type UserRecommendationDocumentTopElem = XmlTopElem &
 ObjectTypeBase &
 CustomElemsBase & {
   Doc: UserRecommendationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Объект */
   objects: XmlMultiElem<UserRecommendationDocumentObject | null>;

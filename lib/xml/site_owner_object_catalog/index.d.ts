@@ -1,4 +1,5 @@
 type SiteOwnerObjectCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -8,7 +9,7 @@ type SiteOwnerObjectCatalogDocumentTopElem = XmlTopElem & {
   object_id: XmlElem<number | null>;
   /** Каталог */
   catalog_name: XmlElem<string | null, typeof common.exchange_object_types>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

@@ -1,11 +1,15 @@
 type DocumentCommentEntryCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name: XmlElem<string | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
-  /** @default false */
+  /**
+   * Комментарий удален
+   * @default false
+   */
   deleted: XmlElem<boolean>;
   /** @default realname */
   how2show: XmlElem<string, typeof common.forum_person_info_types>;

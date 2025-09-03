@@ -44,6 +44,7 @@ WorkflowDataBase &
 FileListBase &
 CustomElemsBase & {
   Doc: IntervalScheduleDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

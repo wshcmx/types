@@ -1,6 +1,6 @@
 interface ActiveTestLearningDocumentView {
   /** @temp */
-  old_assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  old_assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /** @temp */
   old_person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /**
@@ -21,6 +21,7 @@ LastAttemptTestLearningsBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: ActiveTestLearningDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

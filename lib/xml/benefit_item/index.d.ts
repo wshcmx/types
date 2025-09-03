@@ -3,6 +3,7 @@ PersonFillingBase &
 FileListBase &
 CustomElemsBase & {
   Doc: BenefitItemDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

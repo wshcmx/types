@@ -3,6 +3,7 @@ MsParametersBase &
 AdminAccessBase &
 WebVariablesBase & {
   Doc: ProctoringSystemDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

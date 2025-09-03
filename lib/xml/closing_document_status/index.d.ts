@@ -1,6 +1,7 @@
 type ClosingDocumentStatusDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: ClosingDocumentStatusDocument;
+  /** ID */
   id: XmlElem<number | null>;
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;

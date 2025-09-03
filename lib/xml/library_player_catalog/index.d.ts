@@ -1,5 +1,6 @@
 type LibraryPlayerCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -9,6 +10,7 @@ AdminAccessBase & {
   learning_storage_id: XmlElem<number | null, LearningStorageCatalogDocumentTopElem>;
   /** Учебная активность */
   activity_id: XmlElem<number | null, ActivityCatalogDocumentTopElem>;
+  /** CMI5 */
   cmi5: XmlElem<boolean | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

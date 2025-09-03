@@ -19,6 +19,7 @@ interface QaTestResultDocumentLogRecord {
 
 type QaTestResultDocumentTopElem = XmlTopElem & {
   Doc: QaTestResultDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name(): string;

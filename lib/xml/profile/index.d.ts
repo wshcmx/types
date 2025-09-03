@@ -23,6 +23,7 @@ interface ProfileDocumentRequest {
 type ProfileDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
   Doc: ProfileDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -2,6 +2,7 @@ type OperationDocumentTopElem = XmlTopElem &
 MsParametersBase &
 WebVariablesBase & {
   Doc: OperationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

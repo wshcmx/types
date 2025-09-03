@@ -1,6 +1,7 @@
 type RecommenderAlgorithmApplyingCatalogDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 ObjectTypeBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

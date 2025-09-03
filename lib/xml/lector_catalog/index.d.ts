@@ -1,5 +1,6 @@
 type LectorCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -20,6 +21,7 @@ AdminAccessBase & {
   person_position_name: XmlElem<string | null>;
   /** Подразделение */
   person_subdivision_name: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
   /**
    * Является уволенным

@@ -1,4 +1,5 @@
 type BlogEntryCommentCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;

@@ -10,7 +10,9 @@ type DnAcademYearDocumentTopElem = XmlTopElem &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: DnAcademYearDocument;
+  /** Год начала */
   start_year: XmlElem<string | null>;
+  /** Год завершения */
   end_year: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;

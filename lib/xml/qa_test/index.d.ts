@@ -21,7 +21,7 @@ QaTestAssertBase & {
   /** Библиотека програмного кода */
   code_library_id: XmlElem<number | null, CodeLibraryCatalogDocumentTopElem>;
   /** Имя библиотеки кода */
-  lib_name: XmlElem<string | null>;
+  lib_name(): boolean;
   /** Имя функции */
   function_name: XmlElem<string | null>;
   /** Описание */

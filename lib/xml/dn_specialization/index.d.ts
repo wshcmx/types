@@ -11,6 +11,7 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Специальность */
   speciality_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;
   /** Описание */
   desc: XmlElem<string | null>;

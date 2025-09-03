@@ -3,6 +3,7 @@ FileListBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: RecommendationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -15,6 +16,7 @@ AdminAccessBase & {
   fullname(): string;
   /** Телефон */
   phone: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
   /** Рабочий телефон */
   work_phone: XmlElem<string | null>;

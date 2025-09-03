@@ -1,5 +1,6 @@
 type CompetenceCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Родитель */
   parent_id: XmlElem<number | null, CompetenceCatalogDocumentTopElem>;

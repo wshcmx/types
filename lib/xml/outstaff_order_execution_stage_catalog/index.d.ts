@@ -1,4 +1,5 @@
 type OutstaffOrderExecutionStageCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   outstaff_order_execution_id: XmlElem<number | null, OutstaffOrderExecutionCatalogDocumentTopElem>;
   /**

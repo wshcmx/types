@@ -18,7 +18,7 @@ interface DnTrainMethodComplexDocumentCourse {
 }
 
 interface DnTrainMethodComplexDocumentAssessment {
-  assessm_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessm_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
 }
 
 interface DnTrainMethodComplexDocumentItem {
@@ -41,12 +41,16 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Факультет */
   facult_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Дисциплина */
   discipline_id: XmlElem<number | null, DnDisciplineCatalogDocumentTopElem>;
+  /** Программа дисциплины */
   program_discipline_id: XmlElem<number | null, DnProgramDisciplCatalogDocumentTopElem>;
   program_discipline_name: XmlElem<string | null>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
+  /** Форма контроля */
   control_forms: XmlMultiElem<DnTrainMethodComplexDocumentControlForm | null>;
   educat_events: XmlMultiElem<DnTrainMethodComplexDocumentEducatEvent | null>;
   hours_terms: XmlMultiElem<DnTrainMethodComplexDocumentHoursTerm | null>;

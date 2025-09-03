@@ -11,6 +11,7 @@ interface PersonnelDocumentTypeDocumentOrgSignatureGroup {
 
 type PersonnelDocumentTypeDocumentTopElem = XmlTopElem & {
   Doc: PersonnelDocumentTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

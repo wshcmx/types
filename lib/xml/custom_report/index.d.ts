@@ -30,6 +30,7 @@ interface CustomReportDocumentView {
 type CustomReportDocumentTopElem = XmlTopElem &
 CustomReportBase & {
   Doc: CustomReportDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -65,6 +65,7 @@ MsPersonSdBase &
 SupplementaryQuestionsBase &
 CustomElemsBase & {
   Doc: EventAssessmentPlanDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

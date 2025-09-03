@@ -1,5 +1,6 @@
 type WorkScheduleTypeDocumentTopElem = XmlTopElem & {
   Doc: WorkScheduleTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

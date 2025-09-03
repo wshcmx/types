@@ -1,4 +1,5 @@
 type AvailabilityPlanCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код заявки */
   code: XmlElem<string | null>;

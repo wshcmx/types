@@ -1,5 +1,6 @@
 type BlockMessageCatalogDocumentTopElem = XmlTopElem &
 ObjectTypeBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;

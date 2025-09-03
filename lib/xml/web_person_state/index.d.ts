@@ -1,5 +1,6 @@
 type WebPersonStateDocumentTopElem = XmlTopElem & {
   Doc: WebPersonStateDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

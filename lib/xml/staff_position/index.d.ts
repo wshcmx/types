@@ -21,6 +21,7 @@ KnowledgePartsBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: StaffPositionDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

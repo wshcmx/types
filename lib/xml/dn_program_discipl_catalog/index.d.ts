@@ -1,5 +1,6 @@
 type DnProgramDisciplCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;

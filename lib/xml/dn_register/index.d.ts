@@ -1,4 +1,5 @@
 interface DnRegisterDocumentStudentMark {
+  /** Студент */
   stud_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   mark_id: XmlElem<string | null, typeof common.type_marks>;
   mark_name: XmlElem<string | null>;
@@ -21,6 +22,7 @@ CustomElemsBase & {
   Doc: DnRegisterDocument;
   /** Код */
   code: XmlElem<string | null>;
+  /** Контрольное мероприятие */
   control_event_id: XmlElem<number | null, DnControlEventCatalogDocumentTopElem>;
   /**
    * Тип
@@ -29,7 +31,9 @@ CustomElemsBase & {
   type_id: XmlElem<string, typeof common.registr_types>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Дисциплина */
   discipl_id: XmlElem<number | null, DnDisciplineCatalogDocumentTopElem>;
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;

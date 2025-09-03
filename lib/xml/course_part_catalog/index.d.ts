@@ -1,4 +1,5 @@
 type CoursePartCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код курса */
   code: XmlElem<string | null>;
@@ -10,16 +11,19 @@ type CoursePartCatalogDocumentTopElem = XmlTopElem & {
   /** Родительский раздел */
   parent_part_code: XmlElem<string | null>;
   part_name: XmlElem<string | null>;
-  /** Тип раздела */
+  /**
+   * Тип раздела
+   * @default lesson
+   */
   part_type: XmlElem<string, typeof common.course_part_types>;
   /** Учебный модуль */
   course_module_id: XmlElem<number | null, CourseModuleCatalogDocumentTopElem>;
   /** Тест */
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /** Учебная активность */
   activity_id: XmlElem<number | null, ActivityCatalogDocumentTopElem>;
   object_id: XmlElem<number | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

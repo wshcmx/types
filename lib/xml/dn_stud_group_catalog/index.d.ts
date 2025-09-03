@@ -1,10 +1,12 @@
 type DnStudGroupCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** Поток */
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
   /**
    * Статус договора

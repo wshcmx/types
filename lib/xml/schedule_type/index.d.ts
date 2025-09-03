@@ -13,6 +13,7 @@ interface ScheduleTypeDocumentSchedule extends MsWeekScheduleBase {
 
 type ScheduleTypeDocumentTopElem = XmlTopElem & {
   Doc: ScheduleTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -3,6 +3,7 @@ PersonFillingBase &
 ObjectTypeBase &
 CustomElemsBase & {
   Doc: PaymentDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

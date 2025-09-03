@@ -1,5 +1,6 @@
 type IndicatorCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Родительская компетенция */
   competence_id: XmlElem<number | null, CompetenceCatalogDocumentTopElem>;

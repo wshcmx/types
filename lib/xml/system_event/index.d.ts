@@ -26,6 +26,7 @@ interface SystemEventDocumentView extends DescBase {
 type SystemEventDocumentTopElem = XmlTopElem &
 MsVariablesBase & {
   Doc: SystemEventDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

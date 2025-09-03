@@ -1,0 +1,4 @@
+type FormConstItemCatalogDocumentTopElem = XmlTopElem &
+ConstantItemBase & {
+
+};

@@ -1,11 +1,12 @@
 type ActiveTestLearningCatalogDocumentTopElem = XmlTopElem &
 AnnalsNumsBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Тест */
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /** Название теста */
   assessment_name: XmlElem<string | null>;
   /** Сотрудник */

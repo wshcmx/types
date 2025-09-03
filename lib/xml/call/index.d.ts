@@ -1,4 +1,5 @@
 interface CallDocumentParticipant {
+  /** c_col */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /**
    * Статус
@@ -15,6 +16,7 @@ interface CallDocumentParticipant {
 type CallDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
   Doc: CallDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -1,9 +1,15 @@
 type PositionCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /**
+   * Статус
+   * @default active
+   */
+  status: XmlElem<string>;
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Подразделение */

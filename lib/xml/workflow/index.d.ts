@@ -81,6 +81,7 @@ type WorkflowDocumentTopElem = XmlTopElem &
 ConditionsBase &
 WorkflowFieldsStatesBase & {
   Doc: WorkflowDocument;
+  /** ID */
   id: XmlElem<number | null>;
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;
