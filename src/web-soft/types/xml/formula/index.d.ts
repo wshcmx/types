@@ -38,6 +38,7 @@ interface FormulaDocumentFormulaElement {
 type FormulaDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: FormulaDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

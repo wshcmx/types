@@ -1,9 +1,11 @@
 type RemoteApplicationCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** APP ID */
   app_id: XmlElem<string | null>;
   /**
    * Является системным

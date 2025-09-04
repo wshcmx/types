@@ -1,20 +1,25 @@
 type DnAcademDebtCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
   /**
    * Статус договора
    * @default active
    */
   state_id: XmlElem<string | null, typeof common.academ_debt_states>;
+  /** Поток */
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
   /** Учебная группа */
   stud_group_id: XmlElem<number | null, DnStudGroupCatalogDocumentTopElem>;
+  /** Студент */
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
+  /** Дисциплина */
   discipl_id: XmlElem<number | null, DnDisciplineCatalogDocumentTopElem>;
   contr_form_id: XmlElem<number | null, DnControlFormCatalogDocumentTopElem>;
   latest_date: XmlElem<Date | null>;

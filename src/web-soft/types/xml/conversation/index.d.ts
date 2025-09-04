@@ -20,6 +20,7 @@ interface ConversationDocumentProhibition {
   type_id: XmlElem<string | null, typeof common.prohibition_types>;
   /** Дата создания */
   create_date: XmlElem<Date | null>;
+  /** c_col */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
 }
 
@@ -29,6 +30,7 @@ interface ConversationDocumentRelatedChat {
 }
 
 interface ConversationDocumentKeyboardsBlockKeyboard {
+  /** ID */
   id: XmlElem<string | null>;
   text: XmlElem<string | null>;
   /** @default false */
@@ -56,8 +58,10 @@ interface ConversationDocumentView {
 type ConversationDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 FuncManagersBase &
-CustomElemsBase & {
+CustomElemsBase &
+WsconKnowledgePartsBase & {
   Doc: ConversationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -125,6 +129,8 @@ CustomElemsBase & {
   keyboards_block: XmlElem<ConversationDocumentKeyboardsBlock | null>;
   /** @temp */
   view: XmlElem<ConversationDocumentView | null>;
+  /** @default true */
+  update_participant: XmlElem<boolean | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;
   /** Все участники */

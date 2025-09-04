@@ -1,4 +1,5 @@
 type DownloadPackageCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Скачанный пакет данных */
   package_id: XmlElem<string | null>;

@@ -1,5 +1,6 @@
 type GradeDocumentTopElem = XmlTopElem & {
   Doc: GradeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Уровень */
   level: XmlElem<number | null>;

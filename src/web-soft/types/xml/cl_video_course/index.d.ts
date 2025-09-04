@@ -78,6 +78,7 @@ interface ClVideoCourseDocumentFragmentLayerTextBlock {
 }
 
 interface ClVideoCourseDocumentFragmentLayer {
+  /** ID */
   id: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -142,6 +143,7 @@ interface ClVideoCourseDocumentFragmentLayer {
 }
 
 interface ClVideoCourseDocumentFragment {
+  /** ID */
   id: XmlElem<string | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -165,6 +167,7 @@ interface ClVideoCourseDocumentFragment {
 
 type ClVideoCourseDocumentTopElem = XmlTopElem & {
   Doc: ClVideoCourseDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

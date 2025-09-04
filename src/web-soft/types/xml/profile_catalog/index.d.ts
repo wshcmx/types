@@ -1,4 +1,5 @@
 type ProfileCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -14,6 +15,7 @@ type ProfileCatalogDocumentTopElem = XmlTopElem & {
   activity_id: XmlElem<number | null, ActivityCatalogDocumentTopElem>;
   /** Тип учебной активности */
   activity_code: XmlElem<string | null>;
+  /** Hash */
   hash: XmlElem<string | null>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

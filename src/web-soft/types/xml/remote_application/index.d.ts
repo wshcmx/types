@@ -4,11 +4,13 @@ interface RemoteApplicationDocumentCredential {
 
 type RemoteApplicationDocumentTopElem = XmlTopElem & {
   Doc: RemoteApplicationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
+  /** APP ID */
   app_id: XmlElem<string | null>;
   credentials: XmlMultiElem<RemoteApplicationDocumentCredential | null>;
   access: XmlElem<AccessBase | null>;

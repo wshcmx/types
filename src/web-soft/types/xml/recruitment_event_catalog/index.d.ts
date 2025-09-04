@@ -1,5 +1,6 @@
 type RecruitmentEventCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Кандидат */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

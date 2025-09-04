@@ -1,4 +1,5 @@
 interface AvailabilityPlanDocumentPeriod {
+  /** ID */
   id: XmlElem<string | null>;
   /** Дата начала */
   start_date: XmlElem<Date | null>;
@@ -36,6 +37,7 @@ type AvailabilityPlanDocumentTopElem = XmlTopElem &
 FileListBase &
 CustomElemsBase & {
   Doc: AvailabilityPlanDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

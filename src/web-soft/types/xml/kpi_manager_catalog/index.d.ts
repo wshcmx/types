@@ -1,4 +1,5 @@
 type KpiManagerCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип объекта */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
@@ -15,7 +16,7 @@ type KpiManagerCatalogDocumentTopElem = XmlTopElem & {
   is_owner: XmlElem<boolean | null>;
   /** Тип функционального руководителя */
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

@@ -1,5 +1,6 @@
 type TaskCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -102,5 +103,9 @@ AdminAccessBase & {
   has_files: XmlElem<boolean>;
   /** Сотрудник */
   read_by_users: XmlMultiElemObject<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** ID тегов */
+  tags: XmlElem<string | null>;
+  /** Значения карты знаний */
+  knowledge_parts: XmlElem<string | null>;
   OnBuild(): void;
 };

@@ -2,6 +2,7 @@ type AccountDocumentTopElem = XmlTopElem &
 ObjectTypeBase &
 AdminAccessBase & {
   Doc: AccountDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

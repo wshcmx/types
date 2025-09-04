@@ -1,5 +1,6 @@
 type RecommenderAlgorithmCatalogDocumentTopElem = XmlTopElem &
 MsPeriodityBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код курса */
   code: XmlElem<string | null>;

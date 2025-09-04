@@ -1,5 +1,6 @@
 type KpiCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** KPI */
   parent_object_id: XmlElem<number | null, KpiCatalogDocumentTopElem>;
@@ -17,7 +18,10 @@ AdminAccessBase & {
    * @default active
    */
   status: XmlElem<string | null, typeof common.kpi_states>;
-  /** @default true */
+  /**
+   * KPI
+   * @default true
+   */
   is_kpi: XmlElem<boolean>;
   /** Группа */
   kpi_group_id: XmlElem<number | null, KpiGroupCatalogDocumentTopElem>;

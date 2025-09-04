@@ -19,6 +19,7 @@ interface ClConstDocumentFlag {
 
 type ClConstDocumentTopElem = XmlTopElem & {
   Doc: ClConstDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

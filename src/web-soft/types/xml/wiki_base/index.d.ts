@@ -45,6 +45,7 @@ CustomElemsBase &
 FuncManagersBase &
 KnowledgePartsBase & {
   Doc: WikiBaseDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -86,7 +87,7 @@ KnowledgePartsBase & {
    * Обрабатывается семантическим поиском
    * @default false
    */
-  process_embedding: XmlElem<boolean>;
+  process_embedding(): boolean;
   /** Индексы поиска RAG */
   wiki_rag_indexes: XmlElem<WikiBaseDocumentWikiRagIndexes | null>;
   /** Доступ */
@@ -103,5 +104,6 @@ KnowledgePartsBase & {
 type WikiBaseDocument = XmlDocument & {
   TopElem: WikiBaseDocumentTopElem;
   wiki_base: WikiBaseDocumentTopElem;
+  OnSave(): void;
   DocDesc(): string;
 };

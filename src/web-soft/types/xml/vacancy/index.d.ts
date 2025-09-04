@@ -1,5 +1,5 @@
 interface VacancyDocumentAssessment {
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /** Название теста */
   assessment_name: XmlElem<string | null>;
   /** Код теста */

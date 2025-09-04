@@ -1,4 +1,5 @@
 type SubmissionRecipientCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Тип отчетной формы */
   submission_type_id: XmlElem<number | null, SubmissionCatalogDocumentTopElem>;

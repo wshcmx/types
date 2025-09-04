@@ -1,5 +1,6 @@
 type KnowledgePartTypeDocumentTopElem = XmlTopElem & {
   Doc: KnowledgePartTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

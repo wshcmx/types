@@ -6,6 +6,7 @@ interface ComponentsDocumentItem {
 }
 
 interface ComponentsDocumentChangeLog {
+  /** ID */
   id: XmlElem<string | null>;
   version: XmlElem<string | null>;
   version_last: XmlElem<string | null>;

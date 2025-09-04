@@ -9,6 +9,7 @@ PersonFillingBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: LibraryMaterialViewingDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

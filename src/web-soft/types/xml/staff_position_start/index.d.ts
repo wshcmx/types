@@ -3,6 +3,7 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: StaffPositionStartDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

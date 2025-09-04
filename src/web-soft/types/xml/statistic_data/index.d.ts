@@ -1,5 +1,6 @@
 type StatisticDataDocumentTopElem = XmlTopElem & {
   Doc: StatisticDataDocument;
+  /** ID */
   id: XmlElem<number | null>;
   code: XmlElem<string | null>;
   name(): string;

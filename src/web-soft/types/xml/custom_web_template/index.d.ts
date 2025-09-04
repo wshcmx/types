@@ -28,6 +28,7 @@ WebVariablesBase & {
   cwt_type: XmlElem<string, typeof common.cwt_types>;
   /** @default undefined */
   out_type: XmlElem<string, typeof common.out_types>;
+  /** mode */
   mode: XmlElem<string | null>;
   /** URL шаблона */
   template: XmlElem<string | null>;

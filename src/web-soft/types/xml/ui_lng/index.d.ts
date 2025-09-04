@@ -6,17 +6,17 @@ interface UiLngItem {
 }
 
 interface IUiLng {
-  id: XmlElem<string>;
-  short_id: XmlElem<string>;
-  name: XmlElem<string>;
-  lng_file_url: XmlElem<string>;
-  common_url: XmlElem<string>;
-  startup_page_document_id: XmlElem<number, DocumentCatalogDocumentTopElem>;
+  id: XmlElem<string | null>;
+  short_id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  lng_file_url: XmlElem<string | null>;
+  common_url: XmlElem<string | null>;
+  startup_page_document_id: XmlElem<number | null, DocumentCatalogDocumentTopElem>;
   /** @default false */
   ui_disp: XmlElem<boolean>;
-  recovery_date: XmlElem<Date>;
-  fullname_sequence: XmlElem<string>;
-  items: XmlMultiElem<UiLngItem>;
+  recovery_date: XmlElem<Date | null>;
+  fullname_sequence: XmlElem<string | null>;
+  items: XmlMultiElem<UiLngItem | null>;
 }
 
 declare const ui_lng: XmlElem<IUiLng>;

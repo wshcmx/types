@@ -15,6 +15,7 @@ interface ChatDocumentCollaborator {
   confirmed: XmlElem<boolean>;
   /** @default false */
   prohibited: XmlElem<boolean>;
+  /** Дата последнего посещ. */
   last_view_date: XmlElem<Date | null>;
 }
 
@@ -33,6 +34,7 @@ interface ChatDocumentUser {
   subdivision_name: XmlElem<string | null>;
   /** Организация */
   org_name: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
 }
 
@@ -52,7 +54,9 @@ interface ChatDocumentMessage {
   /** ФИО */
   fullname: XmlElem<string | null>;
   recipient_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Получатель */
   recipient_fullname: XmlElem<string | null>;
+  /** Логин получателя */
   recipient_login: XmlElem<string | null>;
   time: XmlElem<string | null>;
   /** Текст сообщения */
@@ -71,6 +75,7 @@ interface ChatDocumentMessage {
 type ChatDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
   Doc: ChatDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -1,4 +1,5 @@
 interface ConversationTypeDocumentDispRole {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -7,6 +8,7 @@ interface ConversationTypeDocumentDispRole {
 }
 
 interface ConversationTypeDocumentCustomState {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -15,6 +17,7 @@ interface ConversationTypeDocumentCustomState {
 type ConversationTypeDocumentTopElem = XmlTopElem &
 FuncManagersBase & {
   Doc: ConversationTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

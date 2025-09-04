@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "Preserve",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "types": [],
+    "strict": true,
+    "noLib": true,
+    "noEmit": true,
+    "baseUrl": "lib",
+    "outDir": "../build"
+  },
+  "include": [
+    "**/*.d.ts",
+    "eslint.config.js"
+  ]
+}

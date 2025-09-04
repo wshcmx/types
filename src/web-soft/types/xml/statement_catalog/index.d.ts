@@ -1,4 +1,5 @@
 type StatementCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -8,6 +9,7 @@ type StatementCatalogDocumentTopElem = XmlTopElem & {
   create_date: XmlElem<Date | null>;
   /** Миллисекунды создания */
   create_ticks: XmlElem<number | null>;
+  /** Timestamp */
   timestamp: XmlElem<Date | null>;
   /** Учебная активность */
   statement_ref_id: XmlElem<string | null>;

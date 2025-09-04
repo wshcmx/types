@@ -58,6 +58,7 @@ interface ClCourseDocumentAuxConst {
 }
 
 interface ClCourseDocumentViewNewAuthors {
+  /** @temp */
   id: XmlMultiElemObject<number | null>;
 }
 

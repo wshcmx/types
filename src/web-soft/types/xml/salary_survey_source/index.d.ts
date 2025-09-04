@@ -1,5 +1,6 @@
 type SalarySurveySourceDocumentTopElem = XmlTopElem & {
   Doc: SalarySurveySourceDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

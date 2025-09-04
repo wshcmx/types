@@ -13,6 +13,7 @@ CustomElemsBase & {
   Doc: DnAuditoriumDocument;
   /** Код */
   code: XmlElem<string | null>;
+  /** Количество мест */
   number_places: XmlElem<string | null>;
   /** Расположение */
   place_id: XmlElem<number | null, PlaceCatalogDocumentTopElem>;

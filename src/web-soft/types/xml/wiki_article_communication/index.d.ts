@@ -2,6 +2,7 @@ type WikiArticleCommunicationDocumentTopElem = XmlTopElem &
 FileListBase &
 CustomElemsBase & {
   Doc: WikiArticleCommunicationDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -1,6 +1,7 @@
 type BudgetCatalogDocumentTopElem = XmlTopElem &
 CostCurrencyBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -4,6 +4,7 @@ WebVariablesBase &
 ExecCodeBase &
 CustomElemsBase & {
   Doc: ServerAgentDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -47,7 +48,7 @@ CustomElemsBase & {
   /** @temp */
   view: XmlElem<unknown | null>;
   /** @temp */
-  converter: XmlElem<boolean | null>;
+  converter(): boolean;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };

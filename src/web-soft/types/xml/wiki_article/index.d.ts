@@ -83,6 +83,7 @@ CatalogListBase &
 KnowledgePartsBase &
 ChangeHashBase & {
   Doc: WikiArticleDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -120,6 +121,8 @@ ChangeHashBase & {
    * @default false
    */
   critical_change: XmlElem<boolean | null>;
+  /** Позиция в списке */
+  position: XmlElem<number | null>;
   /** Авторы */
   authors: XmlMultiElem<WikiArticleDocumentAuthor | null>;
   /** Добавляемые объекты */
@@ -146,5 +149,6 @@ ChangeHashBase & {
 type WikiArticleDocument = XmlDocument & {
   TopElem: WikiArticleDocumentTopElem;
   wiki_article: WikiArticleDocumentTopElem;
+  OnSave(): void;
   DocDesc(): string;
 };

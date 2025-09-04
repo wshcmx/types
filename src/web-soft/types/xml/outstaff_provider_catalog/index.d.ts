@@ -8,6 +8,7 @@ AdminAccessBase & {
   name: XmlElem<string | null>;
   /** Регион */
   region_id: XmlElem<number | null, RegionCatalogDocumentTopElem>;
+  /** c_collaborator */
   collaborator_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Дата модификации */
   modification_date: XmlElem<Date | null>;

@@ -1,13 +1,14 @@
-type SubdivisionCatalogDocumentTopElem = XmlTopElem & {
-  id: XmlElem<number | null>;
-  /** Код */
-  code: XmlElem<string | null>;
-  /** Название */
-  name: XmlElem<string | null>;
+type SubdivisionCatalogDocumentTopElem = XmlTopElem &
+ObjectCodeNameBase & {
   /** Организация */
   org_id: XmlElem<number | null, OrgCatalogDocumentTopElem>;
   /** Подразделение */
   parent_object_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /**
+   * Статус
+   * @default active
+   */
+  status: XmlElem<string>;
   /**
    * Подразделение расформировано
    * @default false

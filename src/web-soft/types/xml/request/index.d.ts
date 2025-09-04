@@ -45,6 +45,7 @@ FileListBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: RequestDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -129,6 +130,7 @@ type RequestDocument = XmlDocument & {
   request: RequestDocumentTopElem;
   OnLocalInit(): void;
   OnCreate(): void;
+  OnSave(): void;
   OnBeforeSave(): void;
   DocDesc(): string;
 };

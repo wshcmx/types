@@ -19,6 +19,7 @@ interface KnowledgeProfileDocumentView {
 
 type KnowledgeProfileDocumentTopElem = XmlTopElem & {
   Doc: KnowledgeProfileDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

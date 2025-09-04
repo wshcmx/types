@@ -49,6 +49,7 @@ FileListBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: KpiValueDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

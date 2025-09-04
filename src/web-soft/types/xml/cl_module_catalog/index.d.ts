@@ -1,6 +1,7 @@
 type ClModuleCatalogDocumentTopElem = XmlTopElem &
 AccessDocBase &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -20,6 +21,7 @@ AdminAccessBase & {
   slide_height: XmlElem<number | null>;
   /** Является шаблоном */
   is_template: XmlElem<boolean | null>;
+  /** Stamp */
   stamp: XmlElem<number | null>;
   /**
    * Является системным

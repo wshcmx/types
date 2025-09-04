@@ -1,6 +1,6 @@
 interface AuFtFilter {
   fulltext: XmlElem<string | null>;
-  used_fulltext: XmlElem<string | null>;
+  used_fulltext(): string;
 }
 
 interface MsPersonSdInnerBaseSd {
@@ -17,12 +17,12 @@ interface MsPersonSdInnerBaseSd {
 }
 
 interface MsPersonSdInnerBase {
-  sd: XmlElem<MsPersonSdInnerBaseSd | null> & XmlElem<number>;
+  sd: XmlElem<MsPersonSdInnerBaseSd | null>;
 }
 
 interface MsPersonSdBase {
   /** Сотрудник */
-  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & MsPersonSdInnerBase;
+  person_id: XmlElem<MsPersonSdInnerBase | null>;
 }
 
 interface MsEventSdInnerBaseSd {
@@ -33,11 +33,11 @@ interface MsEventSdInnerBaseSd {
 }
 
 interface MsEventSdInnerBase {
-  sd: XmlElem<MsEventSdInnerBaseSd | null> & XmlElem<number>;
+  sd: XmlElem<MsEventSdInnerBaseSd | null>;
 }
 
 interface MsEventSdBase {
-  event_id: XmlElem<number | null, EventCatalogDocumentTopElem> & MsEventSdInnerBase;
+  event_id: XmlElem<MsEventSdInnerBase | null>;
 }
 
 interface MsViewCatalogBase extends ViewConditionsBase {
@@ -128,7 +128,7 @@ interface WorkflowElemOperationBase {
   eval_str: XmlElem<string | null>;
   notification_id: XmlElem<number | null, NotificationCatalogDocumentTopElem>;
   print_form_id: XmlElem<number | null, PrintFormCatalogDocumentTopElem>;
-  operation_id: XmlElem<number | null, OperationCatalogDocumentTopElem> & MsParametersBase;
+  operation_id: XmlElem<MsParametersBase | null>;
   remote_action_block: XmlElem<WorkflowElemOperationBaseRemoteActionBlock | null>;
 }
 
@@ -207,7 +207,19 @@ interface MsViewConfigurationBaseCategory extends WebVariablesBase {
   admin_template: XmlElem<WebVariablesBase | null>;
 }
 
+interface MsViewConfigurationBaseCategory extends WebVariablesBase {
+  id: XmlElem<string | null>;
+  name: XmlElem<string | null>;
+  category_field: XmlElem<string | null>;
+  /** Выборка категоризации */
+  remote_collection_id: XmlElem<number | null, RemoteCollectionCatalogDocumentTopElem>;
+  /** UI шаблон */
+  custom_admin_template_id: XmlElem<number | null, CustomAdminTemplateCatalogDocumentTopElem>;
+  admin_template: XmlElem<WebVariablesBase | null>;
+}
+
 interface MsViewConfigurationBaseViewConfigurationFilterItem {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   title: XmlElem<string | null>;
@@ -225,6 +237,7 @@ interface MsViewConfigurationBaseViewConfigurationFilter {
 }
 
 interface MsViewConfigurationBaseApiFilter {
+  /** ID */
   id: XmlElem<string | null>;
   /** Заголовок */
   title: XmlElem<string | null>;

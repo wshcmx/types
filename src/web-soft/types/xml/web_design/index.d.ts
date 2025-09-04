@@ -1,6 +1,7 @@
 type WebDesignDocumentTopElem = XmlTopElem &
 WebVariablesBase & {
   Doc: WebDesignDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -8,6 +8,7 @@ interface PersonnelDocumentDocumentSignatureAttorney {
 }
 
 interface PersonnelDocumentDocumentSignature extends PersonFillingBase {
+  /** ID */
   id: XmlElem<string | null>;
   serialnumber: XmlElem<string | null>;
   /** Подпись */
@@ -35,6 +36,7 @@ interface PersonnelDocumentDocumentSignature extends PersonFillingBase {
 }
 
 interface PersonnelDocumentDocumentSignatureFile {
+  /** ID */
   id: XmlElem<string | null>;
   /** Имя файла */
   file_name: XmlElem<string | null>;
@@ -50,6 +52,7 @@ type PersonnelDocumentDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 CustomElemsBase & {
   Doc: PersonnelDocumentDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

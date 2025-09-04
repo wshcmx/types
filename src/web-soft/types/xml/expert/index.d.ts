@@ -16,6 +16,7 @@ PersonBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: ExpertDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
   name(): string;
@@ -38,6 +39,7 @@ AdminAccessBase & {
   rating: XmlElem<number | null>;
   /** Нормативный срок ответа на вопрос */
   answer_expire_time: XmlElem<number | null>;
+  /** FAQ */
   faqs: XmlMultiElem<ExpertDocumentFaq | null>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;

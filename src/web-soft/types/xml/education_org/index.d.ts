@@ -15,7 +15,9 @@ interface EducationOrgDocumentContact {
   telephone_mobile: XmlElem<string | null>;
   /** Факс */
   fax: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
+  /** Web */
   web: XmlElem<string | null>;
   /** Фото */
   resource_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;

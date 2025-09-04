@@ -2,6 +2,7 @@ type BlogEntryCommentDocumentTopElem = XmlTopElem &
 FileListBase &
 CustomElemsBase & {
   Doc: BlogEntryCommentDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Дата */
   create_date: XmlElem<Date | null>;

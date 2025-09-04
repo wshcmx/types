@@ -1,4 +1,5 @@
 type AcquaintCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -23,7 +24,7 @@ type AcquaintCatalogDocumentTopElem = XmlTopElem & {
   /** Периодичность повторного обновления в днях */
   reacquaintance_period: XmlElem<number | null>;
   /** Тесты */
-  assessments_id: XmlMultiElemObject<number | null, AssessmentCatalogDocumentTopElem>;
+  assessments_id: XmlMultiElemObject<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
   /** Дата модификации */

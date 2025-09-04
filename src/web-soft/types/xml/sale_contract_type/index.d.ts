@@ -1,6 +1,7 @@
 type SaleContractTypeDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: SaleContractTypeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   code: XmlElem<string | null>;
   name: XmlElem<string | null>;

@@ -59,6 +59,8 @@ KnowledgePartsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
+  /** @temp */
+  view: XmlElem<DescBase | null>;
 };
 
 type ProjectParticipantDocument = XmlDocument & {

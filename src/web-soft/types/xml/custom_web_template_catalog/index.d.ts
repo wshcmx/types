@@ -7,6 +7,7 @@ AccessDocBase & {
   cwt_type: XmlElem<string | null, typeof common.cwt_types>;
   /** Тип результата */
   out_type: XmlElem<string | null, typeof common.out_types>;
+  /** mode */
   mode: XmlElem<string | null>;
   /** URL шаблона */
   template: XmlElem<string | null>;

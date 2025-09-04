@@ -1,4 +1,5 @@
 type ResumeSkillCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** ID резюме */
   resume_id: XmlElem<number | null, ResumeCatalogDocumentTopElem>;
@@ -26,7 +27,7 @@ type ResumeSkillCatalogDocumentTopElem = XmlTopElem & {
   level_id: XmlElem<string | null>;
   /** Название уровня */
   level_name: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

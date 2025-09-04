@@ -122,7 +122,10 @@ type ClSlideDocumentTopElem = XmlTopElem & {
   approval_status: XmlElem<number, typeof common.cl_approval_states>;
   /** Комментарий */
   desc: XmlElem<string | null>;
-  /** @default 0 */
+  /**
+   * Stamp
+   * @default 0
+   */
   stamp: XmlElem<number>;
   /** Информация об объекте */
   doc_info: XmlElem<DocInfoBase | null>;

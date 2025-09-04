@@ -1,4 +1,5 @@
 type EducationProgramEducationMethodCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Набор программ */
   education_program_id: XmlElem<number | null, EducationProgramCatalogDocumentTopElem>;

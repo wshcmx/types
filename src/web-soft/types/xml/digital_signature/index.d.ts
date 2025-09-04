@@ -5,7 +5,7 @@ AdminAccessBase &
 CustomElemsBase & {
   Doc: DigitalSignatureDocument;
   /** Название */
-  name: XmlElem<string | null>;
+  name(): string;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Тип объекта */

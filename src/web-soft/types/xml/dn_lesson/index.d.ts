@@ -5,17 +5,22 @@ interface DnLessonDocumentStudGroup {
 
 interface DnLessonDocumentStudWork {
   work_id: XmlElem<string | null>;
+  /** Студент */
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   work_state_id: XmlElem<string | null, typeof common.stud_work_states>;
   work_date: XmlElem<Date | null>;
+  /** Оценка */
   mark: XmlElem<number | null>;
 }
 
 interface DnLessonDocumentRegistrStudent {
+  /** Студент */
   stud_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   /** @default false */
   is_presence: XmlElem<boolean | null>;
+  /** Оценка */
   mark: XmlElem<number | null>;
+  /** Комментарий преподавателя */
   lector_comment: XmlElem<string | null>;
 }
 
@@ -37,7 +42,9 @@ CustomElemsBase & {
   code: XmlElem<string | null>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Дисциплина */
   discipline_id: XmlElem<number | null, DnDisciplineCatalogDocumentTopElem>;
   /** Дата */
   lesson_date: XmlElem<Date | null>;
@@ -49,7 +56,9 @@ CustomElemsBase & {
   /** Преподаватель */
   lector_id: XmlElem<number | null, LectorCatalogDocumentTopElem>;
   educat_event_form_id: XmlElem<number | null, DnEducatEventCatalogDocumentTopElem>;
+  /** Аудитория */
   auditorium_id: XmlElem<number | null, DnAuditoriumCatalogDocumentTopElem>;
+  /** Поток */
   stream_id: XmlElem<number | null, DnStreamCatalogDocumentTopElem>;
   /** Учебные группы */
   stud_groups: XmlMultiElem<DnLessonDocumentStudGroup | null>;

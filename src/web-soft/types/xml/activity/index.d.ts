@@ -5,6 +5,7 @@ interface ActivityDocumentRequest {
 type ActivityDocumentTopElem = XmlTopElem &
 WebVariablesBase & {
   Doc: ActivityDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

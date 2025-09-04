@@ -27,9 +27,10 @@ AdminAccessBase & {
   mastery_score: XmlElem<number | null>;
   /** Относительный проходной балл */
   mastery_score_relative: XmlElem<number | null>;
+  /** URL */
   url: XmlElem<string | null>;
   /** Тест */
-  assessment_id: XmlElem<number | null, AssessmentCatalogDocumentTopElem>;
+  assessment_id: XmlElem<number | null, QtiAssessmentCatalogDocumentTopElem>;
   /**
    * Количество попыток
    * @default 1
@@ -57,9 +58,15 @@ AdminAccessBase & {
   disp_scrolling: XmlElem<boolean>;
   version: XmlElem<string | null>;
   import_type: XmlElem<string | null, typeof common.course_import_types>;
-  /** @default 0 */
+  /**
+   * Activations
+   * @default 0
+   */
   activation_count: XmlElem<number | null>;
-  /** @default 0 */
+  /**
+   * Launches
+   * @default 0
+   */
   launch_count: XmlElem<number | null>;
   cmi5: XmlElem<CourseModuleDocumentCmi5 | null>;
   /** Доступ */

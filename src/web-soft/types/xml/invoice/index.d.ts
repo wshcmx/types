@@ -32,7 +32,7 @@ AdminAccessBase & {
   /** Курсы */
   courses: XmlMultiElem<InvoiceDocumentCourse | null>;
   /** @temp */
-  total_price: XmlElem<number | null>;
+  total_price(): number;
   essentials: XmlElem<EssentialBase | null>;
   /** Номер платежного поручения */
   draft_num: XmlElem<string | null>;

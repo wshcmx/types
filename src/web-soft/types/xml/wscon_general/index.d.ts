@@ -26,12 +26,32 @@ interface BmMessageForward {
   conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
 }
 
+interface BmMessageViewReply {
+  message_id: XmlElem<string | null>;
+  sender_id: XmlElem<number | null>;
+  sender_type: XmlElem<string | null>;
+  text: XmlElem<string | null>;
+}
+
+interface BmMessageViewForward {
+  message_id: XmlElem<string | null>;
+  block_message_id: XmlElem<number | null, BlockMessageCatalogDocumentTopElem>;
+  conversation_id: XmlElem<number | null, ConversationCatalogDocumentTopElem>;
+  sender_id: XmlElem<number | null>;
+  sender_type: XmlElem<string | null>;
+  text: XmlElem<string | null>;
+}
+
 interface BmMessageView {
   /**
    * @temp
    * @default catalogs
    */
   tab_select: XmlElem<string>;
+  /** Данные по отвечаемому сообщению */
+  reply: XmlElem<BmMessageViewReply | null>;
+  /** Данные по пересылаемому сообщению */
+  forward: XmlElem<BmMessageViewForward | null>;
 }
 
 interface BmMessage extends ObjectTypeBase, FileListBase, CatalogListBase {
@@ -43,6 +63,11 @@ interface BmMessage extends ObjectTypeBase, FileListBase, CatalogListBase {
    * @default false
    */
   new_reaction: XmlElem<boolean>;
+  /**
+   * Сообщение прочитано
+   * @default true
+   */
+  read: XmlElem<boolean>;
   /**
    * Тип
    * @default message

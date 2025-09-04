@@ -11,7 +11,10 @@ AccessDocBase & {
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** ФИО сотрудника */
   person_fullname: XmlElem<string | null>;
-  /** Тип объекта */
+  /**
+   * Тип объекта
+   * @default collaborator
+   */
   object_type: XmlElem<string | null, typeof common.exchange_object_types>;
   /** Сообщение блога */
   object_id: XmlElem<number | null>;

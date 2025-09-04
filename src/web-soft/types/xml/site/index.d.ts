@@ -45,6 +45,8 @@ interface SiteDocumentWebDesign {
 }
 
 interface SiteDocumentAnonymousMode {
+  id: XmlElem<string | null>;
+  /** Mode */
   mode: XmlElem<string | null>;
 }
 
@@ -62,7 +64,9 @@ CustomElemsBase & {
   Doc: SiteDocument;
   /** Заголовок */
   title: XmlElem<string | null>;
+  /** HTML header */
   html_header: XmlElem<string | null>;
+  /** HTML icon href */
   html_icon_href: XmlElem<string | null>;
   /** Дизайн */
   web_design_id: XmlElem<number | null, WebDesignCatalogDocumentTopElem>;

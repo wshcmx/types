@@ -1,5 +1,6 @@
 type RecommendationCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -7,6 +8,7 @@ AdminAccessBase & {
   fullname: XmlElem<string | null>;
   /** Телефон */
   phone: XmlElem<string | null>;
+  /** E-mail */
   email: XmlElem<string | null>;
   /** Рабочий телефон */
   work_phone: XmlElem<string | null>;

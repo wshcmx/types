@@ -9,6 +9,7 @@ interface RemoteCollectionDocumentApiSearch {
 }
 
 interface RemoteCollectionDocumentApiFilter {
+  /** ID */
   id: XmlElem<string | null>;
   /** Имя поля фильтра */
   name: XmlElem<string | null>;
@@ -68,6 +69,7 @@ WebVariablesBase &
 ResultFieldsBase &
 I18nBase & {
   Doc: RemoteCollectionDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

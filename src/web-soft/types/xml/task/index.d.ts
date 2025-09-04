@@ -30,6 +30,7 @@ interface TaskDocumentFile extends FileBase {
 }
 
 interface TaskDocumentEditBlockReadByUser {
+  /** ID */
   user_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
 }
 
@@ -90,7 +91,8 @@ type TaskDocumentTopElem = XmlTopElem &
 ObjectCodeNameBase &
 WorkflowDataBase &
 AdminAccessBase &
-CustomElemsBase & {
+CustomElemsBase &
+KnowledgePartsKpBase & {
   Doc: TaskDocument;
   /** Тип */
   task_type_id: XmlElem<number | null, TaskTypeCatalogDocumentTopElem>;
@@ -176,7 +178,7 @@ CustomElemsBase & {
   custom_fields: XmlMultiElem<TaskDocumentCustomField | null>;
   files: XmlMultiElem<TaskDocumentFile | null>;
   edit_block: XmlElem<TaskDocumentEditBlock | null>;
-  AddFile(fileId: number): void;
+  AddFile(fileId: number): unknown;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
   desc: XmlElem<string | null>;
@@ -195,6 +197,7 @@ CustomElemsBase & {
 type TaskDocument = XmlDocument & {
   TopElem: TaskDocumentTopElem;
   task: TaskDocumentTopElem;
+  OnSave(): void;
   OnBeforeSave(): void;
   DocDesc(): string;
 };

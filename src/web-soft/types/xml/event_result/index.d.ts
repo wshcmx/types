@@ -6,6 +6,7 @@ AdminAccessBase &
 CustomElemsBase &
 CustomDatasBase & {
   Doc: EventResultDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -44,9 +45,14 @@ CustomDatasBase & {
    * @default false
    */
   not_participate: XmlElem<boolean>;
+  /** Дата отправления уведомления об участии в мероприятии */
   last_sending_date: XmlElem<Date | null>;
+  /** Время последней активности в вебинаре */
   last_webinar_activity_date: XmlElem<Date | null>;
-  /** @default 0 */
+  /**
+   * Время, проведенное в вебинаре
+   * @default 0
+   */
   webinar_activity_time: XmlElem<number | null>;
   /** @default false */
   is_open: XmlElem<boolean>;

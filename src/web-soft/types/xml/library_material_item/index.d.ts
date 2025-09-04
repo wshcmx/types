@@ -1,4 +1,5 @@
 interface LibraryMaterialItemDocumentChangeLog {
+  /** ID */
   id: XmlElem<string | null>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
@@ -19,6 +20,7 @@ PersonFillingBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: LibraryMaterialItemDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

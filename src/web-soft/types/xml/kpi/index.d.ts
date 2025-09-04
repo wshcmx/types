@@ -81,6 +81,7 @@ AdminAccessBase &
 CustomElemsBase &
 KnowledgePartsBase & {
   Doc: KpiDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -93,7 +94,10 @@ KnowledgePartsBase & {
   type: XmlElem<string | null, typeof common.kpi_types>;
   /** @default active */
   status: XmlElem<string, typeof common.kpi_states>;
-  /** @default true */
+  /**
+   * KPI
+   * @default true
+   */
   is_kpi: XmlElem<boolean>;
   /** KPI */
   parent_object_id: XmlElem<number | null, KpiCatalogDocumentTopElem>;

@@ -9,6 +9,7 @@ interface ActivityStateDocumentRequest {
 type ActivityStateDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
   Doc: ActivityStateDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

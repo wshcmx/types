@@ -3,10 +3,11 @@ AdminAccessBase &
 CustomElemsBase &
 FileListBase & {
   Doc: PotentialGradeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  name: XmlElem<string | null>;
+  name(): string;
   /** Оценка потенциала */
   development_potential_id: XmlElem<number | null, DevelopmentPotentialCatalogDocumentTopElem>;
   /** Источник оценки */

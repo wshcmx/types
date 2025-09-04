@@ -7,6 +7,7 @@ interface TrainingPlanDocumentEducationMethodEventParticipant extends PersonFill
 }
 
 interface TrainingPlanDocumentEducationMethodEventWeek {
+  /** ID */
   id: XmlElem<number | null>;
   month_id: XmlElem<number | null>;
   /** Количество мероприятий */
@@ -15,10 +16,12 @@ interface TrainingPlanDocumentEducationMethodEventWeek {
 }
 
 interface TrainingPlanDocumentEducationMethodEventGeneratedEvent {
+  /** ID */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
 }
 
 interface TrainingPlanDocumentEducationMethodEvent {
+  /** ID */
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
   /**
@@ -59,6 +62,7 @@ interface TrainingPlanDocumentEducationMethodEvent {
 }
 
 interface TrainingPlanDocumentEducationMethod {
+  /** ID */
   id: XmlElem<number | null>;
   name: XmlElem<string | null>;
   education_method_id: XmlElem<number | null, EducationMethodCatalogDocumentTopElem>;
@@ -94,6 +98,7 @@ interface TrainingPlanDocumentEducationMethod {
 }
 
 interface TrainingPlanDocumentGlobalMonth {
+  /** ID */
   id: XmlElem<number | null>;
   global_month_name: XmlElem<string | null>;
   global_month_num: XmlElem<number | null>;

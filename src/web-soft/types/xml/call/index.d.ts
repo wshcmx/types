@@ -1,4 +1,5 @@
 interface CallDocumentParticipant {
+  /** c_col */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /**
    * Статус
@@ -7,12 +8,15 @@ interface CallDocumentParticipant {
   state_id: XmlElem<string | null, typeof common.conversation_participant_states>;
   /** @default false */
   has_entered: XmlElem<boolean | null>;
+  /** @default true */
+  read: XmlElem<boolean | null>;
   type: XmlElem<string | null>;
 }
 
 type CallDocumentTopElem = XmlTopElem &
 PersonFillingBase & {
   Doc: CallDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -37,6 +41,8 @@ PersonFillingBase & {
    * @default active
    */
   state_id: XmlElem<string | null, typeof common.event_status_types>;
+  /** Файл с расшифровкой разговора */
+  recognition_file_id: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /** Участники звонка */
   participants: XmlMultiElem<CallDocumentParticipant | null>;
   /**

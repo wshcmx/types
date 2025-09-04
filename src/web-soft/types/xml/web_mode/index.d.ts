@@ -1,4 +1,5 @@
 interface WebModeDocumentTemplateLink extends ViewConditionsBase {
+  /** ID */
   id: XmlElem<string | null>;
   /**
    * Тип
@@ -12,6 +13,7 @@ interface WebModeDocumentTemplateLink extends ViewConditionsBase {
 }
 
 interface WebModeDocumentStatisticRec extends WebVariablesBase {
+  /** ID */
   statistic_rec_id: XmlElem<number | null, StatisticRecCatalogDocumentTopElem>;
 }
 
@@ -26,6 +28,7 @@ I18nBase &
 FuncManagersBase &
 WebVariablesBase & {
   Doc: WebModeDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

@@ -1,4 +1,5 @@
 type RestrictingTypeCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   /**
    * Тип объекта

@@ -5,8 +5,11 @@ AdminAccessBase & {
   author: XmlElem<string | null>;
   /** Раздел библиотеки */
   section_id: XmlElem<number | null, LibrarySectionCatalogDocumentTopElem>;
+  /** Раздел библиотеки */
+  sections_id: XmlMultiElemObject<number | null, LibrarySectionCatalogDocumentTopElem>;
   /** Год издания */
   year: XmlElem<number | null>;
+  /** ISSN/ISBN */
   isbn: XmlElem<string | null>;
   /** Состояние */
   state_id: XmlElem<number | null, typeof common.library_states>;
@@ -41,6 +44,8 @@ AdminAccessBase & {
   library_material_formats: XmlElem<string | null>;
   /** Идентификатор во внешнем источнике */
   external_id: XmlElem<string | null>;
+  /** Дата актуализации из внешнего источника */
+  external_import_date: XmlElem<Date | null>;
   /** Файл */
   file_name: XmlElem<number | null, ResourceCatalogDocumentTopElem>;
   /**

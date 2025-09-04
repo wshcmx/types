@@ -1,6 +1,6 @@
 interface OutstaffOrderDocumentPeriodHour {
   id: XmlElem<string | null>;
-  name: XmlElem<string | null>;
+  name: string;
   start_hour: XmlElem<number | null>;
   finish_hour: XmlElem<number | null>;
   hour_num: XmlElem<number | null>;
@@ -29,6 +29,7 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: OutstaffOrderDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

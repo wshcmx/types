@@ -1,5 +1,6 @@
 type ContestCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Название конкурса */
   name: XmlElem<string | null>;

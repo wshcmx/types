@@ -1,7 +1,10 @@
 interface RecruitmentPlanDocumentBudgetPeriod {
   budget_period_id: XmlElem<number | null, BudgetPeriodCatalogDocumentTopElem>;
+  /** Название */
   budget_period_name: XmlElem<string | null>;
+  /** Численность */
   quantity: XmlElem<number | null>;
+  /** Комментарий */
   comment: XmlElem<string | null>;
 }
 
@@ -35,10 +38,16 @@ FileListBase &
 CustomElemsBase &
 AdminAccessBase & {
   Doc: RecruitmentPlanDocument;
+  /** ID */
   id: XmlElem<number | null>;
-  /** @default name */
+  /**
+   * Тип должности
+   * @default name
+   */
   position_type: XmlElem<string | null>;
+  /** Должность */
   position_common_id: XmlElem<number | null, PositionCommonCatalogDocumentTopElem>;
+  /** Должность */
   position_name: XmlElem<string | null>;
   /** Комментарий */
   comment: XmlElem<string | null>;
@@ -49,14 +58,23 @@ AdminAccessBase & {
   state: XmlElem<string, typeof common.recruitment_plan_state_types>;
   /** Бюджетный период */
   budget_period_id: XmlElem<number | null>;
+  /** Подразделение */
   subdivision_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Группа подразделений */
   subdivision_group_id: XmlElem<number | null, SubdivisionGroupCatalogDocumentTopElem>;
+  /** Семейство должностей */
   position_family_id: XmlElem<number | null, PositionFamilyCatalogDocumentTopElem>;
+  /** Грейд */
   grade_id: XmlElem<number | null, GradeCatalogDocumentTopElem>;
+  /** Тип вакансий */
   vacancy_type_id: XmlElem<number | null, VacancyTypeCatalogDocumentTopElem>;
+  /** Общая численность */
   quantity: XmlElem<number | null>;
+  /** Периоды */
   budget_periods: XmlMultiElem<RecruitmentPlanDocumentBudgetPeriod | null>;
+  /** Способы подбора */
   recruitment_methods: XmlMultiElem<RecruitmentPlanDocumentRecruitmentMethod | null>;
+  /** Источники кандидатов */
   candidate_sources: XmlMultiElem<RecruitmentPlanDocumentCandidateSource | null>;
   /** Наставники */
   coordinators: XmlMultiElem<RecruitmentPlanDocumentCoordinator | null>;

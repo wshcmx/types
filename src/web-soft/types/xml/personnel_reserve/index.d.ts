@@ -1,6 +1,6 @@
 interface PersonnelReserveDocumentTask extends FileListBase {
   id: XmlElem<string | null>;
-  name: XmlElem<string | null>;
+  name: string;
   /** @default test_learning */
   type: XmlElem<string, typeof common.career_reserve_type_tasks_types>;
   /** @default plan */
@@ -50,9 +50,10 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: PersonnelReserveDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Название */
-  name: XmlElem<string | null>;
+  name(): string;
   start_date: XmlElem<Date | null>;
   include_reserve_date: XmlElem<Date | null>;
   /** Дата исключения из резерва */

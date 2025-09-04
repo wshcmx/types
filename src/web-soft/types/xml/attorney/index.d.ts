@@ -2,6 +2,7 @@ type AttorneyDocumentTopElem = XmlTopElem &
 PersonFillingBase &
 FileListBase & {
   Doc: AttorneyDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

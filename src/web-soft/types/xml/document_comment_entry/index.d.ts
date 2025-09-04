@@ -11,7 +11,10 @@ CustomElemsBase & {
   name: XmlElem<string | null>;
   /** Дата */
   create_date: XmlElem<Date | null>;
-  /** @default false */
+  /**
+   * Комментарий удален
+   * @default false
+   */
   deleted: XmlElem<boolean>;
   /** @default realname */
   how2show: XmlElem<string, typeof common.forum_person_info_types>;

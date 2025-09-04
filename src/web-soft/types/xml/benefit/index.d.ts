@@ -3,6 +3,7 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: BenefitDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

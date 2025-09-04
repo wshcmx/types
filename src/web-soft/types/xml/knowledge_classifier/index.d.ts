@@ -9,6 +9,7 @@ interface KnowledgeClassifierDocumentView extends DescBase {
 type KnowledgeClassifierDocumentTopElem = XmlTopElem &
 CustomElemsBase & {
   Doc: KnowledgeClassifierDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;

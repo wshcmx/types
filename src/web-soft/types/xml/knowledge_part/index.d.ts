@@ -1,4 +1,5 @@
 interface KnowledgePartDocumentLevel extends MsConfirmationBase {
+  /** ID */
   id: XmlElem<string | null>;
   /** Название */
   name: XmlElem<string | null>;
@@ -13,7 +14,7 @@ interface KnowledgePartDocumentLevel extends MsConfirmationBase {
    * Тип подтверждения
    * @default none
    */
-  confirmation_type: XmlElem<string>;
+  confirmation_type: XmlElem<string, typeof common.confirmation_types>;
 }
 
 interface KnowledgePartDocumentTempDoc {
@@ -49,6 +50,7 @@ FileListBase &
 CustomElemsBase &
 KnowledgePartsBase & {
   Doc: KnowledgePartDocument;
+  /** ID */
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
@@ -64,7 +66,7 @@ KnowledgePartsBase & {
    * Тип подтверждения
    * @default none
    */
-  confirmation_type: XmlElem<string>;
+  confirmation_type: XmlElem<string, typeof common.confirmation_types>;
   /** Описание */
   text_area: XmlElem<string | null>;
   /**

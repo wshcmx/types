@@ -24,14 +24,23 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: QualificationAssignmentDocument;
+  /** Дата присвоения */
   assignment_date: XmlElem<Date | null>;
+  /** Дата истечения */
   expiration_date: XmlElem<Date | null>;
+  /** Планируемая дата завершения */
   plan_end_date: XmlElem<Date | null>;
+  /** Основание */
   reason: XmlElem<string | null>;
-  /** @default in_process */
+  /**
+   * Состояние
+   * @default in_process
+   */
   status: XmlElem<string, typeof common.qualification_assignment_states>;
+  /** Квалификация */
   qualification_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
+  /** Мероприятие */
   event_id: XmlElem<number | null, EventCatalogDocumentTopElem>;
   /** Отправитель */
   sender_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;

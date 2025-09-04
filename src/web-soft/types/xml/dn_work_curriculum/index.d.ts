@@ -11,6 +11,7 @@ interface DnWorkCurriculumDocumentBlockElemDiscipline {
   load_credit(): number;
   audit_credit: XmlElem<number | null>;
   independ_credit: XmlElem<number | null>;
+  /** Семестр */
   term_id: XmlElem<number | null, DnTermCatalogDocumentTopElem>;
   control_form_id: XmlElem<number | null, DnControlFormCatalogDocumentTopElem>;
   name_control_form: XmlElem<string | null>;
@@ -60,12 +61,16 @@ CustomElemsBase & {
    * @default general
    */
   type: XmlElem<string, typeof common.curriculum_types>;
+  /** Студент */
   student_id: XmlElem<number | null, DnStudentCatalogDocumentTopElem>;
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
   /** Факультет */
   faculty_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Кафедра */
   chair_id: XmlElem<number | null, SubdivisionCatalogDocumentTopElem>;
+  /** Специальность */
   special_id: XmlElem<number | null, DnSpecialCatalogDocumentTopElem>;
+  /** Специализация */
   specialization_id: XmlElem<number | null, DnSpecializationCatalogDocumentTopElem>;
   /** Квалификация */
   qualification_id: XmlElem<number | null, QualificationCatalogDocumentTopElem>;

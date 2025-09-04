@@ -1,5 +1,6 @@
 type EstaffEventCatalogDocumentTopElem = XmlTopElem &
 AdminAccessBase & {
+  /** ID */
   id: XmlElem<number | null>;
   /** Код события */
   code_event: XmlElem<string | null>;

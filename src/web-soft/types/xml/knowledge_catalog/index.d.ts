@@ -1,6 +1,6 @@
 type KnowledgeCatalogDocumentTopElem = XmlTopElem & {
   /** ID */
-  id: XmlElem<number | null, KnowledgeCatalogDocumentTopElem>;
+  id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
   /** Название */

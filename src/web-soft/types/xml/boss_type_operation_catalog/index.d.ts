@@ -1,4 +1,5 @@
 type BossTypeOperationCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
   boss_type_id: XmlElem<number | null, BossTypeCatalogDocumentTopElem>;
   /** Код */
@@ -8,7 +9,7 @@ type BossTypeOperationCatalogDocumentTopElem = XmlTopElem & {
   operation_id: XmlElem<number | null, OperationCatalogDocumentTopElem>;
   /** Операции */
   operations: XmlElem<string | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };

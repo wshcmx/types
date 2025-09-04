@@ -1,5 +1,7 @@
 type BlogAuthorCatalogDocumentTopElem = XmlTopElem & {
+  /** ID */
   id: XmlElem<number | null>;
+  /** Блог */
   blog_id: XmlElem<number | null, BlogCatalogDocumentTopElem>;
   /** Название блога */
   name: XmlElem<string | null>;
@@ -9,9 +11,12 @@ type BlogAuthorCatalogDocumentTopElem = XmlTopElem & {
   person_id: XmlElem<string | null>;
   /** ФИО автора */
   person_fullname: XmlElem<string | null>;
-  /** Является модератором */
+  /**
+   * Является модератором
+   * @default false
+   */
   is_full_moderator: XmlElem<boolean | null>;
-  MatchDocTypeExt(): void;
+  MatchDocTypeExt(): boolean;
   OnBuildExt(): void;
   OnDeleteExt(): void;
 };
