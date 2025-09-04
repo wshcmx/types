@@ -1,18 +1,18 @@
 type FuncManagerQueryResult = {
-    person_id: XmlElem<number>;
+  person_id: XmlElem<number>;
 };
 
 type Managers = {
-    personId: number;
-    fullname: string;
+  personId: number;
+  fullname: string;
 };
 
 function select<T>(command: string) {
-    return ArraySelectAll(tools.xquery<T>(command));
+  return ArraySelectAll(tools.xquery<T>(command));
 }
 
 function getManagersByType(bossTypeCode: string = "main"): Managers[] {
-    const sql = `sql:
+  const sql = `sql:
     SELECT
       [t0].[person_id]
     FROM [func_managers] AS [t0]
@@ -20,40 +20,36 @@ function getManagersByType(bossTypeCode: string = "main"): Managers[] {
     WHERE [t1].[code] = ${SqlLiteral(bossTypeCode)}
   `;
 
-    const query = select<FuncManagerQueryResult>(sql);
+  const query = select<FuncManagerQueryResult>(sql);
 
-    const result: Managers[] = [];
-    let collaboratorDocument;
-    let personId;
+  const result: Managers[] = [];
+  let collaboratorDocument;
+  let personId;
 
-    for (let i = 0; i < query.length; i++) {
-        personId = query[i].person_id.Value;
-        collaboratorDocument = tools.open_doc<CollaboratorDocument>(personId);
+  for (let i = 0; i < query.length; i++) {
+    personId = query[i].person_id.Value;
+    collaboratorDocument = tools.open_doc<CollaboratorDocument>(personId);
 
-        if (collaboratorDocument === undefined) {
-            alert(`Невозможно открыть документ сотрудника по id "${personId}"`);
-            continue;
-        }
-
-        result.push({
-            personId,
-            fullname: collaboratorDocument.TopElem.fullname()
-        });
-
-        result.map(w => w);
+    if (collaboratorDocument === undefined) {
+      alert(`Невозможно открыть документ сотрудника по id "${personId}"`);
+      continue;
     }
 
-    return result;
+    result.push({
+      personId,
+      fullname: collaboratorDocument.TopElem.fullname()
+    });
+  }
+  
+  return result;
 }
-
-ArraySelectAll([2, 43]).map(w => w)
 
 const mainFuncManagers = getManagersByType();
 const bpFuncManagers = getManagersByType("bp");
 const unionManagers = ArrayUnion(mainFuncManagers, bpFuncManagers);
 
 if (unionManagers.length === 0) {
-    throw new Error("В системе должен быть хотя бы один руководитель");
+  throw new Error("В системе должен быть хотя бы один руководитель");
 }
 
 alert(`Функциональные руководители:\n${ArrayExtract(unionManagers, "This.fullname").join(", ")}`);

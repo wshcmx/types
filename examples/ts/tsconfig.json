@@ -1,17 +1,18 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "es6",
-        "strict": false,
-        "noImplicitAny": true,
-        "allowJs": true,
-        "moduleResolution": "node",
-        "baseUrl": "src",
-        "typeRoots": [
-            "../../lib/web-soft/types",
-            "../../lib/web-soft/types/xml"
-        ],
-        "esModuleInterop": true,
-        "noLib": true
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "Preserve",
+    "esModuleInterop": true,
+    "strict": false,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "checkJs": true,
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "noLib": true,
+    "typeRoots": [
+      "../../src/web-soft/types",
+      "../../src/web-soft/types/xml",
+    ]
+  }
 }

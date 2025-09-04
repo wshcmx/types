@@ -1,6 +1,6 @@
 {
     "name": "@globexit/websoft-types",
-    "version": "2.0.11",
+    "version": "2.1.0",
     "directories": {
         "lib": "lib"
     },
@@ -12,7 +12,6 @@
         "tsc:lib": "tsc -p src/common/tsconfig.json",
         "tsc:tests": "tsc -p tests/tsconfig.json",
         "check": "npm run lint && npm run tsc:lib && npm run tsc:tests",
-        "version:check": "node ci/version-check.js",
         "build:ssjs-transpiler": "cd src/ssjs-transpiler && tspc",
         "build:addatation-files": "node src/copy-projects.js",
         "prepare": "ts-patch install -s"
