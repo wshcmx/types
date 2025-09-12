@@ -887,7 +887,7 @@ interface XmElem<T, ForeignElem = never> {
   UpdateValues(): void;
 }
 
-type XmlElem<T, ForeignElem = never> = XmElem<T, ForeignElem> & T;
+type XmlElem<T, ForeignElem = never> = T extends object ? XmElem<T, ForeignElem> & T : XmElem<T, ForeignElem>;
 
 type XmlElemUnknown = XmlElem<unknown>;
 
