@@ -1,5 +1,6 @@
 type SampleObject = {
     value: number;
+    some_property?: string | undefined;
 };
 
 const obj: SampleObject = {
@@ -10,6 +11,10 @@ const obj_instance = new Object();
 
 const obj_value = obj.GetOptProperty("value");
 alert(obj_value);
+
+obj.AddProperty("some_property", "new value");
+obj.DeleteOptProperty("some_property");
+alert(obj.GetOptProperty("some_property"));
 
 const obj_value_non_existed = (obj as Object).GetOptProperty("value1");
 alert(obj_value_non_existed);
@@ -28,4 +33,3 @@ DeleteDoc(UrlFromDocID(1), obj_value_with_boolean_default);
 
 const obj_value_with_number_default = obj.GetOptProperty("value1", 0);
 UrlFromDocID(obj_value_with_number_default);
-

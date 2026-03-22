@@ -30,6 +30,12 @@ interface Object {
   AddProperty(key: string | number, name: unknown): void;
 
   /**
+   * Удаляет в объект новый атрибут.
+   * @param {string} key - Наименование атрибута.
+   */
+  DeleteOptProperty(key: string): void;
+
+  /**
    * Возвращает значение атрибута объекта. Если атрубут отсутствует, выдает undefined.
    * @param {string} key - Наименование атрибута объекта.
    * @param {unknown} [defaultValue] - Значение по умолчанию, возращаемое в случае отсутствия атрибута.
@@ -70,5 +76,5 @@ interface ObjectConstructor {
   (): Object;
 }
 
- 
+
 declare const Object: ObjectConstructor;
