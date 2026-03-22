@@ -31,6 +31,7 @@ interface Stream {
    * @param filePath - Путь к файлу (или url).
    * @returns {FileStream}
    * @example
+   * ```
    * fileStream = new FileStream( 'C:\\Temp\\xxx.txt' );
    * while ( true )
    * {
@@ -38,6 +39,7 @@ interface Stream {
    *     if ( str == undefined )
    *         break;
    * }
+   * ```
    */
   FileStream(filePath: string): FileStream;
 }

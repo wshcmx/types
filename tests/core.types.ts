@@ -221,7 +221,6 @@ const smtpClient3 = new SmtpClient;
 smtpClient3.UseTLSPort = true;
 smtpClient3.UseTLS = true;
 
-
 let d: Date | undefined | null = OptDate("string");
 
 if (d === undefined) {
@@ -231,6 +230,8 @@ if (d === undefined) {
 if (d === null) {
   d = OptDate(2020, 1, 1, 12, 0);
 }
+
+alert(d);
 
 type SumLibrary = {
   sum(number1: number, number2: number): number;
