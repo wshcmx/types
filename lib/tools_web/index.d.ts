@@ -165,7 +165,7 @@ declare namespace tools_web {
     view_type: string;
     external_eval: string;
     check_access: boolean;
-    open_doc : boolean;
+    open_doc: boolean;
     disp_array: boolean;
     array: string;
     array_selected: string;
@@ -411,7 +411,7 @@ declare namespace tools_web {
 
   function get_cur_env_url(env: unknown): unknown;
 
-  function get_default_lng_web(user: Object): unknown;
+  function get_default_lng_web(user: CollaboratorDocumentTopElem | number): IUiLng["items"];
 
   function get_profiling_statistic_rec_id(): unknown;
 
