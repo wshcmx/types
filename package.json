@@ -10,8 +10,7 @@
     "lint:lib": "eslint -c ./lib/eslint.config.js lib",
     "lint:tests": "eslint -c ./tests/eslint.config.js tests",
     "tsc:lib": "tsc -p lib/tsconfig.json",
-    "tsc:tests": "tsc -p tests/tsconfig.json",
-    "prepare": "husky"
+    "tsc:tests": "tsc -p tests/tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -35,7 +34,6 @@
   "devDependencies": {
     "eslint": "^9.22.0",
     "eslint-plugin-jsdoc": "^50.6.6",
-    "husky": "^9.1.7",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1"
   }
