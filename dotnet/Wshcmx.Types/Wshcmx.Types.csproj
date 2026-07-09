@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;CS8618</NoWarn>
+    <RootNamespace>Wshcmx.Types</RootNamespace>
+    <AssemblyName>Wshcmx.Types</AssemblyName>
+
+    <PackageId>Wshcmx.Types</PackageId>
+    <Version>12.1.0</Version>
+    <Authors>umbrik</Authors>
+    <Company>wshcmx</Company>
+    <Description>Strongly-typed C# POCOs for WebSoft/WebTutor XML documents, generated from @wshcmx/types.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/wshcmx/types</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/wshcmx/types</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>websoft;webtutor;wshcmx;types;poco</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+</Project>
