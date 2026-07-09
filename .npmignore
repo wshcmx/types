@@ -1,5 +1,7 @@
 .github
 .husky
+dotnet
 examples
 node_modules
+scripts
 tests

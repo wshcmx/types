@@ -10,7 +10,8 @@
     "lint:lib": "eslint -c ./lib/eslint.config.js lib",
     "lint:tests": "eslint -c ./tests/eslint.config.js tests",
     "tsc:lib": "tsc -p lib/tsconfig.json",
-    "tsc:tests": "tsc -p tests/tsconfig.json"
+    "tsc:tests": "tsc -p tests/tsconfig.json",
+    "generate:dotnet": "node dotnet/Wshcmx.Types/scripts/index.ts"
   },
   "repository": {
     "type": "git",
