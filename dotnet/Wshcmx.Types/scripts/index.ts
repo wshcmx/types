@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import ts from "typescript";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, "..");
+const REPO_ROOT = path.resolve(__dirname, "../../..");
 const XML_ROOT = path.join(REPO_ROOT, "lib", "xml");
 const OUT_DIR = path.join(REPO_ROOT, "dotnet", "Wshcmx.Types", "Generated");
 const NAMESPACE = "Wshcmx.Types";
