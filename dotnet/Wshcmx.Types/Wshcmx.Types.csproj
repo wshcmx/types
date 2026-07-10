@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -11,7 +11,7 @@
     <AssemblyName>Wshcmx.Types</AssemblyName>
 
     <PackageId>Wshcmx.Types</PackageId>
-    <Version>12.1.0</Version>
+    <Version>12.2.0</Version>
     <Authors>umbrik</Authors>
     <Company>wshcmx</Company>
     <Description>Strongly-typed C# POCOs for WebSoft/WebTutor XML documents, generated from @wshcmx/types.</Description>
