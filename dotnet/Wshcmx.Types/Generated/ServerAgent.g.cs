@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Период запуска
         /// </summary>
         [XmlElement("period")]
-        public double Period { get; set; }
+        public long Period { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// День месяца запуска
         /// </summary>
         [XmlElement("start_day")]
-        public double? StartDay { get; set; }
+        public long? StartDay { get; set; }
 
         /// <summary>
         /// День недели запуска
         /// </summary>
         [XmlElement("start_week_day")]
-        public double? StartWeekDay { get; set; }
+        public long? StartWeekDay { get; set; }
 
         /// <summary>
         /// Начало периода запуска
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -145,10 +145,10 @@ namespace Wshcmx.Types
         /// Выгрузка
         /// </summary>
         [XmlElement("discharge_id")]
-        public double? DischargeId { get; set; }
+        public long? DischargeId { get; set; }
 
         [XmlElement("user_assignment_id")]
-        public double? UserAssignmentId { get; set; }
+        public long? UserAssignmentId { get; set; }
 
         /// <summary>
         /// Схема импорта
@@ -157,13 +157,13 @@ namespace Wshcmx.Types
         public string? ImportExcelPersonSchemeId { get; set; }
 
         [XmlElement("import_excel_id")]
-        public double? ImportExcelId { get; set; }
+        public long? ImportExcelId { get; set; }
 
         /// <summary>
         /// Сервер обмена данными
         /// </summary>
         [XmlElement("exchange_server_id")]
-        public double? ExchangeServerId { get; set; }
+        public long? ExchangeServerId { get; set; }
 
         /// <summary>
         /// Является системным
@@ -196,6 +196,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 }

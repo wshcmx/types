@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,16 +49,16 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [Column("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [Column("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         [Column("program_discipline_id")]
-        public double? ProgramDisciplineId { get; set; }
+        public long? ProgramDisciplineId { get; set; }
 
         [Column("program_discipline_name")]
         public string? ProgramDisciplineName { get; set; }
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Преподаватель
         /// </summary>
         [Column("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Дата модификации

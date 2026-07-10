@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,19 +37,19 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Задача
         /// </summary>
         [Column("task_id")]
-        public double? TaskId { get; set; }
+        public long? TaskId { get; set; }
 
         /// <summary>
         /// Название задачи
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО пользователя
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Продолжительность
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Описание

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -109,13 +109,13 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Создатель разговора
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Тип разговора
         /// </summary>
         [Column("conversation_type_id")]
-        public double? ConversationTypeId { get; set; }
+        public long? ConversationTypeId { get; set; }
 
         /// <summary>
         /// Формат разговора
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Приоритет позиции в списке
         /// </summary>
         [Column("position_priority")]
-        public double? PositionPriority { get; set; }
+        public long? PositionPriority { get; set; }
 
         /// <summary>
         /// Дополнительный стиль в списке
@@ -169,7 +169,14 @@ namespace Wshcmx.Types
         /// Объекты
         /// </summary>
         [Column("objects")]
-        public List<double> Objects { get; set; } = new List<double>();
+        public string? ObjectsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> Objects
+        {
+            get => XmlListCodec.ParseLongList(ObjectsRaw, "objects");
+            set => ObjectsRaw = XmlListCodec.SerializeLongList("objects", value);
+        }
 
         /// <summary>
         /// Тип объекта
@@ -187,7 +194,7 @@ namespace Wshcmx.Types
         /// Активный участник
         /// </summary>
         [Column("active_object_id")]
-        public double? ActiveObjectId { get; set; }
+        public long? ActiveObjectId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -205,7 +212,14 @@ namespace Wshcmx.Types
         /// Все участники
         /// </summary>
         [Column("participants_id")]
-        public List<double> ParticipantsId { get; set; } = new List<double>();
+        public string? ParticipantsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ParticipantsId
+        {
+            get => XmlListCodec.ParseLongList(ParticipantsIdRaw, "participants_id");
+            set => ParticipantsIdRaw = XmlListCodec.SerializeLongList("participants_id", value);
+        }
 
         /// <summary>
         /// Писать по умолчанию запрещено

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Контрольное мероприятие
         /// </summary>
         [XmlElement("control_event_id")]
-        public double? ControlEventId { get; set; }
+        public long? ControlEventId { get; set; }
 
         /// <summary>
         /// Тип
@@ -58,25 +58,25 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Дисциплина
         /// </summary>
         [XmlElement("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Дата
@@ -85,13 +85,13 @@ namespace Wshcmx.Types
         public DateTime? DateEvent { get; set; }
 
         [XmlElement("contr_form_id")]
-        public double? ContrFormId { get; set; }
+        public long? ContrFormId { get; set; }
 
         /// <summary>
         /// Учебная группа
         /// </summary>
         [XmlElement("stud_group_id")]
-        public double? StudGroupId { get; set; }
+        public long? StudGroupId { get; set; }
 
         [XmlElement("student_marks")]
         public List<DnRegisterDocumentStudentMark> StudentMarks { get; set; } = new List<DnRegisterDocumentStudentMark>();
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Студент
         /// </summary>
         [XmlElement("stud_id")]
-        public double? StudId { get; set; }
+        public long? StudId { get; set; }
 
         [XmlElement("mark_id")]
         public string? MarkId { get; set; }
@@ -133,6 +133,6 @@ namespace Wshcmx.Types
     public class DnRegisterDocumentViewStudentMark
     {
         [XmlElement("stud_id")]
-        public double? StudId { get; set; }
+        public long? StudId { get; set; }
     }
 }

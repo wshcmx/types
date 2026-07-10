@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,22 +46,22 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty")]
-        public double? Faculty { get; set; }
+        public long? Faculty { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair")]
-        public double? Chair { get; set; }
+        public long? Chair { get; set; }
 
         [XmlElement("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         /// <summary>
         /// Семестр
         /// </summary>
         [XmlElement("term_id")]
-        public double? TermId { get; set; }
+        public long? TermId { get; set; }
 
         [XmlElement("schedule_elems")]
         public List<DnScheduleDocumentScheduleElem> ScheduleElems { get; set; } = new List<DnScheduleDocumentScheduleElem>();
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         public string? ElemId { get; set; }
 
         [XmlElement("week_day_id")]
-        public double? WeekDayId { get; set; }
+        public long? WeekDayId { get; set; }
 
         /// <summary>
         /// Время
@@ -94,34 +94,34 @@ namespace Wshcmx.Types
         public string? PeriodicTypeId { get; set; }
 
         [XmlElement("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
 
         [XmlElement("edu_event_form_id")]
-        public double? EduEventFormId { get; set; }
+        public long? EduEventFormId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Поток
         /// </summary>
         [XmlElement("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Учебная группа
         /// </summary>
         [XmlElement("stud_group_id")]
-        public double? StudGroupId { get; set; }
+        public long? StudGroupId { get; set; }
 
         /// <summary>
         /// Аудитория
         /// </summary>
         [XmlElement("auditor_id")]
-        public double? AuditorId { get; set; }
+        public long? AuditorId { get; set; }
     }
 
     public class DnScheduleDocumentView

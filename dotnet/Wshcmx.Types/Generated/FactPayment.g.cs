@@ -40,19 +40,19 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Клиент
         /// </summary>
         [XmlElement("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Организация-партнер
         /// </summary>
         [XmlElement("agent_org_id")]
-        public double? AgentOrgId { get; set; }
+        public long? AgentOrgId { get; set; }
 
         /// <summary>
         /// Юридическое лицо (клиент)
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("cost_value")]
-        public double? CostValue { get; set; }
+        public long? CostValue { get; set; }
 
         /// <summary>
         /// Дата
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Счет
         /// </summary>
         [XmlElement("expense_id")]
-        public double? ExpenseId { get; set; }
+        public long? ExpenseId { get; set; }
 
         /// <summary>
         /// Комментарий

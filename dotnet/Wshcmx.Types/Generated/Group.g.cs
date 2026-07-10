@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Учебные группы
@@ -100,10 +100,10 @@ namespace Wshcmx.Types
         public List<RequirementsBaseEducationMethod> EducationMethods { get; set; } = new List<RequirementsBaseEducationMethod>();
 
         [XmlElement("obligatory_education_amount")]
-        public double? ObligatoryEducationAmount { get; set; }
+        public long? ObligatoryEducationAmount { get; set; }
 
         [XmlElement("education_period")]
-        public double? EducationPeriod { get; set; }
+        public long? EducationPeriod { get; set; }
 
         /// <summary>
         /// Требуемые типовые программы развития
@@ -148,31 +148,31 @@ namespace Wshcmx.Types
         /// Образование
         /// </summary>
         [XmlElement("education_type_id")]
-        public double? EducationTypeId { get; set; }
+        public long? EducationTypeId { get; set; }
 
         /// <summary>
         /// Возраст от
         /// </summary>
         [XmlElement("age_min")]
-        public double? AgeMin { get; set; }
+        public long? AgeMin { get; set; }
 
         /// <summary>
         /// Возраст до
         /// </summary>
         [XmlElement("age_max")]
-        public double? AgeMax { get; set; }
+        public long? AgeMax { get; set; }
 
         /// <summary>
         /// Опыт работы в компании (месяцев)
         /// </summary>
         [XmlElement("experience_in_company")]
-        public double? ExperienceInCompany { get; set; }
+        public long? ExperienceInCompany { get; set; }
 
         /// <summary>
         /// Опыт работы на текущей должности (месяцев)
         /// </summary>
         [XmlElement("experience_in_current_position")]
-        public double? ExperienceInCurrentPosition { get; set; }
+        public long? ExperienceInCurrentPosition { get; set; }
 
         [XmlElement("knowledge_parts")]
         public List<KnowledgePartsFieldsBaseKnowledgePart> KnowledgeParts { get; set; } = new List<KnowledgePartsFieldsBaseKnowledgePart>();
@@ -187,10 +187,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -295,13 +295,13 @@ namespace Wshcmx.Types
         /// Форум
         /// </summary>
         [XmlElement("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         [XmlElement("kpi_profiles")]
         public List<GroupDocumentKpiProfile> KpiProfiles { get; set; } = new List<GroupDocumentKpiProfile>();
@@ -310,13 +310,13 @@ namespace Wshcmx.Types
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Тип графика
         /// </summary>
         [XmlElement("schedule_type_id")]
-        public double? ScheduleTypeId { get; set; }
+        public long? ScheduleTypeId { get; set; }
 
         /// <summary>
         /// Тип вступления
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Тип заявки по умолчанию
         /// </summary>
         [XmlElement("default_request_type_id")]
-        public double? DefaultRequestTypeId { get; set; }
+        public long? DefaultRequestTypeId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -376,16 +376,16 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class GroupDocumentCollaborator
     {
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("position_id")]
-        public List<double> PositionId { get; set; } = new List<double>();
+        public List<long> PositionId { get; set; } = new List<long>();
 
         [XmlElement("desc")]
         public string? Desc { get; set; }
@@ -397,7 +397,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("period_type_id")]
         public string? PeriodTypeId { get; set; }

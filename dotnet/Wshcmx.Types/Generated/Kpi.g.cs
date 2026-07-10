@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -55,10 +55,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -118,28 +118,28 @@ namespace Wshcmx.Types
         /// KPI
         /// </summary>
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [XmlElement("kpi_group_id")]
-        public double? KpiGroupId { get; set; }
+        public long? KpiGroupId { get; set; }
 
         /// <summary>
         /// Минимальное значение
         /// </summary>
         [XmlElement("range_min")]
-        public double? RangeMin { get; set; }
+        public long? RangeMin { get; set; }
 
         /// <summary>
         /// Максимальное значение
         /// </summary>
         [XmlElement("range_max")]
-        public double? RangeMax { get; set; }
+        public long? RangeMax { get; set; }
 
         [XmlElement("norma")]
-        public double? Norma { get; set; }
+        public long? Norma { get; set; }
 
         [XmlElement("calc_type")]
         public string CalcType { get; set; }
@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         /// Формула
         /// </summary>
         [XmlElement("formula_id")]
-        public double? FormulaId { get; set; }
+        public long? FormulaId { get; set; }
 
         /// <summary>
         /// Шкала
         /// </summary>
         [XmlElement("scale_id")]
-        public double? ScaleId { get; set; }
+        public long? ScaleId { get; set; }
 
         /// <summary>
         /// Шкала
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("custom_data")]
         public KpiDocumentCustomData? CustomData { get; set; }
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class KpiDocumentCustomData
@@ -289,7 +289,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -307,7 +307,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -325,7 +325,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -352,13 +352,13 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class KpiDocumentResponsibleGroup
     {
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Название
@@ -376,7 +376,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class KpiDocumentResponsiblePerson
@@ -391,7 +391,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -409,7 +409,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -427,7 +427,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -454,7 +454,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Является непосредственным руководителем
@@ -466,13 +466,13 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class KpiDocumentResponsibleStaff
     {
         [XmlElement("staff_position_id")]
-        public double? StaffPositionId { get; set; }
+        public long? StaffPositionId { get; set; }
 
         /// <summary>
         /// Название
@@ -490,7 +490,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class KpiDocumentScale
@@ -508,7 +508,7 @@ namespace Wshcmx.Types
         /// Процент
         /// </summary>
         [XmlElement("percent")]
-        public double? Percent { get; set; }
+        public long? Percent { get; set; }
 
         /// <summary>
         /// Описание

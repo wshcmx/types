@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Объект контекста
         /// </summary>
         [Column("context_object_id")]
-        public double? ContextObjectId { get; set; }
+        public long? ContextObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта контекста

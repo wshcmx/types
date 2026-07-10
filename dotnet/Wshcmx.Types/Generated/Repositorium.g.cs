@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Родительский объект
         /// </summary>
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Авторы
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -172,6 +172,6 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

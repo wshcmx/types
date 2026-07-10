@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Профессиональная область
         /// </summary>
         [XmlElement("professional_area_id")]
-        public double? ProfessionalAreaId { get; set; }
+        public long? ProfessionalAreaId { get; set; }
 
         /// <summary>
         /// Комментарий

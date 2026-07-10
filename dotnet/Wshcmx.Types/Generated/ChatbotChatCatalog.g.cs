@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -118,25 +118,25 @@ namespace Wshcmx.Types
         /// Этап чат-бота
         /// </summary>
         [Column("chatbot_stage_id")]
-        public double? ChatbotStageId { get; set; }
+        public long? ChatbotStageId { get; set; }
 
         /// <summary>
         /// Тип чат-бота
         /// </summary>
         [Column("chatbot_type_id")]
-        public double? ChatbotTypeId { get; set; }
+        public long? ChatbotTypeId { get; set; }
 
         /// <summary>
         /// Чат-бот
         /// </summary>
         [Column("chatbot_id")]
-        public double? ChatbotId { get; set; }
+        public long? ChatbotId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [Column("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Статус
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Использовать эскалацию

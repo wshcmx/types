@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Дата модификации

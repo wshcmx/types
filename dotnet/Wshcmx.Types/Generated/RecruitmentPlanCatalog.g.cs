@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Статус
@@ -43,25 +43,25 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Группа подразделений
         /// </summary>
         [Column("subdivision_group_id")]
-        public double? SubdivisionGroupId { get; set; }
+        public long? SubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Семейство должностей
         /// </summary>
         [Column("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
 
         /// <summary>
         /// Тип должности
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Должность
@@ -85,13 +85,13 @@ namespace Wshcmx.Types
         /// Тип вакансий
         /// </summary>
         [Column("vacancy_type_id")]
-        public double? VacancyTypeId { get; set; }
+        public long? VacancyTypeId { get; set; }
 
         /// <summary>
         /// Общая численность
         /// </summary>
         [Column("quantity")]
-        public double? Quantity { get; set; }
+        public long? Quantity { get; set; }
 
         /// <summary>
         /// Дата модификации

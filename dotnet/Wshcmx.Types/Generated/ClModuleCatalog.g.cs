@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роли доступа
@@ -55,25 +55,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("access_org_id")]
-        public double? AccessOrgId { get; set; }
+        public long? AccessOrgId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("access_site_id")]
-        public double? AccessSiteId { get; set; }
+        public long? AccessSiteId { get; set; }
 
         /// <summary>
         /// Узел
         /// </summary>
         [Column("access_host_id")]
-        public double? AccessHostId { get; set; }
+        public long? AccessHostId { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public double? WebModeId { get; set; }
+        public long? WebModeId { get; set; }
 
         /// <summary>
         /// Оператор
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Группа подразделений
         /// </summary>
         [Column("access_subdivision_group_id")]
-        public double? AccessSubdivisionGroupId { get; set; }
+        public long? AccessSubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Курс CourseLab
         /// </summary>
         [Column("cl_course_id")]
-        public double? ClCourseId { get; set; }
+        public long? ClCourseId { get; set; }
 
         /// <summary>
         /// Ссылка на файлы ресурсов объекта
@@ -145,13 +145,13 @@ namespace Wshcmx.Types
         /// Ширина слайда
         /// </summary>
         [Column("slide_width")]
-        public double? SlideWidth { get; set; }
+        public long? SlideWidth { get; set; }
 
         /// <summary>
         /// Высота слайда
         /// </summary>
         [Column("slide_height")]
-        public double? SlideHeight { get; set; }
+        public long? SlideHeight { get; set; }
 
         /// <summary>
         /// Является шаблоном
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Stamp
         /// </summary>
         [Column("stamp")]
-        public double? Stamp { get; set; }
+        public long? Stamp { get; set; }
 
         /// <summary>
         /// Является системным

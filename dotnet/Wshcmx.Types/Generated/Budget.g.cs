@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -85,25 +85,25 @@ namespace Wshcmx.Types
         /// Тип бюджета
         /// </summary>
         [XmlElement("type_id")]
-        public double? TypeId { get; set; }
+        public long? TypeId { get; set; }
 
         /// <summary>
         /// Центр затрат
         /// </summary>
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Статья затрат
         /// </summary>
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         /// <summary>
         /// Утвержден
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         /// Целевой бюджет
         /// </summary>
         [XmlElement("budget_id")]
-        public double? BudgetId { get; set; }
+        public long? BudgetId { get; set; }
 
         /// <summary>
         /// Дата
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
 
         /// <summary>
         /// Приход или расход

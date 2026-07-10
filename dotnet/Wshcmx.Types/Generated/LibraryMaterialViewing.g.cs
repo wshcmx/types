@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -106,13 +106,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Материал библиотеки
         /// </summary>
         [XmlElement("material_id")]
-        public double? MaterialId { get; set; }
+        public long? MaterialId { get; set; }
 
         /// <summary>
         /// Название материала
@@ -136,16 +136,16 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Продолжительность просмотра
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("location")]
-        public double? Location { get; set; }
+        public long? Location { get; set; }
 
         [XmlElement("pages")]
         public List<LibraryMaterialViewingDocumentPage> Pages { get; set; } = new List<LibraryMaterialViewingDocumentPage>();
@@ -166,7 +166,7 @@ namespace Wshcmx.Types
         /// План обучения
         /// </summary>
         [XmlElement("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Комментарий

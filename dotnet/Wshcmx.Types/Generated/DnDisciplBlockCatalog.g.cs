@@ -19,10 +19,10 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("block_id")]
-        public double? BlockId { get; set; }
+        public long? BlockId { get; set; }
 
         /// <summary>
         /// Код
@@ -37,6 +37,6 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
     }
 }

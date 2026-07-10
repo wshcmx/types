@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Агентский договор
@@ -76,31 +76,31 @@ namespace Wshcmx.Types
         /// Организация-агент
         /// </summary>
         [XmlElement("agent_org_id")]
-        public double? AgentOrgId { get; set; }
+        public long? AgentOrgId { get; set; }
 
         /// <summary>
         /// Клиент
         /// </summary>
         [XmlElement("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Клиент
         /// </summary>
         [XmlElement("client_manager_id")]
-        public double? ClientManagerId { get; set; }
+        public long? ClientManagerId { get; set; }
 
         /// <summary>
         /// Менеджер
         /// </summary>
         [XmlElement("manager_id")]
-        public double? ManagerId { get; set; }
+        public long? ManagerId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [XmlElement("parent_sale_contract_id")]
-        public double? ParentSaleContractId { get; set; }
+        public long? ParentSaleContractId { get; set; }
 
         /// <summary>
         /// Номер
@@ -133,10 +133,10 @@ namespace Wshcmx.Types
         public string? SubjectContract { get; set; }
 
         [XmlElement("prev_contract_id")]
-        public double? PrevContractId { get; set; }
+        public long? PrevContractId { get; set; }
 
         [XmlElement("contract_type")]
-        public double? ContractType { get; set; }
+        public long? ContractType { get; set; }
 
         /// <summary>
         /// Подписывается договор у контрагента
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("contract_cost")]
-        public double? ContractCost { get; set; }
+        public long? ContractCost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -208,13 +208,13 @@ namespace Wshcmx.Types
         public string? ConsignmentDocumentNumber { get; set; }
 
         [XmlElement("sent_messenger_service_id")]
-        public double? SentMessengerServiceId { get; set; }
+        public long? SentMessengerServiceId { get; set; }
 
         [XmlElement("back_sent_type")]
         public string? BackSentType { get; set; }
 
         [XmlElement("back_sent_messenger_service_id")]
-        public double? BackSentMessengerServiceId { get; set; }
+        public long? BackSentMessengerServiceId { get; set; }
 
         /// <summary>
         /// Получено
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         public string? CostCurrencyTypeId { get; set; }
 
         [XmlElement("cost_value")]
-        public double? CostValue { get; set; }
+        public long? CostValue { get; set; }
     }
 
     public class SaleContractDocumentPrice
@@ -283,7 +283,7 @@ namespace Wshcmx.Types
         /// Прайс
         /// </summary>
         [XmlElement("price_id")]
-        public double? PriceId { get; set; }
+        public long? PriceId { get; set; }
     }
 
     public class SaleContractDocumentProlongationInfo
@@ -298,7 +298,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта

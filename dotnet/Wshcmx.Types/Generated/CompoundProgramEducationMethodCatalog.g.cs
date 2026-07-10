@@ -19,31 +19,31 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Корневой раздел
         /// </summary>
         [Column("program_id")]
-        public double? ProgramId { get; set; }
+        public long? ProgramId { get; set; }
 
         /// <summary>
         /// Корневой раздел
         /// </summary>
         [Column("parent_progpam_id")]
-        public double? ParentProgpamId { get; set; }
+        public long? ParentProgpamId { get; set; }
 
         /// <summary>
         /// Должность
         /// </summary>
         [Column("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Модульная программа
         /// </summary>
         [Column("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
 
         /// <summary>
         /// Название модульной программы
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Учебная программа
         /// </summary>
         [Column("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Название учебной программы
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -85,13 +85,13 @@ namespace Wshcmx.Types
         /// Длительность в часах
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Тип учебной программы
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -133,6 +133,6 @@ namespace Wshcmx.Types
         /// Длительность в днях
         /// </summary>
         [Column("duration_days")]
-        public double? DurationDays { get; set; }
+        public long? DurationDays { get; set; }
     }
 }

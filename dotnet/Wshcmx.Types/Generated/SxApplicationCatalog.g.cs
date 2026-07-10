@@ -40,10 +40,10 @@ namespace Wshcmx.Types
     public class SxApplicationsSxApplicationsItemServerData
     {
         [XmlElement("port")]
-        public double? Port { get; set; }
+        public long? Port { get; set; }
 
         [XmlElement("web_port")]
-        public double? WebPort { get; set; }
+        public long? WebPort { get; set; }
 
         [XmlElement("ip_address")]
         public string? IpAddress { get; set; }

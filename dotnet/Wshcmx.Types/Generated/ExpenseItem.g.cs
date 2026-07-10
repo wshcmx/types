@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Родительская статья затрат
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Комментарий

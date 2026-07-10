@@ -25,19 +25,19 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Процедура
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("period_start")]
         public DateTime? PeriodStart { get; set; }
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Результат
         /// </summary>
         [XmlElement("result")]
-        public double? Result { get; set; }
+        public long? Result { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -76,22 +76,22 @@ namespace Wshcmx.Types
     public class BonusItemDocumentBonusesBonus
     {
         [XmlElement("pa_id")]
-        public double? PaId { get; set; }
+        public long? PaId { get; set; }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         [XmlElement("boss_treat")]
-        public double? BossTreat { get; set; }
+        public long? BossTreat { get; set; }
 
         [XmlElement("overall")]
-        public double? Overall { get; set; }
+        public long? Overall { get; set; }
     }
 
     public class BonusItemDocumentView

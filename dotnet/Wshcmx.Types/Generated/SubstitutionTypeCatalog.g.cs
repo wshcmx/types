@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,14 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("operation_id")]
-        public List<double> OperationId { get; set; } = new List<double>();
+        public string? OperationIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> OperationId
+        {
+            get => XmlListCodec.ParseLongList(OperationIdRaw, "operation_id");
+            set => OperationIdRaw = XmlListCodec.SerializeLongList("operation_id", value);
+        }
 
         /// <summary>
         /// Коды удаленных действий
@@ -61,7 +68,14 @@ namespace Wshcmx.Types
         /// Действия
         /// </summary>
         [Column("remote_action_id")]
-        public List<double> RemoteActionId { get; set; } = new List<double>();
+        public string? RemoteActionIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RemoteActionId
+        {
+            get => XmlListCodec.ParseLongList(RemoteActionIdRaw, "remote_action_id");
+            set => RemoteActionIdRaw = XmlListCodec.SerializeLongList("remote_action_id", value);
+        }
 
         /// <summary>
         /// Нестандартные права (строка или JSON с информацией о правах)
@@ -73,7 +87,14 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Действует

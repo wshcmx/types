@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Блок, в котором отображается
@@ -73,13 +73,20 @@ namespace Wshcmx.Types
         /// Удаленное действие
         /// </summary>
         [Column("remote_action_id")]
-        public double? RemoteActionId { get; set; }
+        public long? RemoteActionId { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Является системным

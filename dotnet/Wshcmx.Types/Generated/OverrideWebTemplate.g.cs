@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Родительский объект
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Mode
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Шаблон
         /// </summary>
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон
@@ -76,19 +76,19 @@ namespace Wshcmx.Types
         /// Дизайн
         /// </summary>
         [XmlElement("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Позиция в списке
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         /// <summary>
         /// Включен
@@ -142,6 +142,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 }

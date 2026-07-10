@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -55,19 +55,19 @@ namespace Wshcmx.Types
         /// Периодичность повторного обновления в днях
         /// </summary>
         [XmlElement("reacquaintance_period")]
-        public double ReacquaintancePeriod { get; set; }
+        public long ReacquaintancePeriod { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Ознакомление
         /// </summary>
         [XmlElement("acquaint_id")]
-        public double? AcquaintId { get; set; }
+        public long? AcquaintId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Количество попыток
         /// </summary>
         [XmlElement("attempt_num")]
-        public double AttemptNum { get; set; }
+        public long AttemptNum { get; set; }
 
         /// <summary>
         /// Вопросы
@@ -121,9 +121,9 @@ namespace Wshcmx.Types
     public class AcquaintAssignDocumentView
     {
         [XmlElement("acquaint_id")]
-        public double? AcquaintId { get; set; }
+        public long? AcquaintId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

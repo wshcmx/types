@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -142,13 +142,13 @@ namespace Wshcmx.Types
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Модульная программа
         /// </summary>
         [XmlElement("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
 
         /// <summary>
         /// Тип
@@ -160,13 +160,13 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Ответственный
         /// </summary>
         [XmlElement("tutor_id")]
-        public double? TutorId { get; set; }
+        public long? TutorId { get; set; }
 
         /// <summary>
         /// Обновлять статусы и активности онлайн
@@ -226,31 +226,31 @@ namespace Wshcmx.Types
         /// Общая оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Процент готовности
         /// </summary>
         [XmlElement("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Статус
         /// </summary>
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Статус
         /// </summary>
         [XmlElement("last_state_id")]
-        public double? LastStateId { get; set; }
+        public long? LastStateId { get; set; }
 
         /// <summary>
         /// Разделы плана
@@ -262,19 +262,19 @@ namespace Wshcmx.Types
         /// План развития
         /// </summary>
         [XmlElement("development_plan_id")]
-        public double? DevelopmentPlanId { get; set; }
+        public long? DevelopmentPlanId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Процедура
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -316,19 +316,19 @@ namespace Wshcmx.Types
         /// Корневой раздел
         /// </summary>
         [XmlElement("parent_progpam_id")]
-        public double? ParentProgpamId { get; set; }
+        public long? ParentProgpamId { get; set; }
 
         /// <summary>
         /// Учебная программа
         /// </summary>
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Набор программ
         /// </summary>
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         /// <summary>
         /// Доступ после завершения разделов
@@ -376,7 +376,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -424,13 +424,13 @@ namespace Wshcmx.Types
         /// Дней
         /// </summary>
         [XmlElement("delay_days")]
-        public double? DelayDays { get; set; }
+        public long? DelayDays { get; set; }
 
         /// <summary>
         /// Дней
         /// </summary>
         [XmlElement("days")]
-        public double? Days { get; set; }
+        public long? Days { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -460,7 +460,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("result_object_id")]
-        public double? ResultObjectId { get; set; }
+        public long? ResultObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -490,25 +490,25 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Ответственный
         /// </summary>
         [XmlElement("tutor_id")]
-        public double? TutorId { get; set; }
+        public long? TutorId { get; set; }
 
         /// <summary>
         /// Вес, %
         /// </summary>
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Процент готовности
         /// </summary>
         [XmlElement("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         [XmlElement("start_type")]
         public string? StartType { get; set; }
@@ -517,7 +517,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         [XmlElement("view")]
         public EducationPlanDocumentProgramView? View { get; set; }
@@ -526,16 +526,16 @@ namespace Wshcmx.Types
         /// Незаконченный электронный курс
         /// </summary>
         [XmlElement("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         /// <summary>
         /// Электронный курс
         /// </summary>
         [XmlElement("learning_id")]
-        public double? LearningId { get; set; }
+        public long? LearningId { get; set; }
 
         [XmlElement("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -565,19 +565,19 @@ namespace Wshcmx.Types
     public class EducationPlanDocumentProgramCompletedParentProgram
     {
         [XmlElement("program_id")]
-        public double? ProgramId { get; set; }
+        public long? ProgramId { get; set; }
     }
 
     public class EducationPlanDocumentProgramFinishAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class EducationPlanDocumentProgramFinishLearningTask
     {
         [XmlElement("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
     }
 
     public class EducationPlanDocumentProgramFinishNotifiation
@@ -586,7 +586,7 @@ namespace Wshcmx.Types
         /// Шаблон уведомления
         /// </summary>
         [XmlElement("notification_template_id")]
-        public double? NotificationTemplateId { get; set; }
+        public long? NotificationTemplateId { get; set; }
 
         /// <summary>
         /// Тема
@@ -619,7 +619,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("type")]
         public string? Type { get; set; }
@@ -637,7 +637,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип результата
@@ -649,19 +649,19 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("result_object_id")]
-        public double? ResultObjectId { get; set; }
+        public long? ResultObjectId { get; set; }
     }
 
     public class EducationPlanDocumentProgramStartAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class EducationPlanDocumentProgramStartLearningTask
     {
         [XmlElement("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
     }
 
     public class EducationPlanDocumentProgramStartNotifiation
@@ -670,7 +670,7 @@ namespace Wshcmx.Types
         /// Шаблон уведомления
         /// </summary>
         [XmlElement("notification_template_id")]
-        public double? NotificationTemplateId { get; set; }
+        public long? NotificationTemplateId { get; set; }
 
         /// <summary>
         /// Тема
@@ -709,12 +709,12 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("result_object_id")]
-        public double? ResultObjectId { get; set; }
+        public long? ResultObjectId { get; set; }
     }
 
     public class EducationPlanDocumentView
     {
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
     }
 }

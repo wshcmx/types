@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Шаблон карточки на портале
         /// </summary>
         [Column("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон упрощенной карточки на портале
         /// </summary>
         [Column("simpl_custom_web_template_id")]
-        public double? SimplCustomWebTemplateId { get; set; }
+        public long? SimplCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Мероприятие online

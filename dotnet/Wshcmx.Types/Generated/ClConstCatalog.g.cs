@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,14 @@ namespace Wshcmx.Types
         public List<string> Imprint { get; set; } = new List<string>();
 
         [Column("object_id")]
-        public List<double> ObjectId { get; set; } = new List<double>();
+        public string? ObjectIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ObjectId
+        {
+            get => XmlListCodec.ParseLongList(ObjectIdRaw, "object_id");
+            set => ObjectIdRaw = XmlListCodec.SerializeLongList("object_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

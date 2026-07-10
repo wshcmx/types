@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Развитие карьеры
         /// </summary>
         [Column("career_reserve_id")]
-        public double? CareerReserveId { get; set; }
+        public long? CareerReserveId { get; set; }
 
         /// <summary>
         /// Дата внесения
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Процент готовности
         /// </summary>
         [Column("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Код
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Наставник
         /// </summary>
         [Column("tutor_id")]
-        public double? TutorId { get; set; }
+        public long? TutorId { get; set; }
 
         /// <summary>
         /// Тип

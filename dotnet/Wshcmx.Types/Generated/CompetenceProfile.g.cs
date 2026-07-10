@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Дополнительные вопросы
@@ -64,10 +64,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("roles")]
         public List<CompetenceProfileDocumentRole> Roles { get; set; } = new List<CompetenceProfileDocumentRole>();
@@ -169,16 +169,16 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CompetenceProfileDocumentAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("assessment_score")]
-        public double? AssessmentScore { get; set; }
+        public long? AssessmentScore { get; set; }
     }
 
     public class CompetenceProfileDocumentCompetence
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         public List<RoleWeightsBaseRoleWeight> RoleWeights { get; set; } = new List<RoleWeightsBaseRoleWeight>();
 
         [XmlElement("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         /// <summary>
         /// Плановое значение
@@ -199,13 +199,13 @@ namespace Wshcmx.Types
         public string? PlanText { get; set; }
 
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -232,13 +232,13 @@ namespace Wshcmx.Types
     public class CompetenceProfileDocumentCompetenceDevelopmentMethod
     {
         [XmlElement("development_method_id")]
-        public double? DevelopmentMethodId { get; set; }
+        public long? DevelopmentMethodId { get; set; }
     }
 
     public class CompetenceProfileDocumentCompetenceEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class CompetenceProfileDocumentCompetenceIndicator
@@ -247,7 +247,7 @@ namespace Wshcmx.Types
         public List<RoleWeightsBaseRoleWeight> RoleWeights { get; set; } = new List<RoleWeightsBaseRoleWeight>();
 
         [XmlElement("indicator_id")]
-        public double? IndicatorId { get; set; }
+        public long? IndicatorId { get; set; }
 
         /// <summary>
         /// Плановое значение
@@ -259,13 +259,13 @@ namespace Wshcmx.Types
         public string? PlanText { get; set; }
 
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -283,25 +283,25 @@ namespace Wshcmx.Types
     public class CompetenceProfileDocumentCompetenceIndicatorDevelopmentMethod
     {
         [XmlElement("development_method_id")]
-        public double? DevelopmentMethodId { get; set; }
+        public long? DevelopmentMethodId { get; set; }
     }
 
     public class CompetenceProfileDocumentCompetenceIndicatorEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class CompetenceProfileDocumentEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class CompetenceProfileDocumentPositionCommon
     {
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
     }
 
     public class CompetenceProfileDocumentRole
@@ -316,6 +316,6 @@ namespace Wshcmx.Types
         public string RoleCode { get; set; }
 
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
     }
 }

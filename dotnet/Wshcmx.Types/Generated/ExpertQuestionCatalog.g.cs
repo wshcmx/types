@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Эксперт
         /// </summary>
         [Column("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
 
         /// <summary>
         /// Статус
@@ -88,13 +88,13 @@ namespace Wshcmx.Types
         /// Файл
         /// </summary>
         [Column("question_file_id")]
-        public double? QuestionFileId { get; set; }
+        public long? QuestionFileId { get; set; }
 
         /// <summary>
         /// Файл
         /// </summary>
         [Column("answer_file_id")]
-        public double? AnswerFileId { get; set; }
+        public long? AnswerFileId { get; set; }
 
         /// <summary>
         /// Значения карты знаний

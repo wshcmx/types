@@ -16,19 +16,19 @@ namespace Wshcmx.Types
     public class ForumThemeReadByCollaboratorCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         [Column("forum_theme_id")]
-        public double? ForumThemeId { get; set; }
+        public long? ForumThemeId { get; set; }
 
         [Column("date")]
         public DateTime? Date { get; set; }
 
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата модификации

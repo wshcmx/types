@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Количество сотрудников для ознакомления
         /// </summary>
         [Column("acquaint_num")]
-        public double? AcquaintNum { get; set; }
+        public long? AcquaintNum { get; set; }
 
         /// <summary>
         /// Количество ознакомленных сотрудников
         /// </summary>
         [Column("acquainted_num")]
-        public double? AcquaintedNum { get; set; }
+        public long? AcquaintedNum { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -85,19 +85,33 @@ namespace Wshcmx.Types
         /// Периодичность повторного обновления в днях
         /// </summary>
         [Column("reacquaintance_period")]
-        public double? ReacquaintancePeriod { get; set; }
+        public long? ReacquaintancePeriod { get; set; }
 
         /// <summary>
         /// Тесты
         /// </summary>
         [Column("assessments_id")]
-        public List<double> AssessmentsId { get; set; } = new List<double>();
+        public string? AssessmentsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AssessmentsId
+        {
+            get => XmlListCodec.ParseLongList(AssessmentsIdRaw, "assessments_id");
+            set => AssessmentsIdRaw = XmlListCodec.SerializeLongList("assessments_id", value);
+        }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

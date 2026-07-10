@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         /// Ограничение
         /// </summary>
         [XmlElement("max_limit")]
-        public double? MaxLimit { get; set; }
+        public long? MaxLimit { get; set; }
 
         /// <summary>
         /// Ограничение
         /// </summary>
         [XmlElement("min_limit")]
-        public double? MinLimit { get; set; }
+        public long? MinLimit { get; set; }
 
         /// <summary>
         /// Статус
@@ -88,13 +88,13 @@ namespace Wshcmx.Types
         public string Type { get; set; }
 
         [XmlElement("min")]
-        public double Min { get; set; }
+        public long Min { get; set; }
 
         [XmlElement("max")]
-        public double Max { get; set; }
+        public long Max { get; set; }
 
         [XmlElement("result")]
-        public double? Result { get; set; }
+        public long? Result { get; set; }
 
         [XmlElement("desc")]
         public string? Desc { get; set; }

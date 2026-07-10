@@ -34,10 +34,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Эксперт
         /// </summary>
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
 
         /// <summary>
         /// Статус
@@ -175,13 +175,13 @@ namespace Wshcmx.Types
         /// Файл
         /// </summary>
         [XmlElement("question_file_id")]
-        public double? QuestionFileId { get; set; }
+        public long? QuestionFileId { get; set; }
 
         /// <summary>
         /// Файл
         /// </summary>
         [XmlElement("answer_file_id")]
-        public double? AnswerFileId { get; set; }
+        public long? AnswerFileId { get; set; }
     }
 
     public class ExpertQuestionDocumentView
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }

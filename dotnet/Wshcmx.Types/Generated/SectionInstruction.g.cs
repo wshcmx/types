@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Корневой раздел инструкции
         /// </summary>
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Комментарий

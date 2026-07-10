@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -121,10 +121,10 @@ namespace Wshcmx.Types
         public List<WsconKnowledgePartsBaseExpert> Experts { get; set; } = new List<WsconKnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -145,13 +145,13 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -169,13 +169,13 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Создатель разговора
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Тип разговора
         /// </summary>
         [XmlElement("conversation_type_id")]
-        public double? ConversationTypeId { get; set; }
+        public long? ConversationTypeId { get; set; }
 
         /// <summary>
         /// Формат разговора
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         /// Приоритет позиции в списке
         /// </summary>
         [XmlElement("position_priority")]
-        public double? PositionPriority { get; set; }
+        public long? PositionPriority { get; set; }
 
         /// <summary>
         /// Дополнительный стиль в списке
@@ -295,7 +295,7 @@ namespace Wshcmx.Types
         /// Все участники
         /// </summary>
         [XmlElement("participants_id")]
-        public List<double> ParticipantsId { get; set; } = new List<double>();
+        public List<long> ParticipantsId { get; set; } = new List<long>();
     }
 
     public class ConversationDocumentKeyboardsBlock
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -388,7 +388,7 @@ namespace Wshcmx.Types
         /// c_col
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class ConversationDocumentRelatedChat
@@ -397,7 +397,7 @@ namespace Wshcmx.Types
         /// Чат с чатботом
         /// </summary>
         [XmlElement("related_chat_id")]
-        public double? RelatedChatId { get; set; }
+        public long? RelatedChatId { get; set; }
     }
 
     public class ConversationDocumentView
@@ -412,6 +412,6 @@ namespace Wshcmx.Types
     public class ConversationDocumentViewCollaborator
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 }

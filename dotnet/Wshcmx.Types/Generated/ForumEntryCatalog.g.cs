@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -85,19 +85,19 @@ namespace Wshcmx.Types
         /// Форум
         /// </summary>
         [Column("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         /// <summary>
         /// Родительская статья форума
         /// </summary>
         [Column("parent_forum_entry_id")]
-        public double? ParentForumEntryId { get; set; }
+        public long? ParentForumEntryId { get; set; }
 
         /// <summary>
         /// Корневая статья формума
         /// </summary>
         [Column("main_forum_entry_id")]
-        public double? MainForumEntryId { get; set; }
+        public long? MainForumEntryId { get; set; }
 
         /// <summary>
         /// Одобрена модератором
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Количество дочерних
         /// </summary>
         [Column("child_num")]
-        public double? ChildNum { get; set; }
+        public long? ChildNum { get; set; }
 
         /// <summary>
         /// Удаленный IP

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [Column("facult_id")]
-        public double? FacultId { get; set; }
+        public long? FacultId { get; set; }
 
         /// <summary>
         /// Дата модификации

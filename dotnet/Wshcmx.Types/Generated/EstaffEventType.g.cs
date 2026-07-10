@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -94,13 +94,13 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Система подбора персонала
         /// </summary>
         [XmlElement("recruitment_system_id")]
-        public double? RecruitmentSystemId { get; set; }
+        public long? RecruitmentSystemId { get; set; }
 
         /// <summary>
         /// Условие видимости
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
     public class EstaffEventTypeDocumentCompletionSign
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class EstaffEventTypeDocumentEventType
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
     public class EstaffEventTypeDocumentPositionCommon
     {
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
     }
 
     public class EstaffEventTypeDocumentView

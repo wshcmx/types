@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Оценивающий
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         public EventAssessmentPlanDocumentView? View { get; set; }
 
         [XmlElement("event_result_type_id")]
-        public double? EventResultTypeId { get; set; }
+        public long? EventResultTypeId { get; set; }
     }
 
     public class EventAssessmentPlanDocumentCompetence
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Компетенция
         /// </summary>
         [XmlElement("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         /// <summary>
         /// Упражнения
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Упражнение
         /// </summary>
         [XmlElement("exercise_id")]
-        public double? ExerciseId { get; set; }
+        public long? ExerciseId { get; set; }
 
         /// <summary>
         /// Оценка
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Индикатор
         /// </summary>
         [XmlElement("indicator_id")]
-        public double? IndicatorId { get; set; }
+        public long? IndicatorId { get; set; }
 
         /// <summary>
         /// Плановое значение
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
     }
 
     public class EventAssessmentPlanDocumentView
@@ -214,7 +214,7 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("temp_id")]
-        public double? TempId { get; set; }
+        public long? TempId { get; set; }
 
         [XmlElement("flag_mark")]
         public bool? FlagMark { get; set; }
@@ -232,6 +232,6 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("percent")]
-        public double? Percent { get; set; }
+        public long? Percent { get; set; }
     }
 }

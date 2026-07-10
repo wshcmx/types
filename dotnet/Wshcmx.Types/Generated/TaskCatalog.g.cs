@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [Column("task_type_id")]
-        public double? TaskTypeId { get; set; }
+        public long? TaskTypeId { get; set; }
 
         /// <summary>
         /// Родительская задача
         /// </summary>
         [Column("parent_task_id")]
-        public double? ParentTaskId { get; set; }
+        public long? ParentTaskId { get; set; }
 
         /// <summary>
         /// Источник транслирования
         /// </summary>
         [Column("translated_task_id")]
-        public double? TranslatedTaskId { get; set; }
+        public long? TranslatedTaskId { get; set; }
 
         /// <summary>
         /// Тип получателя трансляции
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Получатель трансляции
         /// </summary>
         [Column("translated_target_id")]
-        public double? TranslatedTargetId { get; set; }
+        public long? TranslatedTargetId { get; set; }
 
         /// <summary>
         /// Назначивший задачу
         /// </summary>
         [Column("assigner_id")]
-        public double? AssignerId { get; set; }
+        public long? AssignerId { get; set; }
 
         /// <summary>
         /// Тип ответственного
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Ответственный за исполнение задачи
         /// </summary>
         [Column("executor_id")]
-        public double? ExecutorId { get; set; }
+        public long? ExecutorId { get; set; }
 
         /// <summary>
         /// Статус
@@ -121,31 +121,31 @@ namespace Wshcmx.Types
         /// Плановая величина (число)
         /// </summary>
         [Column("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Факт (число)
         /// </summary>
         [Column("fact_value")]
-        public double? FactValue { get; set; }
+        public long? FactValue { get; set; }
 
         /// <summary>
         /// Оценка
         /// </summary>
         [Column("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Процент готовности
         /// </summary>
         [Column("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Приоритет
         /// </summary>
         [Column("priority")]
-        public double? Priority { get; set; }
+        public long? Priority { get; set; }
 
         /// <summary>
         /// Тип объекта-источника
@@ -157,13 +157,13 @@ namespace Wshcmx.Types
         /// Объект-источник
         /// </summary>
         [Column("source_object_id")]
-        public double? SourceObjectId { get; set; }
+        public long? SourceObjectId { get; set; }
 
         /// <summary>
         /// Этап договора
         /// </summary>
         [Column("pay_stage_id")]
-        public double? PayStageId { get; set; }
+        public long? PayStageId { get; set; }
 
         /// <summary>
         /// Тип объекта цели
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Объект цели
         /// </summary>
         [Column("target_object_id")]
-        public double? TargetObjectId { get; set; }
+        public long? TargetObjectId { get; set; }
 
         /// <summary>
         /// Тип фактического объекта
@@ -187,13 +187,20 @@ namespace Wshcmx.Types
         /// Фактический объект
         /// </summary>
         [Column("fact_object_id")]
-        public double? FactObjectId { get; set; }
+        public long? FactObjectId { get; set; }
 
         /// <summary>
         /// Эксперты
         /// </summary>
         [Column("expert_id")]
-        public List<double> ExpertId { get; set; } = new List<double>();
+        public string? ExpertIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ExpertId
+        {
+            get => XmlListCodec.ParseLongList(ExpertIdRaw, "expert_id");
+            set => ExpertIdRaw = XmlListCodec.SerializeLongList("expert_id", value);
+        }
 
         /// <summary>
         /// Фактическая дата начала
@@ -223,31 +230,38 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("plan_budget_period_id")]
-        public double? PlanBudgetPeriodId { get; set; }
+        public long? PlanBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("fact_budget_period_id")]
-        public double? FactBudgetPeriodId { get; set; }
+        public long? FactBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Плановые трудозатраты
         /// </summary>
         [Column("plan_labor_costs")]
-        public double? PlanLaborCosts { get; set; }
+        public long? PlanLaborCosts { get; set; }
 
         /// <summary>
         /// Фактические трудозатраты
         /// </summary>
         [Column("fact_labor_costs")]
-        public double? FactLaborCosts { get; set; }
+        public long? FactLaborCosts { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Описание
@@ -277,7 +291,7 @@ namespace Wshcmx.Types
         /// Документооборот
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Текущий этап документооборота
@@ -295,7 +309,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public string? WorkflowPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowPersonIdRaw, "workflow_person_id");
+            set => WorkflowPersonIdRaw = XmlListCodec.SerializeLongList("workflow_person_id", value);
+        }
 
         /// <summary>
         /// Тип выборки условий видимости
@@ -307,13 +328,20 @@ namespace Wshcmx.Types
         /// Разговор
         /// </summary>
         [Column("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("preparation_id")]
-        public List<double> PreparationId { get; set; } = new List<double>();
+        public string? PreparationIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> PreparationId
+        {
+            get => XmlListCodec.ParseLongList(PreparationIdRaw, "preparation_id");
+            set => PreparationIdRaw = XmlListCodec.SerializeLongList("preparation_id", value);
+        }
 
         /// <summary>
         /// К задаче прикреплены файлы
@@ -325,7 +353,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("read_by_users")]
-        public List<double> ReadByUsers { get; set; } = new List<double>();
+        public string? ReadByUsersRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ReadByUsers
+        {
+            get => XmlListCodec.ParseLongList(ReadByUsersRaw, "read_by_users");
+            set => ReadByUsersRaw = XmlListCodec.SerializeLongList("read_by_users", value);
+        }
 
         /// <summary>
         /// ID тегов

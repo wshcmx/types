@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("start_date")]
         public DateTime? StartDate { get; set; }
 
         [Column("ticks")]
-        public double? Ticks { get; set; }
+        public long? Ticks { get; set; }
 
         [Column("url")]
         public string? Url { get; set; }
@@ -34,19 +34,19 @@ namespace Wshcmx.Types
         public string? Sid { get; set; }
 
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [Column("template_type")]
         public string? TemplateType { get; set; }
 
         [Column("template_id")]
-        public double? TemplateId { get; set; }
+        public long? TemplateId { get; set; }
 
         [Column("parent_template_type")]
         public string? ParentTemplateType { get; set; }
 
         [Column("parent_template_id")]
-        public double? ParentTemplateId { get; set; }
+        public long? ParentTemplateId { get; set; }
 
         /// <summary>
         /// Дата модификации

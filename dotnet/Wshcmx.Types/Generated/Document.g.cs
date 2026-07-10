@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("catalogs")]
         public List<CatalogListBaseCatalog> Catalogs { get; set; } = new List<CatalogListBaseCatalog>();
@@ -76,10 +76,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -154,13 +154,13 @@ namespace Wshcmx.Types
         /// Корневой раздел портала
         /// </summary>
         [XmlElement("parent_document_id")]
-        public double? ParentDocumentId { get; set; }
+        public long? ParentDocumentId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         [XmlElement("text_area")]
         public string? TextArea { get; set; }
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
         /// Настраиваемый web шаблон
         /// </summary>
         [XmlElement("custom_template_type")]
-        public double? CustomTemplateType { get; set; }
+        public long? CustomTemplateType { get; set; }
 
         /// <summary>
         /// Системный шаблон
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Позиция в списке
         /// </summary>
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Переходить по ссылке
@@ -310,10 +310,10 @@ namespace Wshcmx.Types
         public object? CustomWebTemplateObj { get; set; }
 
         [XmlElement("notification_document_id")]
-        public double? NotificationDocumentId { get; set; }
+        public long? NotificationDocumentId { get; set; }
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }
@@ -322,7 +322,7 @@ namespace Wshcmx.Types
     public class DocumentDocumentViewParentItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Способ связи
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Тип родительской wiki статьи
         /// </summary>
         [Column("base_wiki_article_type_id")]
-        public double? BaseWikiArticleTypeId { get; set; }
+        public long? BaseWikiArticleTypeId { get; set; }
 
         /// <summary>
         /// Тип дочерней wiki статьи
         /// </summary>
         [Column("child_wiki_article_type_id")]
-        public double? ChildWikiArticleTypeId { get; set; }
+        public long? ChildWikiArticleTypeId { get; set; }
 
         /// <summary>
         /// Обязательный

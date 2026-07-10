@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Срок формирования этапов
         /// </summary>
         [XmlElement("period_form")]
-        public double? PeriodForm { get; set; }
+        public long? PeriodForm { get; set; }
 
         /// <summary>
         /// Получатели
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
     public class SubmissionTypeDocumentPhase
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class SubmissionTypeDocumentSender
@@ -250,7 +250,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -286,7 +286,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -313,7 +313,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class SubmissionTypeDocumentView
@@ -322,6 +322,6 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("flag_delete_doc")]
-        public double FlagDeleteDoc { get; set; }
+        public long FlagDeleteDoc { get; set; }
     }
 }

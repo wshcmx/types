@@ -16,19 +16,19 @@ namespace Wshcmx.Types
     public class PersonMessageCatalog
     {
         [Column("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [Column("type")]
         public string Type { get; set; }
 
         [Column("object_id")]
-        public double ObjectId { get; set; }
+        public long ObjectId { get; set; }
 
         [Column("block_message_id")]
-        public double BlockMessageId { get; set; }
+        public long BlockMessageId { get; set; }
 
         [Column("person_id")]
-        public double PersonId { get; set; }
+        public long PersonId { get; set; }
 
         [Column("conversation_state")]
         public string ConversationState { get; set; }
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public DateTime MessageDate { get; set; }
 
         [Column("file_count")]
-        public double FileCount { get; set; }
+        public long FileCount { get; set; }
 
         [Column("unread")]
         public bool Unread { get; set; }

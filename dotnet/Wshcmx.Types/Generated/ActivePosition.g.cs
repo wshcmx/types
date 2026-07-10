@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class ActivePosition
     {
         [XmlElement("eid")]
-        public double? Eid { get; set; }
+        public long? Eid { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
     public class ActivePositionDocumentWorkCandidate
     {
         [XmlElement("candidate_eid")]
-        public double? CandidateEid { get; set; }
+        public long? CandidateEid { get; set; }
 
         [XmlElement("fullname")]
         public string? Fullname { get; set; }

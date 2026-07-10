@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код курса
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [Column("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [Column("part_code")]
         public string? PartCode { get; set; }
@@ -61,21 +61,21 @@ namespace Wshcmx.Types
         /// Учебный модуль
         /// </summary>
         [Column("course_module_id")]
-        public double? CourseModuleId { get; set; }
+        public long? CourseModuleId { get; set; }
 
         /// <summary>
         /// Тест
         /// </summary>
         [Column("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Учебная активность
         /// </summary>
         [Column("activity_id")]
-        public double? ActivityId { get; set; }
+        public long? ActivityId { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
     }
 }

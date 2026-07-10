@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class CollaboratorAccesCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("login")]
         public string? Login { get; set; }
@@ -37,6 +37,6 @@ namespace Wshcmx.Types
     public class CollaboratorAccessDocumentPersonObjectProfile
     {
         [XmlElement("person_object_profile_id")]
-        public double? PersonObjectProfileId { get; set; }
+        public long? PersonObjectProfileId { get; set; }
     }
 }

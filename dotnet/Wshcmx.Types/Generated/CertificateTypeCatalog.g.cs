@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Необходимое количество
         /// </summary>
         [Column("required_quantity")]
-        public double? RequiredQuantity { get; set; }
+        public long? RequiredQuantity { get; set; }
 
         /// <summary>
         /// Нормативный срок
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Бессрочно

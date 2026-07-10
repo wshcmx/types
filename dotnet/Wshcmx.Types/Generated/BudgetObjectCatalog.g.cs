@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Бюджет
         /// </summary>
         [Column("budget_id")]
-        public double? BudgetId { get; set; }
+        public long? BudgetId { get; set; }
 
         /// <summary>
         /// Код
@@ -55,6 +55,6 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
     }
 }

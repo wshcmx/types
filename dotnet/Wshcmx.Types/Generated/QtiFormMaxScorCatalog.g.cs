@@ -22,6 +22,6 @@ namespace Wshcmx.Types
     public class QtiFormMaxScoreDocumentAssessment
     {
         [XmlElement("max_score")]
-        public double MaxScore { get; set; }
+        public long MaxScore { get; set; }
     }
 }

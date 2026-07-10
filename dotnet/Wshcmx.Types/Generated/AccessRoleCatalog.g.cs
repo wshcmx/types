@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Конфигурация
         /// </summary>
         [Column("admin_configuration_id")]
-        public double? AdminConfigurationId { get; set; }
+        public long? AdminConfigurationId { get; set; }
 
         [Column("func_blocks")]
         public List<AccessRoleBaseFuncBlock> FuncBlocks { get; set; } = new List<AccessRoleBaseFuncBlock>();

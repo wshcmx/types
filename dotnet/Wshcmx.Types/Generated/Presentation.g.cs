@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public string? CurrentSlideId { get; set; }
 
         [XmlElement("file_id")]
-        public double? FileId { get; set; }
+        public long? FileId { get; set; }
 
         [XmlElement("roomID")]
         public string? RoomID { get; set; }
@@ -40,7 +40,7 @@ namespace Wshcmx.Types
     public class PresentationDocumentSlide
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -94,19 +94,19 @@ namespace Wshcmx.Types
         public string? Height { get; set; }
 
         [XmlElement("lineWidth")]
-        public double? LineWidth { get; set; }
+        public long? LineWidth { get; set; }
 
         [XmlElement("fillStartColor")]
-        public double? FillStartColor { get; set; }
+        public long? FillStartColor { get; set; }
 
         [XmlElement("fillEndColor")]
-        public double? FillEndColor { get; set; }
+        public long? FillEndColor { get; set; }
 
         [XmlElement("useGradient")]
         public bool? UseGradient { get; set; }
 
         [XmlElement("lineColor")]
-        public double? LineColor { get; set; }
+        public long? LineColor { get; set; }
 
         [XmlElement("opacity")]
         public string? Opacity { get; set; }
@@ -130,13 +130,13 @@ namespace Wshcmx.Types
         public string? Quality { get; set; }
 
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         [XmlElement("playing")]
         public bool? Playing { get; set; }
 
         [XmlElement("lastPlayingTime")]
-        public double? LastPlayingTime { get; set; }
+        public long? LastPlayingTime { get; set; }
 
         [XmlElement("points")]
         public List<PresentationDocumentSlideShapePoint> Points { get; set; } = new List<PresentationDocumentSlideShapePoint>();

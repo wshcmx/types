@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("code")]
         public string? Code { get; set; }
@@ -43,28 +43,28 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [Column("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [Column("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         [Column("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         [Column("all_laboriousn_audit")]
-        public double? AllLaboriousnAudit { get; set; }
+        public long? AllLaboriousnAudit { get; set; }
 
         [Column("all_laboriousn_indep")]
-        public double? AllLaboriousnIndep { get; set; }
+        public long? AllLaboriousnIndep { get; set; }
 
         [Column("control_form")]
-        public double? ControlForm { get; set; }
+        public long? ControlForm { get; set; }
 
         [Column("educat_form_id")]
-        public double? EducatFormId { get; set; }
+        public long? EducatFormId { get; set; }
 
         /// <summary>
         /// Дата модификации

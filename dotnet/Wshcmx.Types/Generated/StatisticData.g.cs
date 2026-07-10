@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -28,13 +28,13 @@ namespace Wshcmx.Types
         /// Показатель
         /// </summary>
         [XmlElement("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Значение
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Строковое значение
@@ -100,43 +100,43 @@ namespace Wshcmx.Types
         /// Минуты
         /// </summary>
         [XmlElement("period_minute")]
-        public double? PeriodMinute { get; set; }
+        public long? PeriodMinute { get; set; }
 
         /// <summary>
         /// Часы
         /// </summary>
         [XmlElement("period_hour")]
-        public double? PeriodHour { get; set; }
+        public long? PeriodHour { get; set; }
 
         /// <summary>
         /// День
         /// </summary>
         [XmlElement("period_day")]
-        public double? PeriodDay { get; set; }
+        public long? PeriodDay { get; set; }
 
         /// <summary>
         /// Месяц
         /// </summary>
         [XmlElement("period_month")]
-        public double? PeriodMonth { get; set; }
+        public long? PeriodMonth { get; set; }
 
         /// <summary>
         /// Квартал
         /// </summary>
         [XmlElement("period_quarter")]
-        public double? PeriodQuarter { get; set; }
+        public long? PeriodQuarter { get; set; }
 
         /// <summary>
         /// Год
         /// </summary>
         [XmlElement("period_year")]
-        public double? PeriodYear { get; set; }
+        public long? PeriodYear { get; set; }
 
         /// <summary>
         /// System flag
         /// </summary>
         [XmlElement("flag")]
-        public double? Flag { get; set; }
+        public long? Flag { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

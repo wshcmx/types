@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Родительский объект
         /// </summary>
         [Column("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Mode
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Шаблон
         /// </summary>
         [Column("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон
@@ -73,19 +73,19 @@ namespace Wshcmx.Types
         /// Дизайн
         /// </summary>
         [Column("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Позиция в списке
         /// </summary>
         [Column("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Является системным
@@ -109,13 +109,20 @@ namespace Wshcmx.Types
         /// Количество переменных
         /// </summary>
         [Column("wvars_num")]
-        public double? WvarsNum { get; set; }
+        public long? WvarsNum { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

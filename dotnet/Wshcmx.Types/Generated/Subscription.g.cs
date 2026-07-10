@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("document_id")]
-        public double? DocumentId { get; set; }
+        public long? DocumentId { get; set; }
 
         /// <summary>
         /// Следить за изменениями в дочерних элементах

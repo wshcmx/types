@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Название теста
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Текущие баллы
         /// </summary>
         [XmlElement("cur_score")]
-        public double CurScore { get; set; }
+        public long CurScore { get; set; }
 
         /// <summary>
         /// Текущая строка баллов
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Текущее состояние
         /// </summary>
         [XmlElement("cur_state_id")]
-        public double CurStateId { get; set; }
+        public long CurStateId { get; set; }
 
         [XmlElement("objectives")]
         public List<ObjectiveBase> Objectives { get; set; } = new List<ObjectiveBase>();
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Текущее состояние сотрудника
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Название мероприятия
@@ -238,37 +238,37 @@ namespace Wshcmx.Types
         /// План обучения
         /// </summary>
         [XmlElement("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Предпочтительный проктор
         /// </summary>
         [XmlElement("proctor_prefer_id")]
-        public double? ProctorPreferId { get; set; }
+        public long? ProctorPreferId { get; set; }
 
         /// <summary>
         /// Продолжительность в днях
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Количество попыток
         /// </summary>
         [XmlElement("attempts_num")]
-        public double AttemptsNum { get; set; }
+        public long AttemptsNum { get; set; }
 
         /// <summary>
         /// Статус
         /// </summary>
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         [XmlElement("lesson_location")]
         public string? LessonLocation { get; set; }
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         /// Баллы
         /// </summary>
         [XmlElement("score")]
-        public double Score { get; set; }
+        public long Score { get; set; }
 
         [XmlElement("score_str")]
         public string? ScoreStr { get; set; }
@@ -322,22 +322,22 @@ namespace Wshcmx.Types
         /// Время модуля
         /// </summary>
         [XmlElement("time")]
-        public double? Time { get; set; }
+        public long? Time { get; set; }
 
         /// <summary>
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Процедура оценки
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [XmlElement("question_num")]
-        public double? QuestionNum { get; set; }
+        public long? QuestionNum { get; set; }
 
         [XmlElement("no_encoding_core_lesson")]
         public bool? NoEncodingCoreLesson { get; set; }
@@ -373,10 +373,10 @@ namespace Wshcmx.Types
     public class ActiveTestLearningDocumentView
     {
         [XmlElement("old_assessment_id")]
-        public double? OldAssessmentId { get; set; }
+        public long? OldAssessmentId { get; set; }
 
         [XmlElement("old_person_id")]
-        public double? OldPersonId { get; set; }
+        public long? OldPersonId { get; set; }
 
         [XmlElement("never_saved")]
         public bool NeverSaved { get; set; }

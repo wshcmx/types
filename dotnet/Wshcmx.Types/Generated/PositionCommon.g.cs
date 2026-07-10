@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Требуемые навыки
@@ -70,10 +70,10 @@ namespace Wshcmx.Types
         public List<RequirementsBaseEducationMethod> EducationMethods { get; set; } = new List<RequirementsBaseEducationMethod>();
 
         [XmlElement("obligatory_education_amount")]
-        public double? ObligatoryEducationAmount { get; set; }
+        public long? ObligatoryEducationAmount { get; set; }
 
         [XmlElement("education_period")]
-        public double? EducationPeriod { get; set; }
+        public long? EducationPeriod { get; set; }
 
         /// <summary>
         /// Требуемые типовые программы развития
@@ -118,31 +118,31 @@ namespace Wshcmx.Types
         /// Образование
         /// </summary>
         [XmlElement("education_type_id")]
-        public double? EducationTypeId { get; set; }
+        public long? EducationTypeId { get; set; }
 
         /// <summary>
         /// Возраст от
         /// </summary>
         [XmlElement("age_min")]
-        public double? AgeMin { get; set; }
+        public long? AgeMin { get; set; }
 
         /// <summary>
         /// Возраст до
         /// </summary>
         [XmlElement("age_max")]
-        public double? AgeMax { get; set; }
+        public long? AgeMax { get; set; }
 
         /// <summary>
         /// Опыт работы в компании (месяцев)
         /// </summary>
         [XmlElement("experience_in_company")]
-        public double? ExperienceInCompany { get; set; }
+        public long? ExperienceInCompany { get; set; }
 
         /// <summary>
         /// Опыт работы на текущей должности (месяцев)
         /// </summary>
         [XmlElement("experience_in_current_position")]
-        public double? ExperienceInCurrentPosition { get; set; }
+        public long? ExperienceInCurrentPosition { get; set; }
 
         /// <summary>
         /// Файлы
@@ -163,10 +163,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -220,25 +220,25 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Минимальный грейд
         /// </summary>
         [XmlElement("min_grade")]
-        public double? MinGrade { get; set; }
+        public long? MinGrade { get; set; }
 
         /// <summary>
         /// Максимальный грейд
         /// </summary>
         [XmlElement("max_grade")]
-        public double? MaxGrade { get; set; }
+        public long? MaxGrade { get; set; }
 
         /// <summary>
         /// Сумма весов привилегий
         /// </summary>
         [XmlElement("benefit_sum")]
-        public double? BenefitSum { get; set; }
+        public long? BenefitSum { get; set; }
 
         /// <summary>
         /// Статус
@@ -268,13 +268,13 @@ namespace Wshcmx.Types
         /// Минимальная зарплата
         /// </summary>
         [XmlElement("min_salary")]
-        public double? MinSalary { get; set; }
+        public long? MinSalary { get; set; }
 
         /// <summary>
         /// Максимальная зарплата
         /// </summary>
         [XmlElement("max_salary")]
-        public double? MaxSalary { get; set; }
+        public long? MaxSalary { get; set; }
 
         /// <summary>
         /// Валюта
@@ -310,7 +310,7 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Профили компетенций
@@ -322,7 +322,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         [XmlElement("kpi_profiles")]
         public List<PositionCommonDocumentKpiProfile> KpiProfiles { get; set; } = new List<PositionCommonDocumentKpiProfile>();
@@ -331,13 +331,13 @@ namespace Wshcmx.Types
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Профиль знаний
         /// </summary>
         [XmlElement("knowledge_profile_id")]
-        public double? KnowledgeProfileId { get; set; }
+        public long? KnowledgeProfileId { get; set; }
 
         /// <summary>
         /// Подразделения
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         public List<PositionCommonDocumentOrg> Orgs { get; set; } = new List<PositionCommonDocumentOrg>();
 
         [XmlElement("cur_level_id")]
-        public double? CurLevelId { get; set; }
+        public long? CurLevelId { get; set; }
 
         /// <summary>
         /// Ступени
@@ -391,7 +391,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class PositionCommonDocumentBenefit
@@ -400,7 +400,7 @@ namespace Wshcmx.Types
         /// Привилегии
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class PositionCommonDocumentBonusType
@@ -424,13 +424,13 @@ namespace Wshcmx.Types
         /// Мин. премия
         /// </summary>
         [XmlElement("min_value")]
-        public double? MinValue { get; set; }
+        public long? MinValue { get; set; }
 
         /// <summary>
         /// Макс. премия
         /// </summary>
         [XmlElement("max_value")]
-        public double? MaxValue { get; set; }
+        public long? MaxValue { get; set; }
 
         /// <summary>
         /// Тип расчета
@@ -451,7 +451,7 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class PositionCommonDocumentGrade
@@ -460,7 +460,7 @@ namespace Wshcmx.Types
         /// ID грейда
         /// </summary>
         [XmlElement("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         /// <summary>
         /// Название
@@ -472,13 +472,13 @@ namespace Wshcmx.Types
         /// Минимальная зарплата
         /// </summary>
         [XmlElement("min_grade")]
-        public double? MinGrade { get; set; }
+        public long? MinGrade { get; set; }
 
         /// <summary>
         /// Максимальная зарплата
         /// </summary>
         [XmlElement("max_grade")]
-        public double? MaxGrade { get; set; }
+        public long? MaxGrade { get; set; }
     }
 
     public class PositionCommonDocumentKpiProfile
@@ -487,7 +487,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Период
@@ -505,7 +505,7 @@ namespace Wshcmx.Types
     public class PositionCommonDocumentLevel
     {
         [XmlElement("level_id")]
-        public double? LevelId { get; set; }
+        public long? LevelId { get; set; }
 
         /// <summary>
         /// Код
@@ -523,13 +523,13 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Требуемые типы сертификатов
@@ -565,31 +565,31 @@ namespace Wshcmx.Types
     public class PositionCommonDocumentLevelCertificateType
     {
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
     }
 
     public class PositionCommonDocumentLevelCompoundProgram
     {
         [XmlElement("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
     }
 
     public class PositionCommonDocumentLevelEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class PositionCommonDocumentLevelQualification
     {
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
     }
 
     public class PositionCommonDocumentLevelTypicalDevelopmentProgram
     {
         [XmlElement("typical_development_program_id")]
-        public double? TypicalDevelopmentProgramId { get; set; }
+        public long? TypicalDevelopmentProgramId { get; set; }
     }
 
     public class PositionCommonDocumentOrg
@@ -598,7 +598,7 @@ namespace Wshcmx.Types
         /// Организации
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class PositionCommonDocumentParentPositionCommon
@@ -607,7 +607,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Направление должностного перемещения
@@ -619,7 +619,7 @@ namespace Wshcmx.Types
     public class PositionCommonDocumentPositionFamily
     {
         [XmlElement("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
     }
 
     public class PositionCommonDocumentPositionName
@@ -640,7 +640,7 @@ namespace Wshcmx.Types
         /// Подразделения
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class PositionCommonDocumentView
@@ -652,7 +652,7 @@ namespace Wshcmx.Types
         public string? BenefitId { get; set; }
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }

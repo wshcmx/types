@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Статус
@@ -61,73 +61,94 @@ namespace Wshcmx.Types
         /// Семейство должностей
         /// </summary>
         [Column("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
 
         /// <summary>
         /// Группы подразделений
         /// </summary>
         [Column("subdivision_group_id")]
-        public double? SubdivisionGroupId { get; set; }
+        public long? SubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Регион сотрудника
         /// </summary>
         [Column("person_region_id")]
-        public double? PersonRegionId { get; set; }
+        public long? PersonRegionId { get; set; }
 
         /// <summary>
         /// Регион подразделения сотрудника
         /// </summary>
         [Column("subdivision_region_id")]
-        public double? SubdivisionRegionId { get; set; }
+        public long? SubdivisionRegionId { get; set; }
 
         /// <summary>
         /// Расположение сотрудника
         /// </summary>
         [Column("person_place_id")]
-        public double? PersonPlaceId { get; set; }
+        public long? PersonPlaceId { get; set; }
 
         /// <summary>
         /// Расположение подразделения сотрудника
         /// </summary>
         [Column("subdivision_place_id")]
-        public double? SubdivisionPlaceId { get; set; }
+        public long? SubdivisionPlaceId { get; set; }
 
         /// <summary>
         /// Форма работы
         /// </summary>
         [Column("work_form_id")]
-        public double? WorkFormId { get; set; }
+        public long? WorkFormId { get; set; }
 
         /// <summary>
         /// Тип условий труда
         /// </summary>
         [Column("working_condition_type_id")]
-        public double? WorkingConditionTypeId { get; set; }
+        public long? WorkingConditionTypeId { get; set; }
 
         /// <summary>
         /// Стаж
         /// </summary>
         [Column("work_experience")]
-        public double? WorkExperience { get; set; }
+        public long? WorkExperience { get; set; }
 
         /// <summary>
         /// ID типовых должностей
         /// </summary>
         [Column("position_commons_ids")]
-        public List<double> PositionCommonsIds { get; set; } = new List<double>();
+        public string? PositionCommonsIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> PositionCommonsIds
+        {
+            get => XmlListCodec.ParseLongList(PositionCommonsIdsRaw, "position_commons_ids");
+            set => PositionCommonsIdsRaw = XmlListCodec.SerializeLongList("position_commons_ids", value);
+        }
 
         /// <summary>
         /// ID грейдов
         /// </summary>
         [Column("grades_ids")]
-        public List<double> GradesIds { get; set; } = new List<double>();
+        public string? GradesIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> GradesIds
+        {
+            get => XmlListCodec.ParseLongList(GradesIdsRaw, "grades_ids");
+            set => GradesIdsRaw = XmlListCodec.SerializeLongList("grades_ids", value);
+        }
 
         /// <summary>
         /// ID типов привилегий
         /// </summary>
         [Column("benefits_ids")]
-        public List<double> BenefitsIds { get; set; } = new List<double>();
+        public string? BenefitsIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> BenefitsIds
+        {
+            get => XmlListCodec.ParseLongList(BenefitsIdsRaw, "benefits_ids");
+            set => BenefitsIdsRaw = XmlListCodec.SerializeLongList("benefits_ids", value);
+        }
 
         /// <summary>
         /// Дата модификации

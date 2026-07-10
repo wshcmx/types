@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Можно отменить
@@ -79,19 +79,19 @@ namespace Wshcmx.Types
         /// Документооборот для отмены
         /// </summary>
         [Column("cancel_workflow_id")]
-        public double? CancelWorkflowId { get; set; }
+        public long? CancelWorkflowId { get; set; }
 
         /// <summary>
         /// Документооборот для изменения
         /// </summary>
         [Column("change_workflow_id")]
-        public double? ChangeWorkflowId { get; set; }
+        public long? ChangeWorkflowId { get; set; }
 
         /// <summary>
         /// Позиция в списке
         /// </summary>
         [Column("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Стиль CSS

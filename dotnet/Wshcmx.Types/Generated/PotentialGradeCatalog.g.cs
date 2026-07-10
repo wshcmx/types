@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Оценка потенциала
         /// </summary>
         [Column("development_potential_id")]
-        public double? DevelopmentPotentialId { get; set; }
+        public long? DevelopmentPotentialId { get; set; }
 
         /// <summary>
         /// Источник оценки
@@ -61,25 +61,25 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Преемник
         /// </summary>
         [Column("successor_id")]
-        public double? SuccessorId { get; set; }
+        public long? SuccessorId { get; set; }
 
         /// <summary>
         /// Резервист
         /// </summary>
         [Column("personnel_reserve_id")]
-        public double? PersonnelReserveId { get; set; }
+        public long? PersonnelReserveId { get; set; }
 
         /// <summary>
         /// Оценивающий
         /// </summary>
         [Column("assessor_id")]
-        public double? AssessorId { get; set; }
+        public long? AssessorId { get; set; }
 
         /// <summary>
         /// Дата оценки
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Дата модификации

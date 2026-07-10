@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("lectors")]
         public List<LectorsBaseLector> Lectors { get; set; } = new List<LectorsBaseLector>();
@@ -61,10 +61,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Описание
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Минимальное количество участников
         /// </summary>
         [XmlElement("min_person_num")]
-        public double? MinPersonNum { get; set; }
+        public long? MinPersonNum { get; set; }
 
         /// <summary>
         /// Разрешить самоназначение
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CompoundProgramDocumentProgram
@@ -163,13 +163,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -205,19 +205,19 @@ namespace Wshcmx.Types
         /// Родительская учебная программа
         /// </summary>
         [XmlElement("parent_progpam_id")]
-        public double? ParentProgpamId { get; set; }
+        public long? ParentProgpamId { get; set; }
 
         /// <summary>
         /// Набор программ
         /// </summary>
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         /// <summary>
         /// Учебная программа
         /// </summary>
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Доступ после завершения разделов
@@ -259,13 +259,13 @@ namespace Wshcmx.Types
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [XmlElement("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Тип
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -322,19 +322,19 @@ namespace Wshcmx.Types
         /// Дней
         /// </summary>
         [XmlElement("delay_days")]
-        public double? DelayDays { get; set; }
+        public long? DelayDays { get; set; }
 
         /// <summary>
         /// Дней
         /// </summary>
         [XmlElement("days")]
-        public double? Days { get; set; }
+        public long? Days { get; set; }
 
         /// <summary>
         /// Вес, %
         /// </summary>
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         [XmlElement("start_type")]
         public string? StartType { get; set; }
@@ -361,19 +361,19 @@ namespace Wshcmx.Types
     public class CompoundProgramDocumentProgramCompletedParentProgram
     {
         [XmlElement("program_id")]
-        public double? ProgramId { get; set; }
+        public long? ProgramId { get; set; }
     }
 
     public class CompoundProgramDocumentProgramFinishAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class CompoundProgramDocumentProgramFinishLearningTask
     {
         [XmlElement("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
     }
 
     public class CompoundProgramDocumentProgramFinishNotifiation
@@ -382,7 +382,7 @@ namespace Wshcmx.Types
         /// Шаблон уведомления
         /// </summary>
         [XmlElement("notification_template_id")]
-        public double? NotificationTemplateId { get; set; }
+        public long? NotificationTemplateId { get; set; }
 
         /// <summary>
         /// Тема
@@ -412,13 +412,13 @@ namespace Wshcmx.Types
     public class CompoundProgramDocumentProgramStartAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class CompoundProgramDocumentProgramStartLearningTask
     {
         [XmlElement("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
     }
 
     public class CompoundProgramDocumentProgramStartNotifiation
@@ -427,7 +427,7 @@ namespace Wshcmx.Types
         /// Шаблон уведомления
         /// </summary>
         [XmlElement("notification_template_id")]
-        public double? NotificationTemplateId { get; set; }
+        public long? NotificationTemplateId { get; set; }
 
         /// <summary>
         /// Тема
@@ -460,7 +460,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("filter")]
         public AuFtFilter? Filter { get; set; }

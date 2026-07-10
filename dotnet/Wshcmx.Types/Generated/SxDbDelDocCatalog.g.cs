@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class SxDbDelDocCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("del_date")]
         public DateTime? DelDate { get; set; }

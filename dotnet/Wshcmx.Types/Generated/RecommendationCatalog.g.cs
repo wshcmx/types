@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// ID вакансии
         /// </summary>
         [Column("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Сотрудник, отправивший рекомендацию
         /// </summary>
         [Column("src_person_id")]
-        public double? SrcPersonId { get; set; }
+        public long? SrcPersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника

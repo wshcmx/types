@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Wiki база
         /// </summary>
         [Column("wiki_base_id")]
-        public double? WikiBaseId { get; set; }
+        public long? WikiBaseId { get; set; }
 
         /// <summary>
         /// Тип контента
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Тип wiki статьи
         /// </summary>
         [Column("wiki_article_type_id")]
-        public double? WikiArticleTypeId { get; set; }
+        public long? WikiArticleTypeId { get; set; }
 
         /// <summary>
         /// Тип ознакомления
@@ -85,19 +85,33 @@ namespace Wshcmx.Types
         /// Авторы
         /// </summary>
         [Column("author_id")]
-        public List<double> AuthorId { get; set; } = new List<double>();
+        public string? AuthorIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AuthorId
+        {
+            get => XmlListCodec.ParseLongList(AuthorIdRaw, "author_id");
+            set => AuthorIdRaw = XmlListCodec.SerializeLongList("author_id", value);
+        }
 
         /// <summary>
         /// Типы руководителей авторов
         /// </summary>
         [Column("author_boss_type_id")]
-        public List<double> AuthorBossTypeId { get; set; } = new List<double>();
+        public string? AuthorBossTypeIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AuthorBossTypeId
+        {
+            get => XmlListCodec.ParseLongList(AuthorBossTypeIdRaw, "author_boss_type_id");
+            set => AuthorBossTypeIdRaw = XmlListCodec.SerializeLongList("author_boss_type_id", value);
+        }
 
         /// <summary>
         /// Позиция в списке
         /// </summary>
         [Column("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Дата публикации
@@ -115,7 +129,14 @@ namespace Wshcmx.Types
         /// Группы для ознакомления
         /// </summary>
         [Column("acquaint_group_ids")]
-        public List<double> AcquaintGroupIds { get; set; } = new List<double>();
+        public string? AcquaintGroupIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AcquaintGroupIds
+        {
+            get => XmlListCodec.ParseLongList(AcquaintGroupIdsRaw, "acquaint_group_ids");
+            set => AcquaintGroupIdsRaw = XmlListCodec.SerializeLongList("acquaint_group_ids", value);
+        }
 
         /// <summary>
         /// Аннотация
@@ -145,7 +166,14 @@ namespace Wshcmx.Types
         /// Файлы
         /// </summary>
         [Column("files_id")]
-        public List<double> FilesId { get; set; } = new List<double>();
+        public string? FilesIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> FilesId
+        {
+            get => XmlListCodec.ParseLongList(FilesIdRaw, "files_id");
+            set => FilesIdRaw = XmlListCodec.SerializeLongList("files_id", value);
+        }
 
         /// <summary>
         /// Дата модификации
@@ -163,7 +191,14 @@ namespace Wshcmx.Types
         /// Группы прав доступа
         /// </summary>
         [Column("access_group_ids")]
-        public List<double> AccessGroupIds { get; set; } = new List<double>();
+        public string? AccessGroupIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AccessGroupIds
+        {
+            get => XmlListCodec.ParseLongList(AccessGroupIdsRaw, "access_group_ids");
+            set => AccessGroupIdsRaw = XmlListCodec.SerializeLongList("access_group_ids", value);
+        }
 
         /// <summary>
         /// Анонимный доступ

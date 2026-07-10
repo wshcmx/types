@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [Column("status_id")]
-        public double? StatusId { get; set; }
+        public long? StatusId { get; set; }
 
         /// <summary>
         /// Номер договора
@@ -64,19 +64,19 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Организация клиента
         /// </summary>
         [Column("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Проект
         /// </summary>
         [Column("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -94,19 +94,19 @@ namespace Wshcmx.Types
         /// Клиент
         /// </summary>
         [Column("client_manager_id")]
-        public double? ClientManagerId { get; set; }
+        public long? ClientManagerId { get; set; }
 
         /// <summary>
         /// Менеджер
         /// </summary>
         [Column("manager_id")]
-        public double? ManagerId { get; set; }
+        public long? ManagerId { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта

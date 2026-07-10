@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Транслирующий цель
         /// </summary>
         [XmlElement("translator_person_id")]
-        public double? TranslatorPersonId { get; set; }
+        public long? TranslatorPersonId { get; set; }
 
         /// <summary>
         /// Имя транслирующего
@@ -55,13 +55,13 @@ namespace Wshcmx.Types
         /// Анкета транслирующего
         /// </summary>
         [XmlElement("translator_pa_id")]
-        public double? TranslatorPaId { get; set; }
+        public long? TranslatorPaId { get; set; }
 
         /// <summary>
         /// Кому транслируется
         /// </summary>
         [XmlElement("recipient_person_id")]
-        public double? RecipientPersonId { get; set; }
+        public long? RecipientPersonId { get; set; }
 
         /// <summary>
         /// Имя получателя
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Анкета получателя
         /// </summary>
         [XmlElement("recipient_pa_id")]
-        public double? RecipientPaId { get; set; }
+        public long? RecipientPaId { get; set; }
 
         /// <summary>
         /// Комментарий

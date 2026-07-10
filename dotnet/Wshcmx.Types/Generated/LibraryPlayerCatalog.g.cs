@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Хранилище учебных записей
         /// </summary>
         [Column("learning_storage_id")]
-        public double? LearningStorageId { get; set; }
+        public long? LearningStorageId { get; set; }
 
         /// <summary>
         /// Учебная активность
         /// </summary>
         [Column("activity_id")]
-        public double? ActivityId { get; set; }
+        public long? ActivityId { get; set; }
 
         /// <summary>
         /// CMI5

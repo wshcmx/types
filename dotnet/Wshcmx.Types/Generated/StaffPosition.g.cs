@@ -46,10 +46,10 @@ namespace Wshcmx.Types
         public List<RequirementsBaseEducationMethod> EducationMethods { get; set; } = new List<RequirementsBaseEducationMethod>();
 
         [XmlElement("obligatory_education_amount")]
-        public double? ObligatoryEducationAmount { get; set; }
+        public long? ObligatoryEducationAmount { get; set; }
 
         [XmlElement("education_period")]
-        public double? EducationPeriod { get; set; }
+        public long? EducationPeriod { get; set; }
 
         /// <summary>
         /// Требуемые типовые программы развития
@@ -94,31 +94,31 @@ namespace Wshcmx.Types
         /// Образование
         /// </summary>
         [XmlElement("education_type_id")]
-        public double? EducationTypeId { get; set; }
+        public long? EducationTypeId { get; set; }
 
         /// <summary>
         /// Возраст от
         /// </summary>
         [XmlElement("age_min")]
-        public double? AgeMin { get; set; }
+        public long? AgeMin { get; set; }
 
         /// <summary>
         /// Возраст до
         /// </summary>
         [XmlElement("age_max")]
-        public double? AgeMax { get; set; }
+        public long? AgeMax { get; set; }
 
         /// <summary>
         /// Опыт работы в компании (месяцев)
         /// </summary>
         [XmlElement("experience_in_company")]
-        public double? ExperienceInCompany { get; set; }
+        public long? ExperienceInCompany { get; set; }
 
         /// <summary>
         /// Опыт работы на текущей должности (месяцев)
         /// </summary>
         [XmlElement("experience_in_current_position")]
-        public double? ExperienceInCurrentPosition { get; set; }
+        public long? ExperienceInCurrentPosition { get; set; }
 
         /// <summary>
         /// Файлы
@@ -139,10 +139,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -232,13 +232,13 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -250,37 +250,37 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Профессия
         /// </summary>
         [XmlElement("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// Разряд профессии
         /// </summary>
         [XmlElement("profession_category_id")]
-        public double? ProfessionCategoryId { get; set; }
+        public long? ProfessionCategoryId { get; set; }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Количество штатных единиц
         /// </summary>
         [XmlElement("staff_num")]
-        public double? StaffNum { get; set; }
+        public long? StaffNum { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         [XmlElement("kpi_profiles")]
         public List<StaffPositionDocumentKpiProfile> KpiProfiles { get; set; } = new List<StaffPositionDocumentKpiProfile>();
@@ -289,13 +289,13 @@ namespace Wshcmx.Types
         /// Профиль знаний
         /// </summary>
         [XmlElement("knowledge_profile_id")]
-        public double? KnowledgeProfileId { get; set; }
+        public long? KnowledgeProfileId { get; set; }
 
         /// <summary>
         /// Профиль компетенций
         /// </summary>
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Профили компетенций
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class StaffPositionDocumentKpiProfile
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("period_type_id")]
         public string? PeriodTypeId { get; set; }

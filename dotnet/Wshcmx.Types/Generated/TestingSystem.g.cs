@@ -31,10 +31,10 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("code")]
         public string Code { get; set; }

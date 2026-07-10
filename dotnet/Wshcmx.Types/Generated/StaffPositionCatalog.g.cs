@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -91,49 +91,56 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Профессия
         /// </summary>
         [Column("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// Разряд профессии
         /// </summary>
         [Column("profession_category_id")]
-        public double? ProfessionCategoryId { get; set; }
+        public long? ProfessionCategoryId { get; set; }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [Column("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [Column("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public string? KpiProfilesIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> KpiProfilesId
+        {
+            get => XmlListCodec.ParseLongList(KpiProfilesIdRaw, "kpi_profiles_id");
+            set => KpiProfilesIdRaw = XmlListCodec.SerializeLongList("kpi_profiles_id", value);
+        }
 
         /// <summary>
         /// Профиль знаний
         /// </summary>
         [Column("knowledge_profile_id")]
-        public double? KnowledgeProfileId { get; set; }
+        public long? KnowledgeProfileId { get; set; }
 
         /// <summary>
         /// Профиль компетенций
         /// </summary>
         [Column("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// ID тегов

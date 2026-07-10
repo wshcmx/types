@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Текущий номер
         /// </summary>
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
 
         /// <summary>
         /// Название

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Необходимые баллы
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Тип эксперта для подтверждения
@@ -37,19 +37,19 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("confirmation_boss_type_id")]
-        public double? ConfirmationBossTypeId { get; set; }
+        public long? ConfirmationBossTypeId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("confirmation_person_id")]
-        public double? ConfirmationPersonId { get; set; }
+        public long? ConfirmationPersonId { get; set; }
 
         /// <summary>
         /// Участник проекта
         /// </summary>
         [XmlElement("project_participant_id")]
-        public double? ProjectParticipantId { get; set; }
+        public long? ProjectParticipantId { get; set; }
 
         /// <summary>
         /// Тесты
@@ -106,10 +106,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -130,13 +130,13 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -154,19 +154,19 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Родительское значение
         /// </summary>
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Классификатор
         /// </summary>
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Тип подтверждения
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         public List<KnowledgePartDocumentTempDoc> TempDocs { get; set; } = new List<KnowledgePartDocumentTempDoc>();
 
         [XmlElement("knowledge_part_type_id")]
-        public double? KnowledgePartTypeId { get; set; }
+        public long? KnowledgePartTypeId { get; set; }
 
         [XmlElement("view")]
         public KnowledgePartDocumentView? View { get; set; }
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Необходимые баллы
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Тип эксперта для подтверждения
@@ -241,19 +241,19 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("confirmation_boss_type_id")]
-        public double? ConfirmationBossTypeId { get; set; }
+        public long? ConfirmationBossTypeId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("confirmation_person_id")]
-        public double? ConfirmationPersonId { get; set; }
+        public long? ConfirmationPersonId { get; set; }
 
         /// <summary>
         /// Участник проекта
         /// </summary>
         [XmlElement("project_participant_id")]
-        public double? ProjectParticipantId { get; set; }
+        public long? ProjectParticipantId { get; set; }
 
         /// <summary>
         /// Тесты
@@ -307,7 +307,7 @@ namespace Wshcmx.Types
     public class KnowledgePartDocumentTempDoc
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }

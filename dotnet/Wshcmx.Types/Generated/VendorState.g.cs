@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         [XmlElement("certificate_types")]
         public List<VendorStateDocumentCertificateType> CertificateTypes { get; set; } = new List<VendorStateDocumentCertificateType>();
@@ -88,9 +88,9 @@ namespace Wshcmx.Types
     public class VendorStateDocumentCertificateType
     {
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
 
         [XmlElement("required_quantity")]
-        public double? RequiredQuantity { get; set; }
+        public long? RequiredQuantity { get; set; }
     }
 }

@@ -25,19 +25,19 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("subject")]
         public string? Subject { get; set; }
 
         [Column("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         [Column("result_date")]
         public DateTime? ResultDate { get; set; }
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Студент
         /// </summary>
         [Column("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [Column("student_fullname")]
         public string? StudentFullname { get; set; }

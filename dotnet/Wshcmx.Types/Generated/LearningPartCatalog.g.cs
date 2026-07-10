@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("learning_id")]
-        public double? LearningId { get; set; }
+        public long? LearningId { get; set; }
 
         /// <summary>
         /// Дата модификации

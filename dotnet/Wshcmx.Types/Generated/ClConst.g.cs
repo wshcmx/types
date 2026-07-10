@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
     public class ClConstDocumentLocalization
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("text")]
         public string? Text { get; set; }
@@ -85,6 +85,6 @@ namespace Wshcmx.Types
     public class ClConstDocumentObjectTypeObject
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 }

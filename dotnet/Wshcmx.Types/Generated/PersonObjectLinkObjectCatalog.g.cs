@@ -19,10 +19,10 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("person_object_id")]
-        public double? PersonObjectId { get; set; }
+        public long? PersonObjectId { get; set; }
 
         [Column("person_object_type")]
         public string? PersonObjectType { get; set; }
@@ -31,19 +31,19 @@ namespace Wshcmx.Types
         public string? ObjectCatalog { get; set; }
 
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [Column("person_fullname")]
         public string? PersonFullname { get; set; }
 
         [Column("subject_id")]
-        public double? SubjectId { get; set; }
+        public long? SubjectId { get; set; }
 
         [Column("subject_type")]
         public string? SubjectType { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [Column("object_name")]
         public string? ObjectName { get; set; }
@@ -58,6 +58,6 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Вакансия
         /// </summary>
         [Column("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника

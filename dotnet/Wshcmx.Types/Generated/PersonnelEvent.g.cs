@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Тип кадрового события
         /// </summary>
         [XmlElement("personnel_event_type_id")]
-        public double? PersonnelEventTypeId { get; set; }
+        public long? PersonnelEventTypeId { get; set; }
 
         /// <summary>
         /// Дата создания события
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Позиция штатного расписания
         /// </summary>
         [XmlElement("staff_position_id")]
-        public double? StaffPositionId { get; set; }
+        public long? StaffPositionId { get; set; }
 
         /// <summary>
         /// Дата утверждения
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         /// Количество штатных единиц
         /// </summary>
         [XmlElement("staff_num")]
-        public double? StaffNum { get; set; }
+        public long? StaffNum { get; set; }
 
         /// <summary>
         /// Дата закрытия
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -208,19 +208,19 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Тип назначения
         /// </summary>
         [XmlElement("position_appointment_type_id")]
-        public double? PositionAppointmentTypeId { get; set; }
+        public long? PositionAppointmentTypeId { get; set; }
 
         /// <summary>
         /// Ставка
         /// </summary>
         [XmlElement("basic_rate")]
-        public double? BasicRate { get; set; }
+        public long? BasicRate { get; set; }
 
         /// <summary>
         /// Код целевой должности
@@ -238,25 +238,25 @@ namespace Wshcmx.Types
         /// Тип назначения целевой должности
         /// </summary>
         [XmlElement("move_position_appointment_type_id")]
-        public double? MovePositionAppointmentTypeId { get; set; }
+        public long? MovePositionAppointmentTypeId { get; set; }
 
         /// <summary>
         /// Ставка
         /// </summary>
         [XmlElement("move_position_basic_rate")]
-        public double? MovePositionBasicRate { get; set; }
+        public long? MovePositionBasicRate { get; set; }
 
         /// <summary>
         /// Целевая позиция штатного расписания
         /// </summary>
         [XmlElement("move_staff_position_id")]
-        public double? MoveStaffPositionId { get; set; }
+        public long? MoveStaffPositionId { get; set; }
 
         /// <summary>
         /// Целевая типовая должность
         /// </summary>
         [XmlElement("move_position_common_id")]
-        public double? MovePositionCommonId { get; set; }
+        public long? MovePositionCommonId { get; set; }
 
         /// <summary>
         /// Дата перемещения
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Целевое подразделение
         /// </summary>
         [XmlElement("move_subdivision_id")]
-        public double? MoveSubdivisionId { get; set; }
+        public long? MoveSubdivisionId { get; set; }
 
         /// <summary>
         /// Нормативный документ

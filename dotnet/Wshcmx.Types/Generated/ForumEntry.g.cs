@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -88,19 +88,19 @@ namespace Wshcmx.Types
         /// Форум
         /// </summary>
         [XmlElement("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         /// <summary>
         /// Родительская статья форума
         /// </summary>
         [XmlElement("parent_forum_entry_id")]
-        public double? ParentForumEntryId { get; set; }
+        public long? ParentForumEntryId { get; set; }
 
         /// <summary>
         /// Корневая статья формума
         /// </summary>
         [XmlElement("main_forum_entry_id")]
-        public double? MainForumEntryId { get; set; }
+        public long? MainForumEntryId { get; set; }
 
         /// <summary>
         /// Тело статьи
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Количество дочерних
         /// </summary>
         [XmlElement("child_num")]
-        public double? ChildNum { get; set; }
+        public long? ChildNum { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
     public class ForumEntryDocumentPrivilegeCollaborator
     {
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("person_fullname")]
         public string? PersonFullname { get; set; }
@@ -160,6 +160,6 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("last_parent_forum_entry_id")]
-        public double? LastParentForumEntryId { get; set; }
+        public long? LastParentForumEntryId { get; set; }
     }
 }

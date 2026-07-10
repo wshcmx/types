@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Дизайн
         /// </summary>
         [XmlElement("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Язык
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         public string? FirstAuthorizedUrl { get; set; }
 
         [XmlElement("anonym_collaborator_id")]
-        public double? AnonymCollaboratorId { get; set; }
+        public long? AnonymCollaboratorId { get; set; }
 
         /// <summary>
         /// Список Mode, по которым возможен анонимный доступ
@@ -226,7 +226,7 @@ namespace Wshcmx.Types
         /// Раздел портала
         /// </summary>
         [XmlElement("document_id")]
-        public double? DocumentId { get; set; }
+        public long? DocumentId { get; set; }
 
         [XmlElement("parent_document_id")]
         public string? ParentDocumentId { get; set; }
@@ -244,10 +244,10 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         [XmlElement("hier_level")]
-        public double? HierLevel { get; set; }
+        public long? HierLevel { get; set; }
 
         [XmlElement("hier_expanded")]
         public bool HierExpanded { get; set; }
@@ -274,7 +274,7 @@ namespace Wshcmx.Types
     public class SiteDocumentOwnerObject
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Каталог
@@ -295,6 +295,6 @@ namespace Wshcmx.Types
     public class SiteDocumentWebDesign
     {
         [XmlElement("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
     }
 }

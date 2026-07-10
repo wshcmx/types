@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [Column("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Тип договора
         /// </summary>
         [Column("contract_type_id")]
-        public double? ContractTypeId { get; set; }
+        public long? ContractTypeId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Количество прикрепленных файлов
         /// </summary>
         [Column("files_count")]
-        public double? FilesCount { get; set; }
+        public long? FilesCount { get; set; }
 
         /// <summary>
         /// Дата модификации

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("knowledge_parts")]
         public List<KnowledgePartsFieldsBaseKnowledgePart> KnowledgeParts { get; set; } = new List<KnowledgePartsFieldsBaseKnowledgePart>();
@@ -70,10 +70,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -94,25 +94,25 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Проект
         /// </summary>
         [XmlElement("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [XmlElement("participant_num")]
-        public double? ParticipantNum { get; set; }
+        public long? ParticipantNum { get; set; }
 
         /// <summary>
         /// Продукт/услуга(CRM)
         /// </summary>
         [XmlElement("provider_id")]
-        public double? ProviderId { get; set; }
+        public long? ProviderId { get; set; }
 
         /// <summary>
         /// Описание

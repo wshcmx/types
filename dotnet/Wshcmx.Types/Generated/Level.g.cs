@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Предыдущий уровень
         /// </summary>
         [XmlElement("prev_level_id")]
-        public double? PrevLevelId { get; set; }
+        public long? PrevLevelId { get; set; }
 
         /// <summary>
         /// Валюта
@@ -52,10 +52,10 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("min_value")]
-        public double? MinValue { get; set; }
+        public long? MinValue { get; set; }
 
         [XmlElement("max_value")]
-        public double? MaxValue { get; set; }
+        public long? MaxValue { get; set; }
 
         /// <summary>
         /// Валюта
@@ -91,9 +91,9 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("min_value")]
-        public double? MinValue { get; set; }
+        public long? MinValue { get; set; }
 
         [XmlElement("max_value")]
-        public double? MaxValue { get; set; }
+        public long? MaxValue { get; set; }
     }
 }

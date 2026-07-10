@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("persons")]
         public List<CourseExpertsBasePerson> Persons { get; set; } = new List<CourseExpertsBasePerson>();
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Использовать прокторинг
@@ -91,10 +91,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -115,13 +115,13 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         [XmlElement("class")]
         public string? Class { get; set; }
 
         [XmlElement("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Количество колонок
         /// </summary>
         [XmlElement("columns_num")]
-        public double ColumnsNum { get; set; }
+        public long ColumnsNum { get; set; }
 
         /// <summary>
         /// Вопросы
@@ -238,7 +238,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class PollDocumentItem
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("question_id")]
-        public double? QuestionId { get; set; }
+        public long? QuestionId { get; set; }
 
         /// <summary>
         /// Требует заполнения
@@ -277,13 +277,13 @@ namespace Wshcmx.Types
         /// Продолжительность (сек.)
         /// </summary>
         [XmlElement("max_duration")]
-        public double? MaxDuration { get; set; }
+        public long? MaxDuration { get; set; }
 
         /// <summary>
         /// Время на подготовку (сек.)
         /// </summary>
         [XmlElement("preparation_time")]
-        public double? PreparationTime { get; set; }
+        public long? PreparationTime { get; set; }
 
         /// <summary>
         /// Запретить просмотр своего ответа
@@ -310,10 +310,10 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("question_id")]
-        public double? QuestionId { get; set; }
+        public long? QuestionId { get; set; }
 
         [XmlElement("entry_id")]
-        public double? EntryId { get; set; }
+        public long? EntryId { get; set; }
 
         [XmlElement("and_or")]
         public string AndOr { get; set; }
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         public string? BgColor { get; set; }
 
         [XmlElement("question_id")]
-        public double? QuestionId { get; set; }
+        public long? QuestionId { get; set; }
 
         [XmlElement("value")]
         public string? Value { get; set; }
@@ -346,7 +346,7 @@ namespace Wshcmx.Types
         public string? BgColor { get; set; }
 
         [XmlElement("question_id")]
-        public double? QuestionId { get; set; }
+        public long? QuestionId { get; set; }
 
         [XmlElement("value")]
         public string? Value { get; set; }
@@ -370,7 +370,7 @@ namespace Wshcmx.Types
         public string? Class { get; set; }
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип вопроса
@@ -415,7 +415,7 @@ namespace Wshcmx.Types
         public bool? AddComment { get; set; }
 
         [XmlElement("subtype")]
-        public double Subtype { get; set; }
+        public long Subtype { get; set; }
 
         /// <summary>
         /// Множественный выбор
@@ -436,7 +436,7 @@ namespace Wshcmx.Types
         /// Картинка
         /// </summary>
         [XmlElement("image_id")]
-        public double? ImageId { get; set; }
+        public long? ImageId { get; set; }
 
         /// <summary>
         /// Варианты ответов
@@ -451,13 +451,13 @@ namespace Wshcmx.Types
         public bool IsCurrent { get; set; }
 
         [XmlElement("catalog_entry_id")]
-        public double? CatalogEntryId { get; set; }
+        public long? CatalogEntryId { get; set; }
     }
 
     public class PollDocumentQuestionEntry
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Значение
@@ -469,7 +469,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Цвет фона
@@ -481,13 +481,13 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
     }
 
     public class PollDocumentQuestionRow
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("value")]
         public string? Value { get; set; }
@@ -502,7 +502,7 @@ namespace Wshcmx.Types
     public class PollDocumentQuestionRowColumn
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("value")]
         public string? Value { get; set; }
@@ -523,7 +523,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -541,7 +541,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -559,7 +559,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -589,7 +589,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class PollDocumentView

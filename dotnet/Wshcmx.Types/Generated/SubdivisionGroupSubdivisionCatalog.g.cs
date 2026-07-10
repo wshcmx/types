@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Группа подразделений
         /// </summary>
         [Column("subdivision_group_id")]
-        public double? SubdivisionGroupId { get; set; }
+        public long? SubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения

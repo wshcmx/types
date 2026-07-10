@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Профиль безопасности
         /// </summary>
         [XmlElement("remote_security_profile_id")]
-        public double? RemoteSecurityProfileId { get; set; }
+        public long? RemoteSecurityProfileId { get; set; }
 
         /// <summary>
         /// Комментарий

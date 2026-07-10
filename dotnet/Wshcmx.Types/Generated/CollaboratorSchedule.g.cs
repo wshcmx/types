@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -100,13 +100,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата
@@ -130,13 +130,13 @@ namespace Wshcmx.Types
         /// Тип присутствия/отсутствия
         /// </summary>
         [XmlElement("presence_state_id")]
-        public double? PresenceStateId { get; set; }
+        public long? PresenceStateId { get; set; }
 
         /// <summary>
         /// Тип графика
         /// </summary>
         [XmlElement("schedule_type_id")]
-        public double? ScheduleTypeId { get; set; }
+        public long? ScheduleTypeId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -154,31 +154,31 @@ namespace Wshcmx.Types
         /// Согласующий
         /// </summary>
         [XmlElement("approval_person_id")]
-        public double? ApprovalPersonId { get; set; }
+        public long? ApprovalPersonId { get; set; }
 
         /// <summary>
         /// Период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Ограничения
         /// </summary>
         [XmlElement("rest_collaborator_schedule_id")]
-        public double? RestCollaboratorScheduleId { get; set; }
+        public long? RestCollaboratorScheduleId { get; set; }
 
         /// <summary>
         /// Интервал графика
         /// </summary>
         [XmlElement("interval_schedule_id")]
-        public double? IntervalScheduleId { get; set; }
+        public long? IntervalScheduleId { get; set; }
 
         /// <summary>
         /// График
         /// </summary>
         [XmlElement("schedule_day_id")]
-        public double? ScheduleDayId { get; set; }
+        public long? ScheduleDayId { get; set; }
 
         /// <summary>
         /// Период
@@ -214,7 +214,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -238,13 +238,13 @@ namespace Wshcmx.Types
         /// Тип присутствия/отсутствия
         /// </summary>
         [XmlElement("presence_state_id")]
-        public double? PresenceStateId { get; set; }
+        public long? PresenceStateId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Состояние

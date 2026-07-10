@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,10 +46,10 @@ namespace Wshcmx.Types
         public DateTime? LastAccessDate { get; set; }
 
         [Column("mobile_app_config_id")]
-        public double? MobileAppConfigId { get; set; }
+        public long? MobileAppConfigId { get; set; }
 
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -67,6 +67,13 @@ namespace Wshcmx.Types
         /// uf_tokens
         /// </summary>
         [Column("tokens")]
-        public List<double> Tokens { get; set; } = new List<double>();
+        public string? TokensRaw { get; set; }
+
+        [NotMapped]
+        public List<long> Tokens
+        {
+            get => XmlListCodec.ParseLongList(TokensRaw, "tokens");
+            set => TokensRaw = XmlListCodec.SerializeLongList("tokens", value);
+        }
     }
 }

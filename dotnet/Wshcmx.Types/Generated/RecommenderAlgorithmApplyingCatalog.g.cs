@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -109,19 +109,19 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Рекомендательный алгоритм
         /// </summary>
         [Column("recommender_algorithm_id")]
-        public double? RecommenderAlgorithmId { get; set; }
+        public long? RecommenderAlgorithmId { get; set; }
 
         /// <summary>
         /// Тип контекстного объекта
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Контекстный объект
         /// </summary>
         [Column("context_object_id")]
-        public double? ContextObjectId { get; set; }
+        public long? ContextObjectId { get; set; }
 
         /// <summary>
         /// Название контекстного объекта
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Количество
         /// </summary>
         [Column("count")]
-        public double? Count { get; set; }
+        public long? Count { get; set; }
 
         /// <summary>
         /// Дата применения

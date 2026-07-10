@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("name")]
         public string? Name { get; set; }
@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("creation_user_id")]
-        public double? CreationUserId { get; set; }
+        public long? CreationUserId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -52,6 +52,6 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("modification_user_id")]
-        public double? ModificationUserId { get; set; }
+        public long? ModificationUserId { get; set; }
     }
 }

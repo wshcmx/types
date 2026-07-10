@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -91,25 +91,25 @@ namespace Wshcmx.Types
         /// Процент готовности
         /// </summary>
         [Column("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Кадровый резерв
         /// </summary>
         [Column("personnel_reserve_id")]
-        public double? PersonnelReserveId { get; set; }
+        public long? PersonnelReserveId { get; set; }
 
         /// <summary>
         /// Преемник
         /// </summary>
         [Column("successor_id")]
-        public double? SuccessorId { get; set; }
+        public long? SuccessorId { get; set; }
 
         /// <summary>
         /// Карьерный план
         /// </summary>
         [Column("career_plan_id")]
-        public double? CareerPlanId { get; set; }
+        public long? CareerPlanId { get; set; }
 
         /// <summary>
         /// Тип развития
@@ -127,31 +127,45 @@ namespace Wshcmx.Types
         /// Целевая должность
         /// </summary>
         [Column("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Целевая типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Место проведения
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Типовая программа развития
         /// </summary>
         [Column("development_programs_id")]
-        public List<double> DevelopmentProgramsId { get; set; } = new List<double>();
+        public string? DevelopmentProgramsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> DevelopmentProgramsId
+        {
+            get => XmlListCodec.ParseLongList(DevelopmentProgramsIdRaw, "development_programs_id");
+            set => DevelopmentProgramsIdRaw = XmlListCodec.SerializeLongList("development_programs_id", value);
+        }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

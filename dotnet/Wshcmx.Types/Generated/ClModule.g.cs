@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Курс CourseLab
         /// </summary>
         [XmlElement("cl_course_id")]
-        public double? ClCourseId { get; set; }
+        public long? ClCourseId { get; set; }
 
         /// <summary>
         /// Ссылка на файлы ресурсов объекта
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         public string? Format { get; set; }
 
         [XmlElement("rev")]
-        public double? Rev { get; set; }
+        public long? Rev { get; set; }
 
         [XmlElement("template")]
         public string? Template { get; set; }
 
         [XmlElement("template_id")]
-        public double? TemplateId { get; set; }
+        public long? TemplateId { get; set; }
 
         [XmlElement("file")]
         public string? File { get; set; }
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         public string? Desc { get; set; }
 
         [XmlElement("stamp")]
-        public double Stamp { get; set; }
+        public long Stamp { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -130,10 +130,10 @@ namespace Wshcmx.Types
     public class ClModuleDocumentDesign
     {
         [XmlElement("slide_width")]
-        public double? SlideWidth { get; set; }
+        public long? SlideWidth { get; set; }
 
         [XmlElement("slide_height")]
-        public double? SlideHeight { get; set; }
+        public long? SlideHeight { get; set; }
 
         [XmlElement("font")]
         public ClModuleDocumentDesignFont? Font { get; set; }
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         public string? Style { get; set; }
 
         [XmlElement("size")]
-        public double? Size { get; set; }
+        public long? Size { get; set; }
 
         [XmlElement("color")]
         public string? Color { get; set; }
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
     public class ClModuleDocumentGuideLine
     {
         [XmlElement("pos")]
-        public double? Pos { get; set; }
+        public long? Pos { get; set; }
 
         [XmlElement("is_vertical")]
         public bool IsVertical { get; set; }
@@ -241,31 +241,31 @@ namespace Wshcmx.Types
     public class ClModuleDocumentRuntimeImport
     {
         [XmlElement("masterid")]
-        public double? Masterid { get; set; }
+        public long? Masterid { get; set; }
 
         [XmlElement("left")]
-        public double? Left { get; set; }
+        public long? Left { get; set; }
 
         [XmlElement("top")]
-        public double? Top { get; set; }
+        public long? Top { get; set; }
 
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
 
         [XmlElement("comments_left")]
-        public double? CommentsLeft { get; set; }
+        public long? CommentsLeft { get; set; }
 
         [XmlElement("comments_top")]
-        public double? CommentsTop { get; set; }
+        public long? CommentsTop { get; set; }
 
         [XmlElement("comments_width")]
-        public double? CommentsWidth { get; set; }
+        public long? CommentsWidth { get; set; }
 
         [XmlElement("comments_height")]
-        public double? CommentsHeight { get; set; }
+        public long? CommentsHeight { get; set; }
 
         [XmlElement("import_comments")]
         public bool ImportComments { get; set; }
@@ -280,22 +280,22 @@ namespace Wshcmx.Types
     public class ClModuleDocumentRuntimeNextidentity
     {
         [XmlElement("slide")]
-        public double? Slide { get; set; }
+        public long? Slide { get; set; }
 
         [XmlElement("subslide")]
-        public double? Subslide { get; set; }
+        public long? Subslide { get; set; }
 
         [XmlElement("object")]
-        public double? Object { get; set; }
+        public long? Object { get; set; }
 
         [XmlElement("group")]
-        public double? Group { get; set; }
+        public long? Group { get; set; }
 
         [XmlElement("mousepointer")]
-        public double? Mousepointer { get; set; }
+        public long? Mousepointer { get; set; }
 
         [XmlElement("actionbox")]
-        public double? Actionbox { get; set; }
+        public long? Actionbox { get; set; }
     }
 
     public class ClModuleDocumentRuntimeObjective
@@ -313,10 +313,10 @@ namespace Wshcmx.Types
         public string? Ss { get; set; }
 
         [XmlElement("scoremin")]
-        public double? Scoremin { get; set; }
+        public long? Scoremin { get; set; }
 
         [XmlElement("scoremax")]
-        public double? Scoremax { get; set; }
+        public long? Scoremax { get; set; }
 
         [XmlElement("module")]
         public bool Module { get; set; }
@@ -361,7 +361,7 @@ namespace Wshcmx.Types
         public string? Comp { get; set; }
 
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("cs")]
         public string? Cs { get; set; }
@@ -376,10 +376,10 @@ namespace Wshcmx.Types
         public string? Op { get; set; }
 
         [XmlElement("open")]
-        public double? Open { get; set; }
+        public long? Open { get; set; }
 
         [XmlElement("close")]
-        public double? Close { get; set; }
+        public long? Close { get; set; }
     }
 
     public class ClModuleDocumentRuntimeRuntimecheck
@@ -394,7 +394,7 @@ namespace Wshcmx.Types
     public class ClModuleDocumentSlide
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class ClModuleDocumentTemplateSlide
@@ -415,7 +415,7 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("module_view_selector")]
-        public double? ModuleViewSelector { get; set; }
+        public long? ModuleViewSelector { get; set; }
 
         [XmlElement("module_href")]
         public string? ModuleHref { get; set; }

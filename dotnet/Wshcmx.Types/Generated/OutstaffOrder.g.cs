@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -148,43 +148,43 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Провайдер временного персонала
         /// </summary>
         [XmlElement("outstaff_provider_id")]
-        public double? OutstaffProviderId { get; set; }
+        public long? OutstaffProviderId { get; set; }
 
         /// <summary>
         /// Контракт на временный персонал
         /// </summary>
         [XmlElement("outstaff_contract_id")]
-        public double? OutstaffContractId { get; set; }
+        public long? OutstaffContractId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -208,13 +208,13 @@ namespace Wshcmx.Types
         /// Ставка
         /// </summary>
         [XmlElement("cost_hour")]
-        public double? CostHour { get; set; }
+        public long? CostHour { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [XmlElement("cost_sum")]
-        public double? CostSum { get; set; }
+        public long? CostSum { get; set; }
 
         /// <summary>
         /// Валюта
@@ -226,7 +226,7 @@ namespace Wshcmx.Types
         /// Согласующий
         /// </summary>
         [XmlElement("agreement_person_id")]
-        public double? AgreementPersonId { get; set; }
+        public long? AgreementPersonId { get; set; }
 
         /// <summary>
         /// Доступ
@@ -283,19 +283,19 @@ namespace Wshcmx.Types
         public string Name { get; set; }
 
         [XmlElement("start_hour")]
-        public double? StartHour { get; set; }
+        public long? StartHour { get; set; }
 
         [XmlElement("finish_hour")]
-        public double? FinishHour { get; set; }
+        public long? FinishHour { get; set; }
 
         [XmlElement("hour_num")]
-        public double? HourNum { get; set; }
+        public long? HourNum { get; set; }
 
         [XmlElement("full_time")]
         public bool? FullTime { get; set; }
 
         [XmlElement("person_num")]
-        public double PersonNum { get; set; }
+        public long PersonNum { get; set; }
     }
 
     public class OutstaffOrderDocumentView

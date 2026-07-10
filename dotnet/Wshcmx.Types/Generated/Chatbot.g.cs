@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Начальный этап чат-бота
         /// </summary>
         [XmlElement("start_chatbot_stage_id")]
-        public double? StartChatbotStageId { get; set; }
+        public long? StartChatbotStageId { get; set; }
 
         /// <summary>
         /// Возможно создавать чат
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Этап на который переводить при неизвестной команде
         /// </summary>
         [XmlElement("unknow_command_chatbot_stage_id")]
-        public double? UnknowCommandChatbotStageId { get; set; }
+        public long? UnknowCommandChatbotStageId { get; set; }
 
         [XmlElement("unknow_command_text_library")]
         public ChatbotDocumentUnknowCommandTextLibrary? UnknowCommandTextLibrary { get; set; }
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
         public string? BotId { get; set; }
 
         [XmlElement("chatbot_type_id")]
-        public double? ChatbotTypeId { get; set; }
+        public long? ChatbotTypeId { get; set; }
 
         /// <summary>
         /// Webhook
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         public string? WebhookUrl { get; set; }
 
         [XmlElement("host_id")]
-        public double? HostId { get; set; }
+        public long? HostId { get; set; }
 
         [XmlElement("chatbot_code")]
         public string? ChatbotCode { get; set; }
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         /// Модель классификации
         /// </summary>
         [XmlElement("classification_model_id")]
-        public double? ClassificationModelId { get; set; }
+        public long? ClassificationModelId { get; set; }
     }
 
     public class ChatbotDocumentRegularEvalLibrary
@@ -250,7 +250,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -274,7 +274,7 @@ namespace Wshcmx.Types
         /// Модель классификации
         /// </summary>
         [XmlElement("classification_model_id")]
-        public double? ClassificationModelId { get; set; }
+        public long? ClassificationModelId { get; set; }
     }
 
     public class ChatbotDocumentUniversalCommand
@@ -283,7 +283,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -307,13 +307,13 @@ namespace Wshcmx.Types
         /// Модель классификации
         /// </summary>
         [XmlElement("classification_model_id")]
-        public double? ClassificationModelId { get; set; }
+        public long? ClassificationModelId { get; set; }
 
         /// <summary>
         /// Показатель
         /// </summary>
         [XmlElement("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
 
         /// <summary>
         /// Параметр в показателе
@@ -358,7 +358,7 @@ namespace Wshcmx.Types
         /// Этап чат-бота
         /// </summary>
         [XmlElement("chatbot_stage_id")]
-        public double? ChatbotStageId { get; set; }
+        public long? ChatbotStageId { get; set; }
     }
 
     public class ChatbotDocumentUnknowCommandChatbotStage
@@ -373,7 +373,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -397,13 +397,13 @@ namespace Wshcmx.Types
         /// Модель классификации
         /// </summary>
         [XmlElement("classification_model_id")]
-        public double? ClassificationModelId { get; set; }
+        public long? ClassificationModelId { get; set; }
 
         /// <summary>
         /// Показатель
         /// </summary>
         [XmlElement("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
 
         /// <summary>
         /// Параметр в показателе
@@ -454,7 +454,7 @@ namespace Wshcmx.Types
         /// Этап чат-бота
         /// </summary>
         [XmlElement("unknow_command_chatbot_stage_id")]
-        public double? UnknowCommandChatbotStageId { get; set; }
+        public long? UnknowCommandChatbotStageId { get; set; }
 
         [XmlElement("unknow_command_text_library")]
         public ChatbotDocumentUnknowCommandChatbotStageUnknowCommandChatbotStageUnknowCommandTextLibrary? UnknowCommandTextLibrary { get; set; }
@@ -466,7 +466,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -490,7 +490,7 @@ namespace Wshcmx.Types
         /// Модель классификации
         /// </summary>
         [XmlElement("classification_model_id")]
-        public double? ClassificationModelId { get; set; }
+        public long? ClassificationModelId { get; set; }
     }
 
     public class ChatbotDocumentUnknowCommandTextLibrary
@@ -499,7 +499,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -523,7 +523,7 @@ namespace Wshcmx.Types
         /// Модель классификации
         /// </summary>
         [XmlElement("classification_model_id")]
-        public double? ClassificationModelId { get; set; }
+        public long? ClassificationModelId { get; set; }
     }
 
     public class ChatbotDocumentView
@@ -532,6 +532,6 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("chatbot_stage_id")]
-        public double? ChatbotStageId { get; set; }
+        public long? ChatbotStageId { get; set; }
     }
 }

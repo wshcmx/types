@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,19 +37,19 @@ namespace Wshcmx.Types
         /// КПЭ
         /// </summary>
         [Column("kpi_id")]
-        public double? KpiId { get; set; }
+        public long? KpiId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Ответственный
         /// </summary>
         [Column("responsible_id")]
-        public double? ResponsibleId { get; set; }
+        public long? ResponsibleId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Минимальное значение (число)
         /// </summary>
         [Column("threshold_value")]
-        public double? ThresholdValue { get; set; }
+        public long? ThresholdValue { get; set; }
 
         /// <summary>
         /// Максимальное значение
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Максимальное значение (число)
         /// </summary>
         [Column("challenge_value")]
-        public double? ChallengeValue { get; set; }
+        public long? ChallengeValue { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Плановая величина (число)
         /// </summary>
         [Column("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Каталог объектов
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// ID объекта
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -139,13 +139,20 @@ namespace Wshcmx.Types
         /// Эксперты
         /// </summary>
         [Column("expert_id")]
-        public List<double> ExpertId { get; set; } = new List<double>();
+        public string? ExpertIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ExpertId
+        {
+            get => XmlListCodec.ParseLongList(ExpertIdRaw, "expert_id");
+            set => ExpertIdRaw = XmlListCodec.SerializeLongList("expert_id", value);
+        }
 
         /// <summary>
         /// Документооборот
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Текущий этап документооборота
@@ -163,7 +170,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public string? WorkflowPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowPersonIdRaw, "workflow_person_id");
+            set => WorkflowPersonIdRaw = XmlListCodec.SerializeLongList("workflow_person_id", value);
+        }
 
         /// <summary>
         /// Тип выборки условий видимости

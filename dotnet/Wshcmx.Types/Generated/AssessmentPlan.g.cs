@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class AssessmentPlan
     {
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -70,13 +70,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Сотрудник
@@ -106,13 +106,13 @@ namespace Wshcmx.Types
         /// Руководитель
         /// </summary>
         [XmlElement("boss_id")]
-        public double? BossId { get; set; }
+        public long? BossId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("department_id")]
-        public double? DepartmentId { get; set; }
+        public long? DepartmentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Интегральная оценка
         /// </summary>
         [XmlElement("integral_mark")]
-        public double? IntegralMark { get; set; }
+        public long? IntegralMark { get; set; }
 
         [XmlElement("flag_is_processed")]
         public bool FlagIsProcessed { get; set; }
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("workflow_person_id")]
-        public double? WorkflowPersonId { get; set; }
+        public long? WorkflowPersonId { get; set; }
 
         /// <summary>
         /// План. дата завершения
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Матрица ответственности
         /// </summary>
         [XmlElement("assessment_appraise_matrix_id")]
-        public double? AssessmentAppraiseMatrixId { get; set; }
+        public long? AssessmentAppraiseMatrixId { get; set; }
 
         [XmlElement("appraised_periods")]
         public List<AssessmentPlanDocumentAppraisedPeriod> AppraisedPeriods { get; set; } = new List<AssessmentPlanDocumentAppraisedPeriod>();
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         public List<AssessmentPlanDocumentCustomField> CustomFields { get; set; } = new List<AssessmentPlanDocumentCustomField>();
 
         [XmlElement("index")]
-        public double Index { get; set; }
+        public long Index { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("period_start")]
         public DateTime? PeriodStart { get; set; }
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
     public class AssessmentPlanDocumentAssessmentResultRecommend
     {
         [XmlElement("assessment_result_recommend_id")]
-        public double? AssessmentResultRecommendId { get; set; }
+        public long? AssessmentResultRecommendId { get; set; }
 
         [XmlElement("assessment_result_recommend_name")]
         public string? AssessmentResultRecommendName { get; set; }
@@ -274,7 +274,7 @@ namespace Wshcmx.Types
     public class AssessmentPlanDocumentCustomComment
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -289,10 +289,10 @@ namespace Wshcmx.Types
     public class AssessmentPlanDocumentCustomExpert
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_type")]
-        public double? PersonType { get; set; }
+        public long? PersonType { get; set; }
 
         [XmlElement("is_done")]
         public bool IsDone { get; set; }
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
     public class AssessmentPlanDocumentExpert
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("status")]
         public string? Status { get; set; }
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -364,7 +364,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -382,19 +382,19 @@ namespace Wshcmx.Types
     public class AssessmentPlanDocumentKilledPa
     {
         [XmlElement("pa_id")]
-        public double? PaId { get; set; }
+        public long? PaId { get; set; }
     }
 
     public class AssessmentPlanDocumentParticipant
     {
         [XmlElement("participant_id")]
-        public double? ParticipantId { get; set; }
+        public long? ParticipantId { get; set; }
 
         [XmlElement("pa_id")]
-        public double? PaId { get; set; }
+        public long? PaId { get; set; }
 
         [XmlElement("expert_person_id")]
-        public double? ExpertPersonId { get; set; }
+        public long? ExpertPersonId { get; set; }
 
         [XmlElement("expert_person_fullname")]
         public string? ExpertPersonFullname { get; set; }
@@ -436,7 +436,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -448,7 +448,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -469,6 +469,6 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("flag_count")]
-        public double FlagCount { get; set; }
+        public long FlagCount { get; set; }
     }
 }

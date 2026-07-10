@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         public bool FirstInstall { get; set; }
 
         [Column("branch_code")]
-        public double? BranchCode { get; set; }
+        public long? BranchCode { get; set; }
 
         [Column("skk_code")]
         public string? SkkCode { get; set; }
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public string? SmtpServer { get; set; }
 
         [Column("default_exchange_server_id")]
-        public double? DefaultExchangeServerId { get; set; }
+        public long? DefaultExchangeServerId { get; set; }
 
         [Column("settings")]
         public GlobalSettingsBase? Settings { get; set; }
@@ -196,19 +196,19 @@ namespace Wshcmx.Types
         public string ObjectDeletedStr { get; set; }
 
         [Column("curator_boss_type_id")]
-        public double? CuratorBossTypeId { get; set; }
+        public long? CuratorBossTypeId { get; set; }
 
         [Column("tutor_boss_type_id")]
-        public double? TutorBossTypeId { get; set; }
+        public long? TutorBossTypeId { get; set; }
 
         [Column("project_manager_type_id")]
-        public double? ProjectManagerTypeId { get; set; }
+        public long? ProjectManagerTypeId { get; set; }
 
         [Column("default_contact_type_id")]
-        public double? DefaultContactTypeId { get; set; }
+        public long? DefaultContactTypeId { get; set; }
 
         [Column("default_contact_result_id")]
-        public double? DefaultContactResultId { get; set; }
+        public long? DefaultContactResultId { get; set; }
 
         [Column("install_stamp")]
         public string? InstallStamp { get; set; }

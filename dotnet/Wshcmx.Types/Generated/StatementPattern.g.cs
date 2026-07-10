@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Путь
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Сообщение учебной активности
         /// </summary>
         [XmlElement("statement_id")]
-        public double? StatementId { get; set; }
+        public long? StatementId { get; set; }
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }

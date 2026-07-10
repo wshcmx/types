@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Формы оценки
         /// </summary>
         [Column("pa_id")]
-        public double? PaId { get; set; }
+        public long? PaId { get; set; }
 
         /// <summary>
         /// Код
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Процедура оценки
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Оцениваемый сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО оцениваемого
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Оценивающий сотрудник
         /// </summary>
         [Column("expert_person_id")]
-        public double? ExpertPersonId { get; set; }
+        public long? ExpertPersonId { get; set; }
 
         /// <summary>
         /// ФИО оценивающего
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Компетенция
         /// </summary>
         [Column("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [Column("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         /// <summary>
         /// Дата модификации

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         public string? Filenamemask { get; set; }
 
         [Column("library_player_id")]
-        public double? LibraryPlayerId { get; set; }
+        public long? LibraryPlayerId { get; set; }
 
         /// <summary>
         /// Является системным

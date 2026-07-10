@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -64,13 +64,20 @@ namespace Wshcmx.Types
         public string? Collaborators { get; set; }
 
         [Column("participant_ids")]
-        public List<double> ParticipantIds { get; set; } = new List<double>();
+        public string? ParticipantIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ParticipantIds
+        {
+            get => XmlListCodec.ParseLongList(ParticipantIdsRaw, "participant_ids");
+            set => ParticipantIdsRaw = XmlListCodec.SerializeLongList("participant_ids", value);
+        }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [Column("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Дата модификации

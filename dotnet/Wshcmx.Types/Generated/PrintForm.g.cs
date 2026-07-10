@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Ориентация
         /// </summary>
         [XmlElement("orientation")]
-        public double? Orientation { get; set; }
+        public long? Orientation { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -82,6 +82,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 }

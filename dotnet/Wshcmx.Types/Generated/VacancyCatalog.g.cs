@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID, используемый в источнике данных
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// ID профессиональной области
         /// </summary>
         [Column("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// Профессиональная область
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Регион
         /// </summary>
         [Column("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Занятость
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// График работы
         /// </summary>
         [Column("schedule_id")]
-        public double? ScheduleId { get; set; }
+        public long? ScheduleId { get; set; }
 
         /// <summary>
         /// Тип образования
@@ -103,67 +103,67 @@ namespace Wshcmx.Types
         /// Условия труда
         /// </summary>
         [Column("work_condition_id")]
-        public double? WorkConditionId { get; set; }
+        public long? WorkConditionId { get; set; }
 
         /// <summary>
         /// Режим работы
         /// </summary>
         [Column("work_mode_id")]
-        public double? WorkModeId { get; set; }
+        public long? WorkModeId { get; set; }
 
         /// <summary>
         /// Система оплаты труда
         /// </summary>
         [Column("wage_system_id")]
-        public double? WageSystemId { get; set; }
+        public long? WageSystemId { get; set; }
 
         /// <summary>
         /// Материальная ответственность
         /// </summary>
         [Column("material_liability_id")]
-        public double? MaterialLiabilityId { get; set; }
+        public long? MaterialLiabilityId { get; set; }
 
         /// <summary>
         /// Причина вакансии
         /// </summary>
         [Column("vacancy_reason_id")]
-        public double? VacancyReasonId { get; set; }
+        public long? VacancyReasonId { get; set; }
 
         /// <summary>
         /// Опыт работы
         /// </summary>
         [Column("work_experience_id")]
-        public double? WorkExperienceId { get; set; }
+        public long? WorkExperienceId { get; set; }
 
         /// <summary>
         /// Возраст от
         /// </summary>
         [Column("min_age")]
-        public double? MinAge { get; set; }
+        public long? MinAge { get; set; }
 
         /// <summary>
         /// Возраст до
         /// </summary>
         [Column("max_age")]
-        public double? MaxAge { get; set; }
+        public long? MaxAge { get; set; }
 
         /// <summary>
         /// Зарплата от
         /// </summary>
         [Column("min_wage")]
-        public double? MinWage { get; set; }
+        public long? MinWage { get; set; }
 
         /// <summary>
         /// Зарплата до
         /// </summary>
         [Column("max_wage")]
-        public double? MaxWage { get; set; }
+        public long? MaxWage { get; set; }
 
         /// <summary>
         /// Средний уровень зарплаты
         /// </summary>
         [Column("avg_wage")]
-        public double? AvgWage { get; set; }
+        public long? AvgWage { get; set; }
 
         /// <summary>
         /// Валюта
@@ -175,13 +175,13 @@ namespace Wshcmx.Types
         /// Бюджет от
         /// </summary>
         [Column("min_budget")]
-        public double? MinBudget { get; set; }
+        public long? MinBudget { get; set; }
 
         /// <summary>
         /// Бюджет до
         /// </summary>
         [Column("max_budget")]
-        public double? MaxBudget { get; set; }
+        public long? MaxBudget { get; set; }
 
         /// <summary>
         /// Валюта
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Подчинение
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Срок публикации (дней)
         /// </summary>
         [Column("pub_period")]
-        public double? PubPeriod { get; set; }
+        public long? PubPeriod { get; set; }
 
         /// <summary>
         /// Дата закрытия
@@ -235,13 +235,13 @@ namespace Wshcmx.Types
         /// Вакансию разместил
         /// </summary>
         [Column("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// Организация из базы
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         /// Подразделение из базы
         /// </summary>
         [Column("sub_id")]
-        public double? SubId { get; set; }
+        public long? SubId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -265,13 +265,13 @@ namespace Wshcmx.Types
         /// ФИО рекрутера
         /// </summary>
         [Column("recruiter_id")]
-        public double? RecruiterId { get; set; }
+        public long? RecruiterId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Ссылка

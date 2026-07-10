@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("scales")]
         public List<CompetenceScaleBaseScale> Scales { get; set; } = new List<CompetenceScaleBaseScale>();
@@ -58,10 +58,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -121,13 +121,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Блок
         /// </summary>
         [XmlElement("competence_block_id")]
-        public double? CompetenceBlockId { get; set; }
+        public long? CompetenceBlockId { get; set; }
 
         /// <summary>
         /// Упражнения
@@ -172,13 +172,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CompetenceDocumentExercise
     {
         [XmlElement("exercise_id")]
-        public double? ExerciseId { get; set; }
+        public long? ExerciseId { get; set; }
     }
 
     public class CompetenceDocumentView
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }

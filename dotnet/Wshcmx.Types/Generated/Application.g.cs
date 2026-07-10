@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Переменные
@@ -226,13 +226,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [XmlElement("web_mode_id")]
-        public List<double> WebModeId { get; set; } = new List<double>();
+        public List<long> WebModeId { get; set; } = new List<long>();
 
         [XmlElement("view")]
         public ApplicationDocumentView? View { get; set; }
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("access_level_id")]
-        public double? AccessLevelId { get; set; }
+        public long? AccessLevelId { get; set; }
     }
 
     public class ApplicationDocumentAccessLevel
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -298,7 +298,7 @@ namespace Wshcmx.Types
         public string? ImageUrl { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
     }
 
     public class ApplicationDocumentApplicationMenu
@@ -316,7 +316,7 @@ namespace Wshcmx.Types
         public string? Color { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("image_url")]
         public string? ImageUrl { get; set; }
@@ -364,7 +364,7 @@ namespace Wshcmx.Types
         public string? ImageUrl { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("is_dialog")]
         public bool? IsDialog { get; set; }
@@ -385,13 +385,13 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("access_level_id")]
-        public double? AccessLevelId { get; set; }
+        public long? AccessLevelId { get; set; }
 
         /// <summary>
         /// Библиотека
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Метод
@@ -415,7 +415,7 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("remote_action_id")]
-        public double? RemoteActionId { get; set; }
+        public long? RemoteActionId { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -424,7 +424,7 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -451,7 +451,7 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("access_level_id")]
-        public double? AccessLevelId { get; set; }
+        public long? AccessLevelId { get; set; }
     }
 
     public class ApplicationDocumentReportTemplate
@@ -469,7 +469,7 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("report_template_id")]
-        public double? ReportTemplateId { get; set; }
+        public long? ReportTemplateId { get; set; }
 
         [XmlElement("report_template_url")]
         public string? ReportTemplateUrl { get; set; }
@@ -481,7 +481,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -499,7 +499,7 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("access_level_id")]
-        public double? AccessLevelId { get; set; }
+        public long? AccessLevelId { get; set; }
     }
 
     public class ApplicationDocumentView
@@ -514,7 +514,7 @@ namespace Wshcmx.Types
         public string? FileName { get; set; }
 
         [XmlElement("file_size")]
-        public double? FileSize { get; set; }
+        public long? FileSize { get; set; }
 
         [XmlElement("run_code")]
         public string? RunCode { get; set; }
@@ -538,13 +538,13 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("view_configuration_id")]
-        public double? ViewConfigurationId { get; set; }
+        public long? ViewConfigurationId { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -604,7 +604,7 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("access_level_id")]
-        public double? AccessLevelId { get; set; }
+        public long? AccessLevelId { get; set; }
 
         [XmlElement("can_create_roles")]
         public bool? CanCreateRoles { get; set; }
@@ -679,7 +679,7 @@ namespace Wshcmx.Types
         public string? ImageUrl { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("is_dialog")]
         public bool? IsDialog { get; set; }

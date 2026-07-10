@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Сообщение блога
         /// </summary>
         [Column("blog_entry_id")]
-        public double? BlogEntryId { get; set; }
+        public long? BlogEntryId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Родительский документ в иерархии
         /// </summary>
         [Column("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Оценка
         /// </summary>
         [Column("like_id")]
-        public double? LikeId { get; set; }
+        public long? LikeId { get; set; }
 
         /// <summary>
         /// Дата модификации

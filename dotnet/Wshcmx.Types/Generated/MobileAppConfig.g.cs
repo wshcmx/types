@@ -16,19 +16,19 @@ namespace Wshcmx.Types
     public class ObjectInnerBase
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("catalog")]
         public string? Catalog { get; set; }
 
         [XmlElement("uid")]
-        public double? Uid { get; set; }
+        public long? Uid { get; set; }
 
         [XmlElement("title")]
         public string? Title { get; set; }
 
         [XmlElement("parent_section_id")]
-        public double? ParentSectionId { get; set; }
+        public long? ParentSectionId { get; set; }
 
         [XmlElement("is_default")]
         public bool IsDefault { get; set; }

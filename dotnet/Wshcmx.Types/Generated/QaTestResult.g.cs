@@ -19,25 +19,25 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тест программного кода
         /// </summary>
         [XmlElement("test_id")]
-        public double? TestId { get; set; }
+        public long? TestId { get; set; }
 
         /// <summary>
         /// Набор тестов программного кода
         /// </summary>
         [XmlElement("test_set_id")]
-        public double? TestSetId { get; set; }
+        public long? TestSetId { get; set; }
 
         /// <summary>
         /// Набор параметров тестов программного кода
         /// </summary>
         [XmlElement("test_paramset_id")]
-        public double? TestParamsetId { get; set; }
+        public long? TestParamsetId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Код ошибки
         /// </summary>
         [XmlElement("error_code")]
-        public double? ErrorCode { get; set; }
+        public long? ErrorCode { get; set; }
 
         /// <summary>
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("log_records")]
         public List<QaTestResultDocumentLogRecord> LogRecords { get; set; } = new List<QaTestResultDocumentLogRecord>();
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
     public class QaTestResultDocumentLogRecord
     {
         [XmlElement("timestamp")]
-        public double? Timestamp { get; set; }
+        public long? Timestamp { get; set; }
 
         /// <summary>
         /// Дата/Время

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Индекс
         /// </summary>
         [XmlElement("next_index")]
-        public double NextIndex { get; set; }
+        public long NextIndex { get; set; }
 
         /// <summary>
         /// Количество символов
         /// </summary>
         [XmlElement("digits_num")]
-        public double DigitsNum { get; set; }
+        public long DigitsNum { get; set; }
 
         /// <summary>
         /// Поле

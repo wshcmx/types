@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,31 +37,31 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Требуемая вероятность классификации
         /// </summary>
         [XmlElement("required_probability")]
-        public double? RequiredProbability { get; set; }
+        public long? RequiredProbability { get; set; }
 
         /// <summary>
         /// Библиотека модели
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Библиотека обработки классификаторов
         /// </summary>
         [XmlElement("processing_code_library_id")]
-        public double? ProcessingCodeLibraryId { get; set; }
+        public long? ProcessingCodeLibraryId { get; set; }
 
         /// <summary>
         /// Модель токенизации
         /// </summary>
         [XmlElement("tokenize_model_id")]
-        public double? TokenizeModelId { get; set; }
+        public long? TokenizeModelId { get; set; }
 
         [XmlElement("classifications_block")]
         public ClassificationModelDocumentClassificationsBlock? ClassificationsBlock { get; set; }
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Метод в библиотеке
@@ -187,13 +187,13 @@ namespace Wshcmx.Types
         /// AI модель
         /// </summary>
         [XmlElement("ai_model_id")]
-        public double? AiModelId { get; set; }
+        public long? AiModelId { get; set; }
 
         /// <summary>
         /// Модель токенизации
         /// </summary>
         [XmlElement("tokenize_model_id")]
-        public double? TokenizeModelId { get; set; }
+        public long? TokenizeModelId { get; set; }
 
         [XmlElement("is_std")]
         public bool IsStd { get; set; }
@@ -220,10 +220,10 @@ namespace Wshcmx.Types
     public class ClassificationModelDocumentView
     {
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("object_param_id")]
-        public double? ObjectParamId { get; set; }
+        public long? ObjectParamId { get; set; }
 
         [XmlElement("base_object_type")]
         public string? BaseObjectType { get; set; }

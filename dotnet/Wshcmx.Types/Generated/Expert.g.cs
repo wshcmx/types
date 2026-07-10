@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -190,19 +190,19 @@ namespace Wshcmx.Types
         /// Замещающий эксперт
         /// </summary>
         [XmlElement("sub_expert_id")]
-        public double? SubExpertId { get; set; }
+        public long? SubExpertId { get; set; }
 
         /// <summary>
         /// Рейтинг
         /// </summary>
         [XmlElement("rating")]
-        public double? Rating { get; set; }
+        public long? Rating { get; set; }
 
         /// <summary>
         /// Нормативный срок ответа на вопрос
         /// </summary>
         [XmlElement("answer_expire_time")]
-        public double? AnswerExpireTime { get; set; }
+        public long? AnswerExpireTime { get; set; }
 
         /// <summary>
         /// FAQ

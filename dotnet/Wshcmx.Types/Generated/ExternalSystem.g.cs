@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Анонимный пользователь
         /// </summary>
         [XmlElement("anonymous_user_id")]
-        public double? AnonymousUserId { get; set; }
+        public long? AnonymousUserId { get; set; }
 
         [XmlElement("settings")]
         public ExternalSystemDocumentSettings? Settings { get; set; }
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
     }
 
     public class ExternalSystemDocumentSettings
@@ -91,19 +91,19 @@ namespace Wshcmx.Types
         public string? FloatButtonTitle { get; set; }
 
         [XmlElement("list_web_template_id")]
-        public double? ListWebTemplateId { get; set; }
+        public long? ListWebTemplateId { get; set; }
 
         [XmlElement("list_web_template_params")]
         public WebVariablesBase? ListWebTemplateParams { get; set; }
 
         [XmlElement("bubble_web_template_id")]
-        public double? BubbleWebTemplateId { get; set; }
+        public long? BubbleWebTemplateId { get; set; }
 
         [XmlElement("bubble_web_template_params")]
         public WebVariablesBase? BubbleWebTemplateParams { get; set; }
 
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         [XmlElement("custom_web_template_params")]
         public WebVariablesBase? CustomWebTemplateParams { get; set; }

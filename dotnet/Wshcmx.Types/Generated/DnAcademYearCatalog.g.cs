@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("start_year")]
         public string? StartYear { get; set; }
@@ -46,10 +46,10 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("amount_week_autumnal_term")]
-        public double? AmountWeekAutumnalTerm { get; set; }
+        public long? AmountWeekAutumnalTerm { get; set; }
 
         [Column("amount_week_spring_term")]
-        public double? AmountWeekSpringTerm { get; set; }
+        public long? AmountWeekSpringTerm { get; set; }
 
         [Column("str_years")]
         public string? StrYears { get; set; }

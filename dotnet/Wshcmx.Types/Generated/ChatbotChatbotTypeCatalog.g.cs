@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -31,10 +31,10 @@ namespace Wshcmx.Types
         public string? BotId { get; set; }
 
         [Column("chatbot_id")]
-        public double? ChatbotId { get; set; }
+        public long? ChatbotId { get; set; }
 
         [Column("chatbot_type_id")]
-        public double? ChatbotTypeId { get; set; }
+        public long? ChatbotTypeId { get; set; }
 
         /// <summary>
         /// Webhook

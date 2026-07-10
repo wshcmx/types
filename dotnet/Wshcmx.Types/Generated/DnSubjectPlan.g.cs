@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -49,22 +49,22 @@ namespace Wshcmx.Types
         public string? Subject { get; set; }
 
         [XmlElement("program_discipline_id")]
-        public double? ProgramDisciplineId { get; set; }
+        public long? ProgramDisciplineId { get; set; }
 
         /// <summary>
         /// Приложение к программе дисциплины
         /// </summary>
         [XmlElement("prog_disc_append_id")]
-        public double? ProgDiscAppendId { get; set; }
+        public long? ProgDiscAppendId { get; set; }
 
         /// <summary>
         /// Форма проведения
         /// </summary>
         [XmlElement("educat_event_id")]
-        public double? EducatEventId { get; set; }
+        public long? EducatEventId { get; set; }
 
         [XmlElement("hours")]
-        public double? Hours { get; set; }
+        public long? Hours { get; set; }
 
         /// <summary>
         /// Информация об объекте

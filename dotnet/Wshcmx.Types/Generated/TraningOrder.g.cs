@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// Установка для приказов по умолчанию
         /// </summary>
         [XmlElement("order_type_id")]
-        public double? OrderTypeId { get; set; }
+        public long? OrderTypeId { get; set; }
 
         /// <summary>
         /// Дата приказа
@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Обучающая организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         [XmlElement("essential_id")]
         public string? EssentialId { get; set; }
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Этапы оплаты
         /// </summary>
         [XmlElement("pay_phase_id")]
-        public double? PayPhaseId { get; set; }
+        public long? PayPhaseId { get; set; }
 
         /// <summary>
         /// Платеж
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта

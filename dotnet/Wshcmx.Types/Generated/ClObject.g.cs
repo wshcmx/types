@@ -28,10 +28,10 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
 
         [XmlElement("format")]
         public string? Format { get; set; }
@@ -109,10 +109,10 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
 
         [XmlElement("xmlcontent")]
         public string? Xmlcontent { get; set; }

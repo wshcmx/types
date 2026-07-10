@@ -31,6 +31,6 @@ namespace Wshcmx.Types
         public string? CommonUrl { get; set; }
 
         [Column("startup_page_document_id")]
-        public double? StartupPageDocumentId { get; set; }
+        public long? StartupPageDocumentId { get; set; }
     }
 }

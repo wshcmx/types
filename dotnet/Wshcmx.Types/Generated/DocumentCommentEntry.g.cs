@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Форум
         /// </summary>
         [XmlElement("portal_doc_id")]
-        public double? PortalDocId { get; set; }
+        public long? PortalDocId { get; set; }
 
         /// <summary>
         /// Корневая статья форума
         /// </summary>
         [XmlElement("parent_document_entry_id")]
-        public double? ParentDocumentEntryId { get; set; }
+        public long? ParentDocumentEntryId { get; set; }
 
         /// <summary>
         /// Тело статьи
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         public DateTime? LastCreateDate { get; set; }
 
         [XmlElement("child_num")]
-        public double? ChildNum { get; set; }
+        public long? ChildNum { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -109,6 +109,6 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("last_parent_document_entry_id")]
-        public double? LastParentDocumentEntryId { get; set; }
+        public long? LastParentDocumentEntryId { get; set; }
     }
 }

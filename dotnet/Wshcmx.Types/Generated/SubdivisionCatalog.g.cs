@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,19 +37,19 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -85,37 +85,44 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [Column("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [Column("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public string? KpiProfilesIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> KpiProfilesId
+        {
+            get => XmlListCodec.ParseLongList(KpiProfilesIdRaw, "kpi_profiles_id");
+            set => KpiProfilesIdRaw = XmlListCodec.SerializeLongList("kpi_profiles_id", value);
+        }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [Column("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Центр затрат
         /// </summary>
         [Column("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Факультет

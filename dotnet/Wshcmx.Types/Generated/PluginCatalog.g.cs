@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Версия
         /// </summary>
         [Column("version")]
-        public double? Version { get; set; }
+        public long? Version { get; set; }
 
         /// <summary>
         /// Дата модификации

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Подключать чат-бот при создании
         /// </summary>
         [Column("chatbot_id")]
-        public double? ChatbotId { get; set; }
+        public long? ChatbotId { get; set; }
 
         /// <summary>
         /// Дата модификации

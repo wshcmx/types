@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,19 +55,19 @@ namespace Wshcmx.Types
         /// Шаблон разметки
         /// </summary>
         [Column("placeholder_template_id")]
-        public double? PlaceholderTemplateId { get; set; }
+        public long? PlaceholderTemplateId { get; set; }
 
         /// <summary>
         /// Дизайн
         /// </summary>
         [Column("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Кеширование структуры
@@ -109,6 +109,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
     }
 }

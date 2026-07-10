@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Продолжительность выполнения
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -97,13 +97,27 @@ namespace Wshcmx.Types
         /// Эксперт курса
         /// </summary>
         [Column("experts_id")]
-        public List<double> ExpertsId { get; set; } = new List<double>();
+        public string? ExpertsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ExpertsId
+        {
+            get => XmlListCodec.ParseLongList(ExpertsIdRaw, "experts_id");
+            set => ExpertsIdRaw = XmlListCodec.SerializeLongList("experts_id", value);
+        }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// ID тегов

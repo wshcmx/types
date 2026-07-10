@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Сотрудник
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Ставка
         /// </summary>
         [XmlElement("basic_rate")]
-        public double? BasicRate { get; set; }
+        public long? BasicRate { get; set; }
 
         /// <summary>
         /// Является руководителем
@@ -94,7 +94,7 @@ namespace Wshcmx.Types
         /// Месячная ставка
         /// </summary>
         [XmlElement("cost_month")]
-        public double? CostMonth { get; set; }
+        public long? CostMonth { get; set; }
 
         /// <summary>
         /// Валюта
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Профили компетенций
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         [XmlElement("kpi_profiles")]
         public List<PositionDocumentKpiProfile> KpiProfiles { get; set; } = new List<PositionDocumentKpiProfile>();
@@ -133,25 +133,25 @@ namespace Wshcmx.Types
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Профиль знаний
         /// </summary>
         [XmlElement("knowledge_profile_id")]
-        public double? KnowledgeProfileId { get; set; }
+        public long? KnowledgeProfileId { get; set; }
 
         /// <summary>
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Ступень типовой должности
         /// </summary>
         [XmlElement("position_common_level_id")]
-        public double? PositionCommonLevelId { get; set; }
+        public long? PositionCommonLevelId { get; set; }
 
         /// <summary>
         /// Название ступени типовой должности
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Семейство должностей
         /// </summary>
         [XmlElement("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
 
         /// <summary>
         /// Дата завершения работы в должности
@@ -187,13 +187,13 @@ namespace Wshcmx.Types
         /// Тип назначения
         /// </summary>
         [XmlElement("position_appointment_type_id")]
-        public double? PositionAppointmentTypeId { get; set; }
+        public long? PositionAppointmentTypeId { get; set; }
 
         /// <summary>
         /// Позиция штатного рассписания
         /// </summary>
         [XmlElement("staff_position_id")]
-        public double? StaffPositionId { get; set; }
+        public long? StaffPositionId { get; set; }
 
         /// <summary>
         /// Описание
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class PositionDocumentKpiProfile
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("period_type_id")]
         public string? PeriodTypeId { get; set; }
@@ -241,16 +241,16 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("basic_collaborator_id")]
-        public double? BasicCollaboratorId { get; set; }
+        public long? BasicCollaboratorId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("drop_pers_hier_entry")]
         public bool? DropPersHierEntry { get; set; }

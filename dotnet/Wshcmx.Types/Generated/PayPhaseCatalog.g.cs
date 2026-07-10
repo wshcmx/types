@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Название мероприятия
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Планируемая сумма
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -67,19 +67,19 @@ namespace Wshcmx.Types
         /// Сумма счетов
         /// </summary>
         [Column("invoice_sum")]
-        public double? InvoiceSum { get; set; }
+        public long? InvoiceSum { get; set; }
 
         /// <summary>
         /// Сумма оплат
         /// </summary>
         [Column("draft_sum")]
-        public double? DraftSum { get; set; }
+        public long? DraftSum { get; set; }
 
         /// <summary>
         /// Сумма актов
         /// </summary>
         [Column("act_sum")]
-        public double? ActSum { get; set; }
+        public long? ActSum { get; set; }
 
         /// <summary>
         /// Дата модификации

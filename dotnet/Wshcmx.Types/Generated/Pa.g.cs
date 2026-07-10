@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class Pa
     {
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -100,13 +100,13 @@ namespace Wshcmx.Types
         /// Ограничить оценивающих по группе
         /// </summary>
         [XmlElement("restrict_by_group")]
-        public double? RestrictByGroup { get; set; }
+        public long? RestrictByGroup { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("department_id")]
-        public double? DepartmentId { get; set; }
+        public long? DepartmentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -130,13 +130,13 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Планы оценки
         /// </summary>
         [XmlElement("assessment_plan_id")]
-        public double? AssessmentPlanId { get; set; }
+        public long? AssessmentPlanId { get; set; }
 
         /// <summary>
         /// Статус
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Код профиля компетенций
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         [XmlElement("kpi_profiles")]
         public List<PaDocumentKpiProfile> KpiProfiles { get; set; } = new List<PaDocumentKpiProfile>();
@@ -196,16 +196,16 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         [XmlElement("salary")]
-        public double? Salary { get; set; }
+        public long? Salary { get; set; }
 
         [XmlElement("labour")]
         public PaDocumentLabour? Labour { get; set; }
@@ -217,13 +217,13 @@ namespace Wshcmx.Types
         public string? BossTreat { get; set; }
 
         [XmlElement("revised_value")]
-        public double? RevisedValue { get; set; }
+        public long? RevisedValue { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("workflow_person_id")]
-        public double? WorkflowPersonId { get; set; }
+        public long? WorkflowPersonId { get; set; }
 
         /// <summary>
         /// План. дата завершения
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Матрица ответственности
         /// </summary>
         [XmlElement("assessment_appraise_matrix_id")]
-        public double? AssessmentAppraiseMatrixId { get; set; }
+        public long? AssessmentAppraiseMatrixId { get; set; }
 
         /// <summary>
         /// Компетенции
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         public List<PaDocumentCustomComment> CustomComments { get; set; } = new List<PaDocumentCustomComment>();
 
         [XmlElement("overall")]
-        public double? Overall { get; set; }
+        public long? Overall { get; set; }
 
         [XmlElement("appraise_date")]
         public DateTime? AppraiseDate { get; set; }
@@ -307,7 +307,7 @@ namespace Wshcmx.Types
         public string? FileUrl { get; set; }
 
         [XmlElement("index")]
-        public double Index { get; set; }
+        public long Index { get; set; }
 
         [XmlElement("view")]
         public PaDocumentView? View { get; set; }
@@ -325,7 +325,7 @@ namespace Wshcmx.Types
         /// Карьерный план
         /// </summary>
         [XmlElement("career_plan_id")]
-        public double? CareerPlanId { get; set; }
+        public long? CareerPlanId { get; set; }
 
         [XmlElement("stages")]
         public List<PaDocumentStage> Stages { get; set; } = new List<PaDocumentStage>();
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         public List<WorkflowFieldsAssessmentBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowFieldsAssessmentBaseWorkflowField>();
 
         [XmlElement("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -349,7 +349,7 @@ namespace Wshcmx.Types
         public string? PlanText { get; set; }
 
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Оценка
@@ -361,13 +361,13 @@ namespace Wshcmx.Types
         public string? MarkText { get; set; }
 
         [XmlElement("mark_value")]
-        public double? MarkValue { get; set; }
+        public long? MarkValue { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -391,7 +391,7 @@ namespace Wshcmx.Types
     public class PaDocumentCompetenceExercise
     {
         [XmlElement("exercise_id")]
-        public double? ExerciseId { get; set; }
+        public long? ExerciseId { get; set; }
 
         /// <summary>
         /// Оценка
@@ -406,7 +406,7 @@ namespace Wshcmx.Types
         public List<WorkflowFieldsAssessmentBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowFieldsAssessmentBaseWorkflowField>();
 
         [XmlElement("indicator_id")]
-        public double? IndicatorId { get; set; }
+        public long? IndicatorId { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -418,7 +418,7 @@ namespace Wshcmx.Types
         public string? PlanText { get; set; }
 
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Оценка
@@ -430,13 +430,13 @@ namespace Wshcmx.Types
         public string? MarkText { get; set; }
 
         [XmlElement("mark_value")]
-        public double? MarkValue { get; set; }
+        public long? MarkValue { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -445,7 +445,7 @@ namespace Wshcmx.Types
     public class PaDocumentCustomComment
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -460,10 +460,10 @@ namespace Wshcmx.Types
     public class PaDocumentCustomExpert
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_type")]
-        public double? PersonType { get; set; }
+        public long? PersonType { get; set; }
 
         [XmlElement("is_done")]
         public bool IsDone { get; set; }
@@ -478,13 +478,13 @@ namespace Wshcmx.Types
     public class PaDocumentHierSnapshot
     {
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
     }
 
     public class PaDocumentKpi
@@ -493,13 +493,13 @@ namespace Wshcmx.Types
         public List<WorkflowFieldsAssessmentBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowFieldsAssessmentBaseWorkflowField>();
 
         [XmlElement("kpi_id")]
-        public double? KpiId { get; set; }
+        public long? KpiId { get; set; }
 
         /// <summary>
         /// Порог
         /// </summary>
         [XmlElement("threshold")]
-        public double? Threshold { get; set; }
+        public long? Threshold { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -511,7 +511,7 @@ namespace Wshcmx.Types
         /// Вызов
         /// </summary>
         [XmlElement("challenge")]
-        public double? Challenge { get; set; }
+        public long? Challenge { get; set; }
 
         /// <summary>
         /// Фактическая величина
@@ -529,22 +529,22 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("source_pa_id")]
-        public double? SourcePaId { get; set; }
+        public long? SourcePaId { get; set; }
 
         [XmlElement("kpi_value_id")]
-        public double? KpiValueId { get; set; }
+        public long? KpiValueId { get; set; }
 
         [XmlElement("kpi_plan_id")]
-        public double? KpiPlanId { get; set; }
+        public long? KpiPlanId { get; set; }
 
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         [XmlElement("parent_kpi_id")]
-        public double? ParentKpiId { get; set; }
+        public long? ParentKpiId { get; set; }
     }
 
     public class PaDocumentKpiProfile
@@ -553,7 +553,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("period_type_id")]
         public string? PeriodTypeId { get; set; }
@@ -568,7 +568,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -580,19 +580,19 @@ namespace Wshcmx.Types
     public class PaDocumentLabour
     {
         [XmlElement("cash")]
-        public double? Cash { get; set; }
+        public long? Cash { get; set; }
 
         [XmlElement("currency")]
         public string? Currency { get; set; }
 
         [XmlElement("standard_hours")]
-        public double? StandardHours { get; set; }
+        public long? StandardHours { get; set; }
 
         [XmlElement("tenure")]
-        public double? Tenure { get; set; }
+        public long? Tenure { get; set; }
 
         [XmlElement("work_hours")]
-        public double? WorkHours { get; set; }
+        public long? WorkHours { get; set; }
     }
 
     public class PaDocumentLastData
@@ -625,25 +625,25 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         /// <summary>
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("plan_budget_period_id")]
-        public double? PlanBudgetPeriodId { get; set; }
+        public long? PlanBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("fact_budget_period_id")]
-        public double? FactBudgetPeriodId { get; set; }
+        public long? FactBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Подцели
@@ -685,19 +685,19 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("plan_budget_period_id")]
-        public double? PlanBudgetPeriodId { get; set; }
+        public long? PlanBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("fact_budget_period_id")]
-        public double? FactBudgetPeriodId { get; set; }
+        public long? FactBudgetPeriodId { get; set; }
     }
 
     public class PaDocumentProject
@@ -718,7 +718,7 @@ namespace Wshcmx.Types
         /// Порог
         /// </summary>
         [XmlElement("threshold")]
-        public double? Threshold { get; set; }
+        public long? Threshold { get; set; }
 
         /// <summary>
         /// План
@@ -730,7 +730,7 @@ namespace Wshcmx.Types
         /// Вызов
         /// </summary>
         [XmlElement("challenge")]
-        public double? Challenge { get; set; }
+        public long? Challenge { get; set; }
 
         /// <summary>
         /// Факт
@@ -742,16 +742,16 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("standard_project_id")]
-        public double? StandardProjectId { get; set; }
+        public long? StandardProjectId { get; set; }
     }
 
     public class PaDocumentStage
@@ -769,7 +769,7 @@ namespace Wshcmx.Types
         public string CareerTransitionDirection { get; set; }
 
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Проверять требования при согласовании
@@ -793,10 +793,10 @@ namespace Wshcmx.Types
         public string Status { get; set; }
 
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Дополнительные условия
@@ -835,16 +835,16 @@ namespace Wshcmx.Types
     public class PaDocumentTask
     {
         [XmlElement("task_id")]
-        public double? TaskId { get; set; }
+        public long? TaskId { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         [XmlElement("value_text")]
         public string? ValueText { get; set; }
@@ -853,10 +853,10 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         [XmlElement("parent_task_id")]
-        public double? ParentTaskId { get; set; }
+        public long? ParentTaskId { get; set; }
     }
 
     public class PaDocumentView
@@ -880,6 +880,6 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("percent")]
-        public double? Percent { get; set; }
+        public long? Percent { get; set; }
     }
 }

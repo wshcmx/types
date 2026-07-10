@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("manager_id")]
-        public double? ManagerId { get; set; }
+        public long? ManagerId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -64,6 +64,6 @@ namespace Wshcmx.Types
         /// Тип функционального руководителя
         /// </summary>
         [Column("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 }

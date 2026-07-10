@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -31,19 +31,19 @@ namespace Wshcmx.Types
         /// Тест программного кода
         /// </summary>
         [Column("test_id")]
-        public double? TestId { get; set; }
+        public long? TestId { get; set; }
 
         /// <summary>
         /// Набор тестов программного кода
         /// </summary>
         [Column("test_set_id")]
-        public double? TestSetId { get; set; }
+        public long? TestSetId { get; set; }
 
         /// <summary>
         /// Набор параметров тестов программного кода
         /// </summary>
         [Column("test_paramset_id")]
-        public double? TestParamsetId { get; set; }
+        public long? TestParamsetId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Код ошибки
         /// </summary>
         [Column("error_code")]
-        public double? ErrorCode { get; set; }
+        public long? ErrorCode { get; set; }
 
         /// <summary>
         /// Продолжительность
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Дата модификации

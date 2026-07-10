@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Допустимые типы подписи со стороны организации
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Печатная форма
         /// </summary>
         [XmlElement("print_form_id")]
-        public double? PrintFormId { get; set; }
+        public long? PrintFormId { get; set; }
 
         /// <summary>
         /// HTML вставка подписи
         /// </summary>
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Код кадрового мероприятия
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }
@@ -103,19 +103,19 @@ namespace Wshcmx.Types
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Сколько подписей необходимо
         /// </summary>
         [XmlElement("signature_num")]
-        public double? SignatureNum { get; set; }
+        public long? SignatureNum { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Код юридического лица

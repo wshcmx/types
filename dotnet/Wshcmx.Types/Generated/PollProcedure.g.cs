@@ -34,13 +34,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Ответственный за проведение
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Эталонная
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("status")]
-        public double Status { get; set; }
+        public long Status { get; set; }
 
         [XmlElement("additional")]
         public PollProcedureDocumentAdditional? Additional { get; set; }
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class PollProcedureDocumentAdditional
@@ -166,34 +166,34 @@ namespace Wshcmx.Types
         public List<PollProcedureDocumentAdditionalPollGroup> PollGroups { get; set; } = new List<PollProcedureDocumentAdditionalPollGroup>();
 
         [XmlElement("reject_web_template_id")]
-        public double? RejectWebTemplateId { get; set; }
+        public long? RejectWebTemplateId { get; set; }
 
         [XmlElement("return_web_template_id")]
-        public double? ReturnWebTemplateId { get; set; }
+        public long? ReturnWebTemplateId { get; set; }
 
         [XmlElement("assigned_from_web_template_id")]
-        public double? AssignedFromWebTemplateId { get; set; }
+        public long? AssignedFromWebTemplateId { get; set; }
 
         [XmlElement("confirmation_template_id")]
-        public double? ConfirmationTemplateId { get; set; }
+        public long? ConfirmationTemplateId { get; set; }
 
         [XmlElement("responsibles_template_id")]
-        public double? ResponsiblesTemplateId { get; set; }
+        public long? ResponsiblesTemplateId { get; set; }
 
         [XmlElement("completion_template_id")]
-        public double? CompletionTemplateId { get; set; }
+        public long? CompletionTemplateId { get; set; }
 
         [XmlElement("show_after_completion")]
         public bool ShowAfterCompletion { get; set; }
 
         [XmlElement("server_agent_id")]
-        public double? ServerAgentId { get; set; }
+        public long? ServerAgentId { get; set; }
 
         [XmlElement("show_tweaker")]
         public bool ShowTweaker { get; set; }
 
         [XmlElement("custom_post_web_template_id")]
-        public double? CustomPostWebTemplateId { get; set; }
+        public long? CustomPostWebTemplateId { get; set; }
 
         [XmlElement("custom_poll_generation")]
         public string? CustomPollGeneration { get; set; }
@@ -223,13 +223,13 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
 
         [XmlElement("question_id")]
-        public double? QuestionId { get; set; }
+        public long? QuestionId { get; set; }
 
         [XmlElement("entry_id")]
-        public double? EntryId { get; set; }
+        public long? EntryId { get; set; }
 
         [XmlElement("and_or")]
         public string AndOr { get; set; }
@@ -238,7 +238,7 @@ namespace Wshcmx.Types
     public class PollProcedureDocumentAdditionalPollGroupPoll
     {
         [XmlElement("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
     }
 
     public class PollProcedureDocumentAuditory
@@ -247,7 +247,7 @@ namespace Wshcmx.Types
         /// ID оцениваемого сотрудника
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         public List<PollProcedureDocumentAuditoryPollGroup> PollGroups { get; set; } = new List<PollProcedureDocumentAuditoryPollGroup>();
 
         [XmlElement("responsible_person_id")]
-        public double? ResponsiblePersonId { get; set; }
+        public long? ResponsiblePersonId { get; set; }
 
         [XmlElement("responsible_person_fullname")]
         public string? ResponsiblePersonFullname { get; set; }
@@ -283,13 +283,13 @@ namespace Wshcmx.Types
     public class PollProcedureDocumentGroup
     {
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("group_name")]
         public string? GroupName { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО ответственного
@@ -301,7 +301,7 @@ namespace Wshcmx.Types
         /// Кол-во
         /// </summary>
         [XmlElement("max_auditory")]
-        public double? MaxAuditory { get; set; }
+        public long? MaxAuditory { get; set; }
 
         /// <summary>
         /// Группа опросов
@@ -319,13 +319,13 @@ namespace Wshcmx.Types
     public class PollProcedureDocumentPoll
     {
         [XmlElement("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
     }
 
     public class PollProcedureDocumentSubdivision
     {
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         /// Ответственный
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО ответственного
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         /// Кол-во
         /// </summary>
         [XmlElement("max_auditory")]
-        public double? MaxAuditory { get; set; }
+        public long? MaxAuditory { get; set; }
 
         /// <summary>
         /// Группа опросов

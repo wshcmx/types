@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -67,25 +67,25 @@ namespace Wshcmx.Types
         /// Приход или расход
         /// </summary>
         [Column("direction")]
-        public double Direction { get; set; }
+        public long Direction { get; set; }
 
         /// <summary>
         /// Биллинговый счет
         /// </summary>
         [Column("account_id")]
-        public double? AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -97,13 +97,20 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [Column("amount")]
-        public double? Amount { get; set; }
+        public long? Amount { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("objects")]
-        public List<double> Objects { get; set; } = new List<double>();
+        public string? ObjectsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> Objects
+        {
+            get => XmlListCodec.ParseLongList(ObjectsRaw, "objects");
+            set => ObjectsRaw = XmlListCodec.SerializeLongList("objects", value);
+        }
 
         /// <summary>
         /// Дата модификации

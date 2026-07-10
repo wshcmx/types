@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("facult_id")]
-        public double? FacultId { get; set; }
+        public long? FacultId { get; set; }
 
         /// <summary>
         /// Описание

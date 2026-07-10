@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -34,10 +34,10 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Каталог

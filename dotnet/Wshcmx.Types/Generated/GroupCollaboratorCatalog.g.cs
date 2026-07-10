@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [Column("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -43,10 +43,10 @@ namespace Wshcmx.Types
         /// Форум
         /// </summary>
         [Column("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         [Column("tutor_id")]
-        public double? TutorId { get; set; }
+        public long? TutorId { get; set; }
 
         [Column("tutor_fullname")]
         public string? TutorFullname { get; set; }
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -82,6 +82,6 @@ namespace Wshcmx.Types
         public string? CollaboratorFullname { get; set; }
 
         [Column("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
     }
 }

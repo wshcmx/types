@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -94,7 +94,7 @@ namespace Wshcmx.Types
         public List<FileBase> Files { get; set; } = new List<FileBase>();
 
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -151,10 +151,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Код
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -211,16 +211,16 @@ namespace Wshcmx.Types
         /// Тип участника проекта
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Проект
         /// </summary>
         [XmlElement("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         [XmlElement("participant_roles_id")]
-        public List<double> ParticipantRolesId { get; set; } = new List<double>();
+        public List<long> ParticipantRolesId { get; set; } = new List<long>();
 
         /// <summary>
         /// Состояние
@@ -253,10 +253,10 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("plan_load")]
-        public double? PlanLoad { get; set; }
+        public long? PlanLoad { get; set; }
 
         [XmlElement("percent_plan_load")]
-        public double? PercentPlanLoad { get; set; }
+        public long? PercentPlanLoad { get; set; }
 
         /// <summary>
         /// Описание
@@ -289,7 +289,7 @@ namespace Wshcmx.Types
         /// Значение карты знаний
         /// </summary>
         [XmlElement("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         [XmlElement("current_level_id")]
         public string? CurrentLevelId { get; set; }
@@ -319,6 +319,6 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

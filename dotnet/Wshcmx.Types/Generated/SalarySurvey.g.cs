@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -58,43 +58,43 @@ namespace Wshcmx.Types
         /// Уровень должности
         /// </summary>
         [XmlElement("position_level_id")]
-        public double? PositionLevelId { get; set; }
+        public long? PositionLevelId { get; set; }
 
         /// <summary>
         /// Источник обзоров зарплат
         /// </summary>
         [XmlElement("salary_survey_source_id")]
-        public double? SalarySurveySourceId { get; set; }
+        public long? SalarySurveySourceId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Минимальная зарплата
         /// </summary>
         [XmlElement("min_salary")]
-        public double? MinSalary { get; set; }
+        public long? MinSalary { get; set; }
 
         /// <summary>
         /// Максимальная зарплата
         /// </summary>
         [XmlElement("max_salary")]
-        public double? MaxSalary { get; set; }
+        public long? MaxSalary { get; set; }
 
         /// <summary>
         /// Средняя зарплата
         /// </summary>
         [XmlElement("avg_salary")]
-        public double? AvgSalary { get; set; }
+        public long? AvgSalary { get; set; }
 
         /// <summary>
         /// Валюта

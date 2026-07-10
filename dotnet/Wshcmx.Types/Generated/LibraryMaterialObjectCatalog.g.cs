@@ -19,16 +19,16 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("library_material_id")]
-        public double? LibraryMaterialId { get; set; }
+        public long? LibraryMaterialId { get; set; }
 
         [Column("library_material_name")]
         public string? LibraryMaterialName { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [Column("object_name")]
         public string? ObjectName { get; set; }

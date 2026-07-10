@@ -40,13 +40,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип должности
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Должность
@@ -82,43 +82,43 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Группа подразделений
         /// </summary>
         [XmlElement("subdivision_group_id")]
-        public double? SubdivisionGroupId { get; set; }
+        public long? SubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Семейство должностей
         /// </summary>
         [XmlElement("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
 
         /// <summary>
         /// Грейд
         /// </summary>
         [XmlElement("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         /// <summary>
         /// Тип вакансий
         /// </summary>
         [XmlElement("vacancy_type_id")]
-        public double? VacancyTypeId { get; set; }
+        public long? VacancyTypeId { get; set; }
 
         /// <summary>
         /// Общая численность
         /// </summary>
         [XmlElement("quantity")]
-        public double? Quantity { get; set; }
+        public long? Quantity { get; set; }
 
         /// <summary>
         /// Периоды
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
     public class RecruitmentPlanDocumentBudgetPeriod
     {
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Название
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         /// Численность
         /// </summary>
         [XmlElement("quantity")]
-        public double? Quantity { get; set; }
+        public long? Quantity { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
     public class RecruitmentPlanDocumentCandidateSource
     {
         [XmlElement("candidate_source_id")]
-        public double? CandidateSourceId { get; set; }
+        public long? CandidateSourceId { get; set; }
     }
 
     public class RecruitmentPlanDocumentCoordinator
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -262,7 +262,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Является непосредственным руководителем
@@ -274,7 +274,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Является ответственным
@@ -289,6 +289,6 @@ namespace Wshcmx.Types
     public class RecruitmentPlanDocumentRecruitmentMethod
     {
         [XmlElement("recruitment_method_id")]
-        public double? RecruitmentMethodId { get; set; }
+        public long? RecruitmentMethodId { get; set; }
     }
 }

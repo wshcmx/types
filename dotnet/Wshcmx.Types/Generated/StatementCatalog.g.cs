@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Миллисекунды создания
         /// </summary>
         [Column("create_ticks")]
-        public double? CreateTicks { get; set; }
+        public long? CreateTicks { get; set; }
 
         /// <summary>
         /// Timestamp
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Хранилище учебных записей
         /// </summary>
         [Column("learning_storage_id")]
-        public double? LearningStorageId { get; set; }
+        public long? LearningStorageId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Тип учебной активности
         /// </summary>
         [Column("activity_id")]
-        public double? ActivityId { get; set; }
+        public long? ActivityId { get; set; }
 
         /// <summary>
         /// Тип учебной активности
@@ -187,25 +187,25 @@ namespace Wshcmx.Types
         /// Максимальный балл
         /// </summary>
         [Column("result_score_max")]
-        public double? ResultScoreMax { get; set; }
+        public long? ResultScoreMax { get; set; }
 
         /// <summary>
         /// Минимальный балл
         /// </summary>
         [Column("result_score_min")]
-        public double? ResultScoreMin { get; set; }
+        public long? ResultScoreMin { get; set; }
 
         /// <summary>
         /// Необработанный балл
         /// </summary>
         [Column("result_score_raw")]
-        public double? ResultScoreRaw { get; set; }
+        public long? ResultScoreRaw { get; set; }
 
         /// <summary>
         /// Обработанный балл
         /// </summary>
         [Column("result_score_scaled")]
-        public double? ResultScoreScaled { get; set; }
+        public long? ResultScoreScaled { get; set; }
 
         /// <summary>
         /// Пройдено

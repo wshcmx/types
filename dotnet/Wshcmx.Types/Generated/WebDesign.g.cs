@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,19 +46,19 @@ namespace Wshcmx.Types
         /// Шаблон портала с CSS
         /// </summary>
         [XmlElement("css_custom_web_template_id")]
-        public double? CssCustomWebTemplateId { get; set; }
+        public long? CssCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон разметки для неавторизованного доступа
         /// </summary>
         [XmlElement("default_custom_web_template_id")]
-        public double? DefaultCustomWebTemplateId { get; set; }
+        public long? DefaultCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон разметки авторизованного доступа
         /// </summary>
         [XmlElement("home_custom_web_template_id")]
-        public double? HomeCustomWebTemplateId { get; set; }
+        public long? HomeCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Относительная ссылка на ресурсы
@@ -76,25 +76,25 @@ namespace Wshcmx.Types
         /// Шаблон с XAML CSS
         /// </summary>
         [XmlElement("xaml_interpreter_css_template_id")]
-        public double? XamlInterpreterCssTemplateId { get; set; }
+        public long? XamlInterpreterCssTemplateId { get; set; }
 
         /// <summary>
         /// Дополнительный шаблон CSS
         /// </summary>
         [XmlElement("additional_css_template_id")]
-        public double? AdditionalCssTemplateId { get; set; }
+        public long? AdditionalCssTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон индикатора подгрузки
         /// </summary>
         [XmlElement("throbber_template_id")]
-        public double? ThrobberTemplateId { get; set; }
+        public long? ThrobberTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон наборов настроек виджетов
         /// </summary>
         [XmlElement("lp_custom_web_template_id")]
-        public double? LpCustomWebTemplateId { get; set; }
+        public long? LpCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Является системным

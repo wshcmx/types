@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Web шаблон
         /// </summary>
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// UI шаблон
         /// </summary>
         [XmlElement("custom_admin_template_id")]
-        public double? CustomAdminTemplateId { get; set; }
+        public long? CustomAdminTemplateId { get; set; }
 
         [XmlElement("disp_name")]
         public string? DispName { get; set; }
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class DocTypeDocumentField
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         public bool InCatalog { get; set; }
 
         [XmlElement("hide_level")]
-        public double? HideLevel { get; set; }
+        public long? HideLevel { get; set; }
 
         [XmlElement("is_multiple")]
         public bool IsMultiple { get; set; }
@@ -277,6 +277,6 @@ namespace Wshcmx.Types
         public bool IsEditMode { get; set; }
 
         [XmlElement("dummy_buff")]
-        public double DummyBuff { get; set; }
+        public long DummyBuff { get; set; }
     }
 }

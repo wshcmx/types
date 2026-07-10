@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("program_discipline_id")]
-        public double? ProgramDisciplineId { get; set; }
+        public long? ProgramDisciplineId { get; set; }
 
         [XmlElement("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         [XmlElement("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         /// <summary>
         /// Специализация
         /// </summary>
         [XmlElement("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         [XmlElement("educat_form_id")]
         public string? EducatFormId { get; set; }
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Квалификация
         /// </summary>
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }

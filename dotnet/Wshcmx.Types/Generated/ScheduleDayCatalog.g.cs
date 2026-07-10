@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип графика
         /// </summary>
         [Column("schedule_type_id")]
-        public double? ScheduleTypeId { get; set; }
+        public long? ScheduleTypeId { get; set; }
 
         /// <summary>
         /// Тип графика
@@ -37,19 +37,19 @@ namespace Wshcmx.Types
         /// Ограничения
         /// </summary>
         [Column("rest_collaborator_schedule_id")]
-        public double? RestCollaboratorScheduleId { get; set; }
+        public long? RestCollaboratorScheduleId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Дата

@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         public string DurationType { get; set; }
 
         [Column("duration_days")]
-        public double? DurationDays { get; set; }
+        public long? DurationDays { get; set; }
 
         [Column("miss_last_learning_date")]
         public bool MissLastLearningDate { get; set; }
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Предпочтительный проктор
         /// </summary>
         [Column("proctor_prefer_id")]
-        public double? ProctorPreferId { get; set; }
+        public long? ProctorPreferId { get; set; }
 
         [Column("skip_dismissed")]
         public bool SkipDismissed { get; set; }
@@ -58,6 +58,6 @@ namespace Wshcmx.Types
         public string? Comment { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Тип сертификата
         /// </summary>
         [XmlElement("type_id")]
-        public double? TypeId { get; set; }
+        public long? TypeId { get; set; }
 
         /// <summary>
         /// Название типа сертификата
@@ -142,25 +142,25 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Квалификация
         /// </summary>
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Дата выдачи
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Подписан
         /// </summary>
         [XmlElement("signed_by_id")]
-        public double? SignedById { get; set; }
+        public long? SignedById { get; set; }
 
         /// <summary>
         /// Подписан
@@ -211,6 +211,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 }

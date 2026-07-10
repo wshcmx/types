@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Родительский элемент
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Тип навыка
         /// </summary>
         [XmlElement("skill_type_id")]
-        public double? SkillTypeId { get; set; }
+        public long? SkillTypeId { get; set; }
 
         /// <summary>
         /// Использовать уровни оценки родительского элемента
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class SkillDocumentLevel

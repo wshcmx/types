@@ -64,10 +64,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         public List<ClLocalizationsBaseLocalization> Localizations { get; set; } = new List<ClLocalizationsBaseLocalization>();
 
         [XmlElement("cl_localization_id")]
-        public double? ClLocalizationId { get; set; }
+        public long? ClLocalizationId { get; set; }
 
         [XmlElement("cl_localization_tip_text")]
         public string? ClLocalizationTipText { get; set; }
@@ -133,10 +133,10 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("status")]
         public string Status { get; set; }
@@ -157,22 +157,22 @@ namespace Wshcmx.Types
         /// Система тестирования
         /// </summary>
         [XmlElement("testing_system_id")]
-        public double? TestingSystemId { get; set; }
+        public long? TestingSystemId { get; set; }
 
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("duration_days")]
-        public double? DurationDays { get; set; }
+        public long? DurationDays { get; set; }
 
         [XmlElement("attempts_num")]
-        public double AttemptsNum { get; set; }
+        public long AttemptsNum { get; set; }
 
         /// <summary>
         /// Проходной балл
         /// </summary>
         [XmlElement("passing_score")]
-        public double? PassingScore { get; set; }
+        public long? PassingScore { get; set; }
 
         [XmlElement("use_scale_calculation")]
         public bool UseScaleCalculation { get; set; }
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Тип сертификата
         /// </summary>
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
 
         [XmlElement("display_result")]
         public bool DisplayResult { get; set; }
@@ -256,7 +256,7 @@ namespace Wshcmx.Types
         public bool DisplayAnswersInReport { get; set; }
 
         [XmlElement("proctoring_system_id")]
-        public double? ProctoringSystemId { get; set; }
+        public long? ProctoringSystemId { get; set; }
 
         [XmlElement("external_type")]
         public string? ExternalType { get; set; }
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class AssessmentDocumentPlayer
@@ -340,7 +340,7 @@ namespace Wshcmx.Types
         public string SendType { get; set; }
 
         [XmlElement("send_timer")]
-        public double SendTimer { get; set; }
+        public long SendTimer { get; set; }
 
         [XmlElement("display_type")]
         public string DisplayType { get; set; }
@@ -394,7 +394,7 @@ namespace Wshcmx.Types
     public class AssessmentDocumentSection
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -403,10 +403,10 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("passing_score")]
-        public double? PassingScore { get; set; }
+        public long? PassingScore { get; set; }
 
         [XmlElement("display_correct_answer")]
         public bool DisplayCorrectAnswer { get; set; }
@@ -445,7 +445,7 @@ namespace Wshcmx.Types
     public class AssessmentDocumentSectionItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("title")]
         public string? Title { get; set; }
@@ -463,7 +463,7 @@ namespace Wshcmx.Types
     public class AssessmentDocumentSectionRole
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class AssessmentDocumentSectionSelectionOrdering
@@ -475,7 +475,7 @@ namespace Wshcmx.Types
         public string? SelectId { get; set; }
 
         [XmlElement("select_num")]
-        public double? SelectNum { get; set; }
+        public long? SelectNum { get; set; }
 
         /// <summary>
         /// Веса
@@ -490,12 +490,12 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("point_num")]
-        public double? PointNum { get; set; }
+        public long? PointNum { get; set; }
 
         /// <summary>
         /// Количество
         /// </summary>
         [XmlElement("item_num")]
-        public double? ItemNum { get; set; }
+        public long? ItemNum { get; set; }
     }
 }

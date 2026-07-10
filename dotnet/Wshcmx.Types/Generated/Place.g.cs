@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,19 +58,19 @@ namespace Wshcmx.Types
         /// Родительское расположение
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Временные зоны
         /// </summary>
         [XmlElement("timezone_id")]
-        public double? TimezoneId { get; set; }
+        public long? TimezoneId { get; set; }
 
         /// <summary>
         /// Адрес

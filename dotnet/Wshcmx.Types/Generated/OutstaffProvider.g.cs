@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Почтовый адрес
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -118,19 +118,19 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// c_collaborator
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// Описание

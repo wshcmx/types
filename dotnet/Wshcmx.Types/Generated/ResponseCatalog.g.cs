@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,13 +55,13 @@ namespace Wshcmx.Types
         /// Тип отзыва
         /// </summary>
         [Column("response_type_id")]
-        public double? ResponseTypeId { get; set; }
+        public long? ResponseTypeId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         /// Инициатор
         /// </summary>
         [Column("owner_person_id")]
-        public double? OwnerPersonId { get; set; }
+        public long? OwnerPersonId { get; set; }
 
         /// <summary>
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [Column("basic_score")]
-        public double? BasicScore { get; set; }
+        public long? BasicScore { get; set; }
 
         /// <summary>
         /// Описание

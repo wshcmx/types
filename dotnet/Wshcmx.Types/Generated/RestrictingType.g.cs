@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Тип присутствия/отсутствия
         /// </summary>
         [XmlElement("presence_state_id")]
-        public double? PresenceStateId { get; set; }
+        public long? PresenceStateId { get; set; }
 
         /// <summary>
         /// Время начала от
@@ -106,25 +106,25 @@ namespace Wshcmx.Types
         /// Количество рабочих дней min
         /// </summary>
         [XmlElement("min_work_days")]
-        public double? MinWorkDays { get; set; }
+        public long? MinWorkDays { get; set; }
 
         /// <summary>
         /// Количество рабочих дней max
         /// </summary>
         [XmlElement("max_work_days")]
-        public double? MaxWorkDays { get; set; }
+        public long? MaxWorkDays { get; set; }
 
         /// <summary>
         /// Min часов
         /// </summary>
         [XmlElement("min_hours")]
-        public double? MinHours { get; set; }
+        public long? MinHours { get; set; }
 
         /// <summary>
         /// Max часов
         /// </summary>
         [XmlElement("max_hours")]
-        public double? MaxHours { get; set; }
+        public long? MaxHours { get; set; }
 
         /// <summary>
         /// Комментарий

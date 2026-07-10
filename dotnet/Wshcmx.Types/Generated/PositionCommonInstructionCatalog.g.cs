@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Название типовой должности
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Раздел инструкции
         /// </summary>
         [Column("section_instruction_id")]
-        public double? SectionInstructionId { get; set; }
+        public long? SectionInstructionId { get; set; }
 
         /// <summary>
         /// Название раздела инструкции

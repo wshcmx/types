@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Тип замещения
         /// </summary>
         [Column("substitution_type_id")]
-        public double? SubstitutionTypeId { get; set; }
+        public long? SubstitutionTypeId { get; set; }
 
         /// <summary>
         /// Тип целевого объекта
@@ -70,7 +70,14 @@ namespace Wshcmx.Types
         public string? TargetObjectSelector { get; set; }
 
         [Column("target_object_id")]
-        public List<double> TargetObjectId { get; set; } = new List<double>();
+        public string? TargetObjectIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> TargetObjectId
+        {
+            get => XmlListCodec.ParseLongList(TargetObjectIdRaw, "target_object_id");
+            set => TargetObjectIdRaw = XmlListCodec.SerializeLongList("target_object_id", value);
+        }
 
         /// <summary>
         /// Нестандартные права (строка или JSON с информацией о правах)
@@ -88,7 +95,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника

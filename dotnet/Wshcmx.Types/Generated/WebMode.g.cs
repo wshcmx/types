@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -100,19 +100,19 @@ namespace Wshcmx.Types
         /// Шаблон разметки
         /// </summary>
         [XmlElement("placeholder_template_id")]
-        public double? PlaceholderTemplateId { get; set; }
+        public long? PlaceholderTemplateId { get; set; }
 
         /// <summary>
         /// Дизайн
         /// </summary>
         [XmlElement("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Доступ
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class WebModeDocumentStatisticRec
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
     }
 
     public class WebModeDocumentTemplateLink
@@ -235,13 +235,13 @@ namespace Wshcmx.Types
         /// Элемент шаблона
         /// </summary>
         [XmlElement("source_template_id")]
-        public double? SourceTemplateId { get; set; }
+        public long? SourceTemplateId { get; set; }
 
         /// <summary>
         /// Элемент шаблона
         /// </summary>
         [XmlElement("target_template_id")]
-        public double? TargetTemplateId { get; set; }
+        public long? TargetTemplateId { get; set; }
     }
 
     public class WebModeDocumentView

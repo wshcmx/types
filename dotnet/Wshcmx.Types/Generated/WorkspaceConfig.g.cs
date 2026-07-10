@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// WorkSpace активен
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Значок веб-сайта (favicon)
         /// </summary>
         [XmlElement("favicon_id")]
-        public double? FaviconId { get; set; }
+        public long? FaviconId { get; set; }
 
         [XmlElement("conversation_block")]
         public WorkspaceConfigDocumentConversationBlock? ConversationBlock { get; set; }
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         /// Максимальное число участников в звонке
         /// </summary>
         [XmlElement("limit_participant")]
-        public double? LimitParticipant { get; set; }
+        public long? LimitParticipant { get; set; }
 
         /// <summary>
         /// Резервировать полосу пропускания для звонка
@@ -265,19 +265,19 @@ namespace Wshcmx.Types
         /// Лимит входящего трафика для участника звонка
         /// </summary>
         [XmlElement("max_incoming_bitrate")]
-        public double? MaxIncomingBitrate { get; set; }
+        public long? MaxIncomingBitrate { get; set; }
 
         /// <summary>
         /// Лимит исходящего трафика для участника звонка
         /// </summary>
         [XmlElement("max_outgoing_bitrate")]
-        public double? MaxOutgoingBitrate { get; set; }
+        public long? MaxOutgoingBitrate { get; set; }
 
         /// <summary>
         /// Число участников на странице по умолчанию
         /// </summary>
         [XmlElement("pagesize")]
-        public double? Pagesize { get; set; }
+        public long? Pagesize { get; set; }
 
         /// <summary>
         /// Выделять выступающего
@@ -289,19 +289,19 @@ namespace Wshcmx.Types
         /// Максимальное число выступающих для выделения
         /// </summary>
         [XmlElement("audio_max_entries")]
-        public double? AudioMaxEntries { get; set; }
+        public long? AudioMaxEntries { get; set; }
 
         /// <summary>
         /// Порог для определения выступающих
         /// </summary>
         [XmlElement("audio_min_threshold")]
-        public double? AudioMinThreshold { get; set; }
+        public long? AudioMinThreshold { get; set; }
 
         /// <summary>
         /// Интервал между проверками выступающих (в мс)
         /// </summary>
         [XmlElement("audio_interval")]
-        public double? AudioInterval { get; set; }
+        public long? AudioInterval { get; set; }
 
         /// <summary>
         /// Разрешить записывать звонки
@@ -394,7 +394,7 @@ namespace Wshcmx.Types
         /// Максимальная длина сообщения
         /// </summary>
         [XmlElement("max_message_length")]
-        public double? MaxMessageLength { get; set; }
+        public long? MaxMessageLength { get; set; }
     }
 
     public class WorkspaceConfigDocumentConversationBlockCollaboratorInfo
@@ -475,13 +475,13 @@ namespace Wshcmx.Types
         /// Максимальное число ведущих вебинара
         /// </summary>
         [XmlElement("limit_tutor")]
-        public double? LimitTutor { get; set; }
+        public long? LimitTutor { get; set; }
 
         /// <summary>
         /// Максимальное число участников вебинара
         /// </summary>
         [XmlElement("limit_participant")]
-        public double? LimitParticipant { get; set; }
+        public long? LimitParticipant { get; set; }
 
         /// <summary>
         /// Резервировать полосу пропускания для вебинара
@@ -493,13 +493,13 @@ namespace Wshcmx.Types
         /// Лимит входящего трафика для участника вебинара
         /// </summary>
         [XmlElement("max_incoming_bitrate")]
-        public double? MaxIncomingBitrate { get; set; }
+        public long? MaxIncomingBitrate { get; set; }
 
         /// <summary>
         /// Лимит исходящего трафика для участника вебинара
         /// </summary>
         [XmlElement("max_outgoing_bitrate")]
-        public double? MaxOutgoingBitrate { get; set; }
+        public long? MaxOutgoingBitrate { get; set; }
 
         /// <summary>
         /// Выделять выступающего
@@ -511,19 +511,19 @@ namespace Wshcmx.Types
         /// Максимальное число выступающих для выделения
         /// </summary>
         [XmlElement("audio_max_entries")]
-        public double? AudioMaxEntries { get; set; }
+        public long? AudioMaxEntries { get; set; }
 
         /// <summary>
         /// Порог для определения выступающих
         /// </summary>
         [XmlElement("audio_min_threshold")]
-        public double? AudioMinThreshold { get; set; }
+        public long? AudioMinThreshold { get; set; }
 
         /// <summary>
         /// Интервал между проверками выступающих (в мс)
         /// </summary>
         [XmlElement("audio_interval")]
-        public double? AudioInterval { get; set; }
+        public long? AudioInterval { get; set; }
 
         /// <summary>
         /// Максимально допустимое разрешение камеры
@@ -598,7 +598,7 @@ namespace Wshcmx.Types
     public class WorkspaceConfigDocumentTaskBlockTaskType
     {
         [XmlElement("task_type_id")]
-        public double? TaskTypeId { get; set; }
+        public long? TaskTypeId { get; set; }
     }
 
     public class WorkspaceConfigDocumentThemeBlock
@@ -631,7 +631,7 @@ namespace Wshcmx.Types
         /// Максимальная длина описания задачи
         /// </summary>
         [XmlElement("max_description_length")]
-        public double? MaxDescriptionLength { get; set; }
+        public long? MaxDescriptionLength { get; set; }
     }
 
     public class WorkspaceConfigDocumentWikiBlock

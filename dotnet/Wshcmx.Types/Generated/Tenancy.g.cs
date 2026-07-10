@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("code")]
         public string Code { get; set; }
@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         public string CreatorId { get; set; }
 
         [XmlElement("org_id")]
-        public double OrgId { get; set; }
+        public long OrgId { get; set; }
 
         [XmlElement("org_name")]
         public string OrgName { get; set; }
 
         [XmlElement("manager_id")]
-        public double ManagerId { get; set; }
+        public long ManagerId { get; set; }
 
         [XmlElement("limits")]
         public List<TenancyDocumentLimit> Limits { get; set; } = new List<TenancyDocumentLimit>();
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
     public class TenancyDocumentHost
     {
         [XmlElement("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("name")]
         public string Name { get; set; }
@@ -100,13 +100,13 @@ namespace Wshcmx.Types
     public class TenancyDocumentLimit
     {
         [XmlElement("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("type")]
         public string Type { get; set; }
 
         [XmlElement("limit")]
-        public double Limit { get; set; }
+        public long Limit { get; set; }
 
         [XmlElement("object_type")]
         public string ObjectType { get; set; }

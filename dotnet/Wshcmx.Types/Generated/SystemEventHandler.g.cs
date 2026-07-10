@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("exec_code")]
         public ExecCodeBaseExecCode? ExecCode { get; set; }
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Системное событие
         /// </summary>
         [XmlElement("system_event_id")]
-        public double? SystemEventId { get; set; }
+        public long? SystemEventId { get; set; }
 
         /// <summary>
         /// Условия выполнения
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Системное событие
         /// </summary>
         [XmlElement("last_system_event_id")]
-        public double? LastSystemEventId { get; set; }
+        public long? LastSystemEventId { get; set; }
 
         /// <summary>
         /// Включен

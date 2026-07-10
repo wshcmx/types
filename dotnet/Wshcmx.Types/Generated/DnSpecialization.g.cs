@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Специальность
         /// </summary>
         [XmlElement("speciality_id")]
-        public double? SpecialityId { get; set; }
+        public long? SpecialityId { get; set; }
 
         /// <summary>
         /// Описание

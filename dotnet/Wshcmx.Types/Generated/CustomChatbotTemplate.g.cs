@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -103,13 +103,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CustomChatbotTemplateDocumentIncludeCustomChatbotTemplate
     {
         [XmlElement("include_custom_chatbot_template_id")]
-        public double? IncludeCustomChatbotTemplateId { get; set; }
+        public long? IncludeCustomChatbotTemplateId { get; set; }
     }
 
     public class CustomChatbotTemplateDocumentView

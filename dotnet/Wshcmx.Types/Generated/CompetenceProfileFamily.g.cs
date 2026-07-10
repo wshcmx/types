@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
     public class CompetenceProfileFamilyDocumentCompetenceProfile
     {
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
     }
 
     public class CompetenceProfileFamilyDocumentView

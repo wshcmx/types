@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [Column("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Тип бюджета
         /// </summary>
         [Column("type_id")]
-        public double? TypeId { get; set; }
+        public long? TypeId { get; set; }
 
         /// <summary>
         /// Статус
@@ -85,19 +85,19 @@ namespace Wshcmx.Types
         /// Центр затрат
         /// </summary>
         [Column("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Статья затрат
         /// </summary>
         [Column("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         /// <summary>
         /// Дата модификации

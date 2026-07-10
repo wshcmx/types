@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,25 +49,25 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [Column("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Родительская статья
         /// </summary>
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Справка
         /// </summary>
         [Column("book_id")]
-        public double? BookId { get; set; }
+        public long? BookId { get; set; }
 
         /// <summary>
         /// Материал библиотеки
         /// </summary>
         [Column("library_material_id")]
-        public double? LibraryMaterialId { get; set; }
+        public long? LibraryMaterialId { get; set; }
 
         /// <summary>
         /// Значения карты знаний

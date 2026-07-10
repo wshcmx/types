@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Действует
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
     public class SubstitutionTypeDocumentOperation
     {
         [XmlElement("operation_id")]
-        public double? OperationId { get; set; }
+        public long? OperationId { get; set; }
 
         [XmlElement("operation_code")]
         public string? OperationCode { get; set; }
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
     public class SubstitutionTypeDocumentRemoteAction
     {
         [XmlElement("remote_action_id")]
-        public double? RemoteActionId { get; set; }
+        public long? RemoteActionId { get; set; }
 
         [XmlElement("remote_action_code")]
         public string? RemoteActionCode { get; set; }

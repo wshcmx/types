@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("create_date")]
         public DateTime CreateDate { get; set; }
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         public bool AllMessageRead { get; set; }
 
         [XmlElement("count_message")]
-        public double CountMessage { get; set; }
+        public long CountMessage { get; set; }
 
         [XmlElement("has_link")]
         public bool HasLink { get; set; }
@@ -70,10 +70,10 @@ namespace Wshcmx.Types
         public List<BlockMessageDocumentRecipient> Recipients { get; set; } = new List<BlockMessageDocumentRecipient>();
 
         [XmlElement("recipient_id")]
-        public List<double> RecipientId { get; set; } = new List<double>();
+        public List<long> RecipientId { get; set; } = new List<long>();
 
         [XmlElement("unread_recipient_id")]
-        public List<double> UnreadRecipientId { get; set; } = new List<double>();
+        public List<long> UnreadRecipientId { get; set; } = new List<long>();
 
         [XmlElement("doc_info")]
         public DocInfoBase DocInfo { get; set; }
@@ -94,7 +94,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -172,16 +172,16 @@ namespace Wshcmx.Types
         public string MessageId { get; set; }
 
         [XmlElement("block_message_id")]
-        public double BlockMessageId { get; set; }
+        public long BlockMessageId { get; set; }
 
         [XmlElement("conversation_id")]
-        public double ConversationId { get; set; }
+        public long ConversationId { get; set; }
     }
 
     public class BlockMessageDocumentMessageRecipient
     {
         [XmlElement("person_id")]
-        public double PersonId { get; set; }
+        public long PersonId { get; set; }
 
         [XmlElement("state_id")]
         public string StateId { get; set; }
@@ -193,13 +193,13 @@ namespace Wshcmx.Types
         public string MessageId { get; set; }
 
         [XmlElement("block_message_id")]
-        public double BlockMessageId { get; set; }
+        public long BlockMessageId { get; set; }
     }
 
     public class BlockMessageDocumentRecipient
     {
         [XmlElement("person_id")]
-        public double PersonId { get; set; }
+        public long PersonId { get; set; }
 
         [XmlElement("conversation_state")]
         public string ConversationState { get; set; }

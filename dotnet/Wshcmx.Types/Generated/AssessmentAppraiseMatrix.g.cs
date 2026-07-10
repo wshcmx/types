@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
     public class AssessmentAppraiseMatrixDocumentTimeTableScheduleTarget
     {
         [XmlElement("stage")]
-        public double? Stage { get; set; }
+        public long? Stage { get; set; }
 
         [XmlElement("period_id")]
         public string? PeriodId { get; set; }

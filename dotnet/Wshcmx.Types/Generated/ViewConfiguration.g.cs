@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("disp_second_new_button")]
         public bool DispSecondNewButton { get; set; }
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// UI шаблон плашки
         /// </summary>
         [XmlElement("row_custom_admin_template_id")]
-        public double? RowCustomAdminTemplateId { get; set; }
+        public long? RowCustomAdminTemplateId { get; set; }
 
         [XmlElement("row_admin_template")]
         public WebVariablesBase? RowAdminTemplate { get; set; }
@@ -121,13 +121,13 @@ namespace Wshcmx.Types
         /// UI шаблон превью
         /// </summary>
         [XmlElement("preview_custom_admin_template_id")]
-        public double? PreviewCustomAdminTemplateId { get; set; }
+        public long? PreviewCustomAdminTemplateId { get; set; }
 
         /// <summary>
         /// Тип страницы превью
         /// </summary>
         [XmlElement("preview_custom_web_mode_id")]
-        public double? PreviewCustomWebModeId { get; set; }
+        public long? PreviewCustomWebModeId { get; set; }
 
         /// <summary>
         /// UI шаблон превью
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// UI шаблон
         /// </summary>
         [XmlElement("custom_admin_template_id")]
-        public double? CustomAdminTemplateId { get; set; }
+        public long? CustomAdminTemplateId { get; set; }
 
         /// <summary>
         /// Поле с ID документа
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Выборка данных
         /// </summary>
         [XmlElement("remote_collection_id")]
-        public double? RemoteCollectionId { get; set; }
+        public long? RemoteCollectionId { get; set; }
 
         [XmlElement("category")]
         public MsViewConfigurationBaseCategory? Category { get; set; }
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Комментарий

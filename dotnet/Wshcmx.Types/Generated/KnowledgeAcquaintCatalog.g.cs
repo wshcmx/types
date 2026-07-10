@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Значение карты знаний
         /// </summary>
         [Column("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         /// <summary>
         /// Значение карты знаний
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Уровень
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Индекс уровня
         /// </summary>
         [Column("level_index")]
-        public double? LevelIndex { get; set; }
+        public long? LevelIndex { get; set; }
 
         /// <summary>
         /// Уровень
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Связанный объект
         /// </summary>
         [Column("sec_object_id")]
-        public double? SecObjectId { get; set; }
+        public long? SecObjectId { get; set; }
 
         /// <summary>
         /// Название связанного объекта
@@ -193,13 +193,13 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [Column("confirmation_boss_type_id")]
-        public double? ConfirmationBossTypeId { get; set; }
+        public long? ConfirmationBossTypeId { get; set; }
 
         /// <summary>
         /// Участник проекта
         /// </summary>
         [Column("project_participant_id")]
-        public double? ProjectParticipantId { get; set; }
+        public long? ProjectParticipantId { get; set; }
 
         /// <summary>
         /// Дата модификации

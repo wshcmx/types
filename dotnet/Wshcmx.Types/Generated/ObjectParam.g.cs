@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -109,6 +109,6 @@ namespace Wshcmx.Types
     public class ObjectParamDocumentView
     {
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
     }
 }

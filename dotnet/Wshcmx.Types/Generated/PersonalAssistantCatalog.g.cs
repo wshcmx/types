@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Активное уведомление
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -67,6 +67,13 @@ namespace Wshcmx.Types
         /// Чат-боты
         /// </summary>
         [Column("chatbot_ids")]
-        public List<double> ChatbotIds { get; set; } = new List<double>();
+        public string? ChatbotIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ChatbotIds
+        {
+            get => XmlListCodec.ParseLongList(ChatbotIdsRaw, "chatbot_ids");
+            set => ChatbotIdsRaw = XmlListCodec.SerializeLongList("chatbot_ids", value);
+        }
     }
 }

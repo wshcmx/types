@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,19 +43,26 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [Column("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public string? KpiProfilesIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> KpiProfilesId
+        {
+            get => XmlListCodec.ParseLongList(KpiProfilesIdRaw, "kpi_profiles_id");
+            set => KpiProfilesIdRaw = XmlListCodec.SerializeLongList("kpi_profiles_id", value);
+        }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [Column("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Дата модификации

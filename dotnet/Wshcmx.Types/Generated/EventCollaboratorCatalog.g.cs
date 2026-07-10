@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [Column("event_type_id")]
-        public double? EventTypeId { get; set; }
+        public long? EventTypeId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Количество неименованных участников
         /// </summary>
         [Column("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         /// <summary>
         /// Организационная форма
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Название обучающей организации
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Общая стоимость
         /// </summary>
         [Column("total_cost")]
-        public double? TotalCost { get; set; }
+        public long? TotalCost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -109,13 +109,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Является публичным
@@ -136,31 +136,31 @@ namespace Wshcmx.Types
         /// Фактическое количество часов
         /// </summary>
         [Column("duration_fact")]
-        public double? DurationFact { get; set; }
+        public long? DurationFact { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// Учебная программа
         /// </summary>
         [Column("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Набор программ
         /// </summary>
         [Column("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         /// <summary>
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Имя сотрудника

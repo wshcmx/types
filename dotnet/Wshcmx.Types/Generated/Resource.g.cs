@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -61,10 +61,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -154,19 +154,19 @@ namespace Wshcmx.Types
         /// Размер
         /// </summary>
         [XmlElement("size")]
-        public double? Size { get; set; }
+        public long? Size { get; set; }
 
         /// <summary>
         /// Ссылок на ресурс
         /// </summary>
         [XmlElement("use_count")]
-        public double UseCount { get; set; }
+        public long UseCount { get; set; }
 
         /// <summary>
         /// Владелец ресурса
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -178,13 +178,13 @@ namespace Wshcmx.Types
         /// Источник
         /// </summary>
         [XmlElement("file_source")]
-        public double? FileSource { get; set; }
+        public long? FileSource { get; set; }
 
         /// <summary>
         /// Тип ресурса базы
         /// </summary>
         [XmlElement("resource_type_id")]
-        public double? ResourceTypeId { get; set; }
+        public long? ResourceTypeId { get; set; }
 
         [XmlElement("file_path")]
         public string? FilePath { get; set; }
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Проигрыватель файлов
         /// </summary>
         [XmlElement("library_player_id")]
-        public double? LibraryPlayerId { get; set; }
+        public long? LibraryPlayerId { get; set; }
 
         /// <summary>
         /// Дополнительные файлы
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class ResourceDocumentFileUrl
@@ -280,13 +280,13 @@ namespace Wshcmx.Types
         /// Размер
         /// </summary>
         [XmlElement("size")]
-        public double? Size { get; set; }
+        public long? Size { get; set; }
     }
 
     public class ResourceDocumentLink
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("object_catalog")]
         public string? ObjectCatalog { get; set; }
@@ -310,16 +310,16 @@ namespace Wshcmx.Types
         public string? Class { get; set; }
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("file_id")]
-        public double? FileId { get; set; }
+        public long? FileId { get; set; }
 
         [XmlElement("current_slide_id")]
-        public double? CurrentSlideId { get; set; }
+        public long? CurrentSlideId { get; set; }
 
         [XmlElement("slides")]
         public List<ResourceDocumentPresentationSlide> Slides { get; set; } = new List<ResourceDocumentPresentationSlide>();
@@ -331,13 +331,13 @@ namespace Wshcmx.Types
         public string? Class { get; set; }
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
 
         [XmlElement("shapes")]
         public List<ResourceDocumentPresentationSlideShape> Shapes { get; set; } = new List<ResourceDocumentPresentationSlideShape>();
@@ -385,19 +385,19 @@ namespace Wshcmx.Types
         public string? Height { get; set; }
 
         [XmlElement("lineWidth")]
-        public double? LineWidth { get; set; }
+        public long? LineWidth { get; set; }
 
         [XmlElement("fillStartColor")]
-        public double? FillStartColor { get; set; }
+        public long? FillStartColor { get; set; }
 
         [XmlElement("fillEndColor")]
-        public double? FillEndColor { get; set; }
+        public long? FillEndColor { get; set; }
 
         [XmlElement("useGradient")]
         public bool? UseGradient { get; set; }
 
         [XmlElement("lineColor")]
-        public double? LineColor { get; set; }
+        public long? LineColor { get; set; }
 
         [XmlElement("opacity")]
         public string? Opacity { get; set; }
@@ -421,13 +421,13 @@ namespace Wshcmx.Types
         public string? Quality { get; set; }
 
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         [XmlElement("playing")]
         public bool? Playing { get; set; }
 
         [XmlElement("lastPlayingTime")]
-        public double? LastPlayingTime { get; set; }
+        public long? LastPlayingTime { get; set; }
 
         [XmlElement("points")]
         public List<ResourceDocumentPresentationSlideShapePoint> Points { get; set; } = new List<ResourceDocumentPresentationSlideShapePoint>();
@@ -463,10 +463,10 @@ namespace Wshcmx.Types
         public string? PicPath { get; set; }
 
         [XmlElement("new_width")]
-        public double? NewWidth { get; set; }
+        public long? NewWidth { get; set; }
 
         [XmlElement("new_height")]
-        public double? NewHeight { get; set; }
+        public long? NewHeight { get; set; }
 
         [XmlElement("proportional")]
         public bool Proportional { get; set; }

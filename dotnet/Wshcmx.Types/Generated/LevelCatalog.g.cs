@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Предыдущий уровень
         /// </summary>
         [Column("prev_level_id")]
-        public double? PrevLevelId { get; set; }
+        public long? PrevLevelId { get; set; }
 
         /// <summary>
         /// Валюта
@@ -46,10 +46,10 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [Column("min_value")]
-        public double? MinValue { get; set; }
+        public long? MinValue { get; set; }
 
         [Column("max_value")]
-        public double? MaxValue { get; set; }
+        public long? MaxValue { get; set; }
 
         /// <summary>
         /// Дата модификации

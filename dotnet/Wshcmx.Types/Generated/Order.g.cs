@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("goods")]
         public List<OrderDocumentGood> Goods { get; set; } = new List<OrderDocumentGood>();
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
     public class OrderDocumentGood
     {
         [XmlElement("good_id")]
-        public double? GoodId { get; set; }
+        public long? GoodId { get; set; }
 
         /// <summary>
         /// Название
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         /// Количество
         /// </summary>
         [XmlElement("number")]
-        public double Number { get; set; }
+        public long Number { get; set; }
 
         /// <summary>
         /// Дата резервирования
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double Cost { get; set; }
+        public long Cost { get; set; }
 
         [XmlElement("hier_expanded")]
         public bool? HierExpanded { get; set; }
@@ -226,13 +226,13 @@ namespace Wshcmx.Types
         /// Заявка
         /// </summary>
         [XmlElement("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
     }
 
     public class OrderDocumentGoodGoodInstance
     {
         [XmlElement("good_instance_id")]
-        public double? GoodInstanceId { get; set; }
+        public long? GoodInstanceId { get; set; }
 
         /// <summary>
         /// Название
@@ -250,7 +250,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double Cost { get; set; }
+        public long Cost { get; set; }
 
         /// <summary>
         /// Дата резервирования
@@ -268,6 +268,6 @@ namespace Wshcmx.Types
         /// Заявка
         /// </summary>
         [XmlElement("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
     }
 }

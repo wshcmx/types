@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Переменные
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Сообщение при подаче заявки
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода (метод onProcessing)
         /// </summary>
         [XmlElement("processing_code_library_id")]
-        public double? ProcessingCodeLibraryId { get; set; }
+        public long? ProcessingCodeLibraryId { get; set; }
 
         /// <summary>
         /// Программный код, выполняемый при отмене заявки данного типа
@@ -157,13 +157,13 @@ namespace Wshcmx.Types
         /// Библиотека программного кода (метод onReject)
         /// </summary>
         [XmlElement("reject_processing_code_library_id")]
-        public double? RejectProcessingCodeLibraryId { get; set; }
+        public long? RejectProcessingCodeLibraryId { get; set; }
 
         /// <summary>
         /// Шаблон документа заявки
         /// </summary>
         [XmlElement("request_custom_web_template_id")]
-        public double? RequestCustomWebTemplateId { get; set; }
+        public long? RequestCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Адрес перехода после подачи
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Удаленное действие
         /// </summary>
         [XmlElement("remote_action_id")]
-        public double? RemoteActionId { get; set; }
+        public long? RemoteActionId { get; set; }
 
         /// <summary>
         /// Доступ
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class RequestTypeDocumentCreateCode
@@ -238,6 +238,6 @@ namespace Wshcmx.Types
         /// Библиотека программного кода (метод onCreate)
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
     }
 }

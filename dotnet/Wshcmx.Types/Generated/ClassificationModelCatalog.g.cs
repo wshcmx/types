@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,25 +37,25 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Требуемая вероятность классификации
         /// </summary>
         [Column("required_probability")]
-        public double? RequiredProbability { get; set; }
+        public long? RequiredProbability { get; set; }
 
         /// <summary>
         /// Библиотека модели
         /// </summary>
         [Column("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Библиотека обработки классификаторов
         /// </summary>
         [Column("processing_code_library_id")]
-        public double? ProcessingCodeLibraryId { get; set; }
+        public long? ProcessingCodeLibraryId { get; set; }
 
         /// <summary>
         /// Дата модификации

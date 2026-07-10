@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Задание
         /// </summary>
         [Column("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
 
         /// <summary>
         /// Название задания
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО пользователя
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Эксперт
         /// </summary>
         [Column("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Статус
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [Column("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Дата назначения
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Продолжительность выполнения
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Просрочено
@@ -139,13 +139,13 @@ namespace Wshcmx.Types
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Незаконченный электронный курс
         /// </summary>
         [Column("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         /// <summary>
         /// Дата модификации

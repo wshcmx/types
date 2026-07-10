@@ -16,16 +16,16 @@ namespace Wshcmx.Types
     public class ConnectionCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [Column("part_code")]
         public string? PartCode { get; set; }
 
         [Column("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         [Column("user_code")]
         public string? UserCode { get; set; }
@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? UserFullname { get; set; }
 
         [Column("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         [Column("learning_xml")]
         public string? LearningXml { get; set; }

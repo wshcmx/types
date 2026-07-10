@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Версия
         /// </summary>
         [XmlElement("version")]
-        public double? Version { get; set; }
+        public long? Version { get; set; }
 
         [XmlElement("history_logs")]
         public List<PluginDocumentHistoryLog> HistoryLogs { get; set; } = new List<PluginDocumentHistoryLog>();
@@ -76,13 +76,13 @@ namespace Wshcmx.Types
         /// Версия
         /// </summary>
         [XmlElement("version")]
-        public double? Version { get; set; }
+        public long? Version { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class PluginDocumentView

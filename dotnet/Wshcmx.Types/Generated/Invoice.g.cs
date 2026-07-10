@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -49,25 +49,25 @@ namespace Wshcmx.Types
         /// Итоговая сумма
         /// </summary>
         [XmlElement("amount")]
-        public double? Amount { get; set; }
+        public long? Amount { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Транзакция
         /// </summary>
         [XmlElement("transaction_id")]
-        public double? TransactionId { get; set; }
+        public long? TransactionId { get; set; }
 
         /// <summary>
         /// Заявка
         /// </summary>
         [XmlElement("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Курсы
@@ -106,15 +106,15 @@ namespace Wshcmx.Types
     public class InvoiceDocumentCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [XmlElement("price")]
-        public double? Price { get; set; }
+        public long? Price { get; set; }
 
         [XmlElement("units_num")]
-        public double UnitsNum { get; set; }
+        public long UnitsNum { get; set; }
     }
 }

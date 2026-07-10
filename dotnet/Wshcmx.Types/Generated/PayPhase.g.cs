@@ -21,7 +21,7 @@ namespace Wshcmx.Types
         public DateTime? Date { get; set; }
 
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
     }
 
     public class PayDocBase
@@ -30,13 +30,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -51,7 +51,7 @@ namespace Wshcmx.Types
         public DateTime? Date { get; set; }
 
         [XmlElement("nds")]
-        public double? Nds { get; set; }
+        public long? Nds { get; set; }
 
         [XmlElement("exemption_nds")]
         public string? ExemptionNds { get; set; }
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         public List<CostCentersBaseCostCenter> CostCenters { get; set; } = new List<CostCentersBaseCostCenter>();
 
         [XmlElement("expense_sum")]
-        public double? ExpenseSum { get; set; }
+        public long? ExpenseSum { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Название
@@ -112,19 +112,19 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [XmlElement("contract_id")]
-        public double? ContractId { get; set; }
+        public long? ContractId { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("nds_rate")]
-        public double? NdsRate { get; set; }
+        public long? NdsRate { get; set; }
 
         [XmlElement("distribute_cost_type")]
         public string DistributeCostType { get; set; }
@@ -139,10 +139,10 @@ namespace Wshcmx.Types
         /// Количество неименованных участников
         /// </summary>
         [XmlElement("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         [XmlElement("unnamed_person_sum")]
-        public double? UnnamedPersonSum { get; set; }
+        public long? UnnamedPersonSum { get; set; }
 
         /// <summary>
         /// Платежи
@@ -175,13 +175,13 @@ namespace Wshcmx.Types
         public PayDocBase? Invoice2 { get; set; }
 
         [XmlElement("invoice_sum")]
-        public double? InvoiceSum { get; set; }
+        public long? InvoiceSum { get; set; }
 
         [XmlElement("draft_sum")]
-        public double? DraftSum { get; set; }
+        public long? DraftSum { get; set; }
 
         [XmlElement("act_sum")]
-        public double? ActSum { get; set; }
+        public long? ActSum { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -226,7 +226,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -271,13 +271,13 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("expense_items")]
         public List<PayPhaseDocumentCollaboratorExpenseItem> ExpenseItems { get; set; } = new List<PayPhaseDocumentCollaboratorExpenseItem>();
 
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("not_pay")]
         public bool? NotPay { get; set; }
@@ -286,10 +286,10 @@ namespace Wshcmx.Types
     public class PayPhaseDocumentCollaboratorExpenseItem
     {
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
     }
 
     public class PayPhaseDocumentExpense
@@ -355,13 +355,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -376,7 +376,7 @@ namespace Wshcmx.Types
         public DateTime? Date { get; set; }
 
         [XmlElement("nds")]
-        public double? Nds { get; set; }
+        public long? Nds { get; set; }
 
         [XmlElement("exemption_nds")]
         public string? ExemptionNds { get; set; }

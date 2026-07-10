@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Материал библиотеки
         /// </summary>
         [Column("material_id")]
-        public double? MaterialId { get; set; }
+        public long? MaterialId { get; set; }
 
         /// <summary>
         /// Название материала
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Продолжительность просмотра
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Начало просмотра
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("creation_user_id")]
-        public double? CreationUserId { get; set; }
+        public long? CreationUserId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("modification_user_id")]
-        public double? ModificationUserId { get; set; }
+        public long? ModificationUserId { get; set; }
 
         /// <summary>
         /// Код сервера

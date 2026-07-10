@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
     public class RewardTypesDocumentBudgetPeriod
     {
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Название
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Численность
         /// </summary>
         [XmlElement("quantity")]
-        public double? Quantity { get; set; }
+        public long? Quantity { get; set; }
 
         /// <summary>
         /// Комментарий

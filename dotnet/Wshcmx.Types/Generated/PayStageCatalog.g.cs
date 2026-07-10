@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,25 +49,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Организация клиента
         /// </summary>
         [Column("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [Column("sale_contract_id")]
-        public double? SaleContractId { get; set; }
+        public long? SaleContractId { get; set; }
 
         /// <summary>
         /// Договор с клиентом партнёра
         /// </summary>
         [Column("agent_contract_id")]
-        public double? AgentContractId { get; set; }
+        public long? AgentContractId { get; set; }
 
         /// <summary>
         /// Агентский договор
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Организация-партнёр
         /// </summary>
         [Column("agent_org_id")]
-        public double? AgentOrgId { get; set; }
+        public long? AgentOrgId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -109,19 +109,19 @@ namespace Wshcmx.Types
         /// Минимальная сумма
         /// </summary>
         [Column("min_cost")]
-        public double? MinCost { get; set; }
+        public long? MinCost { get; set; }
 
         /// <summary>
         /// Максимальная сумма
         /// </summary>
         [Column("max_cost")]
-        public double? MaxCost { get; set; }
+        public long? MaxCost { get; set; }
 
         /// <summary>
         /// Фактическая сумма
         /// </summary>
         [Column("fact_cost")]
-        public double? FactCost { get; set; }
+        public long? FactCost { get; set; }
 
         /// <summary>
         /// Тип
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Центр затрат
         /// </summary>
         [Column("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -163,6 +163,6 @@ namespace Wshcmx.Types
         /// Срок автозакрытия (дней)
         /// </summary>
         [Column("autoclosing_period")]
-        public double? AutoclosingPeriod { get; set; }
+        public long? AutoclosingPeriod { get; set; }
     }
 }

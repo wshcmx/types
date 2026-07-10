@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Порт
         /// </summary>
         [XmlElement("port")]
-        public double? Port { get; set; }
+        public long? Port { get; set; }
 
         /// <summary>
         /// Тип портала
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Настройка мобильного приложения
         /// </summary>
         [XmlElement("mobile_app_config_id")]
-        public double? MobileAppConfigId { get; set; }
+        public long? MobileAppConfigId { get; set; }
 
         /// <summary>
         /// Аутентификация на портале (по умолчанию)
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Период хранения (часов)
         /// </summary>
         [XmlElement("auth_cookie_period")]
-        public double? AuthCookiePeriod { get; set; }
+        public long? AuthCookiePeriod { get; set; }
 
         /// <summary>
         /// Отображать поля для ввода логина и пароля
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Тип авторизации
         /// </summary>
         [XmlElement("auth_type_id")]
-        public double? AuthTypeId { get; set; }
+        public long? AuthTypeId { get; set; }
 
         /// <summary>
         /// Дополнительные правила авторизации
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         /// Тип авторизации
         /// </summary>
         [XmlElement("auth_type_id")]
-        public double? AuthTypeId { get; set; }
+        public long? AuthTypeId { get; set; }
     }
 
     public class HostDocumentHeaderHost
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Конфигурация Workspace
         /// </summary>
         [XmlElement("workspace_config_id")]
-        public double? WorkspaceConfigId { get; set; }
+        public long? WorkspaceConfigId { get; set; }
 
         [XmlElement("group_block")]
         public HostDocumentWorkspaceConfigBlockWorkspaceConfigGroupBlock? GroupBlock { get; set; }
@@ -289,7 +289,7 @@ namespace Wshcmx.Types
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class HostDocumentWorkspaceConfigBlockWorkspaceConfigOrgBlock
@@ -304,6 +304,6 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
     }
 }

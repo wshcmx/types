@@ -34,22 +34,22 @@ namespace Wshcmx.Types
         /// Порог
         /// </summary>
         [XmlElement("threshold")]
-        public double? Threshold { get; set; }
+        public long? Threshold { get; set; }
 
         /// <summary>
         /// Вызов
         /// </summary>
         [XmlElement("challenge")]
-        public double? Challenge { get; set; }
+        public long? Challenge { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("kpi_plan_id")]
-        public double? KpiPlanId { get; set; }
+        public long? KpiPlanId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

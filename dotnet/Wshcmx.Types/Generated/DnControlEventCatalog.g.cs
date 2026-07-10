@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,37 +61,37 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [Column("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [Column("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [Column("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Форма итогового контроля
         /// </summary>
         [Column("control_form_id")]
-        public double? ControlFormId { get; set; }
+        public long? ControlFormId { get; set; }
 
         [Column("lesson_id")]
-        public double? LessonId { get; set; }
+        public long? LessonId { get; set; }
 
         [Column("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Учебная группа
         /// </summary>
         [Column("stud_group_id")]
-        public double? StudGroupId { get; set; }
+        public long? StudGroupId { get; set; }
 
         /// <summary>
         /// Дата модификации

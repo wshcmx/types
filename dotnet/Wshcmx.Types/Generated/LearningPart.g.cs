@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("learning_id")]
-        public double? LearningId { get; set; }
+        public long? LearningId { get; set; }
 
         /// <summary>
         /// Об объекте
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
     public class LearningPartDocumentView
     {
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("result_tab_selector")]
         public string ResultTabSelector { get; set; }

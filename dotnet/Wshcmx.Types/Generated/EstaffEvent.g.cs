@@ -61,19 +61,19 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Вакансия
         /// </summary>
         [XmlElement("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Заявка
         /// </summary>
         [XmlElement("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Код события
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Тип события E-Staff
         /// </summary>
         [XmlElement("estaff_event_type_id")]
-        public double? EstaffEventTypeId { get; set; }
+        public long? EstaffEventTypeId { get; set; }
 
         /// <summary>
         /// Тип события E-Staff
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         public string? EventStatusId { get; set; }
 
         [XmlElement("estaff_event_eid")]
-        public double? EstaffEventEid { get; set; }
+        public long? EstaffEventEid { get; set; }
 
         /// <summary>
         /// Ответственные за проведение
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -253,13 +253,13 @@ namespace Wshcmx.Types
         /// Ответственный за проведение
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class EstaffEventDocumentObject
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
     }
 
     public class EstaffEventDocumentView

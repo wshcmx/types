@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [Column("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Уровень риска
         /// </summary>
         [Column("risk_perspective_id")]
-        public double? RiskPerspectiveId { get; set; }
+        public long? RiskPerspectiveId { get; set; }
 
         /// <summary>
         /// Степени риска
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Угроза ключевой должности
         /// </summary>
         [Column("key_position_threat_id")]
-        public double? KeyPositionThreatId { get; set; }
+        public long? KeyPositionThreatId { get; set; }
 
         /// <summary>
         /// Тип кадрового резерва
         /// </summary>
         [Column("career_reserve_type_id")]
-        public double? CareerReserveTypeId { get; set; }
+        public long? CareerReserveTypeId { get; set; }
 
         /// <summary>
         /// Статус
@@ -133,6 +133,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
     }
 }

@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,37 +49,37 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [Column("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [Column("contract_id")]
-        public double? ContractId { get; set; }
+        public long? ContractId { get; set; }
 
         /// <summary>
         /// Тип проекта
         /// </summary>
         [Column("project_type_id")]
-        public double? ProjectTypeId { get; set; }
+        public long? ProjectTypeId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [Column("sale_contract_id")]
-        public double? SaleContractId { get; set; }
+        public long? SaleContractId { get; set; }
 
         /// <summary>
         /// Статус
@@ -97,25 +97,25 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Плановые трудозатраты
         /// </summary>
         [Column("plan_labor_costs")]
-        public double? PlanLaborCosts { get; set; }
+        public long? PlanLaborCosts { get; set; }
 
         /// <summary>
         /// Фактические трудозатраты
         /// </summary>
         [Column("fact_labor_costs")]
-        public double? FactLaborCosts { get; set; }
+        public long? FactLaborCosts { get; set; }
 
         /// <summary>
         /// Процент выполнения
         /// </summary>
         [Column("percent_complete")]
-        public double? PercentComplete { get; set; }
+        public long? PercentComplete { get; set; }
 
         /// <summary>
         /// Команда подобрана
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Тип ресурса базы
         /// </summary>
         [Column("resource_type_id")]
-        public double? ResourceTypeId { get; set; }
+        public long? ResourceTypeId { get; set; }
 
         /// <summary>
         /// Все участники могут видеть все задачи проекта
@@ -193,6 +193,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
     }
 }

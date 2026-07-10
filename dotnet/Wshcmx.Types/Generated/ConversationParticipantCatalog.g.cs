@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Статус
@@ -151,12 +151,12 @@ namespace Wshcmx.Types
         /// Разговор
         /// </summary>
         [Column("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Timestamp последнего прочитанного сообщения
         /// </summary>
         [Column("timestamp")]
-        public double? Timestamp { get; set; }
+        public long? Timestamp { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -43,19 +43,19 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [XmlElement("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         [XmlElement("prog_discipl_id")]
-        public double? ProgDisciplId { get; set; }
+        public long? ProgDisciplId { get; set; }
 
         /// <summary>
         /// Форма итогового контроля
         /// </summary>
         [XmlElement("control_form_id")]
-        public double? ControlFormId { get; set; }
+        public long? ControlFormId { get; set; }
 
         /// <summary>
         /// Тип
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         public string? ThemeCourseWork { get; set; }
 
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("contrl_term_events")]
         public List<DnIndEducatPlanDocumentContrlTermEvent> ContrlTermEvents { get; set; } = new List<DnIndEducatPlanDocumentContrlTermEvent>();
@@ -94,7 +94,7 @@ namespace Wshcmx.Types
         /// Тема
         /// </summary>
         [XmlElement("theme_id")]
-        public double? ThemeId { get; set; }
+        public long? ThemeId { get; set; }
 
         /// <summary>
         /// Дата
@@ -106,25 +106,25 @@ namespace Wshcmx.Types
         /// Вид контрольного мероприятия
         /// </summary>
         [XmlElement("kind_term_event")]
-        public double? KindTermEvent { get; set; }
+        public long? KindTermEvent { get; set; }
 
         /// <summary>
         /// Форма проведения
         /// </summary>
         [XmlElement("form_term_event")]
-        public double? FormTermEvent { get; set; }
+        public long? FormTermEvent { get; set; }
 
         /// <summary>
         /// Количество баллов (мин.)
         /// </summary>
         [XmlElement("mark_min")]
-        public double? MarkMin { get; set; }
+        public long? MarkMin { get; set; }
 
         /// <summary>
         /// Количество баллов (макс.)
         /// </summary>
         [XmlElement("mark_max")]
-        public double? MarkMax { get; set; }
+        public long? MarkMax { get; set; }
     }
 
     public class DnIndEducatPlanDocumentView

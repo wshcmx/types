@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Дата
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Сообщение блога
         /// </summary>
         [XmlElement("blog_entry_id")]
-        public double? BlogEntryId { get; set; }
+        public long? BlogEntryId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Автор
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -82,13 +82,13 @@ namespace Wshcmx.Types
         /// Родительский документ в иерархии
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Оценка
         /// </summary>
         [XmlElement("like_id")]
-        public double? LikeId { get; set; }
+        public long? LikeId { get; set; }
 
         /// <summary>
         /// Сообщение

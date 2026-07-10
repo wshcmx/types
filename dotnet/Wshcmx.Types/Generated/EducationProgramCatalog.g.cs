@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,12 +61,26 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Учебные программы
         /// </summary>
         [Column("education_methods_id")]
-        public List<double> EducationMethodsId { get; set; } = new List<double>();
+        public string? EducationMethodsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> EducationMethodsId
+        {
+            get => XmlListCodec.ParseLongList(EducationMethodsIdRaw, "education_methods_id");
+            set => EducationMethodsIdRaw = XmlListCodec.SerializeLongList("education_methods_id", value);
+        }
     }
 }

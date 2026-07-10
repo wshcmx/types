@@ -43,10 +43,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -118,25 +118,25 @@ namespace Wshcmx.Types
         /// Родительская статья
         /// </summary>
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Справка
         /// </summary>
         [XmlElement("book_id")]
-        public double? BookId { get; set; }
+        public long? BookId { get; set; }
 
         /// <summary>
         /// Материал библиотеки
         /// </summary>
         [XmlElement("library_material_id")]
-        public double? LibraryMaterialId { get; set; }
+        public long? LibraryMaterialId { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Комментарий

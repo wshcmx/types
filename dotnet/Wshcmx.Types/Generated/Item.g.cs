@@ -37,10 +37,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         public List<ClLocalizationsBaseLocalization> Localizations { get; set; } = new List<ClLocalizationsBaseLocalization>();
 
         [XmlElement("cl_localization_id")]
-        public double? ClLocalizationId { get; set; }
+        public long? ClLocalizationId { get; set; }
 
         [XmlElement("cl_localization_tip_text")]
         public string? ClLocalizationTipText { get; set; }
@@ -97,10 +97,10 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("code")]
         public string Code { get; set; }
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         public string QuestionText { get; set; }
 
         [XmlElement("question_points")]
-        public double QuestionPoints { get; set; }
+        public long QuestionPoints { get; set; }
 
         [XmlElement("image")]
         public ImageBase Image { get; set; }
@@ -133,13 +133,13 @@ namespace Wshcmx.Types
         public string ExpertEvalType { get; set; }
 
         [XmlElement("duration")]
-        public double Duration { get; set; }
+        public long Duration { get; set; }
 
         [XmlElement("max_attempts_num")]
-        public double MaxAttemptsNum { get; set; }
+        public long MaxAttemptsNum { get; set; }
 
         [XmlElement("maxnumber")]
-        public double Maxnumber { get; set; }
+        public long Maxnumber { get; set; }
 
         [XmlElement("display_correct_answer")]
         public bool DisplayCorrectAnswer { get; set; }
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         public bool UseLayout { get; set; }
 
         [XmlElement("layout_num")]
-        public double LayoutNum { get; set; }
+        public long LayoutNum { get; set; }
 
         [XmlElement("order")]
         public string Order { get; set; }
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         public DocInfoBase DocInfo { get; set; }
 
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class ItemDocumentAnswer
@@ -202,13 +202,13 @@ namespace Wshcmx.Types
         public List<ItemDocumentAnswerValue> Values { get; set; } = new List<ItemDocumentAnswerValue>();
 
         [XmlElement("rows")]
-        public double Rows { get; set; }
+        public long Rows { get; set; }
 
         [XmlElement("columns")]
-        public double Columns { get; set; }
+        public long Columns { get; set; }
 
         [XmlElement("ws_score")]
-        public double WsScore { get; set; }
+        public long WsScore { get; set; }
     }
 
     public class ItemDocumentAnswerCondition

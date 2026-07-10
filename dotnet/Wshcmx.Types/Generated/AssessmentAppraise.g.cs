@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Ответственный за проведение
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Объект оценки
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Кол-во
         /// </summary>
         [XmlElement("max_auditory")]
-        public double? MaxAuditory { get; set; }
+        public long? MaxAuditory { get; set; }
 
         /// <summary>
         /// Оцениваемые
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Документооборот
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Оцениваемые
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Матрица ответственности
         /// </summary>
         [XmlElement("assessment_appraise_matrix_id")]
-        public double? AssessmentAppraiseMatrixId { get; set; }
+        public long? AssessmentAppraiseMatrixId { get; set; }
 
         /// <summary>
         /// Роли оценки
@@ -256,7 +256,7 @@ namespace Wshcmx.Types
         /// Инструкция на портале
         /// </summary>
         [XmlElement("manual_document_id")]
-        public double? ManualDocumentId { get; set; }
+        public long? ManualDocumentId { get; set; }
 
         /// <summary>
         /// Стандартные комментарии
@@ -289,52 +289,52 @@ namespace Wshcmx.Types
         /// Журнал
         /// </summary>
         [XmlElement("report_id")]
-        public double? ReportId { get; set; }
+        public long? ReportId { get; set; }
 
         /// <summary>
         /// Настраиваемый шаблон, выполняющийся перед загрузкой каждой формы
         /// </summary>
         [XmlElement("prefix_custom_web_template_id")]
-        public double? PrefixCustomWebTemplateId { get; set; }
+        public long? PrefixCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Настраиваемый шаблон, заменяющий стандартное дерево
         /// </summary>
         [XmlElement("tree_custom_web_template_id")]
-        public double? TreeCustomWebTemplateId { get; set; }
+        public long? TreeCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Настраиваемый шаблон, заменяющий стандартный заголовок форм
         /// </summary>
         [XmlElement("header_web_template_id")]
-        public double? HeaderWebTemplateId { get; set; }
+        public long? HeaderWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон обработки данных
         /// </summary>
         [XmlElement("data_web_template_id")]
-        public double? DataWebTemplateId { get; set; }
+        public long? DataWebTemplateId { get; set; }
 
         /// <summary>
         /// Стили для формы оценки
         /// </summary>
         [XmlElement("css_template_id")]
-        public double? CssTemplateId { get; set; }
+        public long? CssTemplateId { get; set; }
 
         /// <summary>
         /// Шаблоны для формы оценки
         /// </summary>
         [XmlElement("xml_template_id")]
-        public double? XmlTemplateId { get; set; }
+        public long? XmlTemplateId { get; set; }
 
         /// <summary>
         /// Агент, запускаемый из панели инструментов процедуры
         /// </summary>
         [XmlElement("server_agent_id")]
-        public double? ServerAgentId { get; set; }
+        public long? ServerAgentId { get; set; }
 
         [XmlElement("player")]
-        public double Player { get; set; }
+        public long Player { get; set; }
 
         [XmlElement("view")]
         public AssessmentAppraiseDocumentView? View { get; set; }
@@ -349,13 +349,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class AssessmentAppraiseDocumentAdministrator
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_name")]
         public string? PersonName { get; set; }
@@ -367,7 +367,7 @@ namespace Wshcmx.Types
     public class AssessmentAppraiseDocumentAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("assessment_name")]
         public string? AssessmentName { get; set; }
@@ -379,7 +379,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("assessment_object_id")]
-        public double? AssessmentObjectId { get; set; }
+        public long? AssessmentObjectId { get; set; }
     }
 
     public class AssessmentAppraiseDocumentAssPositionCommon
@@ -388,7 +388,7 @@ namespace Wshcmx.Types
         /// ID оцениваемой должности
         /// </summary>
         [XmlElement("ass_position_common_id")]
-        public double? AssPositionCommonId { get; set; }
+        public long? AssPositionCommonId { get; set; }
     }
 
     public class AssessmentAppraiseDocumentAuditory
@@ -397,7 +397,7 @@ namespace Wshcmx.Types
         /// ID оцениваемого сотрудника
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_name")]
         public string? PersonName { get; set; }
@@ -421,7 +421,7 @@ namespace Wshcmx.Types
     public class AssessmentAppraiseDocumentCustomObject
     {
         [XmlElement("custom_object_id")]
-        public double? CustomObjectId { get; set; }
+        public long? CustomObjectId { get; set; }
 
         [XmlElement("custom_object_name")]
         public string? CustomObjectName { get; set; }
@@ -436,13 +436,13 @@ namespace Wshcmx.Types
         /// ID оцениваемого подразделения
         /// </summary>
         [XmlElement("department_id")]
-        public double? DepartmentId { get; set; }
+        public long? DepartmentId { get; set; }
     }
 
     public class AssessmentAppraiseDocumentExercise
     {
         [XmlElement("exercise_id")]
-        public double? ExerciseId { get; set; }
+        public long? ExerciseId { get; set; }
     }
 
     public class AssessmentAppraiseDocumentGrade
@@ -451,13 +451,13 @@ namespace Wshcmx.Types
         /// ID грейда
         /// </summary>
         [XmlElement("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         /// <summary>
         /// Требуемый балл
         /// </summary>
         [XmlElement("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -466,19 +466,19 @@ namespace Wshcmx.Types
     public class AssessmentAppraiseDocumentGroup
     {
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class AssessmentAppraiseDocumentImpersonatePerson
     {
         [XmlElement("impersonator_id")]
-        public double? ImpersonatorId { get; set; }
+        public long? ImpersonatorId { get; set; }
 
         [XmlElement("impersonator_fullname")]
         public string? ImpersonatorFullname { get; set; }
 
         [XmlElement("face_person_id")]
-        public double? FacePersonId { get; set; }
+        public long? FacePersonId { get; set; }
 
         [XmlElement("face_person_fullname")]
         public string? FacePersonFullname { get; set; }
@@ -553,25 +553,25 @@ namespace Wshcmx.Types
         /// Профиль компетенций
         /// </summary>
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Системное значение
@@ -589,7 +589,7 @@ namespace Wshcmx.Types
         /// Системное значение
         /// </summary>
         [XmlElement("flag_03")]
-        public double? Flag03 { get; set; }
+        public long? Flag03 { get; set; }
 
         /// <summary>
         /// Системное значение
@@ -601,7 +601,7 @@ namespace Wshcmx.Types
         /// Системное значение
         /// </summary>
         [XmlElement("flag_05")]
-        public double? Flag05 { get; set; }
+        public long? Flag05 { get; set; }
 
         /// <summary>
         /// Системное значение
@@ -655,7 +655,7 @@ namespace Wshcmx.Types
         /// Сдвиг значений
         /// </summary>
         [XmlElement("incrementation")]
-        public double Incrementation { get; set; }
+        public long Incrementation { get; set; }
 
         /// <summary>
         /// Начало периода
@@ -679,25 +679,25 @@ namespace Wshcmx.Types
         /// Печатная форма
         /// </summary>
         [XmlElement("print_form_id")]
-        public double? PrintFormId { get; set; }
+        public long? PrintFormId { get; set; }
 
         /// <summary>
         /// Настраиваемый шаблон
         /// </summary>
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Настраиваемый код POST обработки
         /// </summary>
         [XmlElement("custom_post_web_template_id")]
-        public double? CustomPostWebTemplateId { get; set; }
+        public long? CustomPostWebTemplateId { get; set; }
 
         /// <summary>
         /// Индекс
         /// </summary>
         [XmlElement("index")]
-        public double Index { get; set; }
+        public long Index { get; set; }
 
         [XmlElement("career_plan_type")]
         public string? CareerPlanType { get; set; }
@@ -706,7 +706,7 @@ namespace Wshcmx.Types
         /// Карьерный план
         /// </summary>
         [XmlElement("career_plan_id")]
-        public double? CareerPlanId { get; set; }
+        public long? CareerPlanId { get; set; }
     }
 
     public class AssessmentAppraiseDocumentParticipantCustomize
@@ -715,19 +715,19 @@ namespace Wshcmx.Types
         /// Минимальное количество
         /// </summary>
         [XmlElement("min")]
-        public double? Min { get; set; }
+        public long? Min { get; set; }
 
         /// <summary>
         /// Максимальное количество
         /// </summary>
         [XmlElement("max")]
-        public double? Max { get; set; }
+        public long? Max { get; set; }
 
         /// <summary>
         /// Проводящий сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Эксперты
@@ -763,7 +763,7 @@ namespace Wshcmx.Types
         /// ID эксперта
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО эксперта
@@ -835,10 +835,10 @@ namespace Wshcmx.Types
     public class AssessmentAppraiseDocumentViewPaData
     {
         [XmlElement("pa_id")]
-        public double? PaId { get; set; }
+        public long? PaId { get; set; }
 
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [XmlElement("assessment_appraise_name")]
         public string? AssessmentAppraiseName { get; set; }
@@ -856,6 +856,6 @@ namespace Wshcmx.Types
         public string? StatusName { get; set; }
 
         [XmlElement("count")]
-        public double? Count { get; set; }
+        public long? Count { get; set; }
     }
 }

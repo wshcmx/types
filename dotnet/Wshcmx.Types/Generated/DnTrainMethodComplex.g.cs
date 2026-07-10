@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,25 +58,25 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("facult_id")]
-        public double? FacultId { get; set; }
+        public long? FacultId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Дисциплина
         /// </summary>
         [XmlElement("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         /// <summary>
         /// Программа дисциплины
         /// </summary>
         [XmlElement("program_discipline_id")]
-        public double? ProgramDisciplineId { get; set; }
+        public long? ProgramDisciplineId { get; set; }
 
         [XmlElement("program_discipline_name")]
         public string? ProgramDisciplineName { get; set; }
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Форма контроля
@@ -118,28 +118,28 @@ namespace Wshcmx.Types
     public class DnTrainMethodComplexDocumentAssessment
     {
         [XmlElement("assessm_id")]
-        public double? AssessmId { get; set; }
+        public long? AssessmId { get; set; }
     }
 
     public class DnTrainMethodComplexDocumentControlForm
     {
         [XmlElement("form_id")]
-        public double? FormId { get; set; }
+        public long? FormId { get; set; }
 
         [XmlElement("term_id")]
-        public double? TermId { get; set; }
+        public long? TermId { get; set; }
     }
 
     public class DnTrainMethodComplexDocumentCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
     }
 
     public class DnTrainMethodComplexDocumentEducatEvent
     {
         [XmlElement("form_id")]
-        public double? FormId { get; set; }
+        public long? FormId { get; set; }
 
         [XmlElement("hours")]
         public string? Hours { get; set; }
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
     public class DnTrainMethodComplexDocumentHoursTerm
     {
         [XmlElement("term_id")]
-        public double? TermId { get; set; }
+        public long? TermId { get; set; }
 
         [XmlElement("hours_week")]
         public string? HoursWeek { get; set; }
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
     public class DnTrainMethodComplexDocumentItem
     {
         [XmlElement("item_id")]
-        public double? ItemId { get; set; }
+        public long? ItemId { get; set; }
     }
 
     public class DnTrainMethodComplexDocumentView

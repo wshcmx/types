@@ -82,22 +82,22 @@ namespace Wshcmx.Types
         /// Требуемый процент верно ответивших
         /// </summary>
         [XmlElement("default_quota_correct")]
-        public double DefaultQuotaCorrect { get; set; }
+        public long DefaultQuotaCorrect { get; set; }
 
         /// <summary>
         /// Требуемое количество статусов Принят
         /// </summary>
         [XmlElement("default_quota_approved")]
-        public double DefaultQuotaApproved { get; set; }
+        public long DefaultQuotaApproved { get; set; }
 
         /// <summary>
         /// Требуемое количество статусов Отклонен
         /// </summary>
         [XmlElement("default_quota_rejected")]
-        public double DefaultQuotaRejected { get; set; }
+        public long DefaultQuotaRejected { get; set; }
 
         [XmlElement("variant_counter")]
-        public double VariantCounter { get; set; }
+        public long VariantCounter { get; set; }
 
         /// <summary>
         /// Описание
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -205,10 +205,10 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("item_count")]
-        public double? ItemCount { get; set; }
+        public long? ItemCount { get; set; }
     }
 
     public class TestProjectDocumentGroup
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("is_master")]
         public bool IsMaster { get; set; }
@@ -313,7 +313,7 @@ namespace Wshcmx.Types
     public class TestProjectDocumentItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Заголовок
@@ -334,7 +334,7 @@ namespace Wshcmx.Types
         public string? TypeId { get; set; }
 
         [XmlElement("question_points")]
-        public double QuestionPoints { get; set; }
+        public long QuestionPoints { get; set; }
 
         /// <summary>
         /// Дата добавления
@@ -352,25 +352,25 @@ namespace Wshcmx.Types
         /// Требуемый процент верно ответивших
         /// </summary>
         [XmlElement("quota_correct")]
-        public double? QuotaCorrect { get; set; }
+        public long? QuotaCorrect { get; set; }
 
         /// <summary>
         /// Требуемое количество статусов "Принят"
         /// </summary>
         [XmlElement("quota_approved")]
-        public double? QuotaApproved { get; set; }
+        public long? QuotaApproved { get; set; }
 
         /// <summary>
         /// Требуемое количество статусов "Отклонен"
         /// </summary>
         [XmlElement("quota_rejected")]
-        public double? QuotaRejected { get; set; }
+        public long? QuotaRejected { get; set; }
 
         /// <summary>
         /// Автор
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО автора
@@ -394,19 +394,19 @@ namespace Wshcmx.Types
         /// Эксперт
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Вопрос
         /// </summary>
         [XmlElement("item_id")]
-        public double? ItemId { get; set; }
+        public long? ItemId { get; set; }
 
         /// <summary>
         /// Процент верных
         /// </summary>
         [XmlElement("quota_correct")]
-        public double? QuotaCorrect { get; set; }
+        public long? QuotaCorrect { get; set; }
 
         /// <summary>
         /// Статус
@@ -442,16 +442,16 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Необходимое количество вопросов
         /// </summary>
         [XmlElement("item_count")]
-        public double? ItemCount { get; set; }
+        public long? ItemCount { get; set; }
 
         [XmlElement("_level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
 
         /// <summary>
         /// Показывать вопросы цели
@@ -481,7 +481,7 @@ namespace Wshcmx.Types
         public string DispLearningType { get; set; }
 
         [XmlElement("x_step")]
-        public double? XStep { get; set; }
+        public long? XStep { get; set; }
 
         [XmlElement("phi")]
         public TestProjectDocumentReportPhi? Phi { get; set; }
@@ -505,10 +505,10 @@ namespace Wshcmx.Types
     public class TestProjectDocumentReportDx
     {
         [XmlElement("min")]
-        public double? Min { get; set; }
+        public long? Min { get; set; }
 
         [XmlElement("max")]
-        public double? Max { get; set; }
+        public long? Max { get; set; }
 
         [XmlElement("bk_color")]
         public string? BkColor { get; set; }
@@ -526,7 +526,7 @@ namespace Wshcmx.Types
         public string? YName { get; set; }
 
         [XmlElement("x_step")]
-        public double? XStep { get; set; }
+        public long? XStep { get; set; }
 
         [XmlElement("line")]
         public List<TestProjectDocumentReportLinesLine> Line { get; set; } = new List<TestProjectDocumentReportLinesLine>();
@@ -544,7 +544,7 @@ namespace Wshcmx.Types
         public string? Color { get; set; }
 
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         [XmlElement("points")]
         public List<TestProjectDocumentReportLinesLinePoint> Points { get; set; } = new List<TestProjectDocumentReportLinesLinePoint>();
@@ -553,10 +553,10 @@ namespace Wshcmx.Types
     public class TestProjectDocumentReportLinesLinePoint
     {
         [XmlElement("elem")]
-        public double? Elem { get; set; }
+        public long? Elem { get; set; }
 
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         [XmlElement("tip_text")]
         public string? TipText { get; set; }
@@ -568,22 +568,22 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("elem")]
-        public double? Elem { get; set; }
+        public long? Elem { get; set; }
 
         [XmlElement("color")]
         public string? Color { get; set; }
 
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
     }
 
     public class TestProjectDocumentReportPercent
     {
         [XmlElement("min")]
-        public double? Min { get; set; }
+        public long? Min { get; set; }
 
         [XmlElement("max")]
-        public double? Max { get; set; }
+        public long? Max { get; set; }
 
         [XmlElement("bk_color")]
         public string? BkColor { get; set; }
@@ -592,10 +592,10 @@ namespace Wshcmx.Types
     public class TestProjectDocumentReportPhi
     {
         [XmlElement("min")]
-        public double? Min { get; set; }
+        public long? Min { get; set; }
 
         [XmlElement("max")]
-        public double? Max { get; set; }
+        public long? Max { get; set; }
 
         [XmlElement("bk_color")]
         public string? BkColor { get; set; }
@@ -616,19 +616,19 @@ namespace Wshcmx.Types
         public string? Maxweight { get; set; }
 
         [XmlElement("num")]
-        public double Num { get; set; }
+        public long Num { get; set; }
 
         [XmlElement("correct_num")]
-        public double CorrectNum { get; set; }
+        public long CorrectNum { get; set; }
 
         [XmlElement("per_cent")]
-        public double PerCent { get; set; }
+        public long PerCent { get; set; }
 
         [XmlElement("phi")]
-        public double? Phi { get; set; }
+        public long? Phi { get; set; }
 
         [XmlElement("dx")]
-        public double? Dx { get; set; }
+        public long? Dx { get; set; }
 
         [XmlElement("state")]
         public string? State { get; set; }
@@ -637,25 +637,25 @@ namespace Wshcmx.Types
         public List<TestProjectDocumentReportQuestionVariant> Variants { get; set; } = new List<TestProjectDocumentReportQuestionVariant>();
 
         [XmlElement("phi_a")]
-        public double PhiA { get; set; }
+        public long PhiA { get; set; }
 
         [XmlElement("phi_b")]
-        public double PhiB { get; set; }
+        public long PhiB { get; set; }
 
         [XmlElement("phi_c")]
-        public double PhiC { get; set; }
+        public long PhiC { get; set; }
 
         [XmlElement("phi_d")]
-        public double PhiD { get; set; }
+        public long PhiD { get; set; }
 
         [XmlElement("avg")]
-        public double Avg { get; set; }
+        public long Avg { get; set; }
 
         [XmlElement("dx_doubly_sum")]
-        public double DxDoublySum { get; set; }
+        public long DxDoublySum { get; set; }
 
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("assessment_name")]
         public string? AssessmentName { get; set; }
@@ -685,10 +685,10 @@ namespace Wshcmx.Types
         public string? Text { get; set; }
 
         [XmlElement("correct_num")]
-        public double CorrectNum { get; set; }
+        public long CorrectNum { get; set; }
 
         [XmlElement("per_cent")]
-        public double PerCent { get; set; }
+        public long PerCent { get; set; }
 
         [XmlElement("cor_text")]
         public string? CorText { get; set; }
@@ -727,52 +727,52 @@ namespace Wshcmx.Types
         public string? Status { get; set; }
 
         [XmlElement("num")]
-        public double Num { get; set; }
+        public long Num { get; set; }
 
         [XmlElement("correct_num")]
-        public double CorrectNum { get; set; }
+        public long CorrectNum { get; set; }
 
         [XmlElement("per_cent")]
-        public double PerCent { get; set; }
+        public long PerCent { get; set; }
 
         [XmlElement("phi")]
-        public double? Phi { get; set; }
+        public long? Phi { get; set; }
 
         [XmlElement("dx")]
-        public double? Dx { get; set; }
+        public long? Dx { get; set; }
 
         [XmlElement("avg_score")]
-        public double? AvgScore { get; set; }
+        public long? AvgScore { get; set; }
 
         [XmlElement("avg")]
-        public double? Avg { get; set; }
+        public long? Avg { get; set; }
 
         [XmlElement("min_score")]
-        public double? MinScore { get; set; }
+        public long? MinScore { get; set; }
 
         [XmlElement("min")]
-        public double? Min { get; set; }
+        public long? Min { get; set; }
 
         [XmlElement("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         [XmlElement("max")]
-        public double? Max { get; set; }
+        public long? Max { get; set; }
 
         [XmlElement("phi_a")]
-        public double PhiA { get; set; }
+        public long PhiA { get; set; }
 
         [XmlElement("phi_b")]
-        public double PhiB { get; set; }
+        public long PhiB { get; set; }
 
         [XmlElement("phi_c")]
-        public double PhiC { get; set; }
+        public long PhiC { get; set; }
 
         [XmlElement("phi_d")]
-        public double PhiD { get; set; }
+        public long PhiD { get; set; }
 
         [XmlElement("dx_doubly_sum")]
-        public double DxDoublySum { get; set; }
+        public long DxDoublySum { get; set; }
     }
 
     public class TestProjectDocumentVariant
@@ -802,7 +802,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Группа
@@ -814,13 +814,13 @@ namespace Wshcmx.Types
         /// Проходной балл по Ангофу
         /// </summary>
         [XmlElement("angof_avg")]
-        public double? AngofAvg { get; set; }
+        public long? AngofAvg { get; set; }
 
         /// <summary>
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         [XmlElement("learning_filter")]
         public string LearningFilter { get; set; }
@@ -832,13 +832,13 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("item_id")]
-        public double ItemId { get; set; }
+        public long ItemId { get; set; }
 
         [XmlElement("expert_id")]
-        public double ExpertId { get; set; }
+        public long ExpertId { get; set; }
 
         [XmlElement("group_id")]
         public string? GroupId { get; set; }

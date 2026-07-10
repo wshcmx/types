@@ -19,31 +19,31 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Корневой раздел
         /// </summary>
         [Column("program_id")]
-        public double? ProgramId { get; set; }
+        public long? ProgramId { get; set; }
 
         /// <summary>
         /// Корневой раздел
         /// </summary>
         [Column("parent_progpam_id")]
-        public double? ParentProgpamId { get; set; }
+        public long? ParentProgpamId { get; set; }
 
         /// <summary>
         /// Должность
         /// </summary>
         [Column("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Код
@@ -61,31 +61,31 @@ namespace Wshcmx.Types
         /// Модульная программа
         /// </summary>
         [Column("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
 
         /// <summary>
         /// Набор программ
         /// </summary>
         [Column("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         /// <summary>
         /// Учебная программа
         /// </summary>
         [Column("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// План развития
         /// </summary>
         [Column("development_plan_id")]
-        public double? DevelopmentPlanId { get; set; }
+        public long? DevelopmentPlanId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Тип
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [Column("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Планируемая дата
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("result_object_id")]
-        public double? ResultObjectId { get; set; }
+        public long? ResultObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [Column("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -181,13 +181,13 @@ namespace Wshcmx.Types
         /// Процент готовности
         /// </summary>
         [Column("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Имя сотрудника

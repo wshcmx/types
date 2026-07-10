@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public List<CustomDatasBaseCustomData> CustomDatas { get; set; } = new List<CustomDatasBaseCustomData>();
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         /// Проект
         /// </summary>
         [XmlElement("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         /// <summary>
         /// Тип контакта
         /// </summary>
         [XmlElement("type_id")]
-        public double? TypeId { get; set; }
+        public long? TypeId { get; set; }
 
         /// <summary>
         /// Инициатор
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("contact_org_id")]
-        public double? ContactOrgId { get; set; }
+        public long? ContactOrgId { get; set; }
 
         /// <summary>
         /// Статус
@@ -100,13 +100,13 @@ namespace Wshcmx.Types
         /// Предыдущий контакт
         /// </summary>
         [XmlElement("previous_contact_id")]
-        public double? PreviousContactId { get; set; }
+        public long? PreviousContactId { get; set; }
 
         /// <summary>
         /// Результат контакта
         /// </summary>
         [XmlElement("result_id")]
-        public double? ResultId { get; set; }
+        public long? ResultId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -133,6 +133,6 @@ namespace Wshcmx.Types
     public class ContactDocumentPollResult
     {
         [XmlElement("poll_result_id")]
-        public double? PollResultId { get; set; }
+        public long? PollResultId { get; set; }
     }
 }

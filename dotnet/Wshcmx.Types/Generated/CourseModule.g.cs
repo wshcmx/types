@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Требование к клиенту
@@ -58,10 +58,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         [XmlElement("catalogs")]
         public List<CatalogListBaseCatalog> Catalogs { get; set; } = new List<CatalogListBaseCatalog>();
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Описание
@@ -136,19 +136,19 @@ namespace Wshcmx.Types
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Проходной балл
         /// </summary>
         [XmlElement("mastery_score")]
-        public double? MasteryScore { get; set; }
+        public long? MasteryScore { get; set; }
 
         /// <summary>
         /// Относительный проходной балл
         /// </summary>
         [XmlElement("mastery_score_relative")]
-        public double? MasteryScoreRelative { get; set; }
+        public long? MasteryScoreRelative { get; set; }
 
         /// <summary>
         /// URL
@@ -160,13 +160,13 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Количество попыток
         /// </summary>
         [XmlElement("attempts_num")]
-        public double AttemptsNum { get; set; }
+        public long AttemptsNum { get; set; }
 
         /// <summary>
         /// Установка статуса
@@ -178,13 +178,13 @@ namespace Wshcmx.Types
         /// Ширина окна электронного курса
         /// </summary>
         [XmlElement("win_width")]
-        public double? WinWidth { get; set; }
+        public long? WinWidth { get; set; }
 
         /// <summary>
         /// Высота окна электронного курса
         /// </summary>
         [XmlElement("win_height")]
-        public double? WinHeight { get; set; }
+        public long? WinHeight { get; set; }
 
         /// <summary>
         /// Отображать scrolling
@@ -202,13 +202,13 @@ namespace Wshcmx.Types
         /// Activations
         /// </summary>
         [XmlElement("activation_count")]
-        public double? ActivationCount { get; set; }
+        public long? ActivationCount { get; set; }
 
         /// <summary>
         /// Launches
         /// </summary>
         [XmlElement("launch_count")]
-        public double? LaunchCount { get; set; }
+        public long? LaunchCount { get; set; }
 
         [XmlElement("cmi5")]
         public CourseModuleDocumentCmi5? Cmi5 { get; set; }
@@ -238,7 +238,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CourseModuleDocumentCmi5

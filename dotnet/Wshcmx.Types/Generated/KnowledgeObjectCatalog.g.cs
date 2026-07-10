@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("catalog")]
         public string? Catalog { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [Column("object_name")]
         public string? ObjectName { get; set; }
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         public DateTime? DocCreateDate { get; set; }
 
         [Column("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         [Column("knowledge_part_name")]
         public string? KnowledgePartName { get; set; }
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Индекс текущего уровня
         /// </summary>
         [Column("current_level_index")]
-        public double? CurrentLevelIndex { get; set; }
+        public long? CurrentLevelIndex { get; set; }
 
         /// <summary>
         /// Целевой уровень
@@ -82,15 +82,15 @@ namespace Wshcmx.Types
         /// Индекс целевого уровня
         /// </summary>
         [Column("target_level_index")]
-        public double? TargetLevelIndex { get; set; }
+        public long? TargetLevelIndex { get; set; }
 
         [Column("require_acknowledgement")]
         public bool? RequireAcknowledgement { get; set; }
 
         [Column("knowledge_part_level_id")]
-        public double? KnowledgePartLevelId { get; set; }
+        public long? KnowledgePartLevelId { get; set; }
 
         [Column("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
     }
 }

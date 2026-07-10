@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [Column("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Дата модификации

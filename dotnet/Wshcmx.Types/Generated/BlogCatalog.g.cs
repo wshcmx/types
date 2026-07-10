@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Провайдер канала
         /// </summary>
         [Column("channel_provider_id")]
-        public double? ChannelProviderId { get; set; }
+        public long? ChannelProviderId { get; set; }
 
         /// <summary>
         /// Возможность подписки на блог
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Создатель блога
         /// </summary>
         [Column("creator_id")]
-        public double? CreatorId { get; set; }
+        public long? CreatorId { get; set; }
 
         /// <summary>
         /// ФИО, должность, подразделение создателя блога
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Количество авторов
         /// </summary>
         [Column("authors_num")]
-        public double? AuthorsNum { get; set; }
+        public long? AuthorsNum { get; set; }
 
         /// <summary>
         /// Авторы

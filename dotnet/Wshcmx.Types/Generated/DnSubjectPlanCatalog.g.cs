@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,22 +46,22 @@ namespace Wshcmx.Types
         public string? Subject { get; set; }
 
         [Column("program_discipline_id")]
-        public double? ProgramDisciplineId { get; set; }
+        public long? ProgramDisciplineId { get; set; }
 
         /// <summary>
         /// Приложение к программе дисциплины
         /// </summary>
         [Column("prog_disc_append_id")]
-        public double? ProgDiscAppendId { get; set; }
+        public long? ProgDiscAppendId { get; set; }
 
         /// <summary>
         /// Форма проведения
         /// </summary>
         [Column("educat_event_id")]
-        public double? EducatEventId { get; set; }
+        public long? EducatEventId { get; set; }
 
         [Column("hours")]
-        public double? Hours { get; set; }
+        public long? Hours { get; set; }
 
         /// <summary>
         /// Дата модификации

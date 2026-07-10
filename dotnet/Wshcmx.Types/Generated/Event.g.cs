@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Учебные группы
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public List<EducGroupsBaseEducGroup> EducGroups { get; set; } = new List<EducGroupsBaseEducGroup>();
 
         [XmlElement("old_id")]
-        public double? OldId { get; set; }
+        public long? OldId { get; set; }
 
         [XmlElement("path_places")]
         public List<PathPlacesBasePathPlace> PathPlaces { get; set; } = new List<PathPlacesBasePathPlace>();
@@ -55,13 +55,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         public List<CostCentersBaseCostCenter> CostCenters { get; set; } = new List<CostCentersBaseCostCenter>();
 
         [XmlElement("expense_sum")]
-        public double? ExpenseSum { get; set; }
+        public long? ExpenseSum { get; set; }
 
         [XmlElement("lectors")]
         public List<LectorsBaseLector> Lectors { get; set; } = new List<LectorsBaseLector>();
@@ -112,10 +112,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("event_settings")]
         public EventSettingsBaseEventSettings? EventSettings { get; set; }
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [XmlElement("event_type_id")]
-        public double? EventTypeId { get; set; }
+        public long? EventTypeId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         public bool IsRoom { get; set; }
 
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Место проведения
@@ -232,7 +232,7 @@ namespace Wshcmx.Types
         public bool LoginWithCameraOnly { get; set; }
 
         [XmlElement("capture_rate")]
-        public double CaptureRate { get; set; }
+        public long CaptureRate { get; set; }
 
         /// <summary>
         /// Статус записи
@@ -247,7 +247,7 @@ namespace Wshcmx.Types
         public bool RecordExists { get; set; }
 
         [XmlElement("record_id")]
-        public double? RecordId { get; set; }
+        public long? RecordId { get; set; }
 
         /// <summary>
         /// Дата записи
@@ -259,19 +259,19 @@ namespace Wshcmx.Types
         /// Количество скачиваний
         /// </summary>
         [XmlElement("record_download_count")]
-        public double? RecordDownloadCount { get; set; }
+        public long? RecordDownloadCount { get; set; }
 
         /// <summary>
         /// Количество просмотров
         /// </summary>
         [XmlElement("record_view_count")]
-        public double? RecordViewCount { get; set; }
+        public long? RecordViewCount { get; set; }
 
         /// <summary>
         /// Ширина канала для видео
         /// </summary>
         [XmlElement("bandwidth")]
-        public double? Bandwidth { get; set; }
+        public long? Bandwidth { get; set; }
 
         /// <summary>
         /// Делать снимки с камеры во время просмотра записи
@@ -289,19 +289,19 @@ namespace Wshcmx.Types
         /// record_capture_rate
         /// </summary>
         [XmlElement("record_capture_rate")]
-        public double RecordCaptureRate { get; set; }
+        public long RecordCaptureRate { get; set; }
 
         /// <summary>
         /// Текущая презентация
         /// </summary>
         [XmlElement("current_presentation_id")]
-        public double? CurrentPresentationId { get; set; }
+        public long? CurrentPresentationId { get; set; }
 
         /// <summary>
         /// Система вебинаров
         /// </summary>
         [XmlElement("webinar_system_id")]
-        public double? WebinarSystemId { get; set; }
+        public long? WebinarSystemId { get; set; }
 
         [XmlElement("test")]
         public EventDocumentTest? Test { get; set; }
@@ -325,13 +325,13 @@ namespace Wshcmx.Types
         /// Виртуальный класс
         /// </summary>
         [XmlElement("vclass_setting_id")]
-        public double? VclassSettingId { get; set; }
+        public long? VclassSettingId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Запись доступна для просмотра
@@ -352,37 +352,37 @@ namespace Wshcmx.Types
         /// Модульная программа
         /// </summary>
         [XmlElement("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
 
         /// <summary>
         /// Набор программ
         /// </summary>
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         /// <summary>
         /// Учебная программа
         /// </summary>
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Использовать резервный сервер
         /// </summary>
         [XmlElement("program_id")]
-        public double? ProgramId { get; set; }
+        public long? ProgramId { get; set; }
 
         [XmlElement("create_compound_program_id")]
-        public double? CreateCompoundProgramId { get; set; }
+        public long? CreateCompoundProgramId { get; set; }
 
         [XmlElement("training_plan_id")]
-        public double? TrainingPlanId { get; set; }
+        public long? TrainingPlanId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         [XmlElement("education_org_type")]
         public string? EducationOrgType { get; set; }
@@ -397,25 +397,25 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Форум
         /// </summary>
         [XmlElement("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         /// <summary>
         /// Чат
         /// </summary>
         [XmlElement("chat_id")]
-        public double? ChatId { get; set; }
+        public long? ChatId { get; set; }
 
         /// <summary>
         /// Опрос
         /// </summary>
         [XmlElement("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
 
         /// <summary>
         /// Статус
@@ -445,7 +445,7 @@ namespace Wshcmx.Types
         /// Ограничения для гостевого входа
         /// </summary>
         [XmlElement("guest_restrictions")]
-        public double? GuestRestrictions { get; set; }
+        public long? GuestRestrictions { get; set; }
 
         [XmlElement("is_open_case")]
         public bool IsOpenCase { get; set; }
@@ -457,85 +457,85 @@ namespace Wshcmx.Types
         /// Планируемое количество часов
         /// </summary>
         [XmlElement("duration_plan")]
-        public double? DurationPlan { get; set; }
+        public long? DurationPlan { get; set; }
 
         /// <summary>
         /// Планируемое количество дней
         /// </summary>
         [XmlElement("duration_days_plan")]
-        public double? DurationDaysPlan { get; set; }
+        public long? DurationDaysPlan { get; set; }
 
         /// <summary>
         /// Фактическое количество часов
         /// </summary>
         [XmlElement("duration_fact")]
-        public double? DurationFact { get; set; }
+        public long? DurationFact { get; set; }
 
         /// <summary>
         /// Фактическое количество дней
         /// </summary>
         [XmlElement("duration_days_fact")]
-        public double? DurationDaysFact { get; set; }
+        public long? DurationDaysFact { get; set; }
 
         /// <summary>
         /// Максимальное количество участников
         /// </summary>
         [XmlElement("max_person_num")]
-        public double? MaxPersonNum { get; set; }
+        public long? MaxPersonNum { get; set; }
 
         /// <summary>
         /// Минимальное количество участников
         /// </summary>
         [XmlElement("min_person_num")]
-        public double? MinPersonNum { get; set; }
+        public long? MinPersonNum { get; set; }
 
         /// <summary>
         /// Завершенных курсов
         /// </summary>
         [XmlElement("course_finished")]
-        public double? CourseFinished { get; set; }
+        public long? CourseFinished { get; set; }
 
         /// <summary>
         /// Активных курсов
         /// </summary>
         [XmlElement("course_process")]
-        public double? CourseProcess { get; set; }
+        public long? CourseProcess { get; set; }
 
         /// <summary>
         /// Неначатых курсов
         /// </summary>
         [XmlElement("course_started")]
-        public double? CourseStarted { get; set; }
+        public long? CourseStarted { get; set; }
 
         /// <summary>
         /// Начатых курсов
         /// </summary>
         [XmlElement("course_began")]
-        public double? CourseBegan { get; set; }
+        public long? CourseBegan { get; set; }
 
         /// <summary>
         /// Завершенных тестов
         /// </summary>
         [XmlElement("test_finished")]
-        public double? TestFinished { get; set; }
+        public long? TestFinished { get; set; }
 
         /// <summary>
         /// Активных тестов
         /// </summary>
         [XmlElement("test_process")]
-        public double? TestProcess { get; set; }
+        public long? TestProcess { get; set; }
 
         /// <summary>
         /// Неначатых тестов
         /// </summary>
         [XmlElement("test_started")]
-        public double? TestStarted { get; set; }
+        public long? TestStarted { get; set; }
 
         /// <summary>
         /// Начатых тестов
         /// </summary>
         [XmlElement("test_began")]
-        public double? TestBegan { get; set; }
+        public long? TestBegan { get; set; }
 
         /// <summary>
         /// Ответственный
@@ -544,7 +544,7 @@ namespace Wshcmx.Types
         public string? TutorMain { get; set; }
 
         [XmlElement("contract_id")]
-        public double? ContractId { get; set; }
+        public long? ContractId { get; set; }
 
         /// <summary>
         /// Организационная форма
@@ -571,10 +571,10 @@ namespace Wshcmx.Types
         public List<EventDocumentStage> Stages { get; set; } = new List<EventDocumentStage>();
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -598,10 +598,10 @@ namespace Wshcmx.Types
         /// Количество неименованных участников
         /// </summary>
         [XmlElement("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         [XmlElement("unnamed_person_sum")]
-        public double? UnnamedPersonSum { get; set; }
+        public long? UnnamedPersonSum { get; set; }
 
         /// <summary>
         /// Группа сформирована
@@ -613,19 +613,19 @@ namespace Wshcmx.Types
         /// Квота на организацию
         /// </summary>
         [XmlElement("quota_org")]
-        public double? QuotaOrg { get; set; }
+        public long? QuotaOrg { get; set; }
 
         /// <summary>
         /// Квота на подразделение
         /// </summary>
         [XmlElement("quota_subdivision")]
-        public double? QuotaSubdivision { get; set; }
+        public long? QuotaSubdivision { get; set; }
 
         /// <summary>
         /// Квота на заявителя
         /// </summary>
         [XmlElement("quota_person")]
-        public double? QuotaPerson { get; set; }
+        public long? QuotaPerson { get; set; }
 
         /// <summary>
         /// Подготовка мероприятия
@@ -661,13 +661,13 @@ namespace Wshcmx.Types
         /// Общая стоимость
         /// </summary>
         [XmlElement("total_cost")]
-        public double? TotalCost { get; set; }
+        public long? TotalCost { get; set; }
 
         /// <summary>
         /// Планируемая общая стоимость
         /// </summary>
         [XmlElement("total_cost_plan")]
-        public double? TotalCostPlan { get; set; }
+        public long? TotalCostPlan { get; set; }
 
         /// <summary>
         /// Договоры
@@ -679,7 +679,7 @@ namespace Wshcmx.Types
         /// Центр затрат
         /// </summary>
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("cost_center_type")]
         public string CostCenterType { get; set; }
@@ -700,7 +700,7 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("files")]
         public List<EventDocumentFile> Files { get; set; } = new List<EventDocumentFile>();
@@ -715,7 +715,7 @@ namespace Wshcmx.Types
         /// Тип отзыва по умолчанию
         /// </summary>
         [XmlElement("default_response_type_id")]
-        public double? DefaultResponseTypeId { get; set; }
+        public long? DefaultResponseTypeId { get; set; }
 
         /// <summary>
         /// Обязательное заполнение отзыва
@@ -727,7 +727,7 @@ namespace Wshcmx.Types
         /// Тип заявки по умолчанию
         /// </summary>
         [XmlElement("default_request_type_id")]
-        public double? DefaultRequestTypeId { get; set; }
+        public long? DefaultRequestTypeId { get; set; }
 
         /// <summary>
         /// Использовать документооборот учебной программы
@@ -739,7 +739,7 @@ namespace Wshcmx.Types
         /// Тип результата по умолчанию
         /// </summary>
         [XmlElement("default_event_result_type_id")]
-        public double? DefaultEventResultTypeId { get; set; }
+        public long? DefaultEventResultTypeId { get; set; }
 
         /// <summary>
         /// Основной материал
@@ -838,7 +838,7 @@ namespace Wshcmx.Types
         public DateTime? DateRequestRejectionOver { get; set; }
 
         [XmlElement("parent_event_id")]
-        public double? ParentEventId { get; set; }
+        public long? ParentEventId { get; set; }
 
         /// <summary>
         /// Расписание
@@ -889,7 +889,7 @@ namespace Wshcmx.Types
         public bool? HasLectorQuest { get; set; }
 
         [XmlElement("lector_restype")]
-        public double? LectorRestype { get; set; }
+        public long? LectorRestype { get; set; }
 
         [XmlElement("lector_date_start")]
         public DateTime? LectorDateStart { get; set; }
@@ -904,7 +904,7 @@ namespace Wshcmx.Types
         public bool? HasSelfQuest { get; set; }
 
         [XmlElement("self_restype")]
-        public double? SelfRestype { get; set; }
+        public long? SelfRestype { get; set; }
 
         [XmlElement("self_date_start")]
         public DateTime? SelfDateStart { get; set; }
@@ -919,7 +919,7 @@ namespace Wshcmx.Types
         public bool? HasManagerQuest { get; set; }
 
         [XmlElement("manager_restype")]
-        public double? ManagerRestype { get; set; }
+        public long? ManagerRestype { get; set; }
 
         [XmlElement("manager_date_start")]
         public DateTime? ManagerDateStart { get; set; }
@@ -958,7 +958,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class EventDocumentCollaborator
@@ -973,7 +973,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -991,7 +991,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -1009,7 +1009,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -1036,19 +1036,19 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("last_exist_date")]
         public DateTime? LastExistDate { get; set; }
 
         [XmlElement("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         [XmlElement("request_person_id")]
-        public double? RequestPersonId { get; set; }
+        public long? RequestPersonId { get; set; }
 
         [XmlElement("active_test_learning_id")]
-        public double? ActiveTestLearningId { get; set; }
+        public long? ActiveTestLearningId { get; set; }
 
         [XmlElement("controller_code")]
         public string? ControllerCode { get; set; }
@@ -1063,10 +1063,10 @@ namespace Wshcmx.Types
         public List<EventDocumentCollaboratorExpenseItem> ExpenseItems { get; set; } = new List<EventDocumentCollaboratorExpenseItem>();
 
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("total_sum")]
-        public double? TotalSum { get; set; }
+        public long? TotalSum { get; set; }
 
         [XmlElement("not_pay")]
         public bool? NotPay { get; set; }
@@ -1090,16 +1090,16 @@ namespace Wshcmx.Types
     public class EventDocumentCollaboratorExpenseItem
     {
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
     }
 
     public class EventDocumentCollaboratorResult
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("is_assist")]
         public string? IsAssist { get; set; }
@@ -1114,7 +1114,7 @@ namespace Wshcmx.Types
         public string? NotParticipate { get; set; }
 
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("columns")]
         public List<EventDocumentCollaboratorResultColumn> Columns { get; set; } = new List<EventDocumentCollaboratorResultColumn>();
@@ -1135,13 +1135,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -1189,7 +1189,7 @@ namespace Wshcmx.Types
         /// Ответственный за выполнение
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО ответственного
@@ -1246,19 +1246,19 @@ namespace Wshcmx.Types
         /// Статья затрат
         /// </summary>
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         /// <summary>
         /// Сумма
         /// </summary>
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
 
         [XmlElement("unnamed_person_sum")]
-        public double? UnnamedPersonSum { get; set; }
+        public long? UnnamedPersonSum { get; set; }
 
         [XmlElement("total_sum")]
-        public double? TotalSum { get; set; }
+        public long? TotalSum { get; set; }
     }
 
     public class EventDocumentFile
@@ -1270,7 +1270,7 @@ namespace Wshcmx.Types
         public FileActionBase? FileId { get; set; }
 
         [XmlElement("presentation_id")]
-        public double? PresentationId { get; set; }
+        public long? PresentationId { get; set; }
 
         [XmlElement("visibility")]
         public string Visibility { get; set; }
@@ -1279,7 +1279,7 @@ namespace Wshcmx.Types
     public class EventDocumentGroup
     {
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class EventDocumentHitt
@@ -1288,7 +1288,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Пульт руководителя
@@ -1324,31 +1324,31 @@ namespace Wshcmx.Types
         /// Номер COM порта
         /// </summary>
         [XmlElement("port_num")]
-        public double? PortNum { get; set; }
+        public long? PortNum { get; set; }
 
         /// <summary>
         /// Количество колонок
         /// </summary>
         [XmlElement("column_num")]
-        public double ColumnNum { get; set; }
+        public long ColumnNum { get; set; }
 
         /// <summary>
         /// Размер шрифта
         /// </summary>
         [XmlElement("font_size")]
-        public double FontSize { get; set; }
+        public long FontSize { get; set; }
     }
 
     public class EventDocumentLearningTask
     {
         [XmlElement("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
     }
 
     public class EventDocumentLibraryMaterial
     {
         [XmlElement("library_material_id")]
-        public double? LibraryMaterialId { get; set; }
+        public long? LibraryMaterialId { get; set; }
     }
 
     public class EventDocumentNotificationReminder
@@ -1360,7 +1360,7 @@ namespace Wshcmx.Types
         /// Минут до начала мероприятия
         /// </summary>
         [XmlElement("minutes")]
-        public double? Minutes { get; set; }
+        public long? Minutes { get; set; }
 
         /// <summary>
         /// Напоминания отправлены
@@ -1387,10 +1387,10 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("object_resource_id")]
-        public double? ObjectResourceId { get; set; }
+        public long? ObjectResourceId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -1411,7 +1411,7 @@ namespace Wshcmx.Types
     public class EventDocumentPhaseCollaborator
     {
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("is_assist")]
         public bool IsAssist { get; set; }
@@ -1429,7 +1429,7 @@ namespace Wshcmx.Types
         public string? StartTime { get; set; }
 
         [XmlElement("recorder_id")]
-        public double? RecorderId { get; set; }
+        public long? RecorderId { get; set; }
 
         [XmlElement("data")]
         public string? Data { get; set; }
@@ -1471,13 +1471,13 @@ namespace Wshcmx.Types
         public List<EventDocumentRegularScheduleExpenseItem> ExpenseItems { get; set; } = new List<EventDocumentRegularScheduleExpenseItem>();
 
         [XmlElement("expense_sum")]
-        public double? ExpenseSum { get; set; }
+        public long? ExpenseSum { get; set; }
 
         /// <summary>
         /// Центр затрат
         /// </summary>
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("cost_center_type")]
         public string CostCenterType { get; set; }
@@ -1486,22 +1486,22 @@ namespace Wshcmx.Types
         /// Общая стоимость всех этапов
         /// </summary>
         [XmlElement("total_cost")]
-        public double? TotalCost { get; set; }
+        public long? TotalCost { get; set; }
 
         [XmlElement("phases_num")]
-        public double? PhasesNum { get; set; }
+        public long? PhasesNum { get; set; }
     }
 
     public class EventDocumentRegularScheduleExpenseItem
     {
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         /// <summary>
         /// Сумма
         /// </summary>
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
     }
 
     public class EventDocumentStage
@@ -1510,13 +1510,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("stage_id")]
-        public double? StageId { get; set; }
+        public long? StageId { get; set; }
 
         /// <summary>
         /// parent_id
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Название
@@ -1552,7 +1552,7 @@ namespace Wshcmx.Types
         /// Текущий тест
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// 6b8507f6b3
@@ -1567,7 +1567,7 @@ namespace Wshcmx.Types
         public string? StartTime { get; set; }
 
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
     }
 
     public class EventDocumentTutor
@@ -1582,7 +1582,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -1600,7 +1600,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -1618,7 +1618,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -1648,7 +1648,7 @@ namespace Wshcmx.Types
         /// Ответственный за проведение
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("telephone_out")]
         public string? TelephoneOut { get; set; }
@@ -1672,7 +1672,7 @@ namespace Wshcmx.Types
     public class EventDocumentUnnamedPersonByOrg
     {
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("org_name")]
         public string? OrgName { get; set; }
@@ -1681,13 +1681,13 @@ namespace Wshcmx.Types
         /// Количество неименованных участников
         /// </summary>
         [XmlElement("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         /// <summary>
         /// Ответственный
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -1711,7 +1711,7 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("webinar_system_id")]
-        public double? WebinarSystemId { get; set; }
+        public long? WebinarSystemId { get; set; }
 
         [XmlElement("status_id")]
         public string? StatusId { get; set; }
@@ -1720,10 +1720,10 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("total_sum")]
-        public double? TotalSum { get; set; }
+        public long? TotalSum { get; set; }
 
         [XmlElement("unnamed_person_total_sum")]
-        public double? UnnamedPersonTotalSum { get; set; }
+        public long? UnnamedPersonTotalSum { get; set; }
 
         [XmlElement("is_load_results")]
         public bool IsLoadResults { get; set; }
@@ -1762,7 +1762,7 @@ namespace Wshcmx.Types
         public DateTime? LoopDate { get; set; }
 
         [XmlElement("loop_index")]
-        public double? LoopIndex { get; set; }
+        public long? LoopIndex { get; set; }
 
         [XmlElement("last_start_date")]
         public DateTime? LastStartDate { get; set; }
@@ -1774,7 +1774,7 @@ namespace Wshcmx.Types
         public string? LastDistributeCostType { get; set; }
 
         [XmlElement("last_default_event_result_type_id")]
-        public double? LastDefaultEventResultTypeId { get; set; }
+        public long? LastDefaultEventResultTypeId { get; set; }
 
         [XmlElement("recource_selector")]
         public string RecourceSelector { get; set; }
@@ -1798,19 +1798,19 @@ namespace Wshcmx.Types
     public class EventDocumentViewAssessmentPlan
     {
         [XmlElement("assessment_plan_id")]
-        public double? AssessmentPlanId { get; set; }
+        public long? AssessmentPlanId { get; set; }
     }
 
     public class EventDocumentViewCollaborator
     {
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class EventDocumentViewEvenPreparation
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class EventDocumentViewLearningSummary
@@ -1822,7 +1822,7 @@ namespace Wshcmx.Types
         public List<EventDocumentViewLearningSummaryCourse> Courses { get; set; } = new List<EventDocumentViewLearningSummaryCourse>();
 
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("person_filter")]
         public string PersonFilter { get; set; }
@@ -1840,7 +1840,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -1858,7 +1858,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -1876,7 +1876,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -1903,7 +1903,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("is_participant")]
         public bool IsParticipant { get; set; }
@@ -1918,7 +1918,7 @@ namespace Wshcmx.Types
         public string? ActiveLearningStateName { get; set; }
 
         [XmlElement("learning_num")]
-        public double LearningNum { get; set; }
+        public long LearningNum { get; set; }
 
         [XmlElement("learning_state_name")]
         public string? LearningStateName { get; set; }
@@ -1930,25 +1930,25 @@ namespace Wshcmx.Types
     public class EventDocumentViewLearningSummaryCollaboratorCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("active_learning_num")]
-        public double ActiveLearningNum { get; set; }
+        public long ActiveLearningNum { get; set; }
 
         [XmlElement("active_learning_state_id")]
-        public double? ActiveLearningStateId { get; set; }
+        public long? ActiveLearningStateId { get; set; }
 
         [XmlElement("learning_num")]
-        public double LearningNum { get; set; }
+        public long LearningNum { get; set; }
 
         [XmlElement("learning_state_id")]
-        public double? LearningStateId { get; set; }
+        public long? LearningStateId { get; set; }
     }
 
     public class EventDocumentViewLearningSummaryCollaboratorResult
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("is_assist")]
         public string? IsAssist { get; set; }
@@ -1960,25 +1960,25 @@ namespace Wshcmx.Types
         public string? NotParticipate { get; set; }
 
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
     }
 
     public class EventDocumentViewLearningSummaryCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
     }
 
     public class EventDocumentViewLector
     {
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
     }
 
     public class EventDocumentViewTutor
     {
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class EventDocumentWebinarSetting

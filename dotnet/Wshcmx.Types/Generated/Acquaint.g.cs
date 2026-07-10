@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Периодичность повторного обновления в днях
         /// </summary>
         [XmlElement("reacquaintance_period")]
-        public double ReacquaintancePeriod { get; set; }
+        public long ReacquaintancePeriod { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Комментарий
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class AcquaintDocumentCollaborator
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class AcquaintDocumentQuestion
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// Вопрос
         /// </summary>
         [XmlElement("item_id")]
-        public double? ItemId { get; set; }
+        public long? ItemId { get; set; }
 
         /// <summary>
         /// Тип вопроса

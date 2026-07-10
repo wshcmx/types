@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Родительский центр затрат
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         [XmlElement("subdivisions")]
         public List<CostCenterDocumentSubdivision> Subdivisions { get; set; } = new List<CostCenterDocumentSubdivision>();
@@ -97,6 +97,6 @@ namespace Wshcmx.Types
     public class CostCenterDocumentSubdivision
     {
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
     }
 }

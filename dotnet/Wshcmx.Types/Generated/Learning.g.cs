@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Название электронного курса
@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Текущее состояние сотрудника
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Название мероприятия
@@ -166,13 +166,13 @@ namespace Wshcmx.Types
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// План обучения
         /// </summary>
         [XmlElement("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Разделы
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// Время модулей
         /// </summary>
         [XmlElement("time")]
-        public double? Time { get; set; }
+        public long? Time { get; set; }
 
         /// <summary>
         /// Мероприятия
@@ -235,13 +235,13 @@ namespace Wshcmx.Types
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double MaxScore { get; set; }
+        public long MaxScore { get; set; }
 
         /// <summary>
         /// Баллы
         /// </summary>
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("text_result")]
         public string? TextResult { get; set; }
@@ -250,13 +250,13 @@ namespace Wshcmx.Types
         /// Состояние
         /// </summary>
         [XmlElement("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
 
         /// <summary>
         /// Незаконченный курс
         /// </summary>
         [XmlElement("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         [XmlElement("active_learning_deleted")]
         public bool? ActiveLearningDeleted { get; set; }
@@ -286,16 +286,16 @@ namespace Wshcmx.Types
     public class LearningDocumentEvent
     {
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
     }
 
     public class LearningDocumentView
     {
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("result_tab_selector")]
         public string ResultTabSelector { get; set; }

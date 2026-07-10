@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Переменные
@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Имя функции получения ленты

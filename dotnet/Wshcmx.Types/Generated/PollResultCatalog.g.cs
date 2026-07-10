@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         /// Опрос
         /// </summary>
         [Column("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
 
         /// <summary>
         /// Процедура опроса
         /// </summary>
         [Column("poll_procedure_id")]
-        public double? PollProcedureId { get; set; }
+        public long? PollProcedureId { get; set; }
 
         /// <summary>
         /// Пользователь
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО пользователя
@@ -79,7 +79,14 @@ namespace Wshcmx.Types
         /// Вопросы
         /// </summary>
         [Column("question_id")]
-        public List<double> QuestionId { get; set; } = new List<double>();
+        public string? QuestionIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> QuestionId
+        {
+            get => XmlListCodec.ParseLongList(QuestionIdRaw, "question_id");
+            set => QuestionIdRaw = XmlListCodec.SerializeLongList("question_id", value);
+        }
 
         /// <summary>
         /// Заполнена
@@ -91,13 +98,13 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [Column("status")]
-        public double? Status { get; set; }
+        public long? Status { get; set; }
 
         /// <summary>
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Дата создания

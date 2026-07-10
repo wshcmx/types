@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,19 +43,19 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [Column("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Дисциплина
         /// </summary>
         [Column("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         [Column("lesson_date")]
         public DateTime? LessonDate { get; set; }
@@ -70,22 +70,22 @@ namespace Wshcmx.Types
         /// Преподаватель
         /// </summary>
         [Column("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [Column("educat_event_form_id")]
-        public double? EducatEventFormId { get; set; }
+        public long? EducatEventFormId { get; set; }
 
         /// <summary>
         /// Аудитория
         /// </summary>
         [Column("auditorium_id")]
-        public double? AuditoriumId { get; set; }
+        public long? AuditoriumId { get; set; }
 
         /// <summary>
         /// Поток
         /// </summary>
         [Column("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Дата модификации

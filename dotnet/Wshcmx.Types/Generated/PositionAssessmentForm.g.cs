@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         /// Кто оценивает
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Оцениваемая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Признак завершенности
@@ -64,19 +64,19 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Итоговый балл
         /// </summary>
         [XmlElement("scale")]
-        public double? Scale { get; set; }
+        public long? Scale { get; set; }
 
         /// <summary>
         /// Уровень грейд
         /// </summary>
         [XmlElement("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

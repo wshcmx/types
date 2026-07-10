@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -247,13 +247,13 @@ namespace Wshcmx.Types
         /// Специальность
         /// </summary>
         [XmlElement("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         /// <summary>
         /// Специализация
         /// </summary>
         [XmlElement("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Формы обучения
@@ -271,7 +271,7 @@ namespace Wshcmx.Types
         /// Квалификация
         /// </summary>
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         /// <summary>
         /// Статус договора
@@ -283,7 +283,7 @@ namespace Wshcmx.Types
         /// Основная (академическая) группа
         /// </summary>
         [XmlElement("main_group_id")]
-        public double? MainGroupId { get; set; }
+        public long? MainGroupId { get; set; }
 
         /// <summary>
         /// Учебные группы
@@ -361,13 +361,13 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [XmlElement("scient_adviser_id")]
-        public double? ScientAdviserId { get; set; }
+        public long? ScientAdviserId { get; set; }
 
         [XmlElement("subject")]
         public string? Subject { get; set; }
@@ -388,7 +388,7 @@ namespace Wshcmx.Types
         /// Учебная группа
         /// </summary>
         [XmlElement("edu_group_id")]
-        public double? EduGroupId { get; set; }
+        public long? EduGroupId { get; set; }
     }
 
     public class DnStudentDocumentView
@@ -412,6 +412,6 @@ namespace Wshcmx.Types
         /// Учебная группа
         /// </summary>
         [XmlElement("edu_group_id")]
-        public double? EduGroupId { get; set; }
+        public long? EduGroupId { get; set; }
     }
 }

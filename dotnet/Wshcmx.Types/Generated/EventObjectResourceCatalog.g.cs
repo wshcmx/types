@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Мероприятия
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Код
@@ -67,19 +67,19 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Ресурс
         /// </summary>
         [Column("object_resource_id")]
-        public double? ObjectResourceId { get; set; }
+        public long? ObjectResourceId { get; set; }
 
         /// <summary>
         /// Название ресурса

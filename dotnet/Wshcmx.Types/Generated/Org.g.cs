@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Почтовый адрес
@@ -109,10 +109,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Биллинговый счет
         /// </summary>
         [XmlElement("account_id")]
-        public double? AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         /// <summary>
         /// Номер абонентского договора
@@ -193,13 +193,13 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Время доступа с
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         [XmlElement("kpi_profiles")]
         public List<OrgDocumentKpiProfile> KpiProfiles { get; set; } = new List<OrgDocumentKpiProfile>();
@@ -238,7 +238,7 @@ namespace Wshcmx.Types
         /// Профиль премирования
         /// </summary>
         [XmlElement("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Описание
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class OrgDocumentKpiProfile
@@ -286,7 +286,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("period_type_id")]
         public string? PeriodTypeId { get; set; }

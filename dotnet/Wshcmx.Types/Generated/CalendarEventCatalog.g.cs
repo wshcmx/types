@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Создатель звонка
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Исключение из расписание
@@ -157,19 +157,19 @@ namespace Wshcmx.Types
         /// Родительское событие
         /// </summary>
         [Column("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [Column("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -196,10 +196,24 @@ namespace Wshcmx.Types
         public DateTime? PlanEndDate { get; set; }
 
         [Column("participant_ids")]
-        public List<double> ParticipantIds { get; set; } = new List<double>();
+        public string? ParticipantIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ParticipantIds
+        {
+            get => XmlListCodec.ParseLongList(ParticipantIdsRaw, "participant_ids");
+            set => ParticipantIdsRaw = XmlListCodec.SerializeLongList("participant_ids", value);
+        }
 
         [Column("tutor_ids")]
-        public List<double> TutorIds { get; set; } = new List<double>();
+        public string? TutorIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> TutorIds
+        {
+            get => XmlListCodec.ParseLongList(TutorIdsRaw, "tutor_ids");
+            set => TutorIdsRaw = XmlListCodec.SerializeLongList("tutor_ids", value);
+        }
 
         [Column("scheduler_week_days_ids")]
         public List<string> SchedulerWeekDaysIds { get; set; } = new List<string>();
@@ -229,10 +243,24 @@ namespace Wshcmx.Types
         public string? WeekTypeId { get; set; }
 
         [Column("confirm_participant_ids")]
-        public List<double> ConfirmParticipantIds { get; set; } = new List<double>();
+        public string? ConfirmParticipantIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ConfirmParticipantIds
+        {
+            get => XmlListCodec.ParseLongList(ConfirmParticipantIdsRaw, "confirm_participant_ids");
+            set => ConfirmParticipantIdsRaw = XmlListCodec.SerializeLongList("confirm_participant_ids", value);
+        }
 
         [Column("not_participate_participant_ids")]
-        public List<double> NotParticipateParticipantIds { get; set; } = new List<double>();
+        public string? NotParticipateParticipantIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> NotParticipateParticipantIds
+        {
+            get => XmlListCodec.ParseLongList(NotParticipateParticipantIdsRaw, "not_participate_participant_ids");
+            set => NotParticipateParticipantIdsRaw = XmlListCodec.SerializeLongList("not_participate_participant_ids", value);
+        }
 
         /// <summary>
         /// Следующая дата запуска события

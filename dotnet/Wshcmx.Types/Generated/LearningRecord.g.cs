@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Параметры
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("proctoring_object_id")]
-        public double? ProctoringObjectId { get; set; }
+        public long? ProctoringObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         /// Количество фото не прошедших проверку
         /// </summary>
         [XmlElement("num_failed_checked_foto")]
-        public double? NumFailedCheckedFoto { get; set; }
+        public long? NumFailedCheckedFoto { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -205,19 +205,19 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Система прокторинга
         /// </summary>
         [XmlElement("proctoring_system_id")]
-        public double? ProctoringSystemId { get; set; }
+        public long? ProctoringSystemId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Скачаны материалы прокторинга
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Количество запусков записи
         /// </summary>
         [XmlElement("record_num")]
-        public double? RecordNum { get; set; }
+        public long? RecordNum { get; set; }
 
         /// <summary>
         /// Дата запуска последней записи
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Сотрудник
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         /// Номер потока
         /// </summary>
         [XmlElement("stream_number")]
-        public double? StreamNumber { get; set; }
+        public long? StreamNumber { get; set; }
 
         /// <summary>
         /// Тип медиа потока
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("proctor_id")]
-        public double? ProctorId { get; set; }
+        public long? ProctorId { get; set; }
 
         /// <summary>
         /// Статус
@@ -379,7 +379,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Текст сообщения
@@ -448,7 +448,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Тип
@@ -466,13 +466,13 @@ namespace Wshcmx.Types
         /// Номер потока
         /// </summary>
         [XmlElement("stream_number")]
-        public double? StreamNumber { get; set; }
+        public long? StreamNumber { get; set; }
 
         /// <summary>
         /// Медиа поток
         /// </summary>
         [XmlElement("media_id")]
-        public double? MediaId { get; set; }
+        public long? MediaId { get; set; }
 
         [XmlElement("interval")]
         public LearningRecordDocumentViolationInterval? Interval { get; set; }

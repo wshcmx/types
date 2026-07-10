@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Название мероприятия
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО пользователя
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Заявка
         /// </summary>
         [Column("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Тип результата мероприятия
         /// </summary>
         [Column("event_result_type_id")]
-        public double? EventResultTypeId { get; set; }
+        public long? EventResultTypeId { get; set; }
 
         /// <summary>
         /// Признак присутствия
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Баллы
         /// </summary>
         [Column("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         /// <summary>
         /// Последняя отправка
@@ -151,13 +151,13 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Кост-центр
         /// </summary>
         [Column("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Признак: без оплаты
@@ -175,19 +175,19 @@ namespace Wshcmx.Types
         /// Сумма затрат
         /// </summary>
         [Column("expense_sum")]
-        public double? ExpenseSum { get; set; }
+        public long? ExpenseSum { get; set; }
 
         /// <summary>
         /// Ресурс
         /// </summary>
         [Column("object_resource_id")]
-        public double? ObjectResourceId { get; set; }
+        public long? ObjectResourceId { get; set; }
 
         /// <summary>
         /// Сертификат
         /// </summary>
         [Column("certificate_id")]
-        public double? CertificateId { get; set; }
+        public long? CertificateId { get; set; }
 
         /// <summary>
         /// Дата модификации

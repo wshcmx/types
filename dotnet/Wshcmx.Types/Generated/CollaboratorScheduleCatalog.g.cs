@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,13 +91,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата
@@ -118,25 +118,25 @@ namespace Wshcmx.Types
         public string? FinishTime { get; set; }
 
         [Column("presence_state_id")]
-        public double? PresenceStateId { get; set; }
+        public long? PresenceStateId { get; set; }
 
         /// <summary>
         /// График
         /// </summary>
         [Column("schedule_day_id")]
-        public double? ScheduleDayId { get; set; }
+        public long? ScheduleDayId { get; set; }
 
         /// <summary>
         /// Интервал графика
         /// </summary>
         [Column("interval_schedule_id")]
-        public double? IntervalScheduleId { get; set; }
+        public long? IntervalScheduleId { get; set; }
 
         /// <summary>
         /// Тип графика
         /// </summary>
         [Column("schedule_type_id")]
-        public double? ScheduleTypeId { get; set; }
+        public long? ScheduleTypeId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -154,19 +154,19 @@ namespace Wshcmx.Types
         /// Согласующий
         /// </summary>
         [Column("approval_person_id")]
-        public double? ApprovalPersonId { get; set; }
+        public long? ApprovalPersonId { get; set; }
 
         /// <summary>
         /// Период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Ограничения
         /// </summary>
         [Column("rest_collaborator_schedule_id")]
-        public double? RestCollaboratorScheduleId { get; set; }
+        public long? RestCollaboratorScheduleId { get; set; }
 
         /// <summary>
         /// Комментарий причины согласования/отмены

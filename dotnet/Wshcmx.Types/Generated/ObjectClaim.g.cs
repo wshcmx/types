@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Источник-ID
         /// </summary>
         [XmlElement("source_id")]
-        public double? SourceId { get; set; }
+        public long? SourceId { get; set; }
 
         /// <summary>
         /// Источник-название
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Объект-ID
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Объект-название
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Элемент-ID
         /// </summary>
         [XmlElement("element_id")]
-        public double? ElementId { get; set; }
+        public long? ElementId { get; set; }
 
         /// <summary>
         /// Элемент-название
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Роль
         /// </summary>
         [XmlElement("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
 
         /// <summary>
         /// Значение доступа

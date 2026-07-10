@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Включен
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Системное событие
         /// </summary>
         [Column("system_event_id")]
-        public double? SystemEventId { get; set; }
+        public long? SystemEventId { get; set; }
 
         /// <summary>
         /// Является системным

@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         public string? Connect2Object { get; set; }
 
         [XmlElement("mode_selector")]
-        public double? ModeSelector { get; set; }
+        public long? ModeSelector { get; set; }
 
         [XmlElement("source_binding_object")]
         public string? SourceBindingObject { get; set; }
@@ -166,13 +166,13 @@ namespace Wshcmx.Types
         public AccessDocBase? Access { get; set; }
 
         [XmlElement("binding_selection")]
-        public double BindingSelection { get; set; }
+        public long BindingSelection { get; set; }
 
         [XmlElement("initiator_person_id")]
-        public double? InitiatorPersonId { get; set; }
+        public long? InitiatorPersonId { get; set; }
 
         [XmlElement("perfomance_cutoff")]
-        public double? PerfomanceCutoff { get; set; }
+        public long? PerfomanceCutoff { get; set; }
 
         [XmlElement("view")]
         public CustomReportDocumentView? View { get; set; }
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         public bool On { get; set; }
 
         [XmlElement("days_period")]
-        public double? DaysPeriod { get; set; }
+        public long? DaysPeriod { get; set; }
 
         [XmlElement("format")]
         public string? Format { get; set; }
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
     public class CustomReportDocumentViewPathSub
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("type")]
         public string? Type { get; set; }
@@ -211,13 +211,13 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
     }
 
     public class CustomReportDocumentWebSettings
     {
         [XmlElement("table_height")]
-        public double? TableHeight { get; set; }
+        public long? TableHeight { get; set; }
 
         [XmlElement("default_mode")]
         public string DefaultMode { get; set; }

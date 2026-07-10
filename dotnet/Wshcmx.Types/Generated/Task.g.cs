@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,10 +37,10 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -94,10 +94,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsKpBaseTag> Tags { get; set; } = new List<KnowledgePartsKpBaseTag>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -118,25 +118,25 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Тип
         /// </summary>
         [XmlElement("task_type_id")]
-        public double? TaskTypeId { get; set; }
+        public long? TaskTypeId { get; set; }
 
         /// <summary>
         /// Родительская задача
         /// </summary>
         [XmlElement("parent_task_id")]
-        public double? ParentTaskId { get; set; }
+        public long? ParentTaskId { get; set; }
 
         /// <summary>
         /// Источник транслирования
         /// </summary>
         [XmlElement("translated_task_id")]
-        public double? TranslatedTaskId { get; set; }
+        public long? TranslatedTaskId { get; set; }
 
         /// <summary>
         /// Тип получателя трансляции
@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         /// Получатель трансляции
         /// </summary>
         [XmlElement("translated_target_id")]
-        public double? TranslatedTargetId { get; set; }
+        public long? TranslatedTargetId { get; set; }
 
         /// <summary>
         /// Назначивший задачу
         /// </summary>
         [XmlElement("assigner_id")]
-        public double? AssignerId { get; set; }
+        public long? AssignerId { get; set; }
 
         /// <summary>
         /// Тип ответственного
@@ -166,13 +166,13 @@ namespace Wshcmx.Types
         /// Ответственный за исполнение задачи
         /// </summary>
         [XmlElement("executor_id")]
-        public double? ExecutorId { get; set; }
+        public long? ExecutorId { get; set; }
 
         /// <summary>
         /// Плановые трудозатраты исполнителя
         /// </summary>
         [XmlElement("executor_plan")]
-        public double? ExecutorPlan { get; set; }
+        public long? ExecutorPlan { get; set; }
 
         [XmlElement("experts")]
         public List<TaskDocumentExpert> Experts { get; set; } = new List<TaskDocumentExpert>();
@@ -190,10 +190,10 @@ namespace Wshcmx.Types
         /// Объект-источник
         /// </summary>
         [XmlElement("source_object_id")]
-        public double? SourceObjectId { get; set; }
+        public long? SourceObjectId { get; set; }
 
         [XmlElement("pay_stage_id")]
-        public double? PayStageId { get; set; }
+        public long? PayStageId { get; set; }
 
         /// <summary>
         /// Тип объекта цели
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Объект цели
         /// </summary>
         [XmlElement("target_object_id")]
-        public double? TargetObjectId { get; set; }
+        public long? TargetObjectId { get; set; }
 
         /// <summary>
         /// Тип фактического объекта
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Фактический объект
         /// </summary>
         [XmlElement("fact_object_id")]
-        public double? FactObjectId { get; set; }
+        public long? FactObjectId { get; set; }
 
         [XmlElement("date_period_type")]
         public string? DatePeriodType { get; set; }
@@ -238,31 +238,31 @@ namespace Wshcmx.Types
         /// Плановые трудозатраты
         /// </summary>
         [XmlElement("plan_labor_costs")]
-        public double? PlanLaborCosts { get; set; }
+        public long? PlanLaborCosts { get; set; }
 
         /// <summary>
         /// Фактические трудозатраты
         /// </summary>
         [XmlElement("fact_labor_costs")]
-        public double? FactLaborCosts { get; set; }
+        public long? FactLaborCosts { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("plan_budget_period_id")]
-        public double? PlanBudgetPeriodId { get; set; }
+        public long? PlanBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("fact_budget_period_id")]
-        public double? FactBudgetPeriodId { get; set; }
+        public long? FactBudgetPeriodId { get; set; }
 
         /// <summary>
         /// Приоритет
         /// </summary>
         [XmlElement("priority")]
-        public double? Priority { get; set; }
+        public long? Priority { get; set; }
 
         /// <summary>
         /// Планируемая дата начала
@@ -277,10 +277,10 @@ namespace Wshcmx.Types
         public DateTime? EndDatePlan { get; set; }
 
         [XmlElement("delayed_start")]
-        public double? DelayedStart { get; set; }
+        public long? DelayedStart { get; set; }
 
         [XmlElement("plan_duraion")]
-        public double? PlanDuraion { get; set; }
+        public long? PlanDuraion { get; set; }
 
         /// <summary>
         /// Плановый результат
@@ -292,7 +292,7 @@ namespace Wshcmx.Types
         /// План в кличественном измерении
         /// </summary>
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Фактический результат
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         /// Факт в кличественном измерении
         /// </summary>
         [XmlElement("fact_value")]
-        public double? FactValue { get; set; }
+        public long? FactValue { get; set; }
 
         /// <summary>
         /// Настраиваемый статус
@@ -322,19 +322,19 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Процент готовности
         /// </summary>
         [XmlElement("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         [XmlElement("workflow_matchings")]
         public List<TaskDocumentWorkflowMatching> WorkflowMatchings { get; set; } = new List<TaskDocumentWorkflowMatching>();
@@ -388,13 +388,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class TaskDocumentCustomComment
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -433,13 +433,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
     }
 
     public class TaskDocumentExpert
     {
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
     }
 
     public class TaskDocumentFile
@@ -475,13 +475,13 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Плановые трудозатраты ответственного
         /// </summary>
         [XmlElement("person_plan")]
-        public double? PersonPlan { get; set; }
+        public long? PersonPlan { get; set; }
 
         [XmlElement("role_id")]
         public string? RoleId { get; set; }
@@ -514,7 +514,7 @@ namespace Wshcmx.Types
     public class TaskDocumentViewError
     {
         [XmlElement("error_code")]
-        public double? ErrorCode { get; set; }
+        public long? ErrorCode { get; set; }
 
         [XmlElement("error_text")]
         public string? ErrorText { get; set; }
@@ -529,7 +529,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("type")]
         public string? Type { get; set; }

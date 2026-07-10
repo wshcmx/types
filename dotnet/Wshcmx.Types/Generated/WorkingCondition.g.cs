@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Эталонное условие работы
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         /// Длительность испытательного срока (месяцев)
         /// </summary>
         [XmlElement("probationary_duration")]
-        public double? ProbationaryDuration { get; set; }
+        public long? ProbationaryDuration { get; set; }
 
         /// <summary>
         /// Название должности
@@ -172,25 +172,25 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Тип условиий труда
         /// </summary>
         [XmlElement("working_condition_type_id")]
-        public double? WorkingConditionTypeId { get; set; }
+        public long? WorkingConditionTypeId { get; set; }
 
         /// <summary>
         /// Тип графика выплат заработной платы
         /// </summary>
         [XmlElement("salary_payment_type_id")]
-        public double? SalaryPaymentTypeId { get; set; }
+        public long? SalaryPaymentTypeId { get; set; }
 
         /// <summary>
         /// Форма работы
         /// </summary>
         [XmlElement("work_form_id")]
-        public double? WorkFormId { get; set; }
+        public long? WorkFormId { get; set; }
 
         /// <summary>
         /// Выплата вознаграждения
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         /// Оклад
         /// </summary>
         [XmlElement("salary")]
-        public double? Salary { get; set; }
+        public long? Salary { get; set; }
 
         /// <summary>
         /// Валюта
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         /// Ежегодный оплачиваемый отпуск (дней)
         /// </summary>
         [XmlElement("vacation_duration")]
-        public double? VacationDuration { get; set; }
+        public long? VacationDuration { get; set; }
 
         /// <summary>
         /// Дополнительные выплаты
@@ -238,19 +238,19 @@ namespace Wshcmx.Types
         /// Тип графика работы
         /// </summary>
         [XmlElement("work_schedule_type_id")]
-        public double? WorkScheduleTypeId { get; set; }
+        public long? WorkScheduleTypeId { get; set; }
 
         /// <summary>
         /// Продолжительность ежедневной работы (смены) в часах
         /// </summary>
         [XmlElement("daily_duration")]
-        public double? DailyDuration { get; set; }
+        public long? DailyDuration { get; set; }
 
         /// <summary>
         /// Продолжительность рабочей недели (в часах)
         /// </summary>
         [XmlElement("weekly_duration")]
-        public double? WeeklyDuration { get; set; }
+        public long? WeeklyDuration { get; set; }
 
         /// <summary>
         /// Время начала работы
@@ -274,7 +274,7 @@ namespace Wshcmx.Types
         /// Длительность обеденного перерыва
         /// </summary>
         [XmlElement("lunch_break_duration")]
-        public double? LunchBreakDuration { get; set; }
+        public long? LunchBreakDuration { get; set; }
 
         /// <summary>
         /// Тип обеденного перерыва
@@ -298,7 +298,7 @@ namespace Wshcmx.Types
         /// Число смен в сутки
         /// </summary>
         [XmlElement("shifts_number")]
-        public double? ShiftsNumber { get; set; }
+        public long? ShiftsNumber { get; set; }
 
         /// <summary>
         /// Описание
@@ -328,13 +328,13 @@ namespace Wshcmx.Types
         /// Тип выплат
         /// </summary>
         [XmlElement("payment_type_id")]
-        public double? PaymentTypeId { get; set; }
+        public long? PaymentTypeId { get; set; }
 
         /// <summary>
         /// Размер выплаты
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Валюта
@@ -355,7 +355,7 @@ namespace Wshcmx.Types
         /// Тип привилегии
         /// </summary>
         [XmlElement("benefit_id")]
-        public double? BenefitId { get; set; }
+        public long? BenefitId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -370,7 +370,7 @@ namespace Wshcmx.Types
         /// Тарифная ставка
         /// </summary>
         [XmlElement("tariff_rate_value")]
-        public double? TariffRateValue { get; set; }
+        public long? TariffRateValue { get; set; }
 
         /// <summary>
         /// Валюта

@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,25 +49,39 @@ namespace Wshcmx.Types
         /// Семейство
         /// </summary>
         [Column("competence_profile_family_id")]
-        public double? CompetenceProfileFamilyId { get; set; }
+        public long? CompetenceProfileFamilyId { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Родительски профиль KPI
         /// </summary>
         [Column("parent_kpi_profile_id")]
-        public double? ParentKpiProfileId { get; set; }
+        public long? ParentKpiProfileId { get; set; }
 
         /// <summary>
         /// КПЭ
         /// </summary>
         [Column("kpi_id")]
-        public List<double> KpiId { get; set; } = new List<double>();
+        public string? KpiIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> KpiId
+        {
+            get => XmlListCodec.ParseLongList(KpiIdRaw, "kpi_id");
+            set => KpiIdRaw = XmlListCodec.SerializeLongList("kpi_id", value);
+        }
 
         /// <summary>
         /// Значения карты знаний
@@ -91,7 +105,7 @@ namespace Wshcmx.Types
         /// Документооборот
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Текущий этап документооборота
@@ -109,7 +123,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public string? WorkflowPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowPersonIdRaw, "workflow_person_id");
+            set => WorkflowPersonIdRaw = XmlListCodec.SerializeLongList("workflow_person_id", value);
+        }
 
         /// <summary>
         /// Тип выборки условий видимости
@@ -121,7 +142,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_main_person_id")]
-        public List<double> WorkflowMainPersonId { get; set; } = new List<double>();
+        public string? WorkflowMainPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowMainPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowMainPersonIdRaw, "workflow_main_person_id");
+            set => WorkflowMainPersonIdRaw = XmlListCodec.SerializeLongList("workflow_main_person_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

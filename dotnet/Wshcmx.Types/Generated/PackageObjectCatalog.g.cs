@@ -76,10 +76,10 @@ namespace Wshcmx.Types
     public class PackageObjectsDocumentObject
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("eid")]
-        public double? Eid { get; set; }
+        public long? Eid { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }

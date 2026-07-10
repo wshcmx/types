@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Роль
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Тип участника проекта
@@ -94,7 +94,7 @@ namespace Wshcmx.Types
         /// Кадровый комитет
         /// </summary>
         [XmlElement("personnel_committee_id")]
-        public double? PersonnelCommitteeId { get; set; }
+        public long? PersonnelCommitteeId { get; set; }
 
         /// <summary>
         /// Описание

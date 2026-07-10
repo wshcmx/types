@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("proctoring_object_id")]
-        public double? ProctoringObjectId { get; set; }
+        public long? ProctoringObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -85,13 +85,13 @@ namespace Wshcmx.Types
         /// Система прокторинга
         /// </summary>
         [Column("proctoring_system_id")]
-        public double? ProctoringSystemId { get; set; }
+        public long? ProctoringSystemId { get; set; }
 
         /// <summary>
         /// Пользователь
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО пользователя
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Количество фото не прошедших проверку
         /// </summary>
         [Column("num_failed_checked_foto")]
-        public double? NumFailedCheckedFoto { get; set; }
+        public long? NumFailedCheckedFoto { get; set; }
 
         /// <summary>
         /// Статус проверки фото
@@ -175,13 +175,27 @@ namespace Wshcmx.Types
         /// Прокторы
         /// </summary>
         [Column("proctors_id")]
-        public List<double> ProctorsId { get; set; } = new List<double>();
+        public string? ProctorsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ProctorsId
+        {
+            get => XmlListCodec.ParseLongList(ProctorsIdRaw, "proctors_id");
+            set => ProctorsIdRaw = XmlListCodec.SerializeLongList("proctors_id", value);
+        }
 
         /// <summary>
         /// Все прокторы
         /// </summary>
         [Column("archive_proctors_id")]
-        public List<double> ArchiveProctorsId { get; set; } = new List<double>();
+        public string? ArchiveProctorsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ArchiveProctorsId
+        {
+            get => XmlListCodec.ParseLongList(ArchiveProctorsIdRaw, "archive_proctors_id");
+            set => ArchiveProctorsIdRaw = XmlListCodec.SerializeLongList("archive_proctors_id", value);
+        }
 
         /// <summary>
         /// Предпочтительный проктор

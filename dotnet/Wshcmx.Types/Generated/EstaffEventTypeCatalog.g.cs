@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Система подбора персонала
         /// </summary>
         [Column("recruitment_system_id")]
-        public double? RecruitmentSystemId { get; set; }
+        public long? RecruitmentSystemId { get; set; }
 
         /// <summary>
         /// Семействa должностей

@@ -73,10 +73,10 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("provider_id")]
-        public double? ProviderId { get; set; }
+        public long? ProviderId { get; set; }
 
         [XmlElement("cost_value")]
-        public double? CostValue { get; set; }
+        public long? CostValue { get; set; }
 
         [XmlElement("type_id")]
         public string? TypeId { get; set; }

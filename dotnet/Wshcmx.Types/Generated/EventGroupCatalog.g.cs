@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [Column("event_type_id")]
-        public double? EventTypeId { get; set; }
+        public long? EventTypeId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Количество неименованных участников
         /// </summary>
         [Column("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         /// <summary>
         /// Организационная форма
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Название обучающей организации
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Общая стоимость
         /// </summary>
         [Column("total_cost")]
-        public double? TotalCost { get; set; }
+        public long? TotalCost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -109,18 +109,18 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Мероприятия
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [Column("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 }

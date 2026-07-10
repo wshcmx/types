@@ -31,25 +31,25 @@ namespace Wshcmx.Types
         /// Курс CourseLab
         /// </summary>
         [XmlElement("cl_course_id")]
-        public double? ClCourseId { get; set; }
+        public long? ClCourseId { get; set; }
 
         /// <summary>
         /// Модуль Courselab
         /// </summary>
         [XmlElement("cl_module_id")]
-        public double? ClModuleId { get; set; }
+        public long? ClModuleId { get; set; }
 
         [XmlElement("guid")]
         public string? Guid { get; set; }
 
         [XmlElement("sid")]
-        public double? Sid { get; set; }
+        public long? Sid { get; set; }
 
         /// <summary>
         /// Слайд-хозяин
         /// </summary>
         [XmlElement("master_id")]
-        public double? MasterId { get; set; }
+        public long? MasterId { get; set; }
 
         /// <summary>
         /// Код слайда-хозяина
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         public bool IsSplash { get; set; }
 
         [XmlElement("indent")]
-        public double? Indent { get; set; }
+        public long? Indent { get; set; }
 
         [XmlElement("infinite")]
         public bool Infinite { get; set; }
@@ -79,10 +79,10 @@ namespace Wshcmx.Types
         public string? Advance { get; set; }
 
         [XmlElement("transition")]
-        public double? Transition { get; set; }
+        public long? Transition { get; set; }
 
         [XmlElement("durout")]
-        public double? Durout { get; set; }
+        public long? Durout { get; set; }
 
         [XmlElement("eventsxml")]
         public string? Eventsxml { get; set; }
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Владелец ресурса
         /// </summary>
         [XmlElement("greedy_person_id")]
-        public double? GreedyPersonId { get; set; }
+        public long? GreedyPersonId { get; set; }
 
         /// <summary>
         /// Имя владельца
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         public bool FlagCompletion { get; set; }
 
         [XmlElement("champion_id")]
-        public double? ChampionId { get; set; }
+        public long? ChampionId { get; set; }
 
         [XmlElement("champion_fullname")]
         public string? ChampionFullname { get; set; }
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Состояние разработки
         /// </summary>
         [XmlElement("approval_status")]
-        public double ApprovalStatus { get; set; }
+        public long ApprovalStatus { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Stamp
         /// </summary>
         [XmlElement("stamp")]
-        public double Stamp { get; set; }
+        public long Stamp { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         public DateTime? Date { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_fullname")]
         public string? PersonFullname { get; set; }
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         public string? Guid { get; set; }
 
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("infinite")]
         public bool Infinite { get; set; }
@@ -208,25 +208,25 @@ namespace Wshcmx.Types
         public string? Type { get; set; }
 
         [XmlElement("left")]
-        public double? Left { get; set; }
+        public long? Left { get; set; }
 
         [XmlElement("top")]
-        public double? Top { get; set; }
+        public long? Top { get; set; }
 
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
 
         [XmlElement("display")]
         public string? Display { get; set; }
 
         [XmlElement("begin")]
-        public double? Begin { get; set; }
+        public long? Begin { get; set; }
 
         [XmlElement("displaytime")]
-        public double? Displaytime { get; set; }
+        public long? Displaytime { get; set; }
 
         [XmlElement("tranin")]
         public string? Tranin { get; set; }
@@ -235,10 +235,10 @@ namespace Wshcmx.Types
         public string? Tranout { get; set; }
 
         [XmlElement("durin")]
-        public double? Durin { get; set; }
+        public long? Durin { get; set; }
 
         [XmlElement("durout")]
-        public double? Durout { get; set; }
+        public long? Durout { get; set; }
 
         [XmlElement("preload")]
         public string? Preload { get; set; }
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         public bool Draggable { get; set; }
 
         [XmlElement("rotation")]
-        public double? Rotation { get; set; }
+        public long? Rotation { get; set; }
 
         [XmlElement("soundsrc")]
         public string? Soundsrc { get; set; }
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         public string? Template { get; set; }
 
         [XmlElement("template_id")]
-        public double? TemplateId { get; set; }
+        public long? TemplateId { get; set; }
 
         [XmlElement("designcontentxml")]
         public string? Designcontentxml { get; set; }

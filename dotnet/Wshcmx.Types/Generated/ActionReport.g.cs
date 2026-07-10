@@ -40,13 +40,13 @@ namespace Wshcmx.Types
         /// Сервер
         /// </summary>
         [XmlElement("exchange_server_id")]
-        public double? ExchangeServerId { get; set; }
+        public long? ExchangeServerId { get; set; }
 
         /// <summary>
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Дата загрузки

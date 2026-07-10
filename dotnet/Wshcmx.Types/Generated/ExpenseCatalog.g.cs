@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("code")]
         public string? Code { get; set; }
@@ -28,13 +28,13 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("pay_stage_id")]
-        public double? PayStageId { get; set; }
+        public long? PayStageId { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта

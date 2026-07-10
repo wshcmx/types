@@ -16,16 +16,16 @@ namespace Wshcmx.Types
     public class Connection
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("part_code")]
         public string? PartCode { get; set; }
 
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         [XmlElement("user_code")]
         public string? UserCode { get; set; }
@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? UserFullname { get; set; }
 
         [XmlElement("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         [XmlElement("learning_xml")]
         public string? LearningXml { get; set; }

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -109,13 +109,13 @@ namespace Wshcmx.Types
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Создатель звонка
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Статус
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Файл с расшифровкой разговора
         /// </summary>
         [XmlElement("recognition_file_id")]
-        public double? RecognitionFileId { get; set; }
+        public long? RecognitionFileId { get; set; }
 
         /// <summary>
         /// Участники звонка
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Все входившие участники
         /// </summary>
         [XmlElement("entered_participants_id")]
-        public List<double> EnteredParticipantsId { get; set; } = new List<double>();
+        public List<long> EnteredParticipantsId { get; set; } = new List<long>();
 
         /// <summary>
         /// Комментарий
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// c_col
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Статус

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -31,13 +31,13 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("chat_id")]
-        public double? ChatId { get; set; }
+        public long? ChatId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Собеседник
         /// </summary>
         [Column("partner_id")]
-        public double? PartnerId { get; set; }
+        public long? PartnerId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Отправитель последнего сообщения
         /// </summary>
         [Column("last_message_sender_id")]
-        public double? LastMessageSenderId { get; set; }
+        public long? LastMessageSenderId { get; set; }
 
         /// <summary>
         /// Дата модификации

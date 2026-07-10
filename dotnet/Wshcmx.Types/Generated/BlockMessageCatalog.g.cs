@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Количество сообщений
         /// </summary>
         [Column("count_message")]
-        public double CountMessage { get; set; }
+        public long CountMessage { get; set; }
 
         /// <summary>
         /// Настройки сообщения неактивны
@@ -91,13 +91,27 @@ namespace Wshcmx.Types
         /// Все адресаты
         /// </summary>
         [Column("recipient_id")]
-        public List<double> RecipientId { get; set; } = new List<double>();
+        public string? RecipientIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RecipientId
+        {
+            get => XmlListCodec.ParseLongList(RecipientIdRaw, "recipient_id");
+            set => RecipientIdRaw = XmlListCodec.SerializeLongList("recipient_id", value);
+        }
 
         /// <summary>
         /// Адресаты, непрочитавшие сообщения
         /// </summary>
         [Column("unread_recipient_id")]
-        public List<double> UnreadRecipientId { get; set; } = new List<double>();
+        public string? UnreadRecipientIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> UnreadRecipientId
+        {
+            get => XmlListCodec.ParseLongList(UnreadRecipientIdRaw, "unread_recipient_id");
+            set => UnreadRecipientIdRaw = XmlListCodec.SerializeLongList("unread_recipient_id", value);
+        }
 
         [Column("disp_role_id")]
         public List<string> DispRoleId { get; set; } = new List<string>();
@@ -106,10 +120,17 @@ namespace Wshcmx.Types
         /// Timestamp последнего сообщения
         /// </summary>
         [Column("last_message_timestamp")]
-        public double? LastMessageTimestamp { get; set; }
+        public long? LastMessageTimestamp { get; set; }
 
         [Column("message_timestamps")]
-        public List<double> MessageTimestamps { get; set; } = new List<double>();
+        public string? MessageTimestampsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> MessageTimestamps
+        {
+            get => XmlListCodec.ParseLongList(MessageTimestampsRaw, "message_timestamps");
+            set => MessageTimestampsRaw = XmlListCodec.SerializeLongList("message_timestamps", value);
+        }
 
         /// <summary>
         /// Дата модификации
@@ -127,7 +148,14 @@ namespace Wshcmx.Types
         /// Адресаты, с новыми реакциями на сообщения
         /// </summary>
         [Column("new_reaction_recipient_id")]
-        public List<double> NewReactionRecipientId { get; set; } = new List<double>();
+        public string? NewReactionRecipientIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> NewReactionRecipientId
+        {
+            get => XmlListCodec.ParseLongList(NewReactionRecipientIdRaw, "new_reaction_recipient_id");
+            set => NewReactionRecipientIdRaw = XmlListCodec.SerializeLongList("new_reaction_recipient_id", value);
+        }
 
         /// <summary>
         /// Последнее сообщение

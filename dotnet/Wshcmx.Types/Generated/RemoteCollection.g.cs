@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -112,16 +112,16 @@ namespace Wshcmx.Types
         public string? Comment { get; set; }
 
         [XmlElement("start_index")]
-        public double? StartIndex { get; set; }
+        public long? StartIndex { get; set; }
 
         [XmlElement("page_index")]
-        public double? PageIndex { get; set; }
+        public long? PageIndex { get; set; }
 
         [XmlElement("page_size")]
-        public double? PageSize { get; set; }
+        public long? PageSize { get; set; }
 
         [XmlElement("use_cache")]
-        public double UseCache { get; set; }
+        public long UseCache { get; set; }
 
         [XmlElement("sort_field_name")]
         public string? SortFieldName { get; set; }
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class RemoteCollectionDocumentAnalytics
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -325,7 +325,7 @@ namespace Wshcmx.Types
         public string TestDestination { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("test_result_obj")]
         public object? TestResultObj { get; set; }

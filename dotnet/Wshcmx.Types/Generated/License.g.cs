@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [XmlElement("sale_contract_id")]
-        public double? SaleContractId { get; set; }
+        public long? SaleContractId { get; set; }
 
         [XmlElement("inventory")]
         public bool Inventory { get; set; }
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Дата окончания
         /// </summary>
         [XmlElement("users_num")]
-        public double? UsersNum { get; set; }
+        public long? UsersNum { get; set; }
 
         [XmlElement("library_materials")]
         public List<LicenseDocumentLibraryMaterial> LibraryMaterials { get; set; } = new List<LicenseDocumentLibraryMaterial>();
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("max_records_num")]
-        public double? MaxRecordsNum { get; set; }
+        public long? MaxRecordsNum { get; set; }
 
         [XmlElement("checked")]
         public bool Checked { get; set; }
@@ -250,7 +250,7 @@ namespace Wshcmx.Types
     public class LicenseDocumentCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
     }
 
     public class LicenseDocumentGenerate
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// Сотрудник
@@ -277,6 +277,6 @@ namespace Wshcmx.Types
     public class LicenseDocumentLibraryMaterial
     {
         [XmlElement("library_material_id")]
-        public double? LibraryMaterialId { get; set; }
+        public long? LibraryMaterialId { get; set; }
     }
 }

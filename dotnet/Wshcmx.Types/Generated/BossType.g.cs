@@ -73,7 +73,7 @@ namespace Wshcmx.Types
     public class BossTypeDocumentOperation
     {
         [XmlElement("operation_id")]
-        public double? OperationId { get; set; }
+        public long? OperationId { get; set; }
     }
 
     public class BossTypeDocumentView

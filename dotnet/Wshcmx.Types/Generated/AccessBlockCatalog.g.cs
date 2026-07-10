@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         public string? LicenseCatalogs { get; set; }
 
         [Column("list_index")]
-        public double? ListIndex { get; set; }
+        public long? ListIndex { get; set; }
 
         [Column("structure")]
         public AccessBlockBaseStructure? Structure { get; set; }

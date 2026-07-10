@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Подключать чат-бот при создании
         /// </summary>
         [XmlElement("chatbot_id")]
-        public double? ChatbotId { get; set; }
+        public long? ChatbotId { get; set; }
 
         [XmlElement("open_script")]
         public string? OpenScript { get; set; }

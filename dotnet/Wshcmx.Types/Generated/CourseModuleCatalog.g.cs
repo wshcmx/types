@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роли доступа
@@ -55,25 +55,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("access_org_id")]
-        public double? AccessOrgId { get; set; }
+        public long? AccessOrgId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("access_site_id")]
-        public double? AccessSiteId { get; set; }
+        public long? AccessSiteId { get; set; }
 
         /// <summary>
         /// Узел
         /// </summary>
         [Column("access_host_id")]
-        public double? AccessHostId { get; set; }
+        public long? AccessHostId { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public double? WebModeId { get; set; }
+        public long? WebModeId { get; set; }
 
         /// <summary>
         /// Оператор
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Группа подразделений
         /// </summary>
         [Column("access_subdivision_group_id")]
-        public double? AccessSubdivisionGroupId { get; set; }
+        public long? AccessSubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Электронный курс
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код курса
@@ -127,19 +127,26 @@ namespace Wshcmx.Types
         /// Activations
         /// </summary>
         [Column("activation_count")]
-        public double? ActivationCount { get; set; }
+        public long? ActivationCount { get; set; }
 
         /// <summary>
         /// Launches
         /// </summary>
         [Column("launch_count")]
-        public double? LaunchCount { get; set; }
+        public long? LaunchCount { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Значения карты знаний

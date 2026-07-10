@@ -55,6 +55,6 @@ namespace Wshcmx.Types
         public string ExportType { get; set; }
 
         [Column("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 }

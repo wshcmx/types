@@ -120,7 +120,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("id")]
         public string? Id { get; set; }
@@ -757,7 +757,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentChatbotItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentConversation
@@ -775,7 +775,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentConversationTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentEventAssessmentPlan
@@ -799,7 +799,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentEventResultTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentGood
@@ -817,7 +817,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentGoodTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentIntervalSchedule
@@ -841,7 +841,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentKnowledgePartTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentObjectData
@@ -859,7 +859,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentObjectDataTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentPersonnelDocument
@@ -877,7 +877,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentPersonnelDocumentTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentPollResult
@@ -895,7 +895,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentPresenceStateIntervalScheduleItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentRequest
@@ -913,7 +913,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentRequestTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentResponse
@@ -931,7 +931,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentResponseTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentSubmission
@@ -949,7 +949,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentSubmissionTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentTaskType
@@ -961,7 +961,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentTaskTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentWikiArticle
@@ -985,7 +985,7 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentWikiArticleCommunicationTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class CustomTemplatesDocumentWikiArticleType
@@ -997,6 +997,6 @@ namespace Wshcmx.Types
     public class CustomTemplatesDocumentWikiArticleTypeItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 }

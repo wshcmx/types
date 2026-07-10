@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         public LocalSettingsDocumentViewItems? ViewItems { get; set; }
 
         [Column("cur_user_id")]
-        public double? CurUserId { get; set; }
+        public long? CurUserId { get; set; }
 
         [Column("tab_block_id")]
         public string? TabBlockId { get; set; }
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public string? TabBlockType { get; set; }
 
         [Column("task_progress_delay")]
-        public double TaskProgressDelay { get; set; }
+        public long TaskProgressDelay { get; set; }
 
         [Column("admin_configuration")]
         public LocalSettingsDocumentAdminConfiguration? AdminConfiguration { get; set; }
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
     public class LocalSettingsDocumentBlockInformer
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class LocalSettingsDocumentCustomData
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         public string? ObjectType { get; set; }
 
         [XmlElement("role_id")]
-        public double? RoleId { get; set; }
+        public long? RoleId { get; set; }
     }
 
     public class LocalSettingsDocumentSmallAccessBlock
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         public bool DispCalendarEventPhase { get; set; }
 
         [XmlElement("preview_width_index")]
-        public double? PreviewWidthIndex { get; set; }
+        public long? PreviewWidthIndex { get; set; }
 
         [XmlElement("preview_location")]
         public string? PreviewLocation { get; set; }
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
     public class LocalSettingsDocumentViewCourseIntegralEfficiencyReport
     {
         [XmlElement("response_type_id")]
-        public double? ResponseTypeId { get; set; }
+        public long? ResponseTypeId { get; set; }
 
         [XmlElement("response_type_fields")]
         public List<LocalSettingsDocumentViewCourseIntegralEfficiencyReportResponseTypeField> ResponseTypeFields { get; set; } = new List<LocalSettingsDocumentViewCourseIntegralEfficiencyReportResponseTypeField>();
@@ -295,19 +295,19 @@ namespace Wshcmx.Types
     public class LocalSettingsDocumentViewQuestionsAnalyticsReport
     {
         [XmlElement("percent_difficult")]
-        public double? PercentDifficult { get; set; }
+        public long? PercentDifficult { get; set; }
 
         [XmlElement("percent_simple")]
-        public double? PercentSimple { get; set; }
+        public long? PercentSimple { get; set; }
 
         [XmlElement("elapsed_percent")]
-        public double? ElapsedPercent { get; set; }
+        public long? ElapsedPercent { get; set; }
 
         [XmlElement("correlation_coefficient")]
-        public double? CorrelationCoefficient { get; set; }
+        public long? CorrelationCoefficient { get; set; }
 
         [XmlElement("variance")]
-        public double? Variance { get; set; }
+        public long? Variance { get; set; }
     }
 
     public class LocalSettingsDocumentViewType

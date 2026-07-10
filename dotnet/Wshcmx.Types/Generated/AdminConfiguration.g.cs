@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("func_blocks")]
         public List<AdminConfigurationDocumentFuncBlock> FuncBlocks { get; set; } = new List<AdminConfigurationDocumentFuncBlock>();
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class AdminConfigurationDocumentFuncBlock
@@ -106,10 +106,10 @@ namespace Wshcmx.Types
         public string? Comment { get; set; }
 
         [XmlElement("min_height")]
-        public double? MinHeight { get; set; }
+        public long? MinHeight { get; set; }
 
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("sections")]
         public List<AdminConfigurationDocumentFuncBlockSection> Sections { get; set; } = new List<AdminConfigurationDocumentFuncBlockSection>();
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
     public class AdminConfigurationDocumentFuncBlockSectionApplication
     {
         [XmlElement("application_id")]
-        public double? ApplicationId { get; set; }
+        public long? ApplicationId { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }

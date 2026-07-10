@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [Column("event_type_id")]
-        public double? EventTypeId { get; set; }
+        public long? EventTypeId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Количество неименованных участников
         /// </summary>
         [Column("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         /// <summary>
         /// Организационная форма
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Название обучающей организации
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Общая стоимость
         /// </summary>
         [Column("total_cost")]
-        public double? TotalCost { get; set; }
+        public long? TotalCost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -115,13 +115,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Эталонное мероприятие
@@ -139,43 +139,43 @@ namespace Wshcmx.Types
         /// Виртуальный класс
         /// </summary>
         [Column("vclass_setting_id")]
-        public double? VclassSettingId { get; set; }
+        public long? VclassSettingId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [Column("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Модульная программа
         /// </summary>
         [Column("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
 
         /// <summary>
         /// Набор программ
         /// </summary>
         [Column("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         /// <summary>
         /// Учебная программа
         /// </summary>
         [Column("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Модульная программа (источник)
         /// </summary>
         [Column("create_compound_program_id")]
-        public double? CreateCompoundProgramId { get; set; }
+        public long? CreateCompoundProgramId { get; set; }
 
         /// <summary>
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Сервер Виртуального класса
@@ -199,55 +199,55 @@ namespace Wshcmx.Types
         /// Базовое мероприятие
         /// </summary>
         [Column("parent_event_id")]
-        public double? ParentEventId { get; set; }
+        public long? ParentEventId { get; set; }
 
         /// <summary>
         /// Завершенных курсов
         /// </summary>
         [Column("course_finished")]
-        public double? CourseFinished { get; set; }
+        public long? CourseFinished { get; set; }
 
         /// <summary>
         /// Активных курсов
         /// </summary>
         [Column("course_process")]
-        public double? CourseProcess { get; set; }
+        public long? CourseProcess { get; set; }
 
         /// <summary>
         /// Неначатых курсов
         /// </summary>
         [Column("course_started")]
-        public double? CourseStarted { get; set; }
+        public long? CourseStarted { get; set; }
 
         /// <summary>
         /// Начатых курсов
         /// </summary>
         [Column("course_began")]
-        public double? CourseBegan { get; set; }
+        public long? CourseBegan { get; set; }
 
         /// <summary>
         /// Завершенных тестов
         /// </summary>
         [Column("test_finished")]
-        public double? TestFinished { get; set; }
+        public long? TestFinished { get; set; }
 
         /// <summary>
         /// Активных тестов
         /// </summary>
         [Column("test_process")]
-        public double? TestProcess { get; set; }
+        public long? TestProcess { get; set; }
 
         /// <summary>
         /// Неначатых тестов
         /// </summary>
         [Column("test_started")]
-        public double? TestStarted { get; set; }
+        public long? TestStarted { get; set; }
 
         /// <summary>
         /// Начатых тестов
         /// </summary>
         [Column("test_began")]
-        public double? TestBegan { get; set; }
+        public long? TestBegan { get; set; }
 
         /// <summary>
         /// Группа сформирована
@@ -259,13 +259,13 @@ namespace Wshcmx.Types
         /// Курс
         /// </summary>
         [Column("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// План мероприятий
         /// </summary>
         [Column("training_plan_id")]
-        public double? TrainingPlanId { get; set; }
+        public long? TrainingPlanId { get; set; }
 
         /// <summary>
         /// Является публичным
@@ -283,7 +283,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Тип стоимости
@@ -295,7 +295,7 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Распределение общей стоимости
@@ -307,13 +307,13 @@ namespace Wshcmx.Types
         /// Фактическое количество часов
         /// </summary>
         [Column("duration_fact")]
-        public double? DurationFact { get; set; }
+        public long? DurationFact { get; set; }
 
         /// <summary>
         /// Фактическое количество дней
         /// </summary>
         [Column("duration_days_fact")]
-        public double? DurationDaysFact { get; set; }
+        public long? DurationDaysFact { get; set; }
 
         /// <summary>
         /// Обязательное заполнение отзыва
@@ -331,13 +331,13 @@ namespace Wshcmx.Types
         /// Основное подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Основная организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Тип отправки уведомлений
@@ -361,7 +361,7 @@ namespace Wshcmx.Types
         /// Система вебинаров
         /// </summary>
         [Column("webinar_system_id")]
-        public double? WebinarSystemId { get; set; }
+        public long? WebinarSystemId { get; set; }
 
         /// <summary>
         /// Ответственный
@@ -373,13 +373,20 @@ namespace Wshcmx.Types
         /// Опрос
         /// </summary>
         [Column("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

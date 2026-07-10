@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код заявки
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Тип заявки
         /// </summary>
         [Column("request_type_id")]
-        public double? RequestTypeId { get; set; }
+        public long? RequestTypeId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -91,13 +91,13 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -109,13 +109,13 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Документооборот
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Текущий этап документооборота
@@ -145,13 +145,27 @@ namespace Wshcmx.Types
         /// Тэги
         /// </summary>
         [Column("tag_id")]
-        public List<double> TagId { get; set; } = new List<double>();
+        public string? TagIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> TagId
+        {
+            get => XmlListCodec.ParseLongList(TagIdRaw, "tag_id");
+            set => TagIdRaw = XmlListCodec.SerializeLongList("tag_id", value);
+        }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public string? WorkflowPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowPersonIdRaw, "workflow_person_id");
+            set => WorkflowPersonIdRaw = XmlListCodec.SerializeLongList("workflow_person_id", value);
+        }
 
         /// <summary>
         /// Тип выборки условий видимости
@@ -163,7 +177,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_main_person_id")]
-        public List<double> WorkflowMainPersonId { get; set; } = new List<double>();
+        public string? WorkflowMainPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowMainPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowMainPersonIdRaw, "workflow_main_person_id");
+            set => WorkflowMainPersonIdRaw = XmlListCodec.SerializeLongList("workflow_main_person_id", value);
+        }
 
         /// <summary>
         /// Значения карты знаний

@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -52,37 +52,37 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип связи
         /// </summary>
         [XmlElement("wiki_article_communication_type_id")]
-        public double? WikiArticleCommunicationTypeId { get; set; }
+        public long? WikiArticleCommunicationTypeId { get; set; }
 
         /// <summary>
         /// Тип связи
         /// </summary>
         [XmlElement("wiki_article_comm_type_id")]
-        public double? WikiArticleCommTypeId { get; set; }
+        public long? WikiArticleCommTypeId { get; set; }
 
         /// <summary>
         /// Родительская wiki статья
         /// </summary>
         [XmlElement("base_wiki_article_id")]
-        public double? BaseWikiArticleId { get; set; }
+        public long? BaseWikiArticleId { get; set; }
 
         /// <summary>
         /// Дочерняя wiki статья
         /// </summary>
         [XmlElement("child_wiki_article_id")]
-        public double? ChildWikiArticleId { get; set; }
+        public long? ChildWikiArticleId { get; set; }
 
         /// <summary>
         /// Позиция в списке
         /// </summary>
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Описание

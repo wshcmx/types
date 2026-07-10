@@ -19,10 +19,10 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("operation_id")]
-        public double? OperationId { get; set; }
+        public long? OperationId { get; set; }
 
         /// <summary>
         /// Операции

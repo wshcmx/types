@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Ключевая должность
         /// </summary>
         [Column("key_position_id")]
-        public double? KeyPositionId { get; set; }
+        public long? KeyPositionId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("key_person_id")]
-        public double? KeyPersonId { get; set; }
+        public long? KeyPersonId { get; set; }
 
         /// <summary>
         /// Сотрудник на ключевой должности
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Преемник
@@ -85,31 +85,31 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Уровень готовности
         /// </summary>
         [Column("readiness_level_id")]
-        public double? ReadinessLevelId { get; set; }
+        public long? ReadinessLevelId { get; set; }
 
         /// <summary>
         /// Потенциал развития
         /// </summary>
         [Column("development_potential_id")]
-        public double? DevelopmentPotentialId { get; set; }
+        public long? DevelopmentPotentialId { get; set; }
 
         /// <summary>
         /// Оценка эффективности
         /// </summary>
         [Column("efficiency_estimation_id")]
-        public double? EfficiencyEstimationId { get; set; }
+        public long? EfficiencyEstimationId { get; set; }
 
         /// <summary>
         /// Заявка
         /// </summary>
         [Column("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Статус

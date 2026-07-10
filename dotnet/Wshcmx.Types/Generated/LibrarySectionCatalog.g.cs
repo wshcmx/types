@@ -25,10 +25,10 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         /// Родительский раздел
         /// </summary>
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Позиция
         /// </summary>
         [Column("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Ссылка
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Состояние
         /// </summary>
         [Column("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
 
         /// <summary>
         /// Дата модификации

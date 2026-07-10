@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Поля результата
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Периодичность вычисления
         /// </summary>
         [XmlElement("calc_period")]
-        public double? CalcPeriod { get; set; }
+        public long? CalcPeriod { get; set; }
 
         /// <summary>
         /// Вычисление контекста
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Веб-шаблон детального описания
         /// </summary>
         [XmlElement("detail_web_template_id")]
-        public double? DetailWebTemplateId { get; set; }
+        public long? DetailWebTemplateId { get; set; }
 
         [XmlElement("graph_color")]
         public string? GraphColor { get; set; }
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Тип уведомления
         /// </summary>
         [XmlElement("notification_type_id")]
-        public double? NotificationTypeId { get; set; }
+        public long? NotificationTypeId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class StatisticRecDocumentAnalytics
@@ -268,19 +268,19 @@ namespace Wshcmx.Types
         public string? Type { get; set; }
 
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         [XmlElement("before_depth")]
-        public double? BeforeDepth { get; set; }
+        public long? BeforeDepth { get; set; }
 
         [XmlElement("after_depth")]
-        public double? AfterDepth { get; set; }
+        public long? AfterDepth { get; set; }
 
         [XmlElement("norm_from")]
-        public double? NormFrom { get; set; }
+        public long? NormFrom { get; set; }
 
         [XmlElement("norm_to")]
-        public double? NormTo { get; set; }
+        public long? NormTo { get; set; }
 
         [XmlElement("aggregation")]
         public string? Aggregation { get; set; }
@@ -298,7 +298,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -307,7 +307,7 @@ namespace Wshcmx.Types
         public string? ObjectName { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("test_result_obj")]
         public object? TestResultObj { get; set; }

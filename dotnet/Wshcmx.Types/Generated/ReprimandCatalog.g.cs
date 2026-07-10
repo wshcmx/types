@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Тип взыскания
         /// </summary>
         [Column("reprimand_type_id")]
-        public double? ReprimandTypeId { get; set; }
+        public long? ReprimandTypeId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата

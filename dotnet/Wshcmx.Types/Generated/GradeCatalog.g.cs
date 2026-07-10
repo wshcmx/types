@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Уровень
         /// </summary>
         [Column("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
 
         /// <summary>
         /// Название

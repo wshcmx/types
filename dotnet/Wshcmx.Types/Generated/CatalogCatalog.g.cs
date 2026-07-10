@@ -34,6 +34,6 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("max_records_num")]
-        public double? MaxRecordsNum { get; set; }
+        public long? MaxRecordsNum { get; set; }
     }
 }

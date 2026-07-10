@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Оценивающий сотрудник
         /// </summary>
         [Column("expert_person_id")]
-        public double? ExpertPersonId { get; set; }
+        public long? ExpertPersonId { get; set; }
 
         /// <summary>
         /// ФИО оценивающего

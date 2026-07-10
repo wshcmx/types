@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Задание
         /// </summary>
         [XmlElement("learning_task_id")]
-        public double? LearningTaskId { get; set; }
+        public long? LearningTaskId { get; set; }
 
         /// <summary>
         /// Название задания
@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Статус
@@ -154,13 +154,13 @@ namespace Wshcmx.Types
         /// Эксперт
         /// </summary>
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Комментарий эксперта
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Дата назначения
@@ -202,16 +202,16 @@ namespace Wshcmx.Types
         /// План обучения
         /// </summary>
         [XmlElement("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         [XmlElement("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         /// <summary>
         /// Продолжительность выполнения
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Просрочено
@@ -283,12 +283,12 @@ namespace Wshcmx.Types
     public class LearningTaskResultDocumentViewDuration
     {
         [XmlElement("hour")]
-        public double? Hour { get; set; }
+        public long? Hour { get; set; }
 
         [XmlElement("minute")]
-        public double? Minute { get; set; }
+        public long? Minute { get; set; }
 
         [XmlElement("second")]
-        public double? Second { get; set; }
+        public long? Second { get; set; }
     }
 }

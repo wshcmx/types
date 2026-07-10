@@ -193,10 +193,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -256,7 +256,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -292,7 +292,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -334,13 +334,13 @@ namespace Wshcmx.Types
         /// Статус кандидата
         /// </summary>
         [XmlElement("candidate_status_type_id")]
-        public double? CandidateStatusTypeId { get; set; }
+        public long? CandidateStatusTypeId { get; set; }
 
         /// <summary>
         /// Кандидат
         /// </summary>
         [XmlElement("candidate_id")]
-        public double? CandidateId { get; set; }
+        public long? CandidateId { get; set; }
 
         /// <summary>
         /// Является уволенным
@@ -388,13 +388,13 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         [XmlElement("access")]
         public AccessBase? Access { get; set; }
@@ -403,7 +403,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("provider_legal_id")]
         public string? ProviderLegalId { get; set; }
@@ -514,13 +514,13 @@ namespace Wshcmx.Types
         /// potencialrazvi_9_9
         /// </summary>
         [XmlElement("development_potential_id")]
-        public double? DevelopmentPotentialId { get; set; }
+        public long? DevelopmentPotentialId { get; set; }
 
         /// <summary>
         /// Оценка эффективности
         /// </summary>
         [XmlElement("efficiency_estimation_id")]
-        public double? EfficiencyEstimationId { get; set; }
+        public long? EfficiencyEstimationId { get; set; }
 
         /// <summary>
         /// Дата первого входа на портал
@@ -574,13 +574,13 @@ namespace Wshcmx.Types
         /// Уровень компетентности
         /// </summary>
         [XmlElement("level_id")]
-        public double? LevelId { get; set; }
+        public long? LevelId { get; set; }
 
         /// <summary>
         /// Грейд
         /// </summary>
         [XmlElement("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         [XmlElement("comp_ben")]
         public CollaboratorDocumentCompBen? CompBen { get; set; }
@@ -649,7 +649,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -661,7 +661,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -673,7 +673,7 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -709,25 +709,25 @@ namespace Wshcmx.Types
         /// Общее время отработки в днях
         /// </summary>
         [XmlElement("working_days")]
-        public double? WorkingDays { get; set; }
+        public long? WorkingDays { get; set; }
 
         /// <summary>
         /// Общее время отработки в часах
         /// </summary>
         [XmlElement("working_hours")]
-        public double? WorkingHours { get; set; }
+        public long? WorkingHours { get; set; }
 
         /// <summary>
         /// Ставка
         /// </summary>
         [XmlElement("rate")]
-        public double? Rate { get; set; }
+        public long? Rate { get; set; }
 
         /// <summary>
         /// Процент ставки
         /// </summary>
         [XmlElement("rate_percent")]
-        public double? RatePercent { get; set; }
+        public long? RatePercent { get; set; }
     }
 
     public class CollaboratorDocumentCompBen
@@ -736,7 +736,7 @@ namespace Wshcmx.Types
         /// Зарплата
         /// </summary>
         [XmlElement("salary")]
-        public double? Salary { get; set; }
+        public long? Salary { get; set; }
 
         /// <summary>
         /// Валюта
@@ -769,13 +769,13 @@ namespace Wshcmx.Types
         /// Тип выплат
         /// </summary>
         [XmlElement("payment_type_id")]
-        public double? PaymentTypeId { get; set; }
+        public long? PaymentTypeId { get; set; }
 
         /// <summary>
         /// Максимальное значение
         /// </summary>
         [XmlElement("max_value")]
-        public double? MaxValue { get; set; }
+        public long? MaxValue { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -829,7 +829,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -904,7 +904,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// URL к файлу фотографии
@@ -961,7 +961,7 @@ namespace Wshcmx.Types
         public bool IsAdmin { get; set; }
 
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         [XmlElement("position_array")]
         public object? PositionArray { get; set; }
@@ -973,7 +973,7 @@ namespace Wshcmx.Types
         public bool NeverSaved { get; set; }
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }

@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -82,13 +82,13 @@ namespace Wshcmx.Types
         /// Специальность
         /// </summary>
         [Column("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         /// <summary>
         /// Специализация
         /// </summary>
         [Column("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Формы обучения
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Квалификация
         /// </summary>
         [Column("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         /// <summary>
         /// Статус договора
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Основная (академическая) группа
         /// </summary>
         [Column("main_group_id")]
-        public double? MainGroupId { get; set; }
+        public long? MainGroupId { get; set; }
 
         /// <summary>
         /// Учебная группа
@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [Column("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [Column("scient_adviser_id")]
-        public double? ScientAdviserId { get; set; }
+        public long? ScientAdviserId { get; set; }
 
         [Column("subject")]
         public string? Subject { get; set; }

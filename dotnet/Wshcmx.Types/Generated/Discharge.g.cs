@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Длина
         /// </summary>
         [XmlElement("length")]
-        public double? Length { get; set; }
+        public long? Length { get; set; }
 
         /// <summary>
         /// Ключ

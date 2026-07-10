@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -52,13 +52,13 @@ namespace Wshcmx.Types
         /// Шаблон карточки на портале
         /// </summary>
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Шаблон упрощенной карточки на портале
         /// </summary>
         [XmlElement("simpl_custom_web_template_id")]
-        public double? SimplCustomWebTemplateId { get; set; }
+        public long? SimplCustomWebTemplateId { get; set; }
 
         /// <summary>
         /// Мероприятие online

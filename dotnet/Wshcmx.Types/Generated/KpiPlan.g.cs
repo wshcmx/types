@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class KpiPlan
     {
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -64,13 +64,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -82,19 +82,19 @@ namespace Wshcmx.Types
         /// КПЭ
         /// </summary>
         [XmlElement("kpi_id")]
-        public double? KpiId { get; set; }
+        public long? KpiId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Ответственный
         /// </summary>
         [XmlElement("responsible_id")]
-        public double? ResponsibleId { get; set; }
+        public long? ResponsibleId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         public string? ThresholdText { get; set; }
 
         [XmlElement("threshold_value")]
-        public double? ThresholdValue { get; set; }
+        public long? ThresholdValue { get; set; }
 
         /// <summary>
         /// Максимальное значение
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         public string? ChallengeText { get; set; }
 
         [XmlElement("challenge_value")]
-        public double? ChallengeValue { get; set; }
+        public long? ChallengeValue { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         public string? PlanText { get; set; }
 
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Каталог объектов
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// ID объекта
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -238,7 +238,7 @@ namespace Wshcmx.Types
     public class KpiPlanDocumentExpert
     {
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
     }
 
     public class KpiPlanDocumentView
@@ -256,6 +256,6 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

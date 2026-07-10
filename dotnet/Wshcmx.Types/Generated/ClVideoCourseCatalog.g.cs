@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Дата последней компиляции курса
@@ -49,19 +49,26 @@ namespace Wshcmx.Types
         /// Результирующий медиа-файл
         /// </summary>
         [Column("media_file_id")]
-        public double? MediaFileId { get; set; }
+        public long? MediaFileId { get; set; }
 
         /// <summary>
         /// Упрощенный результирующий медиа-файл
         /// </summary>
         [Column("simple_media_file_id")]
-        public double? SimpleMediaFileId { get; set; }
+        public long? SimpleMediaFileId { get; set; }
 
         /// <summary>
         /// Авторы
         /// </summary>
         [Column("authors_id")]
-        public List<double> AuthorsId { get; set; } = new List<double>();
+        public string? AuthorsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AuthorsId
+        {
+            get => XmlListCodec.ParseLongList(AuthorsIdRaw, "authors_id");
+            set => AuthorsIdRaw = XmlListCodec.SerializeLongList("authors_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

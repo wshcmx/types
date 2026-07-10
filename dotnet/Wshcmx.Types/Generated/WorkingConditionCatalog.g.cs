@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Эталонное условие работы
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Длительность испытательного срока (месяцев)
         /// </summary>
         [Column("probationary_duration")]
-        public double? ProbationaryDuration { get; set; }
+        public long? ProbationaryDuration { get; set; }
 
         /// <summary>
         /// Название должности
@@ -157,25 +157,25 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Тип условиий труда
         /// </summary>
         [Column("working_condition_type_id")]
-        public double? WorkingConditionTypeId { get; set; }
+        public long? WorkingConditionTypeId { get; set; }
 
         /// <summary>
         /// Тип графика выплат заработной платы
         /// </summary>
         [Column("salary_payment_type_id")]
-        public double? SalaryPaymentTypeId { get; set; }
+        public long? SalaryPaymentTypeId { get; set; }
 
         /// <summary>
         /// Форма работы
         /// </summary>
         [Column("work_form_id")]
-        public double? WorkFormId { get; set; }
+        public long? WorkFormId { get; set; }
 
         /// <summary>
         /// Выплата вознаграждения
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Оклад
         /// </summary>
         [Column("salary")]
-        public double? Salary { get; set; }
+        public long? Salary { get; set; }
 
         /// <summary>
         /// Валюта
@@ -199,19 +199,19 @@ namespace Wshcmx.Types
         /// Тип графика работы
         /// </summary>
         [Column("work_schedule_type_id")]
-        public double? WorkScheduleTypeId { get; set; }
+        public long? WorkScheduleTypeId { get; set; }
 
         /// <summary>
         /// Продолжительность ежедневной работы (смены) в часах
         /// </summary>
         [Column("daily_duration")]
-        public double? DailyDuration { get; set; }
+        public long? DailyDuration { get; set; }
 
         /// <summary>
         /// Продолжительность рабочей недели (в часах)
         /// </summary>
         [Column("weekly_duration")]
-        public double? WeeklyDuration { get; set; }
+        public long? WeeklyDuration { get; set; }
 
         /// <summary>
         /// Время начала работы
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Длительность обеденного перерыва
         /// </summary>
         [Column("lunch_break_duration")]
-        public double? LunchBreakDuration { get; set; }
+        public long? LunchBreakDuration { get; set; }
 
         /// <summary>
         /// Тип обеденного перерыва
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         /// Число смен в сутки
         /// </summary>
         [Column("shifts_number")]
-        public double? ShiftsNumber { get; set; }
+        public long? ShiftsNumber { get; set; }
 
         /// <summary>
         /// Дата модификации

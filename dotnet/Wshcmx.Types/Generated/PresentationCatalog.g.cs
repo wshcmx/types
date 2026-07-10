@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,25 +37,25 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Файл
         /// </summary>
         [Column("file_id")]
-        public double? FileId { get; set; }
+        public long? FileId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Виртуальный класс
         /// </summary>
         [Column("vclass_setting_id")]
-        public double? VclassSettingId { get; set; }
+        public long? VclassSettingId { get; set; }
 
         /// <summary>
         /// Дата модификации

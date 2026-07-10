@@ -19,19 +19,19 @@ namespace Wshcmx.Types
         /// Вопросов
         /// </summary>
         [Column("question_num")]
-        public double? QuestionNum { get; set; }
+        public long? QuestionNum { get; set; }
 
         /// <summary>
         /// Вопросов отвечено
         /// </summary>
         [Column("question_answered_num")]
-        public double? QuestionAnsweredNum { get; set; }
+        public long? QuestionAnsweredNum { get; set; }
 
         /// <summary>
         /// Вопросов, отвеченных верно
         /// </summary>
         [Column("question_passed_num")]
-        public double? QuestionPassedNum { get; set; }
+        public long? QuestionPassedNum { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [Column("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Название теста
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -115,19 +115,19 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [Column("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Предпочтительный проктор
         /// </summary>
         [Column("proctor_prefer_id")]
-        public double? ProctorPreferId { get; set; }
+        public long? ProctorPreferId { get; set; }
 
         /// <summary>
         /// Ссылка на внешнюю сессию тестирования
@@ -163,19 +163,19 @@ namespace Wshcmx.Types
         /// Баллы
         /// </summary>
         [Column("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         /// <summary>
         /// Состояние
         /// </summary>
         [Column("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Время модуля
         /// </summary>
         [Column("time")]
-        public double? Time { get; set; }
+        public long? Time { get; set; }
 
         /// <summary>
         /// Использовать прокторинг
@@ -193,19 +193,19 @@ namespace Wshcmx.Types
         /// Максимальный балл
         /// </summary>
         [Column("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Процедура оценки
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("creation_user_id")]
-        public double? CreationUserId { get; set; }
+        public long? CreationUserId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("modification_user_id")]
-        public double? ModificationUserId { get; set; }
+        public long? ModificationUserId { get; set; }
 
         /// <summary>
         /// Код сервера

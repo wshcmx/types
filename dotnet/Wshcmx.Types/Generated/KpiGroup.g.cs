@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Комментарий

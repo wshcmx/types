@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [Column("event_type_id")]
-        public double? EventTypeId { get; set; }
+        public long? EventTypeId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [Column("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Количество неименованных участников
         /// </summary>
         [Column("unnamed_person_num")]
-        public double? UnnamedPersonNum { get; set; }
+        public long? UnnamedPersonNum { get; set; }
 
         /// <summary>
         /// Организационная форма
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Название обучающей организации
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Общая стоимость
         /// </summary>
         [Column("total_cost")]
-        public double? TotalCost { get; set; }
+        public long? TotalCost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -109,13 +109,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Мероприятия
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         [Column("is_model")]
         public bool IsModel { get; set; }
@@ -124,13 +124,13 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [Column("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Тип
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО преподавателя
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Кол-во часов
         /// </summary>
         [Column("hours")]
-        public double? Hours { get; set; }
+        public long? Hours { get; set; }
 
         /// <summary>
         /// Является преподавателем

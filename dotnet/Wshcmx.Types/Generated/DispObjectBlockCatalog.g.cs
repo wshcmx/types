@@ -21,7 +21,7 @@ namespace Wshcmx.Types
     public class BlockObjectsBaseObject
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("obj_title")]
         public string? ObjTitle { get; set; }

@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Тип участника проекта
         /// </summary>
         [Column("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Кадровый комитет
         /// </summary>
         [Column("personnel_committee_id")]
-        public double? PersonnelCommitteeId { get; set; }
+        public long? PersonnelCommitteeId { get; set; }
 
         /// <summary>
         /// Статус

@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class SubCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("name")]
         public string? Name { get; set; }
@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         public string? Type { get; set; }
 
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [Column("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         [Column("basic_collaborator_id")]
-        public double? BasicCollaboratorId { get; set; }
+        public long? BasicCollaboratorId { get; set; }
 
         [Column("basic_collaborator_fullname")]
         public string? BasicCollaboratorFullname { get; set; }

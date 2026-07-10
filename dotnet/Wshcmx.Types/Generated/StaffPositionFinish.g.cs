@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Позиция штатного рассписания
         /// </summary>
         [XmlElement("staff_position_id")]
-        public double? StaffPositionId { get; set; }
+        public long? StaffPositionId { get; set; }
 
         /// <summary>
         /// Дата завершения работы в должности

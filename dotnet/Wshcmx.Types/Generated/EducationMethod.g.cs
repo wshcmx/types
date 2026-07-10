@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -61,37 +61,37 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Электронный курс
         /// </summary>
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Длительность в часах
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Длительность в днях
         /// </summary>
         [XmlElement("duration_days")]
-        public double? DurationDays { get; set; }
+        public long? DurationDays { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [XmlElement("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Тип документооборота
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Описание
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         [XmlElement("knowledge_parts")]
         public List<KnowledgePartsFieldsBaseKnowledgePart> KnowledgeParts { get; set; } = new List<KnowledgePartsFieldsBaseKnowledgePart>();
@@ -136,10 +136,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Является открытой учебной программой
@@ -223,13 +223,13 @@ namespace Wshcmx.Types
         /// Тип заявки по умолчанию
         /// </summary>
         [XmlElement("default_request_type_id")]
-        public double? DefaultRequestTypeId { get; set; }
+        public long? DefaultRequestTypeId { get; set; }
 
         /// <summary>
         /// Тип отзыва по умолчанию
         /// </summary>
         [XmlElement("default_response_type_id")]
-        public double? DefaultResponseTypeId { get; set; }
+        public long? DefaultResponseTypeId { get; set; }
 
         /// <summary>
         /// Обязательное заполнение отзыва
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         /// Тип сертификата по результатам прохождения тестирования
         /// </summary>
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Тип мероприятия
         /// </summary>
         [XmlElement("event_type_id")]
-        public double? EventTypeId { get; set; }
+        public long? EventTypeId { get; set; }
 
         /// <summary>
         /// Формы проведения
@@ -292,13 +292,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class EducationMethodDocumentCompetence
     {
         [XmlElement("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -313,7 +313,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
 
         [XmlElement("indicators")]
         public List<EducationMethodDocumentCompetenceIndicator> Indicators { get; set; } = new List<EducationMethodDocumentCompetenceIndicator>();
@@ -322,7 +322,7 @@ namespace Wshcmx.Types
     public class EducationMethodDocumentCompetenceIndicator
     {
         [XmlElement("indicator_id")]
-        public double? IndicatorId { get; set; }
+        public long? IndicatorId { get; set; }
 
         /// <summary>
         /// Плановая величина
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
     }
 
     public class EducationMethodDocumentEventForm
@@ -349,7 +349,7 @@ namespace Wshcmx.Types
     public class EducationMethodDocumentSimilarEducationMethod
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class EducationMethodDocumentView
@@ -358,7 +358,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("is_future_events")]
         public bool IsFutureEvents { get; set; }
@@ -376,7 +376,7 @@ namespace Wshcmx.Types
         public List<EducationMethodDocumentViewScale> Scales { get; set; } = new List<EducationMethodDocumentViewScale>();
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }
@@ -394,6 +394,6 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("percent")]
-        public double? Percent { get; set; }
+        public long? Percent { get; set; }
     }
 }

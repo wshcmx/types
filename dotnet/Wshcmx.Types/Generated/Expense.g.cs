@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Этап договора
         /// </summary>
         [XmlElement("pay_stage_id")]
-        public double? PayStageId { get; set; }
+        public long? PayStageId { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -103,13 +103,13 @@ namespace Wshcmx.Types
         public string? ConsignmentDocumentNumber { get; set; }
 
         [XmlElement("sent_messenger_service_id")]
-        public double? SentMessengerServiceId { get; set; }
+        public long? SentMessengerServiceId { get; set; }
 
         [XmlElement("back_sent_type")]
         public string? BackSentType { get; set; }
 
         [XmlElement("back_sent_messenger_service_id")]
-        public double? BackSentMessengerServiceId { get; set; }
+        public long? BackSentMessengerServiceId { get; set; }
 
         /// <summary>
         /// Получено

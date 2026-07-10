@@ -19,19 +19,26 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [Column("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         [Column("parent_sub_id")]
-        public double? ParentSubId { get; set; }
+        public long? ParentSubId { get; set; }
 
         [Column("subdivision_id")]
-        public List<double> SubdivisionId { get; set; } = new List<double>();
+        public string? SubdivisionIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> SubdivisionId
+        {
+            get => XmlListCodec.ParseLongList(SubdivisionIdRaw, "subdivision_id");
+            set => SubdivisionIdRaw = XmlListCodec.SerializeLongList("subdivision_id", value);
+        }
 
         [Column("ready")]
         public bool Ready { get; set; }

@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип отчетной формы
         /// </summary>
         [Column("submission_type_id")]
-        public double? SubmissionTypeId { get; set; }
+        public long? SubmissionTypeId { get; set; }
 
         /// <summary>
         /// Название типа
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// ФИО оцениваемого

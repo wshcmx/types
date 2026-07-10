@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Тип учебной активности
         /// </summary>
         [Column("activity_id")]
-        public double? ActivityId { get; set; }
+        public long? ActivityId { get; set; }
 
         /// <summary>
         /// Тип учебной активности

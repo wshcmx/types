@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Раздел портала
         /// </summary>
         [Column("document_id")]
-        public double? DocumentId { get; set; }
+        public long? DocumentId { get; set; }
 
         /// <summary>
         /// Код
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Имя сотрудника

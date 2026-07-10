@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [XmlElement("calc_type")]
-        public double? CalcType { get; set; }
+        public long? CalcType { get; set; }
 
         /// <summary>
         /// KPI
@@ -112,13 +112,13 @@ namespace Wshcmx.Types
         /// KPI
         /// </summary>
         [XmlElement("kpi_id")]
-        public double? KpiId { get; set; }
+        public long? KpiId { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
     }
 
     public class BonusProfileDocumentKpiGroup
@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Группа KPI
         /// </summary>
         [XmlElement("kpi_group_id")]
-        public double? KpiGroupId { get; set; }
+        public long? KpiGroupId { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [XmlElement("weight")]
-        public double Weight { get; set; }
+        public long Weight { get; set; }
     }
 
     public class BonusProfileDocumentView

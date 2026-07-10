@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Мин. зарплата
         /// </summary>
         [Column("min_salary")]
-        public double? MinSalary { get; set; }
+        public long? MinSalary { get; set; }
 
         /// <summary>
         /// Макс. зарплата
         /// </summary>
         [Column("max_salary")]
-        public double? MaxSalary { get; set; }
+        public long? MaxSalary { get; set; }
 
         /// <summary>
         /// Валюта
@@ -91,34 +91,55 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [Column("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public string? KpiProfilesIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> KpiProfilesId
+        {
+            get => XmlListCodec.ParseLongList(KpiProfilesIdRaw, "kpi_profiles_id");
+            set => KpiProfilesIdRaw = XmlListCodec.SerializeLongList("kpi_profiles_id", value);
+        }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [Column("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Профиль знаний
         /// </summary>
         [Column("knowledge_profile_id")]
-        public double? KnowledgeProfileId { get; set; }
+        public long? KnowledgeProfileId { get; set; }
 
         [Column("parent_position_common_id")]
-        public List<double> ParentPositionCommonId { get; set; } = new List<double>();
+        public string? ParentPositionCommonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> ParentPositionCommonId
+        {
+            get => XmlListCodec.ParseLongList(ParentPositionCommonIdRaw, "parent_position_common_id");
+            set => ParentPositionCommonIdRaw = XmlListCodec.SerializeLongList("parent_position_common_id", value);
+        }
 
         /// <summary>
         /// Грейды
         /// </summary>
         [Column("grade_ids")]
-        public List<double> GradeIds { get; set; } = new List<double>();
+        public string? GradeIdsRaw { get; set; }
+
+        [NotMapped]
+        public List<long> GradeIds
+        {
+            get => XmlListCodec.ParseLongList(GradeIdsRaw, "grade_ids");
+            set => GradeIdsRaw = XmlListCodec.SerializeLongList("grade_ids", value);
+        }
 
         /// <summary>
         /// Дата модификации
@@ -136,6 +157,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
     }
 }

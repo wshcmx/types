@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
     public class SupplementaryQuestionDocumentSectionInstruction
     {
         [XmlElement("section_instruction_id")]
-        public double? SectionInstructionId { get; set; }
+        public long? SectionInstructionId { get; set; }
     }
 
     public class SupplementaryQuestionDocumentView

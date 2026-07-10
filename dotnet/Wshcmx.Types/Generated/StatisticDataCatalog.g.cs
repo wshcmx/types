@@ -19,19 +19,19 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Показатель
         /// </summary>
         [Column("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Значение
         /// </summary>
         [Column("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Строковое значение
@@ -91,37 +91,37 @@ namespace Wshcmx.Types
         /// Минуты
         /// </summary>
         [Column("period_minute")]
-        public double? PeriodMinute { get; set; }
+        public long? PeriodMinute { get; set; }
 
         /// <summary>
         /// Часы
         /// </summary>
         [Column("period_hour")]
-        public double? PeriodHour { get; set; }
+        public long? PeriodHour { get; set; }
 
         /// <summary>
         /// День
         /// </summary>
         [Column("period_day")]
-        public double? PeriodDay { get; set; }
+        public long? PeriodDay { get; set; }
 
         /// <summary>
         /// Месяц
         /// </summary>
         [Column("period_month")]
-        public double? PeriodMonth { get; set; }
+        public long? PeriodMonth { get; set; }
 
         /// <summary>
         /// Квартал
         /// </summary>
         [Column("period_quarter")]
-        public double? PeriodQuarter { get; set; }
+        public long? PeriodQuarter { get; set; }
 
         /// <summary>
         /// Год
         /// </summary>
         [Column("period_year")]
-        public double? PeriodYear { get; set; }
+        public long? PeriodYear { get; set; }
 
         /// <summary>
         /// Дата создания

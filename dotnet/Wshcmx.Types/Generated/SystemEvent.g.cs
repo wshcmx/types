@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Связанное системное событие
         /// </summary>
         [XmlElement("linked_system_event_id")]
-        public double? LinkedSystemEventId { get; set; }
+        public long? LinkedSystemEventId { get; set; }
 
         /// <summary>
         /// Условия выполнения
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class SystemEventDocumentSection
@@ -139,13 +139,13 @@ namespace Wshcmx.Types
         public string? EvalStr { get; set; }
 
         [XmlElement("notification_id")]
-        public double? NotificationId { get; set; }
+        public long? NotificationId { get; set; }
 
         [XmlElement("print_form_id")]
-        public double? PrintFormId { get; set; }
+        public long? PrintFormId { get; set; }
 
         [XmlElement("activity_id")]
-        public double? ActivityId { get; set; }
+        public long? ActivityId { get; set; }
 
         [XmlElement("log_eval_str")]
         public string? LogEvalStr { get; set; }

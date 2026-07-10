@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("current_number")]
-        public double? CurrentNumber { get; set; }
+        public long? CurrentNumber { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }

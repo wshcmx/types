@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Кто оценивает
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Оцениваемая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Признак завершенности
@@ -55,19 +55,19 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Итоговый балл
         /// </summary>
         [Column("scale")]
-        public double? Scale { get; set; }
+        public long? Scale { get; set; }
 
         /// <summary>
         /// Уровень грейд
         /// </summary>
         [Column("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         /// <summary>
         /// Дата модификации

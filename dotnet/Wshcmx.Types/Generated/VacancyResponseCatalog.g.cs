@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Вакансия
         /// </summary>
         [Column("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Рекрутер
         /// </summary>
         [Column("recruiter_person_id")]
-        public double? RecruiterPersonId { get; set; }
+        public long? RecruiterPersonId { get; set; }
 
         /// <summary>
         /// ФИО рекрутера
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Автор отклика
         /// </summary>
         [Column("response_author_person_id")]
-        public double? ResponseAuthorPersonId { get; set; }
+        public long? ResponseAuthorPersonId { get; set; }
 
         /// <summary>
         /// ФИО автора отклика
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Резюме
         /// </summary>
         [Column("resume_id")]
-        public double? ResumeId { get; set; }
+        public long? ResumeId { get; set; }
 
         /// <summary>
         /// Адаптация
         /// </summary>
         [Column("career_reserve_id")]
-        public double? CareerReserveId { get; set; }
+        public long? CareerReserveId { get; set; }
 
         /// <summary>
         /// Дата отклика

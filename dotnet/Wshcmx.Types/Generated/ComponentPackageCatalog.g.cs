@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Пакет (*.zip)
         /// </summary>
         [Column("download_package_file_id")]
-        public double? DownloadPackageFileId { get; set; }
+        public long? DownloadPackageFileId { get; set; }
 
         /// <summary>
         /// Дата загрузки

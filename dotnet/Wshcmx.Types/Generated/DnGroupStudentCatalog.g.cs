@@ -133,16 +133,16 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -151,10 +151,10 @@ namespace Wshcmx.Types
         public string? PersonFullname { get; set; }
 
         [Column("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         [Column("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Статус договора
@@ -163,9 +163,9 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [Column("main_group_id")]
-        public double? MainGroupId { get; set; }
+        public long? MainGroupId { get; set; }
 
         [Column("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 }

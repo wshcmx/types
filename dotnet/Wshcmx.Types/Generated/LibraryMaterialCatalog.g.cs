@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Автор
@@ -61,19 +61,26 @@ namespace Wshcmx.Types
         /// Раздел библиотеки
         /// </summary>
         [Column("section_id")]
-        public double? SectionId { get; set; }
+        public long? SectionId { get; set; }
 
         /// <summary>
         /// Раздел библиотеки
         /// </summary>
         [Column("sections_id")]
-        public List<double> SectionsId { get; set; } = new List<double>();
+        public string? SectionsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> SectionsId
+        {
+            get => XmlListCodec.ParseLongList(SectionsIdRaw, "sections_id");
+            set => SectionsIdRaw = XmlListCodec.SerializeLongList("sections_id", value);
+        }
 
         /// <summary>
         /// Год издания
         /// </summary>
         [Column("year")]
-        public double? Year { get; set; }
+        public long? Year { get; set; }
 
         /// <summary>
         /// ISSN/ISBN
@@ -85,7 +92,7 @@ namespace Wshcmx.Types
         /// Состояние
         /// </summary>
         [Column("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
 
         /// <summary>
         /// Имеется цифровой формат
@@ -121,7 +128,7 @@ namespace Wshcmx.Types
         /// Вид
         /// </summary>
         [Column("library_material_type_id")]
-        public double? LibraryMaterialTypeId { get; set; }
+        public long? LibraryMaterialTypeId { get; set; }
 
         /// <summary>
         /// Форматы
@@ -145,7 +152,7 @@ namespace Wshcmx.Types
         /// Файл
         /// </summary>
         [Column("file_name")]
-        public double? FileName { get; set; }
+        public long? FileName { get; set; }
 
         /// <summary>
         /// Новым отзывам требуется подтверждение администратора
@@ -163,7 +170,7 @@ namespace Wshcmx.Types
         /// Разрешить самостоятельный просмотр материала
         /// </summary>
         [Column("image")]
-        public double? Image { get; set; }
+        public long? Image { get; set; }
 
         /// <summary>
         /// Значения карты знаний
@@ -184,7 +191,7 @@ namespace Wshcmx.Types
         public string? Experts { get; set; }
 
         [Column("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Дата создания

@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Тип кадрового резерва
         /// </summary>
         [Column("career_reserve_type_id")]
-        public double? CareerReserveTypeId { get; set; }
+        public long? CareerReserveTypeId { get; set; }
 
         /// <summary>
         /// Статус
@@ -76,10 +76,24 @@ namespace Wshcmx.Types
         public string Status { get; set; }
 
         [Column("typical_development_program_id")]
-        public List<double> TypicalDevelopmentProgramId { get; set; } = new List<double>();
+        public string? TypicalDevelopmentProgramIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> TypicalDevelopmentProgramId
+        {
+            get => XmlListCodec.ParseLongList(TypicalDevelopmentProgramIdRaw, "typical_development_program_id");
+            set => TypicalDevelopmentProgramIdRaw = XmlListCodec.SerializeLongList("typical_development_program_id", value);
+        }
 
         [Column("subdivision_id")]
-        public List<double> SubdivisionId { get; set; } = new List<double>();
+        public string? SubdivisionIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> SubdivisionId
+        {
+            get => XmlListCodec.ParseLongList(SubdivisionIdRaw, "subdivision_id");
+            set => SubdivisionIdRaw = XmlListCodec.SerializeLongList("subdivision_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

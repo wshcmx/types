@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -88,13 +88,13 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("move_subdivision_id")]
-        public double? MoveSubdivisionId { get; set; }
+        public long? MoveSubdivisionId { get; set; }
 
         /// <summary>
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -106,19 +106,19 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("move_position_id")]
-        public double? MovePositionId { get; set; }
+        public long? MovePositionId { get; set; }
 
         /// <summary>
         /// Позиция штатного рассписания
         /// </summary>
         [XmlElement("staff_position_id")]
-        public double? StaffPositionId { get; set; }
+        public long? StaffPositionId { get; set; }
 
         /// <summary>
         /// Позиция штатного рассписания
         /// </summary>
         [XmlElement("move_staff_position_id")]
-        public double? MoveStaffPositionId { get; set; }
+        public long? MoveStaffPositionId { get; set; }
 
         /// <summary>
         /// Дата перемещения

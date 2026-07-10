@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         public bool AllCanDelete { get; set; }
 
         [XmlElement("max_amount")]
-        public double? MaxAmount { get; set; }
+        public long? MaxAmount { get; set; }
 
         [XmlElement("max_total_size")]
-        public double? MaxTotalSize { get; set; }
+        public long? MaxTotalSize { get; set; }
 
         [XmlElement("max_object_size")]
-        public double? MaxObjectSize { get; set; }
+        public long? MaxObjectSize { get; set; }
 
         [XmlElement("objects")]
         public List<PersonObjectProfileDocumentPersonObjectLinkObject> Objects { get; set; } = new List<PersonObjectProfileDocumentPersonObjectLinkObject>();
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
     public class PersonObjectProfileDocumentPersonObjectLinkObject
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("object_name")]
         public string? ObjectName { get; set; }
@@ -88,6 +88,6 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [XmlElement("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
     }
 }

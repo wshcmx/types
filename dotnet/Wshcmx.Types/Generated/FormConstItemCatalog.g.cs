@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         public string? RusText { get; set; }
 
         [Column("rus_text_len")]
-        public double? RusTextLen { get; set; }
+        public long? RusTextLen { get; set; }
 
         [Column("line_text")]
         public string? LineText { get; set; }
@@ -31,13 +31,13 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [Column("line_index")]
-        public double? LineIndex { get; set; }
+        public long? LineIndex { get; set; }
 
         [Column("index")]
-        public double? Index { get; set; }
+        public long? Index { get; set; }
 
         [Column("col_index")]
-        public double? ColIndex { get; set; }
+        public long? ColIndex { get; set; }
 
         [Column("source_url")]
         public string? SourceUrl { get; set; }

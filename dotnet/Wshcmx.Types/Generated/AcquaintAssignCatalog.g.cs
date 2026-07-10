@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -61,19 +61,19 @@ namespace Wshcmx.Types
         /// Периодичность повторного обновления в днях
         /// </summary>
         [Column("reacquaintance_period")]
-        public double ReacquaintancePeriod { get; set; }
+        public long ReacquaintancePeriod { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Ознакомление
         /// </summary>
         [Column("acquaint_id")]
-        public double? AcquaintId { get; set; }
+        public long? AcquaintId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Количество попыток
         /// </summary>
         [Column("attempt_num")]
-        public double AttemptNum { get; set; }
+        public long AttemptNum { get; set; }
 
         /// <summary>
         /// Дата модификации

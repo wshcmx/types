@@ -25,10 +25,10 @@ namespace Wshcmx.Types
         public string? EntryPoint { get; set; }
 
         [Column("time_limit")]
-        public double? TimeLimit { get; set; }
+        public long? TimeLimit { get; set; }
 
         [Column("max_instances")]
-        public double MaxInstances { get; set; }
+        public long MaxInstances { get; set; }
 
         [Column("entries")]
         public List<SxAgentsDocumentEntry> Entries { get; set; } = new List<SxAgentsDocumentEntry>();

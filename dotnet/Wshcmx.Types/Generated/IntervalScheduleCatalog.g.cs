@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Тип присутствия/отсутствия
         /// </summary>
         [Column("presence_state_id")]
-        public double? PresenceStateId { get; set; }
+        public long? PresenceStateId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Документооборот
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Текущий этап документооборота
@@ -175,7 +175,14 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public string? WorkflowPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WorkflowPersonId
+        {
+            get => XmlListCodec.ParseLongList(WorkflowPersonIdRaw, "workflow_person_id");
+            set => WorkflowPersonIdRaw = XmlListCodec.SerializeLongList("workflow_person_id", value);
+        }
 
         /// <summary>
         /// Тип выборки условий видимости

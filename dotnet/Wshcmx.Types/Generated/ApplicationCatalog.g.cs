@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип
@@ -61,7 +61,14 @@ namespace Wshcmx.Types
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public List<double> WebModeId { get; set; } = new List<double>();
+        public string? WebModeIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> WebModeId
+        {
+            get => XmlListCodec.ParseLongList(WebModeIdRaw, "web_mode_id");
+            set => WebModeIdRaw = XmlListCodec.SerializeLongList("web_mode_id", value);
+        }
 
         /// <summary>
         /// Вендор
@@ -97,7 +104,14 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

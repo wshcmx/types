@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// Вакансия
         /// </summary>
         [XmlElement("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника

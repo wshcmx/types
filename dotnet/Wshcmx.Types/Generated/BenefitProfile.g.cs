@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -148,55 +148,55 @@ namespace Wshcmx.Types
         /// Семейство должностей
         /// </summary>
         [XmlElement("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
 
         /// <summary>
         /// Группы подразделений
         /// </summary>
         [XmlElement("subdivision_group_id")]
-        public double? SubdivisionGroupId { get; set; }
+        public long? SubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Регион сотрудника
         /// </summary>
         [XmlElement("person_region_id")]
-        public double? PersonRegionId { get; set; }
+        public long? PersonRegionId { get; set; }
 
         /// <summary>
         /// Регион подразделения сотрудника
         /// </summary>
         [XmlElement("subdivision_region_id")]
-        public double? SubdivisionRegionId { get; set; }
+        public long? SubdivisionRegionId { get; set; }
 
         /// <summary>
         /// Расположение сотрудника
         /// </summary>
         [XmlElement("person_place_id")]
-        public double? PersonPlaceId { get; set; }
+        public long? PersonPlaceId { get; set; }
 
         /// <summary>
         /// Расположение подразделения сотрудника
         /// </summary>
         [XmlElement("subdivision_place_id")]
-        public double? SubdivisionPlaceId { get; set; }
+        public long? SubdivisionPlaceId { get; set; }
 
         /// <summary>
         /// Форма работы
         /// </summary>
         [XmlElement("work_form_id")]
-        public double? WorkFormId { get; set; }
+        public long? WorkFormId { get; set; }
 
         /// <summary>
         /// Тип условий труда
         /// </summary>
         [XmlElement("working_condition_type_id")]
-        public double? WorkingConditionTypeId { get; set; }
+        public long? WorkingConditionTypeId { get; set; }
 
         /// <summary>
         /// Стаж
         /// </summary>
         [XmlElement("work_experience")]
-        public double? WorkExperience { get; set; }
+        public long? WorkExperience { get; set; }
 
         /// <summary>
         /// Описание
@@ -226,18 +226,18 @@ namespace Wshcmx.Types
     public class BenefitProfileDocumentBenefit
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class BenefitProfileDocumentGrade
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class BenefitProfileDocumentPositionCommon
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 }

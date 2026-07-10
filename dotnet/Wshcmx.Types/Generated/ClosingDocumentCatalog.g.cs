@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Этап договора
         /// </summary>
         [Column("pay_stage_id")]
-        public double? PayStageId { get; set; }
+        public long? PayStageId { get; set; }
 
         /// <summary>
         /// Тип
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         public bool? IsReceived { get; set; }
 
         [Column("receiving_status_id")]
-        public double? ReceivingStatusId { get; set; }
+        public long? ReceivingStatusId { get; set; }
 
         /// <summary>
         /// Дата получения

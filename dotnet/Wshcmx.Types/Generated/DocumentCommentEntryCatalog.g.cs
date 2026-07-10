@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -73,19 +73,19 @@ namespace Wshcmx.Types
         /// Форум
         /// </summary>
         [Column("portal_doc_id")]
-        public double? PortalDocId { get; set; }
+        public long? PortalDocId { get; set; }
 
         /// <summary>
         /// Родительская статья форума
         /// </summary>
         [Column("parent_document_entry_id")]
-        public double? ParentDocumentEntryId { get; set; }
+        public long? ParentDocumentEntryId { get; set; }
 
         [Column("last_create_date")]
         public DateTime? LastCreateDate { get; set; }
 
         [Column("child_num")]
-        public double? ChildNum { get; set; }
+        public long? ChildNum { get; set; }
 
         /// <summary>
         /// Дата модификации

@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -67,49 +67,49 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [XmlElement("contract_id")]
-        public double? ContractId { get; set; }
+        public long? ContractId { get; set; }
 
         /// <summary>
         /// Тип ресурса базы
         /// </summary>
         [XmlElement("resource_type_id")]
-        public double? ResourceTypeId { get; set; }
+        public long? ResourceTypeId { get; set; }
 
         /// <summary>
         /// Тип проекта
         /// </summary>
         [XmlElement("project_type_id")]
-        public double? ProjectTypeId { get; set; }
+        public long? ProjectTypeId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [XmlElement("sale_contract_id")]
-        public double? SaleContractId { get; set; }
+        public long? SaleContractId { get; set; }
 
         /// <summary>
         /// Документооборот по умолчанию
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Статус
@@ -127,19 +127,19 @@ namespace Wshcmx.Types
         /// Плановые трудозатраты
         /// </summary>
         [XmlElement("plan_labor_costs")]
-        public double? PlanLaborCosts { get; set; }
+        public long? PlanLaborCosts { get; set; }
 
         /// <summary>
         /// Фактические трудозатраты
         /// </summary>
         [XmlElement("fact_labor_costs")]
-        public double? FactLaborCosts { get; set; }
+        public long? FactLaborCosts { get; set; }
 
         /// <summary>
         /// Процент выполнения
         /// </summary>
         [XmlElement("percent_complete")]
-        public double? PercentComplete { get; set; }
+        public long? PercentComplete { get; set; }
 
         /// <summary>
         /// Команда подобрана
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Тип заявки по умолчанию
         /// </summary>
         [XmlElement("default_request_type_id")]
-        public double? DefaultRequestTypeId { get; set; }
+        public long? DefaultRequestTypeId { get; set; }
 
         /// <summary>
         /// Планируемая дата начала
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Доступ
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         /// Роль участника проекта
         /// </summary>
         [XmlElement("participant_role_id")]
-        public double? ParticipantRoleId { get; set; }
+        public long? ParticipantRoleId { get; set; }
     }
 
     public class ProjectDocumentParticipantType
@@ -289,7 +289,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("participant_type_id")]
-        public double? ParticipantTypeId { get; set; }
+        public long? ParticipantTypeId { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
     public class ProjectDocumentParticipantTypeParticipantTypeObject
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -316,7 +316,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("unfolded_document")]
         public UnfoldedDocumentBaseUnfoldedDocument? UnfoldedDocument { get; set; }
@@ -64,10 +64,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -145,10 +145,10 @@ namespace Wshcmx.Types
         /// Раздел библиотеки
         /// </summary>
         [XmlElement("section_id")]
-        public double? SectionId { get; set; }
+        public long? SectionId { get; set; }
 
         [XmlElement("library_system_id")]
-        public double? LibrarySystemId { get; set; }
+        public long? LibrarySystemId { get; set; }
 
         /// <summary>
         /// Номер
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Вид
         /// </summary>
         [XmlElement("library_material_type_id")]
-        public double? LibraryMaterialTypeId { get; set; }
+        public long? LibraryMaterialTypeId { get; set; }
 
         [XmlElement("library_material_formats")]
         public List<LibraryMaterialDocumentLibraryMaterialFormat> LibraryMaterialFormats { get; set; } = new List<LibraryMaterialDocumentLibraryMaterialFormat>();
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Год издания
         /// </summary>
         [XmlElement("year")]
-        public double? Year { get; set; }
+        public long? Year { get; set; }
 
         [XmlElement("isbn")]
         public string? Isbn { get; set; }
@@ -178,13 +178,13 @@ namespace Wshcmx.Types
         /// Состояние
         /// </summary>
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Файл
         /// </summary>
         [XmlElement("file_name")]
-        public double? FileName { get; set; }
+        public long? FileName { get; set; }
 
         /// <summary>
         /// Видео сконвертировано для просмотра онлайн
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         /// Разрешить самостоятельный просмотр материала
         /// </summary>
         [XmlElement("image")]
-        public double? Image { get; set; }
+        public long? Image { get; set; }
 
         /// <summary>
         /// Аннотация
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         /// Тип отзыва по умолчанию
         /// </summary>
         [XmlElement("default_response_type_id")]
-        public double? DefaultResponseTypeId { get; set; }
+        public long? DefaultResponseTypeId { get; set; }
 
         /// <summary>
         /// Обязательное заполнение отзыва
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         public bool MandatoryFillResponse { get; set; }
 
         [XmlElement("old_id")]
-        public double? OldId { get; set; }
+        public long? OldId { get; set; }
 
         [XmlElement("path_sections")]
         public List<LibraryMaterialDocumentPathSection> PathSections { get; set; } = new List<LibraryMaterialDocumentPathSection>();
@@ -289,7 +289,7 @@ namespace Wshcmx.Types
     public class LibraryMaterialDocumentGroup
     {
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -298,28 +298,28 @@ namespace Wshcmx.Types
     public class LibraryMaterialDocumentLibraryMaterialFormat
     {
         [XmlElement("library_material_format_id")]
-        public double? LibraryMaterialFormatId { get; set; }
+        public long? LibraryMaterialFormatId { get; set; }
 
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
     }
 
     public class LibraryMaterialDocumentPathSection
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
     }
 
     public class LibraryMaterialDocumentSubscribedPerson
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_fullname")]
         public string? PersonFullname { get; set; }
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
     public class UnfoldedContentBaseContent
     {
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
 
         [XmlElement("title")]
         public string? Title { get; set; }
@@ -340,7 +340,7 @@ namespace Wshcmx.Types
     public class UnfoldedContentBaseContentContent
     {
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
 
         [XmlElement("title")]
         public string? Title { get; set; }
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
     public class UnfoldedContentBaseContentContentContent
     {
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
 
         [XmlElement("title")]
         public string? Title { get; set; }
@@ -364,7 +364,7 @@ namespace Wshcmx.Types
     public class UnfoldedContentBaseContentContentContentContent
     {
         [XmlElement("number")]
-        public double? Number { get; set; }
+        public long? Number { get; set; }
 
         [XmlElement("title")]
         public string? Title { get; set; }
@@ -382,10 +382,10 @@ namespace Wshcmx.Types
         public string? Orientation { get; set; }
 
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
 
         [XmlElement("show_contents")]
         public bool ShowContents { get; set; }

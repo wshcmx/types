@@ -22,6 +22,6 @@ namespace Wshcmx.Types
         public DateTime? LastModDate { get; set; }
 
         [Column("object_type_order_index")]
-        public double? ObjectTypeOrderIndex { get; set; }
+        public long? ObjectTypeOrderIndex { get; set; }
     }
 }

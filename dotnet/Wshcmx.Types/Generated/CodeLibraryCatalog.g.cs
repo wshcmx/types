@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Тип программного кода
@@ -55,7 +55,14 @@ namespace Wshcmx.Types
         /// Приложения
         /// </summary>
         [Column("associated_applications_id")]
-        public List<double> AssociatedApplicationsId { get; set; } = new List<double>();
+        public string? AssociatedApplicationsIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> AssociatedApplicationsId
+        {
+            get => XmlListCodec.ParseLongList(AssociatedApplicationsIdRaw, "associated_applications_id");
+            set => AssociatedApplicationsIdRaw = XmlListCodec.SerializeLongList("associated_applications_id", value);
+        }
 
         /// <summary>
         /// Является системным
@@ -73,7 +80,14 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

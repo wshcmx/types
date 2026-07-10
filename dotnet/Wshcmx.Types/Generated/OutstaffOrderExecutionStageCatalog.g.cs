@@ -19,10 +19,10 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("outstaff_order_execution_id")]
-        public double? OutstaffOrderExecutionId { get; set; }
+        public long? OutstaffOrderExecutionId { get; set; }
 
         /// <summary>
         /// Статус
@@ -40,37 +40,37 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Провайдер временного персонала
         /// </summary>
         [Column("outstaff_provider_id")]
-        public double? OutstaffProviderId { get; set; }
+        public long? OutstaffProviderId { get; set; }
 
         /// <summary>
         /// Контракт на временный персонал
         /// </summary>
         [Column("outstaff_contract_id")]
-        public double? OutstaffContractId { get; set; }
+        public long? OutstaffContractId { get; set; }
 
         /// <summary>
         /// Заказ на временный персонал
         /// </summary>
         [Column("outstaff_order_id")]
-        public double? OutstaffOrderId { get; set; }
+        public long? OutstaffOrderId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Этап
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("stage_collaborator_id")]
-        public double? StageCollaboratorId { get; set; }
+        public long? StageCollaboratorId { get; set; }
 
         /// <summary>
         /// Дата
@@ -121,10 +121,10 @@ namespace Wshcmx.Types
         public DateTime? StageFactDate { get; set; }
 
         [Column("stage_hour_num")]
-        public double? StageHourNum { get; set; }
+        public long? StageHourNum { get; set; }
 
         [Column("stage_hours_worked")]
-        public double? StageHoursWorked { get; set; }
+        public long? StageHoursWorked { get; set; }
 
         /// <summary>
         /// Присутствие

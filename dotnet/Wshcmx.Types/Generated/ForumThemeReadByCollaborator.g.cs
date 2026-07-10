@@ -16,16 +16,16 @@ namespace Wshcmx.Types
     public class ForumThemeReadByCollaborator
     {
         [XmlElement("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         [XmlElement("forum_theme_id")]
-        public double? ForumThemeId { get; set; }
+        public long? ForumThemeId { get; set; }
 
         [XmlElement("date")]
         public DateTime? Date { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }

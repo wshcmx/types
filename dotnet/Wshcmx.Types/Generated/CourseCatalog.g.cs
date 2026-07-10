@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роли доступа
@@ -55,25 +55,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("access_org_id")]
-        public double? AccessOrgId { get; set; }
+        public long? AccessOrgId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("access_site_id")]
-        public double? AccessSiteId { get; set; }
+        public long? AccessSiteId { get; set; }
 
         /// <summary>
         /// Узел
         /// </summary>
         [Column("access_host_id")]
-        public double? AccessHostId { get; set; }
+        public long? AccessHostId { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public double? WebModeId { get; set; }
+        public long? WebModeId { get; set; }
 
         /// <summary>
         /// Оператор
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Группа подразделений
         /// </summary>
         [Column("access_subdivision_group_id")]
-        public double? AccessSubdivisionGroupId { get; set; }
+        public long? AccessSubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код курса
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Статус
@@ -133,19 +133,19 @@ namespace Wshcmx.Types
         /// Стоимость курса
         /// </summary>
         [Column("price")]
-        public double? Price { get; set; }
+        public long? Price { get; set; }
 
         /// <summary>
         /// Проходной балл
         /// </summary>
         [Column("mastery_score")]
-        public double? MasteryScore { get; set; }
+        public long? MasteryScore { get; set; }
 
         /// <summary>
         /// Максимальный балл
         /// </summary>
         [Column("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Может быть назначен самостоятельно
@@ -157,31 +157,38 @@ namespace Wshcmx.Types
         /// Продолжительность в днях
         /// </summary>
         [Column("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Эксперт курса
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Электронный курс
         /// </summary>
         [Column("cl_course_id")]
-        public double? ClCourseId { get; set; }
+        public long? ClCourseId { get; set; }
 
         /// <summary>
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Базовый url
@@ -193,7 +200,7 @@ namespace Wshcmx.Types
         /// Тип отзыва по умолчанию
         /// </summary>
         [Column("default_response_type_id")]
-        public double? DefaultResponseTypeId { get; set; }
+        public long? DefaultResponseTypeId { get; set; }
 
         /// <summary>
         /// Обязательное заполнение отзыва

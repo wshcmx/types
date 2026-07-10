@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Скачанный пакет данных
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Сервер
         /// </summary>
         [Column("exchange_server_id")]
-        public double? ExchangeServerId { get; set; }
+        public long? ExchangeServerId { get; set; }
 
         /// <summary>
         /// Тип пакета

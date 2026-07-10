@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Требуемый объект согласования
         /// </summary>
         [Column("requirement_object_id")]
-        public double? RequirementObjectId { get; set; }
+        public long? RequirementObjectId { get; set; }
 
         /// <summary>
         /// Тип требуемого объекта согласования
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Дополнительный объект согласования
         /// </summary>
         [Column("sec_requirement_object_id")]
-        public double? SecRequirementObjectId { get; set; }
+        public long? SecRequirementObjectId { get; set; }
 
         /// <summary>
         /// Тип дополнительного объекта согласования

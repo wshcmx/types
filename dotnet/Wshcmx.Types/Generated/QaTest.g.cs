@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("exec_code")]
         public ExecCodeBaseExecCode? ExecCode { get; set; }
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("cur_person_id")]
-        public double? CurPersonId { get; set; }
+        public long? CurPersonId { get; set; }
 
         [XmlElement("use_cur_object")]
         public bool UseCurObject { get; set; }
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("cur_object_id")]
-        public double? CurObjectId { get; set; }
+        public long? CurObjectId { get; set; }
 
         [XmlElement("use_cur_web_design")]
         public bool UseCurWebDesign { get; set; }
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Дизайн портала
         /// </summary>
         [XmlElement("cur_web_design_id")]
-        public double? CurWebDesignId { get; set; }
+        public long? CurWebDesignId { get; set; }
 
         [XmlElement("use_cur_site")]
         public bool UseCurSite { get; set; }
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Сайт
         /// </summary>
         [XmlElement("cur_site_id")]
-        public double? CurSiteId { get; set; }
+        public long? CurSiteId { get; set; }
 
         [XmlElement("use_cur_lng")]
         public bool UseCurLng { get; set; }
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Библиотека с кодом подготовки тестового окружения
         /// </summary>
         [XmlElement("fixture_library_id")]
-        public double? FixtureLibraryId { get; set; }
+        public long? FixtureLibraryId { get; set; }
 
         /// <summary>
         /// Имя функции инициализации окружения
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// Библиотека програмного кода
         /// </summary>
         [XmlElement("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Имя функции
@@ -220,6 +220,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 }

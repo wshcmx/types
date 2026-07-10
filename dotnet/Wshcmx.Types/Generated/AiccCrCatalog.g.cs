@@ -40,9 +40,9 @@ namespace Wshcmx.Types
     public class AiccCrsDocumentCourseWindow
     {
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
     }
 }

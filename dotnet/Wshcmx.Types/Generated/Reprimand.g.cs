@@ -40,10 +40,10 @@ namespace Wshcmx.Types
         /// Тип взыскания
         /// </summary>
         [XmlElement("reprimand_type_id")]
-        public double? ReprimandTypeId { get; set; }
+        public long? ReprimandTypeId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("date")]
         public DateTime? Date { get; set; }

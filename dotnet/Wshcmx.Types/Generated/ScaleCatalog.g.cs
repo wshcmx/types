@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Ограничение
         /// </summary>
         [Column("max_limit")]
-        public double? MaxLimit { get; set; }
+        public long? MaxLimit { get; set; }
 
         /// <summary>
         /// Ограничение
         /// </summary>
         [Column("min_limit")]
-        public double? MinLimit { get; set; }
+        public long? MinLimit { get; set; }
 
         /// <summary>
         /// Статус

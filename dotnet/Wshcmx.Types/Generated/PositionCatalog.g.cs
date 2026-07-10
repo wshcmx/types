@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,19 +43,19 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("basic_collaborator_id")]
-        public double? BasicCollaboratorId { get; set; }
+        public long? BasicCollaboratorId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Ставка
         /// </summary>
         [Column("basic_rate")]
-        public double? BasicRate { get; set; }
+        public long? BasicRate { get; set; }
 
         /// <summary>
         /// Является руководителем
@@ -103,55 +103,62 @@ namespace Wshcmx.Types
         /// Тип назначения
         /// </summary>
         [Column("position_appointment_type_id")]
-        public double? PositionAppointmentTypeId { get; set; }
+        public long? PositionAppointmentTypeId { get; set; }
 
         /// <summary>
         /// Профиль компетенций
         /// </summary>
         [Column("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         /// <summary>
         /// Профиль KPI
         /// </summary>
         [Column("kpi_profile_id")]
-        public double? KpiProfileId { get; set; }
+        public long? KpiProfileId { get; set; }
 
         /// <summary>
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public string? KpiProfilesIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> KpiProfilesId
+        {
+            get => XmlListCodec.ParseLongList(KpiProfilesIdRaw, "kpi_profiles_id");
+            set => KpiProfilesIdRaw = XmlListCodec.SerializeLongList("kpi_profiles_id", value);
+        }
 
         /// <summary>
         /// Профиль премирования
         /// </summary>
         [Column("bonus_profile_id")]
-        public double? BonusProfileId { get; set; }
+        public long? BonusProfileId { get; set; }
 
         /// <summary>
         /// Профиль знаний
         /// </summary>
         [Column("knowledge_profile_id")]
-        public double? KnowledgeProfileId { get; set; }
+        public long? KnowledgeProfileId { get; set; }
 
         /// <summary>
         /// Типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Семейство должностей
         /// </summary>
         [Column("position_family_id")]
-        public double? PositionFamilyId { get; set; }
+        public long? PositionFamilyId { get; set; }
 
         /// <summary>
         /// Позиция штатного рассписания
         /// </summary>
         [Column("staff_position_id")]
-        public double? StaffPositionId { get; set; }
+        public long? StaffPositionId { get; set; }
 
         /// <summary>
         /// Дата модификации

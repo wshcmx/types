@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -70,13 +70,13 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Нормативный срок
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Бессрочный
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Необходимое количество
         /// </summary>
         [XmlElement("required_quantity")]
-        public double? RequiredQuantity { get; set; }
+        public long? RequiredQuantity { get; set; }
 
         /// <summary>
         /// Требуемые квалификации
@@ -121,12 +121,12 @@ namespace Wshcmx.Types
     public class CertificateTypeDocumentCertificateType
     {
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
     }
 
     public class CertificateTypeDocumentQualification
     {
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
     }
 }

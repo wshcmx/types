@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Балл
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Дата
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Студент
         /// </summary>
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [XmlElement("student_fullname")]
         public string? StudentFullname { get; set; }

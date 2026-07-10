@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [XmlElement("disc_blocks")]
         public List<DnDisciplineDocumentDiscBlock> DiscBlocks { get; set; } = new List<DnDisciplineDocumentDiscBlock>();
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
     public class DnDisciplineDocumentDiscBlock
     {
         [XmlElement("block_id")]
-        public double? BlockId { get; set; }
+        public long? BlockId { get; set; }
     }
 
     public class DnDisciplineDocumentView

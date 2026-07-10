@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// ID базового объекта
         /// </summary>
         [Column("base_object_id")]
-        public double? BaseObjectId { get; set; }
+        public long? BaseObjectId { get; set; }
 
         /// <summary>
         /// Название связанного объекта

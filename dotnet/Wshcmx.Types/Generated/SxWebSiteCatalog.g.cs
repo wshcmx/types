@@ -22,6 +22,6 @@ namespace Wshcmx.Types
         public string? RootDir { get; set; }
 
         [Column("port")]
-        public double? Port { get; set; }
+        public long? Port { get; set; }
     }
 }

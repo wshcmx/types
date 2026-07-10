@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Значения карты знаний
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
     public class KnowledgeProfileDocumentKnowledgePart
     {
         [XmlElement("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Индекс целевого уровня
         /// </summary>
         [XmlElement("target_level_index")]
-        public double? TargetLevelIndex { get; set; }
+        public long? TargetLevelIndex { get; set; }
 
         /// <summary>
         /// Целевой уровень

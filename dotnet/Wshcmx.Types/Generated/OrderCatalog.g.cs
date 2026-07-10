@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Общая стоимость
         /// </summary>
         [Column("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
 
         /// <summary>
         /// Валюта

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Задержка между запусками
         /// </summary>
         [XmlElement("delay")]
-        public double? Delay { get; set; }
+        public long? Delay { get; set; }
 
         /// <summary>
         /// Выполнено

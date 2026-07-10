@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [Column("sale_contract_id")]
-        public double? SaleContractId { get; set; }
+        public long? SaleContractId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Дата окончания
         /// </summary>
         [Column("users_num")]
-        public double? UsersNum { get; set; }
+        public long? UsersNum { get; set; }
 
         [Column("demo")]
         public bool Demo { get; set; }

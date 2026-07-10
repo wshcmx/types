@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class ExchangeServerDocumentDownload
@@ -175,10 +175,10 @@ namespace Wshcmx.Types
         public DateTime? LatelyExchangeDate { get; set; }
 
         [XmlElement("lately_exchange_period")]
-        public double? LatelyExchangePeriod { get; set; }
+        public long? LatelyExchangePeriod { get; set; }
 
         [XmlElement("limit_count")]
-        public double? LimitCount { get; set; }
+        public long? LimitCount { get; set; }
 
         [XmlElement("allow_enlarge_period")]
         public bool AllowEnlargePeriod { get; set; }
@@ -259,10 +259,10 @@ namespace Wshcmx.Types
         public DateTime? LatelyExchangeDate { get; set; }
 
         [XmlElement("lately_exchange_period")]
-        public double? LatelyExchangePeriod { get; set; }
+        public long? LatelyExchangePeriod { get; set; }
 
         [XmlElement("limit_count")]
-        public double? LimitCount { get; set; }
+        public long? LimitCount { get; set; }
 
         [XmlElement("allow_enlarge_period")]
         public bool AllowEnlargePeriod { get; set; }

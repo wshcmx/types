@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -79,31 +79,31 @@ namespace Wshcmx.Types
         /// Тип кадрового резерва
         /// </summary>
         [XmlElement("career_reserve_type_id")]
-        public double? CareerReserveTypeId { get; set; }
+        public long? CareerReserveTypeId { get; set; }
 
         /// <summary>
         /// Основание для исключения
         /// </summary>
         [XmlElement("exclusion_reason_id")]
-        public double? ExclusionReasonId { get; set; }
+        public long? ExclusionReasonId { get; set; }
 
         /// <summary>
         /// Способ выдвижения в резерв
         /// </summary>
         [XmlElement("nomination_id")]
-        public double? NominationId { get; set; }
+        public long? NominationId { get; set; }
 
         /// <summary>
         /// Потенциал развития
         /// </summary>
         [XmlElement("development_potential_id")]
-        public double? DevelopmentPotentialId { get; set; }
+        public long? DevelopmentPotentialId { get; set; }
 
         /// <summary>
         /// Оценка эффективности
         /// </summary>
         [XmlElement("efficiency_estimation_id")]
-        public double? EfficiencyEstimationId { get; set; }
+        public long? EfficiencyEstimationId { get; set; }
 
         [XmlElement("tasks")]
         public List<PersonnelReserveDocumentTask> Tasks { get; set; } = new List<PersonnelReserveDocumentTask>();
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         [XmlElement("view")]
         public PersonnelReserveDocumentView? View { get; set; }
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class PersonnelReserveDocumentTask
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -274,25 +274,25 @@ namespace Wshcmx.Types
         public string? ObjectType { get; set; }
 
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("active_test_learning_id")]
-        public double? ActiveTestLearningId { get; set; }
+        public long? ActiveTestLearningId { get; set; }
 
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [XmlElement("assessment_appraise_result_id")]
-        public double? AssessmentAppraiseResultId { get; set; }
+        public long? AssessmentAppraiseResultId { get; set; }
 
         [XmlElement("add_exist_appraise")]
         public bool? AddExistAppraise { get; set; }
 
         [XmlElement("poll_result_id")]
-        public double? PollResultId { get; set; }
+        public long? PollResultId { get; set; }
 
         [XmlElement("poll_procedure_id")]
-        public double? PollProcedureId { get; set; }
+        public long? PollProcedureId { get; set; }
     }
 
     public class PersonnelReserveDocumentView
@@ -301,7 +301,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("talent_pool_func_managers")]
         public List<PersonnelReserveDocumentViewTalentPoolFuncManager> TalentPoolFuncManagers { get; set; } = new List<PersonnelReserveDocumentViewTalentPoolFuncManager>();
@@ -313,6 +313,6 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

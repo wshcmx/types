@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class TenancyCatalog
     {
         [Column("id")]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         [Column("code")]
         public string Code { get; set; }
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public string CreatorFullname { get; set; }
 
         [Column("org_id")]
-        public double OrgId { get; set; }
+        public long OrgId { get; set; }
 
         [Column("org_name")]
         public string OrgName { get; set; }

@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [Column("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -73,31 +73,31 @@ namespace Wshcmx.Types
         /// Срок отработки (в днях)
         /// </summary>
         [Column("period_work")]
-        public double? PeriodWork { get; set; }
+        public long? PeriodWork { get; set; }
 
         /// <summary>
         /// Условия оплаты банком
         /// </summary>
         [Column("proc_pay_bank")]
-        public double? ProcPayBank { get; set; }
+        public long? ProcPayBank { get; set; }
 
         /// <summary>
         /// Условия оплаты сотрудником
         /// </summary>
         [Column("proc_pay_collab")]
-        public double? ProcPayCollab { get; set; }
+        public long? ProcPayCollab { get; set; }
 
         /// <summary>
         /// Процент удержания
         /// </summary>
         [Column("proc_deduct")]
-        public double? ProcDeduct { get; set; }
+        public long? ProcDeduct { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -109,13 +109,13 @@ namespace Wshcmx.Types
         /// Учебная программа
         /// </summary>
         [Column("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Статус договора

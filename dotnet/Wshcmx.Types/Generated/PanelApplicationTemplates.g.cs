@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         public string? ReportId { get; set; }
 
         [XmlElement("report_template_id")]
-        public double? ReportTemplateId { get; set; }
+        public long? ReportTemplateId { get; set; }
 
         [XmlElement("report_template_url")]
         public string? ReportTemplateUrl { get; set; }
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public string? ReportTemplateName { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

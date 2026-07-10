@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         /// Подписант со стороны работодателя
         /// </summary>
         [XmlElement("signatory_employer_id")]
-        public double? SignatoryEmployerId { get; set; }
+        public long? SignatoryEmployerId { get; set; }
 
         [XmlElement("number")]
         public string? Number { get; set; }
@@ -103,25 +103,25 @@ namespace Wshcmx.Types
         /// Срок отработки (в днях)
         /// </summary>
         [XmlElement("period_work")]
-        public double? PeriodWork { get; set; }
+        public long? PeriodWork { get; set; }
 
         /// <summary>
         /// Условия оплаты банком
         /// </summary>
         [XmlElement("proc_pay_bank")]
-        public double? ProcPayBank { get; set; }
+        public long? ProcPayBank { get; set; }
 
         /// <summary>
         /// Условия оплаты сотрудником
         /// </summary>
         [XmlElement("proc_pay_collab")]
-        public double? ProcPayCollab { get; set; }
+        public long? ProcPayCollab { get; set; }
 
         /// <summary>
         /// Процент удержания
         /// </summary>
         [XmlElement("proc_deduct")]
-        public double? ProcDeduct { get; set; }
+        public long? ProcDeduct { get; set; }
 
         /// <summary>
         /// Учебная программа
@@ -133,13 +133,13 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Место проведения

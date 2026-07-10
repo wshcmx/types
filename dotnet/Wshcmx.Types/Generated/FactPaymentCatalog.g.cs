@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -31,19 +31,19 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Клиент
         /// </summary>
         [Column("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Организация-партнер
         /// </summary>
         [Column("agent_org_id")]
-        public double? AgentOrgId { get; set; }
+        public long? AgentOrgId { get; set; }
 
         /// <summary>
         /// Юридическое лицо (клиент)
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [Column("cost_value")]
-        public double? CostValue { get; set; }
+        public long? CostValue { get; set; }
 
         /// <summary>
         /// Дата
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Счет
         /// </summary>
         [Column("expense_id")]
-        public double? ExpenseId { get; set; }
+        public long? ExpenseId { get; set; }
 
         /// <summary>
         /// Комментарий

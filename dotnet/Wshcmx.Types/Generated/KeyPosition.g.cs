@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -169,31 +169,31 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Уровень риска
         /// </summary>
         [XmlElement("risk_perspective_id")]
-        public double? RiskPerspectiveId { get; set; }
+        public long? RiskPerspectiveId { get; set; }
 
         /// <summary>
         /// Угроза ключевой должности
         /// </summary>
         [XmlElement("key_position_threat_id")]
-        public double? KeyPositionThreatId { get; set; }
+        public long? KeyPositionThreatId { get; set; }
 
         /// <summary>
         /// Тип кадрового резерва
         /// </summary>
         [XmlElement("career_reserve_type_id")]
-        public double? CareerReserveTypeId { get; set; }
+        public long? CareerReserveTypeId { get; set; }
 
         /// <summary>
         /// Статус
@@ -253,13 +253,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class KeyPositionDocumentPositionCommon
     {
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
     }
 
     public class KeyPositionDocumentPositionName
@@ -277,6 +277,6 @@ namespace Wshcmx.Types
     public class KeyPositionDocumentRiskLevel
     {
         [XmlElement("risk_level_id")]
-        public double? RiskLevelId { get; set; }
+        public long? RiskLevelId { get; set; }
     }
 }

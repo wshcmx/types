@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Вакансия
         /// </summary>
         [XmlElement("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Резюме
         /// </summary>
         [XmlElement("resume_id")]
-        public double? ResumeId { get; set; }
+        public long? ResumeId { get; set; }
 
         /// <summary>
         /// Дата отклика
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Адаптация
         /// </summary>
         [XmlElement("career_reserve_id")]
-        public double? CareerReserveId { get; set; }
+        public long? CareerReserveId { get; set; }
 
         [XmlElement("view")]
         public DescBase? View { get; set; }

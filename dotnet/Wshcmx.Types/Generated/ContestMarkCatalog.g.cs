@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Конкурс
         /// </summary>
         [Column("contest_id")]
-        public double? ContestId { get; set; }
+        public long? ContestId { get; set; }
 
         /// <summary>
         /// Название конкурса
@@ -34,13 +34,13 @@ namespace Wshcmx.Types
         public string? ContestName { get; set; }
 
         [Column("participant_id")]
-        public double? ParticipantId { get; set; }
+        public long? ParticipantId { get; set; }
 
         /// <summary>
         /// Оцениваемый
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО оцениваемого
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Оценивающий
         /// </summary>
         [Column("judge_id")]
-        public double? JudgeId { get; set; }
+        public long? JudgeId { get; set; }
 
         [Column("value")]
         public string? Value { get; set; }
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         /// Итоговый рейтинг
         /// </summary>
         [Column("rating")]
-        public double? Rating { get; set; }
+        public long? Rating { get; set; }
 
         /// <summary>
         /// Занятое место
         /// </summary>
         [Column("place")]
-        public double? Place { get; set; }
+        public long? Place { get; set; }
 
         /// <summary>
         /// Дата модификации

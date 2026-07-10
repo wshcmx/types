@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CustomWebTemplateGroupDocumentTemplate
@@ -70,22 +70,22 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         [XmlElement("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
 
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("parent_template_id")]
         public string? ParentTemplateId { get; set; }
 
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         [XmlElement("hier_level")]
-        public double? HierLevel { get; set; }
+        public long? HierLevel { get; set; }
 
         [XmlElement("hier_expanded")]
         public bool HierExpanded { get; set; }

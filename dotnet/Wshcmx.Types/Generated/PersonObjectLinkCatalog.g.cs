@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? PersonFullname { get; set; }
 
         [Column("subject_id")]
-        public double? SubjectId { get; set; }
+        public long? SubjectId { get; set; }
 
         [Column("subject_type")]
         public string? SubjectType { get; set; }

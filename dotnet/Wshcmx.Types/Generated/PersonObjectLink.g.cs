@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public string? PersonFullname { get; set; }
 
         [XmlElement("subject_id")]
-        public double? SubjectId { get; set; }
+        public long? SubjectId { get; set; }
 
         [XmlElement("subject_type")]
         public string? SubjectType { get; set; }
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         public bool AllCanCreate { get; set; }
 
         [XmlElement("amount")]
-        public double? Amount { get; set; }
+        public long? Amount { get; set; }
 
         /// <summary>
         /// Может редактировать
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
     public class PersonObjectLinkDocumentObject
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("object_name")]
         public string? ObjectName { get; set; }
@@ -91,6 +91,6 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [XmlElement("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
     }
 }

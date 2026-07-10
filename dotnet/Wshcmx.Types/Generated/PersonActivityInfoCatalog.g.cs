@@ -19,16 +19,16 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [Column("chat_last_activity_date")]
         public DateTime? ChatLastActivityDate { get; set; }
 
         [Column("presence_state_id")]
-        public double? PresenceStateId { get; set; }
+        public long? PresenceStateId { get; set; }
 
         [Column("update_date")]
         public DateTime? UpdateDate { get; set; }

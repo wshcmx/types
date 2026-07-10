@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("estimation_levels")]
         public List<EstimationLevelsBaseEstimationLevel> EstimationLevels { get; set; } = new List<EstimationLevelsBaseEstimationLevel>();
@@ -76,10 +76,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Описание
@@ -163,13 +163,13 @@ namespace Wshcmx.Types
         /// Ширина окна электронного курса
         /// </summary>
         [XmlElement("win_width")]
-        public double? WinWidth { get; set; }
+        public long? WinWidth { get; set; }
 
         /// <summary>
         /// Высота окна электронного курса
         /// </summary>
         [XmlElement("win_height")]
-        public double? WinHeight { get; set; }
+        public long? WinHeight { get; set; }
 
         /// <summary>
         /// Отображать скроллбар
@@ -220,13 +220,13 @@ namespace Wshcmx.Types
         /// Проходной балл
         /// </summary>
         [XmlElement("mastery_score")]
-        public double? MasteryScore { get; set; }
+        public long? MasteryScore { get; set; }
 
         /// <summary>
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double MaxScore { get; set; }
+        public long MaxScore { get; set; }
 
         /// <summary>
         /// Способ расчета итоговой оценки
@@ -292,7 +292,7 @@ namespace Wshcmx.Types
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Не кодировать данные модулей при запуска курса
@@ -310,7 +310,7 @@ namespace Wshcmx.Types
         /// Тип отзыва по умолчанию
         /// </summary>
         [XmlElement("default_response_type_id")]
-        public double? DefaultResponseTypeId { get; set; }
+        public long? DefaultResponseTypeId { get; set; }
 
         /// <summary>
         /// Обязательное заполнение отзыва
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [XmlElement("cl_course_id")]
-        public double? ClCourseId { get; set; }
+        public long? ClCourseId { get; set; }
 
         [XmlElement("version")]
         public string? Version { get; set; }
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         /// Стоимость записи на электронный курс
         /// </summary>
         [XmlElement("price")]
-        public double? Price { get; set; }
+        public long? Price { get; set; }
 
         /// <summary>
         /// Доступный для Personal WebSoft HCM
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         /// Обучающая организация
         /// </summary>
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Расписание прохождения
@@ -385,7 +385,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class CourseDocumentPart
@@ -412,19 +412,19 @@ namespace Wshcmx.Types
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Проходной балл
         /// </summary>
         [XmlElement("mastery_score")]
-        public double? MasteryScore { get; set; }
+        public long? MasteryScore { get; set; }
 
         /// <summary>
         /// Относительный проходной балл
         /// </summary>
         [XmlElement("mastery_score_relative")]
-        public double? MasteryScoreRelative { get; set; }
+        public long? MasteryScoreRelative { get; set; }
 
         /// <summary>
         /// URL
@@ -436,7 +436,7 @@ namespace Wshcmx.Types
         /// Учебный модуль
         /// </summary>
         [XmlElement("course_module_id")]
-        public double? CourseModuleId { get; set; }
+        public long? CourseModuleId { get; set; }
 
         /// <summary>
         /// Родительский раздел
@@ -454,13 +454,13 @@ namespace Wshcmx.Types
         /// Ширина
         /// </summary>
         [XmlElement("win_width")]
-        public double? WinWidth { get; set; }
+        public long? WinWidth { get; set; }
 
         /// <summary>
         /// Высота
         /// </summary>
         [XmlElement("win_height")]
-        public double? WinHeight { get; set; }
+        public long? WinHeight { get; set; }
 
         /// <summary>
         /// Отображать scrolling
@@ -508,43 +508,43 @@ namespace Wshcmx.Types
         /// Коэффициент итоговой оценки
         /// </summary>
         [XmlElement("score_factor")]
-        public double ScoreFactor { get; set; }
+        public long ScoreFactor { get; set; }
 
         /// <summary>
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Количество попыток
         /// </summary>
         [XmlElement("attempts_num")]
-        public double AttemptsNum { get; set; }
+        public long AttemptsNum { get; set; }
 
         /// <summary>
         /// День планируемого начала обучения
         /// </summary>
         [XmlElement("start_day")]
-        public double? StartDay { get; set; }
+        public long? StartDay { get; set; }
 
         /// <summary>
         /// Планируемая продолжительность обучения в днях
         /// </summary>
         [XmlElement("duration_day")]
-        public double? DurationDay { get; set; }
+        public long? DurationDay { get; set; }
 
         /// <summary>
         /// Учебная активность
         /// </summary>
         [XmlElement("activity_id")]
-        public double? ActivityId { get; set; }
+        public long? ActivityId { get; set; }
 
         [XmlElement("activity_states")]
         public List<CourseDocumentPartActivityState> ActivityStates { get; set; } = new List<CourseDocumentPartActivityState>();
 
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Представление
@@ -577,19 +577,19 @@ namespace Wshcmx.Types
         /// Статус учебной активности
         /// </summary>
         [XmlElement("activity_state_id")]
-        public double? ActivityStateId { get; set; }
+        public long? ActivityStateId { get; set; }
 
         /// <summary>
         /// Баллы
         /// </summary>
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         /// <summary>
         /// Состояние
         /// </summary>
         [XmlElement("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
     }
 
     public class CourseDocumentPartCompletedParentPart
@@ -604,13 +604,13 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("filter")]
         public AuFtFilter? Filter { get; set; }
 
         [XmlElement("knowledge_classifier_id")]
-        public double? KnowledgeClassifierId { get; set; }
+        public long? KnowledgeClassifierId { get; set; }
 
         [XmlElement("knowledge_sort_type_id")]
         public string? KnowledgeSortTypeId { get; set; }

@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -73,10 +73,10 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("start_hour")]
-        public double StartHour { get; set; }
+        public long StartHour { get; set; }
 
         [XmlElement("finish_hour")]
-        public double FinishHour { get; set; }
+        public long FinishHour { get; set; }
 
         /// <summary>
         /// Периоды
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
     public class AvailabilityPlanDocumentViewPeriodHour
     {
         [XmlElement("hour")]
-        public double? Hour { get; set; }
+        public long? Hour { get; set; }
 
         [XmlElement("checked")]
         public bool Checked { get; set; }

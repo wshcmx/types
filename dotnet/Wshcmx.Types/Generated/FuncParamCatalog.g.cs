@@ -112,7 +112,7 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentBudgetReport
     {
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("status_id")]
         public string? StatusId { get; set; }
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentBudgetReportCostCenter
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class FuncParamsDocumentCareerReserveReport
@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         public string? TargetPositionName { get; set; }
 
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         [XmlElement("readiness_date_start")]
         public DateTime? ReadinessDateStart { get; set; }
@@ -169,16 +169,16 @@ namespace Wshcmx.Types
         public string Status { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -211,22 +211,22 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentCertificateTypeReport
     {
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
 
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
     }
 
     public class FuncParamsDocumentCompetenceByDepartReport
     {
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [XmlElement("participant_type")]
         public string? ParticipantType { get; set; }
 
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         [XmlElement("disp_all_comp_list")]
         public bool DispAllCompList { get; set; }
@@ -259,16 +259,16 @@ namespace Wshcmx.Types
         public bool DispCompMarkName { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("view_sub_selector")]
-        public double? ViewSubSelector { get; set; }
+        public long? ViewSubSelector { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -280,19 +280,19 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentCourseCommentReport
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -349,7 +349,7 @@ namespace Wshcmx.Types
         public List<FuncParamsDocumentCourseIntegralEfficiencyReportCourse> Courses { get; set; } = new List<FuncParamsDocumentCourseIntegralEfficiencyReportCourse>();
 
         [XmlElement("response_type_id")]
-        public double? ResponseTypeId { get; set; }
+        public long? ResponseTypeId { get; set; }
 
         [XmlElement("selected_fields")]
         public List<FuncParamsDocumentCourseIntegralEfficiencyReportSelectedField> SelectedFields { get; set; } = new List<FuncParamsDocumentCourseIntegralEfficiencyReportSelectedField>();
@@ -361,16 +361,16 @@ namespace Wshcmx.Types
         public string? FormulaColumnTitle { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -385,7 +385,7 @@ namespace Wshcmx.Types
         public bool DispLearningProg { get; set; }
 
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         [XmlElement("show_alert")]
         public bool ShowAlert { get; set; }
@@ -412,7 +412,7 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentCourseIntegralEfficiencyReportCourse
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class FuncParamsDocumentCourseIntegralEfficiencyReportSelectedField
@@ -430,19 +430,19 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentCourseModuleStatusReport
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -496,19 +496,19 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentCourseReport
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -529,7 +529,7 @@ namespace Wshcmx.Types
         public bool DispLearningProg { get; set; }
 
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         [XmlElement("is_web_client")]
         public bool IsWebClient { get; set; }
@@ -556,25 +556,25 @@ namespace Wshcmx.Types
         public string EducationMethodSelector { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
 
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("request_type_id")]
-        public double? RequestTypeId { get; set; }
+        public long? RequestTypeId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -586,13 +586,13 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentEducationMethodReportEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class FuncParamsDocumentEventDepReport
     {
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         [XmlElement("event_name")]
         public string? EventName { get; set; }
@@ -607,7 +607,7 @@ namespace Wshcmx.Types
         public bool AddCourses { get; set; }
 
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("uses_place_hier")]
         public bool UsesPlaceHier { get; set; }
@@ -619,7 +619,7 @@ namespace Wshcmx.Types
         public bool CountTrainingDays { get; set; }
 
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         [XmlElement("show_all")]
         public bool ShowAll { get; set; }
@@ -628,16 +628,16 @@ namespace Wshcmx.Types
         public bool CloseAll { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("course_duration")]
-        public double CourseDuration { get; set; }
+        public long CourseDuration { get; set; }
 
         [XmlElement("event_duration")]
-        public double EventDuration { get; set; }
+        public long EventDuration { get; set; }
 
         [XmlElement("code_contain")]
         public string? CodeContain { get; set; }
@@ -646,10 +646,10 @@ namespace Wshcmx.Types
         public List<FuncParamsDocumentEventDepReportEventTypeDuration> EventTypeDurations { get; set; } = new List<FuncParamsDocumentEventDepReportEventTypeDuration>();
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -658,10 +658,10 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         [XmlElement("disp_type_id")]
         public string DispTypeId { get; set; }
@@ -670,13 +670,13 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentEventDepReportEventTypeDuration
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("type")]
         public string? Type { get; set; }
 
         [XmlElement("event_duration")]
-        public double EventDuration { get; set; }
+        public long EventDuration { get; set; }
     }
 
     public class FuncParamsDocumentEventPersonReport
@@ -712,7 +712,7 @@ namespace Wshcmx.Types
         public List<ViewColumnsBaseColumn> Columns { get; set; } = new List<ViewColumnsBaseColumn>();
 
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         [XmlElement("event_name")]
         public string? EventName { get; set; }
@@ -724,16 +724,16 @@ namespace Wshcmx.Types
         public bool DispPersonListStaff { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -742,13 +742,13 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         [XmlElement("disp_type_id")]
         public string DispTypeId { get; set; }
@@ -766,22 +766,22 @@ namespace Wshcmx.Types
         public string? BlockName { get; set; }
 
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -799,7 +799,7 @@ namespace Wshcmx.Types
         public bool DispLearningProg { get; set; }
 
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         [XmlElement("graph_type")]
         public string GraphType { get; set; }
@@ -829,22 +829,22 @@ namespace Wshcmx.Types
         public string? BlockName { get; set; }
 
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -859,7 +859,7 @@ namespace Wshcmx.Types
         public bool DispLearningProg { get; set; }
 
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         [XmlElement("show_alert")]
         public bool ShowAlert { get; set; }
@@ -883,10 +883,10 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentProcessPackage
     {
         [XmlElement("list_count")]
-        public double ListCount { get; set; }
+        public long ListCount { get; set; }
 
         [XmlElement("progress_count")]
-        public double ProgressCount { get; set; }
+        public long ProgressCount { get; set; }
     }
 
     public class FuncParamsDocumentProfilingReport
@@ -907,13 +907,13 @@ namespace Wshcmx.Types
         public List<FuncParamsDocumentQuestionsAnalyticsReportSelectedItem> SelectedItems { get; set; } = new List<FuncParamsDocumentQuestionsAnalyticsReportSelectedItem>();
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -922,22 +922,22 @@ namespace Wshcmx.Types
         public bool HierRoleSelect { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("percent_difficult")]
-        public double PercentDifficult { get; set; }
+        public long PercentDifficult { get; set; }
 
         [XmlElement("percent_simple")]
-        public double PercentSimple { get; set; }
+        public long PercentSimple { get; set; }
 
         [XmlElement("elapsed_percent")]
-        public double ElapsedPercent { get; set; }
+        public long ElapsedPercent { get; set; }
 
         [XmlElement("correlation_coefficient")]
-        public double CorrelationCoefficient { get; set; }
+        public long CorrelationCoefficient { get; set; }
 
         [XmlElement("variance")]
-        public double Variance { get; set; }
+        public long Variance { get; set; }
 
         [XmlElement("show_alert")]
         public bool ShowAlert { get; set; }
@@ -961,7 +961,7 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentQuestionsAnalyticsReportAssessment
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class FuncParamsDocumentQuestionsAnalyticsReportColumn
@@ -979,22 +979,22 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentQuestionsAnalyticsReportSelectedItem
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class FuncParamsDocumentRecommenderCompareReport
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1033,22 +1033,22 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentRecommenderCompareReportRecommenderAlgorithm
     {
         [XmlElement("recommender_algorithm_id")]
-        public double? RecommenderAlgorithmId { get; set; }
+        public long? RecommenderAlgorithmId { get; set; }
     }
 
     public class FuncParamsDocumentRecommenderDetailReport
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1093,22 +1093,22 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentRecommenderDetailReportRecommenderAlgorithm
     {
         [XmlElement("recommender_algorithm_id")]
-        public double? RecommenderAlgorithmId { get; set; }
+        public long? RecommenderAlgorithmId { get; set; }
     }
 
     public class FuncParamsDocumentRecommenderUseReport
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1147,31 +1147,31 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentRecommenderUseReportRecommenderAlgorithm
     {
         [XmlElement("recommender_algorithm_id")]
-        public double? RecommenderAlgorithmId { get; set; }
+        public long? RecommenderAlgorithmId { get; set; }
     }
 
     public class FuncParamsDocumentRequestReport
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
 
         [XmlElement("request_type_id")]
-        public double? RequestTypeId { get; set; }
+        public long? RequestTypeId { get; set; }
 
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -1240,25 +1240,25 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentStatisticReportStatisticRec
     {
         [XmlElement("statistic_rec_id")]
-        public double? StatisticRecId { get; set; }
+        public long? StatisticRecId { get; set; }
     }
 
     public class FuncParamsDocumentTestReport
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1294,7 +1294,7 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentViewCourseByDepartReport
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         [XmlElement("persons")]
         public List<FuncParamsDocumentViewCourseByDepartReportPerson> Persons { get; set; } = new List<FuncParamsDocumentViewCourseByDepartReportPerson>();
@@ -1312,7 +1312,7 @@ namespace Wshcmx.Types
         public DateTime? ExceedDate { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1330,7 +1330,7 @@ namespace Wshcmx.Types
         public bool DispAllOrgList { get; set; }
 
         [XmlElement("view_sub_selector")]
-        public double? ViewSubSelector { get; set; }
+        public long? ViewSubSelector { get; set; }
 
         [XmlElement("disp_learning_type")]
         public string DispLearningType { get; set; }
@@ -1339,7 +1339,7 @@ namespace Wshcmx.Types
         public bool DispLearningProg { get; set; }
 
         [XmlElement("education_program_id")]
-        public double? EducationProgramId { get; set; }
+        public long? EducationProgramId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -1363,25 +1363,25 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentViewCourseByDepartReportOrg
     {
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
     }
 
     public class FuncParamsDocumentViewCourseByDepartReportPerson
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class FuncParamsDocumentViewCourseByDepartReportSubdivision
     {
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
     }
 
     public class FuncParamsDocumentViewEventByDepartReport
     {
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         [XmlElement("event_name")]
         public string? EventName { get; set; }
@@ -1393,16 +1393,16 @@ namespace Wshcmx.Types
         public bool DispPersonListStaff { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -1411,16 +1411,16 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("sort_type_id")]
         public string SortTypeId { get; set; }
 
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         [XmlElement("disp_aggregated_list")]
         public bool DispAggregatedList { get; set; }
@@ -1438,7 +1438,7 @@ namespace Wshcmx.Types
         public bool ShowPeople { get; set; }
 
         [XmlElement("view_sub_selector")]
-        public double? ViewSubSelector { get; set; }
+        public long? ViewSubSelector { get; set; }
 
         [XmlElement("sort_type_aggregated_id")]
         public string SortTypeAggregatedId { get; set; }
@@ -1450,19 +1450,19 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentViewQuestionByDepartReport
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1477,7 +1477,7 @@ namespace Wshcmx.Types
         public bool DispAllOrgList { get; set; }
 
         [XmlElement("view_sub_selector")]
-        public double? ViewSubSelector { get; set; }
+        public long? ViewSubSelector { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -1495,7 +1495,7 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentViewTestByDepartReport
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("persons")]
         public List<FuncParamsDocumentViewTestByDepartReportPerson> Persons { get; set; } = new List<FuncParamsDocumentViewTestByDepartReportPerson>();
@@ -1507,7 +1507,7 @@ namespace Wshcmx.Types
         public List<FuncParamsDocumentViewTestByDepartReportSubdivision> Subdivisions { get; set; } = new List<FuncParamsDocumentViewTestByDepartReportSubdivision>();
 
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         [XmlElement("hier_sub_select")]
         public bool HierSubSelect { get; set; }
@@ -1525,7 +1525,7 @@ namespace Wshcmx.Types
         public bool DispAllOrgList { get; set; }
 
         [XmlElement("view_sub_selector")]
-        public double? ViewSubSelector { get; set; }
+        public long? ViewSubSelector { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -1561,18 +1561,18 @@ namespace Wshcmx.Types
     public class FuncParamsDocumentViewTestByDepartReportOrg
     {
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
     }
 
     public class FuncParamsDocumentViewTestByDepartReportPerson
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class FuncParamsDocumentViewTestByDepartReportSubdivision
     {
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
     }
 }

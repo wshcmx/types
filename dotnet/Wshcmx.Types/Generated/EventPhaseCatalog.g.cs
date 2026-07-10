@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Код
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [Column("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Имя преподавателя
@@ -97,6 +97,6 @@ namespace Wshcmx.Types
         /// Ресурс
         /// </summary>
         [Column("object_resource_id")]
-        public double? ObjectResourceId { get; set; }
+        public long? ObjectResourceId { get; set; }
     }
 }

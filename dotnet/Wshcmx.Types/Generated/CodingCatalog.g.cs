@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Индекс
         /// </summary>
         [Column("next_index")]
-        public double NextIndex { get; set; }
+        public long NextIndex { get; set; }
 
         /// <summary>
         /// Является системным

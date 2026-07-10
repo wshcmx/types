@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [XmlElement("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
 
         /// <summary>
         /// Роль сотрудника
@@ -34,13 +34,13 @@ namespace Wshcmx.Types
         /// Дизайн
         /// </summary>
         [XmlElement("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         [XmlElement("override_web_templates")]
         public List<ActiveWebTemplateDocumentOverrideWebTemplate> OverrideWebTemplates { get; set; } = new List<ActiveWebTemplateDocumentOverrideWebTemplate>();
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         public List<ActiveWebTemplateDocumentCustomWebTemplate> CustomWebTemplates { get; set; } = new List<ActiveWebTemplateDocumentCustomWebTemplate>();
 
         [XmlElement("counter_template")]
-        public double CounterTemplate { get; set; }
+        public long CounterTemplate { get; set; }
 
         [XmlElement("counter_saved_template")]
-        public double CounterSavedTemplate { get; set; }
+        public long CounterSavedTemplate { get; set; }
 
         [XmlElement("counter_saved_return")]
-        public double CounterSavedReturn { get; set; }
+        public long CounterSavedReturn { get; set; }
 
         /// <summary>
         /// Об объекте
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         public I18nBaseI18nParam? I18nParam { get; set; }
 
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         [XmlElement("saved")]
         public bool Saved { get; set; }
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         public string? WvarsSelector { get; set; }
 
         [XmlElement("override_web_template_id")]
-        public double? OverrideWebTemplateId { get; set; }
+        public long? OverrideWebTemplateId { get; set; }
 
         [XmlElement("mode")]
         public string? Mode { get; set; }
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         public AccessDocBase? Access { get; set; }
 
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
 
         [XmlElement("zone")]
         public string? Zone { get; set; }

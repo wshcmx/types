@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Порт
         /// </summary>
         [Column("port")]
-        public double? Port { get; set; }
+        public long? Port { get; set; }
 
         /// <summary>
         /// Узел
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Является системным

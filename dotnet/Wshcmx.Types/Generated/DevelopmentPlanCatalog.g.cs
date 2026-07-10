@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         /// Оценочная процедура
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Планы оценки
         /// </summary>
         [Column("assessment_plan_id")]
-        public double? AssessmentPlanId { get; set; }
+        public long? AssessmentPlanId { get; set; }
 
         /// <summary>
         /// Оцениваемый сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО оцениваемого
@@ -79,19 +79,19 @@ namespace Wshcmx.Types
         /// Должность оцениваемого
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("person_position_parent_id")]
-        public double? PersonPositionParentId { get; set; }
+        public long? PersonPositionParentId { get; set; }
 
         /// <summary>
         /// Оценивающий сотрудник
         /// </summary>
         [Column("expert_person_id")]
-        public double? ExpertPersonId { get; set; }
+        public long? ExpertPersonId { get; set; }
 
         /// <summary>
         /// ФИО оценивающего
@@ -109,19 +109,19 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [Column("expert_person_position_id")]
-        public double? ExpertPersonPositionId { get; set; }
+        public long? ExpertPersonPositionId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("expert_person_position_parent_id")]
-        public double? ExpertPersonPositionParentId { get; set; }
+        public long? ExpertPersonPositionParentId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("department_id")]
-        public double? DepartmentId { get; set; }
+        public long? DepartmentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -139,7 +139,14 @@ namespace Wshcmx.Types
         /// Согласующие эксперты
         /// </summary>
         [Column("custom_experts_array")]
-        public List<double> CustomExpertsArray { get; set; } = new List<double>();
+        public string? CustomExpertsArrayRaw { get; set; }
+
+        [NotMapped]
+        public List<long> CustomExpertsArray
+        {
+            get => XmlListCodec.ParseLongList(CustomExpertsArrayRaw, "custom_experts_array");
+            set => CustomExpertsArrayRaw = XmlListCodec.SerializeLongList("custom_experts_array", value);
+        }
 
         /// <summary>
         /// Согласующие эксперты
@@ -193,7 +200,7 @@ namespace Wshcmx.Types
         /// Документооборот
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Этап документооборота
@@ -223,7 +230,7 @@ namespace Wshcmx.Types
         /// Карьерный резерв
         /// </summary>
         [Column("career_reserve_id")]
-        public double? CareerReserveId { get; set; }
+        public long? CareerReserveId { get; set; }
 
         /// <summary>
         /// Дата последнего сохранения
@@ -235,7 +242,7 @@ namespace Wshcmx.Types
         /// Порядковый номер
         /// </summary>
         [Column("index")]
-        public double? Index { get; set; }
+        public long? Index { get; set; }
 
         /// <summary>
         /// Дата модификации

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Позиция в списке
         /// </summary>
         [Column("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Переходить по ссылке
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роли доступа
@@ -91,25 +91,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("access_org_id")]
-        public double? AccessOrgId { get; set; }
+        public long? AccessOrgId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("access_site_id")]
-        public double? AccessSiteId { get; set; }
+        public long? AccessSiteId { get; set; }
 
         /// <summary>
         /// Узел
         /// </summary>
         [Column("access_host_id")]
-        public double? AccessHostId { get; set; }
+        public long? AccessHostId { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public double? WebModeId { get; set; }
+        public long? WebModeId { get; set; }
 
         /// <summary>
         /// Оператор
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Группа подразделений
         /// </summary>
         [Column("access_subdivision_group_id")]
-        public double? AccessSubdivisionGroupId { get; set; }
+        public long? AccessSubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -133,13 +133,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -157,25 +157,25 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Родительский раздел портала
         /// </summary>
         [Column("parent_document_id")]
-        public double? ParentDocumentId { get; set; }
+        public long? ParentDocumentId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Настраиваемый web шаблон
         /// </summary>
         [Column("custom_template_type")]
-        public double? CustomTemplateType { get; set; }
+        public long? CustomTemplateType { get; set; }
 
         /// <summary>
         /// Установлены права доступа
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         /// <summary>
         /// Название объекта

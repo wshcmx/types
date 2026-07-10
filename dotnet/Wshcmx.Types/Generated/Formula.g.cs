@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
     public class FormulaDocumentDependencie
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("object_type")]
         public string? ObjectType { get; set; }
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// КПЭ
         /// </summary>
         [XmlElement("kpi_id")]
-        public double? KpiId { get; set; }
+        public long? KpiId { get; set; }
 
         [XmlElement("kpi_type")]
         public string KpiType { get; set; }

@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Блог
         /// </summary>
         [Column("blog_id")]
-        public double? BlogId { get; set; }
+        public long? BlogId { get; set; }
 
         /// <summary>
         /// Название блога

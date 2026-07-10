@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,25 +58,25 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [XmlElement("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("control_form_id")]
-        public double? ControlFormId { get; set; }
+        public long? ControlFormId { get; set; }
 
         [XmlElement("lesson_id")]
-        public double? LessonId { get; set; }
+        public long? LessonId { get; set; }
 
         /// <summary>
         /// Описание
@@ -91,10 +91,10 @@ namespace Wshcmx.Types
         public List<DnControlEventDocumentControlAssessm> ControlAssessms { get; set; } = new List<DnControlEventDocumentControlAssessm>();
 
         [XmlElement("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         [XmlElement("stud_group_id")]
-        public double? StudGroupId { get; set; }
+        public long? StudGroupId { get; set; }
 
         /// <summary>
         /// Участники
@@ -115,13 +115,13 @@ namespace Wshcmx.Types
     public class DnControlEventDocumentControlAssessm
     {
         [XmlElement("assessm_id")]
-        public double? AssessmId { get; set; }
+        public long? AssessmId { get; set; }
     }
 
     public class DnControlEventDocumentParticipant
     {
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
     }
 
     public class DnControlEventDocumentView

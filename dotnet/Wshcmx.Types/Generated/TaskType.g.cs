@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Выборка для типа задач
         /// </summary>
         [XmlElement("virtual_remote_collection_id")]
-        public double? VirtualRemoteCollectionId { get; set; }
+        public long? VirtualRemoteCollectionId { get; set; }
 
         /// <summary>
         /// Переопределить переменные для типа задачи
@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         /// Удаленное действие для создания и редактирования задачи
         /// </summary>
         [XmlElement("virtual_remote_action_id")]
-        public double? VirtualRemoteActionId { get; set; }
+        public long? VirtualRemoteActionId { get; set; }
 
         /// <summary>
         /// Удаленное действие для документооборота
         /// </summary>
         [XmlElement("workflow_remote_action_id")]
-        public double? WorkflowRemoteActionId { get; set; }
+        public long? WorkflowRemoteActionId { get; set; }
 
         /// <summary>
         /// Можно изменять статус задач
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Связанный тип разговора
         /// </summary>
         [XmlElement("related_conversation_type_id")]
-        public double? RelatedConversationTypeId { get; set; }
+        public long? RelatedConversationTypeId { get; set; }
 
         [XmlElement("result_block")]
         public TaskTypeDocumentResultBlock? ResultBlock { get; set; }
@@ -262,7 +262,7 @@ namespace Wshcmx.Types
         /// Тип родительской задачи
         /// </summary>
         [XmlElement("parent_task_type_id")]
-        public double? ParentTaskTypeId { get; set; }
+        public long? ParentTaskTypeId { get; set; }
 
         /// <summary>
         /// Родительская задача обязательна

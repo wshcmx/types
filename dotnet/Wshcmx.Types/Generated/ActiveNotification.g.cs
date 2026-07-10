@@ -19,19 +19,19 @@ namespace Wshcmx.Types
         /// Тип уведомления
         /// </summary>
         [XmlElement("notification_id")]
-        public double? NotificationId { get; set; }
+        public long? NotificationId { get; set; }
 
         /// <summary>
         /// Прикрепляемый документ
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Прикрепляемый документ
         /// </summary>
         [XmlElement("sec_object_id")]
-        public double? SecObjectId { get; set; }
+        public long? SecObjectId { get; set; }
 
         /// <summary>
         /// Текст
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Количество попыток
         /// </summary>
         [XmlElement("send_counter")]
-        public double? SendCounter { get; set; }
+        public long? SendCounter { get; set; }
 
         [XmlElement("sender")]
         public ActiveNotificationDocumentSender? Sender { get; set; }
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Система уведомлений
         /// </summary>
         [XmlElement("notification_system_id")]
-        public double? NotificationSystemId { get; set; }
+        public long? NotificationSystemId { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class ActiveNotificationDocumentSender

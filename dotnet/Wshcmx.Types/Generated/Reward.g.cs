@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// c_reward_type
         /// </summary>
         [XmlElement("reward_type_id")]
-        public double? RewardTypeId { get; set; }
+        public long? RewardTypeId { get; set; }
 
         /// <summary>
         /// Статус
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Периоды
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Краткое описание
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// vrb_reward_initiator
         /// </summary>
         [XmlElement("initiator_user_id")]
-        public double? InitiatorUserId { get; set; }
+        public long? InitiatorUserId { get; set; }
 
         /// <summary>
         /// c_reward_source
         /// </summary>
         [XmlElement("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Доступ
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class RewardDocumentCollaboratorId
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название организации

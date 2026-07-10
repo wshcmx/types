@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class SxTrashDocCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("object_name")]
         public string? ObjectName { get; set; }

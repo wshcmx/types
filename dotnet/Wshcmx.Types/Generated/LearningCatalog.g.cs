@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [Column("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Название электронного курса
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Название мероприятия
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Группа
         /// </summary>
         [Column("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
 
         /// <summary>
         /// Дата активации
@@ -151,13 +151,13 @@ namespace Wshcmx.Types
         /// Максимальный балл
         /// </summary>
         [Column("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Баллы
         /// </summary>
         [Column("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         /// <summary>
         /// Описание итога
@@ -169,25 +169,25 @@ namespace Wshcmx.Types
         /// Состояние
         /// </summary>
         [Column("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
 
         /// <summary>
         /// Время модулей
         /// </summary>
         [Column("time")]
-        public double? Time { get; set; }
+        public long? Time { get; set; }
 
         /// <summary>
         /// План обучения
         /// </summary>
         [Column("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         /// <summary>
         /// Незаконченный курс
         /// </summary>
         [Column("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("creation_user_id")]
-        public double? CreationUserId { get; set; }
+        public long? CreationUserId { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [Column("modification_user_id")]
-        public double? ModificationUserId { get; set; }
+        public long? ModificationUserId { get; set; }
 
         /// <summary>
         /// Код сервера

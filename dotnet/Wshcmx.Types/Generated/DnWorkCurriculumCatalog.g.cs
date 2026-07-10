@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -58,34 +58,34 @@ namespace Wshcmx.Types
         public string Type { get; set; }
 
         [Column("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [Column("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         /// <summary>
         /// Факультет
         /// </summary>
         [Column("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [Column("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         [Column("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Квалификация
         /// </summary>
         [Column("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         [Column("educat_form_id")]
-        public double? EducatFormId { get; set; }
+        public long? EducatFormId { get; set; }
 
         /// <summary>
         /// Дата модификации

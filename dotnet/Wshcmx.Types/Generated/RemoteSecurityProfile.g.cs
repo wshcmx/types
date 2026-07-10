@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("source")]
-        public double Source { get; set; }
+        public long Source { get; set; }
 
         [XmlElement("method_access_list")]
         public RemoteSecurityProfileDocumentMethodAccessList? MethodAccessList { get; set; }
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
     public class RemoteSecurityProfileDocumentLibAccessListLibAccess
     {
         [XmlElement("library_id")]
-        public double? LibraryId { get; set; }
+        public long? LibraryId { get; set; }
 
         [XmlElement("library_code")]
         public string? LibraryCode { get; set; }

@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -79,37 +79,37 @@ namespace Wshcmx.Types
         /// Максимальное количество сообщений
         /// </summary>
         [XmlElement("max_messages")]
-        public double MaxMessages { get; set; }
+        public long MaxMessages { get; set; }
 
         /// <summary>
         /// При открытии показывать сообщений
         /// </summary>
         [XmlElement("view_messages")]
-        public double ViewMessages { get; set; }
+        public long ViewMessages { get; set; }
 
         /// <summary>
         /// Время обновления
         /// </summary>
         [XmlElement("reload_timeout")]
-        public double ReloadTimeout { get; set; }
+        public long ReloadTimeout { get; set; }
 
         /// <summary>
         /// Документ
         /// </summary>
         [XmlElement("document_id")]
-        public double? DocumentId { get; set; }
+        public long? DocumentId { get; set; }
 
         /// <summary>
         /// Курс
         /// </summary>
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         [XmlElement("name_source")]
         public string NameSource { get; set; }
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// Логин
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         public string? Class { get; set; }
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Дата
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         public bool? SenderIsManager { get; set; }
 
         [XmlElement("sender_id")]
-        public double? SenderId { get; set; }
+        public long? SenderId { get; set; }
 
         [XmlElement("is_private")]
         public bool? IsPrivate { get; set; }
@@ -214,7 +214,7 @@ namespace Wshcmx.Types
         public string? Fullname { get; set; }
 
         [XmlElement("recipient_id")]
-        public double? RecipientId { get; set; }
+        public long? RecipientId { get; set; }
 
         /// <summary>
         /// Получатель
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// Дата

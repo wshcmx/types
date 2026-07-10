@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [Column("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
 
         /// <summary>
         /// Агентский договор
@@ -61,37 +61,37 @@ namespace Wshcmx.Types
         /// Организация-агент
         /// </summary>
         [Column("agent_org_id")]
-        public double? AgentOrgId { get; set; }
+        public long? AgentOrgId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Клиент
         /// </summary>
         [Column("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Клиент
         /// </summary>
         [Column("client_manager_id")]
-        public double? ClientManagerId { get; set; }
+        public long? ClientManagerId { get; set; }
 
         /// <summary>
         /// Менеджер
         /// </summary>
         [Column("manager_id")]
-        public double? ManagerId { get; set; }
+        public long? ManagerId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [Column("parent_sale_contract_id")]
-        public double? ParentSaleContractId { get; set; }
+        public long? ParentSaleContractId { get; set; }
 
         /// <summary>
         /// Номер
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [Column("contract_cost")]
-        public double? ContractCost { get; set; }
+        public long? ContractCost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -166,10 +166,10 @@ namespace Wshcmx.Types
         public string? ContractSignature { get; set; }
 
         [Column("prev_contract_id")]
-        public double? PrevContractId { get; set; }
+        public long? PrevContractId { get; set; }
 
         [Column("contract_type")]
-        public double? ContractType { get; set; }
+        public long? ContractType { get; set; }
 
         /// <summary>
         /// Дата отправки

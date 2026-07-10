@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Почтовый адрес
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Функциональные руководители
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Тип провайдера курсов
         /// </summary>
         [XmlElement("provider_course_type_id")]
-        public double? ProviderCourseTypeId { get; set; }
+        public long? ProviderCourseTypeId { get; set; }
 
         /// <summary>
         /// Ссылка на файл библиотеки функций
@@ -175,13 +175,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class EducationOrgDocumentContact
     {
         [XmlElement("contact_id")]
-        public double? ContactId { get; set; }
+        public long? ContactId { get; set; }
 
         /// <summary>
         /// Является основным
@@ -235,19 +235,19 @@ namespace Wshcmx.Types
         /// Фото
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
     }
 
     public class EducationOrgDocumentEducationOrg
     {
         [XmlElement("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
     }
 
     public class EducationOrgDocumentPlace
     {
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Название
@@ -256,7 +256,7 @@ namespace Wshcmx.Types
         public string? PlaceName { get; set; }
 
         [XmlElement("place_parent_id")]
-        public double? PlaceParentId { get; set; }
+        public long? PlaceParentId { get; set; }
 
         /// <summary>
         /// Родительское расположение

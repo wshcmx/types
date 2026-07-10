@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -49,37 +49,37 @@ namespace Wshcmx.Types
         /// Тип кадрового резерва
         /// </summary>
         [Column("career_reserve_type_id")]
-        public double? CareerReserveTypeId { get; set; }
+        public long? CareerReserveTypeId { get; set; }
 
         /// <summary>
         /// Основание для исключения
         /// </summary>
         [Column("exclusion_reason_id")]
-        public double? ExclusionReasonId { get; set; }
+        public long? ExclusionReasonId { get; set; }
 
         /// <summary>
         /// Способ выдвижения в резерв
         /// </summary>
         [Column("nomination_id")]
-        public double? NominationId { get; set; }
+        public long? NominationId { get; set; }
 
         /// <summary>
         /// Потенциал развития
         /// </summary>
         [Column("development_potential_id")]
-        public double? DevelopmentPotentialId { get; set; }
+        public long? DevelopmentPotentialId { get; set; }
 
         /// <summary>
         /// Оценка эффективности
         /// </summary>
         [Column("efficiency_estimation_id")]
-        public double? EfficiencyEstimationId { get; set; }
+        public long? EfficiencyEstimationId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -115,7 +115,14 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Дата модификации

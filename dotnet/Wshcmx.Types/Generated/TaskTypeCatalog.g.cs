@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Документооборот по умолчанию
         /// </summary>
         [Column("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         /// <summary>
         /// Можно создавать задачи
@@ -91,19 +91,19 @@ namespace Wshcmx.Types
         /// Выборка для типа задач
         /// </summary>
         [Column("virtual_remote_collection_id")]
-        public double? VirtualRemoteCollectionId { get; set; }
+        public long? VirtualRemoteCollectionId { get; set; }
 
         /// <summary>
         /// Удаленное действие для создания и редактирования задачи
         /// </summary>
         [Column("virtual_remote_action_id")]
-        public double? VirtualRemoteActionId { get; set; }
+        public long? VirtualRemoteActionId { get; set; }
 
         /// <summary>
         /// Удаленное действие для документооборота
         /// </summary>
         [Column("workflow_remote_action_id")]
-        public double? WorkflowRemoteActionId { get; set; }
+        public long? WorkflowRemoteActionId { get; set; }
 
         /// <summary>
         /// Разрешено изменение статуса
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Связанный тип разговора
         /// </summary>
         [Column("related_conversation_type_id")]
-        public double? RelatedConversationTypeId { get; set; }
+        public long? RelatedConversationTypeId { get; set; }
 
         /// <summary>
         /// Использовать кастомные переменные

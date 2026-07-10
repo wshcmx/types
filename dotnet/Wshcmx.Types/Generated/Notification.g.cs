@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -82,16 +82,16 @@ namespace Wshcmx.Types
         /// Шаблон уведомления
         /// </summary>
         [XmlElement("notification_template_id")]
-        public double? NotificationTemplateId { get; set; }
+        public long? NotificationTemplateId { get; set; }
 
         [XmlElement("date_shift_selector")]
-        public double DateShiftSelector { get; set; }
+        public long DateShiftSelector { get; set; }
 
         [XmlElement("date_shift")]
-        public double DateShift { get; set; }
+        public long DateShift { get; set; }
 
         [XmlElement("sender_selector")]
-        public double SenderSelector { get; set; }
+        public long SenderSelector { get; set; }
 
         [XmlElement("sender_email")]
         public string? SenderEmail { get; set; }
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Прикрепленный сценарий
         /// </summary>
         [XmlElement("chatbot_id")]
-        public double? ChatbotId { get; set; }
+        public long? ChatbotId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -121,13 +121,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class NotificationDocumentNotificationSystem
     {
         [XmlElement("notification_system_id")]
-        public double? NotificationSystemId { get; set; }
+        public long? NotificationSystemId { get; set; }
     }
 
     public class NotificationDocumentRecipient
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("func_manager_type_id")]
-        public double? FuncManagerTypeId { get; set; }
+        public long? FuncManagerTypeId { get; set; }
 
         [XmlElement("eval_str")]
         public string? EvalStr { get; set; }
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         /// Шаблон уведомления
         /// </summary>
         [XmlElement("notification_template_id")]
-        public double? NotificationTemplateId { get; set; }
+        public long? NotificationTemplateId { get; set; }
     }
 
     public class NotificationDocumentView

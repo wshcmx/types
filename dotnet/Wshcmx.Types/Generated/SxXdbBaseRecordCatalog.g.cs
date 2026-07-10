@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class SxXdbBaseRecordCatalog
     {
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("mod_date")]
         public DateTime? ModDate { get; set; }

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("sec_object_id")]
-        public double? SecObjectId { get; set; }
+        public long? SecObjectId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Вес
         /// </summary>
         [Column("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Дата

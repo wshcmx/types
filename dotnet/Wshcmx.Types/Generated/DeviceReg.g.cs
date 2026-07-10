@@ -34,10 +34,10 @@ namespace Wshcmx.Types
         public DateTime? LastAccessDate { get; set; }
 
         [XmlElement("mobile_app_config_id")]
-        public double? MobileAppConfigId { get; set; }
+        public long? MobileAppConfigId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
     public class DeviceRegDocumentToken
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("status")]
         public string? Status { get; set; }

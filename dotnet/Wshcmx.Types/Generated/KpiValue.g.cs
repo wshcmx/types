@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class KpiValue
     {
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -64,13 +64,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -82,19 +82,19 @@ namespace Wshcmx.Types
         /// КПЭ
         /// </summary>
         [XmlElement("kpi_id")]
-        public double? KpiId { get; set; }
+        public long? KpiId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Ответственный
         /// </summary>
         [XmlElement("responsible_id")]
-        public double? ResponsibleId { get; set; }
+        public long? ResponsibleId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -115,19 +115,19 @@ namespace Wshcmx.Types
         /// Факт
         /// </summary>
         [XmlElement("fact")]
-        public double? Fact { get; set; }
+        public long? Fact { get; set; }
 
         [XmlElement("fact_text")]
         public string? FactText { get; set; }
 
         [XmlElement("fact_value")]
-        public double? FactValue { get; set; }
+        public long? FactValue { get; set; }
 
         /// <summary>
         /// Значение
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Каталог объектов
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// ID объекта
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
     public class KpiValueDocumentExpert
     {
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
     }
 
     public class KpiValueDocumentView
@@ -238,6 +238,6 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

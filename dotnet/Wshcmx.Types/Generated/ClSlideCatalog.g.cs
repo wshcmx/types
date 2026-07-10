@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,19 +49,19 @@ namespace Wshcmx.Types
         /// Курс CourseLab
         /// </summary>
         [Column("cl_course_id")]
-        public double? ClCourseId { get; set; }
+        public long? ClCourseId { get; set; }
 
         /// <summary>
         /// Модуль Courselab
         /// </summary>
         [Column("cl_module_id")]
-        public double? ClModuleId { get; set; }
+        public long? ClModuleId { get; set; }
 
         /// <summary>
         /// Слайд-хозяин
         /// </summary>
         [Column("master_id")]
-        public double? MasterId { get; set; }
+        public long? MasterId { get; set; }
 
         /// <summary>
         /// Код слайда-хозяина
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// SID
         /// </summary>
         [Column("sid")]
-        public double? Sid { get; set; }
+        public long? Sid { get; set; }
 
         /// <summary>
         /// Заблокировано
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Владелец ресурса
         /// </summary>
         [Column("greedy_person_id")]
-        public double? GreedyPersonId { get; set; }
+        public long? GreedyPersonId { get; set; }
 
         /// <summary>
         /// Имя владельца
@@ -115,13 +115,13 @@ namespace Wshcmx.Types
         /// Состояние разработки
         /// </summary>
         [Column("approval_status")]
-        public double? ApprovalStatus { get; set; }
+        public long? ApprovalStatus { get; set; }
 
         /// <summary>
         /// Stamp
         /// </summary>
         [Column("stamp")]
-        public double? Stamp { get; set; }
+        public long? Stamp { get; set; }
 
         /// <summary>
         /// Дата модификации

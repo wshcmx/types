@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Приоритет
         /// </summary>
         [XmlElement("priority")]
-        public double Priority { get; set; }
+        public long Priority { get; set; }
 
         /// <summary>
         /// Операция
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [XmlElement("operation_type")]
-        public double OperationType { get; set; }
+        public long OperationType { get; set; }
 
         /// <summary>
         /// Объект базы
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Удаленное действие
         /// </summary>
         [XmlElement("remote_action_id")]
-        public double? RemoteActionId { get; set; }
+        public long? RemoteActionId { get; set; }
 
         /// <summary>
         /// Формула условия видимости
@@ -154,6 +154,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 }

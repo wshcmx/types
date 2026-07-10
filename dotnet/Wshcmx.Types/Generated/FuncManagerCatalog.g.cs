@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Должность подчиненного
         /// </summary>
         [Column("subordinate_position_id")]
-        public double? SubordinatePositionId { get; set; }
+        public long? SubordinatePositionId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("staff_object_id")]
-        public double? StaffObjectId { get; set; }
+        public long? StaffObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Тип функционального руководителя
         /// </summary>
         [Column("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -115,12 +115,12 @@ namespace Wshcmx.Types
         /// Родительский объект
         /// </summary>
         [Column("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
     }
 }

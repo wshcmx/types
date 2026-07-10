@@ -19,15 +19,15 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("repositorium_id")]
-        public double? RepositoriumId { get; set; }
+        public long? RepositoriumId { get; set; }
 
         [Column("repositorium_name")]
         public string? RepositoriumName { get; set; }
 
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
     }
 }

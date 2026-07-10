@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -85,16 +85,16 @@ namespace Wshcmx.Types
         public List<ContestDocumentParticipant> Participants { get; set; } = new List<ContestDocumentParticipant>();
 
         [XmlElement("mark_min")]
-        public double MarkMin { get; set; }
+        public long MarkMin { get; set; }
 
         [XmlElement("mark_max")]
-        public double MarkMax { get; set; }
+        public long MarkMax { get; set; }
 
         [XmlElement("combo")]
         public bool Combo { get; set; }
 
         [XmlElement("file_num")]
-        public double FileNum { get; set; }
+        public long FileNum { get; set; }
 
         [XmlElement("desc")]
         public string? Desc { get; set; }
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -160,7 +160,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         [XmlElement("main")]
         public bool Main { get; set; }
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
     public class ContestDocumentParticipant
     {
         [XmlElement("participant_id")]
-        public double? ParticipantId { get; set; }
+        public long? ParticipantId { get; set; }
     }
 
     public class ContestDocumentResponsible
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -247,7 +247,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -274,6 +274,6 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 }

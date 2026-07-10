@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Статус договора
@@ -64,28 +64,28 @@ namespace Wshcmx.Types
         /// Поток
         /// </summary>
         [XmlElement("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Учебная группа
         /// </summary>
         [XmlElement("stud_group_id")]
-        public double? StudGroupId { get; set; }
+        public long? StudGroupId { get; set; }
 
         /// <summary>
         /// Студент
         /// </summary>
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         /// <summary>
         /// Дисциплина
         /// </summary>
         [XmlElement("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
 
         [XmlElement("contr_form_id")]
-        public double? ContrFormId { get; set; }
+        public long? ContrFormId { get; set; }
 
         [XmlElement("latest_date")]
         public DateTime? LatestDate { get; set; }

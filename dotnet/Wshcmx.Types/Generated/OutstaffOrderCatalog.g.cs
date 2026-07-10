@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роли доступа
@@ -55,25 +55,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("access_org_id")]
-        public double? AccessOrgId { get; set; }
+        public long? AccessOrgId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("access_site_id")]
-        public double? AccessSiteId { get; set; }
+        public long? AccessSiteId { get; set; }
 
         /// <summary>
         /// Узел
         /// </summary>
         [Column("access_host_id")]
-        public double? AccessHostId { get; set; }
+        public long? AccessHostId { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public double? WebModeId { get; set; }
+        public long? WebModeId { get; set; }
 
         /// <summary>
         /// Оператор
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Группа подразделений
         /// </summary>
         [Column("access_subdivision_group_id")]
-        public double? AccessSubdivisionGroupId { get; set; }
+        public long? AccessSubdivisionGroupId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -139,43 +139,43 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [Column("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Типовая должность
         /// </summary>
         [Column("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [Column("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Согласующий
         /// </summary>
         [Column("agreement_person_id")]
-        public double? AgreementPersonId { get; set; }
+        public long? AgreementPersonId { get; set; }
 
         /// <summary>
         /// Ставка
         /// </summary>
         [Column("cost_hour")]
-        public double? CostHour { get; set; }
+        public long? CostHour { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [Column("cost_sum")]
-        public double? CostSum { get; set; }
+        public long? CostSum { get; set; }
 
         /// <summary>
         /// Дата формирования

@@ -25,19 +25,19 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Кандидат
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО
@@ -61,31 +61,31 @@ namespace Wshcmx.Types
         /// Вакансия
         /// </summary>
         [Column("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Тип события
         /// </summary>
         [Column("estaff_event_type_id")]
-        public double? EstaffEventTypeId { get; set; }
+        public long? EstaffEventTypeId { get; set; }
 
         /// <summary>
         /// Статус
         /// </summary>
         [Column("estaff_event_type_status_id")]
-        public double? EstaffEventTypeStatusId { get; set; }
+        public long? EstaffEventTypeStatusId { get; set; }
 
         /// <summary>
         /// Система подбора персонала
         /// </summary>
         [Column("recruitment_system_id")]
-        public double? RecruitmentSystemId { get; set; }
+        public long? RecruitmentSystemId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Дата модификации

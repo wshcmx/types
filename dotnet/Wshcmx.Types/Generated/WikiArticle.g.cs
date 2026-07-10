@@ -52,10 +52,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         [XmlElement("processed_embedding_hash")]
         public string? ProcessedEmbeddingHash { get; set; }
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -103,19 +103,19 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Wiki база
         /// </summary>
         [XmlElement("wiki_base_id")]
-        public double? WikiBaseId { get; set; }
+        public long? WikiBaseId { get; set; }
 
         /// <summary>
         /// Тип wiki статьи
         /// </summary>
         [XmlElement("wiki_article_type_id")]
-        public double? WikiArticleTypeId { get; set; }
+        public long? WikiArticleTypeId { get; set; }
 
         /// <summary>
         /// Тип контента
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Позиция в списке
         /// </summary>
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
 
         /// <summary>
         /// Авторы
@@ -232,7 +232,7 @@ namespace Wshcmx.Types
         /// Группы для ознакомления
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class WikiArticleDocumentAddingObjects
@@ -262,31 +262,31 @@ namespace Wshcmx.Types
         /// Связь wiki статьи
         /// </summary>
         [XmlElement("wiki_article_communication_id")]
-        public double? WikiArticleCommunicationId { get; set; }
+        public long? WikiArticleCommunicationId { get; set; }
 
         /// <summary>
         /// Тип связи wiki статьи
         /// </summary>
         [XmlElement("wiki_article_comm_type_id")]
-        public double? WikiArticleCommTypeId { get; set; }
+        public long? WikiArticleCommTypeId { get; set; }
 
         /// <summary>
         /// Родительская wiki статья
         /// </summary>
         [XmlElement("base_wiki_article_id")]
-        public double? BaseWikiArticleId { get; set; }
+        public long? BaseWikiArticleId { get; set; }
 
         /// <summary>
         /// Дочерняя wiki статья
         /// </summary>
         [XmlElement("child_wiki_article_id")]
-        public double? ChildWikiArticleId { get; set; }
+        public long? ChildWikiArticleId { get; set; }
 
         /// <summary>
         /// Позиция в списке
         /// </summary>
         [XmlElement("position")]
-        public double? Position { get; set; }
+        public long? Position { get; set; }
     }
 
     public class WikiArticleDocumentAuthor
@@ -301,7 +301,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -367,13 +367,13 @@ namespace Wshcmx.Types
         /// Автор
         /// </summary>
         [XmlElement("author_id")]
-        public double? AuthorId { get; set; }
+        public long? AuthorId { get; set; }
 
         /// <summary>
         /// Тип
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class WikiArticleDocumentQuestion
@@ -391,7 +391,7 @@ namespace Wshcmx.Types
         /// Вопрос
         /// </summary>
         [XmlElement("item_id")]
-        public double? ItemId { get; set; }
+        public long? ItemId { get; set; }
 
         /// <summary>
         /// Тип вопроса

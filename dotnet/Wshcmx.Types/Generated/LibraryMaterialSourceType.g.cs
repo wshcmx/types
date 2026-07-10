@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Проигрыватель файлов
         /// </summary>
         [XmlElement("library_player_id")]
-        public double? LibraryPlayerId { get; set; }
+        public long? LibraryPlayerId { get; set; }
 
         /// <summary>
         /// Комментарий

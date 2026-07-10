@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// ID резюме
         /// </summary>
         [Column("resume_id")]
-        public double? ResumeId { get; set; }
+        public long? ResumeId { get; set; }
 
         /// <summary>
         /// Название
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// ID cотрудника, заполнившего резюме
         /// </summary>
         [Column("creator_person_id")]
-        public double? CreatorPersonId { get; set; }
+        public long? CreatorPersonId { get; set; }
 
         /// <summary>
         /// Сотрудник, заполнивший резюме
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// ID навыка
         /// </summary>
         [Column("skill_id")]
-        public double? SkillId { get; set; }
+        public long? SkillId { get; set; }
 
         /// <summary>
         /// Название навыка
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// ID заглавного навыка с уровнями
         /// </summary>
         [Column("skill_id_with_levels")]
-        public double? SkillIdWithLevels { get; set; }
+        public long? SkillIdWithLevels { get; set; }
 
         /// <summary>
         /// ID уровня

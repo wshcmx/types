@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -58,25 +58,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Организация клиента
         /// </summary>
         [XmlElement("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Договор
         /// </summary>
         [XmlElement("sale_contract_id")]
-        public double? SaleContractId { get; set; }
+        public long? SaleContractId { get; set; }
 
         /// <summary>
         /// Договор с клиентом партнёра
         /// </summary>
         [XmlElement("agent_contract_id")]
-        public double? AgentContractId { get; set; }
+        public long? AgentContractId { get; set; }
 
         /// <summary>
         /// Агентский договор
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Организация-партнёр
         /// </summary>
         [XmlElement("agent_org_id")]
-        public double? AgentOrgId { get; set; }
+        public long? AgentOrgId { get; set; }
 
         /// <summary>
         /// Предоплата
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Центр затрат
         /// </summary>
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Тип стоимости этапа
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Срок автозакрытия (дней)
         /// </summary>
         [XmlElement("autoclosing_period")]
-        public double? AutoclosingPeriod { get; set; }
+        public long? AutoclosingPeriod { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Дата
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("rate")]
-        public double? Rate { get; set; }
+        public long? Rate { get; set; }
     }
 
     public class PayStageDocumentCostMax
@@ -229,7 +229,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Дата
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("rate")]
-        public double? Rate { get; set; }
+        public long? Rate { get; set; }
     }
 
     public class PayStageDocumentCostMin
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Дата
@@ -268,6 +268,6 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("rate")]
-        public double? Rate { get; set; }
+        public long? Rate { get; set; }
     }
 }

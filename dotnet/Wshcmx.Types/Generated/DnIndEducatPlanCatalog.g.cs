@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -28,19 +28,19 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [Column("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [Column("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         [Column("prog_discipl_id")]
-        public double? ProgDisciplId { get; set; }
+        public long? ProgDisciplId { get; set; }
 
         /// <summary>
         /// Форма итогового контроля
         /// </summary>
         [Column("control_form_id")]
-        public double? ControlFormId { get; set; }
+        public long? ControlFormId { get; set; }
 
         /// <summary>
         /// Тип
@@ -52,13 +52,13 @@ namespace Wshcmx.Types
         public string? ThemeCourseWork { get; set; }
 
         [Column("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Преподаватель
         /// </summary>
         [Column("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         /// <summary>
         /// Дата модификации

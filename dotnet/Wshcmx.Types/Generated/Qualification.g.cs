@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Бонусы
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -85,10 +85,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Тип вступления
@@ -121,13 +121,13 @@ namespace Wshcmx.Types
         /// Уровень
         /// </summary>
         [XmlElement("level_id")]
-        public double? LevelId { get; set; }
+        public long? LevelId { get; set; }
 
         /// <summary>
         /// Родительская квалификация
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Статус
@@ -145,19 +145,19 @@ namespace Wshcmx.Types
         /// Количество дней до следующего подтверждения
         /// </summary>
         [XmlElement("days_for_check")]
-        public double? DaysForCheck { get; set; }
+        public long? DaysForCheck { get; set; }
 
         /// <summary>
         /// Срок прохождения (число дней)
         /// </summary>
         [XmlElement("term_days")]
-        public double? TermDays { get; set; }
+        public long? TermDays { get; set; }
 
         /// <summary>
         /// Число дней до срока истечения квалификации (число дней)
         /// </summary>
         [XmlElement("expires_days")]
-        public double? ExpiresDays { get; set; }
+        public long? ExpiresDays { get; set; }
 
         /// <summary>
         /// Разрешить самостоятельное назначение испытаний по квалификации
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         public string? ConditionType { get; set; }
 
         [XmlElement("condition_value")]
-        public double? ConditionValue { get; set; }
+        public long? ConditionValue { get; set; }
 
         [XmlElement("period_type")]
         public string? PeriodType { get; set; }
@@ -256,7 +256,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         [XmlElement("view")]
         public QualificationDocumentView? View { get; set; }
@@ -265,31 +265,31 @@ namespace Wshcmx.Types
     public class QualificationDocumentAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class QualificationDocumentAssessmentAppraise
     {
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
     }
 
     public class QualificationDocumentCompoundProgram
     {
         [XmlElement("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
     }
 
     public class QualificationDocumentCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
     }
 
     public class QualificationDocumentEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class QualificationDocumentEvalCondition
@@ -304,13 +304,13 @@ namespace Wshcmx.Types
         public string? EvalStr { get; set; }
 
         [XmlElement("max_value")]
-        public double? MaxValue { get; set; }
+        public long? MaxValue { get; set; }
     }
 
     public class QualificationDocumentQualification
     {
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
     }
 
     public class QualificationDocumentRewardParams
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
 
         /// <summary>
         /// Валюта
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("receivers_group_id")]
-        public double? ReceiversGroupId { get; set; }
+        public long? ReceiversGroupId { get; set; }
 
         [XmlElement("script")]
         public string? Script { get; set; }
@@ -346,10 +346,10 @@ namespace Wshcmx.Types
         public bool? CanNotTransmitToManager { get; set; }
 
         [XmlElement("available_rewards_num")]
-        public double? AvailableRewardsNum { get; set; }
+        public long? AvailableRewardsNum { get; set; }
 
         [XmlElement("exception_group_id")]
-        public double? ExceptionGroupId { get; set; }
+        public long? ExceptionGroupId { get; set; }
 
         [XmlElement("fill_from_common_params")]
         public bool? FillFromCommonParams { get; set; }
@@ -358,16 +358,16 @@ namespace Wshcmx.Types
         public string? Reason { get; set; }
 
         [XmlElement("competence_profile_id")]
-        public double? CompetenceProfileId { get; set; }
+        public long? CompetenceProfileId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
 
         [XmlElement("min_symbols_num")]
-        public double? MinSymbolsNum { get; set; }
+        public long? MinSymbolsNum { get; set; }
 
         [XmlElement("min_words_num")]
-        public double? MinWordsNum { get; set; }
+        public long? MinWordsNum { get; set; }
     }
 
     public class QualificationDocumentView

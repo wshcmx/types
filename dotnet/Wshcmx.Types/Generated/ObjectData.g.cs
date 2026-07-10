@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -82,13 +82,13 @@ namespace Wshcmx.Types
         /// Тип данных объектов
         /// </summary>
         [XmlElement("object_data_type_id")]
-        public double? ObjectDataTypeId { get; set; }
+        public long? ObjectDataTypeId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Статус
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Связанный объект
         /// </summary>
         [XmlElement("sec_object_id")]
-        public double? SecObjectId { get; set; }
+        public long? SecObjectId { get; set; }
 
         /// <summary>
         /// Название связанного объекта
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class ObjectDataDocumentView

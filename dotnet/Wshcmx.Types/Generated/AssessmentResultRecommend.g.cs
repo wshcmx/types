@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [XmlElement("type")]
-        public double? Type { get; set; }
+        public long? Type { get; set; }
 
         /// <summary>
         /// Комментарий

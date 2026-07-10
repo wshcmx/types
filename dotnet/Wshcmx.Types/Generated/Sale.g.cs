@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("status_id")]
-        public double? StatusId { get; set; }
+        public long? StatusId { get; set; }
 
         /// <summary>
         /// Номер договора
@@ -55,19 +55,19 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Организация клиента
         /// </summary>
         [XmlElement("client_org_id")]
-        public double? ClientOrgId { get; set; }
+        public long? ClientOrgId { get; set; }
 
         /// <summary>
         /// Проект
         /// </summary>
         [XmlElement("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -85,19 +85,19 @@ namespace Wshcmx.Types
         /// Клиент
         /// </summary>
         [XmlElement("client_manager_id")]
-        public double? ClientManagerId { get; set; }
+        public long? ClientManagerId { get; set; }
 
         /// <summary>
         /// Менеджер
         /// </summary>
         [XmlElement("manager_id")]
-        public double? ManagerId { get; set; }
+        public long? ManagerId { get; set; }
 
         /// <summary>
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         public string? SentType { get; set; }
 
         [XmlElement("sent_messenger_service_id")]
-        public double? SentMessengerServiceId { get; set; }
+        public long? SentMessengerServiceId { get; set; }
 
         [XmlElement("back_sent_date")]
         public DateTime? BackSentDate { get; set; }
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         public string? BackSentType { get; set; }
 
         [XmlElement("back_sent_messenger_service_id")]
-        public double? BackSentMessengerServiceId { get; set; }
+        public long? BackSentMessengerServiceId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

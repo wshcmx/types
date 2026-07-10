@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -58,13 +58,13 @@ namespace Wshcmx.Types
         /// Тип товара
         /// </summary>
         [XmlElement("good_type_id")]
-        public double? GoodTypeId { get; set; }
+        public long? GoodTypeId { get; set; }
 
         /// <summary>
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Состояние
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class GoodDocumentCost
@@ -127,10 +127,10 @@ namespace Wshcmx.Types
         public string? CurrencyTypeId { get; set; }
 
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
 
         [XmlElement("limit")]
-        public double? Limit { get; set; }
+        public long? Limit { get; set; }
     }
 
     public class GoodDocumentView

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Товар
         /// </summary>
         [Column("good_id")]
-        public double? GoodId { get; set; }
+        public long? GoodId { get; set; }
 
         /// <summary>
         /// Дата резервирования

@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Период запуска
         /// </summary>
         [Column("period")]
-        public double Period { get; set; }
+        public long Period { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// День месяца запуска
         /// </summary>
         [Column("start_day")]
-        public double? StartDay { get; set; }
+        public long? StartDay { get; set; }
 
         /// <summary>
         /// День недели запуска
         /// </summary>
         [Column("start_week_day")]
-        public double? StartWeekDay { get; set; }
+        public long? StartWeekDay { get; set; }
 
         /// <summary>
         /// Начало периода запуска
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код курса
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Включен
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Библиотека программного кода
         /// </summary>
         [Column("code_library_id")]
-        public double? CodeLibraryId { get; set; }
+        public long? CodeLibraryId { get; set; }
 
         /// <summary>
         /// Текущий пользователь
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Длительность кеширования (мин)
         /// </summary>
         [Column("cache_time")]
-        public double? CacheTime { get; set; }
+        public long? CacheTime { get; set; }
 
         /// <summary>
         /// Дата модификации

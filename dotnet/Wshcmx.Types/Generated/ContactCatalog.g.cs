@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Проект
         /// </summary>
         [Column("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         /// <summary>
         /// Тип контакта
         /// </summary>
         [Column("type_id")]
-        public double? TypeId { get; set; }
+        public long? TypeId { get; set; }
 
         /// <summary>
         /// Статус
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Результат контакта
         /// </summary>
         [Column("result_id")]
-        public double? ResultId { get; set; }
+        public long? ResultId { get; set; }
 
         /// <summary>
         /// Инициатор
         /// </summary>
         [Column("initiator_person_id")]
-        public double? InitiatorPersonId { get; set; }
+        public long? InitiatorPersonId { get; set; }
 
         /// <summary>
         /// ФИО оценивающего
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Контактное лицо
         /// </summary>
         [Column("contact_person_id")]
-        public double? ContactPersonId { get; set; }
+        public long? ContactPersonId { get; set; }
 
         /// <summary>
         /// Контактное лицо
@@ -103,13 +103,13 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("contact_org_id")]
-        public double? ContactOrgId { get; set; }
+        public long? ContactOrgId { get; set; }
 
         /// <summary>
         /// Предыдущий контакт
         /// </summary>
         [Column("previous_contact_id")]
-        public double? PreviousContactId { get; set; }
+        public long? PreviousContactId { get; set; }
 
         /// <summary>
         /// Дата контакта

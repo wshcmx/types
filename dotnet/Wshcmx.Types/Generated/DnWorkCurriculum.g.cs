@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -64,43 +64,43 @@ namespace Wshcmx.Types
         /// Студент
         /// </summary>
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [XmlElement("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         /// <summary>
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Специальность
         /// </summary>
         [XmlElement("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         /// <summary>
         /// Специализация
         /// </summary>
         [XmlElement("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Квалификация
         /// </summary>
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         [XmlElement("educat_form_id")]
-        public double? EducatFormId { get; set; }
+        public long? EducatFormId { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
     public class DnWorkCurriculumDocumentBlockElem
     {
         [XmlElement("id_block")]
-        public double? IdBlock { get; set; }
+        public long? IdBlock { get; set; }
 
         /// <summary>
         /// Название
@@ -139,28 +139,28 @@ namespace Wshcmx.Types
     public class DnWorkCurriculumDocumentBlockElemDiscipline
     {
         [XmlElement("discipl_id")]
-        public double? DisciplId { get; set; }
+        public long? DisciplId { get; set; }
 
         [XmlElement("auditor")]
-        public double? Auditor { get; set; }
+        public long? Auditor { get; set; }
 
         [XmlElement("independ")]
-        public double? Independ { get; set; }
+        public long? Independ { get; set; }
 
         [XmlElement("audit_credit")]
-        public double? AuditCredit { get; set; }
+        public long? AuditCredit { get; set; }
 
         [XmlElement("independ_credit")]
-        public double? IndependCredit { get; set; }
+        public long? IndependCredit { get; set; }
 
         /// <summary>
         /// Семестр
         /// </summary>
         [XmlElement("term_id")]
-        public double? TermId { get; set; }
+        public long? TermId { get; set; }
 
         [XmlElement("control_form_id")]
-        public double? ControlFormId { get; set; }
+        public long? ControlFormId { get; set; }
 
         [XmlElement("name_control_form")]
         public string? NameControlForm { get; set; }
@@ -175,10 +175,10 @@ namespace Wshcmx.Types
     public class DnWorkCurriculumDocumentBlockElemDisciplineTerm
     {
         [XmlElement("id_term")]
-        public double? IdTerm { get; set; }
+        public long? IdTerm { get; set; }
 
         [XmlElement("term_hours")]
-        public double? TermHours { get; set; }
+        public long? TermHours { get; set; }
     }
 
     public class DnWorkCurriculumDocumentView
@@ -187,6 +187,6 @@ namespace Wshcmx.Types
         public AuFtFilter? Filter { get; set; }
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
     }
 }

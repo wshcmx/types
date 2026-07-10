@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Размерность
         /// </summary>
         [XmlElement("dimension_id")]
-        public double? DimensionId { get; set; }
+        public long? DimensionId { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Информация об объекте

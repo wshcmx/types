@@ -18,7 +18,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [XmlElement("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роль сотрудника
@@ -42,7 +42,7 @@ namespace Wshcmx.Types
         /// Группа по умолчанию
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Является редактором контента
@@ -165,7 +165,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [XmlElement("access_level")]
-        public double AccessLevel { get; set; }
+        public long AccessLevel { get; set; }
 
         /// <summary>
         /// Роли доступа
@@ -183,25 +183,25 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("access_org_id")]
-        public double? AccessOrgId { get; set; }
+        public long? AccessOrgId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [XmlElement("access_site_id")]
-        public double? AccessSiteId { get; set; }
+        public long? AccessSiteId { get; set; }
 
         /// <summary>
         /// Узел
         /// </summary>
         [XmlElement("access_host_id")]
-        public double? AccessHostId { get; set; }
+        public long? AccessHostId { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [XmlElement("web_mode_id")]
-        public double? WebModeId { get; set; }
+        public long? WebModeId { get; set; }
 
         /// <summary>
         /// Оператор
@@ -213,7 +213,7 @@ namespace Wshcmx.Types
         /// Группа подразделений
         /// </summary>
         [XmlElement("access_subdivision_group_id")]
-        public double? AccessSubdivisionGroupId { get; set; }
+        public long? AccessSubdivisionGroupId { get; set; }
     }
 
     public class AccessDocBaseAccessGroup
@@ -222,7 +222,7 @@ namespace Wshcmx.Types
         /// Группа доступа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class AccessDocBaseAccessRole
@@ -279,7 +279,7 @@ namespace Wshcmx.Types
     public class AccessRoleBaseFuncBlockApplication
     {
         [XmlElement("application_id")]
-        public double? ApplicationId { get; set; }
+        public long? ApplicationId { get; set; }
 
         [XmlElement("application_code")]
         public string? ApplicationCode { get; set; }
@@ -300,7 +300,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [XmlElement("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
     }
 
     public class ActorBase
@@ -672,7 +672,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("value")]
-        public double? Value { get; set; }
+        public long? Value { get; set; }
 
         /// <summary>
         /// Строка
@@ -756,7 +756,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -879,13 +879,13 @@ namespace Wshcmx.Types
         /// Блок пересылаемого сообщения
         /// </summary>
         [XmlElement("block_message_id")]
-        public double? BlockMessageId { get; set; }
+        public long? BlockMessageId { get; set; }
 
         /// <summary>
         /// Разговор пересылаемого сообщения
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
     }
 
     public class BmMessageRecipient
@@ -894,7 +894,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Статус
@@ -912,7 +912,7 @@ namespace Wshcmx.Types
         /// Блок отвечаемого сообщения
         /// </summary>
         [XmlElement("block_message_id")]
-        public double? BlockMessageId { get; set; }
+        public long? BlockMessageId { get; set; }
     }
 
     public class BmMessageView
@@ -939,13 +939,13 @@ namespace Wshcmx.Types
         public string? MessageId { get; set; }
 
         [XmlElement("block_message_id")]
-        public double? BlockMessageId { get; set; }
+        public long? BlockMessageId { get; set; }
 
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         [XmlElement("sender_id")]
-        public double? SenderId { get; set; }
+        public long? SenderId { get; set; }
 
         [XmlElement("sender_type")]
         public string? SenderType { get; set; }
@@ -960,7 +960,7 @@ namespace Wshcmx.Types
         public string? MessageId { get; set; }
 
         [XmlElement("sender_id")]
-        public double? SenderId { get; set; }
+        public long? SenderId { get; set; }
 
         [XmlElement("sender_type")]
         public string? SenderType { get; set; }
@@ -987,7 +987,7 @@ namespace Wshcmx.Types
     public class CatalogListBaseCatalogObject
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -999,7 +999,7 @@ namespace Wshcmx.Types
         /// Локализация
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
     }
 
     public class ColumnBaseColumn
@@ -1023,7 +1023,7 @@ namespace Wshcmx.Types
         public string? ColumnValue { get; set; }
 
         [XmlElement("column_width")]
-        public double? ColumnWidth { get; set; }
+        public long? ColumnWidth { get; set; }
 
         [XmlElement("column_width_unit")]
         public string ColumnWidthUnit { get; set; }
@@ -1110,22 +1110,22 @@ namespace Wshcmx.Types
     public class CompetenceLevelBaseLevelAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         [XmlElement("assessment_score")]
-        public double? AssessmentScore { get; set; }
+        public long? AssessmentScore { get; set; }
     }
 
     public class CompetenceLevelBaseLevelDevelopmentMethod
     {
         [XmlElement("development_method_id")]
-        public double? DevelopmentMethodId { get; set; }
+        public long? DevelopmentMethodId { get; set; }
     }
 
     public class CompetenceLevelBaseLevelEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class CompetenceScaleBaseScale
@@ -1137,7 +1137,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("percent")]
-        public double? Percent { get; set; }
+        public long? Percent { get; set; }
 
         [XmlElement("desc")]
         public string? Desc { get; set; }
@@ -1176,7 +1176,7 @@ namespace Wshcmx.Types
         public string? Usl { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("eval_str")]
         public string? EvalStr { get; set; }
@@ -1185,19 +1185,19 @@ namespace Wshcmx.Types
         public string? CurAccessRole { get; set; }
 
         [XmlElement("cur_parent_object_id")]
-        public double? CurParentObjectId { get; set; }
+        public long? CurParentObjectId { get; set; }
 
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [XmlElement("cur_position_id")]
-        public double? CurPositionId { get; set; }
+        public long? CurPositionId { get; set; }
 
         [XmlElement("cur_group_id")]
-        public double? CurGroupId { get; set; }
+        public long? CurGroupId { get; set; }
 
         [XmlElement("cur_activity_id")]
-        public double? CurActivityId { get; set; }
+        public long? CurActivityId { get; set; }
     }
 
     public class ConditionsBase
@@ -1272,10 +1272,10 @@ namespace Wshcmx.Types
     public class CostCentersBaseCostCenter
     {
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Статьи затрат
@@ -1287,10 +1287,10 @@ namespace Wshcmx.Types
     public class CostCentersBaseCostCenterExpenseItem
     {
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
     }
 
     public class CourseExpertsBasePerson
@@ -1305,7 +1305,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -1323,7 +1323,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -1341,7 +1341,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -1374,7 +1374,7 @@ namespace Wshcmx.Types
         /// Эксперт курса
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("type")]
         public string Type { get; set; }
@@ -1503,7 +1503,7 @@ namespace Wshcmx.Types
         public bool FlagIsParameter { get; set; }
 
         [XmlElement("flag_hierarchy")]
-        public double FlagHierarchy { get; set; }
+        public long FlagHierarchy { get; set; }
 
         [XmlElement("flag_active")]
         public bool FlagActive { get; set; }
@@ -1668,7 +1668,7 @@ namespace Wshcmx.Types
         public string? IntegratedCriterionValue { get; set; }
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -1680,7 +1680,7 @@ namespace Wshcmx.Types
         public string? AggregateFunction { get; set; }
 
         [XmlElement("aggregate_column")]
-        public double? AggregateColumn { get; set; }
+        public long? AggregateColumn { get; set; }
 
         [XmlElement("flag_graph")]
         public bool? FlagGraph { get; set; }
@@ -1701,7 +1701,7 @@ namespace Wshcmx.Types
     public class CustomReportBaseSort
     {
         [XmlElement("col_index")]
-        public double? ColIndex { get; set; }
+        public long? ColIndex { get; set; }
 
         [XmlElement("asc")]
         public bool Asc { get; set; }
@@ -1764,7 +1764,7 @@ namespace Wshcmx.Types
         public string TabChild { get; set; }
 
         [XmlElement("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         /// <summary>
         /// Способы развития
@@ -1815,7 +1815,7 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBaseCompetenceDevelopmentMethod
     {
         [XmlElement("development_method_id")]
-        public double? DevelopmentMethodId { get; set; }
+        public long? DevelopmentMethodId { get; set; }
 
         /// <summary>
         /// Учебные программы
@@ -1827,13 +1827,13 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBaseCompetenceDevelopmentMethodEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class DevelopmentPlanDataBaseCompetenceEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class DevelopmentPlanDataBaseCompetenceEducationType
@@ -1848,7 +1848,7 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBaseCompetenceEducationTypeEducationObject
     {
         [XmlElement("education_object_id")]
-        public double? EducationObjectId { get; set; }
+        public long? EducationObjectId { get; set; }
     }
 
     public class DevelopmentPlanDataBaseIndicator
@@ -1860,7 +1860,7 @@ namespace Wshcmx.Types
         public string TabChild { get; set; }
 
         [XmlElement("indicator_id")]
-        public double? IndicatorId { get; set; }
+        public long? IndicatorId { get; set; }
 
         /// <summary>
         /// Способы развития
@@ -1911,13 +1911,13 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBaseIndicatorDevelopmentMethod
     {
         [XmlElement("development_method_id")]
-        public double? DevelopmentMethodId { get; set; }
+        public long? DevelopmentMethodId { get; set; }
     }
 
     public class DevelopmentPlanDataBaseIndicatorEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class DevelopmentPlanDataBaseIndicatorEducationType
@@ -1932,7 +1932,7 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBaseIndicatorEducationTypeEducationObject
     {
         [XmlElement("education_object_id")]
-        public double? EducationObjectId { get; set; }
+        public long? EducationObjectId { get; set; }
     }
 
     public class DevelopmentPlanDataBasePlaindevelopment
@@ -1995,13 +1995,13 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBasePlaindevelopmentDevelopmentMethod
     {
         [XmlElement("development_method_id")]
-        public double? DevelopmentMethodId { get; set; }
+        public long? DevelopmentMethodId { get; set; }
     }
 
     public class DevelopmentPlanDataBasePlaindevelopmentEducationMethod
     {
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
     }
 
     public class DevelopmentPlanDataBasePlaindevelopmentEducationType
@@ -2016,7 +2016,7 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDataBasePlaindevelopmentEducationTypeEducationObject
     {
         [XmlElement("education_object_id")]
-        public double? EducationObjectId { get; set; }
+        public long? EducationObjectId { get; set; }
     }
 
     public class DocInfoBase
@@ -2052,7 +2052,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// Дата
@@ -2079,7 +2079,7 @@ namespace Wshcmx.Types
         /// Пользователь
         /// </summary>
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// Дата
@@ -2094,7 +2094,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -2157,7 +2157,7 @@ namespace Wshcmx.Types
     public class DownloadPackageLogBaseDeletedObjectsObject
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("del_date")]
         public DateTime? DelDate { get; set; }
@@ -2172,7 +2172,7 @@ namespace Wshcmx.Types
         public string? Field { get; set; }
 
         [XmlElement("num")]
-        public double? Num { get; set; }
+        public long? Num { get; set; }
 
         [XmlElement("selected")]
         public bool Selected { get; set; }
@@ -2181,7 +2181,7 @@ namespace Wshcmx.Types
     public class DownloadPackageLogBaseObject
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -2214,13 +2214,13 @@ namespace Wshcmx.Types
         /// Место проведения
         /// </summary>
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -2247,7 +2247,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -2265,7 +2265,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -2283,7 +2283,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -2310,13 +2310,13 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class EducGroupsBaseEducGroupLector
     {
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
     }
 
     public class EduMethodTestingBasePostTesting
@@ -2331,7 +2331,7 @@ namespace Wshcmx.Types
     public class EduMethodTestingBasePostTestingAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class EduMethodTestingBasePrevTesting
@@ -2346,7 +2346,7 @@ namespace Wshcmx.Types
     public class EduMethodTestingBasePrevTestingAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class EssentialBase
@@ -2598,7 +2598,7 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("desc")]
         public string? Desc { get; set; }
@@ -2673,7 +2673,7 @@ namespace Wshcmx.Types
     public class ExchangeListsBaseCurrencyTypeModName
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -2703,13 +2703,13 @@ namespace Wshcmx.Types
     public class ExchangeListsBaseFact
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("type")]
-        public double? Type { get; set; }
+        public long? Type { get; set; }
 
         [XmlElement("catalog")]
         public string? Catalog { get; set; }
@@ -2739,7 +2739,7 @@ namespace Wshcmx.Types
     public class ExchangeListsBaseFactExtraColumn
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -2751,7 +2751,7 @@ namespace Wshcmx.Types
     public class ExchangeListsBaseFilter
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -2811,7 +2811,7 @@ namespace Wshcmx.Types
         /// Количество символов пароля
         /// </summary>
         [XmlElement("password_digits_num")]
-        public double PasswordDigitsNum { get; set; }
+        public long PasswordDigitsNum { get; set; }
 
         /// <summary>
         /// Пропустить первую строку
@@ -2841,7 +2841,7 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Разделитель
@@ -3006,7 +3006,7 @@ namespace Wshcmx.Types
         /// Позиция
         /// </summary>
         [XmlElement("position")]
-        public double Position { get; set; }
+        public long Position { get; set; }
 
         /// <summary>
         /// Дата
@@ -3018,16 +3018,16 @@ namespace Wshcmx.Types
     public class ExpenseDistributionBaseExpenseItem
     {
         [XmlElement("expense_item_id")]
-        public double? ExpenseItemId { get; set; }
+        public long? ExpenseItemId { get; set; }
 
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
 
         [XmlElement("total_sum")]
-        public double? TotalSum { get; set; }
+        public long? TotalSum { get; set; }
 
         [XmlElement("unnamed_person_sum")]
-        public double? UnnamedPersonSum { get; set; }
+        public long? UnnamedPersonSum { get; set; }
     }
 
     public class FieldNamesBaseFieldName
@@ -3048,7 +3048,7 @@ namespace Wshcmx.Types
         public string? ForeignCatalog { get; set; }
 
         [XmlElement("value_int")]
-        public double? ValueInt { get; set; }
+        public long? ValueInt { get; set; }
 
         [XmlElement("is_custom_field")]
         public bool IsCustomField { get; set; }
@@ -3063,7 +3063,7 @@ namespace Wshcmx.Types
         public List<string> ValueMultiple { get; set; } = new List<string>();
 
         [XmlElement("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
 
         [XmlElement("field_names")]
         public List<FieldNamesBaseFieldNameFieldName> FieldNames { get; set; } = new List<FieldNamesBaseFieldNameFieldName>();
@@ -3087,7 +3087,7 @@ namespace Wshcmx.Types
         public string? ForeignCatalog { get; set; }
 
         [XmlElement("value_int")]
-        public double? ValueInt { get; set; }
+        public long? ValueInt { get; set; }
 
         [XmlElement("is_custom_field")]
         public bool IsCustomField { get; set; }
@@ -3102,7 +3102,7 @@ namespace Wshcmx.Types
         public List<string> ValueMultiple { get; set; } = new List<string>();
 
         [XmlElement("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
 
         [XmlElement("field_names")]
         public List<FieldNamesBaseFieldNameFieldNameFieldName> FieldNames { get; set; } = new List<FieldNamesBaseFieldNameFieldNameFieldName>();
@@ -3126,7 +3126,7 @@ namespace Wshcmx.Types
         public string? ForeignCatalog { get; set; }
 
         [XmlElement("value_int")]
-        public double? ValueInt { get; set; }
+        public long? ValueInt { get; set; }
 
         [XmlElement("is_custom_field")]
         public bool IsCustomField { get; set; }
@@ -3141,7 +3141,7 @@ namespace Wshcmx.Types
         public List<string> ValueMultiple { get; set; } = new List<string>();
 
         [XmlElement("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
     }
 
     public class FileActionBase
@@ -3169,7 +3169,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -3187,7 +3187,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -3205,7 +3205,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -3235,13 +3235,13 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Должность подчиненного
         /// </summary>
         [XmlElement("subordinate_position_id")]
-        public double? SubordinatePositionId { get; set; }
+        public long? SubordinatePositionId { get; set; }
 
         /// <summary>
         /// Дата начала действия
@@ -3265,7 +3265,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class FuncManagersBasePositionManager
@@ -3280,7 +3280,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -3298,7 +3298,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class GameBonusBaseGameBonus
@@ -3319,7 +3319,7 @@ namespace Wshcmx.Types
         /// Сумма
         /// </summary>
         [XmlElement("sum")]
-        public double? Sum { get; set; }
+        public long? Sum { get; set; }
     }
 
     public class GlobalSettingsBase
@@ -3328,7 +3328,7 @@ namespace Wshcmx.Types
         public EventSettingsBaseEventSettings? EventSettings { get; set; }
 
         [XmlElement("default_web_design_id")]
-        public double? DefaultWebDesignId { get; set; }
+        public long? DefaultWebDesignId { get; set; }
 
         [XmlElement("web_designs")]
         public List<GlobalSettingsBaseWebDesign> WebDesigns { get; set; } = new List<GlobalSettingsBaseWebDesign>();
@@ -3343,7 +3343,7 @@ namespace Wshcmx.Types
         public bool PersonalChatConfirmationRequired { get; set; }
 
         [XmlElement("max_message_in_block_count")]
-        public double MaxMessageInBlockCount { get; set; }
+        public long MaxMessageInBlockCount { get; set; }
 
         /// <summary>
         /// Расширенное логирование разговоров
@@ -3367,7 +3367,7 @@ namespace Wshcmx.Types
         /// Тип разговора по умолчанию
         /// </summary>
         [XmlElement("default_conversation_type_id")]
-        public double? DefaultConversationTypeId { get; set; }
+        public long? DefaultConversationTypeId { get; set; }
 
         [XmlElement("auth_check_eval")]
         public string? AuthCheckEval { get; set; }
@@ -3385,7 +3385,7 @@ namespace Wshcmx.Types
         public bool UseAuthSession { get; set; }
 
         [XmlElement("auth_session_life_time")]
-        public double AuthSessionLifeTime { get; set; }
+        public long AuthSessionLifeTime { get; set; }
 
         [XmlElement("template_cache_type")]
         public string TemplateCacheType { get; set; }
@@ -3397,7 +3397,7 @@ namespace Wshcmx.Types
         public GlobalSettingsBaseWebRules? WebRules { get; set; }
 
         [XmlElement("default_file_source_id")]
-        public double DefaultFileSourceId { get; set; }
+        public long DefaultFileSourceId { get; set; }
 
         [XmlElement("search_in_trash")]
         public bool SearchInTrash { get; set; }
@@ -3424,16 +3424,16 @@ namespace Wshcmx.Types
         public GlobalSettingsBaseMobile? Mobile { get; set; }
 
         [XmlElement("default_contact_type_id")]
-        public double? DefaultContactTypeId { get; set; }
+        public long? DefaultContactTypeId { get; set; }
 
         [XmlElement("default_contact_result_id")]
-        public double? DefaultContactResultId { get; set; }
+        public long? DefaultContactResultId { get; set; }
 
         [XmlElement("allow_self_register")]
         public bool AllowSelfRegister { get; set; }
 
         [XmlElement("self_register_group_id")]
-        public double? SelfRegisterGroupId { get; set; }
+        public long? SelfRegisterGroupId { get; set; }
 
         [XmlElement("web_banned_self_register")]
         public bool WebBannedSelfRegister { get; set; }
@@ -3445,10 +3445,10 @@ namespace Wshcmx.Types
         public bool SelfRegisterDispSubs { get; set; }
 
         [XmlElement("self_register_org_id")]
-        public double? SelfRegisterOrgId { get; set; }
+        public long? SelfRegisterOrgId { get; set; }
 
         [XmlElement("self_register_subdivision_id")]
-        public double? SelfRegisterSubdivisionId { get; set; }
+        public long? SelfRegisterSubdivisionId { get; set; }
 
         [XmlElement("self_register_position_name")]
         public string? SelfRegisterPositionName { get; set; }
@@ -3487,7 +3487,7 @@ namespace Wshcmx.Types
         public bool AutoExchangeData { get; set; }
 
         [XmlElement("exchange_period")]
-        public double ExchangePeriod { get; set; }
+        public long ExchangePeriod { get; set; }
 
         [XmlElement("url_exchange_results")]
         public string? UrlExchangeResults { get; set; }
@@ -3523,25 +3523,25 @@ namespace Wshcmx.Types
         public bool SavePersonChangeLog { get; set; }
 
         [XmlElement("script_evaluation_cutoff")]
-        public double? ScriptEvaluationCutoff { get; set; }
+        public long? ScriptEvaluationCutoff { get; set; }
 
         [XmlElement("max_report_visible_rows")]
-        public double MaxReportVisibleRows { get; set; }
+        public long MaxReportVisibleRows { get; set; }
 
         [XmlElement("default_currency")]
         public string? DefaultCurrency { get; set; }
 
         [XmlElement("default_cost_center_id")]
-        public double? DefaultCostCenterId { get; set; }
+        public long? DefaultCostCenterId { get; set; }
 
         [XmlElement("default_expense_item_id")]
-        public double? DefaultExpenseItemId { get; set; }
+        public long? DefaultExpenseItemId { get; set; }
 
         [XmlElement("cost_center_priority")]
         public string? CostCenterPriority { get; set; }
 
         [XmlElement("timezone_id")]
-        public double? TimezoneId { get; set; }
+        public long? TimezoneId { get; set; }
 
         [XmlElement("auto_select_status_edu_plan")]
         public bool AutoSelectStatusEduPlan { get; set; }
@@ -3571,7 +3571,7 @@ namespace Wshcmx.Types
         public bool AdminNotAuth { get; set; }
 
         [XmlElement("default_event_result_type_id")]
-        public double? DefaultEventResultTypeId { get; set; }
+        public long? DefaultEventResultTypeId { get; set; }
 
         [XmlElement("disp_log_web_request")]
         public bool DispLogWebRequest { get; set; }
@@ -3592,13 +3592,13 @@ namespace Wshcmx.Types
         public bool Tracing { get; set; }
 
         [XmlElement("tracing_timeout")]
-        public double? TracingTimeout { get; set; }
+        public long? TracingTimeout { get; set; }
 
         [XmlElement("log_embedding_detail")]
         public bool LogEmbeddingDetail { get; set; }
 
         [XmlElement("export_odbc_commant_timeout")]
-        public double ExportOdbcCommantTimeout { get; set; }
+        public long ExportOdbcCommantTimeout { get; set; }
 
         [XmlElement("not_use_doc_contains")]
         public bool NotUseDocContains { get; set; }
@@ -3655,7 +3655,7 @@ namespace Wshcmx.Types
         public bool? UseProfiling { get; set; }
 
         [XmlElement("default_webinar_system_id")]
-        public double? DefaultWebinarSystemId { get; set; }
+        public long? DefaultWebinarSystemId { get; set; }
 
         [XmlElement("lds_url_pattern")]
         public string? LdsUrlPattern { get; set; }
@@ -3691,10 +3691,10 @@ namespace Wshcmx.Types
         public bool? BrutePasswordCheck { get; set; }
 
         [XmlElement("brute_password_count")]
-        public double? BrutePasswordCount { get; set; }
+        public long? BrutePasswordCount { get; set; }
 
         [XmlElement("brute_password_period")]
-        public double? BrutePasswordPeriod { get; set; }
+        public long? BrutePasswordPeriod { get; set; }
 
         [XmlElement("lds")]
         public GlobalSettingsBaseLds? Lds { get; set; }
@@ -3712,7 +3712,7 @@ namespace Wshcmx.Types
         public bool CourseAccessOnEducationPlan { get; set; }
 
         [XmlElement("unique_id_slot")]
-        public double? UniqueIdSlot { get; set; }
+        public long? UniqueIdSlot { get; set; }
 
         [XmlElement("use_ws_idm")]
         public bool UseWsIdm { get; set; }
@@ -3754,7 +3754,7 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseKnowlcntrl
     {
         [XmlElement("default_expert_id")]
-        public double? DefaultExpertId { get; set; }
+        public long? DefaultExpertId { get; set; }
     }
 
     public class GlobalSettingsBaseLds
@@ -3763,10 +3763,10 @@ namespace Wshcmx.Types
         public bool? BrutePasswordCheck { get; set; }
 
         [XmlElement("brute_password_count")]
-        public double? BrutePasswordCount { get; set; }
+        public long? BrutePasswordCount { get; set; }
 
         [XmlElement("brute_password_period")]
-        public double? BrutePasswordPeriod { get; set; }
+        public long? BrutePasswordPeriod { get; set; }
     }
 
     public class GlobalSettingsBaseLibrary
@@ -3787,7 +3787,7 @@ namespace Wshcmx.Types
         public string? Attr { get; set; }
 
         [XmlElement("type")]
-        public double Type { get; set; }
+        public long Type { get; set; }
 
         [XmlElement("enabled")]
         public bool Enabled { get; set; }
@@ -3823,7 +3823,7 @@ namespace Wshcmx.Types
         public string MenuCode { get; set; }
 
         [XmlElement("days_credentials_update")]
-        public double? DaysCredentialsUpdate { get; set; }
+        public long? DaysCredentialsUpdate { get; set; }
 
         [XmlElement("use_favorites")]
         public bool UseFavorites { get; set; }
@@ -3856,13 +3856,13 @@ namespace Wshcmx.Types
         public List<GlobalSettingsBaseOutstaffOutstaffBossType> OutstaffBossTypes { get; set; } = new List<GlobalSettingsBaseOutstaffOutstaffBossType>();
 
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class GlobalSettingsBaseOutstaffOutstaffBossType
     {
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class GlobalSettingsBaseOwnOrg
@@ -3895,13 +3895,13 @@ namespace Wshcmx.Types
         public string? AfterSendAction { get; set; }
 
         [XmlElement("sent_save_hours")]
-        public double SentSaveHours { get; set; }
+        public long SentSaveHours { get; set; }
 
         [XmlElement("send_attempt_num")]
-        public double SendAttemptNum { get; set; }
+        public long SendAttemptNum { get; set; }
 
         [XmlElement("default_notification_system_id")]
-        public double? DefaultNotificationSystemId { get; set; }
+        public long? DefaultNotificationSystemId { get; set; }
     }
 
     public class GlobalSettingsBasePpmMatrix
@@ -3919,7 +3919,7 @@ namespace Wshcmx.Types
     public class GlobalSettingsBasePpmMatrixRow
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("columns")]
         public List<GlobalSettingsBasePpmMatrixRowColumn> Columns { get; set; } = new List<GlobalSettingsBasePpmMatrixRowColumn>();
@@ -3928,7 +3928,7 @@ namespace Wshcmx.Types
     public class GlobalSettingsBasePpmMatrixRowColumn
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("value")]
         public string? Value { get; set; }
@@ -4027,10 +4027,10 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseRecruitment
     {
         [XmlElement("default_request_type_id")]
-        public double? DefaultRequestTypeId { get; set; }
+        public long? DefaultRequestTypeId { get; set; }
 
         [XmlElement("recruitment_system_id")]
-        public double? RecruitmentSystemId { get; set; }
+        public long? RecruitmentSystemId { get; set; }
 
         [XmlElement("estaff_server_url")]
         public string? EstaffServerUrl { get; set; }
@@ -4069,10 +4069,10 @@ namespace Wshcmx.Types
         public bool EnableQueues { get; set; }
 
         [XmlElement("running_period")]
-        public double RunningPeriod { get; set; }
+        public long RunningPeriod { get; set; }
 
         [XmlElement("clear_period")]
-        public double ClearPeriod { get; set; }
+        public long ClearPeriod { get; set; }
     }
 
     public class GlobalSettingsBaseStatistics
@@ -4081,7 +4081,7 @@ namespace Wshcmx.Types
         public bool CalculateStatistics { get; set; }
 
         [XmlElement("calculation_period")]
-        public double CalculationPeriod { get; set; }
+        public long CalculationPeriod { get; set; }
     }
 
     public class GlobalSettingsBaseVclassHosts
@@ -4108,7 +4108,7 @@ namespace Wshcmx.Types
         public bool UseCache { get; set; }
 
         [XmlElement("access_person_id")]
-        public double? AccessPersonId { get; set; }
+        public long? AccessPersonId { get; set; }
 
         [XmlElement("allowed_ip")]
         public string? AllowedIp { get; set; }
@@ -4117,7 +4117,7 @@ namespace Wshcmx.Types
         public List<GlobalSettingsBaseWebApiSettingsFilter> Filters { get; set; } = new List<GlobalSettingsBaseWebApiSettingsFilter>();
 
         [XmlElement("default_remote_security_profile")]
-        public double? DefaultRemoteSecurityProfile { get; set; }
+        public long? DefaultRemoteSecurityProfile { get; set; }
     }
 
     public class GlobalSettingsBaseWebApiSettingsFilter
@@ -4201,7 +4201,7 @@ namespace Wshcmx.Types
         /// Номер колонки
         /// </summary>
         [XmlElement("index")]
-        public double? Index { get; set; }
+        public long? Index { get; set; }
 
         /// <summary>
         /// Поле
@@ -4216,7 +4216,7 @@ namespace Wshcmx.Types
         /// Номер колонки
         /// </summary>
         [XmlElement("index")]
-        public double? Index { get; set; }
+        public long? Index { get; set; }
 
         /// <summary>
         /// Поле
@@ -4288,13 +4288,13 @@ namespace Wshcmx.Types
     public class KnowledgePartsBaseExpert
     {
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
     }
 
     public class KnowledgePartsBaseTag
     {
         [XmlElement("tag_id")]
-        public double? TagId { get; set; }
+        public long? TagId { get; set; }
 
         [XmlElement("tag_name")]
         public string? TagName { get; set; }
@@ -4318,13 +4318,13 @@ namespace Wshcmx.Types
         /// Значения карты знаний
         /// </summary>
         [XmlElement("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         [XmlElement("knowledge_part_name")]
         public string? KnowledgePartName { get; set; }
 
         [XmlElement("knowledge_part_level_id")]
-        public double? KnowledgePartLevelId { get; set; }
+        public long? KnowledgePartLevelId { get; set; }
 
         /// <summary>
         /// Родительское значение
@@ -4342,7 +4342,7 @@ namespace Wshcmx.Types
         /// Индекс текущего уровня
         /// </summary>
         [XmlElement("current_level_index")]
-        public double? CurrentLevelIndex { get; set; }
+        public long? CurrentLevelIndex { get; set; }
 
         /// <summary>
         /// Текущий уровень
@@ -4360,7 +4360,7 @@ namespace Wshcmx.Types
         /// Индекс целевого уровня
         /// </summary>
         [XmlElement("target_level_index")]
-        public double? TargetLevelIndex { get; set; }
+        public long? TargetLevelIndex { get; set; }
 
         /// <summary>
         /// Целевой уровень
@@ -4384,7 +4384,7 @@ namespace Wshcmx.Types
     public class KnowledgePartsKpBaseTag
     {
         [XmlElement("tag_id")]
-        public double? TagId { get; set; }
+        public long? TagId { get; set; }
 
         [XmlElement("tag_name")]
         public string? TagName { get; set; }
@@ -4408,19 +4408,19 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("test_learning_id")]
-        public double? TestLearningId { get; set; }
+        public long? TestLearningId { get; set; }
 
         /// <summary>
         /// Состояние
         /// </summary>
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Баллы
         /// </summary>
         [XmlElement("score")]
-        public double Score { get; set; }
+        public long Score { get; set; }
 
         /// <summary>
         /// Дата начала изучения
@@ -4441,7 +4441,7 @@ namespace Wshcmx.Types
         /// Раздел курса
         /// </summary>
         [XmlElement("learning_part_id")]
-        public double? LearningPartId { get; set; }
+        public long? LearningPartId { get; set; }
 
         [XmlElement("core_lesson_changed")]
         public bool CoreLessonChanged { get; set; }
@@ -4483,7 +4483,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Название теста
@@ -4561,16 +4561,16 @@ namespace Wshcmx.Types
         public string? ParentPartCode { get; set; }
 
         [XmlElement("course_module_id")]
-        public double? CourseModuleId { get; set; }
+        public long? CourseModuleId { get; set; }
 
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Статус
         /// </summary>
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         /// <summary>
         /// Данные положения курса
@@ -4582,7 +4582,7 @@ namespace Wshcmx.Types
         /// Баллы
         /// </summary>
         [XmlElement("score")]
-        public double Score { get; set; }
+        public long Score { get; set; }
 
         /// <summary>
         /// Строка баллов
@@ -4594,7 +4594,7 @@ namespace Wshcmx.Types
         /// Максимальный набранный балл из всех попыток прохождения
         /// </summary>
         [XmlElement("max_score_per_attempt")]
-        public double MaxScorePerAttempt { get; set; }
+        public long MaxScorePerAttempt { get; set; }
 
         /// <summary>
         /// Дата активации
@@ -4612,25 +4612,25 @@ namespace Wshcmx.Types
         /// Время модуля
         /// </summary>
         [XmlElement("time")]
-        public double? Time { get; set; }
+        public long? Time { get; set; }
 
         /// <summary>
         /// Максимальный балл
         /// </summary>
         [XmlElement("max_score")]
-        public double? MaxScore { get; set; }
+        public long? MaxScore { get; set; }
 
         /// <summary>
         /// Количество попыток
         /// </summary>
         [XmlElement("attempts_num")]
-        public double AttemptsNum { get; set; }
+        public long AttemptsNum { get; set; }
 
         /// <summary>
         /// Текущий номер попытки
         /// </summary>
         [XmlElement("cur_attempt_num")]
-        public double CurAttemptNum { get; set; }
+        public long CurAttemptNum { get; set; }
 
         /// <summary>
         /// Использовать прокторинг
@@ -4672,16 +4672,16 @@ namespace Wshcmx.Types
         /// Учебная активность
         /// </summary>
         [XmlElement("statement_id")]
-        public double? StatementId { get; set; }
+        public long? StatementId { get; set; }
 
         /// <summary>
         /// Статус учебной активности
         /// </summary>
         [XmlElement("activity_state_id")]
-        public double? ActivityStateId { get; set; }
+        public long? ActivityStateId { get; set; }
 
         [XmlElement("score")]
-        public double Score { get; set; }
+        public long Score { get; set; }
     }
 
     public class LectorsBaseLector
@@ -4690,13 +4690,13 @@ namespace Wshcmx.Types
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("hours")]
-        public double? Hours { get; set; }
+        public long? Hours { get; set; }
 
         [XmlElement("weekend_hours")]
-        public double? WeekendHours { get; set; }
+        public long? WeekendHours { get; set; }
 
         [XmlElement("webinar_url")]
         public string? WebinarUrl { get; set; }
@@ -4744,7 +4744,7 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class MsConfirmationBaseConfirmationCertificate
@@ -4753,7 +4753,7 @@ namespace Wshcmx.Types
         /// Сертификат
         /// </summary>
         [XmlElement("certificates_id")]
-        public double? CertificatesId { get; set; }
+        public long? CertificatesId { get; set; }
     }
 
     public class MsConfirmationBaseConfirmationCourse
@@ -4762,7 +4762,7 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
     }
 
     public class MsDispBlockBase
@@ -4852,7 +4852,7 @@ namespace Wshcmx.Types
         /// Период запуска
         /// </summary>
         [XmlElement("period")]
-        public double Period { get; set; }
+        public long Period { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -4876,13 +4876,13 @@ namespace Wshcmx.Types
         /// День месяца запуска
         /// </summary>
         [XmlElement("start_day")]
-        public double? StartDay { get; set; }
+        public long? StartDay { get; set; }
 
         /// <summary>
         /// День недели запуска
         /// </summary>
         [XmlElement("start_week_day")]
-        public double? StartWeekDay { get; set; }
+        public long? StartWeekDay { get; set; }
 
         /// <summary>
         /// Начало периода запуска
@@ -4927,7 +4927,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -5041,13 +5041,13 @@ namespace Wshcmx.Types
         /// Выборка категоризации
         /// </summary>
         [XmlElement("remote_collection_id")]
-        public double? RemoteCollectionId { get; set; }
+        public long? RemoteCollectionId { get; set; }
 
         /// <summary>
         /// UI шаблон
         /// </summary>
         [XmlElement("custom_admin_template_id")]
-        public double? CustomAdminTemplateId { get; set; }
+        public long? CustomAdminTemplateId { get; set; }
 
         [XmlElement("admin_template")]
         public WebVariablesBase? AdminTemplate { get; set; }
@@ -5134,7 +5134,7 @@ namespace Wshcmx.Types
         /// Шаблон портала с CSS
         /// </summary>
         [XmlElement("custom_web_template_id")]
-        public double? CustomWebTemplateId { get; set; }
+        public long? CustomWebTemplateId { get; set; }
     }
 
     public class MsWeekScheduleBase
@@ -5191,16 +5191,16 @@ namespace Wshcmx.Types
     public class ObjectiveBaseScore
     {
         [XmlElement("raw")]
-        public double? Raw { get; set; }
+        public long? Raw { get; set; }
 
         [XmlElement("max")]
-        public double? Max { get; set; }
+        public long? Max { get; set; }
 
         [XmlElement("min")]
-        public double? Min { get; set; }
+        public long? Min { get; set; }
 
         [XmlElement("scaled")]
-        public double? Scaled { get; set; }
+        public long? Scaled { get; set; }
     }
 
     public class ObjectivesBase
@@ -5224,7 +5224,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -5260,25 +5260,25 @@ namespace Wshcmx.Types
         /// Тип материала
         /// </summary>
         [XmlElement("outstaff_type_material_id")]
-        public double? OutstaffTypeMaterialId { get; set; }
+        public long? OutstaffTypeMaterialId { get; set; }
 
         /// <summary>
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Плановая величина
         /// </summary>
         [XmlElement("plan_value")]
-        public double? PlanValue { get; set; }
+        public long? PlanValue { get; set; }
 
         /// <summary>
         /// Фактическая величина
         /// </summary>
         [XmlElement("fact_value")]
-        public double? FactValue { get; set; }
+        public long? FactValue { get; set; }
     }
 
     public class OutstaffPeriodsBasePeriod
@@ -5299,7 +5299,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Название типовой должности
@@ -5311,7 +5311,7 @@ namespace Wshcmx.Types
         /// Контракт на временный персонал
         /// </summary>
         [XmlElement("outstaff_contract_id")]
-        public double? OutstaffContractId { get; set; }
+        public long? OutstaffContractId { get; set; }
 
         /// <summary>
         /// Контракт на временный персонал
@@ -5323,7 +5323,7 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Бюджетный период
@@ -5365,7 +5365,7 @@ namespace Wshcmx.Types
         /// Часов
         /// </summary>
         [XmlElement("hour_num")]
-        public double? HourNum { get; set; }
+        public long? HourNum { get; set; }
 
         /// <summary>
         /// Полный день
@@ -5383,25 +5383,25 @@ namespace Wshcmx.Types
         /// Максимальное количество сотрудников на день
         /// </summary>
         [XmlElement("max_cnt")]
-        public double? MaxCnt { get; set; }
+        public long? MaxCnt { get; set; }
     }
 
     public class PathPlacesBasePathPlace
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
     }
 
     public class PathSubsBasePathSub
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("type")]
         public string? Type { get; set; }
@@ -5410,7 +5410,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
     }
 
     public class PersonNameBase
@@ -5443,7 +5443,7 @@ namespace Wshcmx.Types
         public bool AllCanCreate { get; set; }
 
         [XmlElement("amount")]
-        public double? Amount { get; set; }
+        public long? Amount { get; set; }
 
         [XmlElement("all_can_edit")]
         public bool AllCanEdit { get; set; }
@@ -5458,7 +5458,7 @@ namespace Wshcmx.Types
     public class PersonObjectLinksBasePersonObjectLinkObject
     {
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("object_name")]
         public string? ObjectName { get; set; }
@@ -5470,13 +5470,13 @@ namespace Wshcmx.Types
         public bool CanDelete { get; set; }
 
         [XmlElement("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
     }
 
     public class PersonObjectLinksBasePersonObjectProfile
     {
         [XmlElement("person_object_profile_id")]
-        public double? PersonObjectProfileId { get; set; }
+        public long? PersonObjectProfileId { get; set; }
     }
 
     public class ProctoringBaseProctoring
@@ -5500,7 +5500,7 @@ namespace Wshcmx.Types
         /// Система прокторинга
         /// </summary>
         [XmlElement("proctoring_system_id")]
-        public double? ProctoringSystemId { get; set; }
+        public long? ProctoringSystemId { get; set; }
     }
 
     public class QaTestAssertBaseAssert
@@ -5554,7 +5554,7 @@ namespace Wshcmx.Types
     public class QaTestFixtureBaseFixture
     {
         [XmlElement("fixture_id")]
-        public double? FixtureId { get; set; }
+        public long? FixtureId { get; set; }
 
         [XmlElement("fixture_type")]
         public string? FixtureType { get; set; }
@@ -5566,7 +5566,7 @@ namespace Wshcmx.Types
     public class RequirementsBaseAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
     }
 
     public class RequirementsBaseCertificateType
@@ -5575,7 +5575,7 @@ namespace Wshcmx.Types
         /// Название
         /// </summary>
         [XmlElement("certificate_type_id")]
-        public double? CertificateTypeId { get; set; }
+        public long? CertificateTypeId { get; set; }
 
         /// <summary>
         /// Обязательный
@@ -5590,7 +5590,7 @@ namespace Wshcmx.Types
         /// Название
         /// </summary>
         [XmlElement("compound_program_id")]
-        public double? CompoundProgramId { get; set; }
+        public long? CompoundProgramId { get; set; }
 
         /// <summary>
         /// Обязательный
@@ -5602,7 +5602,7 @@ namespace Wshcmx.Types
     public class RequirementsBaseCourse
     {
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
     }
 
     public class RequirementsBaseEducationMethod
@@ -5611,13 +5611,13 @@ namespace Wshcmx.Types
         /// Название
         /// </summary>
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Периодичность назначения
         /// </summary>
         [XmlElement("period")]
-        public double? Period { get; set; }
+        public long? Period { get; set; }
 
         /// <summary>
         /// Обязательный
@@ -5629,7 +5629,7 @@ namespace Wshcmx.Types
     public class RequirementsBaseProfessionalArea
     {
         [XmlElement("professional_area_id")]
-        public double? ProfessionalAreaId { get; set; }
+        public long? ProfessionalAreaId { get; set; }
     }
 
     public class RequirementsBaseQualification
@@ -5638,7 +5638,7 @@ namespace Wshcmx.Types
         /// Название
         /// </summary>
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         /// <summary>
         /// Обязательный
@@ -5653,7 +5653,7 @@ namespace Wshcmx.Types
         /// Материал библиотеки
         /// </summary>
         [XmlElement("material_id")]
-        public double? MaterialId { get; set; }
+        public long? MaterialId { get; set; }
 
         /// <summary>
         /// Обязательный
@@ -5686,7 +5686,7 @@ namespace Wshcmx.Types
         /// Типовая программа развития
         /// </summary>
         [XmlElement("typical_development_program_id")]
-        public double? TypicalDevelopmentProgramId { get; set; }
+        public long? TypicalDevelopmentProgramId { get; set; }
 
         /// <summary>
         /// Тип перемещения
@@ -5878,13 +5878,13 @@ namespace Wshcmx.Types
     public class SkillsBaseSkill
     {
         [XmlElement("skill_id")]
-        public double? SkillId { get; set; }
+        public long? SkillId { get; set; }
 
         [XmlElement("skill_name")]
         public string? SkillName { get; set; }
 
         [XmlElement("skill_id_with_levels")]
-        public double? SkillIdWithLevels { get; set; }
+        public long? SkillIdWithLevels { get; set; }
 
         [XmlElement("level_id")]
         public string? LevelId { get; set; }
@@ -5926,10 +5926,10 @@ namespace Wshcmx.Types
         public bool AllowViewList { get; set; }
 
         [XmlElement("like_weight")]
-        public double LikeWeight { get; set; }
+        public long LikeWeight { get; set; }
 
         [XmlElement("dislike_weight")]
-        public double DislikeWeight { get; set; }
+        public long DislikeWeight { get; set; }
     }
 
     public class SupplementaryQuestionsBaseSupplementaryQuestion
@@ -5938,7 +5938,7 @@ namespace Wshcmx.Types
         /// Код дополнительного вопроса
         /// </summary>
         [XmlElement("supplementary_question_id")]
-        public double? SupplementaryQuestionId { get; set; }
+        public long? SupplementaryQuestionId { get; set; }
 
         /// <summary>
         /// Название вопроса
@@ -5977,7 +5977,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -5995,7 +5995,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -6013,7 +6013,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -6043,7 +6043,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Является непосредственным руководителем
@@ -6055,7 +6055,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
     }
 
     public class ViewBaseLinkCatalog
@@ -6274,7 +6274,7 @@ namespace Wshcmx.Types
         /// Версия
         /// </summary>
         [XmlElement("version")]
-        public double? Version { get; set; }
+        public long? Version { get; set; }
     }
 
     public class WebChecksBaseChecksPlugin
@@ -6304,7 +6304,7 @@ namespace Wshcmx.Types
         /// Версия
         /// </summary>
         [XmlElement("version")]
-        public double? Version { get; set; }
+        public long? Version { get; set; }
     }
 
     public class WebVariablesBase
@@ -6361,7 +6361,7 @@ namespace Wshcmx.Types
         /// Выборка
         /// </summary>
         [XmlElement("remote_collection_id")]
-        public double? RemoteCollectionId { get; set; }
+        public long? RemoteCollectionId { get; set; }
 
         /// <summary>
         /// Значения
@@ -6394,7 +6394,7 @@ namespace Wshcmx.Types
         /// Позиция
         /// </summary>
         [XmlElement("position")]
-        public double Position { get; set; }
+        public long Position { get; set; }
 
         [XmlElement("view")]
         public WebVariablesBaseWvarView? View { get; set; }
@@ -6436,7 +6436,7 @@ namespace Wshcmx.Types
         /// Выборка
         /// </summary>
         [XmlElement("remote_collection_id")]
-        public double? RemoteCollectionId { get; set; }
+        public long? RemoteCollectionId { get; set; }
 
         /// <summary>
         /// Параметры
@@ -6517,7 +6517,7 @@ namespace Wshcmx.Types
         public string? CurUserType { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("and_or")]
         public string AndOr { get; set; }
@@ -6550,7 +6550,7 @@ namespace Wshcmx.Types
         public string? ActionId { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_fullname")]
         public string? PersonFullname { get; set; }
@@ -6586,10 +6586,10 @@ namespace Wshcmx.Types
         public string? EvalStr { get; set; }
 
         [XmlElement("notification_id")]
-        public double? NotificationId { get; set; }
+        public long? NotificationId { get; set; }
 
         [XmlElement("print_form_id")]
-        public double? PrintFormId { get; set; }
+        public long? PrintFormId { get; set; }
 
         [XmlElement("operation_id")]
         public MsParametersBase? OperationId { get; set; }
@@ -6610,7 +6610,7 @@ namespace Wshcmx.Types
         public string? WvarsSelector { get; set; }
 
         [XmlElement("remote_action_id")]
-        public double? RemoteActionId { get; set; }
+        public long? RemoteActionId { get; set; }
     }
 
     public class WorkflowFieldsAssessmentBaseWorkflowField
@@ -6643,7 +6643,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("parameters")]
         public string? Parameters { get; set; }
@@ -6703,13 +6703,13 @@ namespace Wshcmx.Types
     public class WsconKnowledgePartsBaseExpert
     {
         [XmlElement("expert_id")]
-        public double? ExpertId { get; set; }
+        public long? ExpertId { get; set; }
     }
 
     public class WsconKnowledgePartsBaseTag
     {
         [XmlElement("tag_id")]
-        public double? TagId { get; set; }
+        public long? TagId { get; set; }
 
         [XmlElement("tag_name")]
         public string? TagName { get; set; }
@@ -6733,13 +6733,13 @@ namespace Wshcmx.Types
         /// Значения карты знаний
         /// </summary>
         [XmlElement("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         [XmlElement("knowledge_part_name")]
         public string? KnowledgePartName { get; set; }
 
         [XmlElement("knowledge_part_level_id")]
-        public double? KnowledgePartLevelId { get; set; }
+        public long? KnowledgePartLevelId { get; set; }
 
         /// <summary>
         /// Родительское значение
@@ -6757,7 +6757,7 @@ namespace Wshcmx.Types
         /// Индекс текущего уровня
         /// </summary>
         [XmlElement("current_level_index")]
-        public double? CurrentLevelIndex { get; set; }
+        public long? CurrentLevelIndex { get; set; }
 
         /// <summary>
         /// Текущий уровень
@@ -6775,7 +6775,7 @@ namespace Wshcmx.Types
         /// Индекс целевого уровня
         /// </summary>
         [XmlElement("target_level_index")]
-        public double? TargetLevelIndex { get; set; }
+        public long? TargetLevelIndex { get; set; }
 
         /// <summary>
         /// Целевой уровень
@@ -6820,6 +6820,6 @@ namespace Wshcmx.Types
         public bool IsMandatory { get; set; }
 
         [XmlElement("position")]
-        public double Position { get; set; }
+        public long Position { get; set; }
     }
 }

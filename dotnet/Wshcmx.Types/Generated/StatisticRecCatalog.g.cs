@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Периодичность вычисления
         /// </summary>
         [Column("calc_period")]
-        public double? CalcPeriod { get; set; }
+        public long? CalcPeriod { get; set; }
 
         /// <summary>
         /// Вычисление контекста
@@ -103,25 +103,25 @@ namespace Wshcmx.Types
         /// Сдвиг значений
         /// </summary>
         [Column("depth")]
-        public double? Depth { get; set; }
+        public long? Depth { get; set; }
 
         /// <summary>
         /// Норма с
         /// </summary>
         [Column("norm_from")]
-        public double? NormFrom { get; set; }
+        public long? NormFrom { get; set; }
 
         /// <summary>
         /// Норма по
         /// </summary>
         [Column("norm_to")]
-        public double? NormTo { get; set; }
+        public long? NormTo { get; set; }
 
         /// <summary>
         /// Тип уведомления
         /// </summary>
         [Column("notification_type_id")]
-        public double? NotificationTypeId { get; set; }
+        public long? NotificationTypeId { get; set; }
 
         /// <summary>
         /// Является системным
@@ -139,7 +139,14 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Тип объекта

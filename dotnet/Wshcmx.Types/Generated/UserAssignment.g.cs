@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Строки
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class UserAssignmentDocumentView
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
     public class UserAssignmentDocumentXRowHeaderYColXRowEssentialValue
     {
         [XmlElement("x_row_essential_value_id")]
-        public double? XRowEssentialValueId { get; set; }
+        public long? XRowEssentialValueId { get; set; }
 
         [XmlElement("x_row_essential_value_name")]
         public string? XRowEssentialValueName { get; set; }

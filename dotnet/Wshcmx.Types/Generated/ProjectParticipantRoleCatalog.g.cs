@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код курса
@@ -37,25 +37,25 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [Column("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Проект
         /// </summary>
         [Column("project_id")]
-        public double? ProjectId { get; set; }
+        public long? ProjectId { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [Column("participant_num")]
-        public double? ParticipantNum { get; set; }
+        public long? ParticipantNum { get; set; }
 
         /// <summary>
         /// Продукт/услуга(CRM)
         /// </summary>
         [Column("provider_id")]
-        public double? ProviderId { get; set; }
+        public long? ProviderId { get; set; }
 
         /// <summary>
         /// Значения карты знаний

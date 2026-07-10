@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [Column("catalog")]
         public string? Catalog { get; set; }
 
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [Column("object_name")]
         public string? ObjectName { get; set; }
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         public bool? RequireAcknowledgement { get; set; }
 
         [Column("tag_id")]
-        public double? TagId { get; set; }
+        public long? TagId { get; set; }
 
         [Column("tag_name")]
         public string? TagName { get; set; }

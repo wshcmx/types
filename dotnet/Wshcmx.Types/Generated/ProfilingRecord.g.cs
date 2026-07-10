@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
 
         [XmlElement("ticks")]
-        public double? Ticks { get; set; }
+        public long? Ticks { get; set; }
 
         [XmlElement("url")]
         public string? Url { get; set; }
@@ -34,19 +34,19 @@ namespace Wshcmx.Types
         public string? Sid { get; set; }
 
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         [XmlElement("template_type")]
         public string? TemplateType { get; set; }
 
         [XmlElement("template_id")]
-        public double? TemplateId { get; set; }
+        public long? TemplateId { get; set; }
 
         [XmlElement("parent_template_type")]
         public string? ParentTemplateType { get; set; }
 
         [XmlElement("parent_template_id")]
-        public double? ParentTemplateId { get; set; }
+        public long? ParentTemplateId { get; set; }
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }

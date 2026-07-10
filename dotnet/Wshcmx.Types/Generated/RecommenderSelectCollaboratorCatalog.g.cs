@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [Column("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [Column("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [Column("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -91,25 +91,25 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Рекомендательный алгоритм
         /// </summary>
         [Column("recommender_algorithm_id")]
-        public double? RecommenderAlgorithmId { get; set; }
+        public long? RecommenderAlgorithmId { get; set; }
 
         /// <summary>
         /// Базовый объект
         /// </summary>
         [Column("base_object_id")]
-        public double? BaseObjectId { get; set; }
+        public long? BaseObjectId { get; set; }
 
         /// <summary>
         /// Тип базового объект
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Выбранный объект
         /// </summary>
         [Column("selected_object_id")]
-        public double? SelectedObjectId { get; set; }
+        public long? SelectedObjectId { get; set; }
 
         /// <summary>
         /// Тип выбранного объект
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// Созданный объект
         /// </summary>
         [Column("created_object_id")]
-        public double? CreatedObjectId { get; set; }
+        public long? CreatedObjectId { get; set; }
 
         /// <summary>
         /// Тип созданного объект

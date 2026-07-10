@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,19 +52,19 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         /// <summary>
         /// Кафедра
         /// </summary>
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         /// <summary>
         /// Дисциплина
         /// </summary>
         [XmlElement("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         /// <summary>
         /// Дата
@@ -82,22 +82,22 @@ namespace Wshcmx.Types
         /// Преподаватель
         /// </summary>
         [XmlElement("lector_id")]
-        public double? LectorId { get; set; }
+        public long? LectorId { get; set; }
 
         [XmlElement("educat_event_form_id")]
-        public double? EducatEventFormId { get; set; }
+        public long? EducatEventFormId { get; set; }
 
         /// <summary>
         /// Аудитория
         /// </summary>
         [XmlElement("auditorium_id")]
-        public double? AuditoriumId { get; set; }
+        public long? AuditoriumId { get; set; }
 
         /// <summary>
         /// Поток
         /// </summary>
         [XmlElement("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Учебные группы
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Студент
         /// </summary>
         [XmlElement("stud_id")]
-        public double? StudId { get; set; }
+        public long? StudId { get; set; }
 
         [XmlElement("is_presence")]
         public bool? IsPresence { get; set; }
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
 
         /// <summary>
         /// Комментарий преподавателя
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
     public class DnLessonDocumentStudent
     {
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
     }
 
     public class DnLessonDocumentStudGroup
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Учебная группа
         /// </summary>
         [XmlElement("group_id")]
-        public double? GroupId { get; set; }
+        public long? GroupId { get; set; }
     }
 
     public class DnLessonDocumentStudWork
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Студент
         /// </summary>
         [XmlElement("student_id")]
-        public double? StudentId { get; set; }
+        public long? StudentId { get; set; }
 
         [XmlElement("work_state_id")]
         public string? WorkStateId { get; set; }
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("mark")]
-        public double? Mark { get; set; }
+        public long? Mark { get; set; }
     }
 
     public class DnLessonDocumentView

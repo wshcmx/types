@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Процедура
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [Column("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [Column("period_start")]
         public DateTime? PeriodStart { get; set; }
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Результат
         /// </summary>
         [Column("result")]
-        public double? Result { get; set; }
+        public long? Result { get; set; }
 
         /// <summary>
         /// Дата модификации

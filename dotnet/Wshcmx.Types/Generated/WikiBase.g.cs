@@ -55,10 +55,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Родительский тип wiki статьи
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Репозиторий
         /// </summary>
         [XmlElement("repositorium_id")]
-        public double? RepositoriumId { get; set; }
+        public long? RepositoriumId { get; set; }
 
         /// <summary>
         /// Требуется заполнения комментария при создании/редактировании статьи
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         /// Тип wiki статьи
         /// </summary>
         [XmlElement("base_wiki_article_type_id")]
-        public double? BaseWikiArticleTypeId { get; set; }
+        public long? BaseWikiArticleTypeId { get; set; }
     }
 
     public class WikiBaseDocumentWikiArticleType
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         /// Тип wiki статьи
         /// </summary>
         [XmlElement("wiki_article_type_id")]
-        public double? WikiArticleTypeId { get; set; }
+        public long? WikiArticleTypeId { get; set; }
 
         /// <summary>
         /// Требует подтверждения
@@ -262,6 +262,6 @@ namespace Wshcmx.Types
         /// Индекс поиска RAG
         /// </summary>
         [XmlElement("wiki_rag_index_id")]
-        public double? WikiRagIndexId { get; set; }
+        public long? WikiRagIndexId { get; set; }
     }
 }

@@ -16,6 +16,6 @@ namespace Wshcmx.Types
     public class PanelApplicationViews
     {
         [XmlElement("view_configuration_id")]
-        public double? ViewConfigurationId { get; set; }
+        public long? ViewConfigurationId { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Провайдер временного персонала
         /// </summary>
         [XmlElement("outstaff_provider_id")]
-        public double? OutstaffProviderId { get; set; }
+        public long? OutstaffProviderId { get; set; }
 
         [XmlElement("regions")]
         public List<OutstaffContractDocumentRegion> Regions { get; set; } = new List<OutstaffContractDocumentRegion>();
@@ -118,13 +118,13 @@ namespace Wshcmx.Types
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -148,13 +148,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -166,7 +166,7 @@ namespace Wshcmx.Types
         /// Тип материала
         /// </summary>
         [XmlElement("material_type_id")]
-        public double? MaterialTypeId { get; set; }
+        public long? MaterialTypeId { get; set; }
     }
 
     public class OutstaffContractDocumentRegionPositionCommon
@@ -175,13 +175,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         [XmlElement("preferable")]
         public bool? Preferable { get; set; }

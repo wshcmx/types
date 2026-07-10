@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Номер
@@ -55,31 +55,31 @@ namespace Wshcmx.Types
         /// Тип приказа
         /// </summary>
         [Column("order_type_id")]
-        public double? OrderTypeId { get; set; }
+        public long? OrderTypeId { get; set; }
 
         /// <summary>
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Обучающая организация
         /// </summary>
         [Column("education_org_id")]
-        public double? EducationOrgId { get; set; }
+        public long? EducationOrgId { get; set; }
 
         /// <summary>
         /// Этап оплаты
         /// </summary>
         [Column("pay_phase_id")]
-        public double? PayPhaseId { get; set; }
+        public long? PayPhaseId { get; set; }
 
         /// <summary>
         /// Сумма приказа
         /// </summary>
         [Column("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Валюта

@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -61,22 +61,22 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [XmlElement("faculty_id")]
-        public double? FacultyId { get; set; }
+        public long? FacultyId { get; set; }
 
         [XmlElement("chair_id")]
-        public double? ChairId { get; set; }
+        public long? ChairId { get; set; }
 
         [XmlElement("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
 
         [XmlElement("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         [XmlElement("educat_form_id")]
-        public double? EducatFormId { get; set; }
+        public long? EducatFormId { get; set; }
 
         [XmlElement("control_form")]
-        public double? ControlForm { get; set; }
+        public long? ControlForm { get; set; }
 
         [XmlElement("terms")]
         public List<DnProgramDisciplDocumentTerm> Terms { get; set; } = new List<DnProgramDisciplDocumentTerm>();
@@ -106,13 +106,13 @@ namespace Wshcmx.Types
     public class DnProgramDisciplDocumentDiscipline
     {
         [XmlElement("discipline_id")]
-        public double? DisciplineId { get; set; }
+        public long? DisciplineId { get; set; }
     }
 
     public class DnProgramDisciplDocumentSpecial
     {
         [XmlElement("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         [XmlElement("specializations")]
         public List<DnProgramDisciplDocumentSpecialSpecialization> Specializations { get; set; } = new List<DnProgramDisciplDocumentSpecialSpecialization>();
@@ -121,19 +121,19 @@ namespace Wshcmx.Types
     public class DnProgramDisciplDocumentSpecialSpecialization
     {
         [XmlElement("specializat_id")]
-        public double? SpecializatId { get; set; }
+        public long? SpecializatId { get; set; }
     }
 
     public class DnProgramDisciplDocumentSubject
     {
         [XmlElement("subject_id")]
-        public double? SubjectId { get; set; }
+        public long? SubjectId { get; set; }
     }
 
     public class DnProgramDisciplDocumentTerm
     {
         [XmlElement("term_id")]
-        public double? TermId { get; set; }
+        public long? TermId { get; set; }
 
         [XmlElement("plan_themes")]
         public List<DnProgramDisciplDocumentTermPlanTheme> PlanThemes { get; set; } = new List<DnProgramDisciplDocumentTermPlanTheme>();
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
     public class DnProgramDisciplDocumentTermPlanTheme
     {
         [XmlElement("id_subj")]
-        public double? IdSubj { get; set; }
+        public long? IdSubj { get; set; }
 
         /// <summary>
         /// Тема
@@ -154,16 +154,16 @@ namespace Wshcmx.Types
         public string? NumberWeek { get; set; }
 
         [XmlElement("hours_audit")]
-        public double? HoursAudit { get; set; }
+        public long? HoursAudit { get; set; }
 
         [XmlElement("hours_independ")]
-        public double? HoursIndepend { get; set; }
+        public long? HoursIndepend { get; set; }
 
         /// <summary>
         /// Форма проведения
         /// </summary>
         [XmlElement("educat_event_id")]
-        public double? EducatEventId { get; set; }
+        public long? EducatEventId { get; set; }
 
         [XmlElement("name_educat_event")]
         public string? NameEducatEvent { get; set; }

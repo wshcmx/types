@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         /// Процент готовности
         /// </summary>
         [XmlElement("readiness_percent")]
-        public double? ReadinessPercent { get; set; }
+        public long? ReadinessPercent { get; set; }
 
         /// <summary>
         /// Автовычисление готовности этапа
@@ -94,19 +94,19 @@ namespace Wshcmx.Types
         /// Кадровый резерв
         /// </summary>
         [XmlElement("personnel_reserve_id")]
-        public double? PersonnelReserveId { get; set; }
+        public long? PersonnelReserveId { get; set; }
 
         /// <summary>
         /// Преемник
         /// </summary>
         [XmlElement("successor_id")]
-        public double? SuccessorId { get; set; }
+        public long? SuccessorId { get; set; }
 
         /// <summary>
         /// Карьерный план
         /// </summary>
         [XmlElement("career_plan_id")]
-        public double? CareerPlanId { get; set; }
+        public long? CareerPlanId { get; set; }
 
         /// <summary>
         /// Статус
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Место проведения
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Наставники
@@ -154,19 +154,19 @@ namespace Wshcmx.Types
         /// Начальный профиль компетенции
         /// </summary>
         [XmlElement("current_competence_profile_id")]
-        public double? CurrentCompetenceProfileId { get; set; }
+        public long? CurrentCompetenceProfileId { get; set; }
 
         /// <summary>
         /// Целевой профиль компетенции
         /// </summary>
         [XmlElement("target_competence_profile_id")]
-        public double? TargetCompetenceProfileId { get; set; }
+        public long? TargetCompetenceProfileId { get; set; }
 
         /// <summary>
         /// План развития
         /// </summary>
         [XmlElement("development_plan_id")]
-        public double? DevelopmentPlanId { get; set; }
+        public long? DevelopmentPlanId { get; set; }
 
         /// <summary>
         /// Запретить изменение списка задач
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         [XmlElement("view")]
         public CareerReserveDocumentView? View { get; set; }
@@ -232,7 +232,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("basic_collaborator_id")]
-        public double? BasicCollaboratorId { get; set; }
+        public long? BasicCollaboratorId { get; set; }
 
         [XmlElement("basic_collaborator_fullname")]
         public string? BasicCollaboratorFullname { get; set; }
@@ -307,7 +307,7 @@ namespace Wshcmx.Types
         /// Типовая программа развития
         /// </summary>
         [XmlElement("typical_development_program_id")]
-        public double? TypicalDevelopmentProgramId { get; set; }
+        public long? TypicalDevelopmentProgramId { get; set; }
 
         /// <summary>
         /// ID задачи типовой программы развития
@@ -316,10 +316,10 @@ namespace Wshcmx.Types
         public string? TypicalDevelopmentProgramTaskId { get; set; }
 
         [XmlElement("tutor_id")]
-        public double? TutorId { get; set; }
+        public long? TutorId { get; set; }
 
         [XmlElement("competence_id")]
-        public double? CompetenceId { get; set; }
+        public long? CompetenceId { get; set; }
 
         [XmlElement("desc")]
         public string? Desc { get; set; }
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Оценка
         /// </summary>
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("person_comment")]
         public string? PersonComment { get; set; }
@@ -340,28 +340,28 @@ namespace Wshcmx.Types
         public string? ObjectType { get; set; }
 
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         [XmlElement("active_test_learning_id")]
-        public double? ActiveTestLearningId { get; set; }
+        public long? ActiveTestLearningId { get; set; }
 
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         [XmlElement("event_result_id")]
-        public double? EventResultId { get; set; }
+        public long? EventResultId { get; set; }
 
         [XmlElement("education_plan_id")]
-        public double? EducationPlanId { get; set; }
+        public long? EducationPlanId { get; set; }
 
         [XmlElement("active_learning_id")]
-        public double? ActiveLearningId { get; set; }
+        public long? ActiveLearningId { get; set; }
 
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         [XmlElement("assessment_appraise_result_id")]
-        public double? AssessmentAppraiseResultId { get; set; }
+        public long? AssessmentAppraiseResultId { get; set; }
 
         /// <summary>
         /// Добавлять в существующую процедуру
@@ -370,10 +370,10 @@ namespace Wshcmx.Types
         public bool? AddExistAppraise { get; set; }
 
         [XmlElement("poll_result_id")]
-        public double? PollResultId { get; set; }
+        public long? PollResultId { get; set; }
 
         [XmlElement("poll_procedure_id")]
-        public double? PollProcedureId { get; set; }
+        public long? PollProcedureId { get; set; }
 
         [XmlElement("type_document")]
         public string? TypeDocument { get; set; }
@@ -382,10 +382,10 @@ namespace Wshcmx.Types
         public string? LinkDocument { get; set; }
 
         [XmlElement("task_id")]
-        public double? TaskId { get; set; }
+        public long? TaskId { get; set; }
 
         [XmlElement("learning_task_result_id")]
-        public double? LearningTaskResultId { get; set; }
+        public long? LearningTaskResultId { get; set; }
 
         /// <summary>
         /// Запретить редактирование задачи на портале
@@ -400,7 +400,7 @@ namespace Wshcmx.Types
         /// Позиция
         /// </summary>
         [XmlElement("position")]
-        public double Position { get; set; }
+        public long Position { get; set; }
     }
 
     public class CareerReserveDocumentTaskCommissionPerson
@@ -415,7 +415,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -433,7 +433,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -451,7 +451,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -478,13 +478,13 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Оценка
         /// </summary>
         [XmlElement("score")]
-        public double? Score { get; set; }
+        public long? Score { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -502,7 +502,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -520,7 +520,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -538,7 +538,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -565,7 +565,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Является непосредственным руководителем
@@ -577,7 +577,7 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("boss_type_id")]
-        public double? BossTypeId { get; set; }
+        public long? BossTypeId { get; set; }
 
         /// <summary>
         /// Является ответственным
@@ -610,7 +610,7 @@ namespace Wshcmx.Types
         public List<DevelopmentPlanDataBasePlaindevelopment> Plaindevelopments { get; set; } = new List<DevelopmentPlanDataBasePlaindevelopment>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("tab_page")]
         public string? TabPage { get; set; }
@@ -628,6 +628,6 @@ namespace Wshcmx.Types
     public class CareerReserveDocumentViewTutor
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 }

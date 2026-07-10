@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Является кандидатом
@@ -172,13 +172,13 @@ namespace Wshcmx.Types
         /// Зарплата от
         /// </summary>
         [XmlElement("min_wage")]
-        public double? MinWage { get; set; }
+        public long? MinWage { get; set; }
 
         /// <summary>
         /// Зарплата до
         /// </summary>
         [XmlElement("max_wage")]
-        public double? MaxWage { get; set; }
+        public long? MaxWage { get; set; }
 
         /// <summary>
         /// Валюта
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Профессиональная область
         /// </summary>
         [XmlElement("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// Специальность по диплому
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Тип занятости
@@ -235,19 +235,19 @@ namespace Wshcmx.Types
         /// График работы
         /// </summary>
         [XmlElement("schedule_id")]
-        public double? ScheduleId { get; set; }
+        public long? ScheduleId { get; set; }
 
         /// <summary>
         /// Источник вакансии
         /// </summary>
         [XmlElement("vacancy_source_id")]
-        public double? VacancySourceId { get; set; }
+        public long? VacancySourceId { get; set; }
 
         /// <summary>
         /// Стаж
         /// </summary>
         [XmlElement("exp_years")]
-        public double? ExpYears { get; set; }
+        public long? ExpYears { get; set; }
 
         /// <summary>
         /// Готовность к командировкам
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         public string? RelocateName { get; set; }
 
         [XmlElement("children_num")]
-        public double? ChildrenNum { get; set; }
+        public long? ChildrenNum { get; set; }
 
         /// <summary>
         /// Образование
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         /// Образование
         /// </summary>
         [XmlElement("education_type_id")]
-        public double? EducationTypeId { get; set; }
+        public long? EducationTypeId { get; set; }
 
         /// <summary>
         /// Требуемые навыки
@@ -394,43 +394,43 @@ namespace Wshcmx.Types
         /// Тип
         /// </summary>
         [XmlElement("education_type_id")]
-        public double? EducationTypeId { get; set; }
+        public long? EducationTypeId { get; set; }
 
         /// <summary>
         /// Форма обучения
         /// </summary>
         [XmlElement("form")]
-        public double? Form { get; set; }
+        public long? Form { get; set; }
 
         /// <summary>
         /// Способ получения образования
         /// </summary>
         [XmlElement("mode")]
-        public double? Mode { get; set; }
+        public long? Mode { get; set; }
 
         /// <summary>
         /// Дата окончания
         /// </summary>
         [XmlElement("date")]
-        public double? Date { get; set; }
+        public long? Date { get; set; }
 
         /// <summary>
         /// Тип профессиональной области
         /// </summary>
         [XmlElement("professional_area_type_id")]
-        public double? ProfessionalAreaTypeId { get; set; }
+        public long? ProfessionalAreaTypeId { get; set; }
 
         /// <summary>
         /// Специальность по диплому
         /// </summary>
         [XmlElement("professional_area_id")]
-        public double? ProfessionalAreaId { get; set; }
+        public long? ProfessionalAreaId { get; set; }
 
         /// <summary>
         /// Родительский элемент
         /// </summary>
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
 
         /// <summary>
         /// Факультет
@@ -475,7 +475,7 @@ namespace Wshcmx.Types
         /// Степень владения
         /// </summary>
         [XmlElement("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
     }
 
     public class ResumeDocumentProject
@@ -499,13 +499,13 @@ namespace Wshcmx.Types
         /// Год проведения экспертизы
         /// </summary>
         [XmlElement("examination_year")]
-        public double? ExaminationYear { get; set; }
+        public long? ExaminationYear { get; set; }
 
         /// <summary>
         /// Год проведения
         /// </summary>
         [XmlElement("year")]
-        public double? Year { get; set; }
+        public long? Year { get; set; }
 
         /// <summary>
         /// Описание проекта
@@ -565,13 +565,13 @@ namespace Wshcmx.Types
         /// ID навыка
         /// </summary>
         [XmlElement("skill_id")]
-        public double? SkillId { get; set; }
+        public long? SkillId { get; set; }
 
         /// <summary>
         /// Родительский элемент
         /// </summary>
         [XmlElement("skill_parent_id")]
-        public double? SkillParentId { get; set; }
+        public long? SkillParentId { get; set; }
 
         /// <summary>
         /// Название навыка
@@ -583,7 +583,7 @@ namespace Wshcmx.Types
         /// ID заглавного навыка с уровнями
         /// </summary>
         [XmlElement("skill_id_with_levels")]
-        public double? SkillIdWithLevels { get; set; }
+        public long? SkillIdWithLevels { get; set; }
 
         /// <summary>
         /// ID уровня
@@ -604,7 +604,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class ResumeDocumentWorkExperience
@@ -640,13 +640,13 @@ namespace Wshcmx.Types
         /// Профессиональная область
         /// </summary>
         [XmlElement("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Рабочий телефон организации

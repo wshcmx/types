@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Файлы
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// ID профессиональной области
         /// </summary>
         [XmlElement("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// Профессиональная область
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Регион
         /// </summary>
         [XmlElement("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Занятость
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// График работы
         /// </summary>
         [XmlElement("schedule_id")]
-        public double? ScheduleId { get; set; }
+        public long? ScheduleId { get; set; }
 
         /// <summary>
         /// Тип образования
@@ -118,67 +118,67 @@ namespace Wshcmx.Types
         /// Условия труда
         /// </summary>
         [XmlElement("work_condition_id")]
-        public double? WorkConditionId { get; set; }
+        public long? WorkConditionId { get; set; }
 
         /// <summary>
         /// Режим работы
         /// </summary>
         [XmlElement("work_mode_id")]
-        public double? WorkModeId { get; set; }
+        public long? WorkModeId { get; set; }
 
         /// <summary>
         /// Система оплаты труда
         /// </summary>
         [XmlElement("wage_system_id")]
-        public double? WageSystemId { get; set; }
+        public long? WageSystemId { get; set; }
 
         /// <summary>
         /// Материальная ответственность
         /// </summary>
         [XmlElement("material_liability_id")]
-        public double? MaterialLiabilityId { get; set; }
+        public long? MaterialLiabilityId { get; set; }
 
         /// <summary>
         /// Причина вакансии
         /// </summary>
         [XmlElement("vacancy_reason_id")]
-        public double? VacancyReasonId { get; set; }
+        public long? VacancyReasonId { get; set; }
 
         /// <summary>
         /// Опыт работы
         /// </summary>
         [XmlElement("work_experience_id")]
-        public double? WorkExperienceId { get; set; }
+        public long? WorkExperienceId { get; set; }
 
         /// <summary>
         /// Минимальный опыт работы (лет)
         /// </summary>
         [XmlElement("min_exp_years")]
-        public double? MinExpYears { get; set; }
+        public long? MinExpYears { get; set; }
 
         /// <summary>
         /// Возраст от
         /// </summary>
         [XmlElement("min_age")]
-        public double? MinAge { get; set; }
+        public long? MinAge { get; set; }
 
         /// <summary>
         /// Возраст до
         /// </summary>
         [XmlElement("max_age")]
-        public double? MaxAge { get; set; }
+        public long? MaxAge { get; set; }
 
         /// <summary>
         /// Зарплата от
         /// </summary>
         [XmlElement("min_wage")]
-        public double? MinWage { get; set; }
+        public long? MinWage { get; set; }
 
         /// <summary>
         /// Зарплата до
         /// </summary>
         [XmlElement("max_wage")]
-        public double? MaxWage { get; set; }
+        public long? MaxWage { get; set; }
 
         /// <summary>
         /// Валюта
@@ -190,13 +190,13 @@ namespace Wshcmx.Types
         /// Бюджет от
         /// </summary>
         [XmlElement("min_budget")]
-        public double? MinBudget { get; set; }
+        public long? MinBudget { get; set; }
 
         /// <summary>
         /// Бюджет до
         /// </summary>
         [XmlElement("max_budget")]
-        public double? MaxBudget { get; set; }
+        public long? MaxBudget { get; set; }
 
         /// <summary>
         /// Валюта
@@ -232,7 +232,7 @@ namespace Wshcmx.Types
         /// Срок публикации (дней)
         /// </summary>
         [XmlElement("pub_period")]
-        public double? PubPeriod { get; set; }
+        public long? PubPeriod { get; set; }
 
         /// <summary>
         /// Дата закрытия
@@ -268,13 +268,13 @@ namespace Wshcmx.Types
         /// Вакансию разместил
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// Организация из базы
         /// </summary>
         [XmlElement("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -286,7 +286,7 @@ namespace Wshcmx.Types
         /// Подразделение из базы
         /// </summary>
         [XmlElement("sub_id")]
-        public double? SubId { get; set; }
+        public long? SubId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -298,13 +298,13 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// ФИО рекрутера
         /// </summary>
         [XmlElement("recruiter_id")]
-        public double? RecruiterId { get; set; }
+        public long? RecruiterId { get; set; }
 
         [XmlElement("assessments")]
         public List<VacancyDocumentAssessment> Assessments { get; set; } = new List<VacancyDocumentAssessment>();
@@ -313,7 +313,7 @@ namespace Wshcmx.Types
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Ссылка
@@ -346,7 +346,7 @@ namespace Wshcmx.Types
     public class VacancyDocumentAssessment
     {
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Название теста

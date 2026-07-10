@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Код
@@ -52,13 +52,13 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Разделы учебной программы
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
     public class VclassSettingDocumentProgram
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -97,19 +97,19 @@ namespace Wshcmx.Types
         /// Родительская учебная программа
         /// </summary>
         [XmlElement("parent_progpam_id")]
-        public double? ParentProgpamId { get; set; }
+        public long? ParentProgpamId { get; set; }
 
         /// <summary>
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [XmlElement("person_num")]
-        public double? PersonNum { get; set; }
+        public long? PersonNum { get; set; }
 
         /// <summary>
         /// Тип
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -142,19 +142,19 @@ namespace Wshcmx.Types
         /// Дней
         /// </summary>
         [XmlElement("delay_days")]
-        public double? DelayDays { get; set; }
+        public long? DelayDays { get; set; }
 
         /// <summary>
         /// Дней
         /// </summary>
         [XmlElement("days")]
-        public double? Days { get; set; }
+        public long? Days { get; set; }
 
         /// <summary>
         /// Вес, %
         /// </summary>
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         [XmlElement("start_type")]
         public string? StartType { get; set; }
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
     public class VclassSettingDocumentProgramCompletedParentProgram
     {
         [XmlElement("program_id")]
-        public double? ProgramId { get; set; }
+        public long? ProgramId { get; set; }
     }
 
     public class VclassSettingDocumentView
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("part_index")]
-        public double PartIndex { get; set; }
+        public long PartIndex { get; set; }
 
         [XmlElement("filter")]
         public AuFtFilter? Filter { get; set; }

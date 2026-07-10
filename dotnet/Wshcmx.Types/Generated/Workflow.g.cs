@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
     }
 
     public class WorkflowDocumentAction
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         public bool AutoEscalationByEndDate { get; set; }
 
         [XmlElement("auto_escalation_days")]
-        public double AutoEscalationDays { get; set; }
+        public long AutoEscalationDays { get; set; }
 
         [XmlElement("auto_escalation_repeat")]
         public bool? AutoEscalationRepeat { get; set; }
@@ -208,13 +208,13 @@ namespace Wshcmx.Types
         /// Тест
         /// </summary>
         [XmlElement("assessment_id")]
-        public double? AssessmentId { get; set; }
+        public long? AssessmentId { get; set; }
 
         /// <summary>
         /// Состояние
         /// </summary>
         [XmlElement("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
     }
 
     public class WorkflowDocumentEscalationCourse
@@ -223,13 +223,13 @@ namespace Wshcmx.Types
         /// Электронный курс
         /// </summary>
         [XmlElement("course_id")]
-        public double? CourseId { get; set; }
+        public long? CourseId { get; set; }
 
         /// <summary>
         /// Состояние
         /// </summary>
         [XmlElement("state_id")]
-        public double? StateId { get; set; }
+        public long? StateId { get; set; }
     }
 
     public class WorkflowDocumentEscalationPoll
@@ -238,13 +238,13 @@ namespace Wshcmx.Types
         /// Опрос
         /// </summary>
         [XmlElement("poll_id")]
-        public double? PollId { get; set; }
+        public long? PollId { get; set; }
 
         /// <summary>
         /// Состояние
         /// </summary>
         [XmlElement("status")]
-        public double? Status { get; set; }
+        public long? Status { get; set; }
     }
 
     public class WorkflowDocumentFieldGroup

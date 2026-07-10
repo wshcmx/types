@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Необходимые баллы
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Тип эксперта для подтверждения
@@ -109,19 +109,19 @@ namespace Wshcmx.Types
         /// Тип руководителя
         /// </summary>
         [XmlElement("confirmation_boss_type_id")]
-        public double? ConfirmationBossTypeId { get; set; }
+        public long? ConfirmationBossTypeId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [XmlElement("confirmation_person_id")]
-        public double? ConfirmationPersonId { get; set; }
+        public long? ConfirmationPersonId { get; set; }
 
         /// <summary>
         /// Участник проекта
         /// </summary>
         [XmlElement("project_participant_id")]
-        public double? ProjectParticipantId { get; set; }
+        public long? ProjectParticipantId { get; set; }
 
         /// <summary>
         /// Тесты
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Значение карты знаний
         /// </summary>
         [XmlElement("knowledge_part_id")]
-        public double? KnowledgePartId { get; set; }
+        public long? KnowledgePartId { get; set; }
 
         /// <summary>
         /// Значение карты знаний
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Уровень
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
         /// Индекс уровня
         /// </summary>
         [XmlElement("level_index")]
-        public double? LevelIndex { get; set; }
+        public long? LevelIndex { get; set; }
 
         /// <summary>
         /// Уровень
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// Связанный объект
         /// </summary>
         [XmlElement("sec_object_id")]
-        public double? SecObjectId { get; set; }
+        public long? SecObjectId { get; set; }
 
         /// <summary>
         /// Название связанного объекта

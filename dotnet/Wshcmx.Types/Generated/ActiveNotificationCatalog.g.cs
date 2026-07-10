@@ -19,19 +19,19 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Тип уведомления
         /// </summary>
         [Column("notification_id")]
-        public double? NotificationId { get; set; }
+        public long? NotificationId { get; set; }
 
         /// <summary>
         /// Прикрепляемый объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Тема
@@ -61,7 +61,14 @@ namespace Wshcmx.Types
         /// Адресаты
         /// </summary>
         [Column("recipient_person_id")]
-        public List<double> RecipientPersonId { get; set; } = new List<double>();
+        public string? RecipientPersonIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RecipientPersonId
+        {
+            get => XmlListCodec.ParseLongList(RecipientPersonIdRaw, "recipient_person_id");
+            set => RecipientPersonIdRaw = XmlListCodec.SerializeLongList("recipient_person_id", value);
+        }
 
         /// <summary>
         /// Уведомление заполняется пользователем
@@ -79,7 +86,7 @@ namespace Wshcmx.Types
         /// Количество попыток
         /// </summary>
         [Column("send_counter")]
-        public double? SendCounter { get; set; }
+        public long? SendCounter { get; set; }
 
         /// <summary>
         /// Дата модификации

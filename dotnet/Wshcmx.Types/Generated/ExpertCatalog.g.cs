@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Эксперт
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО эксперта
@@ -67,19 +67,19 @@ namespace Wshcmx.Types
         /// Замещающий эксперт
         /// </summary>
         [Column("sub_expert_id")]
-        public double? SubExpertId { get; set; }
+        public long? SubExpertId { get; set; }
 
         /// <summary>
         /// Рейтинг эксперта
         /// </summary>
         [Column("rating")]
-        public double? Rating { get; set; }
+        public long? Rating { get; set; }
 
         /// <summary>
         /// Нормативный срок ответа на вопрос
         /// </summary>
         [Column("answer_expire_time")]
-        public double? AnswerExpireTime { get; set; }
+        public long? AnswerExpireTime { get; set; }
 
         /// <summary>
         /// Дата модификации

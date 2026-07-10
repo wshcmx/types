@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО ответственного
@@ -160,13 +160,13 @@ namespace Wshcmx.Types
         /// Провайдер временного персонала
         /// </summary>
         [XmlElement("outstaff_provider_id")]
-        public double? OutstaffProviderId { get; set; }
+        public long? OutstaffProviderId { get; set; }
 
         /// <summary>
         /// Контракт на временный персонал
         /// </summary>
         [XmlElement("outstaff_contract_id")]
-        public double? OutstaffContractId { get; set; }
+        public long? OutstaffContractId { get; set; }
 
         /// <summary>
         /// Контракт на временный персонал
@@ -178,13 +178,13 @@ namespace Wshcmx.Types
         /// Заказ на временный персонал
         /// </summary>
         [XmlElement("outstaff_order_id")]
-        public double? OutstaffOrderId { get; set; }
+        public long? OutstaffOrderId { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision_id")]
-        public double? SubdivisionId { get; set; }
+        public long? SubdivisionId { get; set; }
 
         /// <summary>
         /// Подразделение
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -214,7 +214,7 @@ namespace Wshcmx.Types
         /// Типовая должность
         /// </summary>
         [XmlElement("position_common_id")]
-        public double? PositionCommonId { get; set; }
+        public long? PositionCommonId { get; set; }
 
         /// <summary>
         /// Типовая должность
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         public string? PositionCommonName { get; set; }
 
         [XmlElement("stage_num")]
-        public double StageNum { get; set; }
+        public long StageNum { get; set; }
 
         [XmlElement("stages")]
         public List<OutstaffOrderExecutionDocumentStage> Stages { get; set; } = new List<OutstaffOrderExecutionDocumentStage>();
@@ -262,13 +262,13 @@ namespace Wshcmx.Types
         /// Стоимость
         /// </summary>
         [XmlElement("cost")]
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
         [XmlElement("cost_nds")]
-        public double? CostNds { get; set; }
+        public long? CostNds { get; set; }
 
         /// <summary>
         /// Валюта
@@ -298,7 +298,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
 
         /// <summary>
         /// Сотрудник
@@ -319,10 +319,10 @@ namespace Wshcmx.Types
         public DateTime? FactDate { get; set; }
 
         [XmlElement("hour_num")]
-        public double HourNum { get; set; }
+        public long HourNum { get; set; }
 
         [XmlElement("hours_worked")]
-        public double HoursWorked { get; set; }
+        public long HoursWorked { get; set; }
 
         /// <summary>
         /// Присутствие

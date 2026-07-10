@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [XmlElement("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Описание
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
     public class DnAuditoriumDocumentObjectResource
     {
         [XmlElement("object_resource_id")]
-        public double? ObjectResourceId { get; set; }
+        public long? ObjectResourceId { get; set; }
     }
 
     public class DnAuditoriumDocumentView

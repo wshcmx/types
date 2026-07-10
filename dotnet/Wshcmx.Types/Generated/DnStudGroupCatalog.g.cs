@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Поток
         /// </summary>
         [Column("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Статус договора
@@ -58,28 +58,28 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [Column("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         [Column("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         [Column("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Квалификация
         /// </summary>
         [Column("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         /// <summary>
         /// Факультет
         /// </summary>
         [Column("faculty")]
-        public double? Faculty { get; set; }
+        public long? Faculty { get; set; }
 
         [Column("group_size")]
-        public double? GroupSize { get; set; }
+        public long? GroupSize { get; set; }
 
         /// <summary>
         /// Дата модификации

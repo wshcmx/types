@@ -420,6 +420,22 @@ function renderClass(
     }
     const type = applyRenames(p.type, renameMap);
     const attr = useColumnAttr ? "Column" : "XmlElement";
+
+    // In catalog tables, XML-like list payloads are stored as a string column;
+    // expose a typed convenience property on top of the raw value.
+    if (useColumnAttr && p.isCollection && type === "List<long>") {
+      lines.push(`        [${attr}("${p.originalName.replace(/"/g, '\\"')}")]`);
+      lines.push(`        public string? ${propName}Raw { get; set; }`);
+      lines.push("");
+      lines.push("        [NotMapped]");
+      lines.push(`        public ${type} ${propName}`);
+      lines.push("        {");
+      lines.push(`            get => XmlListCodec.ParseLongList(${propName}Raw, \"${p.originalName.replace(/"/g, '\\"')}\");`);
+      lines.push(`            set => ${propName}Raw = XmlListCodec.SerializeLongList(\"${p.originalName.replace(/"/g, '\\"')}\", value);`);
+      lines.push("        }");
+      return;
+    }
+
     lines.push(`        [${attr}("${p.originalName.replace(/"/g, '\\"')}")]`);
     const initializer = p.isCollection ? ` = new ${type}();` : "";
     lines.push(`        public ${type} ${propName} { get; set; }${initializer}`);

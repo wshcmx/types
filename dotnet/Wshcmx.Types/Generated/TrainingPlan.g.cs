@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -58,10 +58,10 @@ namespace Wshcmx.Types
         /// Бюджетный период
         /// </summary>
         [XmlElement("budget_period_id")]
-        public double? BudgetPeriodId { get; set; }
+        public long? BudgetPeriodId { get; set; }
 
         [XmlElement("request_type_id")]
-        public double? RequestTypeId { get; set; }
+        public long? RequestTypeId { get; set; }
 
         [XmlElement("education_methods")]
         public List<TrainingPlanDocumentEducationMethod> EducationMethods { get; set; } = new List<TrainingPlanDocumentEducationMethod>();
@@ -94,19 +94,19 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("education_method_id")]
-        public double? EducationMethodId { get; set; }
+        public long? EducationMethodId { get; set; }
 
         /// <summary>
         /// Количество участников
         /// </summary>
         [XmlElement("participants_num")]
-        public double? ParticipantsNum { get; set; }
+        public long? ParticipantsNum { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -118,13 +118,13 @@ namespace Wshcmx.Types
         /// Максимальное количество
         /// </summary>
         [XmlElement("max_capacity")]
-        public double? MaxCapacity { get; set; }
+        public long? MaxCapacity { get; set; }
 
         /// <summary>
         /// Количество мероприятий
         /// </summary>
         [XmlElement("events_num")]
-        public double? EventsNum { get; set; }
+        public long? EventsNum { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         /// Количество участников
         /// </summary>
         [XmlElement("participants_num")]
-        public double? ParticipantsNum { get; set; }
+        public long? ParticipantsNum { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -166,22 +166,22 @@ namespace Wshcmx.Types
         /// Максимальное количество
         /// </summary>
         [XmlElement("max_capacity")]
-        public double? MaxCapacity { get; set; }
+        public long? MaxCapacity { get; set; }
 
         /// <summary>
         /// Количество мероприятий
         /// </summary>
         [XmlElement("events_num")]
-        public double? EventsNum { get; set; }
+        public long? EventsNum { get; set; }
 
         /// <summary>
         /// Распределено
         /// </summary>
         [XmlElement("distributed")]
-        public double? Distributed { get; set; }
+        public long? Distributed { get; set; }
 
         [XmlElement("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         [XmlElement("tab_selector_type")]
         public string TabSelectorType { get; set; }
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
     }
 
     public class TrainingPlanDocumentEducationMethodEventParticipant
@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class TrainingPlanDocumentEducationMethodEventWeek
@@ -289,19 +289,19 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("month_id")]
-        public double? MonthId { get; set; }
+        public long? MonthId { get; set; }
 
         /// <summary>
         /// Количество мероприятий
         /// </summary>
         [XmlElement("events_num")]
-        public double? EventsNum { get; set; }
+        public long? EventsNum { get; set; }
 
         [XmlElement("week_num")]
-        public double? WeekNum { get; set; }
+        public long? WeekNum { get; set; }
     }
 
     public class TrainingPlanDocumentEducationMethodParticipant
@@ -316,7 +316,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -334,7 +334,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -379,7 +379,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("collaborator_id")]
-        public double? CollaboratorId { get; set; }
+        public long? CollaboratorId { get; set; }
     }
 
     public class TrainingPlanDocumentGlobalMonth
@@ -388,15 +388,15 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("global_month_name")]
         public string? GlobalMonthName { get; set; }
 
         [XmlElement("global_month_num")]
-        public double? GlobalMonthNum { get; set; }
+        public long? GlobalMonthNum { get; set; }
 
         [XmlElement("global_month_year")]
-        public double? GlobalMonthYear { get; set; }
+        public long? GlobalMonthYear { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,25 +37,25 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Ширина рабочей области
         /// </summary>
         [XmlElement("course_width")]
-        public double? CourseWidth { get; set; }
+        public long? CourseWidth { get; set; }
 
         /// <summary>
         /// Высота рабочей области
         /// </summary>
         [XmlElement("course_height")]
-        public double? CourseHeight { get; set; }
+        public long? CourseHeight { get; set; }
 
         /// <summary>
         /// Max bitrate (kbps)
         /// </summary>
         [XmlElement("max_bitrate")]
-        public double? MaxBitrate { get; set; }
+        public long? MaxBitrate { get; set; }
 
         /// <summary>
         /// Формат вывода
@@ -79,13 +79,13 @@ namespace Wshcmx.Types
         /// Результирующий медиа-файл
         /// </summary>
         [XmlElement("media_file_id")]
-        public double? MediaFileId { get; set; }
+        public long? MediaFileId { get; set; }
 
         /// <summary>
         /// Упрощенный результирующий медиа-файл
         /// </summary>
         [XmlElement("lowres_media_file_id")]
-        public double? LowresMediaFileId { get; set; }
+        public long? LowresMediaFileId { get; set; }
 
         /// <summary>
         /// Временный массив файлов
@@ -97,19 +97,19 @@ namespace Wshcmx.Types
         /// Фрагмент в работе
         /// </summary>
         [XmlElement("current_fragment")]
-        public double CurrentFragment { get; set; }
+        public long CurrentFragment { get; set; }
 
         /// <summary>
         /// Слой в работе
         /// </summary>
         [XmlElement("current_layer")]
-        public double CurrentLayer { get; set; }
+        public long CurrentLayer { get; set; }
 
         /// <summary>
         /// Позиция (сек)
         /// </summary>
         [XmlElement("current_position")]
-        public double CurrentPosition { get; set; }
+        public long CurrentPosition { get; set; }
 
         /// <summary>
         /// Фрагменты
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
     }
 
     public class ClVideoCourseDocumentFragment
@@ -229,31 +229,31 @@ namespace Wshcmx.Types
         /// Ширина
         /// </summary>
         [XmlElement("width")]
-        public double? Width { get; set; }
+        public long? Width { get; set; }
 
         /// <summary>
         /// Высота
         /// </summary>
         [XmlElement("height")]
-        public double? Height { get; set; }
+        public long? Height { get; set; }
 
         /// <summary>
         /// Картинка-заставка
         /// </summary>
         [XmlElement("poster_id")]
-        public double? PosterId { get; set; }
+        public long? PosterId { get; set; }
 
         /// <summary>
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Время начала (сек)
         /// </summary>
         [XmlElement("start_time")]
-        public double? StartTime { get; set; }
+        public long? StartTime { get; set; }
 
         /// <summary>
         /// Тип перехода к следующему фрагменту
@@ -298,31 +298,31 @@ namespace Wshcmx.Types
         /// Начало (сек)
         /// </summary>
         [XmlElement("start_second")]
-        public double? StartSecond { get; set; }
+        public long? StartSecond { get; set; }
 
         /// <summary>
         /// Конец (сек)
         /// </summary>
         [XmlElement("end_second")]
-        public double? EndSecond { get; set; }
+        public long? EndSecond { get; set; }
 
         /// <summary>
         /// Продолжительность
         /// </summary>
         [XmlElement("duration")]
-        public double? Duration { get; set; }
+        public long? Duration { get; set; }
 
         /// <summary>
         /// Обрезать сначала (сек)
         /// </summary>
         [XmlElement("crop_start")]
-        public double? CropStart { get; set; }
+        public long? CropStart { get; set; }
 
         /// <summary>
         /// Отрезать в конце (сек)
         /// </summary>
         [XmlElement("crop_end")]
-        public double? CropEnd { get; set; }
+        public long? CropEnd { get; set; }
 
         /// <summary>
         /// Координаты
@@ -343,13 +343,13 @@ namespace Wshcmx.Types
         /// Исходная ширина
         /// </summary>
         [XmlElement("original_width")]
-        public double? OriginalWidth { get; set; }
+        public long? OriginalWidth { get; set; }
 
         /// <summary>
         /// Исходная высота
         /// </summary>
         [XmlElement("original_height")]
-        public double? OriginalHeight { get; set; }
+        public long? OriginalHeight { get; set; }
 
         /// <summary>
         /// Цвет фона
@@ -373,7 +373,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Название ресурса
@@ -385,25 +385,25 @@ namespace Wshcmx.Types
         /// Рабочая копия
         /// </summary>
         [XmlElement("resource_draft_id")]
-        public double? ResourceDraftId { get; set; }
+        public long? ResourceDraftId { get; set; }
 
         /// <summary>
         /// Картинка-заставка
         /// </summary>
         [XmlElement("layer_poster_id")]
-        public double? LayerPosterId { get; set; }
+        public long? LayerPosterId { get; set; }
 
         /// <summary>
         /// Угол поворота
         /// </summary>
         [XmlElement("angle_rotation")]
-        public double? AngleRotation { get; set; }
+        public long? AngleRotation { get; set; }
 
         /// <summary>
         /// Коэффициент сжатия
         /// </summary>
         [XmlElement("compression_ratio")]
-        public double? CompressionRatio { get; set; }
+        public long? CompressionRatio { get; set; }
 
         /// <summary>
         /// Цвет границы
@@ -421,7 +421,7 @@ namespace Wshcmx.Types
         /// Толщина границы
         /// </summary>
         [XmlElement("border_width")]
-        public double? BorderWidth { get; set; }
+        public long? BorderWidth { get; set; }
 
         /// <summary>
         /// Текстовый блок
@@ -436,25 +436,25 @@ namespace Wshcmx.Types
         /// Верхний левый угол ( координата по X )
         /// </summary>
         [XmlElement("top_left_x")]
-        public double? TopLeftX { get; set; }
+        public long? TopLeftX { get; set; }
 
         /// <summary>
         /// Верхний левый угол ( координата по Y )
         /// </summary>
         [XmlElement("top_left_y")]
-        public double? TopLeftY { get; set; }
+        public long? TopLeftY { get; set; }
 
         /// <summary>
         /// Ширина
         /// </summary>
         [XmlElement("box_width")]
-        public double? BoxWidth { get; set; }
+        public long? BoxWidth { get; set; }
 
         /// <summary>
         /// Высота
         /// </summary>
         [XmlElement("box_height")]
-        public double? BoxHeight { get; set; }
+        public long? BoxHeight { get; set; }
     }
 
     public class ClVideoCourseDocumentFragmentLayerSprite
@@ -463,37 +463,37 @@ namespace Wshcmx.Types
         /// Sprite для видео
         /// </summary>
         [XmlElement("sprite_id")]
-        public double? SpriteId { get; set; }
+        public long? SpriteId { get; set; }
 
         /// <summary>
         /// Количество столбцов
         /// </summary>
         [XmlElement("cells_count")]
-        public double? CellsCount { get; set; }
+        public long? CellsCount { get; set; }
 
         /// <summary>
         /// Количество строк
         /// </summary>
         [XmlElement("rows_count")]
-        public double? RowsCount { get; set; }
+        public long? RowsCount { get; set; }
 
         /// <summary>
         /// Ширина ячейки
         /// </summary>
         [XmlElement("cell_width")]
-        public double? CellWidth { get; set; }
+        public long? CellWidth { get; set; }
 
         /// <summary>
         /// Высота ячейки
         /// </summary>
         [XmlElement("cell_height")]
-        public double? CellHeight { get; set; }
+        public long? CellHeight { get; set; }
 
         /// <summary>
         /// Шаг (сек)
         /// </summary>
         [XmlElement("step")]
-        public double? Step { get; set; }
+        public long? Step { get; set; }
     }
 
     public class ClVideoCourseDocumentFragmentLayerTextBlock
@@ -520,7 +520,7 @@ namespace Wshcmx.Types
         /// Размер шрифта
         /// </summary>
         [XmlElement("font_size")]
-        public double? FontSize { get; set; }
+        public long? FontSize { get; set; }
 
         /// <summary>
         /// Выравнивание
@@ -550,19 +550,19 @@ namespace Wshcmx.Types
         /// Отбивка
         /// </summary>
         [XmlElement("padding")]
-        public double? Padding { get; set; }
+        public long? Padding { get; set; }
     }
 
     public class ClVideoCourseDocumentFragmentLayerVideoScreenshot
     {
         [XmlElement("video_screenshot_id")]
-        public double? VideoScreenshotId { get; set; }
+        public long? VideoScreenshotId { get; set; }
 
         /// <summary>
         /// Время
         /// </summary>
         [XmlElement("time")]
-        public double? Time { get; set; }
+        public long? Time { get; set; }
 
         /// <summary>
         /// Время (строка)
@@ -574,7 +574,7 @@ namespace Wshcmx.Types
     public class ClVideoCourseDocumentTempMediaFile
     {
         [XmlElement("media_file_id")]
-        public double? MediaFileId { get; set; }
+        public long? MediaFileId { get; set; }
 
         /// <summary>
         /// Временный массив файлов
@@ -586,7 +586,7 @@ namespace Wshcmx.Types
     public class ClVideoCourseDocumentTempMediaFileLowresMediaFile
     {
         [XmlElement("lowres_media_file_id")]
-        public double? LowresMediaFileId { get; set; }
+        public long? LowresMediaFileId { get; set; }
 
         [XmlElement("size")]
         public string? Size { get; set; }

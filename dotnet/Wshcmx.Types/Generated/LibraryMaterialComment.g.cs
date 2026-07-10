@@ -37,16 +37,16 @@ namespace Wshcmx.Types
         public bool IsAdminApproved { get; set; }
 
         [XmlElement("material_id")]
-        public double? MaterialId { get; set; }
+        public long? MaterialId { get; set; }
 
         [XmlElement("user_id")]
-        public double? UserId { get; set; }
+        public long? UserId { get; set; }
 
         [XmlElement("create_date")]
         public DateTime? CreateDate { get; set; }
 
         [XmlElement("parent_object_id")]
-        public double? ParentObjectId { get; set; }
+        public long? ParentObjectId { get; set; }
 
         [XmlElement("how2show")]
         public string? How2show { get; set; }

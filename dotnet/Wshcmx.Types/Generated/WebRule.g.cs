@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -61,34 +61,34 @@ namespace Wshcmx.Types
         /// Redirect type
         /// </summary>
         [XmlElement("redirect_type")]
-        public double RedirectType { get; set; }
+        public long RedirectType { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [XmlElement("redirect_web_mode_id")]
-        public double? RedirectWebModeId { get; set; }
+        public long? RedirectWebModeId { get; set; }
 
         /// <summary>
         /// Дизайн
         /// </summary>
         [XmlElement("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [XmlElement("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         [XmlElement("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Является системным

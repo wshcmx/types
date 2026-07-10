@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         [XmlElement("bot_id")]
         public string? BotId { get; set; }
@@ -133,31 +133,31 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [XmlElement("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Этап чат-бота
         /// </summary>
         [XmlElement("chatbot_stage_id")]
-        public double? ChatbotStageId { get; set; }
+        public long? ChatbotStageId { get; set; }
 
         /// <summary>
         /// Тип чат-бота
         /// </summary>
         [XmlElement("chatbot_type_id")]
-        public double? ChatbotTypeId { get; set; }
+        public long? ChatbotTypeId { get; set; }
 
         /// <summary>
         /// Чат-бот
         /// </summary>
         [XmlElement("chatbot_id")]
-        public double? ChatbotId { get; set; }
+        public long? ChatbotId { get; set; }
 
         /// <summary>
         /// Разговор
         /// </summary>
         [XmlElement("conversation_id")]
-        public double? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         /// <summary>
         /// Статус
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// Json объект для хранения временных данных
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
     public class ChatbotChatDocumentAimlData
     {
         [XmlElement("custom_chatbot_template_id")]
-        public double? CustomChatbotTemplateId { get; set; }
+        public long? CustomChatbotTemplateId { get; set; }
 
         [XmlElement("data")]
         public string? Data { get; set; }
@@ -295,13 +295,13 @@ namespace Wshcmx.Types
         /// Предыдущий этап чат-бота
         /// </summary>
         [XmlElement("last_chatbot_stage_id")]
-        public double? LastChatbotStageId { get; set; }
+        public long? LastChatbotStageId { get; set; }
 
         /// <summary>
         /// Следующий этап чат-бота
         /// </summary>
         [XmlElement("next_chatbot_stage_id")]
-        public double? NextChatbotStageId { get; set; }
+        public long? NextChatbotStageId { get; set; }
     }
 
     public class ChatbotChatDocumentTempValue

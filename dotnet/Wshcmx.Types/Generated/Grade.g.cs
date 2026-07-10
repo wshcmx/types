@@ -19,13 +19,13 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Уровень
         /// </summary>
         [XmlElement("level")]
-        public double? Level { get; set; }
+        public long? Level { get; set; }
 
         /// <summary>
         /// Название
@@ -43,13 +43,13 @@ namespace Wshcmx.Types
         /// Минимальная зарплата
         /// </summary>
         [XmlElement("min_salary")]
-        public double? MinSalary { get; set; }
+        public long? MinSalary { get; set; }
 
         /// <summary>
         /// Максимальная зарплата
         /// </summary>
         [XmlElement("max_salary")]
-        public double? MaxSalary { get; set; }
+        public long? MaxSalary { get; set; }
 
         /// <summary>
         /// Валюта

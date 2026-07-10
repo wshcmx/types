@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -31,13 +31,13 @@ namespace Wshcmx.Types
         /// Мероприятие
         /// </summary>
         [Column("event_id")]
-        public double? EventId { get; set; }
+        public long? EventId { get; set; }
 
         /// <summary>
         /// Оцениваемый сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО оцениваемого
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Оценивающий сотрудник
         /// </summary>
         [Column("expert_person_id")]
-        public double? ExpertPersonId { get; set; }
+        public long? ExpertPersonId { get; set; }
 
         /// <summary>
         /// ФИО оценивающего

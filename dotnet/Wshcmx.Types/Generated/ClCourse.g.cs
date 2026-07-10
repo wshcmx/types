@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Ресурс базы
         /// </summary>
         [XmlElement("resource_id")]
-        public double? ResourceId { get; set; }
+        public long? ResourceId { get; set; }
 
         /// <summary>
         /// Локализации
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public List<ClLocalizationsBaseLocalization> Localizations { get; set; } = new List<ClLocalizationsBaseLocalization>();
 
         [XmlElement("cl_localization_id")]
-        public double? ClLocalizationId { get; set; }
+        public long? ClLocalizationId { get; set; }
 
         [XmlElement("cl_localization_tip_text")]
         public string? ClLocalizationTipText { get; set; }
@@ -64,10 +64,10 @@ namespace Wshcmx.Types
         public List<KnowledgePartsBaseExpert> Experts { get; set; } = new List<KnowledgePartsBaseExpert>();
 
         [XmlElement("acquaint_time")]
-        public double? AcquaintTime { get; set; }
+        public long? AcquaintTime { get; set; }
 
         [XmlElement("previous_version_object_id")]
-        public double? PreviousVersionObjectId { get; set; }
+        public long? PreviousVersionObjectId { get; set; }
 
         /// <summary>
         /// Статус
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public DateTime? KpEndDate { get; set; }
 
         [XmlElement("view_knowledge_classifier_id")]
-        public double? ViewKnowledgeClassifierId { get; set; }
+        public long? ViewKnowledgeClassifierId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         public DateTime? EndDate { get; set; }
 
         [XmlElement("state_id")]
-        public double StateId { get; set; }
+        public long StateId { get; set; }
 
         [XmlElement("platform")]
         public string? Platform { get; set; }
@@ -151,13 +151,13 @@ namespace Wshcmx.Types
         public string? Comment { get; set; }
 
         [XmlElement("forum_id")]
-        public double? ForumId { get; set; }
+        public long? ForumId { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [XmlElement("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<long> RoleId { get; set; } = new List<long>();
 
         /// <summary>
         /// Информация об объекте
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         /// Должность сотрудника
         /// </summary>
         [XmlElement("person_position_id")]
-        public double? PersonPositionId { get; set; }
+        public long? PersonPositionId { get; set; }
 
         /// <summary>
         /// Название должности сотрудника
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Организация сотрудника
         /// </summary>
         [XmlElement("person_org_id")]
-        public double? PersonOrgId { get; set; }
+        public long? PersonOrgId { get; set; }
 
         /// <summary>
         /// Название организации сотрудника
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         /// Подразделение сотрудника
         /// </summary>
         [XmlElement("person_subdivision_id")]
-        public double? PersonSubdivisionId { get; set; }
+        public long? PersonSubdivisionId { get; set; }
 
         /// <summary>
         /// Название подразделения сотрудника
@@ -250,7 +250,7 @@ namespace Wshcmx.Types
         public string? PersonCode { get; set; }
 
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("types")]
         public List<ClCourseDocumentAuthorType> Types { get; set; } = new List<ClCourseDocumentAuthorType>();
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
     public class ClCourseDocumentAuthorType
     {
         [XmlElement("type_id")]
-        public double? TypeId { get; set; }
+        public long? TypeId { get; set; }
     }
 
     public class ClCourseDocumentAuxConst
@@ -268,31 +268,31 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("cl_const_id")]
-        public double? ClConstId { get; set; }
+        public long? ClConstId { get; set; }
     }
 
     public class ClCourseDocumentFolder
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("parent_id")]
-        public double? ParentId { get; set; }
+        public long? ParentId { get; set; }
     }
 
     public class ClCourseDocumentModule
     {
         [XmlElement("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         [XmlElement("path_id")]
         public string PathId { get; set; }
 
         [XmlElement("folder_id")]
-        public double? FolderId { get; set; }
+        public long? FolderId { get; set; }
     }
 
     public class ClCourseDocumentPlanTable
@@ -316,13 +316,13 @@ namespace Wshcmx.Types
         public DateTime? FactDate { get; set; }
 
         [XmlElement("completion")]
-        public double Completion { get; set; }
+        public long Completion { get; set; }
 
         [XmlElement("name")]
         public string? Name { get; set; }
 
         [XmlElement("responsible_id")]
-        public double? ResponsibleId { get; set; }
+        public long? ResponsibleId { get; set; }
 
         [XmlElement("responsible_fullname")]
         public string? ResponsibleFullname { get; set; }
@@ -337,7 +337,7 @@ namespace Wshcmx.Types
     public class ClCourseDocumentRepositorium
     {
         [XmlElement("repositorium_id")]
-        public double? RepositoriumId { get; set; }
+        public long? RepositoriumId { get; set; }
     }
 
     public class ClCourseDocumentView
@@ -349,13 +349,13 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("view_part_selector")]
-        public double? ViewPartSelector { get; set; }
+        public long? ViewPartSelector { get; set; }
 
         [XmlElement("module_href")]
         public string? ModuleHref { get; set; }
 
         [XmlElement("module_view_selector")]
-        public double? ModuleViewSelector { get; set; }
+        public long? ModuleViewSelector { get; set; }
 
         [XmlElement("new_authors")]
         public ClCourseDocumentViewNewAuthors? NewAuthors { get; set; }
@@ -364,21 +364,21 @@ namespace Wshcmx.Types
     public class ClCourseDocumentViewNewAuthors
     {
         [XmlElement("id")]
-        public List<double> Id { get; set; } = new List<double>();
+        public List<long> Id { get; set; } = new List<long>();
     }
 
     public class ClCourseDocumentWindow
     {
         [XmlElement("module_id")]
-        public double? ModuleId { get; set; }
+        public long? ModuleId { get; set; }
 
         [XmlElement("zoom")]
-        public double? Zoom { get; set; }
+        public long? Zoom { get; set; }
 
         [XmlElement("active")]
         public bool Active { get; set; }
 
         [XmlElement("slide_id")]
-        public double? SlideId { get; set; }
+        public long? SlideId { get; set; }
     }
 }

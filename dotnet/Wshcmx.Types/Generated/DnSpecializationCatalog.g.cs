@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Специальность
         /// </summary>
         [Column("speciality_id")]
-        public double? SpecialityId { get; set; }
+        public long? SpecialityId { get; set; }
 
         /// <summary>
         /// Дата модификации

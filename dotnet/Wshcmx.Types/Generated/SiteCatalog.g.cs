@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Дизайн
         /// </summary>
         [Column("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Язык
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Является встроенным
@@ -79,6 +79,13 @@ namespace Wshcmx.Types
         /// Владельцы
         /// </summary>
         [Column("owner_object")]
-        public List<double> OwnerObject { get; set; } = new List<double>();
+        public string? OwnerObjectRaw { get; set; }
+
+        [NotMapped]
+        public List<long> OwnerObject
+        {
+            get => XmlListCodec.ParseLongList(OwnerObjectRaw, "owner_object");
+            set => OwnerObjectRaw = XmlListCodec.SerializeLongList("owner_object", value);
+        }
     }
 }

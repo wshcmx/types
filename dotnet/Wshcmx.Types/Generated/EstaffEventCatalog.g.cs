@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код события
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Вакансия
         /// </summary>
         [Column("vacancy_id")]
-        public double? VacancyId { get; set; }
+        public long? VacancyId { get; set; }
 
         /// <summary>
         /// Название вакансии
@@ -70,13 +70,13 @@ namespace Wshcmx.Types
         /// Заявка
         /// </summary>
         [Column("request_id")]
-        public double? RequestId { get; set; }
+        public long? RequestId { get; set; }
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Тип события E-Staff
         /// </summary>
         [Column("estaff_event_type_id")]
-        public double? EstaffEventTypeId { get; set; }
+        public long? EstaffEventTypeId { get; set; }
 
         /// <summary>
         /// Тип события E-Staff
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Связанный объект
         /// </summary>
         [Column("object_id")]
-        public double? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
 
         /// <summary>
         /// Название объекта
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         public string? EventStatusId { get; set; }
 
         [Column("estaff_event_eid")]
-        public double? EstaffEventEid { get; set; }
+        public long? EstaffEventEid { get; set; }
 
         /// <summary>
         /// Дата модификации

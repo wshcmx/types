@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Название
@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Уровень доступа
         /// </summary>
         [Column("access_level")]
-        public double? AccessLevel { get; set; }
+        public long? AccessLevel { get; set; }
 
         /// <summary>
         /// Роль сотрудника
@@ -46,13 +46,13 @@ namespace Wshcmx.Types
         /// Дизайн
         /// </summary>
         [Column("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         [Column("hash")]
         public string? Hash { get; set; }

@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [Column("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название должности
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [Column("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Организация
         /// </summary>
         [Column("org_id")]
-        public double? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Расположение
         /// </summary>
         [Column("place_id")]
-        public double? PlaceId { get; set; }
+        public long? PlaceId { get; set; }
 
         /// <summary>
         /// Регион
         /// </summary>
         [Column("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Категория
@@ -181,13 +181,13 @@ namespace Wshcmx.Types
         /// Статус кандидата
         /// </summary>
         [Column("candidate_status_type_id")]
-        public double? CandidateStatusTypeId { get; set; }
+        public long? CandidateStatusTypeId { get; set; }
 
         /// <summary>
         /// Кандидат
         /// </summary>
         [Column("candidate_id")]
-        public double? CandidateId { get; set; }
+        public long? CandidateId { get; set; }
 
         /// <summary>
         /// Является временным
@@ -235,13 +235,13 @@ namespace Wshcmx.Types
         /// Уровень компетентности
         /// </summary>
         [Column("level_id")]
-        public double? LevelId { get; set; }
+        public long? LevelId { get; set; }
 
         /// <summary>
         /// Грейд
         /// </summary>
         [Column("grade_id")]
-        public double? GradeId { get; set; }
+        public long? GradeId { get; set; }
 
         /// <summary>
         /// Значения карты знаний
@@ -262,7 +262,14 @@ namespace Wshcmx.Types
         public string? Experts { get; set; }
 
         [Column("person_object_profile_id")]
-        public List<double> PersonObjectProfileId { get; set; } = new List<double>();
+        public string? PersonObjectProfileIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> PersonObjectProfileId
+        {
+            get => XmlListCodec.ParseLongList(PersonObjectProfileIdRaw, "person_object_profile_id");
+            set => PersonObjectProfileIdRaw = XmlListCodec.SerializeLongList("person_object_profile_id", value);
+        }
 
         /// <summary>
         /// Текущее состояние
@@ -280,13 +287,13 @@ namespace Wshcmx.Types
         /// Потенциал развития
         /// </summary>
         [Column("development_potential_id")]
-        public double? DevelopmentPotentialId { get; set; }
+        public long? DevelopmentPotentialId { get; set; }
 
         /// <summary>
         /// Оценка эффективности
         /// </summary>
         [Column("efficiency_estimation_id")]
-        public double? EfficiencyEstimationId { get; set; }
+        public long? EfficiencyEstimationId { get; set; }
 
         /// <summary>
         /// Согласие на КЭДО
@@ -316,7 +323,7 @@ namespace Wshcmx.Types
         /// Центр затрат
         /// </summary>
         [Column("cost_center_id")]
-        public double? CostCenterId { get; set; }
+        public long? CostCenterId { get; set; }
 
         /// <summary>
         /// Отображать дату рождения

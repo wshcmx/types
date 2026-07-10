@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Поток
         /// </summary>
         [XmlElement("stream_id")]
-        public double? StreamId { get; set; }
+        public long? StreamId { get; set; }
 
         /// <summary>
         /// Статус договора
@@ -64,31 +64,31 @@ namespace Wshcmx.Types
         /// Год зачисления
         /// </summary>
         [XmlElement("academ_year_id")]
-        public double? AcademYearId { get; set; }
+        public long? AcademYearId { get; set; }
 
         /// <summary>
         /// Специальность
         /// </summary>
         [XmlElement("special_id")]
-        public double? SpecialId { get; set; }
+        public long? SpecialId { get; set; }
 
         /// <summary>
         /// Специализация
         /// </summary>
         [XmlElement("specialization_id")]
-        public double? SpecializationId { get; set; }
+        public long? SpecializationId { get; set; }
 
         /// <summary>
         /// Квалификация
         /// </summary>
         [XmlElement("qualification_id")]
-        public double? QualificationId { get; set; }
+        public long? QualificationId { get; set; }
 
         /// <summary>
         /// Факультет
         /// </summary>
         [XmlElement("faculty")]
-        public double? Faculty { get; set; }
+        public long? Faculty { get; set; }
 
         [XmlElement("subfacultys")]
         public List<DnStudGroupDocumentSubfaculty> Subfacultys { get; set; } = new List<DnStudGroupDocumentSubfaculty>();
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Численность группы
         /// </summary>
         [XmlElement("group_size")]
-        public double? GroupSize { get; set; }
+        public long? GroupSize { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
     public class DnStudGroupDocumentSubfaculty
     {
         [XmlElement("subfac_id")]
-        public double? SubfacId { get; set; }
+        public long? SubfacId { get; set; }
     }
 
     public class DnStudGroupDocumentView

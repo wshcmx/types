@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -31,13 +31,13 @@ namespace Wshcmx.Types
         /// Процедура оценки
         /// </summary>
         [Column("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Кто транслирует
         /// </summary>
         [Column("translator_person_id")]
-        public double? TranslatorPersonId { get; set; }
+        public long? TranslatorPersonId { get; set; }
 
         /// <summary>
         /// Имя транслирующего
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Анкета транслирующего
         /// </summary>
         [Column("translator_pa_id")]
-        public double? TranslatorPaId { get; set; }
+        public long? TranslatorPaId { get; set; }
 
         /// <summary>
         /// Кому транслируется
         /// </summary>
         [Column("recipient_person_id")]
-        public double? RecipientPersonId { get; set; }
+        public long? RecipientPersonId { get; set; }
 
         /// <summary>
         /// Цель
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Анкета
         /// </summary>
         [Column("recipient_pa_id")]
-        public double? RecipientPaId { get; set; }
+        public long? RecipientPaId { get; set; }
 
         /// <summary>
         /// Имя получателя

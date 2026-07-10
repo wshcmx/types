@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class DevelopmentPlan
     {
         [XmlElement("workflow_id")]
-        public double? WorkflowId { get; set; }
+        public long? WorkflowId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [XmlElement("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("department_id")]
-        public double? DepartmentId { get; set; }
+        public long? DepartmentId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -139,19 +139,19 @@ namespace Wshcmx.Types
         /// Оценочная процедура
         /// </summary>
         [XmlElement("assessment_appraise_id")]
-        public double? AssessmentAppraiseId { get; set; }
+        public long? AssessmentAppraiseId { get; set; }
 
         /// <summary>
         /// Планы оценки
         /// </summary>
         [XmlElement("assessment_plan_id")]
-        public double? AssessmentPlanId { get; set; }
+        public long? AssessmentPlanId { get; set; }
 
         /// <summary>
         /// Карьерный резерв
         /// </summary>
         [XmlElement("career_reserve_id")]
-        public double? CareerReserveId { get; set; }
+        public long? CareerReserveId { get; set; }
 
         /// <summary>
         /// Тип оценочной процедуры
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         /// Матрица ответственности
         /// </summary>
         [XmlElement("assessment_appraise_matrix_id")]
-        public double? AssessmentAppraiseMatrixId { get; set; }
+        public long? AssessmentAppraiseMatrixId { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -202,7 +202,7 @@ namespace Wshcmx.Types
         /// Порядковый номер
         /// </summary>
         [XmlElement("index")]
-        public double Index { get; set; }
+        public long Index { get; set; }
 
         [XmlElement("view")]
         public DevelopmentPlanDocumentView? View { get; set; }
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDocumentCustomComment
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -226,10 +226,10 @@ namespace Wshcmx.Types
     public class DevelopmentPlanDocumentCustomExpert
     {
         [XmlElement("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         [XmlElement("person_type")]
-        public double? PersonType { get; set; }
+        public long? PersonType { get; set; }
 
         [XmlElement("is_done")]
         public bool IsDone { get; set; }
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -277,7 +277,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название организации
@@ -316,7 +316,7 @@ namespace Wshcmx.Types
         /// Должность
         /// </summary>
         [XmlElement("position_id")]
-        public double? PositionId { get; set; }
+        public long? PositionId { get; set; }
 
         /// <summary>
         /// Название подразделения
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Подразделение
         /// </summary>
         [XmlElement("position_parent_id")]
-        public double? PositionParentId { get; set; }
+        public long? PositionParentId { get; set; }
 
         /// <summary>
         /// Название организации

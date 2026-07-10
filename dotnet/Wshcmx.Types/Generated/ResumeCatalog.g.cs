@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         /// Группа пользователя
         /// </summary>
         [Column("user_group_id")]
-        public double? UserGroupId { get; set; }
+        public long? UserGroupId { get; set; }
 
         /// <summary>
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("person_id")]
-        public double? PersonId { get; set; }
+        public long? PersonId { get; set; }
 
         /// <summary>
         /// ФИО сотрудника
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// ID cотрудника, заполнившего резюме
         /// </summary>
         [Column("creator_person_id")]
-        public double? CreatorPersonId { get; set; }
+        public long? CreatorPersonId { get; set; }
 
         /// <summary>
         /// Сотрудник, заполнивший резюме
@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Зарплата от
         /// </summary>
         [Column("min_wage")]
-        public double? MinWage { get; set; }
+        public long? MinWage { get; set; }
 
         /// <summary>
         /// Зарплата до
         /// </summary>
         [Column("max_wage")]
-        public double? MaxWage { get; set; }
+        public long? MaxWage { get; set; }
 
         /// <summary>
         /// Валюта
@@ -145,7 +145,7 @@ namespace Wshcmx.Types
         /// ID профессиональной области
         /// </summary>
         [Column("profession_id")]
-        public double? ProfessionId { get; set; }
+        public long? ProfessionId { get; set; }
 
         /// <summary>
         /// ID профессиональной области
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Регион
         /// </summary>
         [Column("region_id")]
-        public double? RegionId { get; set; }
+        public long? RegionId { get; set; }
 
         /// <summary>
         /// Тип занятости
@@ -181,19 +181,19 @@ namespace Wshcmx.Types
         /// График работы
         /// </summary>
         [Column("schedule_id")]
-        public double? ScheduleId { get; set; }
+        public long? ScheduleId { get; set; }
 
         /// <summary>
         /// Источник вакансии
         /// </summary>
         [Column("vacancy_source_id")]
-        public double? VacancySourceId { get; set; }
+        public long? VacancySourceId { get; set; }
 
         /// <summary>
         /// Стаж
         /// </summary>
         [Column("exp_years")]
-        public double? ExpYears { get; set; }
+        public long? ExpYears { get; set; }
 
         /// <summary>
         /// Готовность к командировкам
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         /// Образование
         /// </summary>
         [Column("education_type_id")]
-        public double? EducationTypeId { get; set; }
+        public long? EducationTypeId { get; set; }
 
         /// <summary>
         /// Дата создания

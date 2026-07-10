@@ -19,7 +19,7 @@ namespace Wshcmx.Types
         /// ID
         /// </summary>
         [Column("id")]
-        public double? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Код
@@ -67,37 +67,44 @@ namespace Wshcmx.Types
         /// Redirect type
         /// </summary>
         [Column("redirect_type")]
-        public double? RedirectType { get; set; }
+        public long? RedirectType { get; set; }
 
         /// <summary>
         /// Тип страницы
         /// </summary>
         [Column("redirect_web_mode_id")]
-        public double? RedirectWebModeId { get; set; }
+        public long? RedirectWebModeId { get; set; }
 
         /// <summary>
         /// Вес
         /// </summary>
         [Column("weight")]
-        public double? Weight { get; set; }
+        public long? Weight { get; set; }
 
         /// <summary>
         /// Дизайн
         /// </summary>
         [Column("web_design_id")]
-        public double? WebDesignId { get; set; }
+        public long? WebDesignId { get; set; }
 
         /// <summary>
         /// Сайт
         /// </summary>
         [Column("site_id")]
-        public double? SiteId { get; set; }
+        public long? SiteId { get; set; }
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public string? RoleIdRaw { get; set; }
+
+        [NotMapped]
+        public List<long> RoleId
+        {
+            get => XmlListCodec.ParseLongList(RoleIdRaw, "role_id");
+            set => RoleIdRaw = XmlListCodec.SerializeLongList("role_id", value);
+        }
 
         /// <summary>
         /// Является системным
