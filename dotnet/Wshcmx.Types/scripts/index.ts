@@ -9,8 +9,8 @@ const XML_ROOT = path.join(REPO_ROOT, "lib", "xml");
 const OUT_DIR = path.join(REPO_ROOT, "dotnet", "Wshcmx.Types", "Generated");
 const NAMESPACE = "Wshcmx.Types";
 
-/** How the untyped JS `number` maps to C#. WebTutor `number` fields include decimals. */
-const NUMBER_TYPE = "double";
+/** How the untyped JS `number` maps to C#. */
+const NUMBER_TYPE = "long";
 
 /** Wrapper/framework type names that are not data types themselves. */
 const FRAMEWORK_TYPES = new Set([
