@@ -16,6 +16,7 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: release
     env:
       PROJECT: dotnet/Wshcmx.Types/Wshcmx.Types.csproj
     steps:
