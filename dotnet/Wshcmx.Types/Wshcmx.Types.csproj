@@ -11,7 +11,7 @@
     <AssemblyName>Wshcmx.Types</AssemblyName>
 
     <PackageId>Wshcmx.Types</PackageId>
-    <Version>12.3.0</Version>
+    <Version>12.4.0</Version>
     <Authors>umbrik</Authors>
     <Company>wshcmx</Company>
     <Description>Strongly-typed C# POCOs for WebSoft/WebTutor XML documents, generated from @wshcmx/types.</Description>
