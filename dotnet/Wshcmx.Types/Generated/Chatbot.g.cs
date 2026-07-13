@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Активное уведомление
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Возможно создавать чат
         /// </summary>
         [XmlElement("can_create_conversation")]
-        public bool CanCreateConversation { get; set; }
+        public bool? CanCreateConversation { get; set; }
 
         /// <summary>
         /// Тип используемого разговора

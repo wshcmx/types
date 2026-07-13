@@ -115,31 +115,31 @@ namespace Wshcmx.Types
         /// Чтение
         /// </summary>
         [XmlElement("read")]
-        public bool Read { get; set; }
+        public bool? Read { get; set; }
 
         /// <summary>
         /// Запись
         /// </summary>
         [XmlElement("write")]
-        public bool Write { get; set; }
+        public bool? Write { get; set; }
 
         /// <summary>
         /// Удаление
         /// </summary>
         [XmlElement("delete")]
-        public bool Delete { get; set; }
+        public bool? Delete { get; set; }
 
         /// <summary>
         /// Список
         /// </summary>
         [XmlElement("list")]
-        public bool List { get; set; }
+        public bool? List { get; set; }
 
         /// <summary>
         /// Запуск
         /// </summary>
         [XmlElement("execute")]
-        public bool Execute { get; set; }
+        public bool? Execute { get; set; }
 
         /// <summary>
         /// Роль
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Действует
         /// </summary>
         [XmlElement("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Дата начала
@@ -181,13 +181,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Информация об объекте

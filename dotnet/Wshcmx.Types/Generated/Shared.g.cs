@@ -30,13 +30,13 @@ namespace Wshcmx.Types
         /// Является пользователем интерфейса администратора
         /// </summary>
         [XmlElement("is_arm_admin")]
-        public bool IsArmAdmin { get; set; }
+        public bool? IsArmAdmin { get; set; }
 
         /// <summary>
         /// Временно запрещен доступ на портал
         /// </summary>
         [XmlElement("web_banned")]
-        public bool WebBanned { get; set; }
+        public bool? WebBanned { get; set; }
 
         /// <summary>
         /// Группа по умолчанию
@@ -48,13 +48,13 @@ namespace Wshcmx.Types
         /// Является редактором контента
         /// </summary>
         [XmlElement("is_content_admin")]
-        public bool IsContentAdmin { get; set; }
+        public bool? IsContentAdmin { get; set; }
 
         /// <summary>
         /// Является пользователем приложений
         /// </summary>
         [XmlElement("is_application_admin")]
-        public bool IsApplicationAdmin { get; set; }
+        public bool? IsApplicationAdmin { get; set; }
     }
 
     public class AccessBlockBaseStructure
@@ -270,7 +270,7 @@ namespace Wshcmx.Types
         /// Включен
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         [XmlElement("applications")]
         public List<AccessRoleBaseFuncBlockApplication> Applications { get; set; } = new List<AccessRoleBaseFuncBlockApplication>();
@@ -294,7 +294,7 @@ namespace Wshcmx.Types
         /// Включен
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Уровень доступа
@@ -726,7 +726,7 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("disp_web_client")]
-        public bool DispWebClient { get; set; }
+        public bool? DispWebClient { get; set; }
 
         [XmlElement("reports")]
         public List<BlockReportsBaseBlockReportReportReport> Reports { get; set; } = new List<BlockReportsBaseBlockReportReportReport>();
@@ -741,7 +741,7 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("disp_web_client")]
-        public bool DispWebClient { get; set; }
+        public bool? DispWebClient { get; set; }
     }
 
     public class BmMessage
@@ -777,7 +777,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         [XmlElement("id")]
         public string? Id { get; set; }
@@ -792,13 +792,13 @@ namespace Wshcmx.Types
         /// Есть новая реакция
         /// </summary>
         [XmlElement("new_reaction")]
-        public bool NewReaction { get; set; }
+        public bool? NewReaction { get; set; }
 
         /// <summary>
         /// Сообщение прочитано
         /// </summary>
         [XmlElement("read")]
-        public bool Read { get; set; }
+        public bool? Read { get; set; }
 
         /// <summary>
         /// Тип
@@ -852,7 +852,7 @@ namespace Wshcmx.Types
         /// Настройки сообщения неактивны
         /// </summary>
         [XmlElement("disabled_data")]
-        public bool DisabledData { get; set; }
+        public bool? DisabledData { get; set; }
 
         /// <summary>
         /// Настройки сообщения
@@ -978,7 +978,7 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("all")]
-        public bool All { get; set; }
+        public bool? All { get; set; }
 
         [XmlElement("objects")]
         public List<CatalogListBaseCatalogObject> Objects { get; set; } = new List<CatalogListBaseCatalogObject>();
@@ -1038,19 +1038,19 @@ namespace Wshcmx.Types
         public string Datatype { get; set; }
 
         [XmlElement("flag_formula")]
-        public bool FlagFormula { get; set; }
+        public bool? FlagFormula { get; set; }
 
         [XmlElement("flag_formula_post_process")]
-        public bool FlagFormulaPostProcess { get; set; }
+        public bool? FlagFormulaPostProcess { get; set; }
 
         [XmlElement("flag_color")]
-        public bool FlagColor { get; set; }
+        public bool? FlagColor { get; set; }
 
         [XmlElement("flag_visible")]
-        public bool FlagVisible { get; set; }
+        public bool? FlagVisible { get; set; }
 
         [XmlElement("flag_lng")]
-        public bool FlagLng { get; set; }
+        public bool? FlagLng { get; set; }
 
         [XmlElement("c_conditions")]
         public List<ColumnBaseColumnCCondition> CConditions { get; set; } = new List<ColumnBaseColumnCCondition>();
@@ -1143,7 +1143,7 @@ namespace Wshcmx.Types
         public string? Desc { get; set; }
 
         [XmlElement("comment_require")]
-        public bool CommentRequire { get; set; }
+        public bool? CommentRequire { get; set; }
     }
 
     public class ConditionBase
@@ -1212,7 +1212,7 @@ namespace Wshcmx.Types
         public string? DescStr { get; set; }
 
         [XmlElement("has_error")]
-        public bool HasError { get; set; }
+        public bool? HasError { get; set; }
 
         [XmlElement("warning_str")]
         public string? WarningStr { get; set; }
@@ -1221,7 +1221,7 @@ namespace Wshcmx.Types
         public string? ErrorStr { get; set; }
 
         [XmlElement("is_false")]
-        public bool IsFalse { get; set; }
+        public bool? IsFalse { get; set; }
     }
 
     public class CoreLessonBaseDataLesson
@@ -1386,43 +1386,43 @@ namespace Wshcmx.Types
         /// Открывать автоматически, если в курсе один модуль
         /// </summary>
         [XmlElement("open_single_module")]
-        public bool OpenSingleModule { get; set; }
+        public bool? OpenSingleModule { get; set; }
 
         /// <summary>
         /// Открывать автоматически первый модуль при первом входе
         /// </summary>
         [XmlElement("open_first_module")]
-        public bool OpenFirstModule { get; set; }
+        public bool? OpenFirstModule { get; set; }
 
         /// <summary>
         /// Открывать автоматически последний посещенный модуль при продолжении обучения
         /// </summary>
         [XmlElement("open_last_visited")]
-        public bool OpenLastVisited { get; set; }
+        public bool? OpenLastVisited { get; set; }
 
         /// <summary>
         /// Если последний посещенный модуль уже завершен, открыть автоматически следующий по порядку
         /// </summary>
         [XmlElement("open_next_after_completed")]
-        public bool OpenNextAfterCompleted { get; set; }
+        public bool? OpenNextAfterCompleted { get; set; }
 
         /// <summary>
         /// Не показывать сообщения, информирующие об изменении статуса прохождения
         /// </summary>
         [XmlElement("no_display_status_msg")]
-        public bool NoDisplayStatusMsg { get; set; }
+        public bool? NoDisplayStatusMsg { get; set; }
 
         /// <summary>
         /// Разрешить пользователю завершать курс
         /// </summary>
         [XmlElement("enable_user_completion")]
-        public bool EnableUserCompletion { get; set; }
+        public bool? EnableUserCompletion { get; set; }
 
         /// <summary>
         /// Показывать сообщение при выполнении условий завершения
         /// </summary>
         [XmlElement("display_completion_msg")]
-        public bool DisplayCompletionMsg { get; set; }
+        public bool? DisplayCompletionMsg { get; set; }
 
         /// <summary>
         /// Сообщение при выполнении условий завершения
@@ -1434,7 +1434,7 @@ namespace Wshcmx.Types
         /// Разрешить проверки компонентов
         /// </summary>
         [XmlElement("allow_checks")]
-        public bool AllowChecks { get; set; }
+        public bool? AllowChecks { get; set; }
 
         /// <summary>
         /// Действие, если отсутствуют требуемые компоненты
@@ -1491,22 +1491,22 @@ namespace Wshcmx.Types
         public string AndOr { get; set; }
 
         [XmlElement("is_custom_field")]
-        public bool IsCustomField { get; set; }
+        public bool? IsCustomField { get; set; }
 
         [XmlElement("catalog_chains")]
         public List<CriterionBaseCriterionCatalogChain> CatalogChains { get; set; } = new List<CriterionBaseCriterionCatalogChain>();
 
         [XmlElement("flag_value_filter")]
-        public bool FlagValueFilter { get; set; }
+        public bool? FlagValueFilter { get; set; }
 
         [XmlElement("flag_is_parameter")]
-        public bool FlagIsParameter { get; set; }
+        public bool? FlagIsParameter { get; set; }
 
         [XmlElement("flag_hierarchy")]
         public long FlagHierarchy { get; set; }
 
         [XmlElement("flag_active")]
-        public bool FlagActive { get; set; }
+        public bool? FlagActive { get; set; }
 
         [XmlElement("open_bracket")]
         public string? OpenBracket { get; set; }
@@ -1584,7 +1584,7 @@ namespace Wshcmx.Types
         public List<ColumnBaseColumn> Columns { get; set; } = new List<ColumnBaseColumn>();
 
         [XmlElement("disp_legend")]
-        public bool DispLegend { get; set; }
+        public bool? DispLegend { get; set; }
 
         [XmlElement("chart_id")]
         public string ChartId { get; set; }
@@ -1596,7 +1596,7 @@ namespace Wshcmx.Types
         public string PlotType { get; set; }
 
         [XmlElement("flag_open_graph_tun_section")]
-        public bool FlagOpenGraphTunSection { get; set; }
+        public bool? FlagOpenGraphTunSection { get; set; }
 
         [XmlElement("object_name_type")]
         public string ObjectNameType { get; set; }
@@ -1605,19 +1605,19 @@ namespace Wshcmx.Types
         public string? ObjectName { get; set; }
 
         [XmlElement("flag_open_param_tun_section")]
-        public bool FlagOpenParamTunSection { get; set; }
+        public bool? FlagOpenParamTunSection { get; set; }
 
         [XmlElement("flag_custom_x")]
-        public bool FlagCustomX { get; set; }
+        public bool? FlagCustomX { get; set; }
 
         [XmlElement("custom_x")]
         public string? CustomX { get; set; }
 
         [XmlElement("show_table")]
-        public bool ShowTable { get; set; }
+        public bool? ShowTable { get; set; }
 
         [XmlElement("show_chart")]
-        public bool ShowChart { get; set; }
+        public bool? ShowChart { get; set; }
 
         [XmlElement("view_temp")]
         public CustomReportBaseViewTemp? ViewTemp { get; set; }
@@ -1644,19 +1644,19 @@ namespace Wshcmx.Types
         public CustomReportBaseSort? Sort { get; set; }
 
         [XmlElement("categorize")]
-        public bool Categorize { get; set; }
+        public bool? Categorize { get; set; }
 
         [XmlElement("categorize_view")]
         public string CategorizeView { get; set; }
 
         [XmlElement("categorize_hide_details")]
-        public bool CategorizeHideDetails { get; set; }
+        public bool? CategorizeHideDetails { get; set; }
 
         [XmlElement("aggregations")]
         public List<CustomReportBaseAggregation> Aggregations { get; set; } = new List<CustomReportBaseAggregation>();
 
         [XmlElement("show_total")]
-        public bool ShowTotal { get; set; }
+        public bool? ShowTotal { get; set; }
 
         [XmlElement("integrated_criterion_field")]
         public string? IntegratedCriterionField { get; set; }
@@ -1704,7 +1704,7 @@ namespace Wshcmx.Types
         public long? ColIndex { get; set; }
 
         [XmlElement("asc")]
-        public bool Asc { get; set; }
+        public bool? Asc { get; set; }
     }
 
     public class CustomReportBaseViewTemp
@@ -1746,10 +1746,10 @@ namespace Wshcmx.Types
         public string? DescTempDir { get; set; }
 
         [XmlElement("desc_updated")]
-        public bool DescUpdated { get; set; }
+        public bool? DescUpdated { get; set; }
 
         [XmlElement("desc_show")]
-        public bool DescShow { get; set; }
+        public bool? DescShow { get; set; }
 
         [XmlElement("desc_field_name")]
         public string DescFieldName { get; set; }
@@ -2130,7 +2130,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("selected")]
-        public bool Selected { get; set; }
+        public bool? Selected { get; set; }
     }
 
     public class DownloadPackageLogBaseCustomTemplate
@@ -2145,7 +2145,7 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("selected")]
-        public bool Selected { get; set; }
+        public bool? Selected { get; set; }
     }
 
     public class DownloadPackageLogBaseDeletedObjects
@@ -2163,7 +2163,7 @@ namespace Wshcmx.Types
         public DateTime? DelDate { get; set; }
 
         [XmlElement("selected")]
-        public bool Selected { get; set; }
+        public bool? Selected { get; set; }
     }
 
     public class DownloadPackageLogBaseList
@@ -2175,7 +2175,7 @@ namespace Wshcmx.Types
         public long? Num { get; set; }
 
         [XmlElement("selected")]
-        public bool Selected { get; set; }
+        public bool? Selected { get; set; }
     }
 
     public class DownloadPackageLogBaseObject
@@ -2190,7 +2190,7 @@ namespace Wshcmx.Types
         public string? Type { get; set; }
 
         [XmlElement("selected")]
-        public bool Selected { get; set; }
+        public bool? Selected { get; set; }
 
         [XmlElement("id_exists_type")]
         public string IdExistsType { get; set; }
@@ -2610,22 +2610,22 @@ namespace Wshcmx.Types
         public string SendType { get; set; }
 
         [XmlElement("send_collaborators")]
-        public bool SendCollaborators { get; set; }
+        public bool? SendCollaborators { get; set; }
 
         [XmlElement("send_bosses")]
-        public bool SendBosses { get; set; }
+        public bool? SendBosses { get; set; }
 
         [XmlElement("send_lectors")]
-        public bool SendLectors { get; set; }
+        public bool? SendLectors { get; set; }
 
         [XmlElement("send_tutors")]
-        public bool SendTutors { get; set; }
+        public bool? SendTutors { get; set; }
 
         [XmlElement("send_event_preparations")]
-        public bool SendEventPreparations { get; set; }
+        public bool? SendEventPreparations { get; set; }
 
         [XmlElement("show_result_fields")]
-        public bool ShowResultFields { get; set; }
+        public bool? ShowResultFields { get; set; }
     }
 
     public class ExchangeListsBaseBenefit
@@ -2781,19 +2781,19 @@ namespace Wshcmx.Types
         /// Запретить доступ на портал
         /// </summary>
         [XmlElement("web_banned")]
-        public bool WebBanned { get; set; }
+        public bool? WebBanned { get; set; }
 
         /// <summary>
         /// Отправлять уведомление новым сотрудникам с логином и паролем
         /// </summary>
         [XmlElement("send_notification")]
-        public bool SendNotification { get; set; }
+        public bool? SendNotification { get; set; }
 
         /// <summary>
         /// Обновлять данные о сотруднике, если он уже существует в базе
         /// </summary>
         [XmlElement("update_data")]
-        public bool UpdateData { get; set; }
+        public bool? UpdateData { get; set; }
 
         /// <summary>
         /// Тип генерации пароля
@@ -2817,19 +2817,19 @@ namespace Wshcmx.Types
         /// Пропустить первую строку
         /// </summary>
         [XmlElement("miss_first_row")]
-        public bool MissFirstRow { get; set; }
+        public bool? MissFirstRow { get; set; }
 
         /// <summary>
         /// Выводить предупреждение о совпадении кода или логина, если они уж существуют в базе
         /// </summary>
         [XmlElement("show_warnings")]
-        public bool ShowWarnings { get; set; }
+        public bool? ShowWarnings { get; set; }
 
         /// <summary>
         /// Блокировать добавление или изменение записей, если обнаружено, что код или логин уже существуют в базе
         /// </summary>
         [XmlElement("block_import")]
-        public bool BlockImport { get; set; }
+        public bool? BlockImport { get; set; }
 
         /// <summary>
         /// Выбор организации
@@ -2928,7 +2928,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
     }
 
     public class ExecCodeBaseExecCode
@@ -3000,7 +3000,7 @@ namespace Wshcmx.Types
         public string? Value { get; set; }
 
         [XmlElement("is_modify")]
-        public bool IsModify { get; set; }
+        public bool? IsModify { get; set; }
 
         /// <summary>
         /// Позиция
@@ -3051,13 +3051,13 @@ namespace Wshcmx.Types
         public long? ValueInt { get; set; }
 
         [XmlElement("is_custom_field")]
-        public bool IsCustomField { get; set; }
+        public bool? IsCustomField { get; set; }
 
         [XmlElement("is_multiple")]
-        public bool IsMultiple { get; set; }
+        public bool? IsMultiple { get; set; }
 
         [XmlElement("is_array")]
-        public bool IsArray { get; set; }
+        public bool? IsArray { get; set; }
 
         [XmlElement("value_multiple")]
         public List<string> ValueMultiple { get; set; } = new List<string>();
@@ -3090,13 +3090,13 @@ namespace Wshcmx.Types
         public long? ValueInt { get; set; }
 
         [XmlElement("is_custom_field")]
-        public bool IsCustomField { get; set; }
+        public bool? IsCustomField { get; set; }
 
         [XmlElement("is_multiple")]
-        public bool IsMultiple { get; set; }
+        public bool? IsMultiple { get; set; }
 
         [XmlElement("is_array")]
-        public bool IsArray { get; set; }
+        public bool? IsArray { get; set; }
 
         [XmlElement("value_multiple")]
         public List<string> ValueMultiple { get; set; } = new List<string>();
@@ -3129,13 +3129,13 @@ namespace Wshcmx.Types
         public long? ValueInt { get; set; }
 
         [XmlElement("is_custom_field")]
-        public bool IsCustomField { get; set; }
+        public bool? IsCustomField { get; set; }
 
         [XmlElement("is_multiple")]
-        public bool IsMultiple { get; set; }
+        public bool? IsMultiple { get; set; }
 
         [XmlElement("is_array")]
-        public bool IsArray { get; set; }
+        public bool? IsArray { get; set; }
 
         [XmlElement("value_multiple")]
         public List<string> ValueMultiple { get; set; } = new List<string>();
@@ -3259,7 +3259,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -3292,7 +3292,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -3340,7 +3340,7 @@ namespace Wshcmx.Types
         public bool? UsePersonalChatGlobalPolicy { get; set; }
 
         [XmlElement("personal_chat_confirmation_required")]
-        public bool PersonalChatConfirmationRequired { get; set; }
+        public bool? PersonalChatConfirmationRequired { get; set; }
 
         [XmlElement("max_message_in_block_count")]
         public long MaxMessageInBlockCount { get; set; }
@@ -3349,7 +3349,7 @@ namespace Wshcmx.Types
         /// Расширенное логирование разговоров
         /// </summary>
         [XmlElement("conversation_debug")]
-        public bool ConversationDebug { get; set; }
+        public bool? ConversationDebug { get; set; }
 
         /// <summary>
         /// Тип отображения сотрудников для участников разговора
@@ -3358,10 +3358,10 @@ namespace Wshcmx.Types
         public string? ConversationVisibleTypeId { get; set; }
 
         [XmlElement("use_queue_in_chat")]
-        public bool UseQueueInChat { get; set; }
+        public bool? UseQueueInChat { get; set; }
 
         [XmlElement("use_mobile_chat")]
-        public bool UseMobileChat { get; set; }
+        public bool? UseMobileChat { get; set; }
 
         /// <summary>
         /// Тип разговора по умолчанию
@@ -3376,13 +3376,13 @@ namespace Wshcmx.Types
         public string? AuthSiteAccessFailedEval { get; set; }
 
         [XmlElement("login_case_sensitive")]
-        public bool LoginCaseSensitive { get; set; }
+        public bool? LoginCaseSensitive { get; set; }
 
         [XmlElement("login_domen_sensitive")]
-        public bool LoginDomenSensitive { get; set; }
+        public bool? LoginDomenSensitive { get; set; }
 
         [XmlElement("use_auth_session")]
-        public bool UseAuthSession { get; set; }
+        public bool? UseAuthSession { get; set; }
 
         [XmlElement("auth_session_life_time")]
         public long AuthSessionLifeTime { get; set; }
@@ -3391,7 +3391,7 @@ namespace Wshcmx.Types
         public string TemplateCacheType { get; set; }
 
         [XmlElement("use_web_rules")]
-        public bool UseWebRules { get; set; }
+        public bool? UseWebRules { get; set; }
 
         [XmlElement("web_rules")]
         public GlobalSettingsBaseWebRules? WebRules { get; set; }
@@ -3400,19 +3400,19 @@ namespace Wshcmx.Types
         public long DefaultFileSourceId { get; set; }
 
         [XmlElement("search_in_trash")]
-        public bool SearchInTrash { get; set; }
+        public bool? SearchInTrash { get; set; }
 
         [XmlElement("check_sid")]
-        public bool CheckSid { get; set; }
+        public bool? CheckSid { get; set; }
 
         [XmlElement("disp_wellcome_screen")]
-        public bool DispWellcomeScreen { get; set; }
+        public bool? DispWellcomeScreen { get; set; }
 
         [XmlElement("disp_anonymous_polls")]
-        public bool DispAnonymousPolls { get; set; }
+        public bool? DispAnonymousPolls { get; set; }
 
         [XmlElement("check_user_required_fields")]
-        public bool CheckUserRequiredFields { get; set; }
+        public bool? CheckUserRequiredFields { get; set; }
 
         [XmlElement("required_fields")]
         public List<GlobalSettingsBaseRequiredField> RequiredFields { get; set; } = new List<GlobalSettingsBaseRequiredField>();
@@ -3430,19 +3430,19 @@ namespace Wshcmx.Types
         public long? DefaultContactResultId { get; set; }
 
         [XmlElement("allow_self_register")]
-        public bool AllowSelfRegister { get; set; }
+        public bool? AllowSelfRegister { get; set; }
 
         [XmlElement("self_register_group_id")]
         public long? SelfRegisterGroupId { get; set; }
 
         [XmlElement("web_banned_self_register")]
-        public bool WebBannedSelfRegister { get; set; }
+        public bool? WebBannedSelfRegister { get; set; }
 
         [XmlElement("self_register_disp_custom_elems")]
-        public bool SelfRegisterDispCustomElems { get; set; }
+        public bool? SelfRegisterDispCustomElems { get; set; }
 
         [XmlElement("self_register_disp_subs")]
-        public bool SelfRegisterDispSubs { get; set; }
+        public bool? SelfRegisterDispSubs { get; set; }
 
         [XmlElement("self_register_org_id")]
         public long? SelfRegisterOrgId { get; set; }
@@ -3454,25 +3454,25 @@ namespace Wshcmx.Types
         public string? SelfRegisterPositionName { get; set; }
 
         [XmlElement("self_register_use_position_commons")]
-        public bool SelfRegisterUsePositionCommons { get; set; }
+        public bool? SelfRegisterUsePositionCommons { get; set; }
 
         [XmlElement("eval_post_registration_script")]
-        public bool EvalPostRegistrationScript { get; set; }
+        public bool? EvalPostRegistrationScript { get; set; }
 
         [XmlElement("post_registration_script")]
         public string? PostRegistrationScript { get; set; }
 
         [XmlElement("eval_prev_registration_script")]
-        public bool EvalPrevRegistrationScript { get; set; }
+        public bool? EvalPrevRegistrationScript { get; set; }
 
         [XmlElement("prev_registration_script")]
         public string? PrevRegistrationScript { get; set; }
 
         [XmlElement("script_create_login")]
-        public bool ScriptCreateLogin { get; set; }
+        public bool? ScriptCreateLogin { get; set; }
 
         [XmlElement("script_create_password")]
-        public bool ScriptCreatePassword { get; set; }
+        public bool? ScriptCreatePassword { get; set; }
 
         [XmlElement("vclass_hosts")]
         public GlobalSettingsBaseVclassHosts? VclassHosts { get; set; }
@@ -3481,10 +3481,10 @@ namespace Wshcmx.Types
         public GlobalSettingsBaseLibrary? Library { get; set; }
 
         [XmlElement("save_exchange_data_files")]
-        public bool SaveExchangeDataFiles { get; set; }
+        public bool? SaveExchangeDataFiles { get; set; }
 
         [XmlElement("auto_exchange_data")]
-        public bool AutoExchangeData { get; set; }
+        public bool? AutoExchangeData { get; set; }
 
         [XmlElement("exchange_period")]
         public long ExchangePeriod { get; set; }
@@ -3496,31 +3496,31 @@ namespace Wshcmx.Types
         public string PasswordFormat { get; set; }
 
         [XmlElement("password_auto_rebuild")]
-        public bool PasswordAutoRebuild { get; set; }
+        public bool? PasswordAutoRebuild { get; set; }
 
         [XmlElement("pass_validation_formula")]
         public string? PassValidationFormula { get; set; }
 
         [XmlElement("fill_path_subs")]
-        public bool FillPathSubs { get; set; }
+        public bool? FillPathSubs { get; set; }
 
         [XmlElement("check_access_on_lists")]
-        public bool CheckAccessOnLists { get; set; }
+        public bool? CheckAccessOnLists { get; set; }
 
         [XmlElement("save_deleted_in_trash")]
-        public bool SaveDeletedInTrash { get; set; }
+        public bool? SaveDeletedInTrash { get; set; }
 
         [XmlElement("fill_path_places")]
-        public bool FillPathPlaces { get; set; }
+        public bool? FillPathPlaces { get; set; }
 
         [XmlElement("show_creator_editor_name")]
-        public bool ShowCreatorEditorName { get; set; }
+        public bool? ShowCreatorEditorName { get; set; }
 
         [XmlElement("show_creator_in_reports")]
-        public bool ShowCreatorInReports { get; set; }
+        public bool? ShowCreatorInReports { get; set; }
 
         [XmlElement("save_person_change_log")]
-        public bool SavePersonChangeLog { get; set; }
+        public bool? SavePersonChangeLog { get; set; }
 
         [XmlElement("script_evaluation_cutoff")]
         public long? ScriptEvaluationCutoff { get; set; }
@@ -3544,13 +3544,13 @@ namespace Wshcmx.Types
         public long? TimezoneId { get; set; }
 
         [XmlElement("auto_select_status_edu_plan")]
-        public bool AutoSelectStatusEduPlan { get; set; }
+        public bool? AutoSelectStatusEduPlan { get; set; }
 
         [XmlElement("soft_kill_before_regenerate")]
-        public bool SoftKillBeforeRegenerate { get; set; }
+        public bool? SoftKillBeforeRegenerate { get; set; }
 
         [XmlElement("check_wf_access_assessment")]
-        public bool CheckWfAccessAssessment { get; set; }
+        public bool? CheckWfAccessAssessment { get; set; }
 
         [XmlElement("own_org")]
         public GlobalSettingsBaseOwnOrg? OwnOrg { get; set; }
@@ -3565,58 +3565,58 @@ namespace Wshcmx.Types
         public GlobalSettingsBaseRecruitment? Recruitment { get; set; }
 
         [XmlElement("delete_unused_resource")]
-        public bool DeleteUnusedResource { get; set; }
+        public bool? DeleteUnusedResource { get; set; }
 
         [XmlElement("admin_not_auth")]
-        public bool AdminNotAuth { get; set; }
+        public bool? AdminNotAuth { get; set; }
 
         [XmlElement("default_event_result_type_id")]
         public long? DefaultEventResultTypeId { get; set; }
 
         [XmlElement("disp_log_web_request")]
-        public bool DispLogWebRequest { get; set; }
+        public bool? DispLogWebRequest { get; set; }
 
         [XmlElement("log_web_request_rec_unloged")]
-        public bool LogWebRequestRecUnloged { get; set; }
+        public bool? LogWebRequestRecUnloged { get; set; }
 
         [XmlElement("web_request_logging_str")]
         public string? WebRequestLoggingStr { get; set; }
 
         [XmlElement("disp_log_debug")]
-        public bool DispLogDebug { get; set; }
+        public bool? DispLogDebug { get; set; }
 
         [XmlElement("disp_log_mail_trans")]
-        public bool DispLogMailTrans { get; set; }
+        public bool? DispLogMailTrans { get; set; }
 
         [XmlElement("tracing")]
-        public bool Tracing { get; set; }
+        public bool? Tracing { get; set; }
 
         [XmlElement("tracing_timeout")]
         public long? TracingTimeout { get; set; }
 
         [XmlElement("log_embedding_detail")]
-        public bool LogEmbeddingDetail { get; set; }
+        public bool? LogEmbeddingDetail { get; set; }
 
         [XmlElement("export_odbc_commant_timeout")]
         public long ExportOdbcCommantTimeout { get; set; }
 
         [XmlElement("not_use_doc_contains")]
-        public bool NotUseDocContains { get; set; }
+        public bool? NotUseDocContains { get; set; }
 
         [XmlElement("not_use_doc_contains_str_begins")]
-        public bool NotUseDocContainsStrBegins { get; set; }
+        public bool? NotUseDocContainsStrBegins { get; set; }
 
         [XmlElement("email_empty_create_notification")]
-        public bool EmailEmptyCreateNotification { get; set; }
+        public bool? EmailEmptyCreateNotification { get; set; }
 
         [XmlElement("show_all_persons")]
-        public bool ShowAllPersons { get; set; }
+        public bool? ShowAllPersons { get; set; }
 
         [XmlElement("websoft_plugin_server")]
         public GlobalSettingsBaseWebsoftPluginServer? WebsoftPluginServer { get; set; }
 
         [XmlElement("disp_social_block")]
-        public bool DispSocialBlock { get; set; }
+        public bool? DispSocialBlock { get; set; }
 
         [XmlElement("social_avatar_priority")]
         public string? SocialAvatarPriority { get; set; }
@@ -3646,7 +3646,7 @@ namespace Wshcmx.Types
         public string DigitalSignatureControl { get; set; }
 
         [XmlElement("use_time_stamp_server")]
-        public bool UseTimeStampServer { get; set; }
+        public bool? UseTimeStampServer { get; set; }
 
         [XmlElement("time_stamp_server_address")]
         public string TimeStampServerAddress { get; set; }
@@ -3664,13 +3664,13 @@ namespace Wshcmx.Types
         public GlobalSettingsBaseOutstaff? Outstaff { get; set; }
 
         [XmlElement("send_learning_additional_info")]
-        public bool SendLearningAdditionalInfo { get; set; }
+        public bool? SendLearningAdditionalInfo { get; set; }
 
         [XmlElement("set_st_category")]
-        public bool SetStCategory { get; set; }
+        public bool? SetStCategory { get; set; }
 
         [XmlElement("use_queue_learnings")]
-        public bool UseQueueLearnings { get; set; }
+        public bool? UseQueueLearnings { get; set; }
 
         [XmlElement("project")]
         public GlobalSettingsBaseProject? Project { get; set; }
@@ -3706,16 +3706,16 @@ namespace Wshcmx.Types
         public string? DesignVscodeAccess { get; set; }
 
         [XmlElement("single_learning_session")]
-        public bool SingleLearningSession { get; set; }
+        public bool? SingleLearningSession { get; set; }
 
         [XmlElement("course_access_on_education_plan")]
-        public bool CourseAccessOnEducationPlan { get; set; }
+        public bool? CourseAccessOnEducationPlan { get; set; }
 
         [XmlElement("unique_id_slot")]
         public long? UniqueIdSlot { get; set; }
 
         [XmlElement("use_ws_idm")]
-        public bool UseWsIdm { get; set; }
+        public bool? UseWsIdm { get; set; }
     }
 
     public class GlobalSettingsBaseCalendar
@@ -3742,13 +3742,13 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseExternalWebPlayers
     {
         [XmlElement("ext_x_lite_grid")]
-        public bool ExtXLiteGrid { get; set; }
+        public bool? ExtXLiteGrid { get; set; }
 
         [XmlElement("ext_hardcore_source")]
-        public bool ExtHardcoreSource { get; set; }
+        public bool? ExtHardcoreSource { get; set; }
 
         [XmlElement("openurl_eq_openwindow")]
-        public bool OpenurlEqOpenwindow { get; set; }
+        public bool? OpenurlEqOpenwindow { get; set; }
     }
 
     public class GlobalSettingsBaseKnowlcntrl
@@ -3790,13 +3790,13 @@ namespace Wshcmx.Types
         public long Type { get; set; }
 
         [XmlElement("enabled")]
-        public bool Enabled { get; set; }
+        public bool? Enabled { get; set; }
     }
 
     public class GlobalSettingsBaseLibraryOptions
     {
         [XmlElement("ignore_before_first")]
-        public bool IgnoreBeforeFirst { get; set; }
+        public bool? IgnoreBeforeFirst { get; set; }
     }
 
     public class GlobalSettingsBaseLng
@@ -3826,16 +3826,16 @@ namespace Wshcmx.Types
         public long? DaysCredentialsUpdate { get; set; }
 
         [XmlElement("use_favorites")]
-        public bool UseFavorites { get; set; }
+        public bool? UseFavorites { get; set; }
 
         [XmlElement("use_search")]
-        public bool UseSearch { get; set; }
+        public bool? UseSearch { get; set; }
 
         [XmlElement("confirmation")]
         public string? Confirmation { get; set; }
 
         [XmlElement("use_update_stamp")]
-        public bool UseUpdateStamp { get; set; }
+        public bool? UseUpdateStamp { get; set; }
     }
 
     public class GlobalSettingsBaseOutstaff
@@ -3883,7 +3883,7 @@ namespace Wshcmx.Types
         public string? SmtpServer { get; set; }
 
         [XmlElement("use_smtp_authenticate")]
-        public bool UseSmtpAuthenticate { get; set; }
+        public bool? UseSmtpAuthenticate { get; set; }
 
         [XmlElement("smtp_login")]
         public string? SmtpLogin { get; set; }
@@ -3940,7 +3940,7 @@ namespace Wshcmx.Types
         public string? PictUrl { get; set; }
 
         [XmlElement("is_base")]
-        public bool IsBase { get; set; }
+        public bool? IsBase { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -3964,10 +3964,10 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseProjectOptions
     {
         [XmlElement("use_custom_project_status")]
-        public bool UseCustomProjectStatus { get; set; }
+        public bool? UseCustomProjectStatus { get; set; }
 
         [XmlElement("use_custom_project_icon")]
-        public bool UseCustomProjectIcon { get; set; }
+        public bool? UseCustomProjectIcon { get; set; }
     }
 
     public class GlobalSettingsBaseProjectProjectStatusType
@@ -4003,10 +4003,10 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseProjectTaskOptions
     {
         [XmlElement("use_custom_project_task_status")]
-        public bool UseCustomProjectTaskStatus { get; set; }
+        public bool? UseCustomProjectTaskStatus { get; set; }
 
         [XmlElement("use_custom_project_task_icon")]
-        public bool UseCustomProjectTaskIcon { get; set; }
+        public bool? UseCustomProjectTaskIcon { get; set; }
     }
 
     public class GlobalSettingsBaseProjectTaskProjectTaskStatusType
@@ -4054,10 +4054,10 @@ namespace Wshcmx.Types
         public string? Title { get; set; }
 
         [XmlElement("is_web_edit")]
-        public bool IsWebEdit { get; set; }
+        public bool? IsWebEdit { get; set; }
 
         [XmlElement("is_required")]
-        public bool IsRequired { get; set; }
+        public bool? IsRequired { get; set; }
 
         [XmlElement("is_custom")]
         public bool? IsCustom { get; set; }
@@ -4066,7 +4066,7 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseScriptQueues
     {
         [XmlElement("enable_queues")]
-        public bool EnableQueues { get; set; }
+        public bool? EnableQueues { get; set; }
 
         [XmlElement("running_period")]
         public long RunningPeriod { get; set; }
@@ -4078,7 +4078,7 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseStatistics
     {
         [XmlElement("calculate_statistics")]
-        public bool CalculateStatistics { get; set; }
+        public bool? CalculateStatistics { get; set; }
 
         [XmlElement("calculation_period")]
         public long CalculationPeriod { get; set; }
@@ -4102,10 +4102,10 @@ namespace Wshcmx.Types
     public class GlobalSettingsBaseWebApiSettings
     {
         [XmlElement("use_api")]
-        public bool UseApi { get; set; }
+        public bool? UseApi { get; set; }
 
         [XmlElement("use_cache")]
-        public bool UseCache { get; set; }
+        public bool? UseCache { get; set; }
 
         [XmlElement("access_person_id")]
         public long? AccessPersonId { get; set; }
@@ -4141,7 +4141,7 @@ namespace Wshcmx.Types
         public string? ZipFileUrl { get; set; }
 
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
     }
 
     public class GlobalSettingsBaseWebRules
@@ -4228,7 +4228,7 @@ namespace Wshcmx.Types
         public string? EvalStr { get; set; }
 
         [XmlElement("is_key")]
-        public bool IsKey { get; set; }
+        public bool? IsKey { get; set; }
     }
 
     public class InsertFileBase
@@ -4309,7 +4309,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
     }
 
     public class KnowledgePartsFieldsBaseKnowledgePart
@@ -4378,7 +4378,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
     }
 
     public class KnowledgePartsKpBaseTag
@@ -4399,7 +4399,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
     }
 
     public class LastAttemptTestLearningsBaseTestLearning
@@ -4444,10 +4444,10 @@ namespace Wshcmx.Types
         public long? LearningPartId { get; set; }
 
         [XmlElement("core_lesson_changed")]
-        public bool CoreLessonChanged { get; set; }
+        public bool? CoreLessonChanged { get; set; }
 
         [XmlElement("core_lesson_filled")]
-        public bool CoreLessonFilled { get; set; }
+        public bool? CoreLessonFilled { get; set; }
 
         /// <summary>
         /// Данные курса
@@ -4510,13 +4510,13 @@ namespace Wshcmx.Types
         public DateTime? QtiDate { get; set; }
 
         [XmlElement("expert_eval")]
-        public bool ExpertEval { get; set; }
+        public bool? ExpertEval { get; set; }
 
         [XmlElement("expert_notif")]
-        public bool ExpertNotif { get; set; }
+        public bool? ExpertNotif { get; set; }
 
         [XmlElement("adaptive_eval")]
-        public bool AdaptiveEval { get; set; }
+        public bool? AdaptiveEval { get; set; }
 
         /// <summary>
         /// Назначен самостоятельно
@@ -4711,16 +4711,16 @@ namespace Wshcmx.Types
     public class LocalSettingsBase
     {
         [XmlElement("check_version_update")]
-        public bool CheckVersionUpdate { get; set; }
+        public bool? CheckVersionUpdate { get; set; }
 
         [XmlElement("disp_all_access_blocks")]
-        public bool DispAllAccessBlocks { get; set; }
+        public bool? DispAllAccessBlocks { get; set; }
 
         [XmlElement("use_dotnet_zip")]
-        public bool UseDotnetZip { get; set; }
+        public bool? UseDotnetZip { get; set; }
 
         [XmlElement("disp_main_access_blocks")]
-        public bool DispMainAccessBlocks { get; set; }
+        public bool? DispMainAccessBlocks { get; set; }
     }
 
     public class MsCodeLibraryConditionBaseMethodParam
@@ -4735,7 +4735,7 @@ namespace Wshcmx.Types
         /// Подстановка
         /// </summary>
         [XmlElement("eval_code")]
-        public bool EvalCode { get; set; }
+        public bool? EvalCode { get; set; }
     }
 
     public class MsConfirmationBaseConfirmationAssessment
@@ -4825,7 +4825,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("is_mandatory")]
-        public bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         /// <summary>
         /// Значение
@@ -4984,7 +4984,7 @@ namespace Wshcmx.Types
         public string? CatalogName { get; set; }
 
         [XmlElement("is_hier")]
-        public bool IsHier { get; set; }
+        public bool? IsHier { get; set; }
 
         [XmlElement("scheme_id")]
         public string? SchemeId { get; set; }
@@ -4996,7 +4996,7 @@ namespace Wshcmx.Types
         public object? ViewTypeEnv { get; set; }
 
         [XmlElement("is_parametric")]
-        public bool IsParametric { get; set; }
+        public bool? IsParametric { get; set; }
 
         [XmlElement("category_field")]
         public string? CategoryField { get; set; }
@@ -5440,16 +5440,16 @@ namespace Wshcmx.Types
         public string? ObjectCatalog { get; set; }
 
         [XmlElement("all_can_create")]
-        public bool AllCanCreate { get; set; }
+        public bool? AllCanCreate { get; set; }
 
         [XmlElement("amount")]
         public long? Amount { get; set; }
 
         [XmlElement("all_can_edit")]
-        public bool AllCanEdit { get; set; }
+        public bool? AllCanEdit { get; set; }
 
         [XmlElement("all_can_delete")]
-        public bool AllCanDelete { get; set; }
+        public bool? AllCanDelete { get; set; }
 
         [XmlElement("objects")]
         public List<PersonObjectLinksBasePersonObjectLinkObject> Objects { get; set; } = new List<PersonObjectLinksBasePersonObjectLinkObject>();
@@ -5464,10 +5464,10 @@ namespace Wshcmx.Types
         public string? ObjectName { get; set; }
 
         [XmlElement("can_edit")]
-        public bool CanEdit { get; set; }
+        public bool? CanEdit { get; set; }
 
         [XmlElement("can_delete")]
-        public bool CanDelete { get; set; }
+        public bool? CanDelete { get; set; }
 
         [XmlElement("access_level")]
         public long? AccessLevel { get; set; }
@@ -5524,7 +5524,7 @@ namespace Wshcmx.Types
         /// Инверсия проверки
         /// </summary>
         [XmlElement("check_inversion")]
-        public bool CheckInversion { get; set; }
+        public bool? CheckInversion { get; set; }
 
         /// <summary>
         /// Проверяемый параметр
@@ -5536,7 +5536,7 @@ namespace Wshcmx.Types
         /// Перечень эталонов
         /// </summary>
         [XmlElement("template_is_collection")]
-        public bool TemplateIsCollection { get; set; }
+        public bool? TemplateIsCollection { get; set; }
 
         /// <summary>
         /// Тип эталона
@@ -5581,7 +5581,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class RequirementsBaseCompoundProgram
@@ -5596,7 +5596,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class RequirementsBaseCourse
@@ -5623,7 +5623,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class RequirementsBaseProfessionalArea
@@ -5644,7 +5644,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class RequirementsBaseRecomendedLibraryMaterial
@@ -5659,7 +5659,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class RequirementsBaseRequirement
@@ -5737,13 +5737,13 @@ namespace Wshcmx.Types
         /// "Центр аналитики": Поля значений
         /// </summary>
         [XmlElement("for_analytics")]
-        public bool ForAnalytics { get; set; }
+        public bool? ForAnalytics { get; set; }
 
         /// <summary>
         /// "Центр аналитики": Поля группировки
         /// </summary>
         [XmlElement("for_analytics_aggregation")]
-        public bool ForAnalyticsAggregation { get; set; }
+        public bool? ForAnalyticsAggregation { get; set; }
 
         /// <summary>
         /// "Центр аналитики": Тип группировки
@@ -5779,7 +5779,7 @@ namespace Wshcmx.Types
         /// Без сортировки
         /// </summary>
         [XmlElement("prohibit_sort")]
-        public bool ProhibitSort { get; set; }
+        public bool? ProhibitSort { get; set; }
 
         /// <summary>
         /// Поле для связи
@@ -5872,7 +5872,7 @@ namespace Wshcmx.Types
         public string? DefaultWebDesign { get; set; }
 
         [XmlElement("recovery_empty_lng_const")]
-        public bool RecoveryEmptyLngConst { get; set; }
+        public bool? RecoveryEmptyLngConst { get; set; }
     }
 
     public class SkillsBaseSkill
@@ -5896,34 +5896,34 @@ namespace Wshcmx.Types
     public class SocialObjectAccessBase
     {
         [XmlElement("view_like")]
-        public bool ViewLike { get; set; }
+        public bool? ViewLike { get; set; }
 
         [XmlElement("view_dislike")]
-        public bool ViewDislike { get; set; }
+        public bool? ViewDislike { get; set; }
 
         [XmlElement("view_follow")]
-        public bool ViewFollow { get; set; }
+        public bool? ViewFollow { get; set; }
 
         [XmlElement("allow_like")]
-        public bool AllowLike { get; set; }
+        public bool? AllowLike { get; set; }
 
         [XmlElement("allow_dislike")]
-        public bool AllowDislike { get; set; }
+        public bool? AllowDislike { get; set; }
 
         [XmlElement("allow_follow")]
-        public bool AllowFollow { get; set; }
+        public bool? AllowFollow { get; set; }
 
         [XmlElement("allow_share")]
-        public bool AllowShare { get; set; }
+        public bool? AllowShare { get; set; }
 
         [XmlElement("allow_comment")]
-        public bool AllowComment { get; set; }
+        public bool? AllowComment { get; set; }
 
         [XmlElement("allow_view_numbers")]
-        public bool AllowViewNumbers { get; set; }
+        public bool? AllowViewNumbers { get; set; }
 
         [XmlElement("allow_view_list")]
-        public bool AllowViewList { get; set; }
+        public bool? AllowViewList { get; set; }
 
         [XmlElement("like_weight")]
         public long LikeWeight { get; set; }
@@ -6049,7 +6049,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -6103,7 +6103,7 @@ namespace Wshcmx.Types
         public string? SortField { get; set; }
 
         [XmlElement("is_default")]
-        public bool IsDefault { get; set; }
+        public bool? IsDefault { get; set; }
 
         [XmlElement("category_field")]
         public string? CategoryField { get; set; }
@@ -6115,7 +6115,7 @@ namespace Wshcmx.Types
         public string? CatalogName { get; set; }
 
         [XmlElement("is_link")]
-        public bool IsLink { get; set; }
+        public bool? IsLink { get; set; }
 
         [XmlElement("tile_items")]
         public List<ViewColumnsBaseColumnTileItem> TileItems { get; set; } = new List<ViewColumnsBaseColumnTileItem>();
@@ -6136,7 +6136,7 @@ namespace Wshcmx.Types
         /// Без сортировки
         /// </summary>
         [XmlElement("prohibit_sort")]
-        public bool ProhibitSort { get; set; }
+        public bool? ProhibitSort { get; set; }
     }
 
     public class ViewColumnsBaseColumnTileItem
@@ -6382,13 +6382,13 @@ namespace Wshcmx.Types
         public string? Description { get; set; }
 
         [XmlElement("is_modify")]
-        public bool IsModify { get; set; }
+        public bool? IsModify { get; set; }
 
         /// <summary>
         /// Служебная (скрытая) переменная
         /// </summary>
         [XmlElement("silent")]
-        public bool Silent { get; set; }
+        public bool? Silent { get; set; }
 
         /// <summary>
         /// Позиция
@@ -6403,7 +6403,7 @@ namespace Wshcmx.Types
         /// Требует значения
         /// </summary>
         [XmlElement("required")]
-        public bool Required { get; set; }
+        public bool? Required { get; set; }
     }
 
     public class WebVariablesBaseWvarEntry
@@ -6562,7 +6562,7 @@ namespace Wshcmx.Types
         public string? FinishState { get; set; }
 
         [XmlElement("submited")]
-        public bool Submited { get; set; }
+        public bool? Submited { get; set; }
     }
 
     public class WorkflowElemOperationBase
@@ -6631,7 +6631,7 @@ namespace Wshcmx.Types
         public string? Value { get; set; }
 
         [XmlElement("is_major")]
-        public bool IsMajor { get; set; }
+        public bool? IsMajor { get; set; }
     }
 
     public class WorkflowFieldsStatesBaseState
@@ -6724,7 +6724,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
     }
 
     public class WsconKnowledgePartsFieldsBaseKnowledgePart
@@ -6793,7 +6793,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
     }
 
     public class ZonesBaseZone
@@ -6817,7 +6817,7 @@ namespace Wshcmx.Types
         public string? ParentZone { get; set; }
 
         [XmlElement("is_mandatory")]
-        public bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         [XmlElement("position")]
         public long Position { get; set; }

@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения эксперта
         /// </summary>
         [Column("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
 
         /// <summary>
         /// Эксперты

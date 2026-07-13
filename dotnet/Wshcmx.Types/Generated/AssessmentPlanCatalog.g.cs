@@ -128,7 +128,7 @@ namespace Wshcmx.Types
         /// Согласующие эксперты
         /// </summary>
         [Column("is_custom_experts")]
-        public bool IsCustomExperts { get; set; }
+        public bool? IsCustomExperts { get; set; }
 
         /// <summary>
         /// Подразделение
@@ -152,7 +152,7 @@ namespace Wshcmx.Types
         /// Признак завершенности
         /// </summary>
         [Column("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Тип оценки
@@ -212,7 +212,7 @@ namespace Wshcmx.Types
         /// Задействовался/не задействовался
         /// </summary>
         [Column("flag_is_processed")]
-        public bool FlagIsProcessed { get; set; }
+        public bool? FlagIsProcessed { get; set; }
 
         /// <summary>
         /// Сотрудник

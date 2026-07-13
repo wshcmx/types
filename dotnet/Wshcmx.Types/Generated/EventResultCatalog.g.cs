@@ -109,31 +109,31 @@ namespace Wshcmx.Types
         /// Признак присутствия
         /// </summary>
         [Column("is_assist")]
-        public bool IsAssist { get; set; }
+        public bool? IsAssist { get; set; }
 
         /// <summary>
         /// Признак подтверждения участия
         /// </summary>
         [Column("is_confirm")]
-        public bool IsConfirm { get; set; }
+        public bool? IsConfirm { get; set; }
 
         /// <summary>
         /// Доступ запрещен
         /// </summary>
         [Column("is_banned")]
-        public bool IsBanned { get; set; }
+        public bool? IsBanned { get; set; }
 
         /// <summary>
         /// Отказался от участия
         /// </summary>
         [Column("not_participate")]
-        public bool NotParticipate { get; set; }
+        public bool? NotParticipate { get; set; }
 
         /// <summary>
         /// Является открытым решением кейса
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Баллы
@@ -163,13 +163,13 @@ namespace Wshcmx.Types
         /// Признак: без оплаты
         /// </summary>
         [Column("not_pay")]
-        public bool NotPay { get; set; }
+        public bool? NotPay { get; set; }
 
         /// <summary>
         /// Используется гостевой вход
         /// </summary>
         [Column("guest")]
-        public bool Guest { get; set; }
+        public bool? Guest { get; set; }
 
         /// <summary>
         /// Сумма затрат

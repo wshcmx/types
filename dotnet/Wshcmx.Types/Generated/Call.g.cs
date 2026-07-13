@@ -169,19 +169,19 @@ namespace Wshcmx.Types
         /// Разрешить записывать
         /// </summary>
         [XmlElement("allow_write")]
-        public bool AllowWrite { get; set; }
+        public bool? AllowWrite { get; set; }
 
         /// <summary>
         /// Разрешить расшифровывать
         /// </summary>
         [XmlElement("allow_recognition")]
-        public bool AllowRecognition { get; set; }
+        public bool? AllowRecognition { get; set; }
 
         /// <summary>
         /// Разрешить автоматическое формирование резюме
         /// </summary>
         [XmlElement("allow_summary")]
-        public bool AllowSummary { get; set; }
+        public bool? AllowSummary { get; set; }
 
         /// <summary>
         /// Все входившие участники

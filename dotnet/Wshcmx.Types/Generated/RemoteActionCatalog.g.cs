@@ -55,13 +55,13 @@ namespace Wshcmx.Types
         /// Использовать в видах
         /// </summary>
         [Column("show_in_list")]
-        public bool ShowInList { get; set; }
+        public bool? ShowInList { get; set; }
 
         /// <summary>
         /// Использовать в карточке объекта
         /// </summary>
         [Column("show_in_form")]
-        public bool ShowInForm { get; set; }
+        public bool? ShowInForm { get; set; }
 
         /// <summary>
         /// Ссылка на шаблон
@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Категория

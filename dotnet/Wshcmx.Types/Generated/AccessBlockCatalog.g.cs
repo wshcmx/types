@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public string? FirstCatalogUrl { get; set; }
 
         [Column("disp")]
-        public bool Disp { get; set; }
+        public bool? Disp { get; set; }
 
         [Column("sys")]
         public bool? Sys { get; set; }
@@ -46,15 +46,15 @@ namespace Wshcmx.Types
         public AccessBlockBaseStructure? Structure { get; set; }
 
         [Column("never_saved")]
-        public bool NeverSaved { get; set; }
+        public bool? NeverSaved { get; set; }
 
         [Column("is_default")]
         public bool? IsDefault { get; set; }
 
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         [Column("is_license")]
-        public bool IsLicense { get; set; }
+        public bool? IsLicense { get; set; }
     }
 }

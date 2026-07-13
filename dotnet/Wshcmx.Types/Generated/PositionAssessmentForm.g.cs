@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Признак завершенности
         /// </summary>
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Процедура оценки

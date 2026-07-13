@@ -127,76 +127,76 @@ namespace Wshcmx.Types
         /// Возможна подписка
         /// </summary>
         [XmlElement("permit_subscription")]
-        public bool PermitSubscription { get; set; }
+        public bool? PermitSubscription { get; set; }
 
         /// <summary>
         /// Форум закрыт
         /// </summary>
         [XmlElement("closed")]
-        public bool Closed { get; set; }
+        public bool? Closed { get; set; }
 
         /// <summary>
         /// Разрешить оставлять анонимные сообщения
         /// </summary>
         [XmlElement("allow_anonymous_message")]
-        public bool AllowAnonymousMessage { get; set; }
+        public bool? AllowAnonymousMessage { get; set; }
 
         /// <summary>
         /// Разрешить создавать закрытие темы
         /// </summary>
         [XmlElement("allow_create_closed_theme")]
-        public bool AllowCreateClosedTheme { get; set; }
+        public bool? AllowCreateClosedTheme { get; set; }
 
         /// <summary>
         /// Разрешить пользователям удалять свои сообщения
         /// </summary>
         [XmlElement("allow_user_delete")]
-        public bool AllowUserDelete { get; set; }
+        public bool? AllowUserDelete { get; set; }
 
         /// <summary>
         /// Разрешить пользователям закреплять темы
         /// </summary>
         [XmlElement("allow_create_pinned_theme")]
-        public bool AllowCreatePinnedTheme { get; set; }
+        public bool? AllowCreatePinnedTheme { get; set; }
 
         /// <summary>
         /// Разрешить Rich-text редактирование
         /// </summary>
         [XmlElement("allow_rich_text_edit")]
-        public bool AllowRichTextEdit { get; set; }
+        public bool? AllowRichTextEdit { get; set; }
 
         /// <summary>
         /// Разрешить пользователям редактировать свои сообщения/темы
         /// </summary>
         [XmlElement("allow_edit")]
-        public bool AllowEdit { get; set; }
+        public bool? AllowEdit { get; set; }
 
         /// <summary>
         /// Отображать статусы пользователей
         /// </summary>
         [XmlElement("disp_user_status")]
-        public bool DispUserStatus { get; set; }
+        public bool? DispUserStatus { get; set; }
 
         /// <summary>
         /// Использовать в качестве аватара фотографию пользователя
         /// </summary>
         [XmlElement("disp_user_avatar")]
-        public bool DispUserAvatar { get; set; }
+        public bool? DispUserAvatar { get; set; }
 
         /// <summary>
         /// Отображать аватар
         /// </summary>
         [XmlElement("disp_foto")]
-        public bool DispFoto { get; set; }
+        public bool? DispFoto { get; set; }
 
         /// <summary>
         /// Каждому сообщению требуется подтверждение модератора
         /// </summary>
         [XmlElement("need_moder_approval")]
-        public bool NeedModerApproval { get; set; }
+        public bool? NeedModerApproval { get; set; }
 
         [XmlElement("can_attach_file")]
-        public bool CanAttachFile { get; set; }
+        public bool? CanAttachFile { get; set; }
 
         /// <summary>
         /// Электронный курс

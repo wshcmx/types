@@ -217,12 +217,12 @@ namespace Wshcmx.Types
         /// Является сотрудником
         /// </summary>
         [Column("is_collaborator")]
-        public bool IsCollaborator { get; set; }
+        public bool? IsCollaborator { get; set; }
 
         /// <summary>
         /// Является преподавателем
         /// </summary>
         [Column("is_tutor")]
-        public bool IsTutor { get; set; }
+        public bool? IsTutor { get; set; }
     }
 }

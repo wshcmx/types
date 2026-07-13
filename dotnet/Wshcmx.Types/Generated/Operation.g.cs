@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Является системной
         /// </summary>
         [XmlElement("is_system")]
-        public bool IsSystem { get; set; }
+        public bool? IsSystem { get; set; }
 
         /// <summary>
         /// Приоритет
@@ -142,13 +142,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Категория

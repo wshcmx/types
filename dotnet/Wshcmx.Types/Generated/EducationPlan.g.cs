@@ -184,13 +184,13 @@ namespace Wshcmx.Types
         /// Обновлять статусы и активности онлайн
         /// </summary>
         [XmlElement("update_status_and_activity")]
-        public bool UpdateStatusAndActivity { get; set; }
+        public bool? UpdateStatusAndActivity { get; set; }
 
         /// <summary>
         /// Строгий контроль дат начала обучения
         /// </summary>
         [XmlElement("strong_date_control")]
-        public bool StrongDateControl { get; set; }
+        public bool? StrongDateControl { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -418,7 +418,7 @@ namespace Wshcmx.Types
         /// Редактировать уведомление
         /// </summary>
         [XmlElement("edit_notification")]
-        public bool EditNotification { get; set; }
+        public bool? EditNotification { get; set; }
 
         /// <summary>
         /// Дней
@@ -547,7 +547,7 @@ namespace Wshcmx.Types
         /// Обязательный раздел
         /// </summary>
         [XmlElement("required")]
-        public bool Required { get; set; }
+        public bool? Required { get; set; }
 
         /// <summary>
         /// Доступ после завершения разделов
@@ -610,7 +610,7 @@ namespace Wshcmx.Types
         /// Редактировать уведомление
         /// </summary>
         [XmlElement("edit_notification")]
-        public bool EditNotification { get; set; }
+        public bool? EditNotification { get; set; }
     }
 
     public class EducationPlanDocumentProgramProgramResult
@@ -694,7 +694,7 @@ namespace Wshcmx.Types
         /// Редактировать уведомление
         /// </summary>
         [XmlElement("edit_notification")]
-        public bool EditNotification { get; set; }
+        public bool? EditNotification { get; set; }
     }
 
     public class EducationPlanDocumentProgramView

@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? CatalogName { get; set; }
 
         [Column("is_hier")]
-        public bool IsHier { get; set; }
+        public bool? IsHier { get; set; }
 
         [Column("scheme_id")]
         public string? SchemeId { get; set; }
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public object? ViewTypeEnv { get; set; }
 
         [Column("is_parametric")]
-        public bool IsParametric { get; set; }
+        public bool? IsParametric { get; set; }
 
         [Column("category_field")]
         public string? CategoryField { get; set; }

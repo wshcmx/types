@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Включен
         /// </summary>
         [Column("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Библиотека программного кода
@@ -115,19 +115,19 @@ namespace Wshcmx.Types
         /// Текущий пользователь
         /// </summary>
         [Column("is_cur_user")]
-        public bool IsCurUser { get; set; }
+        public bool? IsCurUser { get; set; }
 
         /// <summary>
         /// Типы объектов
         /// </summary>
         [Column("is_object_type")]
-        public bool IsObjectType { get; set; }
+        public bool? IsObjectType { get; set; }
 
         /// <summary>
         /// Кеширование данных
         /// </summary>
         [Column("use_cache")]
-        public bool UseCache { get; set; }
+        public bool? UseCache { get; set; }
 
         /// <summary>
         /// Длительность кеширования (мин)
@@ -151,12 +151,12 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
     }
 }

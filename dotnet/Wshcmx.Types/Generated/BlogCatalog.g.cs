@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Возможность подписки на блог
         /// </summary>
         [Column("permit_subscription")]
-        public bool PermitSubscription { get; set; }
+        public bool? PermitSubscription { get; set; }
 
         /// <summary>
         /// Возможность оставлять анонимные комментарии
         /// </summary>
         [Column("allow_anonymous_comment")]
-        public bool AllowAnonymousComment { get; set; }
+        public bool? AllowAnonymousComment { get; set; }
 
         /// <summary>
         /// Создатель блога

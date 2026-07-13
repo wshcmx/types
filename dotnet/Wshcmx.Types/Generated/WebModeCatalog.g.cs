@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// По умолчанию для портала
         /// </summary>
         [Column("is_default")]
-        public bool IsDefault { get; set; }
+        public bool? IsDefault { get; set; }
 
         /// <summary>
         /// По умолчанию для администратора
         /// </summary>
         [Column("is_default_admin")]
-        public bool IsDefaultAdmin { get; set; }
+        public bool? IsDefaultAdmin { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Дата модификации

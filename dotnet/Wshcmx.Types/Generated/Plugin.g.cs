@@ -88,7 +88,7 @@ namespace Wshcmx.Types
     public class PluginDocumentView
     {
         [XmlElement("is_edit_mode")]
-        public bool IsEditMode { get; set; }
+        public bool? IsEditMode { get; set; }
 
         [XmlElement("selector")]
         public string Selector { get; set; }

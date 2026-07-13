@@ -136,19 +136,19 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("status")]
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
         /// <summary>
         /// Является часто задаваемым вопросом
         /// </summary>
         [XmlElement("is_faq")]
-        public bool IsFaq { get; set; }
+        public bool? IsFaq { get; set; }
 
         /// <summary>
         /// Отобразить вопрос в общем списке
         /// </summary>
         [XmlElement("is_disclosed")]
-        public bool IsDisclosed { get; set; }
+        public bool? IsDisclosed { get; set; }
 
         /// <summary>
         /// Доступ

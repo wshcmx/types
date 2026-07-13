@@ -151,19 +151,19 @@ namespace Wshcmx.Types
         /// Не показывать набранный балл для незавершенных тестов
         /// </summary>
         [Column("not_display_unfinished_score")]
-        public bool NotDisplayUnfinishedScore { get; set; }
+        public bool? NotDisplayUnfinishedScore { get; set; }
 
         /// <summary>
         /// Открытый тест (возможно самостоятельно назначить тест)
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Использовать прокторинг
         /// </summary>
         [Column("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
 
         /// <summary>
         /// Тип внешнего источника

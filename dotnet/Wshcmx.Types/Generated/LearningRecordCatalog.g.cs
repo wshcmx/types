@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Запись закончена
         /// </summary>
         [Column("is_finish_record")]
-        public bool IsFinishRecord { get; set; }
+        public bool? IsFinishRecord { get; set; }
 
         /// <summary>
         /// Количество фото не прошедших проверку
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         /// Скачаны материалы прокторинга
         /// </summary>
         [Column("download_materials")]
-        public bool DownloadMaterials { get; set; }
+        public bool? DownloadMaterials { get; set; }
 
         /// <summary>
         /// Session ID
@@ -201,7 +201,7 @@ namespace Wshcmx.Types
         /// Предпочтительный проктор
         /// </summary>
         [Column("is_prefer_proctor")]
-        public bool IsPreferProctor { get; set; }
+        public bool? IsPreferProctor { get; set; }
 
         /// <summary>
         /// Дата модификации

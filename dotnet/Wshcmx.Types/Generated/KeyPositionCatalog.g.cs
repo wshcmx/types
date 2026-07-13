@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Доступна для преемников с любой должности
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Дата модификации

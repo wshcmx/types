@@ -88,9 +88,9 @@ namespace Wshcmx.Types
         public string AccessRole { get; set; }
 
         [XmlElement("disp_web")]
-        public bool DispWeb { get; set; }
+        public bool? DispWeb { get; set; }
 
         [XmlElement("is_parametric")]
-        public bool IsParametric { get; set; }
+        public bool? IsParametric { get; set; }
     }
 }

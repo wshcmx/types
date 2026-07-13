@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         /// Следить за изменениями в дочерних элементах
         /// </summary>
         [XmlElement("include_subdocs")]
-        public bool IncludeSubdocs { get; set; }
+        public bool? IncludeSubdocs { get; set; }
 
         /// <summary>
         /// Действует до

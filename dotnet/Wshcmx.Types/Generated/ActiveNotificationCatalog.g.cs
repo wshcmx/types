@@ -74,7 +74,7 @@ namespace Wshcmx.Types
         /// Уведомление заполняется пользователем
         /// </summary>
         [Column("is_custom")]
-        public bool IsCustom { get; set; }
+        public bool? IsCustom { get; set; }
 
         /// <summary>
         /// Статус

@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Временная
         /// </summary>
         [Column("is_temporary")]
-        public bool IsTemporary { get; set; }
+        public bool? IsTemporary { get; set; }
 
         /// <summary>
         /// Статус
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         public long? UsersNum { get; set; }
 
         [Column("demo")]
-        public bool Demo { get; set; }
+        public bool? Demo { get; set; }
 
         /// <summary>
         /// Дата модификации

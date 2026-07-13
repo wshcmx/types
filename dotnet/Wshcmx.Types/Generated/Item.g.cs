@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         public string Comment { get; set; }
 
         [XmlElement("expert_eval")]
-        public bool ExpertEval { get; set; }
+        public bool? ExpertEval { get; set; }
 
         [XmlElement("expert_eval_type")]
         public string ExpertEvalType { get; set; }
@@ -142,13 +142,13 @@ namespace Wshcmx.Types
         public long Maxnumber { get; set; }
 
         [XmlElement("display_correct_answer")]
-        public bool DisplayCorrectAnswer { get; set; }
+        public bool? DisplayCorrectAnswer { get; set; }
 
         [XmlElement("not_disp_last_attempt")]
-        public bool NotDispLastAttempt { get; set; }
+        public bool? NotDispLastAttempt { get; set; }
 
         [XmlElement("use_layout")]
-        public bool UseLayout { get; set; }
+        public bool? UseLayout { get; set; }
 
         [XmlElement("layout_num")]
         public long LayoutNum { get; set; }
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         public ImageBase Image { get; set; }
 
         [XmlElement("is_correct_answer")]
-        public bool IsCorrectAnswer { get; set; }
+        public bool? IsCorrectAnswer { get; set; }
 
         [XmlElement("conditions")]
         public List<ItemDocumentAnswerCondition> Conditions { get; set; } = new List<ItemDocumentAnswerCondition>();
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         public string Value { get; set; }
 
         [XmlElement("case_sensitive")]
-        public bool CaseSensitive { get; set; }
+        public bool? CaseSensitive { get; set; }
     }
 
     public class ItemDocumentAnswerValue

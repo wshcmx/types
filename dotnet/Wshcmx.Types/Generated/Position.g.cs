@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         /// Является руководителем
         /// </summary>
         [XmlElement("is_boss")]
-        public bool IsBoss { get; set; }
+        public bool? IsBoss { get; set; }
 
         /// <summary>
         /// Дата вступления в должность

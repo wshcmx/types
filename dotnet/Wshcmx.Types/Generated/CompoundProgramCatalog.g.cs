@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Разрешить самоназначение
         /// </summary>
         [Column("allow_self_assignment")]
-        public bool AllowSelfAssignment { get; set; }
+        public bool? AllowSelfAssignment { get; set; }
 
         /// <summary>
         /// Преподаватель

@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Публичный разговор
         /// </summary>
         [Column("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Приоритет позиции в списке
@@ -225,25 +225,25 @@ namespace Wshcmx.Types
         /// Писать по умолчанию запрещено
         /// </summary>
         [Column("prohibit_write")]
-        public bool ProhibitWrite { get; set; }
+        public bool? ProhibitWrite { get; set; }
 
         /// <summary>
         /// Разрешить звонки
         /// </summary>
         [Column("can_call")]
-        public bool CanCall { get; set; }
+        public bool? CanCall { get; set; }
 
         /// <summary>
         /// Разрешить изменение состава участников
         /// </summary>
         [Column("can_change_participant")]
-        public bool CanChangeParticipant { get; set; }
+        public bool? CanChangeParticipant { get; set; }
 
         /// <summary>
         /// Разрешить отображение дополнительной информации для всех
         /// </summary>
         [Column("can_show_additional_info")]
-        public bool CanShowAdditionalInfo { get; set; }
+        public bool? CanShowAdditionalInfo { get; set; }
 
         [Column("update_participant")]
         public bool? UpdateParticipant { get; set; }

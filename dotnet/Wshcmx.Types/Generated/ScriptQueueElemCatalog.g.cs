@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Выполнено
         /// </summary>
         [Column("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// Удалять после выполнения
         /// </summary>
         [Column("delete_automatically")]
-        public bool DeleteAutomatically { get; set; }
+        public bool? DeleteAutomatically { get; set; }
 
         /// <summary>
         /// Блок, к которому прикреплен
@@ -92,13 +92,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Дата создания

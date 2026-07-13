@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Все сообщения прочитаны
         /// </summary>
         [Column("all_message_read")]
-        public bool AllMessageRead { get; set; }
+        public bool? AllMessageRead { get; set; }
 
         /// <summary>
         /// Количество сообщений
@@ -73,19 +73,19 @@ namespace Wshcmx.Types
         /// Настройки сообщения неактивны
         /// </summary>
         [Column("disabled_data")]
-        public bool DisabledData { get; set; }
+        public bool? DisabledData { get; set; }
 
         /// <summary>
         /// Есть ссылки в сообщениях
         /// </summary>
         [Column("has_link")]
-        public bool HasLink { get; set; }
+        public bool? HasLink { get; set; }
 
         /// <summary>
         /// Есть файлы в сообщениях
         /// </summary>
         [Column("has_file")]
-        public bool HasFile { get; set; }
+        public bool? HasFile { get; set; }
 
         /// <summary>
         /// Все адресаты

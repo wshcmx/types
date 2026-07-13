@@ -22,7 +22,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Эталонный проект
         /// </summary>
         [XmlElement("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Плановые трудозатраты
@@ -145,13 +145,13 @@ namespace Wshcmx.Types
         /// Команда подобрана
         /// </summary>
         [XmlElement("team_selected")]
-        public bool TeamSelected { get; set; }
+        public bool? TeamSelected { get; set; }
 
         /// <summary>
         /// Разрешить оценку участников после завершения проекта
         /// </summary>
         [XmlElement("allow_assessment")]
-        public bool AllowAssessment { get; set; }
+        public bool? AllowAssessment { get; set; }
 
         /// <summary>
         /// Результаты
@@ -199,13 +199,13 @@ namespace Wshcmx.Types
         /// Все участники могут видеть все задачи проекта
         /// </summary>
         [XmlElement("all_participant_view_task")]
-        public bool AllParticipantViewTask { get; set; }
+        public bool? AllParticipantViewTask { get; set; }
 
         /// <summary>
         /// Разрешать назначать задачи не участникам проекта
         /// </summary>
         [XmlElement("allow_assigning_tasks_to_all")]
-        public bool AllowAssigningTasksToAll { get; set; }
+        public bool? AllowAssigningTasksToAll { get; set; }
 
         [XmlElement("participant_types")]
         public List<ProjectDocumentParticipantType> ParticipantTypes { get; set; } = new List<ProjectDocumentParticipantType>();
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("is_required")]
-        public bool IsRequired { get; set; }
+        public bool? IsRequired { get; set; }
     }
 
     public class ProjectDocumentView

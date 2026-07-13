@@ -64,49 +64,49 @@ namespace Wshcmx.Types
         /// По умолчанию заявка групповая
         /// </summary>
         [XmlElement("is_group")]
-        public bool IsGroup { get; set; }
+        public bool? IsGroup { get; set; }
 
         /// <summary>
         /// Заявка может быть групповой
         /// </summary>
         [XmlElement("is_can_be_group")]
-        public bool IsCanBeGroup { get; set; }
+        public bool? IsCanBeGroup { get; set; }
 
         /// <summary>
         /// Подающий заявку может добавить себя
         /// </summary>
         [XmlElement("is_can_be_add_youself")]
-        public bool IsCanBeAddYouself { get; set; }
+        public bool? IsCanBeAddYouself { get; set; }
 
         /// <summary>
         /// Не показывать поле обоснование
         /// </summary>
         [XmlElement("hide_portal_comment")]
-        public bool HidePortalComment { get; set; }
+        public bool? HidePortalComment { get; set; }
 
         /// <summary>
         /// Запретить отклонять заявку ее автору
         /// </summary>
         [XmlElement("forbid_rejection")]
-        public bool ForbidRejection { get; set; }
+        public bool? ForbidRejection { get; set; }
 
         /// <summary>
         /// Запретить автору заявки создавать копию
         /// </summary>
         [XmlElement("forbid_copy")]
-        public bool ForbidCopy { get; set; }
+        public bool? ForbidCopy { get; set; }
 
         /// <summary>
         /// Подавать заявку может только руководитель
         /// </summary>
         [XmlElement("boss_only")]
-        public bool BossOnly { get; set; }
+        public bool? BossOnly { get; set; }
 
         /// <summary>
         /// Отображать всех сотрудников при выборе группы
         /// </summary>
         [XmlElement("show_all")]
-        public bool ShowAll { get; set; }
+        public bool? ShowAll { get; set; }
 
         /// <summary>
         /// Не учитывать черный список при создании и обработке
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Использовать стандартную обработку для данного типа объекта
         /// </summary>
         [XmlElement("use_standart_processing")]
-        public bool UseStandartProcessing { get; set; }
+        public bool? UseStandartProcessing { get; set; }
 
         [XmlElement("create_code")]
         public RequestTypeDocumentCreateCode? CreateCode { get; set; }
@@ -187,13 +187,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Информация об объекте

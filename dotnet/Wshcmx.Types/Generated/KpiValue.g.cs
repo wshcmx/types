@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public DateTime? WorkflowStateLastDate { get; set; }
 
         [XmlElement("is_workflow_init")]
-        public bool IsWorkflowInit { get; set; }
+        public bool? IsWorkflowInit { get; set; }
 
         [XmlElement("workflow_fields")]
         public List<WorkflowDataBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowDataBaseWorkflowField>();

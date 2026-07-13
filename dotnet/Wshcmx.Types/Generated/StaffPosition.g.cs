@@ -337,6 +337,6 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 }

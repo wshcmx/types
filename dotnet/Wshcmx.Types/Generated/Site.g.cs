@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("view")]
         public SiteDocumentView? View { get; set; }
@@ -250,7 +250,7 @@ namespace Wshcmx.Types
         public long? HierLevel { get; set; }
 
         [XmlElement("hier_expanded")]
-        public bool HierExpanded { get; set; }
+        public bool? HierExpanded { get; set; }
 
         /// <summary>
         /// Ссылка на изображение

@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Является открытой учебной программой
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Организация

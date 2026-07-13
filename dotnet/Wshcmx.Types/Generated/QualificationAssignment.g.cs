@@ -226,6 +226,6 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("never_saved")]
-        public bool NeverSaved { get; set; }
+        public bool? NeverSaved { get; set; }
     }
 }

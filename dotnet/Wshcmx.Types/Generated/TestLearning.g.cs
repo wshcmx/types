@@ -325,7 +325,7 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [XmlElement("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
 
         /// <summary>
         /// Комментарий

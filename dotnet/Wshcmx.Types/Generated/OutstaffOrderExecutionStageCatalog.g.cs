@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         /// Присутствие
         /// </summary>
         [Column("stage_is_assist")]
-        public bool StageIsAssist { get; set; }
+        public bool? StageIsAssist { get; set; }
 
         /// <summary>
         /// Статус

@@ -16,7 +16,7 @@ namespace Wshcmx.Types
     public class ViewTypeCatalog
     {
         [Column("disp_second_new_button")]
-        public bool DispSecondNewButton { get; set; }
+        public bool? DispSecondNewButton { get; set; }
 
         [Column("second_button_text")]
         public string? SecondButtonText { get; set; }
@@ -25,10 +25,10 @@ namespace Wshcmx.Types
         public string? SecondButtonImageUrl { get; set; }
 
         [Column("no_doc")]
-        public bool NoDoc { get; set; }
+        public bool? NoDoc { get; set; }
 
         [Column("disp_new_button")]
-        public bool DispNewButton { get; set; }
+        public bool? DispNewButton { get; set; }
 
         [Column("new_button_text")]
         public string? NewButtonText { get; set; }
@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public string? RowImageUrl { get; set; }
 
         [Column("disp_role_selector")]
-        public bool DispRoleSelector { get; set; }
+        public bool? DispRoleSelector { get; set; }
 
         [Column("data_fields")]
         public string? DataFields { get; set; }
@@ -58,10 +58,10 @@ namespace Wshcmx.Types
         public List<ViewColumnsBaseColumn> Columns { get; set; } = new List<ViewColumnsBaseColumn>();
 
         [Column("is_hier")]
-        public bool IsHier { get; set; }
+        public bool? IsHier { get; set; }
 
         [Column("disp_dlg_new_button")]
-        public bool DispDlgNewButton { get; set; }
+        public bool? DispDlgNewButton { get; set; }
 
         [Column("sort_field")]
         public string SortField { get; set; }

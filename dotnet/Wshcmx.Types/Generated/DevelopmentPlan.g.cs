@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public DateTime? WorkflowStateLastDate { get; set; }
 
         [XmlElement("is_workflow_init")]
-        public bool IsWorkflowInit { get; set; }
+        public bool? IsWorkflowInit { get; set; }
 
         [XmlElement("workflow_fields")]
         public List<WorkflowDataBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowDataBaseWorkflowField>();
@@ -115,25 +115,25 @@ namespace Wshcmx.Types
         /// Признак завершенности
         /// </summary>
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Признак результирующей формы
         /// </summary>
         [XmlElement("is_final")]
-        public bool IsFinal { get; set; }
+        public bool? IsFinal { get; set; }
 
         /// <summary>
         /// Признак готовности (для параллельной оценки)
         /// </summary>
         [XmlElement("is_ready")]
-        public bool IsReady { get; set; }
+        public bool? IsReady { get; set; }
 
         [XmlElement("flag_is_processed")]
-        public bool FlagIsProcessed { get; set; }
+        public bool? FlagIsProcessed { get; set; }
 
         [XmlElement("flag_appraise_department")]
-        public bool FlagAppraiseDepartment { get; set; }
+        public bool? FlagAppraiseDepartment { get; set; }
 
         /// <summary>
         /// Оценочная процедура
@@ -232,10 +232,10 @@ namespace Wshcmx.Types
         public long? PersonType { get; set; }
 
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         [XmlElement("responsible")]
-        public bool Responsible { get; set; }
+        public bool? Responsible { get; set; }
 
         [XmlElement("expert_code")]
         public string? ExpertCode { get; set; }

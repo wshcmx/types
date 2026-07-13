@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Автовычисление готовности этапа
         /// </summary>
         [XmlElement("autocalculate_readiness_percent")]
-        public bool AutocalculateReadinessPercent { get; set; }
+        public bool? AutocalculateReadinessPercent { get; set; }
 
         /// <summary>
         /// Кадровый резерв
@@ -172,7 +172,7 @@ namespace Wshcmx.Types
         /// Запретить изменение списка задач
         /// </summary>
         [XmlElement("forbid_tasks_edit")]
-        public bool ForbidTasksEdit { get; set; }
+        public bool? ForbidTasksEdit { get; set; }
 
         [XmlElement("tasks")]
         public List<CareerReserveDocumentTask> Tasks { get; set; } = new List<CareerReserveDocumentTask>();
@@ -391,7 +391,7 @@ namespace Wshcmx.Types
         /// Запретить редактирование задачи на портале
         /// </summary>
         [XmlElement("forbid_task_portal_edit")]
-        public bool ForbidTaskPortalEdit { get; set; }
+        public bool? ForbidTaskPortalEdit { get; set; }
 
         [XmlElement("commission_persons")]
         public List<CareerReserveDocumentTaskCommissionPerson> CommissionPersons { get; set; } = new List<CareerReserveDocumentTaskCommissionPerson>();
@@ -571,7 +571,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -583,7 +583,7 @@ namespace Wshcmx.Types
         /// Является ответственным
         /// </summary>
         [XmlElement("is_responsible")]
-        public bool IsResponsible { get; set; }
+        public bool? IsResponsible { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

@@ -31,16 +31,16 @@ namespace Wshcmx.Types
         public long? ParentSectionId { get; set; }
 
         [XmlElement("is_default")]
-        public bool IsDefault { get; set; }
+        public bool? IsDefault { get; set; }
 
         [XmlElement("is_menu")]
-        public bool IsMenu { get; set; }
+        public bool? IsMenu { get; set; }
 
         [XmlElement("is_offline")]
-        public bool IsOffline { get; set; }
+        public bool? IsOffline { get; set; }
 
         [XmlElement("hidden")]
-        public bool Hidden { get; set; }
+        public bool? Hidden { get; set; }
 
         [XmlElement("settings")]
         public ObjectInnerBaseDocumentSettings? Settings { get; set; }

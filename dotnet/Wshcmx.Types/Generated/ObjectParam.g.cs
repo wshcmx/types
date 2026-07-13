@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Активное уведомление
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Начало
@@ -94,13 +94,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("view")]
         public ObjectParamDocumentView? View { get; set; }

@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         public DateTime? ObjectStartDate { get; set; }
 
         [XmlElement("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Комментарий

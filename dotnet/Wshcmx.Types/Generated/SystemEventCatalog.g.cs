@@ -43,19 +43,19 @@ namespace Wshcmx.Types
         /// Является активным событием
         /// </summary>
         [Column("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Является встроенным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Категория

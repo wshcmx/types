@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Может быть назначен самостоятельно
         /// </summary>
         [Column("yourself_start")]
-        public bool YourselfStart { get; set; }
+        public bool? YourselfStart { get; set; }
 
         /// <summary>
         /// Продолжительность в днях
@@ -206,19 +206,19 @@ namespace Wshcmx.Types
         /// Обязательное заполнение отзыва
         /// </summary>
         [Column("mandatory_fill_response")]
-        public bool MandatoryFillResponse { get; set; }
+        public bool? MandatoryFillResponse { get; set; }
 
         /// <summary>
         /// Отображать отзывы
         /// </summary>
         [Column("allow_disp_response")]
-        public bool AllowDispResponse { get; set; }
+        public bool? AllowDispResponse { get; set; }
 
         /// <summary>
         /// Отображать в списке Персонального WebSoft HCMa
         /// </summary>
         [Column("pwt_disp")]
-        public bool PwtDisp { get; set; }
+        public bool? PwtDisp { get; set; }
 
         /// <summary>
         /// Тип плеера курсов

@@ -202,13 +202,13 @@ namespace Wshcmx.Types
         /// Возможна подписка
         /// </summary>
         [XmlElement("permit_subscription")]
-        public bool PermitSubscription { get; set; }
+        public bool? PermitSubscription { get; set; }
 
         /// <summary>
         /// Разрешить оставлять анонимные комментарии
         /// </summary>
         [XmlElement("allow_anonymous_comment")]
-        public bool AllowAnonymousComment { get; set; }
+        public bool? AllowAnonymousComment { get; set; }
 
         [XmlElement("creator_id")]
         public long? CreatorId { get; set; }

@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -202,13 +202,13 @@ namespace Wshcmx.Types
         /// Эталонное мероприятие
         /// </summary>
         [XmlElement("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Is room
         /// </summary>
         [XmlElement("is_room")]
-        public bool IsRoom { get; set; }
+        public bool? IsRoom { get; set; }
 
         [XmlElement("place_id")]
         public long? PlaceId { get; set; }
@@ -226,10 +226,10 @@ namespace Wshcmx.Types
         public string? VclassHost { get; set; }
 
         [XmlElement("use_camera_capture")]
-        public bool UseCameraCapture { get; set; }
+        public bool? UseCameraCapture { get; set; }
 
         [XmlElement("login_with_camera_only")]
-        public bool LoginWithCameraOnly { get; set; }
+        public bool? LoginWithCameraOnly { get; set; }
 
         [XmlElement("capture_rate")]
         public long CaptureRate { get; set; }
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         /// Вебинар не записан
         /// </summary>
         [XmlElement("record_exists")]
-        public bool RecordExists { get; set; }
+        public bool? RecordExists { get; set; }
 
         [XmlElement("record_id")]
         public long? RecordId { get; set; }
@@ -277,13 +277,13 @@ namespace Wshcmx.Types
         /// Делать снимки с камеры во время просмотра записи
         /// </summary>
         [XmlElement("use_record_camera_capture")]
-        public bool UseRecordCameraCapture { get; set; }
+        public bool? UseRecordCameraCapture { get; set; }
 
         /// <summary>
         /// Разрешить просмотр записи только при наличии веб-камеры
         /// </summary>
         [XmlElement("view_with_camera_only")]
-        public bool ViewWithCameraOnly { get; set; }
+        public bool? ViewWithCameraOnly { get; set; }
 
         /// <summary>
         /// record_capture_rate
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         /// Использовать виртуальный класс
         /// </summary>
         [XmlElement("use_vclass")]
-        public bool UseVclass { get; set; }
+        public bool? UseVclass { get; set; }
 
         /// <summary>
         /// Виртуальный класс
@@ -337,16 +337,16 @@ namespace Wshcmx.Types
         /// Запись доступна для просмотра
         /// </summary>
         [XmlElement("show_record")]
-        public bool ShowRecord { get; set; }
+        public bool? ShowRecord { get; set; }
 
         [XmlElement("allow_record_download")]
-        public bool AllowRecordDownload { get; set; }
+        public bool? AllowRecordDownload { get; set; }
 
         /// <summary>
         /// Использовать резервный сервер
         /// </summary>
         [XmlElement("use_reserve_server")]
-        public bool UseReserveServer { get; set; }
+        public bool? UseReserveServer { get; set; }
 
         /// <summary>
         /// Модульная программа
@@ -427,19 +427,19 @@ namespace Wshcmx.Types
         /// Публичное мероприятие
         /// </summary>
         [XmlElement("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Открытое мероприятие
         /// </summary>
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Разрешить вход без предварительной регистрации
         /// </summary>
         [XmlElement("allow_guest_login")]
-        public bool AllowGuestLogin { get; set; }
+        public bool? AllowGuestLogin { get; set; }
 
         /// <summary>
         /// Ограничения для гостевого входа
@@ -448,10 +448,10 @@ namespace Wshcmx.Types
         public long? GuestRestrictions { get; set; }
 
         [XmlElement("is_open_case")]
-        public bool IsOpenCase { get; set; }
+        public bool? IsOpenCase { get; set; }
 
         [XmlElement("public_answers")]
-        public bool PublicAnswers { get; set; }
+        public bool? PublicAnswers { get; set; }
 
         /// <summary>
         /// Планируемое количество часов
@@ -607,7 +607,7 @@ namespace Wshcmx.Types
         /// Группа сформирована
         /// </summary>
         [XmlElement("group_formed")]
-        public bool GroupFormed { get; set; }
+        public bool? GroupFormed { get; set; }
 
         /// <summary>
         /// Квота на организацию
@@ -721,7 +721,7 @@ namespace Wshcmx.Types
         /// Обязательное заполнение отзыва
         /// </summary>
         [XmlElement("mandatory_fill_response")]
-        public bool MandatoryFillResponse { get; set; }
+        public bool? MandatoryFillResponse { get; set; }
 
         /// <summary>
         /// Тип заявки по умолчанию
@@ -763,7 +763,7 @@ namespace Wshcmx.Types
         /// Показывать видео
         /// </summary>
         [XmlElement("use_video")]
-        public bool UseVideo { get; set; }
+        public bool? UseVideo { get; set; }
 
         /// <summary>
         /// Путь к видео
@@ -787,7 +787,7 @@ namespace Wshcmx.Types
         /// Показывать аудио
         /// </summary>
         [XmlElement("use_audio")]
-        public bool UseAudio { get; set; }
+        public bool? UseAudio { get; set; }
 
         /// <summary>
         /// Путь к аудио
@@ -874,7 +874,7 @@ namespace Wshcmx.Types
         public List<EventDocumentPhase> Phases { get; set; } = new List<EventDocumentPhase>();
 
         [XmlElement("disp_collaborator_phase_presence")]
-        public bool DispCollaboratorPhasePresence { get; set; }
+        public bool? DispCollaboratorPhasePresence { get; set; }
 
         [XmlElement("disp_persons_for_all")]
         public bool? DispPersonsForAll { get; set; }
@@ -931,7 +931,7 @@ namespace Wshcmx.Types
         public EventDocumentView? View { get; set; }
 
         [XmlElement("need_create_results")]
-        public bool NeedCreateResults { get; set; }
+        public bool? NeedCreateResults { get; set; }
 
         [XmlElement("rows")]
         public object? Rows { get; set; }
@@ -1306,19 +1306,19 @@ namespace Wshcmx.Types
         /// Автопереход на следующий вопрос при ответе всех тестируемых
         /// </summary>
         [XmlElement("auto_next_all_answer")]
-        public bool AutoNextAllAnswer { get; set; }
+        public bool? AutoNextAllAnswer { get; set; }
 
         /// <summary>
         /// Автоматически завершать тесты после завершения тестирования
         /// </summary>
         [XmlElement("auto_finish_test")]
-        public bool AutoFinishTest { get; set; }
+        public bool? AutoFinishTest { get; set; }
 
         /// <summary>
         /// Использовать уже активированные тесты для записи результатов
         /// </summary>
         [XmlElement("use_activated_test")]
-        public bool UseActivatedTest { get; set; }
+        public bool? UseActivatedTest { get; set; }
 
         /// <summary>
         /// Номер COM порта
@@ -1414,7 +1414,7 @@ namespace Wshcmx.Types
         public long? CollaboratorId { get; set; }
 
         [XmlElement("is_assist")]
-        public bool IsAssist { get; set; }
+        public bool? IsAssist { get; set; }
     }
 
     public class EventDocumentRecord
@@ -1660,7 +1660,7 @@ namespace Wshcmx.Types
         /// Является основным
         /// </summary>
         [XmlElement("main")]
-        public bool Main { get; set; }
+        public bool? Main { get; set; }
 
         [XmlElement("webinar_url")]
         public string? WebinarUrl { get; set; }
@@ -1726,16 +1726,16 @@ namespace Wshcmx.Types
         public long? UnnamedPersonTotalSum { get; set; }
 
         [XmlElement("is_load_results")]
-        public bool IsLoadResults { get; set; }
+        public bool? IsLoadResults { get; set; }
 
         [XmlElement("show_result_fields")]
-        public bool ShowResultFields { get; set; }
+        public bool? ShowResultFields { get; set; }
 
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("checked_fields")]
-        public bool CheckedFields { get; set; }
+        public bool? CheckedFields { get; set; }
 
         [XmlElement("sort_type_id")]
         public string SortTypeId { get; set; }
@@ -1792,7 +1792,7 @@ namespace Wshcmx.Types
         public EventDocumentViewLearningSummary? LearningSummary { get; set; }
 
         [XmlElement("flag_open_org_sub_group_section")]
-        public bool FlagOpenOrgSubGroupSection { get; set; }
+        public bool? FlagOpenOrgSubGroupSection { get; set; }
     }
 
     public class EventDocumentViewAssessmentPlan
@@ -1906,7 +1906,7 @@ namespace Wshcmx.Types
         public long? CollaboratorId { get; set; }
 
         [XmlElement("is_participant")]
-        public bool IsParticipant { get; set; }
+        public bool? IsParticipant { get; set; }
 
         [XmlElement("result")]
         public EventDocumentViewLearningSummaryCollaboratorResult? Result { get; set; }

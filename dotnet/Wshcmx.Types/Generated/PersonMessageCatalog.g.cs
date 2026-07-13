@@ -49,6 +49,6 @@ namespace Wshcmx.Types
         public long FileCount { get; set; }
 
         [Column("unread")]
-        public bool Unread { get; set; }
+        public bool? Unread { get; set; }
     }
 }

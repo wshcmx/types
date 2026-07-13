@@ -205,13 +205,13 @@ namespace Wshcmx.Types
         /// Разрешить читателям оставлять комментарии
         /// </summary>
         [XmlElement("allow_comment")]
-        public bool AllowComment { get; set; }
+        public bool? AllowComment { get; set; }
 
         /// <summary>
         /// Заблокировано
         /// </summary>
         [XmlElement("blocked")]
-        public bool Blocked { get; set; }
+        public bool? Blocked { get; set; }
 
         /// <summary>
         /// Тело статьи

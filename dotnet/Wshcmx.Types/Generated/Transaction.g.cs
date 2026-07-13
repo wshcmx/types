@@ -193,6 +193,6 @@ namespace Wshcmx.Types
     public class TransactionDocumentView
     {
         [XmlElement("is_create")]
-        public bool IsCreate { get; set; }
+        public bool? IsCreate { get; set; }
     }
 }

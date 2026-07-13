@@ -55,43 +55,43 @@ namespace Wshcmx.Types
         /// Разрешена подписка
         /// </summary>
         [Column("permit_subscription")]
-        public bool PermitSubscription { get; set; }
+        public bool? PermitSubscription { get; set; }
 
         /// <summary>
         /// Закрытый форум
         /// </summary>
         [Column("closed")]
-        public bool Closed { get; set; }
+        public bool? Closed { get; set; }
 
         /// <summary>
         /// Возможность отправки анонимных сообщений
         /// </summary>
         [Column("allow_anonymous_message")]
-        public bool AllowAnonymousMessage { get; set; }
+        public bool? AllowAnonymousMessage { get; set; }
 
         /// <summary>
         /// Разрешить создавать закрытие темы
         /// </summary>
         [Column("allow_create_closed_theme")]
-        public bool AllowCreateClosedTheme { get; set; }
+        public bool? AllowCreateClosedTheme { get; set; }
 
         /// <summary>
         /// Разрешить пользователям удалять свои сообщения
         /// </summary>
         [Column("allow_user_delete")]
-        public bool AllowUserDelete { get; set; }
+        public bool? AllowUserDelete { get; set; }
 
         /// <summary>
         /// Показывать статусы пользователей
         /// </summary>
         [Column("disp_user_status")]
-        public bool DispUserStatus { get; set; }
+        public bool? DispUserStatus { get; set; }
 
         /// <summary>
         /// Каждому сообщению требуется подтверждение модератора
         /// </summary>
         [Column("need_moder_approval")]
-        public bool NeedModerApproval { get; set; }
+        public bool? NeedModerApproval { get; set; }
 
         /// <summary>
         /// Электронный курс

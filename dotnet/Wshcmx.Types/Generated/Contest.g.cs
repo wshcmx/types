@@ -43,16 +43,16 @@ namespace Wshcmx.Types
         public string? Code { get; set; }
 
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         [XmlElement("show_works")]
-        public bool ShowWorks { get; set; }
+        public bool? ShowWorks { get; set; }
 
         [XmlElement("status_id")]
         public string? StatusId { get; set; }
 
         [XmlElement("show_marks")]
-        public bool ShowMarks { get; set; }
+        public bool? ShowMarks { get; set; }
 
         [XmlElement("web_template_id")]
         public string? WebTemplateId { get; set; }
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         public string? EstimationId { get; set; }
 
         [XmlElement("online_vote")]
-        public bool OnlineVote { get; set; }
+        public bool? OnlineVote { get; set; }
 
         [XmlElement("show_rating")]
-        public bool ShowRating { get; set; }
+        public bool? ShowRating { get; set; }
 
         [XmlElement("show_results")]
-        public bool ShowResults { get; set; }
+        public bool? ShowResults { get; set; }
 
         [XmlElement("start_date")]
         public DateTime? StartDate { get; set; }
@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         public long MarkMax { get; set; }
 
         [XmlElement("combo")]
-        public bool Combo { get; set; }
+        public bool? Combo { get; set; }
 
         [XmlElement("file_num")]
         public long FileNum { get; set; }
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         public long? CollaboratorId { get; set; }
 
         [XmlElement("main")]
-        public bool Main { get; set; }
+        public bool? Main { get; set; }
     }
 
     public class ContestDocumentParticipant

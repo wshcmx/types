@@ -85,25 +85,25 @@ namespace Wshcmx.Types
         /// Использовать программный код
         /// </summary>
         [Column("use_script")]
-        public bool UseScript { get; set; }
+        public bool? UseScript { get; set; }
 
         /// <summary>
         /// Использовать условия видимости
         /// </summary>
         [Column("use_access_eval")]
-        public bool UseAccessEval { get; set; }
+        public bool? UseAccessEval { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Приоритет

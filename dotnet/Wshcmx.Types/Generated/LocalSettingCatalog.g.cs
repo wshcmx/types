@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         public List<LocalSettingsDocumentBlock> Blocks { get; set; } = new List<LocalSettingsDocumentBlock>();
 
         [Column("certificate_template_exists")]
-        public bool CertificateTemplateExists { get; set; }
+        public bool? CertificateTemplateExists { get; set; }
 
         [Column("ui_lng_id")]
         public string? UiLngId { get; set; }
@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         public List<LocalSettingsDocumentSmallAccessBlock> SmallAccessBlocks { get; set; } = new List<LocalSettingsDocumentSmallAccessBlock>();
 
         [Column("first_disp_small_access_blocks")]
-        public bool FirstDispSmallAccessBlocks { get; set; }
+        public bool? FirstDispSmallAccessBlocks { get; set; }
 
         [Column("access_block_view_type")]
         public string AccessBlockViewType { get; set; }
@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         public string? FuncBlockId { get; set; }
 
         [XmlElement("disp_desc")]
-        public bool DispDesc { get; set; }
+        public bool? DispDesc { get; set; }
     }
 
     public class LocalSettingsDocumentBlock
@@ -196,22 +196,22 @@ namespace Wshcmx.Types
         public DateTime? SelDate { get; set; }
 
         [XmlElement("is_work_month")]
-        public bool IsWorkMonth { get; set; }
+        public bool? IsWorkMonth { get; set; }
 
         [XmlElement("view_section")]
-        public bool ViewSection { get; set; }
+        public bool? ViewSection { get; set; }
 
         [XmlElement("display_roles")]
         public List<LocalSettingsDocumentViewDisplayRole> DisplayRoles { get; set; } = new List<LocalSettingsDocumentViewDisplayRole>();
 
         [XmlElement("display_empty_roles")]
-        public bool DisplayEmptyRoles { get; set; }
+        public bool? DisplayEmptyRoles { get; set; }
 
         [XmlElement("view_sub_type")]
         public string ViewSubType { get; set; }
 
         [XmlElement("view_expanded_type")]
-        public bool ViewExpandedType { get; set; }
+        public bool? ViewExpandedType { get; set; }
 
         [XmlElement("text_selector")]
         public string TextSelector { get; set; }
@@ -223,10 +223,10 @@ namespace Wshcmx.Types
         public string HierViewDispType { get; set; }
 
         [XmlElement("disp_calendar_event_preview")]
-        public bool DispCalendarEventPreview { get; set; }
+        public bool? DispCalendarEventPreview { get; set; }
 
         [XmlElement("disp_calendar_event_phase")]
-        public bool DispCalendarEventPhase { get; set; }
+        public bool? DispCalendarEventPhase { get; set; }
 
         [XmlElement("preview_width_index")]
         public long? PreviewWidthIndex { get; set; }
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         public string? PreviewLocation { get; set; }
 
         [XmlElement("remember_last_reports_settings")]
-        public bool RememberLastReportsSettings { get; set; }
+        public bool? RememberLastReportsSettings { get; set; }
     }
 
     public class LocalSettingsDocumentViewCourseIntegralEfficiencyReport
@@ -271,7 +271,7 @@ namespace Wshcmx.Types
         public string? CatalogName { get; set; }
 
         [XmlElement("disp")]
-        public bool Disp { get; set; }
+        public bool? Disp { get; set; }
     }
 
     public class LocalSettingsDocumentViewFilter

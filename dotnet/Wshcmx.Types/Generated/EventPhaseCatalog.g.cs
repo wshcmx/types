@@ -55,13 +55,13 @@ namespace Wshcmx.Types
         /// Является публичным
         /// </summary>
         [Column("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Является открытым
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Расположение

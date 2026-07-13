@@ -91,19 +91,19 @@ namespace Wshcmx.Types
         /// Показывать в WorkSpace
         /// </summary>
         [XmlElement("show_in_workspace")]
-        public bool ShowInWorkspace { get; set; }
+        public bool? ShowInWorkspace { get; set; }
 
         /// <summary>
         /// Нельзя создавать записи учета времени меньше минуты
         /// </summary>
         [XmlElement("cannot_create_tt_less_minute")]
-        public bool CannotCreateTtLessMinute { get; set; }
+        public bool? CannotCreateTtLessMinute { get; set; }
 
         /// <summary>
         /// Задачи связаны с проектами
         /// </summary>
         [XmlElement("related_to_projects")]
-        public bool RelatedToProjects { get; set; }
+        public bool? RelatedToProjects { get; set; }
 
         /// <summary>
         /// Тип связанного объекта
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Настраиваемый тип задачи
         /// </summary>
         [XmlElement("virtual")]
-        public bool Virtual { get; set; }
+        public bool? Virtual { get; set; }
 
         /// <summary>
         /// Выборка для типа задач
@@ -127,19 +127,19 @@ namespace Wshcmx.Types
         /// Переопределить переменные для типа задачи
         /// </summary>
         [XmlElement("use_custom_wvars")]
-        public bool UseCustomWvars { get; set; }
+        public bool? UseCustomWvars { get; set; }
 
         /// <summary>
         /// Учитывать время выполнения задачи (в интерфейсе WorkSpace)
         /// </summary>
         [XmlElement("consider_time_in_workspace")]
-        public bool ConsiderTimeInWorkspace { get; set; }
+        public bool? ConsiderTimeInWorkspace { get; set; }
 
         /// <summary>
         /// Выбор проекта обязателен
         /// </summary>
         [XmlElement("mandatory_project")]
-        public bool MandatoryProject { get; set; }
+        public bool? MandatoryProject { get; set; }
 
         [XmlElement("parent_task_block")]
         public TaskTypeDocumentParentTaskBlock? ParentTaskBlock { get; set; }
@@ -160,19 +160,19 @@ namespace Wshcmx.Types
         /// Можно изменять статус задач
         /// </summary>
         [XmlElement("can_change_status")]
-        public bool CanChangeStatus { get; set; }
+        public bool? CanChangeStatus { get; set; }
 
         /// <summary>
         /// Можно изменять поля задачи (кроме статуса)
         /// </summary>
         [XmlElement("can_change_task")]
-        public bool CanChangeTask { get; set; }
+        public bool? CanChangeTask { get; set; }
 
         /// <summary>
         /// Можно удалять задачи
         /// </summary>
         [XmlElement("can_delete_task")]
-        public bool CanDeleteTask { get; set; }
+        public bool? CanDeleteTask { get; set; }
 
         /// <summary>
         /// Связанный тип разговора
@@ -205,13 +205,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Доступ
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Родительская задача обязательна
         /// </summary>
         [XmlElement("mandatory_parent_task")]
-        public bool MandatoryParentTask { get; set; }
+        public bool? MandatoryParentTask { get; set; }
 
         [XmlElement("parent_task_states")]
         public List<TaskTypeDocumentParentTaskBlockParentTaskState> ParentTaskStates { get; set; } = new List<TaskTypeDocumentParentTaskBlockParentTaskState>();

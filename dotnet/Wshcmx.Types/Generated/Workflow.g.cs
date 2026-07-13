@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         public string? DescStr { get; set; }
 
         [XmlElement("has_error")]
-        public bool HasError { get; set; }
+        public bool? HasError { get; set; }
 
         [XmlElement("warning_str")]
         public string? WarningStr { get; set; }
@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? ErrorStr { get; set; }
 
         [XmlElement("is_false")]
-        public bool IsFalse { get; set; }
+        public bool? IsFalse { get; set; }
 
         [XmlElement("workflow_fields")]
         public List<WorkflowFieldsStatesBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowFieldsStatesBaseWorkflowField>();
@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         public string? DefaultAction { get; set; }
 
         [XmlElement("auto_submit_fields")]
-        public bool AutoSubmitFields { get; set; }
+        public bool? AutoSubmitFields { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }
@@ -91,13 +91,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("doc_info")]
         public DocInfoBase? DocInfo { get; set; }
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         public string? DescStr { get; set; }
 
         [XmlElement("has_error")]
-        public bool HasError { get; set; }
+        public bool? HasError { get; set; }
 
         [XmlElement("warning_str")]
         public string? WarningStr { get; set; }
@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         public string? ErrorStr { get; set; }
 
         [XmlElement("is_false")]
-        public bool IsFalse { get; set; }
+        public bool? IsFalse { get; set; }
 
         [XmlElement("code")]
         public string? Code { get; set; }
@@ -166,10 +166,10 @@ namespace Wshcmx.Types
         public string? WorkflowStateId { get; set; }
 
         [XmlElement("auto_escalation")]
-        public bool AutoEscalation { get; set; }
+        public bool? AutoEscalation { get; set; }
 
         [XmlElement("auto_escalation_by_end_date")]
-        public bool AutoEscalationByEndDate { get; set; }
+        public bool? AutoEscalationByEndDate { get; set; }
 
         [XmlElement("auto_escalation_days")]
         public long AutoEscalationDays { get; set; }
@@ -295,6 +295,6 @@ namespace Wshcmx.Types
     public class WorkflowDocumentView
     {
         [XmlElement("disp_add")]
-        public bool DispAdd { get; set; }
+        public bool? DispAdd { get; set; }
     }
 }

@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Файлы
@@ -184,7 +184,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения эксперта
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
 
         /// <summary>
         /// Уровни
@@ -295,7 +295,7 @@ namespace Wshcmx.Types
         /// Уровень экспертизы
         /// </summary>
         [XmlElement("expertise_level")]
-        public bool ExpertiseLevel { get; set; }
+        public bool? ExpertiseLevel { get; set; }
 
         /// <summary>
         /// Тип подтверждения
@@ -331,6 +331,6 @@ namespace Wshcmx.Types
         public string? CatalogType { get; set; }
 
         [XmlElement("sel_all_objects")]
-        public bool SelAllObjects { get; set; }
+        public bool? SelAllObjects { get; set; }
     }
 }

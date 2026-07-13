@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Дата модификации

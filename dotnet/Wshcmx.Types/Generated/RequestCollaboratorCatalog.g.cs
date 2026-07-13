@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Заявка групповая
         /// </summary>
         [Column("is_group")]
-        public bool IsGroup { get; set; }
+        public bool? IsGroup { get; set; }
 
         /// <summary>
         /// Объект

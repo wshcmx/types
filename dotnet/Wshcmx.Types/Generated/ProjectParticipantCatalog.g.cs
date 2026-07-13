@@ -164,7 +164,7 @@ namespace Wshcmx.Types
         /// Исключен из проекта
         /// </summary>
         [Column("is_excluded")]
-        public bool IsExcluded { get; set; }
+        public bool? IsExcluded { get; set; }
 
         /// <summary>
         /// Дата начала участия

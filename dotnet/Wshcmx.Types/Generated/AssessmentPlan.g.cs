@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public DateTime? WorkflowStateLastDate { get; set; }
 
         [XmlElement("is_workflow_init")]
-        public bool IsWorkflowInit { get; set; }
+        public bool? IsWorkflowInit { get; set; }
 
         [XmlElement("workflow_fields")]
         public List<WorkflowDataBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowDataBaseWorkflowField>();
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         public string? DepartmentName { get; set; }
 
         [XmlElement("flag_appraise_department")]
-        public bool FlagAppraiseDepartment { get; set; }
+        public bool? FlagAppraiseDepartment { get; set; }
 
         /// <summary>
         /// Объект оценки
@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// Признак завершения
         /// </summary>
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Интегральная оценка
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         public long? IntegralMark { get; set; }
 
         [XmlElement("flag_is_processed")]
-        public bool FlagIsProcessed { get; set; }
+        public bool? FlagIsProcessed { get; set; }
 
         /// <summary>
         /// Рекомендации
@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         public List<AssessmentPlanDocumentParticipant> Participants { get; set; } = new List<AssessmentPlanDocumentParticipant>();
 
         [XmlElement("flag_expert_select")]
-        public bool FlagExpertSelect { get; set; }
+        public bool? FlagExpertSelect { get; set; }
 
         [XmlElement("experts")]
         public List<AssessmentPlanDocumentExpert> Experts { get; set; } = new List<AssessmentPlanDocumentExpert>();
@@ -295,10 +295,10 @@ namespace Wshcmx.Types
         public long? PersonType { get; set; }
 
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         [XmlElement("responsible")]
-        public bool Responsible { get; set; }
+        public bool? Responsible { get; set; }
 
         [XmlElement("expert_code")]
         public string? ExpertCode { get; set; }
@@ -325,7 +325,7 @@ namespace Wshcmx.Types
         public string? Status { get; set; }
 
         [XmlElement("is_custom")]
-        public bool IsCustom { get; set; }
+        public bool? IsCustom { get; set; }
     }
 
     public class AssessmentPlanDocumentExpertPersonId
@@ -406,10 +406,10 @@ namespace Wshcmx.Types
         public string? AssessmentAppraiseType { get; set; }
 
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         [XmlElement("is_ready")]
-        public bool IsReady { get; set; }
+        public bool? IsReady { get; set; }
     }
 
     public class AssessmentPlanDocumentPersonId

@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Файлы
@@ -175,13 +175,13 @@ namespace Wshcmx.Types
         /// Отображать скроллбар
         /// </summary>
         [XmlElement("disp_scrolling")]
-        public bool DispScrolling { get; set; }
+        public bool? DispScrolling { get; set; }
 
         /// <summary>
         /// Возможно изменять размер
         /// </summary>
         [XmlElement("resizable")]
-        public bool Resizable { get; set; }
+        public bool? Resizable { get; set; }
 
         [XmlElement("struct_type")]
         public string StructType { get; set; }
@@ -244,49 +244,49 @@ namespace Wshcmx.Types
         /// Разрешить самостоятельное назначение курса
         /// </summary>
         [XmlElement("yourself_start")]
-        public bool YourselfStart { get; set; }
+        public bool? YourselfStart { get; set; }
 
         /// <summary>
         /// Разрешить завершать курс, если не все главы пройдены или не набран проходной балл
         /// </summary>
         [XmlElement("finish_without_mastery_score")]
-        public bool FinishWithoutMasteryScore { get; set; }
+        public bool? FinishWithoutMasteryScore { get; set; }
 
         /// <summary>
         /// Завершать курс, если пройдены все главы курса или набран проходной балл
         /// </summary>
         [XmlElement("auto_finish")]
-        public bool AutoFinish { get; set; }
+        public bool? AutoFinish { get; set; }
 
         /// <summary>
         /// Учитывать статус failed от курса для его завершения
         /// </summary>
         [XmlElement("ignore_failed_for_finish")]
-        public bool IgnoreFailedForFinish { get; set; }
+        public bool? IgnoreFailedForFinish { get; set; }
 
         /// <summary>
         /// Не использовать локальное расположение данного курса
         /// </summary>
         [XmlElement("ignor_location")]
-        public bool IgnorLocation { get; set; }
+        public bool? IgnorLocation { get; set; }
 
         /// <summary>
         /// Возможен запуск завершенного курса без сохранения новых результатов
         /// </summary>
         [XmlElement("start_after_finish")]
-        public bool StartAfterFinish { get; set; }
+        public bool? StartAfterFinish { get; set; }
 
         /// <summary>
         /// Не передавать в адресе запускаемого модуля информацию
         /// </summary>
         [XmlElement("no_url_info")]
-        public bool NoUrlInfo { get; set; }
+        public bool? NoUrlInfo { get; set; }
 
         /// <summary>
         /// Открывать описание раздела с типом папка
         /// </summary>
         [XmlElement("disp_folder_desc")]
-        public bool DispFolderDesc { get; set; }
+        public bool? DispFolderDesc { get; set; }
 
         /// <summary>
         /// Продолжительность
@@ -316,13 +316,13 @@ namespace Wshcmx.Types
         /// Обязательное заполнение отзыва
         /// </summary>
         [XmlElement("mandatory_fill_response")]
-        public bool MandatoryFillResponse { get; set; }
+        public bool? MandatoryFillResponse { get; set; }
 
         /// <summary>
         /// Отображать отзывы
         /// </summary>
         [XmlElement("allow_disp_response")]
-        public bool AllowDispResponse { get; set; }
+        public bool? AllowDispResponse { get; set; }
 
         /// <summary>
         /// Электронный курс
@@ -343,7 +343,7 @@ namespace Wshcmx.Types
         /// Доступный для Personal WebSoft HCM
         /// </summary>
         [XmlElement("pwt_disp")]
-        public bool PwtDisp { get; set; }
+        public bool? PwtDisp { get; set; }
 
         [XmlElement("import_type")]
         public string? ImportType { get; set; }
@@ -466,25 +466,25 @@ namespace Wshcmx.Types
         /// Отображать scrolling
         /// </summary>
         [XmlElement("disp_scrolling")]
-        public bool DispScrolling { get; set; }
+        public bool? DispScrolling { get; set; }
 
         /// <summary>
         /// Возможно изменять размер
         /// </summary>
         [XmlElement("resizable")]
-        public bool Resizable { get; set; }
+        public bool? Resizable { get; set; }
 
         /// <summary>
         /// Обязательный раздел
         /// </summary>
         [XmlElement("is_mandatory")]
-        public bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         /// <summary>
         /// Видимый раздел
         /// </summary>
         [XmlElement("is_visible")]
-        public bool IsVisible { get; set; }
+        public bool? IsVisible { get; set; }
 
         /// <summary>
         /// Максимальное время на модуль

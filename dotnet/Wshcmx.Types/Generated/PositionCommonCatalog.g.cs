@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Можно привлекать временный персонал
         /// </summary>
         [Column("allow_outstaff")]
-        public bool AllowOutstaff { get; set; }
+        public bool? AllowOutstaff { get; set; }
 
         /// <summary>
         /// Значения карты знаний

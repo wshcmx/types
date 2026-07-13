@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Вычислять массив учебных активностей
         /// </summary>
         [Column("is_eval")]
-        public bool IsEval { get; set; }
+        public bool? IsEval { get; set; }
 
         /// <summary>
         /// Дата модификации

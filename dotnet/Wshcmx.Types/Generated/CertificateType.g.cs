@@ -82,7 +82,7 @@ namespace Wshcmx.Types
         /// Бессрочный
         /// </summary>
         [XmlElement("forever")]
-        public bool Forever { get; set; }
+        public bool? Forever { get; set; }
 
         /// <summary>
         /// Необходимое количество

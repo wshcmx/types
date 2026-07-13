@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         /// Является ответственным
         /// </summary>
         [XmlElement("is_responsible")]
-        public bool IsResponsible { get; set; }
+        public bool? IsResponsible { get; set; }
 
         [XmlElement("comment")]
         public string? Comment { get; set; }

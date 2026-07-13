@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// Разрешить самостоятельное назначение испытаний по квалификации
         /// </summary>
         [Column("yourself_start")]
-        public bool YourselfStart { get; set; }
+        public bool? YourselfStart { get; set; }
 
         /// <summary>
         /// Требуемые квалификации

@@ -82,13 +82,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Доступ
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
         public long? TokenizeModelId { get; set; }
 
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
     }
 
     public class ClassificationModelDocumentClassificationsBlockClassificationParamsBlock
@@ -214,7 +214,7 @@ namespace Wshcmx.Types
         /// Использовать базовые переменные
         /// </summary>
         [XmlElement("use_default")]
-        public bool UseDefault { get; set; }
+        public bool? UseDefault { get; set; }
     }
 
     public class ClassificationModelDocumentView

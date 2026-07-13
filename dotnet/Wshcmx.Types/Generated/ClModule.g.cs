@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Является шаблоном
         /// </summary>
         [XmlElement("is_template")]
-        public bool IsTemplate { get; set; }
+        public bool? IsTemplate { get; set; }
 
         /// <summary>
         /// Папка
@@ -118,13 +118,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
     }
 
     public class ClModuleDocumentDesign
@@ -196,31 +196,31 @@ namespace Wshcmx.Types
         public long? Pos { get; set; }
 
         [XmlElement("is_vertical")]
-        public bool IsVertical { get; set; }
+        public bool? IsVertical { get; set; }
     }
 
     public class ClModuleDocumentRuntime
     {
         [XmlElement("showsplash")]
-        public bool Showsplash { get; set; }
+        public bool? Showsplash { get; set; }
 
         [XmlElement("seqslides")]
-        public bool Seqslides { get; set; }
+        public bool? Seqslides { get; set; }
 
         [XmlElement("preloadimages")]
-        public bool Preloadimages { get; set; }
+        public bool? Preloadimages { get; set; }
 
         [XmlElement("normalize")]
-        public bool Normalize { get; set; }
+        public bool? Normalize { get; set; }
 
         [XmlElement("preview_fullscreen")]
-        public bool PreviewFullscreen { get; set; }
+        public bool? PreviewFullscreen { get; set; }
 
         [XmlElement("preview_fitwindow")]
-        public bool PreviewFitwindow { get; set; }
+        public bool? PreviewFitwindow { get; set; }
 
         [XmlElement("fit_small_window")]
-        public bool FitSmallWindow { get; set; }
+        public bool? FitSmallWindow { get; set; }
 
         [XmlElement("nextidentity")]
         public ClModuleDocumentRuntimeNextidentity? Nextidentity { get; set; }
@@ -268,13 +268,13 @@ namespace Wshcmx.Types
         public long? CommentsHeight { get; set; }
 
         [XmlElement("import_comments")]
-        public bool ImportComments { get; set; }
+        public bool? ImportComments { get; set; }
 
         [XmlElement("commentscolor")]
         public string? Commentscolor { get; set; }
 
         [XmlElement("fiximages")]
-        public bool Fiximages { get; set; }
+        public bool? Fiximages { get; set; }
     }
 
     public class ClModuleDocumentRuntimeNextidentity
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         public long? Scoremax { get; set; }
 
         [XmlElement("module")]
-        public bool Module { get; set; }
+        public bool? Module { get; set; }
     }
 
     public class ClModuleDocumentRuntimeRule
@@ -388,7 +388,7 @@ namespace Wshcmx.Types
         public string? Id { get; set; }
 
         [XmlElement("check")]
-        public bool Check { get; set; }
+        public bool? Check { get; set; }
     }
 
     public class ClModuleDocumentSlide

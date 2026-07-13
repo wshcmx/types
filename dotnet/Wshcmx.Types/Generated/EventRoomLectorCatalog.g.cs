@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         public long? EventId { get; set; }
 
         [Column("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Расположение

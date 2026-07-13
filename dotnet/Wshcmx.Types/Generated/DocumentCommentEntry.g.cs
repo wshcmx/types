@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Комментарий удален
         /// </summary>
         [XmlElement("deleted")]
-        public bool Deleted { get; set; }
+        public bool? Deleted { get; set; }
 
         [XmlElement("how2show")]
         public string How2show { get; set; }

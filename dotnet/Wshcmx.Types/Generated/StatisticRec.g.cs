@@ -73,13 +73,13 @@ namespace Wshcmx.Types
         /// Включен
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Рассчитывать автоматически
         /// </summary>
         [XmlElement("auto_calc")]
-        public bool AutoCalc { get; set; }
+        public bool? AutoCalc { get; set; }
 
         /// <summary>
         /// Дата последнего расчета
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Показатель готов к использованию в "Центре аналитики"
         /// </summary>
         [XmlElement("ready_to_analytics")]
-        public bool ReadyToAnalytics { get; set; }
+        public bool? ReadyToAnalytics { get; set; }
 
         [XmlElement("period_calc_type")]
         public string PeriodCalcType { get; set; }
@@ -178,13 +178,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("view")]
         public StatisticRecDocumentView? View { get; set; }
@@ -244,13 +244,13 @@ namespace Wshcmx.Types
         public string? XqueryQual { get; set; }
 
         [XmlElement("enabled")]
-        public bool Enabled { get; set; }
+        public bool? Enabled { get; set; }
     }
 
     public class StatisticRecDocumentInformer
     {
         [XmlElement("auto_use")]
-        public bool AutoUse { get; set; }
+        public bool? AutoUse { get; set; }
 
         [XmlElement("color")]
         public string? Color { get; set; }

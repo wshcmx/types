@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         public string Script { get; set; }
 
         [XmlElement("imported")]
-        public bool Imported { get; set; }
+        public bool? Imported { get; set; }
 
         [XmlElement("import_url")]
         public string ImportUrl { get; set; }
@@ -64,7 +64,7 @@ namespace Wshcmx.Types
         public string Comment { get; set; }
 
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         [XmlElement("doc_info")]
         public DocInfoBase DocInfo { get; set; }

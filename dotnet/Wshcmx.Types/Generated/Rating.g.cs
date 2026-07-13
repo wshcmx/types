@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("status")]
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
         /// <summary>
         /// Объекты

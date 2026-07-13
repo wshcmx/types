@@ -42,10 +42,10 @@ namespace Wshcmx.Types
         public string? SheetId { get; set; }
 
         [XmlElement("disp_web")]
-        public bool DispWeb { get; set; }
+        public bool? DispWeb { get; set; }
 
         [XmlElement("is_required")]
-        public bool IsRequired { get; set; }
+        public bool? IsRequired { get; set; }
 
         /// <summary>
         /// Условие верности

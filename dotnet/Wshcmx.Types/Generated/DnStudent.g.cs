@@ -229,19 +229,19 @@ namespace Wshcmx.Types
         /// Необходимость общежития
         /// </summary>
         [XmlElement("need_conduct")]
-        public bool NeedConduct { get; set; }
+        public bool? NeedConduct { get; set; }
 
         /// <summary>
         /// Общежитие предоставлено
         /// </summary>
         [XmlElement("is_conduct")]
-        public bool IsConduct { get; set; }
+        public bool? IsConduct { get; set; }
 
         /// <summary>
         /// Льготы
         /// </summary>
         [XmlElement("is_benefits")]
-        public bool IsBenefits { get; set; }
+        public bool? IsBenefits { get; set; }
 
         /// <summary>
         /// Специальность
@@ -325,7 +325,7 @@ namespace Wshcmx.Types
         /// С отличием
         /// </summary>
         [XmlElement("is_excellent")]
-        public bool IsExcellent { get; set; }
+        public bool? IsExcellent { get; set; }
 
         /// <summary>
         /// Язык веб интерфейса

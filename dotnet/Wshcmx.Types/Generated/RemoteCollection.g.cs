@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Выборка готова к использованию в "Центре аналитики"
         /// </summary>
         [XmlElement("ready_to_analytics")]
-        public bool ReadyToAnalytics { get; set; }
+        public bool? ReadyToAnalytics { get; set; }
 
         [XmlElement("analytics")]
         public RemoteCollectionDocumentAnalytics? Analytics { get; set; }
@@ -148,25 +148,25 @@ namespace Wshcmx.Types
         /// По умолчанию на портале
         /// </summary>
         [XmlElement("default_for_portal")]
-        public bool DefaultForPortal { get; set; }
+        public bool? DefaultForPortal { get; set; }
 
         /// <summary>
         /// По умолчанию в приложениях
         /// </summary>
         [XmlElement("default_for_admin")]
-        public bool DefaultForAdmin { get; set; }
+        public bool? DefaultForAdmin { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Возможен полнотекстовый поиск
         /// </summary>
         [XmlElement("has_fulltext")]
-        public bool HasFulltext { get; set; }
+        public bool? HasFulltext { get; set; }
 
         /// <summary>
         /// Допустимые имена полей для поиска
@@ -286,7 +286,7 @@ namespace Wshcmx.Types
         public List<ColumnBaseColumn> Columns { get; set; } = new List<ColumnBaseColumn>();
 
         [XmlElement("use")]
-        public bool Use { get; set; }
+        public bool? Use { get; set; }
 
         [XmlElement("object_name")]
         public string? ObjectName { get; set; }

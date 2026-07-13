@@ -213,7 +213,9 @@ function mapScalarOrNamed(node: ts.TypeNode, owner: string, prop: string): strin
     case ts.SyntaxKind.StringKeyword:
       return "string";
     case ts.SyntaxKind.BooleanKeyword:
-      return "bool";
+      // Booleans are always emitted as nullable so an absent XML field can be
+      // represented, regardless of whether the source declared `| null`.
+      return "bool?";
     case ts.SyntaxKind.AnyKeyword:
     case ts.SyntaxKind.UnknownKeyword:
     case ts.SyntaxKind.ObjectKeyword:
@@ -231,7 +233,7 @@ function mapScalarOrNamed(node: ts.TypeNode, owner: string, prop: string): strin
       return NUMBER_TYPE;
     }
     if (lit.kind === ts.SyntaxKind.TrueKeyword || lit.kind === ts.SyntaxKind.FalseKeyword) {
-      return "bool";
+      return "bool?";
     }
   }
 

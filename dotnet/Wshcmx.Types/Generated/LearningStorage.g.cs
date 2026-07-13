@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("std_auth")]
-        public bool StdAuth { get; set; }
+        public bool? StdAuth { get; set; }
 
         [XmlElement("auth_eval")]
         public string? AuthEval { get; set; }
@@ -49,22 +49,22 @@ namespace Wshcmx.Types
         public string? Password { get; set; }
 
         [XmlElement("create_activity")]
-        public bool CreateActivity { get; set; }
+        public bool? CreateActivity { get; set; }
 
         [XmlElement("use_extended_analytics")]
-        public bool UseExtendedAnalytics { get; set; }
+        public bool? UseExtendedAnalytics { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Доступ

@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Является поставщиком электронных курсов
         /// </summary>
         [Column("is_provider_courses")]
-        public bool IsProviderCourses { get; set; }
+        public bool? IsProviderCourses { get; set; }
 
         /// <summary>
         /// Преподаватель

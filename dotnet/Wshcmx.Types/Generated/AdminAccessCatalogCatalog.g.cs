@@ -16,16 +16,16 @@ namespace Wshcmx.Types
     public class AdminAccessCatalogCatalog
     {
         [Column("use_filter")]
-        public bool UseFilter { get; set; }
+        public bool? UseFilter { get; set; }
 
         [Column("auto_role_filling")]
-        public bool AutoRoleFilling { get; set; }
+        public bool? AutoRoleFilling { get; set; }
 
         [Column("auto_group_filling")]
-        public bool AutoGroupFilling { get; set; }
+        public bool? AutoGroupFilling { get; set; }
 
         [Column("backup_object_version")]
-        public bool BackupObjectVersion { get; set; }
+        public bool? BackupObjectVersion { get; set; }
 
         [Column("catalog")]
         public string? Catalog { get; set; }

@@ -145,25 +145,25 @@ namespace Wshcmx.Types
         /// Запрещен доступ на портал
         /// </summary>
         [Column("web_banned")]
-        public bool WebBanned { get; set; }
+        public bool? WebBanned { get; set; }
 
         /// <summary>
         /// Является пользователем интерфейса администратора
         /// </summary>
         [Column("is_arm_admin")]
-        public bool IsArmAdmin { get; set; }
+        public bool? IsArmAdmin { get; set; }
 
         /// <summary>
         /// Является редактором контента
         /// </summary>
         [Column("is_content_admin")]
-        public bool IsContentAdmin { get; set; }
+        public bool? IsContentAdmin { get; set; }
 
         /// <summary>
         /// Является пользователем приложений
         /// </summary>
         [Column("is_application_admin")]
-        public bool IsApplicationAdmin { get; set; }
+        public bool? IsApplicationAdmin { get; set; }
 
         /// <summary>
         /// Роль
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         /// Является кандидатом
         /// </summary>
         [Column("is_candidate")]
-        public bool IsCandidate { get; set; }
+        public bool? IsCandidate { get; set; }
 
         /// <summary>
         /// Статус кандидата
@@ -193,13 +193,13 @@ namespace Wshcmx.Types
         /// Является временным
         /// </summary>
         [Column("is_outstaff")]
-        public bool IsOutstaff { get; set; }
+        public bool? IsOutstaff { get; set; }
 
         /// <summary>
         /// Является уволенным
         /// </summary>
         [Column("is_dismiss")]
-        public bool IsDismiss { get; set; }
+        public bool? IsDismiss { get; set; }
 
         /// <summary>
         /// Дата вступления в должность
@@ -223,13 +223,13 @@ namespace Wshcmx.Types
         /// В "черном списке" на подачу заявок
         /// </summary>
         [Column("in_request_black_list")]
-        public bool InRequestBlackList { get; set; }
+        public bool? InRequestBlackList { get; set; }
 
         /// <summary>
         /// Разрешить приглашение пользователя к общению
         /// </summary>
         [Column("allow_personal_chat_request")]
-        public bool AllowPersonalChatRequest { get; set; }
+        public bool? AllowPersonalChatRequest { get; set; }
 
         /// <summary>
         /// Уровень компетентности
@@ -299,7 +299,7 @@ namespace Wshcmx.Types
         /// Согласие на КЭДО
         /// </summary>
         [Column("consent_kedo")]
-        public bool ConsentKedo { get; set; }
+        public bool? ConsentKedo { get; set; }
 
         /// <summary>
         /// Дата согласия на КЭДО
@@ -329,13 +329,13 @@ namespace Wshcmx.Types
         /// Отображать дату рождения
         /// </summary>
         [Column("disp_birthdate")]
-        public bool DispBirthdate { get; set; }
+        public bool? DispBirthdate { get; set; }
 
         /// <summary>
         /// Отображать год рождения
         /// </summary>
         [Column("disp_birthdate_year")]
-        public bool DispBirthdateYear { get; set; }
+        public bool? DispBirthdateYear { get; set; }
 
         /// <summary>
         /// Дата модификации

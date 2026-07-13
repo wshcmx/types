@@ -73,7 +73,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [Column("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
 
         /// <summary>
         /// Требуемое значение

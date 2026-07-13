@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Просрочено
         /// </summary>
         [Column("expired")]
-        public bool Expired { get; set; }
+        public bool? Expired { get; set; }
 
         /// <summary>
         /// План обучения

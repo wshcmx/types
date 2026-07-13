@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Комментарий удален
         /// </summary>
         [Column("deleted")]
-        public bool Deleted { get; set; }
+        public bool? Deleted { get; set; }
 
         [Column("how2show")]
         public string How2show { get; set; }

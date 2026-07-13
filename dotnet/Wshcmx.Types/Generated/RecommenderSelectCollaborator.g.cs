@@ -136,7 +136,7 @@ namespace Wshcmx.Types
         /// Реализовано
         /// </summary>
         [XmlElement("implemented")]
-        public bool Implemented { get; set; }
+        public bool? Implemented { get; set; }
 
         /// <summary>
         /// Дата выбора

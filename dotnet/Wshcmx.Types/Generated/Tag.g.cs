@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Требует подтверждения эксперта
         /// </summary>
         [XmlElement("require_acknowledgement")]
-        public bool RequireAcknowledgement { get; set; }
+        public bool? RequireAcknowledgement { get; set; }
 
         /// <summary>
         /// Значение карты знаний

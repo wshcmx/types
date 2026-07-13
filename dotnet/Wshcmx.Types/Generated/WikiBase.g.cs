@@ -139,19 +139,19 @@ namespace Wshcmx.Types
         /// Требуется заполнения комментария при создании/редактировании статьи
         /// </summary>
         [XmlElement("requires_comment")]
-        public bool RequiresComment { get; set; }
+        public bool? RequiresComment { get; set; }
 
         /// <summary>
         /// Разрешить создание/редактирование статей всем сотрудникам
         /// </summary>
         [XmlElement("free_access_edit")]
-        public bool FreeAccessEdit { get; set; }
+        public bool? FreeAccessEdit { get; set; }
 
         /// <summary>
         /// При создании новой статьи копировать права доступа из wiki базы
         /// </summary>
         [XmlElement("copy_access_in_new_article")]
-        public bool CopyAccessInNewArticle { get; set; }
+        public bool? CopyAccessInNewArticle { get; set; }
 
         /// <summary>
         /// Описание
@@ -229,25 +229,25 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("need_confirm")]
-        public bool NeedConfirm { get; set; }
+        public bool? NeedConfirm { get; set; }
 
         /// <summary>
         /// Разрешить создание/редактирование статей всем сотрудникам
         /// </summary>
         [XmlElement("free_access_edit")]
-        public bool FreeAccessEdit { get; set; }
+        public bool? FreeAccessEdit { get; set; }
 
         /// <summary>
         /// Исключить из иерархии
         /// </summary>
         [XmlElement("exclude_from_tree")]
-        public bool ExcludeFromTree { get; set; }
+        public bool? ExcludeFromTree { get; set; }
 
         /// <summary>
         /// Всем функциональным руководителям доступно редактирование
         /// </summary>
         [XmlElement("all_managers_can_confirm")]
-        public bool AllManagersCanConfirm { get; set; }
+        public bool? AllManagersCanConfirm { get; set; }
     }
 
     public class WikiBaseDocumentWikiRagIndexes

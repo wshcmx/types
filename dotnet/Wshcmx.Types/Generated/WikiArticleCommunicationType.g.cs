@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("is_mandatory")]
-        public bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         /// <summary>
         /// Доступ

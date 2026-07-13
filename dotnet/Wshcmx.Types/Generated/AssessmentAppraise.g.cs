@@ -88,19 +88,19 @@ namespace Wshcmx.Types
         /// Просмотр результатов
         /// </summary>
         [XmlElement("web_display")]
-        public bool WebDisplay { get; set; }
+        public bool? WebDisplay { get; set; }
 
         /// <summary>
         /// Объект хранения статуса
         /// </summary>
         [XmlElement("flag_use_plan")]
-        public bool FlagUsePlan { get; set; }
+        public bool? FlagUsePlan { get; set; }
 
         /// <summary>
         /// Эталонная
         /// </summary>
         [XmlElement("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Ответственный за проведение
@@ -166,19 +166,19 @@ namespace Wshcmx.Types
         /// Оцениваемые
         /// </summary>
         [XmlElement("is_visible_auditorys")]
-        public bool IsVisibleAuditorys { get; set; }
+        public bool? IsVisibleAuditorys { get; set; }
 
         /// <summary>
         /// vaaeb_wnavd6yx2e
         /// </summary>
         [XmlElement("is_visible_evaluatings")]
-        public bool IsVisibleEvaluatings { get; set; }
+        public bool? IsVisibleEvaluatings { get; set; }
 
         /// <summary>
         /// Эксперты
         /// </summary>
         [XmlElement("is_visible_experts")]
-        public bool IsVisibleExperts { get; set; }
+        public bool? IsVisibleExperts { get; set; }
 
         /// <summary>
         /// Матрица ответственности
@@ -202,19 +202,19 @@ namespace Wshcmx.Types
         /// Игнорировать присутствие
         /// </summary>
         [XmlElement("ignore_presence")]
-        public bool IgnorePresence { get; set; }
+        public bool? IgnorePresence { get; set; }
 
         /// <summary>
         /// Учитывать уволенных сотрудников
         /// </summary>
         [XmlElement("include_fired")]
-        public bool IncludeFired { get; set; }
+        public bool? IncludeFired { get; set; }
 
         /// <summary>
         /// Проверять согласующих
         /// </summary>
         [XmlElement("always_check_custom_experts")]
-        public bool AlwaysCheckCustomExperts { get; set; }
+        public bool? AlwaysCheckCustomExperts { get; set; }
 
         /// <summary>
         /// Публикация результатов
@@ -514,7 +514,7 @@ namespace Wshcmx.Types
         /// Роль является результирующей
         /// </summary>
         [XmlElement("is_final")]
-        public bool IsFinal { get; set; }
+        public bool? IsFinal { get; set; }
 
         /// <summary>
         /// Типы оценочных процедур
@@ -577,7 +577,7 @@ namespace Wshcmx.Types
         /// Системное значение
         /// </summary>
         [XmlElement("flag_01")]
-        public bool Flag01 { get; set; }
+        public bool? Flag01 { get; set; }
 
         /// <summary>
         /// Системное значение
@@ -637,7 +637,7 @@ namespace Wshcmx.Types
         /// Расчет оценки по ролям
         /// </summary>
         [XmlElement("is_formuled_result")]
-        public bool IsFormuledResult { get; set; }
+        public bool? IsFormuledResult { get; set; }
 
         /// <summary>
         /// Расчет оценки по ролям
@@ -649,7 +649,7 @@ namespace Wshcmx.Types
         /// Запретить редактирование
         /// </summary>
         [XmlElement("is_formuled_result_readonly")]
-        public bool IsFormuledResultReadonly { get; set; }
+        public bool? IsFormuledResultReadonly { get; set; }
 
         /// <summary>
         /// Сдвиг значений
@@ -733,7 +733,7 @@ namespace Wshcmx.Types
         /// Эксперты
         /// </summary>
         [XmlElement("is_custom_experts")]
-        public bool IsCustomExperts { get; set; }
+        public bool? IsCustomExperts { get; set; }
 
         /// <summary>
         /// Определение согласующего руководителя
@@ -787,7 +787,7 @@ namespace Wshcmx.Types
         /// Ответственный
         /// </summary>
         [XmlElement("responsible")]
-        public bool Responsible { get; set; }
+        public bool? Responsible { get; set; }
     }
 
     public class AssessmentAppraiseDocumentParticipantParameter
@@ -826,7 +826,7 @@ namespace Wshcmx.Types
         public string SortTypeId { get; set; }
 
         [XmlElement("generation_update")]
-        public bool GenerationUpdate { get; set; }
+        public bool? GenerationUpdate { get; set; }
 
         [XmlElement("assessment_appraise_type")]
         public string? AssessmentAppraiseType { get; set; }

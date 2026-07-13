@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Заблокировано
         /// </summary>
         [Column("blocked")]
-        public bool Blocked { get; set; }
+        public bool? Blocked { get; set; }
 
         /// <summary>
         /// Ярлыки сообщения

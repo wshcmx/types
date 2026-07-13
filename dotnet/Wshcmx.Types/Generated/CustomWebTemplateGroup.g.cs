@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public long? HierLevel { get; set; }
 
         [XmlElement("hier_expanded")]
-        public bool HierExpanded { get; set; }
+        public bool? HierExpanded { get; set; }
 
         /// <summary>
         /// Комментарий

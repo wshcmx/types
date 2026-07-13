@@ -376,7 +376,7 @@ namespace Wshcmx.Types
         public long? Zoom { get; set; }
 
         [XmlElement("active")]
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
 
         [XmlElement("slide_id")]
         public long? SlideId { get; set; }

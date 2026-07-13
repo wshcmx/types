@@ -307,7 +307,7 @@ namespace Wshcmx.Types
         public long? PersonId { get; set; }
 
         [XmlElement("is_master")]
-        public bool IsMaster { get; set; }
+        public bool? IsMaster { get; set; }
     }
 
     public class TestProjectDocumentItem
@@ -475,7 +475,7 @@ namespace Wshcmx.Types
         public string SortTypeId { get; set; }
 
         [XmlElement("disp_answers")]
-        public bool DispAnswers { get; set; }
+        public bool? DispAnswers { get; set; }
 
         [XmlElement("disp_learning_type")]
         public string DispLearningType { get; set; }
@@ -850,12 +850,12 @@ namespace Wshcmx.Types
         public AuFtFilter? Filter { get; set; }
 
         [XmlElement("disp_items")]
-        public bool DispItems { get; set; }
+        public bool? DispItems { get; set; }
 
         [XmlElement("disp_active_test_learnings")]
-        public bool DispActiveTestLearnings { get; set; }
+        public bool? DispActiveTestLearnings { get; set; }
 
         [XmlElement("disp_color_settings")]
-        public bool DispColorSettings { get; set; }
+        public bool? DispColorSettings { get; set; }
     }
 }

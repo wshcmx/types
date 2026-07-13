@@ -70,13 +70,13 @@ namespace Wshcmx.Types
         /// Требует подтверждения
         /// </summary>
         [XmlElement("confirm_req")]
-        public bool ConfirmReq { get; set; }
+        public bool? ConfirmReq { get; set; }
 
         /// <summary>
         /// Использовать форму для отображения на портале
         /// </summary>
         [XmlElement("use_form")]
-        public bool UseForm { get; set; }
+        public bool? UseForm { get; set; }
 
         /// <summary>
         /// Программный код заполнения данных

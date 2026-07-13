@@ -286,7 +286,7 @@ namespace Wshcmx.Types
         /// Можно привлекать временный персонал
         /// </summary>
         [XmlElement("allow_outstaff")]
-        public bool AllowOutstaff { get; set; }
+        public bool? AllowOutstaff { get; set; }
 
         /// <summary>
         /// Способы премирования
@@ -412,7 +412,7 @@ namespace Wshcmx.Types
         /// Активно
         /// </summary>
         [XmlElement("checked")]
-        public bool Checked { get; set; }
+        public bool? Checked { get; set; }
 
         /// <summary>
         /// Название
@@ -499,7 +499,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class PositionCommonDocumentLevel

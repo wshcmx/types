@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Персональный чат
         /// </summary>
         [XmlElement("is_personal")]
-        public bool IsPersonal { get; set; }
+        public bool? IsPersonal { get; set; }
 
         /// <summary>
         /// Многопользовательский чат
         /// </summary>
         [XmlElement("is_multiplayer")]
-        public bool IsMultiplayer { get; set; }
+        public bool? IsMultiplayer { get; set; }
 
         /// <summary>
         /// Максимальное количество сообщений
@@ -166,10 +166,10 @@ namespace Wshcmx.Types
         public string? PersonOrgName { get; set; }
 
         [XmlElement("confirmed")]
-        public bool Confirmed { get; set; }
+        public bool? Confirmed { get; set; }
 
         [XmlElement("prohibited")]
-        public bool Prohibited { get; set; }
+        public bool? Prohibited { get; set; }
 
         /// <summary>
         /// Дата последнего посещ.

@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Мероприятие online
         /// </summary>
         [Column("online")]
-        public bool Online { get; set; }
+        public bool? Online { get; set; }
 
         /// <summary>
         /// Автоматический запуск мероприятия при входе
         /// </summary>
         [Column("auto_start")]
-        public bool AutoStart { get; set; }
+        public bool? AutoStart { get; set; }
 
         /// <summary>
         /// Разрешено использовать камеру по умолчанию
@@ -85,13 +85,13 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Дата модификации

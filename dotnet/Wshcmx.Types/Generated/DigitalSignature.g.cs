@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         /// Подписана
         /// </summary>
         [XmlElement("is_signed")]
-        public bool IsSigned { get; set; }
+        public bool? IsSigned { get; set; }
 
         /// <summary>
         /// Шаблон

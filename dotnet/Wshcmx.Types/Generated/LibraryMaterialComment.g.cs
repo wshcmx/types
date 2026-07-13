@@ -34,7 +34,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [XmlElement("is_admin_approved")]
-        public bool IsAdminApproved { get; set; }
+        public bool? IsAdminApproved { get; set; }
 
         [XmlElement("material_id")]
         public long? MaterialId { get; set; }
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         public DateTime? LastCreateDate { get; set; }
 
         [XmlElement("is_closed")]
-        public bool IsClosed { get; set; }
+        public bool? IsClosed { get; set; }
 
         /// <summary>
         /// Комментарий

@@ -55,19 +55,19 @@ namespace Wshcmx.Types
         /// Признак динамической группы
         /// </summary>
         [Column("is_dynamic")]
-        public bool IsDynamic { get; set; }
+        public bool? IsDynamic { get; set; }
 
         /// <summary>
         /// Скрытая группа
         /// </summary>
         [Column("is_hidden")]
-        public bool IsHidden { get; set; }
+        public bool? IsHidden { get; set; }
 
         /// <summary>
         /// Возможно оставлять сообщения на ленту
         /// </summary>
         [Column("allow_social_post")]
-        public bool AllowSocialPost { get; set; }
+        public bool? AllowSocialPost { get; set; }
 
         /// <summary>
         /// Сотрудник

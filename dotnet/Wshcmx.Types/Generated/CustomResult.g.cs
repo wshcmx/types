@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         public string? DefaultWebDesign { get; set; }
 
         [XmlElement("recovery_empty_lng_const")]
-        public bool RecoveryEmptyLngConst { get; set; }
+        public bool? RecoveryEmptyLngConst { get; set; }
 
         [XmlElement("title_text")]
         public string? TitleText { get; set; }
@@ -79,10 +79,10 @@ namespace Wshcmx.Types
         public string? LabelText { get; set; }
 
         [XmlElement("disp_select_password")]
-        public bool DispSelectPassword { get; set; }
+        public bool? DispSelectPassword { get; set; }
 
         [XmlElement("disp_select_replication_time")]
-        public bool DispSelectReplicationTime { get; set; }
+        public bool? DispSelectReplicationTime { get; set; }
 
         [XmlElement("selector_type")]
         public string? SelectorType { get; set; }

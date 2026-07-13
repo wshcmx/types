@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Доступно для выбора пользователем
         /// </summary>
         [Column("accessible")]
-        public bool Accessible { get; set; }
+        public bool? Accessible { get; set; }
 
         /// <summary>
         /// Отсутствие
         /// </summary>
         [Column("is_absence")]
-        public bool IsAbsence { get; set; }
+        public bool? IsAbsence { get; set; }
 
         /// <summary>
         /// Документооборот по умолчанию
@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Можно отменить
         /// </summary>
         [Column("can_cancel")]
-        public bool CanCancel { get; set; }
+        public bool? CanCancel { get; set; }
 
         /// <summary>
         /// Можно изменять
         /// </summary>
         [Column("can_change")]
-        public bool CanChange { get; set; }
+        public bool? CanChange { get; set; }
 
         /// <summary>
         /// Документооборот для отмены
@@ -103,25 +103,25 @@ namespace Wshcmx.Types
         /// Весь день
         /// </summary>
         [Column("all_day")]
-        public bool AllDay { get; set; }
+        public bool? AllDay { get; set; }
 
         /// <summary>
         /// Ограничено временем работы подразделения
         /// </summary>
         [Column("is_sub_work_time")]
-        public bool IsSubWorkTime { get; set; }
+        public bool? IsSubWorkTime { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Дата модификации

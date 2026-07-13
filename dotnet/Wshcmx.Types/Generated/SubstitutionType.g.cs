@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Действует
         /// </summary>
         [XmlElement("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Информация об объекте

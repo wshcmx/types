@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Обсуждение закрыто
         /// </summary>
         [XmlElement("closed")]
-        public bool Closed { get; set; }
+        public bool? Closed { get; set; }
 
         /// <summary>
         /// Закрепить тему
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Одобрена модератором
         /// </summary>
         [XmlElement("is_moder_approved")]
-        public bool IsModerApproved { get; set; }
+        public bool? IsModerApproved { get; set; }
 
         /// <summary>
         /// Предыдущая дата создания

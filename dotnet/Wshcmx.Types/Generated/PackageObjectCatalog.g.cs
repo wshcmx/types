@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         public List<PackageObjectsDocumentObject> Objects { get; set; } = new List<PackageObjectsDocumentObject>();
 
         [Column("add_deleted_objects")]
-        public bool AddDeletedObjects { get; set; }
+        public bool? AddDeletedObjects { get; set; }
 
         [Column("process_custom_templates")]
-        public bool ProcessCustomTemplates { get; set; }
+        public bool? ProcessCustomTemplates { get; set; }
 
         [Column("process_access_roles")]
-        public bool ProcessAccessRoles { get; set; }
+        public bool? ProcessAccessRoles { get; set; }
 
         [Column("files")]
         public List<PackageObjectsDocumentFile> Files { get; set; } = new List<PackageObjectsDocumentFile>();
@@ -88,6 +88,6 @@ namespace Wshcmx.Types
         public string? Type { get; set; }
 
         [XmlElement("modify")]
-        public bool Modify { get; set; }
+        public bool? Modify { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Счет оплачен
         /// </summary>
         [Column("is_paid")]
-        public bool IsPaid { get; set; }
+        public bool? IsPaid { get; set; }
 
         /// <summary>
         /// Итоговая сумма

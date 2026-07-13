@@ -76,13 +76,13 @@ namespace Wshcmx.Types
         /// Эталонная
         /// </summary>
         [XmlElement("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Открытый тест (возможно самостоятельно назначить тест)
         /// </summary>
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Оцениваемые
@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// Отображать на Портале
         /// </summary>
         [XmlElement("web_display")]
-        public bool WebDisplay { get; set; }
+        public bool? WebDisplay { get; set; }
 
         /// <summary>
         /// Статус
@@ -184,13 +184,13 @@ namespace Wshcmx.Types
         public long? CompletionTemplateId { get; set; }
 
         [XmlElement("show_after_completion")]
-        public bool ShowAfterCompletion { get; set; }
+        public bool? ShowAfterCompletion { get; set; }
 
         [XmlElement("server_agent_id")]
         public long? ServerAgentId { get; set; }
 
         [XmlElement("show_tweaker")]
-        public bool ShowTweaker { get; set; }
+        public bool? ShowTweaker { get; set; }
 
         [XmlElement("custom_post_web_template_id")]
         public long? CustomPostWebTemplateId { get; set; }
@@ -346,7 +346,7 @@ namespace Wshcmx.Types
         public string? PersonFullname { get; set; }
 
         [XmlElement("confirmation")]
-        public bool Confirmation { get; set; }
+        public bool? Confirmation { get; set; }
 
         /// <summary>
         /// Кол-во

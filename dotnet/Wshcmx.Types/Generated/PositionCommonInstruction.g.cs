@@ -82,6 +82,6 @@ namespace Wshcmx.Types
         public string TextSelector { get; set; }
 
         [XmlElement("view_desc_in_html")]
-        public bool ViewDescInHtml { get; set; }
+        public bool? ViewDescInHtml { get; set; }
     }
 }

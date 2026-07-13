@@ -52,13 +52,13 @@ namespace Wshcmx.Types
         /// Доступен поиск по источнику
         /// </summary>
         [XmlElement("search_available")]
-        public bool SearchAvailable { get; set; }
+        public bool? SearchAvailable { get; set; }
 
         /// <summary>
         /// Доступен выбор файлов из источника
         /// </summary>
         [XmlElement("selection_available")]
-        public bool SelectionAvailable { get; set; }
+        public bool? SelectionAvailable { get; set; }
 
         /// <summary>
         /// Выполняемый код
@@ -88,12 +88,12 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
     }
 }

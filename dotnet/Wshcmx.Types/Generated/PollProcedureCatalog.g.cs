@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Эталонная
         /// </summary>
         [Column("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Ответственный

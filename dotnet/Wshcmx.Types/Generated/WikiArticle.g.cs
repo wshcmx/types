@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         [XmlElement("knowledge_parts")]
         public List<KnowledgePartsFieldsBaseKnowledgePart> KnowledgeParts { get; set; } = new List<KnowledgePartsFieldsBaseKnowledgePart>();

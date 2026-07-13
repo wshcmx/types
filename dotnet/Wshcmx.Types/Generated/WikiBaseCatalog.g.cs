@@ -136,13 +136,13 @@ namespace Wshcmx.Types
         /// При создании новой статьи копировать права доступа из wiki базы
         /// </summary>
         [Column("copy_access_in_new_article")]
-        public bool CopyAccessInNewArticle { get; set; }
+        public bool? CopyAccessInNewArticle { get; set; }
 
         /// <summary>
         /// Обрабатывается семантическим поиском
         /// </summary>
         [Column("process_embedding")]
-        public bool ProcessEmbedding { get; set; }
+        public bool? ProcessEmbedding { get; set; }
 
         /// <summary>
         /// Индексы поиска RAG

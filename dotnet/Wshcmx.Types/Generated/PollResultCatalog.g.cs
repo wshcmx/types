@@ -134,6 +134,6 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [Column("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace Wshcmx.Types
         public DateTime? WorkflowStateLastDate { get; set; }
 
         [XmlElement("is_workflow_init")]
-        public bool IsWorkflowInit { get; set; }
+        public bool? IsWorkflowInit { get; set; }
 
         [XmlElement("workflow_fields")]
         public List<WorkflowDataBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowDataBaseWorkflowField>();
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Оценить структуру
         /// </summary>
         [XmlElement("flag_appraise_department")]
-        public bool FlagAppraiseDepartment { get; set; }
+        public bool? FlagAppraiseDepartment { get; set; }
 
         /// <summary>
         /// Объект оценки
@@ -148,22 +148,22 @@ namespace Wshcmx.Types
         /// Признак завершения
         /// </summary>
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Признак готовности (для параллельной оценки)
         /// </summary>
         [XmlElement("is_ready")]
-        public bool IsReady { get; set; }
+        public bool? IsReady { get; set; }
 
         /// <summary>
         /// Признак результирующей формы
         /// </summary>
         [XmlElement("is_final")]
-        public bool IsFinal { get; set; }
+        public bool? IsFinal { get; set; }
 
         [XmlElement("flag_is_processed")]
-        public bool FlagIsProcessed { get; set; }
+        public bool? FlagIsProcessed { get; set; }
 
         /// <summary>
         /// Тип процедуры
@@ -466,10 +466,10 @@ namespace Wshcmx.Types
         public long? PersonType { get; set; }
 
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         [XmlElement("responsible")]
-        public bool Responsible { get; set; }
+        public bool? Responsible { get; set; }
 
         [XmlElement("expert_code")]
         public string? ExpertCode { get; set; }
@@ -601,7 +601,7 @@ namespace Wshcmx.Types
         /// Признак завершения
         /// </summary>
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         [XmlElement("workflow_state")]
         public string? WorkflowState { get; set; }
@@ -775,7 +775,7 @@ namespace Wshcmx.Types
         /// Проверять требования при согласовании
         /// </summary>
         [XmlElement("check_requirements")]
-        public bool CheckRequirements { get; set; }
+        public bool? CheckRequirements { get; set; }
 
         /// <summary>
         /// Плановая дата выполнения

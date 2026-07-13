@@ -25,13 +25,13 @@ namespace Wshcmx.Types
         public long? DurationDays { get; set; }
 
         [Column("miss_last_learning_date")]
-        public bool MissLastLearningDate { get; set; }
+        public bool? MissLastLearningDate { get; set; }
 
         [Column("last_learning_date")]
         public DateTime? LastLearningDate { get; set; }
 
         [Column("miss_only_success_learning")]
-        public bool MissOnlySuccessLearning { get; set; }
+        public bool? MissOnlySuccessLearning { get; set; }
 
         [Column("logging")]
         public bool? Logging { get; set; }
@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         public long? ProctorPreferId { get; set; }
 
         [Column("skip_dismissed")]
-        public bool SkipDismissed { get; set; }
+        public bool? SkipDismissed { get; set; }
 
         [Column("comment")]
         public string? Comment { get; set; }

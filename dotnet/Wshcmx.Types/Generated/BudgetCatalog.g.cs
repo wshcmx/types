@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Утвержден
         /// </summary>
         [Column("is_approved")]
-        public bool IsApproved { get; set; }
+        public bool? IsApproved { get; set; }
 
         /// <summary>
         /// Тип бюджета

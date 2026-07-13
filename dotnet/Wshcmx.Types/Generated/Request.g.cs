@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         public DateTime? WorkflowStateLastDate { get; set; }
 
         [XmlElement("is_workflow_init")]
-        public bool IsWorkflowInit { get; set; }
+        public bool? IsWorkflowInit { get; set; }
 
         [XmlElement("workflow_fields")]
         public List<WorkflowDataBaseWorkflowField> WorkflowFields { get; set; } = new List<WorkflowDataBaseWorkflowField>();
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Групповая заявка
         /// </summary>
         [XmlElement("is_group")]
-        public bool IsGroup { get; set; }
+        public bool? IsGroup { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -439,7 +439,7 @@ namespace Wshcmx.Types
         public object? WorkflowActionResult { get; set; }
 
         [XmlElement("workflow_create_break")]
-        public bool WorkflowCreateBreak { get; set; }
+        public bool? WorkflowCreateBreak { get; set; }
     }
 
     public class RequestDocumentWorkflowMatching

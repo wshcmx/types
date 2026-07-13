@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// Активная
         /// </summary>
         [XmlElement("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Родительская статья затрат

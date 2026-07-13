@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Файлы
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         /// Переходить по ссылке
         /// </summary>
         [XmlElement("is_link")]
-        public bool IsLink { get; set; }
+        public bool? IsLink { get; set; }
 
         /// <summary>
         /// Ссылка
@@ -259,37 +259,37 @@ namespace Wshcmx.Types
         /// Возможна подписка на раздел портала
         /// </summary>
         [XmlElement("permit_subscription")]
-        public bool PermitSubscription { get; set; }
+        public bool? PermitSubscription { get; set; }
 
         /// <summary>
         /// Пункт меню
         /// </summary>
         [XmlElement("is_menu")]
-        public bool IsMenu { get; set; }
+        public bool? IsMenu { get; set; }
 
         /// <summary>
         /// Корневой уровень
         /// </summary>
         [XmlElement("is_main_item")]
-        public bool IsMainItem { get; set; }
+        public bool? IsMainItem { get; set; }
 
         /// <summary>
         /// Показывать как новость
         /// </summary>
         [XmlElement("is_news")]
-        public bool IsNews { get; set; }
+        public bool? IsNews { get; set; }
 
         /// <summary>
         /// Показывать список дочерних документов в левой панели
         /// </summary>
         [XmlElement("left_disp_childs")]
-        public bool LeftDispChilds { get; set; }
+        public bool? LeftDispChilds { get; set; }
 
         /// <summary>
         /// Не показывать список дочерних документов
         /// </summary>
         [XmlElement("no_disp_childs")]
-        public bool NoDispChilds { get; set; }
+        public bool? NoDispChilds { get; set; }
     }
 
     public class DocumentDocumentParentObjectId

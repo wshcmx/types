@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         public string TabSelectorType { get; set; }
 
         [XmlElement("is_method")]
-        public bool IsMethod { get; set; }
+        public bool? IsMethod { get; set; }
 
         [XmlElement("events")]
         public List<TrainingPlanDocumentEducationMethodEvent> Events { get; set; } = new List<TrainingPlanDocumentEducationMethodEvent>();
@@ -187,7 +187,7 @@ namespace Wshcmx.Types
         public string TabSelectorType { get; set; }
 
         [XmlElement("is_method")]
-        public bool IsMethod { get; set; }
+        public bool? IsMethod { get; set; }
 
         [XmlElement("weeks")]
         public List<TrainingPlanDocumentEducationMethodEventWeek> Weeks { get; set; } = new List<TrainingPlanDocumentEducationMethodEventWeek>();

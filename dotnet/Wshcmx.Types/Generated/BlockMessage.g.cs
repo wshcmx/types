@@ -55,13 +55,13 @@ namespace Wshcmx.Types
         public string StateId { get; set; }
 
         [XmlElement("all_message_read")]
-        public bool AllMessageRead { get; set; }
+        public bool? AllMessageRead { get; set; }
 
         [XmlElement("count_message")]
         public long CountMessage { get; set; }
 
         [XmlElement("has_link")]
-        public bool HasLink { get; set; }
+        public bool? HasLink { get; set; }
 
         [XmlElement("messages")]
         public List<BlockMessageDocumentMessage> Messages { get; set; } = new List<BlockMessageDocumentMessage>();
@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         [XmlElement("id")]
         public string Id { get; set; }
@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         public string Text { get; set; }
 
         [XmlElement("new_reaction")]
-        public bool NewReaction { get; set; }
+        public bool? NewReaction { get; set; }
 
         [XmlElement("type_id")]
         public string TypeId { get; set; }
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         public BlockMessageDocumentMessageForward Forward { get; set; }
 
         [XmlElement("disabled_data")]
-        public bool DisabledData { get; set; }
+        public bool? DisabledData { get; set; }
 
         [XmlElement("data")]
         public string Data { get; set; }

@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         public string? YForeignCatalog { get; set; }
 
         [XmlElement("disp_edit")]
-        public bool DispEdit { get; set; }
+        public bool? DispEdit { get; set; }
 
         /// <summary>
         /// Действие
@@ -154,7 +154,7 @@ namespace Wshcmx.Types
         public string? XRowHeaderValue { get; set; }
 
         [XmlElement("x_row_header_hierarchy")]
-        public bool XRowHeaderHierarchy { get; set; }
+        public bool? XRowHeaderHierarchy { get; set; }
 
         [XmlElement("x_row_option_type")]
         public string XRowOptionType { get; set; }

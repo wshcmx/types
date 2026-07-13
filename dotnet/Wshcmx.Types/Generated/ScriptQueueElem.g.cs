@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Выполнено
         /// </summary>
         [XmlElement("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// Текст ошибки
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Удалять после выполнения
         /// </summary>
         [XmlElement("delete_automatically")]
-        public bool DeleteAutomatically { get; set; }
+        public bool? DeleteAutomatically { get; set; }
 
         /// <summary>
         /// Объект
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Комментарий

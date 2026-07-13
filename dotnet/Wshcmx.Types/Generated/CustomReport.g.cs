@@ -25,7 +25,7 @@ namespace Wshcmx.Types
         public List<ColumnBaseColumn> Columns { get; set; } = new List<ColumnBaseColumn>();
 
         [XmlElement("disp_legend")]
-        public bool DispLegend { get; set; }
+        public bool? DispLegend { get; set; }
 
         [XmlElement("chart_id")]
         public string ChartId { get; set; }
@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         public string PlotType { get; set; }
 
         [XmlElement("flag_open_graph_tun_section")]
-        public bool FlagOpenGraphTunSection { get; set; }
+        public bool? FlagOpenGraphTunSection { get; set; }
 
         [XmlElement("object_name_type")]
         public string ObjectNameType { get; set; }
@@ -46,19 +46,19 @@ namespace Wshcmx.Types
         public string? ObjectName { get; set; }
 
         [XmlElement("flag_open_param_tun_section")]
-        public bool FlagOpenParamTunSection { get; set; }
+        public bool? FlagOpenParamTunSection { get; set; }
 
         [XmlElement("flag_custom_x")]
-        public bool FlagCustomX { get; set; }
+        public bool? FlagCustomX { get; set; }
 
         [XmlElement("custom_x")]
         public string? CustomX { get; set; }
 
         [XmlElement("show_table")]
-        public bool ShowTable { get; set; }
+        public bool? ShowTable { get; set; }
 
         [XmlElement("show_chart")]
-        public bool ShowChart { get; set; }
+        public bool? ShowChart { get; set; }
 
         [XmlElement("view_temp")]
         public CustomReportBaseViewTemp? ViewTemp { get; set; }
@@ -85,19 +85,19 @@ namespace Wshcmx.Types
         public CustomReportBaseSort? Sort { get; set; }
 
         [XmlElement("categorize")]
-        public bool Categorize { get; set; }
+        public bool? Categorize { get; set; }
 
         [XmlElement("categorize_view")]
         public string CategorizeView { get; set; }
 
         [XmlElement("categorize_hide_details")]
-        public bool CategorizeHideDetails { get; set; }
+        public bool? CategorizeHideDetails { get; set; }
 
         [XmlElement("aggregations")]
         public List<CustomReportBaseAggregation> Aggregations { get; set; } = new List<CustomReportBaseAggregation>();
 
         [XmlElement("show_total")]
-        public bool ShowTotal { get; set; }
+        public bool? ShowTotal { get; set; }
 
         [XmlElement("integrated_criterion_field")]
         public string? IntegratedCriterionField { get; set; }
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
     public class CustomReportDocumentSubscribe
     {
         [XmlElement("on")]
-        public bool On { get; set; }
+        public bool? On { get; set; }
 
         [XmlElement("days_period")]
         public long? DaysPeriod { get; set; }

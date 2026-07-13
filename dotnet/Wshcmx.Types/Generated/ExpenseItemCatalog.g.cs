@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Является активной
         /// </summary>
         [Column("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Родительская статья затрат

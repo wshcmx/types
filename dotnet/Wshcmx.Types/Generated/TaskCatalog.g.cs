@@ -347,7 +347,7 @@ namespace Wshcmx.Types
         /// К задаче прикреплены файлы
         /// </summary>
         [Column("has_files")]
-        public bool HasFiles { get; set; }
+        public bool? HasFiles { get; set; }
 
         /// <summary>
         /// Сотрудник

@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Является поставщиком электронных курсов
         /// </summary>
         [XmlElement("is_provider_courses")]
-        public bool IsProviderCourses { get; set; }
+        public bool? IsProviderCourses { get; set; }
 
         /// <summary>
         /// Тип провайдера курсов

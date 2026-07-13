@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         public string? LotusUndefinedName { get; set; }
 
         [XmlElement("use_unibridge")]
-        public bool UseUnibridge { get; set; }
+        public bool? UseUnibridge { get; set; }
 
         [XmlElement("db_type")]
         public string DbType { get; set; }
@@ -76,13 +76,13 @@ namespace Wshcmx.Types
         /// Использовать общий источник для этапов выгрузки
         /// </summary>
         [XmlElement("use_common_db")]
-        public bool UseCommonDb { get; set; }
+        public bool? UseCommonDb { get; set; }
 
         /// <summary>
         /// Использовать общую форму для этапов выгрузки
         /// </summary>
         [XmlElement("use_common_form")]
-        public bool UseCommonForm { get; set; }
+        public bool? UseCommonForm { get; set; }
 
         /// <summary>
         /// Этапы выгрузки
@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         public string? LotusUndefinedName { get; set; }
 
         [XmlElement("use_unibridge")]
-        public bool UseUnibridge { get; set; }
+        public bool? UseUnibridge { get; set; }
 
         [XmlElement("db_type")]
         public string DbType { get; set; }
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Активная выгрузка
         /// </summary>
         [XmlElement("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Объект источник
@@ -196,16 +196,16 @@ namespace Wshcmx.Types
         /// Использовать каталог
         /// </summary>
         [XmlElement("use_catalog")]
-        public bool UseCatalog { get; set; }
+        public bool? UseCatalog { get; set; }
 
         /// <summary>
         /// Только обновлять данные уже существующие в целевой БД
         /// </summary>
         [XmlElement("only_update_data")]
-        public bool OnlyUpdateData { get; set; }
+        public bool? OnlyUpdateData { get; set; }
 
         [XmlElement("miss_first_row")]
-        public bool MissFirstRow { get; set; }
+        public bool? MissFirstRow { get; set; }
 
         /// <summary>
         /// Поля
@@ -232,7 +232,7 @@ namespace Wshcmx.Types
         public string? RemoteForm { get; set; }
 
         [XmlElement("update_remote_doc")]
-        public bool UpdateRemoteDoc { get; set; }
+        public bool? UpdateRemoteDoc { get; set; }
 
         [XmlElement("search_field")]
         public string? SearchField { get; set; }
@@ -274,6 +274,6 @@ namespace Wshcmx.Types
         /// Ключ
         /// </summary>
         [XmlElement("is_primary_key")]
-        public bool IsPrimaryKey { get; set; }
+        public bool? IsPrimaryKey { get; set; }
     }
 }

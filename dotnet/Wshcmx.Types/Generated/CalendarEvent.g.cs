@@ -295,13 +295,13 @@ namespace Wshcmx.Types
         /// Признак подтверждения участия
         /// </summary>
         [XmlElement("is_confirm")]
-        public bool IsConfirm { get; set; }
+        public bool? IsConfirm { get; set; }
 
         /// <summary>
         /// Отказался от участия
         /// </summary>
         [XmlElement("not_participate")]
-        public bool NotParticipate { get; set; }
+        public bool? NotParticipate { get; set; }
     }
 
     public class CalendarEventDocumentBlockScheduler
@@ -355,18 +355,18 @@ namespace Wshcmx.Types
         /// Разрешить записывать звонки
         /// </summary>
         [XmlElement("allow_write")]
-        public bool AllowWrite { get; set; }
+        public bool? AllowWrite { get; set; }
 
         /// <summary>
         /// Разрешить расшифровывать звонки
         /// </summary>
         [XmlElement("allow_recognition")]
-        public bool AllowRecognition { get; set; }
+        public bool? AllowRecognition { get; set; }
 
         /// <summary>
         /// Разрешить автоматическое формирование резюме по звонку
         /// </summary>
         [XmlElement("allow_summary")]
-        public bool AllowSummary { get; set; }
+        public bool? AllowSummary { get; set; }
     }
 }

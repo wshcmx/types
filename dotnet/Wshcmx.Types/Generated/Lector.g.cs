@@ -241,13 +241,13 @@ namespace Wshcmx.Types
         /// Разрешена публикация на портале описания и контактной информации
         /// </summary>
         [XmlElement("allow_publication")]
-        public bool AllowPublication { get; set; }
+        public bool? AllowPublication { get; set; }
 
         /// <summary>
         /// Является уволенным
         /// </summary>
         [XmlElement("is_dismiss")]
-        public bool IsDismiss { get; set; }
+        public bool? IsDismiss { get; set; }
 
         /// <summary>
         /// Информация об объекте

@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public long? CustomWebTemplateId { get; set; }
 
         [XmlElement("saved")]
-        public bool Saved { get; set; }
+        public bool? Saved { get; set; }
 
         [XmlElement("out_type")]
         public string OutType { get; set; }
@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         public string CwtType { get; set; }
 
         [XmlElement("use_session_cache")]
-        public bool UseSessionCache { get; set; }
+        public bool? UseSessionCache { get; set; }
 
         [XmlElement("web_page")]
         public string? WebPage { get; set; }

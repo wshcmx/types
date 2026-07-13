@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         public string? Comment { get; set; }
 
         [XmlElement("checked")]
-        public bool Checked { get; set; }
+        public bool? Checked { get; set; }
     }
 
     public class AvailabilityPlanDocumentViewPeriodHour
@@ -172,6 +172,6 @@ namespace Wshcmx.Types
         public long? Hour { get; set; }
 
         [XmlElement("checked")]
-        public bool Checked { get; set; }
+        public bool? Checked { get; set; }
     }
 }

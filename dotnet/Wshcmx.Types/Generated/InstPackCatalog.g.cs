@@ -37,16 +37,16 @@ namespace Wshcmx.Types
         public string Type { get; set; }
 
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         [Column("is_demo")]
-        public bool IsDemo { get; set; }
+        public bool? IsDemo { get; set; }
 
         [Column("always_update_objects")]
-        public bool AlwaysUpdateObjects { get; set; }
+        public bool? AlwaysUpdateObjects { get; set; }
 
         [Column("processed")]
-        public bool Processed { get; set; }
+        public bool? Processed { get; set; }
 
         [Column("process_date")]
         public DateTime? ProcessDate { get; set; }

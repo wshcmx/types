@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Уведомление заполняется пользователем
         /// </summary>
         [XmlElement("is_custom")]
-        public bool IsCustom { get; set; }
+        public bool? IsCustom { get; set; }
 
         /// <summary>
         /// Статус

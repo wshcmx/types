@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         public DateTime? FinishDate { get; set; }
 
         [XmlElement("all_period")]
-        public bool AllPeriod { get; set; }
+        public bool? AllPeriod { get; set; }
 
         [XmlElement("position_commons")]
         public List<OutstaffContractDocumentRegionPositionCommon> PositionCommons { get; set; } = new List<OutstaffContractDocumentRegionPositionCommon>();

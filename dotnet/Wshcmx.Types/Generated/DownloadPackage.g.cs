@@ -16,10 +16,10 @@ namespace Wshcmx.Types
     public class DownloadPackage
     {
         [XmlElement("selected_custom_templates")]
-        public bool SelectedCustomTemplates { get; set; }
+        public bool? SelectedCustomTemplates { get; set; }
 
         [XmlElement("selected_roles")]
-        public bool SelectedRoles { get; set; }
+        public bool? SelectedRoles { get; set; }
 
         [XmlElement("objects")]
         public List<DownloadPackageLogBaseObject> Objects { get; set; } = new List<DownloadPackageLogBaseObject>();

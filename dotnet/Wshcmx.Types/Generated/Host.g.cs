@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Логин чувствителен к регистру
         /// </summary>
         [XmlElement("login_case_sensitive")]
-        public bool LoginCaseSensitive { get; set; }
+        public bool? LoginCaseSensitive { get; set; }
 
         /// <summary>
         /// Требуется указание домена в логине
         /// </summary>
         [XmlElement("login_domen_sensitive")]
-        public bool LoginDomenSensitive { get; set; }
+        public bool? LoginDomenSensitive { get; set; }
 
         /// <summary>
         /// Название поля логина
@@ -163,13 +163,13 @@ namespace Wshcmx.Types
         /// Отображать поля для ввода логина и пароля
         /// </summary>
         [XmlElement("disp_login_pass")]
-        public bool DispLoginPass { get; set; }
+        public bool? DispLoginPass { get; set; }
 
         /// <summary>
         /// Разрешить авторизацию для интерфейса Администратора
         /// </summary>
         [XmlElement("allow_lds_auth")]
-        public bool AllowLdsAuth { get; set; }
+        public bool? AllowLdsAuth { get; set; }
 
         /// <summary>
         /// Тип авторизации
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         /// Регистрировать вход пользователей на портале
         /// </summary>
         [XmlElement("register_logged_in")]
-        public bool RegisterLoggedIn { get; set; }
+        public bool? RegisterLoggedIn { get; set; }
 
         [XmlElement("workspace_config_block")]
         public HostDocumentWorkspaceConfigBlock? WorkspaceConfigBlock { get; set; }
@@ -208,7 +208,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Комментарий

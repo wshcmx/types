@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Включает дочерние элементы
         /// </summary>
         [Column("include_subdocs")]
-        public bool IncludeSubdocs { get; set; }
+        public bool? IncludeSubdocs { get; set; }
 
         /// <summary>
         /// Дата последнего действия

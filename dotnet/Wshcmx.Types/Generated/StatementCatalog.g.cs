@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Аннулировано
         /// </summary>
         [Column("voided")]
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; }
 
         /// <summary>
         /// Обработано

@@ -100,6 +100,6 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("is_edit_mode")]
-        public bool IsEditMode { get; set; }
+        public bool? IsEditMode { get; set; }
     }
 }

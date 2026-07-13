@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Реализовано
         /// </summary>
         [Column("implemented")]
-        public bool Implemented { get; set; }
+        public bool? Implemented { get; set; }
 
         /// <summary>
         /// Дата выбора

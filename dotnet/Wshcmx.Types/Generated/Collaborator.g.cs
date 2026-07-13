@@ -241,10 +241,10 @@ namespace Wshcmx.Types
         public List<CustomElemsBaseCustomReportFiction> CustomReportFictions { get; set; } = new List<CustomElemsBaseCustomReportFiction>();
 
         [XmlElement("pol_loaded")]
-        public bool PolLoaded { get; set; }
+        public bool? PolLoaded { get; set; }
 
         [XmlElement("pol_changed")]
-        public bool PolChanged { get; set; }
+        public bool? PolChanged { get; set; }
 
         [XmlElement("person_object_profiles")]
         public List<PersonObjectLinksBasePersonObjectProfile> PersonObjectProfiles { get; set; } = new List<PersonObjectLinksBasePersonObjectProfile>();
@@ -316,19 +316,19 @@ namespace Wshcmx.Types
         /// Сменить пароль при первом входе
         /// </summary>
         [XmlElement("change_password")]
-        public bool ChangePassword { get; set; }
+        public bool? ChangePassword { get; set; }
 
         /// <summary>
         /// Является кандидатом
         /// </summary>
         [XmlElement("is_candidate")]
-        public bool IsCandidate { get; set; }
+        public bool? IsCandidate { get; set; }
 
         /// <summary>
         /// Является временным
         /// </summary>
         [XmlElement("is_outstaff")]
-        public bool IsOutstaff { get; set; }
+        public bool? IsOutstaff { get; set; }
 
         /// <summary>
         /// Статус кандидата
@@ -346,7 +346,7 @@ namespace Wshcmx.Types
         /// Является уволенным
         /// </summary>
         [XmlElement("is_dismiss")]
-        public bool IsDismiss { get; set; }
+        public bool? IsDismiss { get; set; }
 
         /// <summary>
         /// Дата приема
@@ -370,7 +370,7 @@ namespace Wshcmx.Types
         /// В "черном списке" на подачу заявок
         /// </summary>
         [XmlElement("in_request_black_list")]
-        public bool InRequestBlackList { get; set; }
+        public bool? InRequestBlackList { get; set; }
 
         /// <summary>
         /// Дата включения в "черный список"
@@ -448,67 +448,67 @@ namespace Wshcmx.Types
         /// Отображать незаполненные поля
         /// </summary>
         [XmlElement("disp_empty_fields")]
-        public bool DispEmptyFields { get; set; }
+        public bool? DispEmptyFields { get; set; }
 
         /// <summary>
         /// Отображать контактную информацию и фото
         /// </summary>
         [XmlElement("disp_personal_info")]
-        public bool DispPersonalInfo { get; set; }
+        public bool? DispPersonalInfo { get; set; }
 
         /// <summary>
         /// Отображать логин
         /// </summary>
         [XmlElement("disp_login")]
-        public bool DispLogin { get; set; }
+        public bool? DispLogin { get; set; }
 
         /// <summary>
         /// Отображать пол
         /// </summary>
         [XmlElement("disp_sex")]
-        public bool DispSex { get; set; }
+        public bool? DispSex { get; set; }
 
         /// <summary>
         /// Отображать описание
         /// </summary>
         [XmlElement("disp_desc")]
-        public bool DispDesc { get; set; }
+        public bool? DispDesc { get; set; }
 
         /// <summary>
         /// Отображать файлы
         /// </summary>
         [XmlElement("disp_files")]
-        public bool DispFiles { get; set; }
+        public bool? DispFiles { get; set; }
 
         /// <summary>
         /// Отображать дату рождения
         /// </summary>
         [XmlElement("disp_birthdate")]
-        public bool DispBirthdate { get; set; }
+        public bool? DispBirthdate { get; set; }
 
         /// <summary>
         /// Отображать год рождения
         /// </summary>
         [XmlElement("disp_birthdate_year")]
-        public bool DispBirthdateYear { get; set; }
+        public bool? DispBirthdateYear { get; set; }
 
         /// <summary>
         /// Отображать резюме
         /// </summary>
         [XmlElement("disp_resume")]
-        public bool DispResume { get; set; }
+        public bool? DispResume { get; set; }
 
         /// <summary>
         /// Разрешить приглашение пользователя к общению
         /// </summary>
         [XmlElement("allow_personal_chat_request")]
-        public bool AllowPersonalChatRequest { get; set; }
+        public bool? AllowPersonalChatRequest { get; set; }
 
         /// <summary>
         /// Для общения в персональном чате требуется подтверждение
         /// </summary>
         [XmlElement("personal_chat_confirmation_required")]
-        public bool PersonalChatConfirmationRequired { get; set; }
+        public bool? PersonalChatConfirmationRequired { get; set; }
 
         /// <summary>
         /// potencialrazvi_9_9
@@ -589,13 +589,13 @@ namespace Wshcmx.Types
         /// GDPR
         /// </summary>
         [XmlElement("gdpr")]
-        public bool Gdpr { get; set; }
+        public bool? Gdpr { get; set; }
 
         /// <summary>
         /// Согласие на КЭДО
         /// </summary>
         [XmlElement("consent_kedo")]
-        public bool ConsentKedo { get; set; }
+        public bool? ConsentKedo { get; set; }
 
         /// <summary>
         /// Дата согласия на КЭДО
@@ -856,7 +856,7 @@ namespace Wshcmx.Types
         /// Временно запрещен доступ на портал
         /// </summary>
         [XmlElement("web_banned")]
-        public bool WebBanned { get; set; }
+        public bool? WebBanned { get; set; }
 
         /// <summary>
         /// Логин
@@ -880,25 +880,25 @@ namespace Wshcmx.Types
         /// Является пользователем интерфейса администратора
         /// </summary>
         [XmlElement("is_arm_admin")]
-        public bool IsArmAdmin { get; set; }
+        public bool? IsArmAdmin { get; set; }
 
         /// <summary>
         /// Является пользователем приложений
         /// </summary>
         [XmlElement("is_application_admin")]
-        public bool IsApplicationAdmin { get; set; }
+        public bool? IsApplicationAdmin { get; set; }
 
         /// <summary>
         /// Является редактором контента
         /// </summary>
         [XmlElement("is_content_admin")]
-        public bool IsContentAdmin { get; set; }
+        public bool? IsContentAdmin { get; set; }
 
         /// <summary>
         /// В "черном списке" на подачу заявок
         /// </summary>
         [XmlElement("in_request_black_list")]
-        public bool InRequestBlackList { get; set; }
+        public bool? InRequestBlackList { get; set; }
 
         /// <summary>
         /// Должность
@@ -958,7 +958,7 @@ namespace Wshcmx.Types
         public AuFtFilter? Filter { get; set; }
 
         [XmlElement("is_admin")]
-        public bool IsAdmin { get; set; }
+        public bool? IsAdmin { get; set; }
 
         [XmlElement("user_id")]
         public long? UserId { get; set; }
@@ -970,7 +970,7 @@ namespace Wshcmx.Types
         public object? PositionDocRef { get; set; }
 
         [XmlElement("never_saved")]
-        public bool NeverSaved { get; set; }
+        public bool? NeverSaved { get; set; }
 
         [XmlElement("knowledge_classifier_id")]
         public long? KnowledgeClassifierId { get; set; }
@@ -979,10 +979,10 @@ namespace Wshcmx.Types
         public string? KnowledgeSortTypeId { get; set; }
 
         [XmlElement("disp_access")]
-        public bool DispAccess { get; set; }
+        public bool? DispAccess { get; set; }
 
         [XmlElement("disp_auth")]
-        public bool DispAuth { get; set; }
+        public bool? DispAuth { get; set; }
 
         [XmlElement("drop_pers_hier_entry")]
         public bool? DropPersHierEntry { get; set; }

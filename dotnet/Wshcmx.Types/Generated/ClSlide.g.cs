@@ -61,19 +61,19 @@ namespace Wshcmx.Types
         /// Является хозяином
         /// </summary>
         [XmlElement("is_master")]
-        public bool IsMaster { get; set; }
+        public bool? IsMaster { get; set; }
 
         /// <summary>
         /// Является выскакивающим экраном
         /// </summary>
         [XmlElement("is_splash")]
-        public bool IsSplash { get; set; }
+        public bool? IsSplash { get; set; }
 
         [XmlElement("indent")]
         public long? Indent { get; set; }
 
         [XmlElement("infinite")]
-        public bool Infinite { get; set; }
+        public bool? Infinite { get; set; }
 
         [XmlElement("advance")]
         public string? Advance { get; set; }
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Заблокировано
         /// </summary>
         [XmlElement("flag_locked")]
-        public bool FlagLocked { get; set; }
+        public bool? FlagLocked { get; set; }
 
         /// <summary>
         /// Владелец ресурса
@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Слайд завершен
         /// </summary>
         [XmlElement("flag_completion")]
-        public bool FlagCompletion { get; set; }
+        public bool? FlagCompletion { get; set; }
 
         [XmlElement("champion_id")]
         public long? ChampionId { get; set; }
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
         public long? Duration { get; set; }
 
         [XmlElement("infinite")]
-        public bool Infinite { get; set; }
+        public bool? Infinite { get; set; }
 
         [XmlElement("eventsxml")]
         public string? Eventsxml { get; set; }
@@ -256,7 +256,7 @@ namespace Wshcmx.Types
         public string? LineStyle { get; set; }
 
         [XmlElement("draggable")]
-        public bool Draggable { get; set; }
+        public bool? Draggable { get; set; }
 
         [XmlElement("rotation")]
         public long? Rotation { get; set; }
@@ -265,13 +265,13 @@ namespace Wshcmx.Types
         public string? Soundsrc { get; set; }
 
         [XmlElement("play")]
-        public bool Play { get; set; }
+        public bool? Play { get; set; }
 
         [XmlElement("state_extension")]
-        public bool StateExtension { get; set; }
+        public bool? StateExtension { get; set; }
 
         [XmlElement("hide_design")]
-        public bool HideDesign { get; set; }
+        public bool? HideDesign { get; set; }
 
         [XmlElement("template")]
         public string? Template { get; set; }

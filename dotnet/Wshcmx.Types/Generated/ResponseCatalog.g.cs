@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Публичный отзыв
         /// </summary>
         [Column("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Дата модификации

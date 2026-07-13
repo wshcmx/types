@@ -172,25 +172,25 @@ namespace Wshcmx.Types
         /// Присутствие
         /// </summary>
         [XmlElement("is_assist")]
-        public bool IsAssist { get; set; }
+        public bool? IsAssist { get; set; }
 
         /// <summary>
         /// Подтвердил участие
         /// </summary>
         [XmlElement("is_confirm")]
-        public bool IsConfirm { get; set; }
+        public bool? IsConfirm { get; set; }
 
         /// <summary>
         /// Доступ запрещен
         /// </summary>
         [XmlElement("is_banned")]
-        public bool IsBanned { get; set; }
+        public bool? IsBanned { get; set; }
 
         /// <summary>
         /// Отказался от участия
         /// </summary>
         [XmlElement("not_participate")]
-        public bool NotParticipate { get; set; }
+        public bool? NotParticipate { get; set; }
 
         /// <summary>
         /// Дата отправления уведомления об участии в мероприятии
@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         public long? WebinarActivityTime { get; set; }
 
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Баллы
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Без оплаты
         /// </summary>
         [XmlElement("not_pay")]
-        public bool NotPay { get; set; }
+        public bool? NotPay { get; set; }
 
         /// <summary>
         /// Центр затрат участника по умолчанию
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Используется гостевой вход
         /// </summary>
         [XmlElement("guest")]
-        public bool Guest { get; set; }
+        public bool? Guest { get; set; }
 
         /// <summary>
         /// Комментарий

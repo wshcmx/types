@@ -85,10 +85,10 @@ namespace Wshcmx.Types
         public string CatalogName { get; set; }
 
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("access")]
         public AccessDocBase Access { get; set; }

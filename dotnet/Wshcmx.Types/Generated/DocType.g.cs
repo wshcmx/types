@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         public List<DocTypeDocumentField> Fields { get; set; } = new List<DocTypeDocumentField>();
 
         [XmlElement("is_hier")]
-        public bool IsHier { get; set; }
+        public bool? IsHier { get; set; }
 
         /// <summary>
         /// Форма требует перезагрузки сервера
         /// </summary>
         [XmlElement("is_crave_for_reboot")]
-        public bool IsCraveForReboot { get; set; }
+        public bool? IsCraveForReboot { get; set; }
 
         /// <summary>
         /// Web шаблон
@@ -166,28 +166,28 @@ namespace Wshcmx.Types
         public string? SheetId { get; set; }
 
         [XmlElement("flag_extended")]
-        public bool FlagExtended { get; set; }
+        public bool? FlagExtended { get; set; }
 
         [XmlElement("indexed")]
-        public bool Indexed { get; set; }
+        public bool? Indexed { get; set; }
 
         /// <summary>
         /// Поле в каталоге
         /// </summary>
         [XmlElement("in_catalog")]
-        public bool InCatalog { get; set; }
+        public bool? InCatalog { get; set; }
 
         [XmlElement("hide_level")]
         public long? HideLevel { get; set; }
 
         [XmlElement("is_multiple")]
-        public bool IsMultiple { get; set; }
+        public bool? IsMultiple { get; set; }
 
         [XmlElement("is_readonly")]
-        public bool IsReadonly { get; set; }
+        public bool? IsReadonly { get; set; }
 
         [XmlElement("translatable")]
-        public bool Translatable { get; set; }
+        public bool? Translatable { get; set; }
 
         [XmlElement("xquery_qual")]
         public string? XqueryQual { get; set; }
@@ -241,10 +241,10 @@ namespace Wshcmx.Types
         public string? SetValueAction { get; set; }
 
         [XmlElement("flag_extended")]
-        public bool FlagExtended { get; set; }
+        public bool? FlagExtended { get; set; }
 
         [XmlElement("is_readonly")]
-        public bool IsReadonly { get; set; }
+        public bool? IsReadonly { get; set; }
 
         [XmlElement("xquery_qual")]
         public string? XqueryQual { get; set; }
@@ -274,7 +274,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("is_edit_mode")]
-        public bool IsEditMode { get; set; }
+        public bool? IsEditMode { get; set; }
 
         [XmlElement("dummy_buff")]
         public long DummyBuff { get; set; }

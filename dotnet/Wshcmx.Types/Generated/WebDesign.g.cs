@@ -106,7 +106,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Комментарий

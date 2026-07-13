@@ -61,31 +61,31 @@ namespace Wshcmx.Types
         /// Писать по умолчанию запрещено
         /// </summary>
         [XmlElement("prohibit_write")]
-        public bool ProhibitWrite { get; set; }
+        public bool? ProhibitWrite { get; set; }
 
         /// <summary>
         /// Разрешить звонки
         /// </summary>
         [XmlElement("can_call")]
-        public bool CanCall { get; set; }
+        public bool? CanCall { get; set; }
 
         /// <summary>
         /// Разрешить изменение состава участников
         /// </summary>
         [XmlElement("can_change_participant")]
-        public bool CanChangeParticipant { get; set; }
+        public bool? CanChangeParticipant { get; set; }
 
         /// <summary>
         /// Разрешить отображение дополнительной информации для всех
         /// </summary>
         [XmlElement("can_show_additional_info")]
-        public bool CanShowAdditionalInfo { get; set; }
+        public bool? CanShowAdditionalInfo { get; set; }
 
         /// <summary>
         /// Панель дополнительной информации по умолчанию открыта
         /// </summary>
         [XmlElement("open_additional_info")]
-        public bool OpenAdditionalInfo { get; set; }
+        public bool? OpenAdditionalInfo { get; set; }
 
         /// <summary>
         /// Подключать чат-бот при создании

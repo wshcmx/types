@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Эталонное мероприятие
         /// </summary>
         [Column("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Использовать виртуальный класс
         /// </summary>
         [Column("use_vclass")]
-        public bool UseVclass { get; set; }
+        public bool? UseVclass { get; set; }
 
         /// <summary>
         /// Виртуальный класс
@@ -187,13 +187,13 @@ namespace Wshcmx.Types
         /// Вебинар не записан
         /// </summary>
         [Column("record_exists")]
-        public bool RecordExists { get; set; }
+        public bool? RecordExists { get; set; }
 
         /// <summary>
         /// Запись доступна для просмотра
         /// </summary>
         [Column("show_record")]
-        public bool ShowRecord { get; set; }
+        public bool? ShowRecord { get; set; }
 
         /// <summary>
         /// Базовое мероприятие
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         /// Группа сформирована
         /// </summary>
         [Column("group_formed")]
-        public bool GroupFormed { get; set; }
+        public bool? GroupFormed { get; set; }
 
         /// <summary>
         /// Курс
@@ -271,13 +271,13 @@ namespace Wshcmx.Types
         /// Является публичным
         /// </summary>
         [Column("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Является открытым
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Стоимость
@@ -319,7 +319,7 @@ namespace Wshcmx.Types
         /// Обязательное заполнение отзыва
         /// </summary>
         [Column("mandatory_fill_response")]
-        public bool MandatoryFillResponse { get; set; }
+        public bool? MandatoryFillResponse { get; set; }
 
         /// <summary>
         /// Форма проведения

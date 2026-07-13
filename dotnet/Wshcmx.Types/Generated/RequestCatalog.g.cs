@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Является групповой
         /// </summary>
         [Column("is_group")]
-        public bool IsGroup { get; set; }
+        public bool? IsGroup { get; set; }
 
         /// <summary>
         /// Количество участников

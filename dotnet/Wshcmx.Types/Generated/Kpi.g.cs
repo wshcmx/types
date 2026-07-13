@@ -112,7 +112,7 @@ namespace Wshcmx.Types
         /// KPI
         /// </summary>
         [XmlElement("is_kpi")]
-        public bool IsKpi { get; set; }
+        public bool? IsKpi { get; set; }
 
         /// <summary>
         /// KPI
@@ -199,13 +199,13 @@ namespace Wshcmx.Types
         /// Источник премирования
         /// </summary>
         [XmlElement("is_bonus_source")]
-        public bool IsBonusSource { get; set; }
+        public bool? IsBonusSource { get; set; }
 
         /// <summary>
         /// Глобальный показатель
         /// </summary>
         [XmlElement("is_global")]
-        public bool IsGlobal { get; set; }
+        public bool? IsGlobal { get; set; }
 
         /// <summary>
         /// Единица измерения
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
     public class KpiDocumentCustomData
     {
         [XmlElement("on")]
-        public bool On { get; set; }
+        public bool? On { get; set; }
 
         [XmlElement("columns")]
         public List<KpiDocumentCustomDataColumn> Columns { get; set; } = new List<KpiDocumentCustomDataColumn>();
@@ -370,7 +370,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -460,7 +460,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -484,7 +484,7 @@ namespace Wshcmx.Types
         /// Является непосредственным руководителем
         /// </summary>
         [XmlElement("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип руководителя
@@ -526,6 +526,6 @@ namespace Wshcmx.Types
         public string Selector { get; set; }
 
         [XmlElement("flag_bad_formula")]
-        public bool FlagBadFormula { get; set; }
+        public bool? FlagBadFormula { get; set; }
     }
 }

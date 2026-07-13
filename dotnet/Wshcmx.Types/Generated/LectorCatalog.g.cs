@@ -91,13 +91,13 @@ namespace Wshcmx.Types
         /// Является уволенным
         /// </summary>
         [Column("is_dismiss")]
-        public bool IsDismiss { get; set; }
+        public bool? IsDismiss { get; set; }
 
         /// <summary>
         /// Разрешена публикация на портале описания и контактной информации
         /// </summary>
         [Column("allow_publication")]
-        public bool AllowPublication { get; set; }
+        public bool? AllowPublication { get; set; }
 
         /// <summary>
         /// Категория

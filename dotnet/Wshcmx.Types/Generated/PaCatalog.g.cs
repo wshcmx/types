@@ -140,7 +140,7 @@ namespace Wshcmx.Types
         /// Согласующие эксперты
         /// </summary>
         [Column("is_custom_experts")]
-        public bool IsCustomExperts { get; set; }
+        public bool? IsCustomExperts { get; set; }
 
         /// <summary>
         /// Подразделение
@@ -158,7 +158,7 @@ namespace Wshcmx.Types
         /// Оценка сотрудника/подразделения
         /// </summary>
         [Column("flag_appraise_department")]
-        public bool FlagAppraiseDepartment { get; set; }
+        public bool? FlagAppraiseDepartment { get; set; }
 
         /// <summary>
         /// Профиль компетенций
@@ -219,19 +219,19 @@ namespace Wshcmx.Types
         /// Признак завершенности
         /// </summary>
         [Column("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Признак готовности (для параллельной оценки)
         /// </summary>
         [Column("is_ready")]
-        public bool IsReady { get; set; }
+        public bool? IsReady { get; set; }
 
         /// <summary>
         /// Признак результирующей формы
         /// </summary>
         [Column("is_final")]
-        public bool IsFinal { get; set; }
+        public bool? IsFinal { get; set; }
 
         /// <summary>
         /// Статус
@@ -291,7 +291,7 @@ namespace Wshcmx.Types
         /// Задействовался/не задействовался
         /// </summary>
         [Column("flag_is_processed")]
-        public bool FlagIsProcessed { get; set; }
+        public bool? FlagIsProcessed { get; set; }
 
         /// <summary>
         /// Сотрудник

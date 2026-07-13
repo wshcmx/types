@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Является ответственным
         /// </summary>
         [Column("is_responsible")]
-        public bool IsResponsible { get; set; }
+        public bool? IsResponsible { get; set; }
 
         /// <summary>
         /// ФИО наставника

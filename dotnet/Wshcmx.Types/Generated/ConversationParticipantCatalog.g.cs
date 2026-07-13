@@ -115,25 +115,25 @@ namespace Wshcmx.Types
         /// Активное уведомление
         /// </summary>
         [Column("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Помечен непрочитанным
         /// </summary>
         [Column("is_marked")]
-        public bool IsMarked { get; set; }
+        public bool? IsMarked { get; set; }
 
         /// <summary>
         /// Кастомный участник
         /// </summary>
         [Column("is_custom")]
-        public bool IsCustom { get; set; }
+        public bool? IsCustom { get; set; }
 
         /// <summary>
         /// Закрепленный разговор
         /// </summary>
         [Column("is_pinned")]
-        public bool IsPinned { get; set; }
+        public bool? IsPinned { get; set; }
 
         /// <summary>
         /// Сотрудник

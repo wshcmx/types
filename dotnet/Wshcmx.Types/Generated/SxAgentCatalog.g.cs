@@ -46,6 +46,6 @@ namespace Wshcmx.Types
     public class SxAgentsSchedule
     {
         [XmlElement("launch_on_start")]
-        public bool LaunchOnStart { get; set; }
+        public bool? LaunchOnStart { get; set; }
     }
 }

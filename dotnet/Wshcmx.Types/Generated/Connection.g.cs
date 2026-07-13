@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         public DateTime? TerminateDate { get; set; }
 
         [XmlElement("unauthorized")]
-        public bool Unauthorized { get; set; }
+        public bool? Unauthorized { get; set; }
 
         [XmlElement("host_path")]
         public string? HostPath { get; set; }

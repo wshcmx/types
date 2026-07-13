@@ -52,7 +52,7 @@ namespace Wshcmx.Types
         /// CMI5
         /// </summary>
         [XmlElement("cmi5")]
-        public bool Cmi5 { get; set; }
+        public bool? Cmi5 { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -70,13 +70,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         [XmlElement("view")]
         public LibraryPlayerDocumentView? View { get; set; }

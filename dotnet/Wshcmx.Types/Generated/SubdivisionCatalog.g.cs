@@ -128,7 +128,7 @@ namespace Wshcmx.Types
         /// Факультет
         /// </summary>
         [Column("is_faculty")]
-        public bool IsFaculty { get; set; }
+        public bool? IsFaculty { get; set; }
 
         /// <summary>
         /// Дата модификации

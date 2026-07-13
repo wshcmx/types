@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Активное уведомление
         /// </summary>
         [Column("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Сотрудник

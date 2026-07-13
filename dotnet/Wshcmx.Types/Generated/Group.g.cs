@@ -238,10 +238,10 @@ namespace Wshcmx.Types
         public string? ConditionsQual { get; set; }
 
         [XmlElement("pol_loaded")]
-        public bool PolLoaded { get; set; }
+        public bool? PolLoaded { get; set; }
 
         [XmlElement("pol_changed")]
-        public bool PolChanged { get; set; }
+        public bool? PolChanged { get; set; }
 
         [XmlElement("person_object_profiles")]
         public List<PersonObjectLinksBasePersonObjectProfile> PersonObjectProfiles { get; set; } = new List<PersonObjectLinksBasePersonObjectProfile>();
@@ -259,31 +259,31 @@ namespace Wshcmx.Types
         /// Является динамической
         /// </summary>
         [XmlElement("is_dynamic")]
-        public bool IsDynamic { get; set; }
+        public bool? IsDynamic { get; set; }
 
         /// <summary>
         /// Является учебной
         /// </summary>
         [XmlElement("is_educ")]
-        public bool IsEduc { get; set; }
+        public bool? IsEduc { get; set; }
 
         /// <summary>
         /// Скрытая группа
         /// </summary>
         [XmlElement("is_hidden")]
-        public bool IsHidden { get; set; }
+        public bool? IsHidden { get; set; }
 
         /// <summary>
         /// Возможно оставлять сообщения на ленту
         /// </summary>
         [XmlElement("allow_social_post")]
-        public bool AllowSocialPost { get; set; }
+        public bool? AllowSocialPost { get; set; }
 
         /// <summary>
         /// По должности
         /// </summary>
         [XmlElement("is_position")]
-        public bool IsPosition { get; set; }
+        public bool? IsPosition { get; set; }
 
         /// <summary>
         /// Сотрудники
@@ -406,7 +406,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class GroupDocumentView

@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         [XmlElement("knowledge_parts")]
         public List<KnowledgePartsFieldsBaseKnowledgePart> KnowledgeParts { get; set; } = new List<KnowledgePartsFieldsBaseKnowledgePart>();
@@ -190,13 +190,13 @@ namespace Wshcmx.Types
         /// Видео сконвертировано для просмотра онлайн
         /// </summary>
         [XmlElement("online_video_prepared")]
-        public bool OnlineVideoPrepared { get; set; }
+        public bool? OnlineVideoPrepared { get; set; }
 
         /// <summary>
         /// Формат
         /// </summary>
         [XmlElement("use_old_format")]
-        public bool UseOldFormat { get; set; }
+        public bool? UseOldFormat { get; set; }
 
         /// <summary>
         /// Качество видео
@@ -208,13 +208,13 @@ namespace Wshcmx.Types
         /// Разрешить скачивание файла
         /// </summary>
         [XmlElement("allow_download")]
-        public bool AllowDownload { get; set; }
+        public bool? AllowDownload { get; set; }
 
         /// <summary>
         /// Разрешить самостоятельный просмотр материала
         /// </summary>
         [XmlElement("allow_self_viewing")]
-        public bool AllowSelfViewing { get; set; }
+        public bool? AllowSelfViewing { get; set; }
 
         /// <summary>
         /// Разрешить самостоятельный просмотр материала
@@ -238,13 +238,13 @@ namespace Wshcmx.Types
         /// Новым отзывам требуется подтверждение администратора
         /// </summary>
         [XmlElement("is_need_admin_approval")]
-        public bool IsNeedAdminApproval { get; set; }
+        public bool? IsNeedAdminApproval { get; set; }
 
         /// <summary>
         /// Закрыт для новых отзывов
         /// </summary>
         [XmlElement("is_closed")]
-        public bool IsClosed { get; set; }
+        public bool? IsClosed { get; set; }
 
         [XmlElement("groups")]
         public List<LibraryMaterialDocumentGroup> Groups { get; set; } = new List<LibraryMaterialDocumentGroup>();
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Обязательное заполнение отзыва
         /// </summary>
         [XmlElement("mandatory_fill_response")]
-        public bool MandatoryFillResponse { get; set; }
+        public bool? MandatoryFillResponse { get; set; }
 
         [XmlElement("old_id")]
         public long? OldId { get; set; }
@@ -388,7 +388,7 @@ namespace Wshcmx.Types
         public long? Height { get; set; }
 
         [XmlElement("show_contents")]
-        public bool ShowContents { get; set; }
+        public bool? ShowContents { get; set; }
 
         [XmlElement("base_url")]
         public string? BaseUrl { get; set; }

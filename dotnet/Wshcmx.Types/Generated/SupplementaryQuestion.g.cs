@@ -58,7 +58,7 @@ namespace Wshcmx.Types
         /// Использовать для оценки должностей
         /// </summary>
         [XmlElement("is_assessment_position_common")]
-        public bool IsAssessmentPositionCommon { get; set; }
+        public bool? IsAssessmentPositionCommon { get; set; }
 
         /// <summary>
         /// Разделы инструкции
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         /// Обязательно для заполнения
         /// </summary>
         [XmlElement("is_requered")]
-        public bool IsRequered { get; set; }
+        public bool? IsRequered { get; set; }
 
         /// <summary>
         /// Комментарий

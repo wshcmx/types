@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         public string OptionType { get; set; }
 
         [XmlElement("is_custom_field")]
-        public bool IsCustomField { get; set; }
+        public bool? IsCustomField { get; set; }
     }
 
     public class AssessmentAppraiseMatrixDocumentTimeTableSchedule

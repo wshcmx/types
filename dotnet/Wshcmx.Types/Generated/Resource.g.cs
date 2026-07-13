@@ -454,10 +454,10 @@ namespace Wshcmx.Types
     public class ResourceDocumentViewEdit
     {
         [XmlElement("update_resource")]
-        public bool UpdateResource { get; set; }
+        public bool? UpdateResource { get; set; }
 
         [XmlElement("can_edit_pict")]
-        public bool CanEditPict { get; set; }
+        public bool? CanEditPict { get; set; }
 
         [XmlElement("pic_path")]
         public string? PicPath { get; set; }
@@ -469,6 +469,6 @@ namespace Wshcmx.Types
         public long? NewHeight { get; set; }
 
         [XmlElement("proportional")]
-        public bool Proportional { get; set; }
+        public bool? Proportional { get; set; }
     }
 }

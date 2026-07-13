@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Настраиваемые поля
@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// Отображать scrolling
         /// </summary>
         [XmlElement("disp_scrolling")]
-        public bool DispScrolling { get; set; }
+        public bool? DispScrolling { get; set; }
 
         [XmlElement("version")]
         public string? Version { get; set; }

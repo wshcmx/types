@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Не доступно для выбора в магазине
         /// </summary>
         [XmlElement("is_cant_chose")]
-        public bool IsCantChose { get; set; }
+        public bool? IsCantChose { get; set; }
 
         [XmlElement("costs")]
         public List<GoodDocumentCost> Costs { get; set; } = new List<GoodDocumentCost>();

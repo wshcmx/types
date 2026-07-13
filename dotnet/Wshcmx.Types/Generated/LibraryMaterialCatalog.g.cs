@@ -98,31 +98,31 @@ namespace Wshcmx.Types
         /// Имеется цифровой формат
         /// </summary>
         [Column("has_digital")]
-        public bool HasDigital { get; set; }
+        public bool? HasDigital { get; set; }
 
         /// <summary>
         /// Имеется физический носитель
         /// </summary>
         [Column("has_physical")]
-        public bool HasPhysical { get; set; }
+        public bool? HasPhysical { get; set; }
 
         /// <summary>
         /// Разрешить скачивание файла
         /// </summary>
         [Column("allow_download")]
-        public bool AllowDownload { get; set; }
+        public bool? AllowDownload { get; set; }
 
         /// <summary>
         /// Разрешить самостоятельный просмотр материала
         /// </summary>
         [Column("allow_self_viewing")]
-        public bool AllowSelfViewing { get; set; }
+        public bool? AllowSelfViewing { get; set; }
 
         /// <summary>
         /// Видео сконвертировано для просмотра онлайн
         /// </summary>
         [Column("online_video_prepared")]
-        public bool OnlineVideoPrepared { get; set; }
+        public bool? OnlineVideoPrepared { get; set; }
 
         /// <summary>
         /// Вид
@@ -158,13 +158,13 @@ namespace Wshcmx.Types
         /// Новым отзывам требуется подтверждение администратора
         /// </summary>
         [Column("is_need_admin_approval")]
-        public bool IsNeedAdminApproval { get; set; }
+        public bool? IsNeedAdminApproval { get; set; }
 
         /// <summary>
         /// Закрыт для новых отзывов
         /// </summary>
         [Column("is_closed")]
-        public bool IsClosed { get; set; }
+        public bool? IsClosed { get; set; }
 
         /// <summary>
         /// Разрешить самостоятельный просмотр материала

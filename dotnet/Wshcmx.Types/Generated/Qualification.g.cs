@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         /// При приеме на работу
         /// </summary>
         [XmlElement("test_on_hire")]
-        public bool TestOnHire { get; set; }
+        public bool? TestOnHire { get; set; }
 
         /// <summary>
         /// Количество дней до следующего подтверждения
@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Разрешить самостоятельное назначение испытаний по квалификации
         /// </summary>
         [XmlElement("yourself_start")]
-        public bool YourselfStart { get; set; }
+        public bool? YourselfStart { get; set; }
 
         [XmlElement("is_reward")]
         public bool? IsReward { get; set; }

@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Закрытый форум
         /// </summary>
         [Column("closed")]
-        public bool Closed { get; set; }
+        public bool? Closed { get; set; }
 
         /// <summary>
         /// Закрепить тему
@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Одобрена модератором
         /// </summary>
         [Column("is_moder_approved")]
-        public bool IsModerApproved { get; set; }
+        public bool? IsModerApproved { get; set; }
 
         /// <summary>
         /// Предыдущая дата создания

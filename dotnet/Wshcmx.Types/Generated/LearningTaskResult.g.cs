@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Просрочено
         /// </summary>
         [XmlElement("expired")]
-        public bool Expired { get; set; }
+        public bool? Expired { get; set; }
 
         /// <summary>
         /// Дата/время начала выполнения
@@ -268,7 +268,7 @@ namespace Wshcmx.Types
         /// Файл эксперта
         /// </summary>
         [XmlElement("is_expert")]
-        public bool IsExpert { get; set; }
+        public bool? IsExpert { get; set; }
     }
 
     public class LearningTaskResultDocumentView

@@ -163,7 +163,7 @@ namespace Wshcmx.Types
         /// Обязательный раздел
         /// </summary>
         [XmlElement("required")]
-        public bool Required { get; set; }
+        public bool? Required { get; set; }
 
         /// <summary>
         /// Комментарий

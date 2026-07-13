@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         public long? ResourceId { get; set; }
 
         [XmlElement("disp_second_new_button")]
-        public bool DispSecondNewButton { get; set; }
+        public bool? DispSecondNewButton { get; set; }
 
         [XmlElement("second_button_text")]
         public string? SecondButtonText { get; set; }
@@ -49,10 +49,10 @@ namespace Wshcmx.Types
         public string? SecondButtonImageUrl { get; set; }
 
         [XmlElement("no_doc")]
-        public bool NoDoc { get; set; }
+        public bool? NoDoc { get; set; }
 
         [XmlElement("disp_new_button")]
-        public bool DispNewButton { get; set; }
+        public bool? DispNewButton { get; set; }
 
         [XmlElement("new_button_text")]
         public string? NewButtonText { get; set; }
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         public string? RowImageUrl { get; set; }
 
         [XmlElement("disp_role_selector")]
-        public bool DispRoleSelector { get; set; }
+        public bool? DispRoleSelector { get; set; }
 
         [XmlElement("data_fields")]
         public string? DataFields { get; set; }
@@ -82,10 +82,10 @@ namespace Wshcmx.Types
         public List<ViewColumnsBaseColumn> Columns { get; set; } = new List<ViewColumnsBaseColumn>();
 
         [XmlElement("is_hier")]
-        public bool IsHier { get; set; }
+        public bool? IsHier { get; set; }
 
         [XmlElement("disp_dlg_new_button")]
-        public bool DispDlgNewButton { get; set; }
+        public bool? DispDlgNewButton { get; set; }
 
         [XmlElement("sort_field")]
         public string SortField { get; set; }
@@ -103,10 +103,10 @@ namespace Wshcmx.Types
         public string? WvarsSelector { get; set; }
 
         [XmlElement("disp_column_selector")]
-        public bool DispColumnSelector { get; set; }
+        public bool? DispColumnSelector { get; set; }
 
         [XmlElement("disp_preview_button")]
-        public bool DispPreviewButton { get; set; }
+        public bool? DispPreviewButton { get; set; }
 
         /// <summary>
         /// UI шаблон плашки
@@ -148,40 +148,40 @@ namespace Wshcmx.Types
         public WebVariablesBase? PreviewWebMode { get; set; }
 
         [XmlElement("display_roles")]
-        public bool DisplayRoles { get; set; }
+        public bool? DisplayRoles { get; set; }
 
         [XmlElement("can_create_roles")]
-        public bool CanCreateRoles { get; set; }
+        public bool? CanCreateRoles { get; set; }
 
         [XmlElement("can_edit_preview")]
-        public bool CanEditPreview { get; set; }
+        public bool? CanEditPreview { get; set; }
 
         [XmlElement("disp_link_views")]
-        public bool DispLinkViews { get; set; }
+        public bool? DispLinkViews { get; set; }
 
         [XmlElement("disp_search")]
-        public bool DispSearch { get; set; }
+        public bool? DispSearch { get; set; }
 
         [XmlElement("search_type")]
         public string? SearchType { get; set; }
 
         [XmlElement("disp_filter")]
-        public bool DispFilter { get; set; }
+        public bool? DispFilter { get; set; }
 
         [XmlElement("disp_list_menu")]
-        public bool DispListMenu { get; set; }
+        public bool? DispListMenu { get; set; }
 
         [XmlElement("disp_std_menu")]
-        public bool DispStdMenu { get; set; }
+        public bool? DispStdMenu { get; set; }
 
         [XmlElement("use_ext_menu")]
-        public bool UseExtMenu { get; set; }
+        public bool? UseExtMenu { get; set; }
 
         [XmlElement("can_open_doc")]
-        public bool CanOpenDoc { get; set; }
+        public bool? CanOpenDoc { get; set; }
 
         [XmlElement("can_delete_doc")]
-        public bool CanDeleteDoc { get; set; }
+        public bool? CanDeleteDoc { get; set; }
 
         /// <summary>
         /// UI шаблон
@@ -196,7 +196,7 @@ namespace Wshcmx.Types
         public string? DocIdField { get; set; }
 
         [XmlElement("custom_is_dlg")]
-        public bool CustomIsDlg { get; set; }
+        public bool? CustomIsDlg { get; set; }
 
         [XmlElement("admin_template")]
         public WebVariablesBase? AdminTemplate { get; set; }
@@ -247,13 +247,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Категория

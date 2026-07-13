@@ -211,7 +211,7 @@ namespace Wshcmx.Types
         /// Назначен самостоятельно
         /// </summary>
         [XmlElement("is_self_enrolled")]
-        public bool IsSelfEnrolled { get; set; }
+        public bool? IsSelfEnrolled { get; set; }
 
         /// <summary>
         /// Дата последнего посещ.
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [XmlElement("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
 
         /// <summary>
         /// Комментарий

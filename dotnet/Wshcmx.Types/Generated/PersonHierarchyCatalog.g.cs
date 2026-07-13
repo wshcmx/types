@@ -41,6 +41,6 @@ namespace Wshcmx.Types
         }
 
         [Column("ready")]
-        public bool Ready { get; set; }
+        public bool? Ready { get; set; }
     }
 }

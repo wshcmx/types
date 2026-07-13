@@ -124,7 +124,7 @@ namespace Wshcmx.Types
         /// Разрешить самоназначение
         /// </summary>
         [XmlElement("allow_self_assignment")]
-        public bool AllowSelfAssignment { get; set; }
+        public bool? AllowSelfAssignment { get; set; }
 
         /// <summary>
         /// Разделы учебной программы
@@ -316,7 +316,7 @@ namespace Wshcmx.Types
         /// Редактировать уведомление
         /// </summary>
         [XmlElement("edit_notification")]
-        public bool EditNotification { get; set; }
+        public bool? EditNotification { get; set; }
 
         /// <summary>
         /// Дней
@@ -343,7 +343,7 @@ namespace Wshcmx.Types
         /// Обязательный раздел
         /// </summary>
         [XmlElement("required")]
-        public bool Required { get; set; }
+        public bool? Required { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -406,7 +406,7 @@ namespace Wshcmx.Types
         /// Редактировать уведомление
         /// </summary>
         [XmlElement("edit_notification")]
-        public bool EditNotification { get; set; }
+        public bool? EditNotification { get; set; }
     }
 
     public class CompoundProgramDocumentProgramStartAssessment
@@ -451,7 +451,7 @@ namespace Wshcmx.Types
         /// Редактировать уведомление
         /// </summary>
         [XmlElement("edit_notification")]
-        public bool EditNotification { get; set; }
+        public bool? EditNotification { get; set; }
     }
 
     public class CompoundProgramDocumentView

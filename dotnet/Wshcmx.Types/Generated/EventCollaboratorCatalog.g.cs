@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         public bool? IsOpen { get; set; }
 
         [Column("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Фактическое количество часов

@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         public string? ObjectCatalog { get; set; }
 
         [XmlElement("all_can_create")]
-        public bool AllCanCreate { get; set; }
+        public bool? AllCanCreate { get; set; }
 
         [XmlElement("all_can_edit")]
-        public bool AllCanEdit { get; set; }
+        public bool? AllCanEdit { get; set; }
 
         [XmlElement("all_can_delete")]
-        public bool AllCanDelete { get; set; }
+        public bool? AllCanDelete { get; set; }
 
         [XmlElement("max_amount")]
         public long? MaxAmount { get; set; }
@@ -79,10 +79,10 @@ namespace Wshcmx.Types
         public string? ObjectName { get; set; }
 
         [XmlElement("can_edit")]
-        public bool CanEdit { get; set; }
+        public bool? CanEdit { get; set; }
 
         [XmlElement("can_delete")]
-        public bool CanDelete { get; set; }
+        public bool? CanDelete { get; set; }
 
         /// <summary>
         /// Уровень доступа

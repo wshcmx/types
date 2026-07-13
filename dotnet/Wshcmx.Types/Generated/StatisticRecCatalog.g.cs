@@ -37,13 +37,13 @@ namespace Wshcmx.Types
         /// Включен
         /// </summary>
         [Column("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Рассчитывать автоматически
         /// </summary>
         [Column("auto_calc")]
-        public bool AutoCalc { get; set; }
+        public bool? AutoCalc { get; set; }
 
         /// <summary>
         /// Дата последнего расчета
@@ -61,13 +61,13 @@ namespace Wshcmx.Types
         /// Вычисление контекста
         /// </summary>
         [Column("context_calc")]
-        public bool ContextCalc { get; set; }
+        public bool? ContextCalc { get; set; }
 
         /// <summary>
         /// Готов к использованию в "Центре аналитики"
         /// </summary>
         [Column("ready_to_analytics")]
-        public bool ReadyToAnalytics { get; set; }
+        public bool? ReadyToAnalytics { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -127,13 +127,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Категория

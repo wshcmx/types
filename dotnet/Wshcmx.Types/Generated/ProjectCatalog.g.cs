@@ -91,7 +91,7 @@ namespace Wshcmx.Types
         /// Эталонный проект
         /// </summary>
         [Column("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Документооборот по умолчанию
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Команда подобрана
         /// </summary>
         [Column("team_selected")]
-        public bool TeamSelected { get; set; }
+        public bool? TeamSelected { get; set; }
 
         /// <summary>
         /// Планируемая дата начала
@@ -151,7 +151,7 @@ namespace Wshcmx.Types
         /// Разрешить оценку участников после завершения проекта
         /// </summary>
         [Column("allow_assessment")]
-        public bool AllowAssessment { get; set; }
+        public bool? AllowAssessment { get; set; }
 
         /// <summary>
         /// Вступление в группу
@@ -169,13 +169,13 @@ namespace Wshcmx.Types
         /// Все участники могут видеть все задачи проекта
         /// </summary>
         [Column("all_participant_view_task")]
-        public bool AllParticipantViewTask { get; set; }
+        public bool? AllParticipantViewTask { get; set; }
 
         /// <summary>
         /// Разрешать назначать задачи не участникам проекта
         /// </summary>
         [Column("allow_assigning_tasks_to_all")]
-        public bool AllowAssigningTasksToAll { get; set; }
+        public bool? AllowAssigningTasksToAll { get; set; }
 
         /// <summary>
         /// Дата модификации

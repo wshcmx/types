@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Признак динамической группы
         /// </summary>
         [Column("is_dynamic")]
-        public bool IsDynamic { get; set; }
+        public bool? IsDynamic { get; set; }
 
         /// <summary>
         /// Профиль KPI

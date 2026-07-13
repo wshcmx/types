@@ -31,10 +31,10 @@ namespace Wshcmx.Types
         /// Признак завершения
         /// </summary>
         [XmlElement("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         [XmlElement("finished")]
-        public bool Finished { get; set; }
+        public bool? Finished { get; set; }
 
         /// <summary>
         /// Сервер

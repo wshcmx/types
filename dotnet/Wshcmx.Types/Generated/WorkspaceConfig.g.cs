@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// WorkSpace активен
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         [XmlElement("theme_block")]
         public WorkspaceConfigDocumentThemeBlock? ThemeBlock { get; set; }
@@ -97,13 +97,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Доступ
@@ -121,7 +121,7 @@ namespace Wshcmx.Types
         /// Показывать Приложения
         /// </summary>
         [XmlElement("show_application")]
-        public bool ShowApplication { get; set; }
+        public bool? ShowApplication { get; set; }
     }
 
     public class WorkspaceConfigDocumentCalendarBlock
@@ -130,43 +130,43 @@ namespace Wshcmx.Types
         /// Показывать раздел Календарь
         /// </summary>
         [XmlElement("show_calendar")]
-        public bool ShowCalendar { get; set; }
+        public bool? ShowCalendar { get; set; }
 
         /// <summary>
         /// Показывать вебинары
         /// </summary>
         [XmlElement("show_event")]
-        public bool ShowEvent { get; set; }
+        public bool? ShowEvent { get; set; }
 
         /// <summary>
         /// Показывать звонки
         /// </summary>
         [XmlElement("show_call")]
-        public bool ShowCall { get; set; }
+        public bool? ShowCall { get; set; }
 
         /// <summary>
         /// Разрешить создавать вебинары
         /// </summary>
         [XmlElement("allow_create_event")]
-        public bool AllowCreateEvent { get; set; }
+        public bool? AllowCreateEvent { get; set; }
 
         /// <summary>
         /// Разрешить создавать звонки
         /// </summary>
         [XmlElement("allow_create_call")]
-        public bool AllowCreateCall { get; set; }
+        public bool? AllowCreateCall { get; set; }
 
         /// <summary>
         /// Разрешить удалять вебинары
         /// </summary>
         [XmlElement("allow_delete_event")]
-        public bool AllowDeleteEvent { get; set; }
+        public bool? AllowDeleteEvent { get; set; }
 
         /// <summary>
         /// Разрешить удалять звонки
         /// </summary>
         [XmlElement("allow_delete_call")]
-        public bool AllowDeleteCall { get; set; }
+        public bool? AllowDeleteCall { get; set; }
     }
 
     public class WorkspaceConfigDocumentConversationBlock
@@ -175,25 +175,25 @@ namespace Wshcmx.Types
         /// Показывать раздел Разговоры
         /// </summary>
         [XmlElement("show_conversation")]
-        public bool ShowConversation { get; set; }
+        public bool? ShowConversation { get; set; }
 
         /// <summary>
         /// Разрешить создавать разговоры
         /// </summary>
         [XmlElement("allow_create_conversation")]
-        public bool AllowCreateConversation { get; set; }
+        public bool? AllowCreateConversation { get; set; }
 
         /// <summary>
         /// Разрешить создавать разговоры
         /// </summary>
         [XmlElement("allow_create_call")]
-        public bool AllowCreateCall { get; set; }
+        public bool? AllowCreateCall { get; set; }
 
         /// <summary>
         /// Разрешить расширенный поиск разговоров
         /// </summary>
         [XmlElement("allow_advanced_search")]
-        public bool AllowAdvancedSearch { get; set; }
+        public bool? AllowAdvancedSearch { get; set; }
 
         /// <summary>
         /// Выбор собеседников
@@ -223,25 +223,25 @@ namespace Wshcmx.Types
         /// Разрешить микрофон
         /// </summary>
         [XmlElement("allow_microphone")]
-        public bool AllowMicrophone { get; set; }
+        public bool? AllowMicrophone { get; set; }
 
         /// <summary>
         /// Разрешить трансляцию экрана
         /// </summary>
         [XmlElement("allow_screen_broadcast")]
-        public bool AllowScreenBroadcast { get; set; }
+        public bool? AllowScreenBroadcast { get; set; }
 
         /// <summary>
         /// Разрешить камеру
         /// </summary>
         [XmlElement("allow_camera")]
-        public bool AllowCamera { get; set; }
+        public bool? AllowCamera { get; set; }
 
         /// <summary>
         /// Показывать сообщения о присоединении к групповому звонку
         /// </summary>
         [XmlElement("show_message_member_connect_call")]
-        public bool ShowMessageMemberConnectCall { get; set; }
+        public bool? ShowMessageMemberConnectCall { get; set; }
 
         /// <summary>
         /// Максимально допустимое разрешение камеры
@@ -307,19 +307,19 @@ namespace Wshcmx.Types
         /// Разрешить записывать звонки
         /// </summary>
         [XmlElement("allow_write")]
-        public bool AllowWrite { get; set; }
+        public bool? AllowWrite { get; set; }
 
         /// <summary>
         /// Разрешить расшифровывать звонки
         /// </summary>
         [XmlElement("allow_recognition")]
-        public bool AllowRecognition { get; set; }
+        public bool? AllowRecognition { get; set; }
 
         /// <summary>
         /// Разрешить автоматическое формирование резюме по звонку
         /// </summary>
         [XmlElement("allow_summary")]
-        public bool AllowSummary { get; set; }
+        public bool? AllowSummary { get; set; }
     }
 
     public class WorkspaceConfigDocumentConversationBlockChat
@@ -328,67 +328,67 @@ namespace Wshcmx.Types
         /// Разрешить писать сообщения
         /// </summary>
         [XmlElement("allow_write_message")]
-        public bool AllowWriteMessage { get; set; }
+        public bool? AllowWriteMessage { get; set; }
 
         /// <summary>
         /// Разрешить реакции на сообщения
         /// </summary>
         [XmlElement("allow_reaction")]
-        public bool AllowReaction { get; set; }
+        public bool? AllowReaction { get; set; }
 
         /// <summary>
         /// Разрешить редактировать свои сообщения
         /// </summary>
         [XmlElement("allow_edit_message")]
-        public bool AllowEditMessage { get; set; }
+        public bool? AllowEditMessage { get; set; }
 
         /// <summary>
         /// Разрешить удалять свои сообщения у себя
         /// </summary>
         [XmlElement("allow_hide_message_for_yourself")]
-        public bool AllowHideMessageForYourself { get; set; }
+        public bool? AllowHideMessageForYourself { get; set; }
 
         /// <summary>
         /// Разрешить удалять свои сообщения у всех
         /// </summary>
         [XmlElement("allow_hide_message")]
-        public bool AllowHideMessage { get; set; }
+        public bool? AllowHideMessage { get; set; }
 
         /// <summary>
         /// Разрешить пересылать сообщения
         /// </summary>
         [XmlElement("allow_forward")]
-        public bool AllowForward { get; set; }
+        public bool? AllowForward { get; set; }
 
         /// <summary>
         /// Разрешить отправлять сообщения со сроком ознакомления
         /// </summary>
         [XmlElement("allow_write_message_with_aquaint")]
-        public bool AllowWriteMessageWithAquaint { get; set; }
+        public bool? AllowWriteMessageWithAquaint { get; set; }
 
         /// <summary>
         /// Разрешить отправлять аудиосообщения
         /// </summary>
         [XmlElement("allow_write_audio_message")]
-        public bool AllowWriteAudioMessage { get; set; }
+        public bool? AllowWriteAudioMessage { get; set; }
 
         /// <summary>
         /// Разрешить вставлять в чат картинки из буфера обмена
         /// </summary>
         [XmlElement("allow_insert_images_from_clipboard")]
-        public bool AllowInsertImagesFromClipboard { get; set; }
+        public bool? AllowInsertImagesFromClipboard { get; set; }
 
         /// <summary>
         /// Разрешить отправлять в чат картинки
         /// </summary>
         [XmlElement("allow_insert_images")]
-        public bool AllowInsertImages { get; set; }
+        public bool? AllowInsertImages { get; set; }
 
         /// <summary>
         /// Разрешить отправлять в чат файлы
         /// </summary>
         [XmlElement("allow_insert_files")]
-        public bool AllowInsertFiles { get; set; }
+        public bool? AllowInsertFiles { get; set; }
 
         /// <summary>
         /// Максимальная длина сообщения
@@ -403,31 +403,31 @@ namespace Wshcmx.Types
         /// Телефон
         /// </summary>
         [XmlElement("phone")]
-        public bool Phone { get; set; }
+        public bool? Phone { get; set; }
 
         /// <summary>
         /// Электронная почта
         /// </summary>
         [XmlElement("email")]
-        public bool Email { get; set; }
+        public bool? Email { get; set; }
 
         /// <summary>
         /// Должность
         /// </summary>
         [XmlElement("position")]
-        public bool Position { get; set; }
+        public bool? Position { get; set; }
 
         /// <summary>
         /// Подразделение
         /// </summary>
         [XmlElement("subdivision")]
-        public bool Subdivision { get; set; }
+        public bool? Subdivision { get; set; }
 
         /// <summary>
         /// Дата рождения (без года)
         /// </summary>
         [XmlElement("birth_date")]
-        public bool BirthDate { get; set; }
+        public bool? BirthDate { get; set; }
     }
 
     public class WorkspaceConfigDocumentConversationBlockGroupConversation
@@ -436,37 +436,37 @@ namespace Wshcmx.Types
         /// Разрешить выходить из групповых разговоров
         /// </summary>
         [XmlElement("allow_exit")]
-        public bool AllowExit { get; set; }
+        public bool? AllowExit { get; set; }
 
         /// <summary>
         /// Разрешить управлять участниками в групповых разговорах
         /// </summary>
         [XmlElement("allow_change_participant")]
-        public bool AllowChangeParticipant { get; set; }
+        public bool? AllowChangeParticipant { get; set; }
 
         /// <summary>
         /// Разрешить менять названия групповых разговоров организатору
         /// </summary>
         [XmlElement("allow_change_name")]
-        public bool AllowChangeName { get; set; }
+        public bool? AllowChangeName { get; set; }
 
         /// <summary>
         /// Разрешить всегда менять названия групповых разговоров
         /// </summary>
         [XmlElement("allow_always_change_name")]
-        public bool AllowAlwaysChangeName { get; set; }
+        public bool? AllowAlwaysChangeName { get; set; }
 
         /// <summary>
         /// Разрешить менять иконки групповых разговоров организатору
         /// </summary>
         [XmlElement("allow_change_icon")]
-        public bool AllowChangeIcon { get; set; }
+        public bool? AllowChangeIcon { get; set; }
 
         /// <summary>
         /// Разрешить всегда менять иконки групповых разговоров
         /// </summary>
         [XmlElement("allow_always_change_icon")]
-        public bool AllowAlwaysChangeIcon { get; set; }
+        public bool? AllowAlwaysChangeIcon { get; set; }
     }
 
     public class WorkspaceConfigDocumentConversationBlockWebinar
@@ -544,7 +544,7 @@ namespace Wshcmx.Types
         /// Показывать Сервисы
         /// </summary>
         [XmlElement("show_service")]
-        public bool ShowService { get; set; }
+        public bool? ShowService { get; set; }
     }
 
     public class WorkspaceConfigDocumentTaskBlock
@@ -553,43 +553,43 @@ namespace Wshcmx.Types
         /// Показывать раздел Задачи
         /// </summary>
         [XmlElement("show_task")]
-        public bool ShowTask { get; set; }
+        public bool? ShowTask { get; set; }
 
         /// <summary>
         /// Разрешить создавать задачи
         /// </summary>
         [XmlElement("allow_create_task")]
-        public bool AllowCreateTask { get; set; }
+        public bool? AllowCreateTask { get; set; }
 
         /// <summary>
         /// Разрешить редактировать задачи исполнителю
         /// </summary>
         [XmlElement("allow_edit_task_executor")]
-        public bool AllowEditTaskExecutor { get; set; }
+        public bool? AllowEditTaskExecutor { get; set; }
 
         /// <summary>
         /// Разрешить менять статус задачи исполнителю
         /// </summary>
         [XmlElement("allow_change_status_task_executor")]
-        public bool AllowChangeStatusTaskExecutor { get; set; }
+        public bool? AllowChangeStatusTaskExecutor { get; set; }
 
         /// <summary>
         /// Разрешить удалять задачи автору
         /// </summary>
         [XmlElement("allow_delete_task_assigner")]
-        public bool AllowDeleteTaskAssigner { get; set; }
+        public bool? AllowDeleteTaskAssigner { get; set; }
 
         /// <summary>
         /// Разрешить удалять задачи исполнителю
         /// </summary>
         [XmlElement("allow_delete_task_executor")]
-        public bool AllowDeleteTaskExecutor { get; set; }
+        public bool? AllowDeleteTaskExecutor { get; set; }
 
         /// <summary>
         /// Показывать email в списке сотрудников
         /// </summary>
         [XmlElement("show_email")]
-        public bool ShowEmail { get; set; }
+        public bool? ShowEmail { get; set; }
 
         [XmlElement("task_types")]
         public List<WorkspaceConfigDocumentTaskBlockTaskType> TaskTypes { get; set; } = new List<WorkspaceConfigDocumentTaskBlockTaskType>();
@@ -625,7 +625,7 @@ namespace Wshcmx.Types
         /// Показывать Учет времени
         /// </summary>
         [XmlElement("show_time_tracker")]
-        public bool ShowTimeTracker { get; set; }
+        public bool? ShowTimeTracker { get; set; }
 
         /// <summary>
         /// Максимальная длина описания задачи
@@ -640,13 +640,13 @@ namespace Wshcmx.Types
         /// Показывать раздел Пространства знаний
         /// </summary>
         [XmlElement("show_wiki")]
-        public bool ShowWiki { get; set; }
+        public bool? ShowWiki { get; set; }
 
         /// <summary>
         /// Разрешить создавать пространства знаний
         /// </summary>
         [XmlElement("allow_create_wiki")]
-        public bool AllowCreateWiki { get; set; }
+        public bool? AllowCreateWiki { get; set; }
 
         /// <summary>
         /// Название личного пространства

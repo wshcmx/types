@@ -217,7 +217,7 @@ namespace Wshcmx.Types
         /// Является открытой учебной программой
         /// </summary>
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Тип заявки по умолчанию
@@ -235,7 +235,7 @@ namespace Wshcmx.Types
         /// Обязательное заполнение отзыва
         /// </summary>
         [XmlElement("mandatory_fill_response")]
-        public bool MandatoryFillResponse { get; set; }
+        public bool? MandatoryFillResponse { get; set; }
 
         /// <summary>
         /// Тип сертификата по результатам прохождения тестирования
@@ -361,7 +361,7 @@ namespace Wshcmx.Types
         public long PartIndex { get; set; }
 
         [XmlElement("is_future_events")]
-        public bool IsFutureEvents { get; set; }
+        public bool? IsFutureEvents { get; set; }
 
         [XmlElement("filter")]
         public AuFtFilter? Filter { get; set; }

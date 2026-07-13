@@ -61,19 +61,19 @@ namespace Wshcmx.Types
         /// Показывать в WorkSpace
         /// </summary>
         [Column("show_in_workspace")]
-        public bool ShowInWorkspace { get; set; }
+        public bool? ShowInWorkspace { get; set; }
 
         /// <summary>
         /// Нельзя создавать записи учета времени меньше минуты
         /// </summary>
         [Column("cannot_create_tt_less_minute")]
-        public bool CannotCreateTtLessMinute { get; set; }
+        public bool? CannotCreateTtLessMinute { get; set; }
 
         /// <summary>
         /// Задачи связаны с проектами
         /// </summary>
         [Column("related_to_projects")]
-        public bool RelatedToProjects { get; set; }
+        public bool? RelatedToProjects { get; set; }
 
         /// <summary>
         /// Тип связанного объекта
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Настраиваемый тип задачи
         /// </summary>
         [Column("virtual")]
-        public bool Virtual { get; set; }
+        public bool? Virtual { get; set; }
 
         /// <summary>
         /// Выборка для типа задач
@@ -109,19 +109,19 @@ namespace Wshcmx.Types
         /// Разрешено изменение статуса
         /// </summary>
         [Column("can_change_status")]
-        public bool CanChangeStatus { get; set; }
+        public bool? CanChangeStatus { get; set; }
 
         /// <summary>
         /// Разрешено изменение задачи
         /// </summary>
         [Column("can_change_task")]
-        public bool CanChangeTask { get; set; }
+        public bool? CanChangeTask { get; set; }
 
         /// <summary>
         /// Разрешено удаление задачи
         /// </summary>
         [Column("can_delete_task")]
-        public bool CanDeleteTask { get; set; }
+        public bool? CanDeleteTask { get; set; }
 
         /// <summary>
         /// Связанный тип разговора
@@ -133,13 +133,13 @@ namespace Wshcmx.Types
         /// Использовать кастомные переменные
         /// </summary>
         [Column("use_custom_wvars")]
-        public bool UseCustomWvars { get; set; }
+        public bool? UseCustomWvars { get; set; }
 
         /// <summary>
         /// Учитывать время выполнения задачи (в интерфейсе WorkSpace)
         /// </summary>
         [Column("consider_time_in_workspace")]
-        public bool ConsiderTimeInWorkspace { get; set; }
+        public bool? ConsiderTimeInWorkspace { get; set; }
 
         /// <summary>
         /// Способ отображения по умолчанию
@@ -169,12 +169,12 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
     }
 }

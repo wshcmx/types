@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Включен
         /// </summary>
         [XmlElement("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Redirect URL
@@ -100,7 +100,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Комментарий

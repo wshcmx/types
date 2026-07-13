@@ -181,7 +181,7 @@ namespace Wshcmx.Types
         /// Запись закончена
         /// </summary>
         [XmlElement("is_finish_record")]
-        public bool IsFinishRecord { get; set; }
+        public bool? IsFinishRecord { get; set; }
 
         /// <summary>
         /// Статус проверки фото
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         /// Скачаны материалы прокторинга
         /// </summary>
         [XmlElement("download_materials")]
-        public bool DownloadMaterials { get; set; }
+        public bool? DownloadMaterials { get; set; }
 
         /// <summary>
         /// Количество запусков записи
@@ -364,7 +364,7 @@ namespace Wshcmx.Types
         /// Предпочтительный проктор
         /// </summary>
         [XmlElement("is_prefer")]
-        public bool IsPrefer { get; set; }
+        public bool? IsPrefer { get; set; }
 
         /// <summary>
         /// Время последней активности

@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Подписана
         /// </summary>
         [Column("is_signed")]
-        public bool IsSigned { get; set; }
+        public bool? IsSigned { get; set; }
 
         /// <summary>
         /// Шаблон

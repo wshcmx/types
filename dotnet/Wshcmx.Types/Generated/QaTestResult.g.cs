@@ -100,13 +100,13 @@ namespace Wshcmx.Types
         /// Проверка
         /// </summary>
         [XmlElement("is_check")]
-        public bool IsCheck { get; set; }
+        public bool? IsCheck { get; set; }
 
         /// <summary>
         /// Не пройдено
         /// </summary>
         [XmlElement("is_failed")]
-        public bool IsFailed { get; set; }
+        public bool? IsFailed { get; set; }
 
         /// <summary>
         /// Фактический результат

@@ -139,34 +139,34 @@ namespace Wshcmx.Types
         /// Опрос завершен
         /// </summary>
         [XmlElement("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// Основной опрос
         /// </summary>
         [XmlElement("is_main")]
-        public bool IsMain { get; set; }
+        public bool? IsMain { get; set; }
 
         /// <summary>
         /// Возможность голосовать только один раз
         /// </summary>
         [XmlElement("is_one_time")]
-        public bool IsOneTime { get; set; }
+        public bool? IsOneTime { get; set; }
 
         /// <summary>
         /// Анонимный опрос
         /// </summary>
         [XmlElement("is_anonymous")]
-        public bool IsAnonymous { get; set; }
+        public bool? IsAnonymous { get; set; }
 
         /// <summary>
         /// Показывать отчет по итогам опроса
         /// </summary>
         [XmlElement("show_report")]
-        public bool ShowReport { get; set; }
+        public bool? ShowReport { get; set; }
 
         [XmlElement("show_comments_in_report")]
-        public bool ShowCommentsInReport { get; set; }
+        public bool? ShowCommentsInReport { get; set; }
 
         [XmlElement("report_viewers")]
         public List<PollDocumentReportViewer> ReportViewers { get; set; } = new List<PollDocumentReportViewer>();
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         /// Требует заполнения
         /// </summary>
         [XmlElement("required")]
-        public bool Required { get; set; }
+        public bool? Required { get; set; }
 
         /// <summary>
         /// Тип ресурса
@@ -352,7 +352,7 @@ namespace Wshcmx.Types
         public string? Value { get; set; }
 
         [XmlElement("is_title")]
-        public bool IsTitle { get; set; }
+        public bool? IsTitle { get; set; }
     }
 
     public class PollDocumentQuestion
@@ -430,7 +430,7 @@ namespace Wshcmx.Types
         /// Вопрос завершен
         /// </summary>
         [XmlElement("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// Картинка
@@ -448,7 +448,7 @@ namespace Wshcmx.Types
         public List<PollDocumentQuestionRow> Rows { get; set; } = new List<PollDocumentQuestionRow>();
 
         [XmlElement("is_current")]
-        public bool IsCurrent { get; set; }
+        public bool? IsCurrent { get; set; }
 
         [XmlElement("catalog_entry_id")]
         public long? CatalogEntryId { get; set; }

@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Многопользовательский чат
         /// </summary>
         [Column("is_multiplayer")]
-        public bool IsMultiplayer { get; set; }
+        public bool? IsMultiplayer { get; set; }
 
         /// <summary>
         /// Участники

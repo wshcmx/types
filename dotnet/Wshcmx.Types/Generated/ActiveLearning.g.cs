@@ -190,7 +190,7 @@ namespace Wshcmx.Types
         /// Назначен самостоятельно
         /// </summary>
         [XmlElement("is_self_enrolled")]
-        public bool IsSelfEnrolled { get; set; }
+        public bool? IsSelfEnrolled { get; set; }
 
         /// <summary>
         /// Продолжительность
@@ -280,7 +280,7 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [XmlElement("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
 
         /// <summary>
         /// Тип устройства
@@ -328,10 +328,10 @@ namespace Wshcmx.Types
         public long? LearningPartId { get; set; }
 
         [XmlElement("core_lesson_changed")]
-        public bool CoreLessonChanged { get; set; }
+        public bool? CoreLessonChanged { get; set; }
 
         [XmlElement("core_lesson_filled")]
-        public bool CoreLessonFilled { get; set; }
+        public bool? CoreLessonFilled { get; set; }
 
         /// <summary>
         /// Данные курса
@@ -394,13 +394,13 @@ namespace Wshcmx.Types
         public DateTime? QtiDate { get; set; }
 
         [XmlElement("expert_eval")]
-        public bool ExpertEval { get; set; }
+        public bool? ExpertEval { get; set; }
 
         [XmlElement("expert_notif")]
-        public bool ExpertNotif { get; set; }
+        public bool? ExpertNotif { get; set; }
 
         [XmlElement("adaptive_eval")]
-        public bool AdaptiveEval { get; set; }
+        public bool? AdaptiveEval { get; set; }
 
         /// <summary>
         /// Назначен самостоятельно
@@ -550,7 +550,7 @@ namespace Wshcmx.Types
         /// Обязательный раздел
         /// </summary>
         [XmlElement("is_mandatory")]
-        public bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         /// <summary>
         /// Коэффициент итоговой оценки
@@ -571,7 +571,7 @@ namespace Wshcmx.Types
         public long? OldPersonId { get; set; }
 
         [XmlElement("never_saved")]
-        public bool NeverSaved { get; set; }
+        public bool? NeverSaved { get; set; }
 
         [XmlElement("part_index")]
         public long PartIndex { get; set; }

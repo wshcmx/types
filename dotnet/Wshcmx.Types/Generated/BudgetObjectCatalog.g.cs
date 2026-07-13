@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Выбирать все объекты
         /// </summary>
         [Column("all")]
-        public bool All { get; set; }
+        public bool? All { get; set; }
 
         /// <summary>
         /// Объект

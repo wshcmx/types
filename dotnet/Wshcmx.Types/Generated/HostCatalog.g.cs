@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Разрешить авторизацию для интерфейса Администратора
         /// </summary>
         [Column("allow_lds_auth")]
-        public bool AllowLdsAuth { get; set; }
+        public bool? AllowLdsAuth { get; set; }
 
         /// <summary>
         /// Сайт
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Дата модификации

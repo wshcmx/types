@@ -67,13 +67,13 @@ namespace Wshcmx.Types
         /// Разрешить самостоятельное назначение
         /// </summary>
         [Column("yourself_start")]
-        public bool YourselfStart { get; set; }
+        public bool? YourselfStart { get; set; }
 
         /// <summary>
         /// Использовать в мероприятиях
         /// </summary>
         [Column("use_in_event")]
-        public bool UseInEvent { get; set; }
+        public bool? UseInEvent { get; set; }
 
         /// <summary>
         /// Продолжительность выполнения

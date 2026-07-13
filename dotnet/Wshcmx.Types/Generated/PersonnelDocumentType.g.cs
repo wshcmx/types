@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Первый подписывает сотрудник
         /// </summary>
         [XmlElement("person_first_signature")]
-        public bool PersonFirstSignature { get; set; }
+        public bool? PersonFirstSignature { get; set; }
 
         /// <summary>
         /// Допустимые типы подписи со стороны сотрудника

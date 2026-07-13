@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Доступна для преемников с любой должности
         /// </summary>
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Тип

@@ -55,19 +55,19 @@ namespace Wshcmx.Types
         /// Является эталонной
         /// </summary>
         [Column("is_model")]
-        public bool IsModel { get; set; }
+        public bool? IsModel { get; set; }
 
         /// <summary>
         /// Просмотр результатов
         /// </summary>
         [Column("web_display")]
-        public bool WebDisplay { get; set; }
+        public bool? WebDisplay { get; set; }
 
         /// <summary>
         /// Объект хранения статуса
         /// </summary>
         [Column("flag_use_plan")]
-        public bool FlagUsePlan { get; set; }
+        public bool? FlagUsePlan { get; set; }
 
         /// <summary>
         /// Игнорировать присутствие
@@ -109,19 +109,19 @@ namespace Wshcmx.Types
         /// Оцениваемые
         /// </summary>
         [Column("is_visible_auditorys")]
-        public bool IsVisibleAuditorys { get; set; }
+        public bool? IsVisibleAuditorys { get; set; }
 
         /// <summary>
         /// vaaeb_wnavd6yx2e
         /// </summary>
         [Column("is_visible_evaluatings")]
-        public bool IsVisibleEvaluatings { get; set; }
+        public bool? IsVisibleEvaluatings { get; set; }
 
         /// <summary>
         /// Эксперты
         /// </summary>
         [Column("is_visible_experts")]
-        public bool IsVisibleExperts { get; set; }
+        public bool? IsVisibleExperts { get; set; }
 
         /// <summary>
         /// Способ отображения

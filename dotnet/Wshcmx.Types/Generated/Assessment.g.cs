@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         [XmlElement("persons")]
         public List<CourseExpertsBasePerson> Persons { get; set; } = new List<CourseExpertsBasePerson>();
@@ -175,7 +175,7 @@ namespace Wshcmx.Types
         public long? PassingScore { get; set; }
 
         [XmlElement("use_scale_calculation")]
-        public bool UseScaleCalculation { get; set; }
+        public bool? UseScaleCalculation { get; set; }
 
         [XmlElement("test_finish_redirect")]
         public string TestFinishRedirect { get; set; }
@@ -187,13 +187,13 @@ namespace Wshcmx.Types
         public string? ActivationCode { get; set; }
 
         [XmlElement("not_display_feedback")]
-        public bool NotDisplayFeedback { get; set; }
+        public bool? NotDisplayFeedback { get; set; }
 
         [XmlElement("not_disp_last_attempt")]
-        public bool NotDispLastAttempt { get; set; }
+        public bool? NotDispLastAttempt { get; set; }
 
         [XmlElement("not_display_unfinished_score")]
-        public bool NotDisplayUnfinishedScore { get; set; }
+        public bool? NotDisplayUnfinishedScore { get; set; }
 
         [XmlElement("feedback_wrong")]
         public string? FeedbackWrong { get; set; }
@@ -208,13 +208,13 @@ namespace Wshcmx.Types
         public string? FeedbackFailed { get; set; }
 
         [XmlElement("use_launch_code")]
-        public bool UseLaunchCode { get; set; }
+        public bool? UseLaunchCode { get; set; }
 
         /// <summary>
         /// Не показывать набранный балл для незавершенных тестов
         /// </summary>
         [XmlElement("not_sent_correct_answer")]
-        public bool NotSentCorrectAnswer { get; set; }
+        public bool? NotSentCorrectAnswer { get; set; }
 
         [XmlElement("rubric")]
         public RubricBase? Rubric { get; set; }
@@ -232,28 +232,28 @@ namespace Wshcmx.Types
         public long? CertificateTypeId { get; set; }
 
         [XmlElement("display_result")]
-        public bool DisplayResult { get; set; }
+        public bool? DisplayResult { get; set; }
 
         [XmlElement("is_adaptive_test")]
-        public bool IsAdaptiveTest { get; set; }
+        public bool? IsAdaptiveTest { get; set; }
 
         [XmlElement("display_correct_answer")]
-        public bool DisplayCorrectAnswer { get; set; }
+        public bool? DisplayCorrectAnswer { get; set; }
 
         [XmlElement("display_result_report")]
-        public bool DisplayResultReport { get; set; }
+        public bool? DisplayResultReport { get; set; }
 
         /// <summary>
         /// Открытый тест (возможно самостоятельно назначить тест)
         /// </summary>
         [XmlElement("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         [XmlElement("display_correct_answer_in_report")]
-        public bool DisplayCorrectAnswerInReport { get; set; }
+        public bool? DisplayCorrectAnswerInReport { get; set; }
 
         [XmlElement("display_answers_in_report")]
-        public bool DisplayAnswersInReport { get; set; }
+        public bool? DisplayAnswersInReport { get; set; }
 
         [XmlElement("proctoring_system_id")]
         public long? ProctoringSystemId { get; set; }
@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         public string Type { get; set; }
 
         [XmlElement("fit_screen")]
-        public bool FitScreen { get; set; }
+        public bool? FitScreen { get; set; }
 
         [XmlElement("position")]
         public string Position { get; set; }
@@ -349,34 +349,34 @@ namespace Wshcmx.Types
         public string RubricDisplayType { get; set; }
 
         [XmlElement("display_map")]
-        public bool DisplayMap { get; set; }
+        public bool? DisplayMap { get; set; }
 
         [XmlElement("navigate_map")]
-        public bool NavigateMap { get; set; }
+        public bool? NavigateMap { get; set; }
 
         [XmlElement("strict_navigation")]
-        public bool StrictNavigation { get; set; }
+        public bool? StrictNavigation { get; set; }
 
         [XmlElement("navigate_progress")]
-        public bool NavigateProgress { get; set; }
+        public bool? NavigateProgress { get; set; }
 
         [XmlElement("strict_timing")]
-        public bool StrictTiming { get; set; }
+        public bool? StrictTiming { get; set; }
 
         [XmlElement("accept_next")]
-        public bool AcceptNext { get; set; }
+        public bool? AcceptNext { get; set; }
 
         [XmlElement("lock_result")]
-        public bool LockResult { get; set; }
+        public bool? LockResult { get; set; }
 
         [XmlElement("connection_break")]
-        public bool ConnectionBreak { get; set; }
+        public bool? ConnectionBreak { get; set; }
 
         [XmlElement("url_params")]
         public string? UrlParams { get; set; }
 
         [XmlElement("display_res_score")]
-        public bool DisplayResScore { get; set; }
+        public bool? DisplayResScore { get; set; }
     }
 
     public class AssessmentDocumentScale
@@ -409,13 +409,13 @@ namespace Wshcmx.Types
         public long? PassingScore { get; set; }
 
         [XmlElement("display_correct_answer")]
-        public bool DisplayCorrectAnswer { get; set; }
+        public bool? DisplayCorrectAnswer { get; set; }
 
         [XmlElement("not_display_feedback")]
-        public bool NotDisplayFeedback { get; set; }
+        public bool? NotDisplayFeedback { get; set; }
 
         [XmlElement("not_disp_last_attempt")]
-        public bool NotDispLastAttempt { get; set; }
+        public bool? NotDispLastAttempt { get; set; }
 
         [XmlElement("feedback_wrong")]
         public string? FeedbackWrong { get; set; }

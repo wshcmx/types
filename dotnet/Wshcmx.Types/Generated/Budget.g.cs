@@ -40,7 +40,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Роль пользователя
@@ -109,7 +109,7 @@ namespace Wshcmx.Types
         /// Утвержден
         /// </summary>
         [XmlElement("is_approved")]
-        public bool IsApproved { get; set; }
+        public bool? IsApproved { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Приход или расход
         /// </summary>
         [XmlElement("direction")]
-        public bool Direction { get; set; }
+        public bool? Direction { get; set; }
 
         /// <summary>
         /// Комментарий

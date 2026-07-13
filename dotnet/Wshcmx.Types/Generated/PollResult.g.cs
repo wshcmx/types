@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Заполнена
         /// </summary>
         [XmlElement("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Дата создания
@@ -199,7 +199,7 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [XmlElement("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
     }
 
     public class PollResultDocumentQuestion

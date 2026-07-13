@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// WorkSpace активен
         /// </summary>
         [Column("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Файл с надписями
@@ -61,19 +61,19 @@ namespace Wshcmx.Types
         /// Показывать раздел Разговоры
         /// </summary>
         [Column("show_conversation")]
-        public bool ShowConversation { get; set; }
+        public bool? ShowConversation { get; set; }
 
         /// <summary>
         /// Показывать раздел Календарь
         /// </summary>
         [Column("show_calendar")]
-        public bool ShowCalendar { get; set; }
+        public bool? ShowCalendar { get; set; }
 
         /// <summary>
         /// Показывать раздел Задачи
         /// </summary>
         [Column("show_task")]
-        public bool ShowTask { get; set; }
+        public bool? ShowTask { get; set; }
 
         /// <summary>
         /// Дата модификации
@@ -91,12 +91,12 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
     }
 }

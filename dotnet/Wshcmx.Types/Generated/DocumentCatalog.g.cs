@@ -31,7 +31,7 @@ namespace Wshcmx.Types
         /// Переходить по ссылке
         /// </summary>
         [Column("is_link")]
-        public bool IsLink { get; set; }
+        public bool? IsLink { get; set; }
 
         /// <summary>
         /// Ссылка
@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Возможна подписка на раздел портала
         /// </summary>
         [Column("permit_subscription")]
-        public bool PermitSubscription { get; set; }
+        public bool? PermitSubscription { get; set; }
 
         /// <summary>
         /// Условия

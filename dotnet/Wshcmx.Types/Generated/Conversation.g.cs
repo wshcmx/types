@@ -211,34 +211,34 @@ namespace Wshcmx.Types
         /// Публичный разговор
         /// </summary>
         [XmlElement("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// Писать по умолчанию запрещено
         /// </summary>
         [XmlElement("prohibit_write")]
-        public bool ProhibitWrite { get; set; }
+        public bool? ProhibitWrite { get; set; }
 
         /// <summary>
         /// Разрешить звонки
         /// </summary>
         [XmlElement("can_call")]
-        public bool CanCall { get; set; }
+        public bool? CanCall { get; set; }
 
         /// <summary>
         /// Разрешить изменение состава участников
         /// </summary>
         [XmlElement("can_change_participant")]
-        public bool CanChangeParticipant { get; set; }
+        public bool? CanChangeParticipant { get; set; }
 
         /// <summary>
         /// Разрешить отображение дополнительной информации для всех
         /// </summary>
         [XmlElement("can_show_additional_info")]
-        public bool CanShowAdditionalInfo { get; set; }
+        public bool? CanShowAdditionalInfo { get; set; }
 
         [XmlElement("created")]
-        public bool Created { get; set; }
+        public bool? Created { get; set; }
 
         /// <summary>
         /// Приоритет позиции в списке

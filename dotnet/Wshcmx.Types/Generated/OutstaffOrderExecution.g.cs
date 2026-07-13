@@ -328,7 +328,7 @@ namespace Wshcmx.Types
         /// Присутствие
         /// </summary>
         [XmlElement("is_assist")]
-        public bool IsAssist { get; set; }
+        public bool? IsAssist { get; set; }
 
         /// <summary>
         /// Статус

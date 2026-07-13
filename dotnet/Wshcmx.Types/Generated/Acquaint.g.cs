@@ -97,7 +97,7 @@ namespace Wshcmx.Types
         /// Статус
         /// </summary>
         [XmlElement("status")]
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
         /// <summary>
         /// Вопросы
@@ -169,19 +169,19 @@ namespace Wshcmx.Types
         /// Ознакомлен
         /// </summary>
         [XmlElement("acquaint")]
-        public bool Acquaint { get; set; }
+        public bool? Acquaint { get; set; }
 
         /// <summary>
         /// Не создавать ознакомление
         /// </summary>
         [XmlElement("bcreateaa")]
-        public bool Bcreateaa { get; set; }
+        public bool? Bcreateaa { get; set; }
 
         /// <summary>
         /// Только удалить из массива
         /// </summary>
         [XmlElement("bonlydelaa")]
-        public bool Bonlydelaa { get; set; }
+        public bool? Bonlydelaa { get; set; }
     }
 
     public class AcquaintDocumentGroup

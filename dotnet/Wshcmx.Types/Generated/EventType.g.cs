@@ -64,13 +64,13 @@ namespace Wshcmx.Types
         /// Мероприятие online
         /// </summary>
         [XmlElement("online")]
-        public bool Online { get; set; }
+        public bool? Online { get; set; }
 
         /// <summary>
         /// Автоматический запуск мероприятия при входе
         /// </summary>
         [XmlElement("auto_start")]
-        public bool AutoStart { get; set; }
+        public bool? AutoStart { get; set; }
 
         [XmlElement("can_use_camera")]
         public bool? CanUseCamera { get; set; }
@@ -94,12 +94,12 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
     }
 }

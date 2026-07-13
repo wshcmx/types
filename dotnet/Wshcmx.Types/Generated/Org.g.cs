@@ -295,7 +295,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class OrgDocumentView
@@ -304,7 +304,7 @@ namespace Wshcmx.Types
         public List<DescBaseDesc> Descs { get; set; } = new List<DescBaseDesc>();
 
         [XmlElement("do_update_document_persons")]
-        public bool DoUpdateDocumentPersons { get; set; }
+        public bool? DoUpdateDocumentPersons { get; set; }
 
         [XmlElement("filter")]
         public AuFtFilter? Filter { get; set; }

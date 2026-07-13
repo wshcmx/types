@@ -115,7 +115,7 @@ namespace Wshcmx.Types
         /// Запретить удаление резюме на Портале
         /// </summary>
         [Column("forbid_portal_delete")]
-        public bool ForbidPortalDelete { get; set; }
+        public bool? ForbidPortalDelete { get; set; }
 
         /// <summary>
         /// Тип заполнения
@@ -205,7 +205,7 @@ namespace Wshcmx.Types
         /// Готовность к переезду
         /// </summary>
         [Column("is_willing_relocate")]
-        public bool IsWillingRelocate { get; set; }
+        public bool? IsWillingRelocate { get; set; }
 
         /// <summary>
         /// ID уровня образования
@@ -223,13 +223,13 @@ namespace Wshcmx.Types
         /// Архив
         /// </summary>
         [Column("is_archive")]
-        public bool IsArchive { get; set; }
+        public bool? IsArchive { get; set; }
 
         /// <summary>
         /// Является кандидатом
         /// </summary>
         [Column("is_candidate")]
-        public bool IsCandidate { get; set; }
+        public bool? IsCandidate { get; set; }
 
         [Column("lng_id")]
         public List<string> LngId { get; set; } = new List<string>();

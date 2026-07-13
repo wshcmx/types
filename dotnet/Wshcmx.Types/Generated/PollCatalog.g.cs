@@ -61,25 +61,25 @@ namespace Wshcmx.Types
         /// Основной опрос
         /// </summary>
         [Column("is_main")]
-        public bool IsMain { get; set; }
+        public bool? IsMain { get; set; }
 
         /// <summary>
         /// Опрос завершен
         /// </summary>
         [Column("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// Анонимный опрос
         /// </summary>
         [Column("is_anonymous")]
-        public bool IsAnonymous { get; set; }
+        public bool? IsAnonymous { get; set; }
 
         /// <summary>
         /// Возможно голосовать только один раз
         /// </summary>
         [Column("is_one_time")]
-        public bool IsOneTime { get; set; }
+        public bool? IsOneTime { get; set; }
 
         /// <summary>
         /// Категория

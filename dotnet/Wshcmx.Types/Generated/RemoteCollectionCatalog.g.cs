@@ -55,31 +55,31 @@ namespace Wshcmx.Types
         /// Готова к использованию в "Центре аналитики"
         /// </summary>
         [Column("ready_to_analytics")]
-        public bool ReadyToAnalytics { get; set; }
+        public bool? ReadyToAnalytics { get; set; }
 
         /// <summary>
         /// По умолчанию на портале
         /// </summary>
         [Column("default_for_portal")]
-        public bool DefaultForPortal { get; set; }
+        public bool? DefaultForPortal { get; set; }
 
         /// <summary>
         /// По умолчанию в приложениях
         /// </summary>
         [Column("default_for_admin")]
-        public bool DefaultForAdmin { get; set; }
+        public bool? DefaultForAdmin { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Категория

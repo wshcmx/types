@@ -58,25 +58,25 @@ namespace Wshcmx.Types
         /// Активное уведомление
         /// </summary>
         [XmlElement("active")]
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
 
         /// <summary>
         /// Активный сценарий бота
         /// </summary>
         [XmlElement("active_chatbot_script")]
-        public bool ActiveChatbotScript { get; set; }
+        public bool? ActiveChatbotScript { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Шаблон уведомления

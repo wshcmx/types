@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Признак завершенности
         /// </summary>
         [Column("is_done")]
-        public bool IsDone { get; set; }
+        public bool? IsDone { get; set; }
 
         /// <summary>
         /// Компетенция

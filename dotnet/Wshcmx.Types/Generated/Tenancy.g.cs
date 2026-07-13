@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         public List<TenancyDocumentHost> Hosts { get; set; } = new List<TenancyDocumentHost>();
 
         [XmlElement("storage_exists")]
-        public bool StorageExists { get; set; }
+        public bool? StorageExists { get; set; }
 
         [XmlElement("storage_login")]
         public string StorageLogin { get; set; }

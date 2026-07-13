@@ -76,7 +76,7 @@ namespace Wshcmx.Types
         /// Является кандидатом
         /// </summary>
         [XmlElement("is_candidate")]
-        public bool IsCandidate { get; set; }
+        public bool? IsCandidate { get; set; }
 
         /// <summary>
         /// Оценивающий
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         /// Запретить удаление резюме на Портале
         /// </summary>
         [XmlElement("forbid_portal_delete")]
-        public bool ForbidPortalDelete { get; set; }
+        public bool? ForbidPortalDelete { get; set; }
 
         /// <summary>
         /// Тип заполнения
@@ -259,7 +259,7 @@ namespace Wshcmx.Types
         /// Готовность к переезду
         /// </summary>
         [XmlElement("is_willing_relocate")]
-        public bool IsWillingRelocate { get; set; }
+        public bool? IsWillingRelocate { get; set; }
 
         /// <summary>
         /// Предпочтительные регионы переезда
@@ -292,7 +292,7 @@ namespace Wshcmx.Types
         /// Архив
         /// </summary>
         [XmlElement("is_archive")]
-        public bool IsArchive { get; set; }
+        public bool? IsArchive { get; set; }
 
         /// <summary>
         /// Профессиональный опыт

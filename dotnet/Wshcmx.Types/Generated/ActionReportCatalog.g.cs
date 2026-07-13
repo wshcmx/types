@@ -37,7 +37,7 @@ namespace Wshcmx.Types
         /// Признак завершения
         /// </summary>
         [Column("completed")]
-        public bool Completed { get; set; }
+        public bool? Completed { get; set; }
 
         /// <summary>
         /// Сервер

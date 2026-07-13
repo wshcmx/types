@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Является фактическим
         /// </summary>
         [Column("is_native")]
-        public bool IsNative { get; set; }
+        public bool? IsNative { get; set; }
 
         /// <summary>
         /// Тип функционального руководителя

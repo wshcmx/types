@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         public DateTime? QtiDate { get; set; }
 
         [XmlElement("expert_eval")]
-        public bool ExpertEval { get; set; }
+        public bool? ExpertEval { get; set; }
 
         [XmlElement("expert_notif")]
-        public bool ExpertNotif { get; set; }
+        public bool? ExpertNotif { get; set; }
 
         [XmlElement("adaptive_eval")]
-        public bool AdaptiveEval { get; set; }
+        public bool? AdaptiveEval { get; set; }
 
         /// <summary>
         /// Назначен самостоятельно
@@ -346,7 +346,7 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [XmlElement("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
 
         /// <summary>
         /// Комментарий
@@ -379,7 +379,7 @@ namespace Wshcmx.Types
         public long? OldPersonId { get; set; }
 
         [XmlElement("never_saved")]
-        public bool NeverSaved { get; set; }
+        public bool? NeverSaved { get; set; }
 
         [XmlElement("assessment_object")]
         public object? AssessmentObject { get; set; }

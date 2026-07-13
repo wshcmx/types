@@ -61,7 +61,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [Column("is_mandatory")]
-        public bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         /// <summary>
         /// Дата модификации

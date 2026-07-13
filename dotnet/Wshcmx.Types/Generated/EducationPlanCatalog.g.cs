@@ -103,7 +103,7 @@ namespace Wshcmx.Types
         /// Обновлять статусы и активности онлайн
         /// </summary>
         [Column("update_status_and_activity")]
-        public bool UpdateStatusAndActivity { get; set; }
+        public bool? UpdateStatusAndActivity { get; set; }
 
         /// <summary>
         /// Дата создания

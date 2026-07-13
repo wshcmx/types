@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Является динамической
         /// </summary>
         [Column("is_dynamic")]
-        public bool IsDynamic { get; set; }
+        public bool? IsDynamic { get; set; }
 
         /// <summary>
         /// Профиль премирования

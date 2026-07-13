@@ -118,7 +118,7 @@ namespace Wshcmx.Types
         /// Временная
         /// </summary>
         [XmlElement("is_temporary")]
-        public bool IsTemporary { get; set; }
+        public bool? IsTemporary { get; set; }
 
         /// <summary>
         /// Статус
@@ -130,7 +130,7 @@ namespace Wshcmx.Types
         public long? SaleContractId { get; set; }
 
         [XmlElement("inventory")]
-        public bool Inventory { get; set; }
+        public bool? Inventory { get; set; }
 
         [XmlElement("maintaince_date")]
         public DateTime? MaintainceDate { get; set; }
@@ -193,7 +193,7 @@ namespace Wshcmx.Types
         public string? DecryptionKey { get; set; }
 
         [XmlElement("demo")]
-        public bool Demo { get; set; }
+        public bool? Demo { get; set; }
     }
 
     public class LicenseDocumentAccessBlockType
@@ -244,7 +244,7 @@ namespace Wshcmx.Types
         public long? MaxRecordsNum { get; set; }
 
         [XmlElement("checked")]
-        public bool Checked { get; set; }
+        public bool? Checked { get; set; }
     }
 
     public class LicenseDocumentCourse

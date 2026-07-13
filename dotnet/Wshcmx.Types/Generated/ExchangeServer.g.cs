@@ -21,7 +21,7 @@ namespace Wshcmx.Types
         public ExchangeBaseExchangeObjectFilter? Filter { get; set; }
 
         [XmlElement("is_invariable")]
-        public bool IsInvariable { get; set; }
+        public bool? IsInvariable { get; set; }
 
         [XmlElement("xquery_qual")]
         public string? XqueryQual { get; set; }
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         /// Зарегистрирован
         /// </summary>
         [XmlElement("is_active")]
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Настройки получения
@@ -91,13 +91,13 @@ namespace Wshcmx.Types
         /// Обновлять данные в базе при совпадении ID
         /// </summary>
         [XmlElement("update_exist_package_obj")]
-        public bool UpdateExistPackageObj { get; set; }
+        public bool? UpdateExistPackageObj { get; set; }
 
         /// <summary>
         /// Автоматически публиковать тест
         /// </summary>
         [XmlElement("auto_publish_test")]
-        public bool AutoPublishTest { get; set; }
+        public bool? AutoPublishTest { get; set; }
 
         /// <summary>
         /// Настройки отправки
@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Прием данных
         /// </summary>
         [XmlElement("allow_receive_data")]
-        public bool AllowReceiveData { get; set; }
+        public bool? AllowReceiveData { get; set; }
 
         /// <summary>
         /// Информация об объекте
@@ -157,7 +157,7 @@ namespace Wshcmx.Types
         public string? SmtpServerUrl { get; set; }
 
         [XmlElement("use_smtp_authenticate")]
-        public bool UseSmtpAuthenticate { get; set; }
+        public bool? UseSmtpAuthenticate { get; set; }
 
         [XmlElement("smtp_login")]
         public string? SmtpLogin { get; set; }
@@ -169,7 +169,7 @@ namespace Wshcmx.Types
         public string ExchangeType { get; set; }
 
         [XmlElement("only_create")]
-        public bool OnlyCreate { get; set; }
+        public bool? OnlyCreate { get; set; }
 
         [XmlElement("lately_exchange_date")]
         public DateTime? LatelyExchangeDate { get; set; }
@@ -181,7 +181,7 @@ namespace Wshcmx.Types
         public long? LimitCount { get; set; }
 
         [XmlElement("allow_enlarge_period")]
-        public bool AllowEnlargePeriod { get; set; }
+        public bool? AllowEnlargePeriod { get; set; }
 
         [XmlElement("exchange_objects_type")]
         public string ExchangeObjectsType { get; set; }
@@ -190,22 +190,22 @@ namespace Wshcmx.Types
         public List<ExchangeBaseExchangeObject> ExchangeObjects { get; set; } = new List<ExchangeBaseExchangeObject>();
 
         [XmlElement("use_basic_authenticate")]
-        public bool UseBasicAuthenticate { get; set; }
+        public bool? UseBasicAuthenticate { get; set; }
 
         [XmlElement("is_wt_to_wt")]
-        public bool IsWtToWt { get; set; }
+        public bool? IsWtToWt { get; set; }
 
         [XmlElement("process_deleted_objects")]
-        public bool ProcessDeletedObjects { get; set; }
+        public bool? ProcessDeletedObjects { get; set; }
 
         [XmlElement("process_custom_templates")]
-        public bool ProcessCustomTemplates { get; set; }
+        public bool? ProcessCustomTemplates { get; set; }
 
         [XmlElement("process_lists")]
-        public bool ProcessLists { get; set; }
+        public bool? ProcessLists { get; set; }
 
         [XmlElement("process_access_roles")]
-        public bool ProcessAccessRoles { get; set; }
+        public bool? ProcessAccessRoles { get; set; }
 
         [XmlElement("exchange_object_select_type")]
         public string ExchangeObjectSelectType { get; set; }
@@ -214,7 +214,7 @@ namespace Wshcmx.Types
         public string? FilterText { get; set; }
 
         [XmlElement("is_invariable")]
-        public bool IsInvariable { get; set; }
+        public bool? IsInvariable { get; set; }
 
         [XmlElement("process_eval")]
         public string? ProcessEval { get; set; }
@@ -223,7 +223,7 @@ namespace Wshcmx.Types
         /// Не обновлять объекты с большей датой модификации
         /// </summary>
         [XmlElement("take_dest_modification_date")]
-        public bool TakeDestModificationDate { get; set; }
+        public bool? TakeDestModificationDate { get; set; }
     }
 
     public class ExchangeServerDocumentUpload
@@ -241,7 +241,7 @@ namespace Wshcmx.Types
         public string? SmtpServerUrl { get; set; }
 
         [XmlElement("use_smtp_authenticate")]
-        public bool UseSmtpAuthenticate { get; set; }
+        public bool? UseSmtpAuthenticate { get; set; }
 
         [XmlElement("smtp_login")]
         public string? SmtpLogin { get; set; }
@@ -253,7 +253,7 @@ namespace Wshcmx.Types
         public string ExchangeType { get; set; }
 
         [XmlElement("only_create")]
-        public bool OnlyCreate { get; set; }
+        public bool? OnlyCreate { get; set; }
 
         [XmlElement("lately_exchange_date")]
         public DateTime? LatelyExchangeDate { get; set; }
@@ -265,7 +265,7 @@ namespace Wshcmx.Types
         public long? LimitCount { get; set; }
 
         [XmlElement("allow_enlarge_period")]
-        public bool AllowEnlargePeriod { get; set; }
+        public bool? AllowEnlargePeriod { get; set; }
 
         [XmlElement("exchange_objects_type")]
         public string ExchangeObjectsType { get; set; }
@@ -274,22 +274,22 @@ namespace Wshcmx.Types
         public List<ExchangeBaseExchangeObject> ExchangeObjects { get; set; } = new List<ExchangeBaseExchangeObject>();
 
         [XmlElement("use_basic_authenticate")]
-        public bool UseBasicAuthenticate { get; set; }
+        public bool? UseBasicAuthenticate { get; set; }
 
         [XmlElement("is_wt_to_wt")]
-        public bool IsWtToWt { get; set; }
+        public bool? IsWtToWt { get; set; }
 
         [XmlElement("process_deleted_objects")]
-        public bool ProcessDeletedObjects { get; set; }
+        public bool? ProcessDeletedObjects { get; set; }
 
         [XmlElement("process_custom_templates")]
-        public bool ProcessCustomTemplates { get; set; }
+        public bool? ProcessCustomTemplates { get; set; }
 
         [XmlElement("process_lists")]
-        public bool ProcessLists { get; set; }
+        public bool? ProcessLists { get; set; }
 
         [XmlElement("process_access_roles")]
-        public bool ProcessAccessRoles { get; set; }
+        public bool? ProcessAccessRoles { get; set; }
 
         [XmlElement("exchange_object_select_type")]
         public string ExchangeObjectSelectType { get; set; }
@@ -298,12 +298,12 @@ namespace Wshcmx.Types
         public string? FilterText { get; set; }
 
         [XmlElement("is_invariable")]
-        public bool IsInvariable { get; set; }
+        public bool? IsInvariable { get; set; }
 
         [XmlElement("process_eval")]
         public string? ProcessEval { get; set; }
 
         [XmlElement("clear_resource_data")]
-        public bool ClearResourceData { get; set; }
+        public bool? ClearResourceData { get; set; }
     }
 }

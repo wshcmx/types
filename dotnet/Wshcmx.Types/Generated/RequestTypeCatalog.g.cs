@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Заявка групповая
         /// </summary>
         [Column("is_group")]
-        public bool IsGroup { get; set; }
+        public bool? IsGroup { get; set; }
 
         /// <summary>
         /// Запретить отклонять заявку ее автору
         /// </summary>
         [Column("forbid_rejection")]
-        public bool ForbidRejection { get; set; }
+        public bool? ForbidRejection { get; set; }
 
         /// <summary>
         /// Документооборот по умолчанию
@@ -92,13 +92,13 @@ namespace Wshcmx.Types
         /// Является системным
         /// </summary>
         [Column("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         /// <summary>
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Дата модификации

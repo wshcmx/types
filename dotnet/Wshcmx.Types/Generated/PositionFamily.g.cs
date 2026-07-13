@@ -250,7 +250,7 @@ namespace Wshcmx.Types
         /// Является динамической
         /// </summary>
         [XmlElement("is_dynamic")]
-        public bool IsDynamic { get; set; }
+        public bool? IsDynamic { get; set; }
 
         /// <summary>
         /// Профиль премирования
@@ -322,7 +322,7 @@ namespace Wshcmx.Types
         /// Обязательный
         /// </summary>
         [XmlElement("obligatory")]
-        public bool Obligatory { get; set; }
+        public bool? Obligatory { get; set; }
     }
 
     public class PositionFamilyDocumentView

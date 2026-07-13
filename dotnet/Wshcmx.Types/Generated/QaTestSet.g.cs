@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         public long? CurPersonId { get; set; }
 
         [XmlElement("use_cur_object")]
-        public bool UseCurObject { get; set; }
+        public bool? UseCurObject { get; set; }
 
         /// <summary>
         /// Тип объекта
@@ -70,7 +70,7 @@ namespace Wshcmx.Types
         public long? CurObjectId { get; set; }
 
         [XmlElement("use_cur_web_design")]
-        public bool UseCurWebDesign { get; set; }
+        public bool? UseCurWebDesign { get; set; }
 
         /// <summary>
         /// Дизайн портала
@@ -79,7 +79,7 @@ namespace Wshcmx.Types
         public long? CurWebDesignId { get; set; }
 
         [XmlElement("use_cur_site")]
-        public bool UseCurSite { get; set; }
+        public bool? UseCurSite { get; set; }
 
         /// <summary>
         /// Сайт
@@ -88,7 +88,7 @@ namespace Wshcmx.Types
         public long? CurSiteId { get; set; }
 
         [XmlElement("use_cur_lng")]
-        public bool UseCurLng { get; set; }
+        public bool? UseCurLng { get; set; }
 
         /// <summary>
         /// Язык интерфейса
@@ -139,7 +139,7 @@ namespace Wshcmx.Types
         public string? FixturePacketUri { get; set; }
 
         [XmlElement("clear_fixture_packet")]
-        public bool ClearFixturePacket { get; set; }
+        public bool? ClearFixturePacket { get; set; }
 
         [XmlElement("fixtures")]
         public List<QaTestFixtureBaseFixture> Fixtures { get; set; } = new List<QaTestFixtureBaseFixture>();

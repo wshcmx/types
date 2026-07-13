@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         public string? CatalogsCatalogType { get; set; }
 
         [XmlElement("catalogs_sel_all_objects")]
-        public bool CatalogsSelAllObjects { get; set; }
+        public bool? CatalogsSelAllObjects { get; set; }
 
         /// <summary>
         /// Тип
@@ -85,7 +85,7 @@ namespace Wshcmx.Types
         /// Использовать процессы
         /// </summary>
         [XmlElement("use_instances")]
-        public bool UseInstances { get; set; }
+        public bool? UseInstances { get; set; }
 
         /// <summary>
         /// Версия
@@ -169,13 +169,13 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [XmlElement("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Является системным
         /// </summary>
         [XmlElement("is_std")]
-        public bool IsStd { get; set; }
+        public bool? IsStd { get; set; }
 
         [XmlElement("instance")]
         public WebVariablesBase? Instance { get; set; }
@@ -442,7 +442,7 @@ namespace Wshcmx.Types
         /// Все каталоги
         /// </summary>
         [XmlElement("ignore_catalog")]
-        public bool IgnoreCatalog { get; set; }
+        public bool? IgnoreCatalog { get; set; }
     }
 
     public class ApplicationDocumentRemoteActionAccessLevel

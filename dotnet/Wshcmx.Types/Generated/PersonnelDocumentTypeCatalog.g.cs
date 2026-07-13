@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Первый подписывает сотрудник
         /// </summary>
         [Column("person_first_signature")]
-        public bool PersonFirstSignature { get; set; }
+        public bool? PersonFirstSignature { get; set; }
 
         /// <summary>
         /// Печатная форма

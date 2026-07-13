@@ -43,7 +43,7 @@ namespace Wshcmx.Types
         /// Активный сценарий бота
         /// </summary>
         [Column("active_chatbot_script")]
-        public bool ActiveChatbotScript { get; set; }
+        public bool? ActiveChatbotScript { get; set; }
 
         /// <summary>
         /// Является встроенным
@@ -55,7 +55,7 @@ namespace Wshcmx.Types
         /// Измененный
         /// </summary>
         [Column("changed")]
-        public bool Changed { get; set; }
+        public bool? Changed { get; set; }
 
         /// <summary>
         /// Прикрепленный сценарий

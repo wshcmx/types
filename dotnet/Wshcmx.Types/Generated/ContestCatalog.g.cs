@@ -49,7 +49,7 @@ namespace Wshcmx.Types
         /// Открытый конкурс
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Статус

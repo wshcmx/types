@@ -127,7 +127,7 @@ namespace Wshcmx.Types
         /// Признак открытой учебной программы
         /// </summary>
         [Column("is_open")]
-        public bool IsOpen { get; set; }
+        public bool? IsOpen { get; set; }
 
         /// <summary>
         /// Длительность в днях

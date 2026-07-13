@@ -220,7 +220,7 @@ namespace Wshcmx.Types
         /// Запретить редактирование задачи на портале
         /// </summary>
         [XmlElement("forbid_task_portal_edit")]
-        public bool ForbidTaskPortalEdit { get; set; }
+        public bool? ForbidTaskPortalEdit { get; set; }
 
         [XmlElement("commission_persons")]
         public List<TypicalDevelopmentProgramDocumentTaskCommissionPerson> CommissionPersons { get; set; } = new List<TypicalDevelopmentProgramDocumentTaskCommissionPerson>();
@@ -313,7 +313,7 @@ namespace Wshcmx.Types
         public string? SubdivisionName { get; set; }
 
         [XmlElement("flag_expanded")]
-        public bool FlagExpanded { get; set; }
+        public bool? FlagExpanded { get; set; }
 
         [XmlElement("tutors")]
         public List<TypicalDevelopmentProgramDocumentTutorsBySubTutor> Tutors { get; set; } = new List<TypicalDevelopmentProgramDocumentTutorsBySubTutor>();

@@ -46,7 +46,7 @@ namespace Wshcmx.Types
         /// Вычислять массив учебных активностей
         /// </summary>
         [XmlElement("is_eval")]
-        public bool IsEval { get; set; }
+        public bool? IsEval { get; set; }
 
         /// <summary>
         /// Программный код

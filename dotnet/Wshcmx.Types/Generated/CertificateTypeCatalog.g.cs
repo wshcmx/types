@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// Бессрочно
         /// </summary>
         [Column("forever")]
-        public bool Forever { get; set; }
+        public bool? Forever { get; set; }
 
         /// <summary>
         /// Дата модификации

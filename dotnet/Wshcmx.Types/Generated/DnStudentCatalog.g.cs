@@ -142,7 +142,7 @@ namespace Wshcmx.Types
         /// С отличием
         /// </summary>
         [Column("is_excellent")]
-        public bool IsExcellent { get; set; }
+        public bool? IsExcellent { get; set; }
 
         /// <summary>
         /// Факультет

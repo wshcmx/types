@@ -49,13 +49,13 @@ namespace Wshcmx.Types
         /// Активное уведомление
         /// </summary>
         [Column("is_enabled")]
-        public bool IsEnabled { get; set; }
+        public bool? IsEnabled { get; set; }
 
         /// <summary>
         /// Возможно создавать чат
         /// </summary>
         [Column("can_create_conversation")]
-        public bool CanCreateConversation { get; set; }
+        public bool? CanCreateConversation { get; set; }
 
         /// <summary>
         /// Тип объекта

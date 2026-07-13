@@ -67,7 +67,7 @@ namespace Wshcmx.Types
         /// KPI
         /// </summary>
         [Column("is_kpi")]
-        public bool IsKpi { get; set; }
+        public bool? IsKpi { get; set; }
 
         /// <summary>
         /// Группа

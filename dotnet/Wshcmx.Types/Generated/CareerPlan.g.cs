@@ -148,7 +148,7 @@ namespace Wshcmx.Types
         /// Проверять требования при согласовании
         /// </summary>
         [XmlElement("check_requirements")]
-        public bool CheckRequirements { get; set; }
+        public bool? CheckRequirements { get; set; }
 
         /// <summary>
         /// Плановая дата выполнения

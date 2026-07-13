@@ -178,7 +178,7 @@ namespace Wshcmx.Types
         /// Действителен
         /// </summary>
         [XmlElement("valid")]
-        public bool Valid { get; set; }
+        public bool? Valid { get; set; }
 
         /// <summary>
         /// Подписан

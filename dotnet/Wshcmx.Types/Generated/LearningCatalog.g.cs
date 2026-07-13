@@ -133,7 +133,7 @@ namespace Wshcmx.Types
         /// Назначен самостоятельно
         /// </summary>
         [Column("is_self_enrolled")]
-        public bool IsSelfEnrolled { get; set; }
+        public bool? IsSelfEnrolled { get; set; }
 
         /// <summary>
         /// Дата последнего посещ.
@@ -223,6 +223,6 @@ namespace Wshcmx.Types
         /// Использовать прокторинг
         /// </summary>
         [Column("use_proctoring")]
-        public bool UseProctoring { get; set; }
+        public bool? UseProctoring { get; set; }
     }
 }
