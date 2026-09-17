@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES5",
     "module": "Preserve",
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -9,13 +8,14 @@
     "strict": true,
     "noLib": true,
     "noEmit": true,
-    "baseUrl": "tests",
     "typeRoots" : [
       "../lib",
       "../lib/xml"
-    ],
+    ]
   },
   "include": [
+    "../lib/**/*.d.ts",
+    "../lib/xml/**/*.d.ts",
     "**/*.ts"
   ]
 }

@@ -34,9 +34,9 @@
   "homepage": "https://github.com/wshcmx/types#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.1.0",
-    "eslint-plugin-jsdoc": "^62.8.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1"
+    "eslint": "^10.10.0",
+    "eslint-plugin-jsdoc": "^64.4.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.0"
   }
 }
