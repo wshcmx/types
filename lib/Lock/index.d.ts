@@ -9,14 +9,12 @@
  * * {@link CallObjectMethodWithLock}()
  */
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface Lock {
-
-}
+interface Lock { }
 
 interface LockConstructor {
   new(): unknown;
   (): unknown;
 }
 
- 
+
 declare const Lock: LockConstructor;
