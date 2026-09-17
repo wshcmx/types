@@ -22,7 +22,7 @@ interface MsPersonSdInnerBase {
 
 interface MsPersonSdBase {
   /** Сотрудник */
-  person_id: XmlElem<MsPersonSdInnerBase | null>;
+  person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem> & MsPersonSdInnerBase;
 }
 
 interface MsEventSdInnerBaseSd {
@@ -37,7 +37,7 @@ interface MsEventSdInnerBase {
 }
 
 interface MsEventSdBase {
-  event_id: XmlElem<MsEventSdInnerBase | null>;
+  event_id: XmlElem<number | null, EventCatalogDocumentTopElem> & MsEventSdInnerBase;
 }
 
 interface MsViewCatalogBase extends ViewConditionsBase {
@@ -128,7 +128,7 @@ interface WorkflowElemOperationBase {
   eval_str: XmlElem<string | null>;
   notification_id: XmlElem<number | null, NotificationCatalogDocumentTopElem>;
   print_form_id: XmlElem<number | null, PrintFormCatalogDocumentTopElem>;
-  operation_id: XmlElem<MsParametersBase | null>;
+  operation_id: XmlElem<number | null, OperationCatalogDocumentTopElem> & MsParametersBase;
   remote_action_block: XmlElem<WorkflowElemOperationBaseRemoteActionBlock | null>;
 }
 
