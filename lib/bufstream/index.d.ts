@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
- 
+
 
 /**
  * Конструктор объекта BufStream, позволяющего записывать данные в буфер в памяти как в поток.
  */
-type BufStream = Omit<Stream, "ReadLine" | "WriteBinary" | "WriteStr">
+type BufStream = Omit<Stream, "ReadLine" | "WriteBinary" | "WriteStr">;
 
 interface BufStreamConstructor {
   new(): BufStream;
 }
 
- 
+
 declare let BufStream: BufStreamConstructor;
