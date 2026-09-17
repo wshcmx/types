@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ES5",
     "module": "Preserve",
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -10,7 +9,6 @@
     "strict": true,
     "noLib": true,
     "noEmit": true,
-    "baseUrl": "lib",
     "outDir": "../build"
   },
   "include": [
