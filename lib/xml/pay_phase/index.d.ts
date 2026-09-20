@@ -86,17 +86,17 @@ AdminAccessBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  invoice_sum: XmlElem<number | null>;
+  readonly invoice_sum: Readonly<XmlElem<number | null>>;
   /**
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  draft_sum: XmlElem<number | null>;
+  readonly draft_sum: Readonly<XmlElem<number | null>>;
   /**
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  act_sum: XmlElem<number | null>;
+  readonly act_sum: Readonly<XmlElem<number | null>>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

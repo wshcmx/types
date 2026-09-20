@@ -11,7 +11,7 @@ FileListBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  name: XmlElem<string | null>;
+  readonly name: Readonly<XmlElem<string | null>>;
   /** Оценка эффективности */
   efficiency_estimation_id: XmlElem<number | null, EfficiencyEstimationCatalogDocumentTopElem>;
   /** Источник оценки */

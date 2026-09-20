@@ -15,7 +15,7 @@ CustomElemsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  name: XmlElem<string | null>;
+  readonly name: Readonly<XmlElem<string | null>>;
   /** Ключевая должность */
   key_position_id: XmlElem<SuccessorDocumentKeyPositionId | null, KeyPositionCatalogDocumentTopElem>;
   /** Сотрудник */

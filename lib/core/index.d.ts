@@ -214,10 +214,10 @@ declare function OptInt<T, K = undefined>(value: T, defaultValue?: K): number | 
 /**
  * Возвращает скалярное значение аргумента, если в качестве аргумента передан объект.
  * Если передано скалярное значение, возвращается оно же.
- * @param {XmlElem<T> | T} value - Аргумент (Any).
+ * @param {Readonly<XmlElem<T>> | XmlElem<T> | T} value - Аргумент (Any).
  * @returns {T} Результат.
  */
-declare function RValue<T>(value: XmlElem<T> | T): T;
+declare function RValue<T>(value: Readonly<XmlElem<T>> | XmlElem<T> | T): T;
 
 /**
  * Преобразует 10 обозначение цвета (RGB) в  шестнадцатеричное, принятое в формате html.

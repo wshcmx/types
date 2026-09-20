@@ -105,7 +105,7 @@ CustomElemsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  last_usage_date: XmlElem<Date | null>;
+  readonly last_usage_date: Readonly<XmlElem<Date | null>>;
   /**
    * Максимальный балл
    * @default 0
@@ -126,13 +126,13 @@ CustomElemsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  state_id: XmlElem<number, typeof common.learning_states>;
+  readonly state_id: Readonly<XmlElem<number, typeof common.learning_states>>;
   /**
    * Время модулей
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  time: XmlElem<number | null>;
+  readonly time: Readonly<XmlElem<number | null>>;
   calc_max_end_date(): XmlElem<Date | null>;
   /**
    * Не кодировать данные курса

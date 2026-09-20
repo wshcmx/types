@@ -120,7 +120,7 @@ CustomElemsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  position_expr: XmlElem<boolean | null>;
+  readonly position_expr: Readonly<XmlElem<boolean | null>>;
   calc_position(task: unknown): void;
   filling_empty_position_field(): void;
 };

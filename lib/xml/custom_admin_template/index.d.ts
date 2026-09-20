@@ -35,7 +35,7 @@ WebVariablesBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  converter: XmlElem<boolean | null>;
+  readonly converter: Readonly<XmlElem<boolean | null>>;
   /**
    * Измененный
    * @default false

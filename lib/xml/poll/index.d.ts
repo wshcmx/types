@@ -183,7 +183,7 @@ KnowledgePartsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  is_multiple_select: XmlElem<boolean>;
+  readonly is_multiple_select: Readonly<XmlElem<boolean>>;
   /**
    * Количество колонок
    * @default 1

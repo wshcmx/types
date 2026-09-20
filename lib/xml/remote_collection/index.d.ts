@@ -151,7 +151,7 @@ I18nBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  converter: XmlElem<boolean | null>;
+  readonly converter: Readonly<XmlElem<boolean | null>>;
   setPaging(idx: number, size: number): unknown;
   setColumnsWhiteList(aFields: unknown): unknown;
   getStamp(curUserId: number, curObjectId: number): unknown;

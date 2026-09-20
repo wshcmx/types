@@ -122,7 +122,7 @@ I18nBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  converter: XmlElem<boolean | null>;
+  readonly converter: Readonly<XmlElem<boolean | null>>;
   calculate_on_server(objectId: number): unknown;
   calculate(object: unknown, from: Date, to: Date, period: string, option: Object): unknown;
   calculate_context(objectTopElem: XmlTopElem, env: unknown, configuration: string): unknown;

@@ -18,7 +18,7 @@ type CalendarBaseDocumentTopElem = XmlTopElem & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  is_double: XmlElem<boolean | null>;
+  readonly is_double: Readonly<XmlElem<boolean | null>>;
   display_year: XmlElem<boolean | null>;
   sel_date: XmlElem<Date | null>;
   list_date: XmlElem<Date | null>;

@@ -36,7 +36,7 @@ AdminAccessBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  total_price: XmlElem<number | null>;
+  readonly total_price: Readonly<XmlElem<number | null>>;
   essentials: XmlElem<EssentialBase | null>;
   /** Номер платежного поручения */
   draft_num: XmlElem<string | null>;

@@ -89,7 +89,7 @@ KnowledgePartsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  process_embedding: XmlElem<boolean>;
+  readonly process_embedding: Readonly<XmlElem<boolean>>;
   /** Индексы поиска RAG */
   wiki_rag_indexes: XmlElem<WikiBaseDocumentWikiRagIndexes | null>;
   /** Доступ */

@@ -170,7 +170,7 @@ AdminAccessBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  equal_hash: XmlElem<string | null>;
+  readonly equal_hash: Readonly<XmlElem<string | null>>;
 };
 
 type PollProcedureDocument = XmlDocument & {

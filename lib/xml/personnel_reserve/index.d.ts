@@ -57,7 +57,7 @@ CustomElemsBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  name: XmlElem<string | null>;
+  readonly name: Readonly<XmlElem<string | null>>;
   start_date: XmlElem<Date | null>;
   include_reserve_date: XmlElem<Date | null>;
   /** Дата исключения из резерва */

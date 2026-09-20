@@ -4,7 +4,7 @@ interface AuFtFilter {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  used_fulltext: XmlElem<string | null>;
+  readonly used_fulltext: Readonly<XmlElem<string | null>>;
 }
 
 interface MsPersonSdInnerBaseSd {

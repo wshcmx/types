@@ -25,7 +25,7 @@ QaTestAssertBase & {
    * @readonly
    * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  lib_name: XmlElem<string | null>;
+  readonly lib_name: Readonly<XmlElem<string | null>>;
   /** Имя функции */
   function_name: XmlElem<string | null>;
   /** Описание */
