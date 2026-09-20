@@ -255,6 +255,8 @@ CustomElemsBase & {
   /**
    * Статус
    * @default 0
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
   state_id: XmlElem<number, typeof common.education_learning_states>;
   /** Статус */

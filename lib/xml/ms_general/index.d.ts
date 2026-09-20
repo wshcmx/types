@@ -1,6 +1,10 @@
 interface AuFtFilter {
   fulltext: XmlElem<string | null>;
-  used_fulltext(): string;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  used_fulltext: XmlElem<string | null>;
 }
 
 interface MsPersonSdInnerBaseSd {

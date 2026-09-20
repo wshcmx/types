@@ -100,8 +100,12 @@ CustomElemsBase & {
   events: XmlMultiElem<ActiveLearningDocumentEvent | null>;
   /** Код раздела последнего посещения */
   last_usage_part_code: XmlElem<string | null>;
-  /** Дата последнего посещ. */
-  last_usage_date(): XmlElem<Date | null>;
+  /**
+   * Дата последнего посещ.
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  last_usage_date: XmlElem<Date | null>;
   /**
    * Максимальный балл
    * @default 0
@@ -119,10 +123,16 @@ CustomElemsBase & {
   /**
    * Состояние
    * @default 0
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  state_id(): XmlElem<number, typeof common.learning_states>;
-  /** Время модулей */
-  time(): XmlElem<number | null>;
+  state_id: XmlElem<number, typeof common.learning_states>;
+  /**
+   * Время модулей
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  time: XmlElem<number | null>;
   calc_max_end_date(): XmlElem<Date | null>;
   /**
    * Не кодировать данные курса

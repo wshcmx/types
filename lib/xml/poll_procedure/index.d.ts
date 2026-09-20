@@ -165,8 +165,12 @@ AdminAccessBase & {
   is_launch_person(curUserId: number): unknown;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
-  /** Хэш эквивалентности */
-  equal_hash(): string;
+  /**
+   * Хэш эквивалентности
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  equal_hash: XmlElem<string | null>;
 };
 
 type PollProcedureDocument = XmlDocument & {

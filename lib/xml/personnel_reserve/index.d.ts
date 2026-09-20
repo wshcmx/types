@@ -52,8 +52,12 @@ CustomElemsBase & {
   Doc: PersonnelReserveDocument;
   /** ID */
   id: XmlElem<number | null>;
-  /** Название */
-  name(): string;
+  /**
+   * Название
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  name: XmlElem<string | null>;
   start_date: XmlElem<Date | null>;
   include_reserve_date: XmlElem<Date | null>;
   /** Дата исключения из резерва */

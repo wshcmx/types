@@ -20,8 +20,12 @@ QaTestAssertBase & {
   type: XmlElem<string, typeof common.qa_test_types>;
   /** Библиотека програмного кода */
   code_library_id: XmlElem<number | null, CodeLibraryCatalogDocumentTopElem>;
-  /** Имя библиотеки кода */
-  lib_name(): boolean;
+  /**
+   * Имя библиотеки кода
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  lib_name: XmlElem<string | null>;
   /** Имя функции */
   function_name: XmlElem<string | null>;
   /** Описание */

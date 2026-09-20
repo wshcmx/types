@@ -63,7 +63,11 @@ I18nBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** @temp */
   view: XmlElem<RemoteActionDocumentView | null>;
-  /** @temp */
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
   converter: XmlElem<boolean | null>;
   evaluate(resultType: string, request: Request, argVars: Object, configuration: string): {
     error: 1 | 0;

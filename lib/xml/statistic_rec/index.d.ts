@@ -117,7 +117,11 @@ I18nBase & {
   changed: XmlElem<boolean>;
   /** @temp */
   view: XmlElem<StatisticRecDocumentView | null>;
-  /** @temp */
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
   converter: XmlElem<boolean | null>;
   calculate_on_server(objectId: number): unknown;
   calculate(object: unknown, from: Date, to: Date, period: string, option: Object): unknown;

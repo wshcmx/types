@@ -14,6 +14,10 @@ type CalendarBaseDocumentTopElem = XmlTopElem & {
   pointer_text_color: XmlElem<string | null>;
   months_name: XmlElem<unknown | null>;
   months_day_num: XmlElem<unknown | null>;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
   is_double: XmlElem<boolean | null>;
   display_year: XmlElem<boolean | null>;
   sel_date: XmlElem<Date | null>;

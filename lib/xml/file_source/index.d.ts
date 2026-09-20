@@ -37,8 +37,12 @@ WebVariablesBase & {
    * @default false
    */
   changed: XmlElem<boolean>;
-  /** @temp */
-  path_filling_expr(): boolean;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  path_filling_expr: XmlElem<boolean | null>;
 };
 
 type FileSourceDocument = XmlDocument & {

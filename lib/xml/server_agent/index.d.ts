@@ -47,8 +47,12 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** @temp */
   view: XmlElem<unknown | null>;
-  /** @temp */
-  converter(): boolean;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  converter: XmlElem<boolean | null>;
   /** Категория */
   role_id: XmlMultiElemObject<number | null, RoleCatalogDocumentTopElem>;
 };

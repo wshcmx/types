@@ -86,8 +86,10 @@ KnowledgePartsBase & {
   /**
    * Обрабатывается семантическим поиском
    * @default false
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  process_embedding(): boolean;
+  process_embedding: XmlElem<boolean>;
   /** Индексы поиска RAG */
   wiki_rag_indexes: XmlElem<WikiBaseDocumentWikiRagIndexes | null>;
   /** Доступ */

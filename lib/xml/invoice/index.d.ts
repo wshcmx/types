@@ -31,8 +31,12 @@ AdminAccessBase & {
   request_id: XmlElem<number | null, RequestCatalogDocumentTopElem>;
   /** Курсы */
   courses: XmlMultiElem<InvoiceDocumentCourse | null>;
-  /** @temp */
-  total_price(): number;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  total_price: XmlElem<number | null>;
   essentials: XmlElem<EssentialBase | null>;
   /** Номер платежного поручения */
   draft_num: XmlElem<string | null>;
