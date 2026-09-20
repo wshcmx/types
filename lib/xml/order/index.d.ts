@@ -72,8 +72,10 @@ CustomElemsBase & {
   /**
    * Статус
    * @default forming
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
    */
-  status: XmlElem<string, typeof common.order_status_types>;
+  readonly status: Readonly<XmlElem<string, typeof common.order_status_types>>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   goods: XmlMultiElem<OrderDocumentGood | null>;

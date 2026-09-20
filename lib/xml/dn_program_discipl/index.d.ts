@@ -12,7 +12,11 @@ interface DnProgramDisciplDocumentTermPlanTheme {
 
 interface DnProgramDisciplDocumentTerm {
   term_id: XmlElem<number | null, DnTermCatalogDocumentTopElem>;
-  laboriousn_all_term(): number;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly laboriousn_all_term: Readonly<XmlElem<number | null>>;
   laboriousn_audit_term(): number;
   laboriousn_indep_term(): number;
   plan_themes: XmlMultiElem<DnProgramDisciplDocumentTermPlanTheme | null>;
@@ -61,8 +65,16 @@ CustomElemsBase & {
   academ_year_id: XmlElem<number | null, DnAcademYearCatalogDocumentTopElem>;
   educat_form_id: XmlElem<number | null, DnEducatFormCatalogDocumentTopElem>;
   control_form: XmlElem<number | null, DnControlFormCatalogDocumentTopElem>;
-  all_laboriousn_audit(): number;
-  all_laboriousn_indep(): number;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly all_laboriousn_audit: Readonly<XmlElem<number | null>>;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly all_laboriousn_indep: Readonly<XmlElem<number | null>>;
   terms: XmlMultiElem<DnProgramDisciplDocumentTerm | null>;
   /** Описание */
   desc: XmlElem<string | null>;

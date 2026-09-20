@@ -10,8 +10,12 @@ AdminAccessBase &
 CustomElemsBase & {
   Doc: SuccessorDocument;
   id: XmlElem<number | null>;
-  /** Название */
-  name: XmlElem<string | null>;
+  /**
+   * Название
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly name: Readonly<XmlElem<string | null>>;
   /** Ключевая должность */
   key_position_id: XmlElem<SuccessorDocumentKeyPositionId | null, KeyPositionCatalogDocumentTopElem>;
   /** Сотрудник */

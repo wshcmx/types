@@ -198,8 +198,12 @@ CustomElemsBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** Доступ */
   access: XmlElem<AccessDocBase | null>;
-  /** @temp */
-  position_expr: XmlElem<boolean | null>;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly position_expr: Readonly<XmlElem<boolean | null>>;
   get_linked_position_common_id(): number;
   assign_typical_program(typicalProgramId: number): void;
   set_task(task: unknown, typicalProgramId: number, parentTaskId: string): string | void;

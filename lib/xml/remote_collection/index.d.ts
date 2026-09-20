@@ -146,8 +146,12 @@ I18nBase & {
   doc_info: XmlElem<DocInfoBase | null>;
   /** @temp */
   view: XmlElem<RemoteCollectionDocumentView | null>;
-  /** @temp */
-  converter: XmlElem<boolean | null>;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly converter: Readonly<XmlElem<boolean | null>>;
   setPaging(idx: number, size: number): unknown;
   setColumnsWhiteList(aFields: unknown): unknown;
   getStamp(curUserId: number, curObjectId: number): unknown;

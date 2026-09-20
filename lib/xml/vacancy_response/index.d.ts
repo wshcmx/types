@@ -7,8 +7,12 @@ CustomElemsBase & {
   id: XmlElem<number | null>;
   /** Код */
   code: XmlElem<string | null>;
-  /** Название */
-  name: XmlElem<string | null>;
+  /**
+   * Название
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly name: Readonly<XmlElem<string | null>>;
   /** Вакансия */
   vacancy_id: XmlElem<number | null, VacancyCatalogDocumentTopElem>;
   /** Название вакансии */

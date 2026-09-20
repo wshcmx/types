@@ -82,9 +82,21 @@ AdminAccessBase & {
   act: XmlElem<PayDocBase | null>;
   /** Счет-фактура */
   invoice2: XmlElem<PayDocBase | null>;
-  invoice_sum: XmlElem<number | null>;
-  draft_sum: XmlElem<number | null>;
-  act_sum: XmlElem<number | null>;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly invoice_sum: Readonly<XmlElem<number | null>>;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly draft_sum: Readonly<XmlElem<number | null>>;
+  /**
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly act_sum: Readonly<XmlElem<number | null>>;
   /** Комментарий */
   comment: XmlElem<string | null>;
   /** Информация об объекте */

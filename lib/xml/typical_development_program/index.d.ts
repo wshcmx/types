@@ -115,8 +115,12 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   /** @temp */
   view: XmlElem<TypicalDevelopmentProgramDocumentView | null>;
-  /** @temp */
-  position_expr: XmlElem<boolean | null>;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly position_expr: Readonly<XmlElem<boolean | null>>;
   calc_position(task: unknown): void;
   filling_empty_position_field(): void;
 };

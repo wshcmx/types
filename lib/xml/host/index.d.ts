@@ -142,8 +142,12 @@ CustomElemsBase & {
   comment: XmlElem<string | null>;
   doc_info: XmlElem<DocInfoBase | null>;
   set_auth_type(authType: unknown, authRuleId: number): unknown;
-  /** @temp */
-  converter(): unknown;
+  /**
+   * @temp
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly converter: Readonly<XmlElem<boolean | null>>;
 };
 
 type HostDocument = XmlDocument & {

@@ -178,8 +178,12 @@ KnowledgePartsBase & {
   /** @default false */
   show_comments_in_report: XmlElem<boolean>;
   report_viewers: XmlMultiElem<PollDocumentReportViewer | null>;
-  /** @default false */
-  is_multiple_select(): boolean;
+  /**
+   * @default false
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly is_multiple_select: Readonly<XmlElem<boolean>>;
   /**
    * Количество колонок
    * @default 1

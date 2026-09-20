@@ -4,8 +4,12 @@ FileListBase &
 AdminAccessBase &
 CustomElemsBase & {
   Doc: DigitalSignatureDocument;
-  /** Название */
-  name(): string;
+  /**
+   * Название
+   * @readonly
+   * @remarks Вычисляемое поле (`EXPR`): пересчитывается при открытии и сохранении документа, присвоенное значение не сохраняется.
+   */
+  readonly name: Readonly<XmlElem<string | null>>;
   /** Сотрудник */
   person_id: XmlElem<number | null, CollaboratorCatalogDocumentTopElem>;
   /** Тип объекта */
