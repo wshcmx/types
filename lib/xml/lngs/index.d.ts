@@ -1,3 +1,1 @@
-declare const lngs: XmlElem<{
-  lng: XmlMultiElem<IUiLng>;
-}>;
+declare const lngs: XmlMultiElem<IUiLng>;
