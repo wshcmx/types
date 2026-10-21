@@ -552,11 +552,12 @@ declare function XQueryLiteral(arg: string | number | Date): string;
 
 /**
  * Возвращает фрагмент сроки по заданным позициям (в символах).
+ * @param {string} str - Строка.
  * @param {number} startPosition - Начальная позиция.
  * @param {number} endPosition - Конечная позиция.
  * @returns {string} Результат.
  */
-declare function StrCharRangePos(startPosition: number, endPosition: number): string;
+declare function StrCharRangePos(str: string, startPosition: number, endPosition: number): string;
 
 /**
  * Проверяет две строки на равенство, в том числе без учета регистра.
@@ -1076,9 +1077,10 @@ declare function ParseDate(date: string): Date;
  * @param {Date} date - Объект даты.
  * @param {boolean} [showTime] - Включать время. По умолчанию true.
  * @param {boolean} [showSeconds] - Включать секунды во времени. По умолчанию true.
+ * @param {boolean} [showLocalTime] - Преобразовывать в местоное время. По умолчанию false.
  * @returns {string} Строка с датой.
  */
-declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean): string;
+declare function StrDate(date: Date, showTime?: boolean, showSeconds?: boolean, showLocalTime?: boolean): string;
 
 /**
  * Возвращает время в миллисекундах, прошедшее с момента запуска операционной системы.

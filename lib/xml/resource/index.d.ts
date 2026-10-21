@@ -187,8 +187,8 @@ GameBonusBase & {
   check_resource_double(fileName: string, size: number): unknown;
   put_data(url: string, source: unknown, filename: unknown): unknown;
   put_data_add(url: string, code: string): unknown;
-  del_data_add(id: string): unknown;
-  put_str(data: string, filename: unknown, source: unknown): unknown;
+  del_data_add(id: string): void;
+  put_str(data: string, filename: string, source?: XmlDocument): void;
   add_counter(source: unknown): unknown;
   del_counter(source: unknown, sourceId: number): unknown;
   obtain_link(source: unknown): unknown;
