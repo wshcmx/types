@@ -23,6 +23,19 @@
 npm i @wshcmx/types -D
 ```
 
+### .NET
+
+Generate the C# models and build the NuGet package from the repository root
+(Node.js 25 and .NET SDK 8 or later):
+
+```bash
+npm ci
+npm run generate:dotnet
+dotnet pack dotnet/Wshcmx.Types/Wshcmx.Types.csproj -c Release -o ./nupkg
+```
+
+The package includes this README.
+
 ## 🔨 Настройка
 
 Типы можно использовать как в проектах, написанных с использованием ts, так и в проектах, написанных на js.
