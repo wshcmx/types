@@ -1,6 +1,6 @@
 {
   "name": "@wshcmx/types",
-  "version": "13.4.0",
+  "version": "13.5.0",
   "type": "module",
   "directories": {
     "lib": "lib"
@@ -34,9 +34,9 @@
   "homepage": "https://github.com/wshcmx/types#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.10.0",
-    "eslint-plugin-jsdoc": "^64.4.0",
+    "eslint": "^10.13.0",
+    "eslint-plugin-jsdoc": "^65.4.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.70.0"
+    "typescript-eslint": "^8.72.0"
   }
 }
