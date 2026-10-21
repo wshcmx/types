@@ -17,10 +17,10 @@
 > [!CAUTION]
 > Для использования работы на проекте с typescript советуем использовать [cli](https://github.com/wshcmx/cli), который решает проблемы связанные с транспиляцией кода под платформу WebSoftHCM.
 
-### npm
+### pnpm
 
 ```bash
-npm i @wshcmx/types -D
+pnpm add @wshcmx/types -D
 ```
 
 ### .NET
@@ -43,7 +43,7 @@ The package includes this README.
 Генерируем конфиг, либо просто создаем вручную файл **tsconfig.json**
 
 ```bash
-npx tsc -init
+pnpm exec tsc -init
 ```
 
 Далее обновляем конфиг:

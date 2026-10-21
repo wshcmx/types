@@ -12,15 +12,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v6
         with:
           node-version: 25
+          cache: pnpm
 
       - name: Install
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Check for changes after npm i
+      - name: Check for changes after pnpm install
         run: "[[ `git status --porcelain` ]] && exit 1 || exit 0"
 
       - name: Check
-        run: npm run check
+        run: pnpm run check
