@@ -36,10 +36,15 @@ interface Object {
   DeleteOptProperty(key: string): void;
 
   /**
-   * Возвращает значение атрибута объекта. Если атрубут отсутствует, выдает undefined.
+   * Возвращает значение атрибута объекта. Если атрубут отсутствует, выдает defaultValue или undefined.
    * @param {string} key - Наименование атрибута объекта.
    * @param {unknown} [defaultValue] - Значение по умолчанию, возращаемое в случае отсутствия атрибута.
    */
+  GetOptProperty<O, K extends keyof O & string, D>(
+    this: O,
+    key: K,
+    defaultValue: D
+  ): Exclude<O[K], undefined> | D;
   GetOptProperty<O, K extends string, D = undefined>(
     this: O,
     key: K,
