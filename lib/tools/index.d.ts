@@ -2,8 +2,8 @@ declare namespace tools {
   let lds_address: XmlElem<string | null>;
 
   /**
-   * Возвращает схему URL.
-   * @returns {string} Схема.
+   * Возвращает https при работе в веб-клиенте или при включённой опции LDS-HTTPS либо ALT-PORT-HTTPS, иначе http.
+   * @returns {string} Протокол сервера.
    * @example
    * ```
    * UrlSchema("http://docs.datex.ru/"); // http
@@ -27,11 +27,13 @@ declare namespace tools {
   function load_course(fileUrl: string, charset?: string | null | undefined | "", courseDocument?: CourseDocument | undefined | ""): CourseDocumentTopElem | "" | string | LoadCourseResult;
 
   /**
-   * Копирует ресурсы из списка, указанного в файле manifest, в папку получателя.
+   * Копирует все ресурсы из манифеста SCORM по базовому URL курса с модальным индикатором выполнения и возвращает накопленные количество и текст ошибок.
    * @param {string} fileUrl - Путь или URL до файла manifest.
    * @param {string} baseUrl - Путь или URL до папки получателя относительно папки wt/web.
    * @returns {boolean} Возвращает значение true, если операция завершилась успешно (копирование выполнено),
    * или false - в противном случае (копирование не выполнено).
+   * 
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
    */
   function copy_manifest_resources(fileUrl: string, baseUrl: string): BaseToolsResponse;
 
@@ -47,7 +49,7 @@ declare namespace tools {
 
   /**
    * Обновляет данные о количестве дочерних элементов в родительском форуме.
-   * Если задан forumId, то дочерним записям форума с iParentForumEntryIDParam,
+   * Если задан forumId, то дочерним записям форума с parentForumEntryId,
    * проставляется новое значение форума.
    * @param {ForumDocument} [forumDocument] - Необязательный, если задан parentForumId – Doc записи форума,
    * родителя которого нужно обновить.
@@ -193,10 +195,10 @@ declare namespace tools {
 
   /**
    * Возвращает ошибку формы, переданной как параметр.
-   * @param {XmlDocument} xmlDocument - Документ формы, содержащей ошибку.
+   * @param {XmlDocument} XmlDocument - Документ формы, содержащей ошибку.
    * @returns {string} Строка с описанием ошибки.
    */
-  function get_param_error_text(xmlDocument: XmlDocument): string;
+  function get_param_error_text(XmlDocument: XmlDocument): string;
 
   /**
    * Загружает указанные пакеты с сервера обмена данными.
@@ -295,7 +297,7 @@ declare namespace tools {
   /**
    * Функция назначения теста пользователю.
    * @param {ActivateCourseToPersonObject} params - Объект JavaScript (Структура параметров).
-   * @returns {XmlElem<number> | null | XmlDocument} Объект XMLDoc или Целое число.
+   * @returns {XmlElem<number> | null | XmlDocument} Объект XmlDocument или Целое число.
    * Если тест назначен при выполнении функции, то возвращается ссылка на вновь созданный документ обучения.
    * Если тест был назначен ранее, но не завершен, или завершен,
    * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
@@ -318,7 +320,7 @@ declare namespace tools {
    * @param {number} educationPlanId - Id плана обучения.
    * @param {boolean} skipDismissed - Аргумент, указывающий на необходимость пропускать уволенных сотрудников.
    * (true – пропускать, false – не пропускать). По умолчанию true.
-   * @returns {XmlElem<number> | null | XmlDocument} Объект XMLDoc или Целое число.
+   * @returns {XmlElem<number> | null | XmlDocument} Объект XmlDocument или Целое число.
    * Если тест назначен при выполнении функции, то возвращается ссылка на вновь созданный документ обучения.
    * Если тест был назначен ранее, но не завершен, или завершен,
    * но не прошло еще время, указанное в атрибуте dtLastLearningDateParam,
@@ -579,17 +581,17 @@ declare namespace tools {
    * Используется для импорта сотрудников.
    * Документ XML с данными для загрузки должен быть сформирован
    * предварительно и соответствовать определенным правилам.
-   * @param {XmlDocument} xmlDocument - Документ XML с данными для загрузки.
+   * @param {XmlDocument} XmlDocument - Документ XML с данными для загрузки.
    * @returns {number} Id документа события базы с отчетом о загрузке.
    * @example
    * ```
-   * var docId = tools.import_excel_persons(xmlDocument);
+   * var docId = tools.import_excel_persons(XmlDocument);
    * var xml = CodeLiteral(fldTE.GetXml({ "tabs": false }));
    * var importExcelPersonActionReportId = OptInt(tools.import_excel_persons(xml), null);
    * local_settings.temp.import_excel_person_action_report_id = importExcelPersonActionReportId;
    * ```
    */
-  function import_excel_persons(xmlDocument: XmlDocument): number;
+  function import_excel_persons(XmlDocument: XmlDocument): number;
 
   /**
    * Используется для проверки заполнения схемы импорта перед импортом сотрудников в интерфейсе администратора.
@@ -1166,12 +1168,12 @@ declare namespace tools {
    * Проверяет разрешение на доступ к указанному объекту для указанного пользователя.
    * Проверка идет по уровню доступа, роли доступа, группам доступа и условиям доступа,
    * если в карточке объекта есть соответствующие настройки.
-   * @param {XmlTopElem} TopElem - TopElem объекта, доступ к которому нужно проверить.
+   * @param {XmlTopElem} topElem - TopElem объекта, доступ к которому нужно проверить.
    * @param {number} userId - Id сотрудника, для которого нужно проверить доступ.
    * @returns {boolean} Возвращает значение, показывающее,
    * разрешен ли сотруднику доступ к объекту (true – доступ разрешен, false – доступ запрещен).
    */
-  function check_access(TopElem: XmlTopElem, userId: number): boolean;
+  function check_access(topElem: XmlTopElem, userId: number): boolean;
 
   /**
    * Возвращает путь до xmd формы каталога или объекта каталога.
@@ -1678,10 +1680,10 @@ declare namespace tools {
   /**
    * Выполняет функцию eval указанного в параметрах функции файла.
    * @param {string} url - Путь до файла.
-   * @param {number | XmlDocument | XmlTopElem} documentId - Целое число, объект XmlDoc или TopElem.
+   * @param {number | XmlDocument | XmlTopElem} documentId - Целое число, объект XmlDocument или TopElem.
    * Id объекта. Если аргумент указан, то будет открыт объект по указанному Id
    * (если данный объект еще не был открыт) и он будет доступен для исполняемого кода файла.
-   * В этом аргументе может быть также указан объект XmlDoc или TopElem открытого объекта.
+   * В этом аргументе может быть также указан объект XmlDocument или TopElem открытого объекта.
    * @param {string} fileName - Строка с названием файла.
    * Если аргумент указан, то результат выполнения функции eval будет сохранен
    * в папку trash/temp/ с названием, указанным в данном аргументе.
@@ -1958,28 +1960,28 @@ declare namespace tools {
   /**
    * Возвращает результат выполнения функции eval, определяемый формулой evalstr и
    * другими атрибутами вызова функции.
-   * @param {Date} [SRC1=Date()] - Поле-источник для передачи даты в формулу evalstr.
+   * @param {Date} [src1=Date()] - Поле-источник для передачи даты в формулу evalstr.
    * Если в качестве данного аргумента будет передана пустая строка (''),
    * то результатом будут текущие дата и время.
-   * @param {Date} [SRC2=Date()] - Второе поле-источник для передачи даты в формулу evalstr.
+   * @param {Date} [src2=Date()] - Второе поле-источник для передачи даты в формулу evalstr.
    * Если в качестве данного аргумента будет передана пустая строка (''),
    * то результатом будут текущие дата и время.
-   * @param {string} EVALSTR - Строковое выражение формулы, выполняемой в функции eval.
-   * @param {string} PARAM1 - Атрибут, в который можно записать промежуточное значение,
+   * @param {string} evalstr - Строковое выражение формулы, выполняемой в функции eval.
+   * @param {string} param1 - Атрибут, в который можно записать промежуточное значение,
    * а потом вызвать его в другом месте с помощью выражения @1.
    * В составе данного атрибута можно также использовать источники src1 и src2 в форме выражений #1 и #2,
    * соответственно.
-   * @param {string} PARAM2 - Атрибут, в который можно записать промежуточное значение,
+   * @param {string} param2 - Атрибут, в который можно записать промежуточное значение,
    * а потом вызвать его в другом месте с помощью выражения @2.
    * В составе данного атрибута можно использовать источники src1 и src2 в форме выражений #1 и #2,
    * соответственно.
-   * @param {string} PARAM3 - Атрибут, в который можно записать промежуточное значение,
+   * @param {string} param3 - Атрибут, в который можно записать промежуточное значение,
    * а потом вызвать его в другом месте с помощью выражения @3.
    * В составе данного атрибута можно использовать источники src1 и src2 в форме выражений #1 и #2,
    * соответственно.
    * @returns {string} Результат выполнения формулы, заданной атрибутом evalstr.
    */
-  function DateFunc(SRC1: Date, SRC2: Date, EVALSTR: string, PARAM1: string, PARAM2: string, PARAM3: string): string;
+  function DateFunc(src1: Date, src2: Date, evalstr: string, param1: string, param2: string, param3: string): string;
 
   /**
    * Сдвигает указанную дату на количество секунд, заданное параметрами функции.
@@ -2471,10 +2473,10 @@ declare namespace tools {
   /**
    * Сохраняет версию объекта каталога, для которого проставлен флаг сохранения версий в администраторе.
    * При этом создается объект в каталоге «Версии объектов» (Системное администрирование – Версии объектов).
-   * @param {XmlDocument} xmlDocument - Документ объекта, версия которого сохраняется.
+   * @param {XmlDocument} XmlDocument - Документ объекта, версия которого сохраняется.
    * @returns {void} Сохраняет версию объекта каталога. Возвращаемое значение отсутствует.
    */
-  function create_object_version(xmlDocument: XmlDocument): void;
+  function create_object_version(XmlDocument: XmlDocument): void;
 
   /**
    * Возвращает массив из обязательных обучений сотрудника, в которые входит переданный объект.
@@ -2559,7 +2561,7 @@ declare namespace tools {
    * - successor (преемник);
    * - task (задача);
    * - vacancy_response (отклик на вакансию).
-   * @returns {any[]} Массив из каталожных записей типов функциональных руководителей (boss_types),
+   * @returns {unknown[]} Массив из каталожных записей типов функциональных руководителей (boss_types),
    * соответствующих указанному объекту и указанному пользователю.
    */
   function get_object_relative_boss_types(userId: number, objectId: number): unknown;
@@ -3646,9 +3648,9 @@ declare namespace tools {
   };
 
   type ActivateTestToPersonParams = {
-    /** Id collaborator. */
+    /** Идентификатор сотрудника. */
     personId: number;
-    /** Id test. */
+    /** Идентификатор теста. */
     iAssessmentID: number;
     /** Id мероприятия. */
     iEventID?: number;
@@ -3768,4 +3770,3055 @@ declare namespace tools {
     catalog_form_url: string;
     catalog_form_hash: string;
   };
+
+  /**
+   * Разбирает файл курса AICC или SCORM/XML в документ курса и возвращает объект результата с кодом ошибки, сообщением и курсом.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} fileUrl - Значение параметра `fileUrl`.
+   * @param {string} sFileCharsetParam - Значение параметра `sFileCharsetParam`.
+   * @param {XmlDocument} docCourseParam - Значение параметра `docCourseParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function load_course(fileUrl: string, sFileCharsetParam: string, docCourseParam: XmlDocument): Object;
+
+  /**
+   * Распаковывает ZIP-архив курса на сервере, находит манифест или файл .crs, загружает курс и возвращает объект результата с ошибками.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} str - Значение параметра `str`.
+   * @returns {Object} Результат выполнения.
+   */
+  function open_course_package_server(str: string): Object;
+
+  /**
+   * Пересчитывает число дочерних записей корневой записи форума и дату последнего создания, сохраняет её, при необходимости переносит дочерние записи в новый форум и возвращает их число.
+   * @param {XmlDocument} doc - Значение параметра `doc`.
+   * @param {number} newForumId - Значение параметра `newForumId`.
+   * @param {number} parentForumEntryId - Значение параметра `parentForumEntryId`.
+   * @returns {number} Результат выполнения.
+   */
+  function update_forum_entry(doc: XmlDocument, newForumId: number, parentForumEntryId: number): number;
+
+  /**
+   * Пересчитывает число дочерних комментариев корневого комментария документа и дату последнего создания, сохраняет его, при необходимости переносит дочерние комментарии в другой документ портала и возвращает их число.
+   * @param {XmlDocument} doc - Значение параметра `doc`.
+   * @param {number} iNewPortalDocIDParam - Значение параметра `iNewPortalDocIDParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function update_document_comment_entry(doc: XmlDocument, iNewPortalDocIDParam: number): number;
+
+  /**
+   * Добавляет строку с отметкой времени в текст отчёта о действии, сохраняет документ и возвращает его либо null, если идентификатор отчёта не задан.
+   * @param {number} iActionRepotrIDParam - Значение параметра `iActionRepotrIDParam`.
+   * @param {string} sTextParam - Значение параметра `sTextParam`.
+   * @param {XmlDocument} docActionRepotrParam - Значение параметра `docActionRepotrParam`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function add_report(iActionRepotrIDParam: number, sTextParam: string, docActionRepotrParam: XmlDocument): XmlDocument | null;
+
+  /**
+   * Создаёт и отправляет пакет обмена данными по SMTP или HTTP, записывает каждый шаг в отчёт о действии и возвращает поля состояния.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   *
+   * Примечание исходного кода: версия RGS
+   * @param {number} exchangeSeverIDrParad - Значение параметра `exchangeSeverIDrParad`.
+   * @param {Date} dateLimit - Значение параметра `dateLimit`.
+   * @param {number} iExchangeObjectIDParam - Значение параметра `iExchangeObjectIDParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function upload_data(exchangeSeverIDrParad: number, dateLimit: Date, iExchangeObjectIDParam: number): Object;
+
+  /**
+   * Загружает пакет данных, сохраняет и импортирует его через package_process, обновляет дату последней загрузки сервера обмена и возвращает состояние.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} exchangeSeverIDrParad - Значение параметра `exchangeSeverIDrParad`.
+   * @returns {Object} Результат выполнения.
+   */
+  function download_data(exchangeSeverIDrParad: number): Object;
+
+  /**
+   * Формирует ZIP-пакеты выгрузки данных для выбранных объектов обмена, кеширует список файлов в пользовательских данных, записывает ход выполнения и возвращает сведения о пакетах.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} exchangeSeverIDrParad - Значение параметра `exchangeSeverIDrParad`.
+   * @param {number} reportId - Значение параметра `reportId`.
+   * @param {string} sPackIDParam - Значение параметра `sPackIDParam`.
+   * @param {Date} dateLimit - Значение параметра `dateLimit`.
+   * @param {number} iExchangeObjectIDParam - Значение параметра `iExchangeObjectIDParam`.
+   * @param {string} sPrimaryKeyUserData - Значение параметра `sPrimaryKeyUserData`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function create_data_package(exchangeSeverIDrParad: number, reportId: number, sPackIDParam: string, dateLimit: Date, iExchangeObjectIDParam: number, sPrimaryKeyUserData: string): unknown;
+
+  /**
+   * Вычисляет дату начала обмена по настроенному типу обмена (последний обмен, недавний период или недавняя дата), при необходимости используя последнюю дату как запасную.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {Date} lastDate - Значение параметра `lastDate`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_exchange_date(source: XmlTopElem, lastDate: Date): unknown;
+
+  /**
+   * Возвращает заданную или текущую дату в формате года, месяца, дня, часа и минуты, разделённых символами подчёркивания.
+   * @param {Date} curDate - Значение параметра `curDate`.
+   * @returns {string} Результат выполнения.
+   */
+  function date_str(curDate: Date): string;
+
+  /**
+   * Обрабатывает ZIP через process_package или XML-файл через package_process, возвращая состояние ошибки, счётчик выполнения и количество списков.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} packageUrl - Значение параметра `packageUrl`.
+   * @param {XmlElem<unknown>} fldFormParam - Значение параметра `fldFormParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function uni_process_package(packageUrl: string, fldFormParam: XmlElem<unknown>): Object;
+
+  /**
+   * Извлекает описание пакета, создаёт документы загружаемых пакетов для каждого выбранного элемента, загружает их и возвращает форму параметров со счётчиками.
+   * @param {string} url - Значение параметра `url`.
+   * @param {XmlElem<unknown>} fldPackagesValidParam - Значение параметра `fldPackagesValidParam`.
+   * @param {boolean} bUpdateObjects - Значение параметра `bUpdateObjects`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function process_package(url: string, fldPackagesValidParam: XmlElem<unknown>, bUpdateObjects: boolean): XmlTopElem;
+
+  /**
+   * Возвращает локализованную константу ошибки формы параметров или обычный текст ошибки либо null, если ничего не задано.
+   * @param {XmlTopElem} paramForm - Значение параметра `paramForm`.
+   * @returns {string | null} Результат выполнения.
+   */
+  function get_param_error_text(paramForm: XmlTopElem): string | null;
+
+  /**
+   * Загружает список пакетов с сервера обмена, создаёт и обрабатывает документы загружаемых пакетов для новых элементов и обновляет дату последней загрузки сервера.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} exchangeServerId - Значение параметра `exchangeServerId`.
+   * @returns {number} Результат выполнения.
+   */
+  function download_package_list(exchangeServerId: number): number;
+
+  /**
+   * Загружает или копирует файл пакета, размещает его в хранилище базы данных, записывает его состояние, запускает обработку пакета и возвращает состояние с URL файла.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} exchangeServerId - Значение параметра `exchangeServerId`.
+   * @param {number} iPackageID - Значение параметра `iPackageID`.
+   * @param {string} sTempUrlParam - Значение параметра `sTempUrlParam`.
+   * @param {XmlElem<unknown>} fldPackageValidParam - Значение параметра `fldPackageValidParam`.
+   * @param {boolean} bUpdateObjects - Значение параметра `bUpdateObjects`.
+   * @returns {Object} Результат выполнения.
+   */
+  function download_package(exchangeServerId: number, iPackageID: number, sTempUrlParam: string, fldPackageValidParam: XmlElem<unknown>, bUpdateObjects: boolean): Object;
+
+  /**
+   * Импортирует объекты, списки, роли доступа или глобальные настройки из пакета согласно настройкам и фильтрам обмена, возвращая true.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} path - Значение параметра `path`.
+   * @param {string} type - Значение параметра `type`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {number} reportId - Значение параметра `reportId`.
+   * @param {number} exchangeServerId - Значение параметра `exchangeServerId`.
+   * @param {number} iDownloadPackageIDParam - Значение параметра `iDownloadPackageIDParam`.
+   * @param {boolean} bUpdateObjects - Значение параметра `bUpdateObjects`.
+   * @param {string} baseUrl - Значение параметра `baseUrl`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function package_process(path: string, type: string, source: XmlTopElem, reportId: number, exchangeServerId: number, iDownloadPackageIDParam: number, bUpdateObjects: boolean, baseUrl: string): unknown;
+
+  /**
+   * Возвращает существующее активное обучение по курсу или создаёт новое, списывает стоимость курса, отправляет уведомления об активации и вызывает системное событие.
+   * @param {number} oPersonID - Значение параметра `oPersonID`.
+   * @param {number} courseId - Значение параметра `courseId`.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @param {number} educationPlanId - Значение параметра `educationPlanId`.
+   * @param {number} duration - Значение параметра `duration`.
+   * @param {Date} startLearningDate - Значение параметра `startLearningDate`.
+   * @param {Date} dtLastLearningDateParam - Значение параметра `dtLastLearningDateParam`.
+   * @param {number} groupId - Значение параметра `groupId`.
+   * @param {string} sEIDParam - Значение параметра `sEIDParam`.
+   * @param {boolean} bSkipDismissedParam - Значение параметра `bSkipDismissedParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function activate_course_to_person(oPersonID: number, courseId: number, eventId: number, personDoc: XmlTopElem, educationPlanId: number, duration: number, startLearningDate: Date, dtLastLearningDateParam: Date, groupId: number, sEIDParam: string, bSkipDismissedParam: boolean): unknown;
+
+  /**
+   * Возвращает существующее активное тестирование или создаёт и сохраняет новое, отправляет уведомления об активации и вызывает системное событие.
+   * @param {number} oPersonID - Значение параметра `oPersonID`.
+   * @param {number} testId - Значение параметра `testId`.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @param {XmlTopElem} testDoc - Значение параметра `testDoc`.
+   * @param {XmlTopElem} eventDoc - Значение параметра `eventDoc`.
+   * @param {number} duration - Значение параметра `duration`.
+   * @param {Date} startLearningDate - Значение параметра `startLearningDate`.
+   * @param {Date} dtLastLearningDateParam - Значение параметра `dtLastLearningDateParam`.
+   * @param {number} groupId - Значение параметра `groupId`.
+   * @param {number} educationPlanId - Значение параметра `educationPlanId`.
+   * @param {boolean} bSkipDismissedParam - Значение параметра `bSkipDismissedParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function activate_test_to_person(oPersonID: number, testId: number, eventId: number, personDoc: XmlTopElem, testDoc: XmlTopElem, eventDoc: XmlTopElem, duration: number, startLearningDate: Date, dtLastLearningDateParam: Date, groupId: number, educationPlanId: number, bSkipDismissedParam: boolean): unknown;
+
+  /**
+   * Передаёт активацию теста для всех участников мероприятия методу activate_test мероприятия, нормализуя необязательные параметры, и возвращает его результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} evenId - Значение параметра `evenId`.
+   * @param {number} testId - Значение параметра `testId`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {number} duration - Значение параметра `duration`.
+   * @param {Date} startLearningDate - Значение параметра `startLearningDate`.
+   * @param {Date} lastLearningDate - Значение параметра `lastLearningDate`.
+   * @param {string} sActTypeParam - Значение параметра `sActTypeParam`.
+   * @param {boolean} bSkipDismissed - Значение параметра `bSkipDismissed`.
+   * @param {boolean} bUseProctoring - Значение параметра `bUseProctoring`.
+   * @param {number} iProctorPreferID - Значение параметра `iProctorPreferID`.
+   * @param {boolean} bActivateOnlyAssist - Значение параметра `bActivateOnlyAssist`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function activate_test_to_event(evenId: number, testId: number, docEvent: XmlDocument, duration: number, startLearningDate: Date, lastLearningDate: Date, sActTypeParam: string, bSkipDismissed: boolean, bUseProctoring: boolean, iProctorPreferID: number, bActivateOnlyAssist: boolean): XmlTopElem;
+
+  /**
+   * Активирует курс для каждого сотрудника мероприятия через activate_course_to_person и возвращает число успешных активаций.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} evenId - Значение параметра `evenId`.
+   * @param {number} courseId - Значение параметра `courseId`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {number} duration - Значение параметра `duration`.
+   * @param {Date} startLearningDate - Значение параметра `startLearningDate`.
+   * @param {Date} lastLearningDate - Значение параметра `lastLearningDate`.
+   * @param {boolean} bSkipDismissed - Значение параметра `bSkipDismissed`.
+   * @param {boolean} bUseProctoring - Значение параметра `bUseProctoring`.
+   * @param {number} iProctorPreferID - Значение параметра `iProctorPreferID`.
+   * @param {string} sComment - Значение параметра `sComment`.
+   * @returns {number} Результат выполнения.
+   */
+  function activate_course_to_event(evenId: number, courseId: number, docEvent: XmlDocument, duration: number, startLearningDate: Date, lastLearningDate: Date, bSkipDismissed: boolean, bUseProctoring: boolean, iProctorPreferID: number, sComment: string): number;
+
+  /**
+   * Активирует для сотрудника все методы обучения типа «курс» образовательной программы и возвращает число успешных активаций.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {number} educationProgramId - Значение параметра `educationProgramId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @param {XmlTopElem} educationProgramDoc - Значение параметра `educationProgramDoc`.
+   * @returns {number} Результат выполнения.
+   */
+  function activate_education_program_to_person(personId: number, educationProgramId: number, personDoc: XmlTopElem, educationProgramDoc: XmlTopElem): number;
+
+  /**
+   * Преобразует число секунд в строку длительности H/M/S; существующую строку длительности возвращает без изменений, в остальных случаях — пустую строку.
+   * @param {number} seconds - Значение параметра `seconds`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_time_from_seconds(seconds: number): unknown;
+
+  /**
+   * Находит или создаёт счёт объекта, записывает транзакцию, обновляет баланс и вызывает системное событие, возвращая документ транзакции.
+   * @param {number} iAccountObjectIDParam - Значение параметра `iAccountObjectIDParam`.
+   * @param {string} sAccountCurrencyParam - Значение параметра `sAccountCurrencyParam`.
+   * @param {number} rSumParam - Значение параметра `rSumParam`.
+   * @param {string} sCommentParam - Значение параметра `sCommentParam`.
+   * @param {number | number[]} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {boolean} changeBalance - Значение параметра `changeBalance`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function pay_new_transaction_by_object(iAccountObjectIDParam: number, sAccountCurrencyParam: string, rSumParam: number, sCommentParam: string, iObjectIDParam: number | number[], iPersonIDParam: number, changeBalance: boolean): XmlDocument | null;
+
+  /**
+   * Создаёт платёжную транзакцию по счёту на оплату, увеличивает баланс лицевого счёта, отмечает счёт на оплату как оплаченный и возвращает его либо null при отсутствии лицевого счёта.
+   * @param {number} invoiceId - Значение параметра `invoiceId`.
+   * @param {XmlDocument} docInvoice - Значение параметра `docInvoice`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function pay_invoice(invoiceId: number, docInvoice: XmlDocument): XmlDocument | null;
+
+  /**
+   * Записывает расходную транзакцию оплаты курса организацией, уменьшает баланс счёта и возвращает идентификатор транзакции либо null.
+   * @param {number} orgId - Значение параметра `orgId`.
+   * @param {number} amount - Значение параметра `amount`.
+   * @param {string} comment - Значение параметра `comment`.
+   * @returns {number | null} Результат выполнения.
+   */
+  function pay_courses(orgId: number, amount: number, comment: string): number | null;
+
+  /**
+   * Формирует активное уведомление по типу или шаблону, определяет получателей, планирует отправку и создаёт сценарии чат-бота, возвращая признак успеха.
+   * @param {string} oTypeParam - Значение параметра `oTypeParam`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {string} sTextParam - Значение параметра `sTextParam`.
+   * @param {number} iSecondObjectIDParam - Значение параметра `iSecondObjectIDParam`.
+   * @param {Object} oObjectParam - Значение параметра `oObjectParam`.
+   * @param {Object} oSecondObjectParam - Значение параметра `oSecondObjectParam`.
+   * @param {XmlTopElem} teSourceParam - Значение параметра `teSourceParam`.
+   * @param {XmlDocument} docChatboScriptObject - Значение параметра `docChatboScriptObject`.
+   * @param {XmlTopElem} teNotificationSource - Значение параметра `teNotificationSource`.
+   * @param {unknown[]} arrTeNotificationTemplateSource - Значение параметра `arrTeNotificationTemplateSource`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function create_notification(oTypeParam: string, iObjectIDParam: number, sTextParam: string, iSecondObjectIDParam: number, oObjectParam: Object, oSecondObjectParam: Object, teSourceParam: XmlTopElem, docChatboScriptObject: XmlDocument, teNotificationSource: XmlTopElem, arrTeNotificationTemplateSource: unknown[]): unknown;
+
+  /**
+   * Формирует пользовательский шаблон уведомления с темой, текстом и получателями, затем передаёт его создание и отправку в create_notification.
+   * @param {string} sTypeParam - Значение параметра `sTypeParam`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {string} sSubjectParam - Значение параметра `sSubjectParam`.
+   * @param {string} sBodyParam - Значение параметра `sBodyParam`.
+   * @param {Object} oObjectParam - Значение параметра `oObjectParam`.
+   * @param {XmlTopElem} teSourceParam - Значение параметра `teSourceParam`.
+   * @param {number} iObjectSecondIDParam - Значение параметра `iObjectSecondIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function create_template_notification(sTypeParam: string, iObjectIDParam: number, sSubjectParam: string, sBodyParam: string, oObjectParam: Object, teSourceParam: XmlTopElem, iObjectSecondIDParam: number): unknown;
+
+  /**
+   * Вычисляет HTML-шаблон сертификата в контексте документа обучения и возвращает сформированное содержимое сертификата.
+   * @param {number} learningId - Значение параметра `learningId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function save_certificate(learningId: number): unknown;
+
+  /**
+   * Возвращает случайную строку заданной длины из переданного набора символов или стандартного буквенно-цифрового набора.
+   * @param {number} digitNum - Значение параметра `digitNum`.
+   * @param {string} dict - Значение параметра `dict`.
+   * @returns {string} Результат выполнения.
+   */
+  function random_string(digitNum: number, dict: string): string;
+
+  /**
+   * Создаёт отчёт о действии и запускает фоновый поток агента импорта сотрудников из Excel с декодированными параметрами, возвращая идентификатор отчёта.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sParamsXml - Значение параметра `sParamsXml`.
+   * @returns {number} Результат выполнения.
+   */
+  function import_excel_persons(sParamsXml: string): number;
+
+  /**
+   * Проверяет настройки импорта из Excel: URL файла, соответствие столбцов, поле логина, пароль и параметры организации; возвращает локализованное сообщение об ошибке или пустую строку.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {XmlTopElem} ps - Значение параметра `ps`.
+   * @returns {string} Результат выполнения.
+   */
+  function start_import_excel_persons(ps: XmlTopElem): string;
+
+  /**
+   * Устаревшая функция, возвращающая идентификаторы сотрудников — функциональных руководителей родительской должности или подразделения сотрудника либо пустой массив.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_sub_boss_by_person_id(personId: number, personDoc: XmlTopElem): unknown;
+
+  /**
+   * Возвращает идентификаторы сотрудников — руководителей верхнего уровня, поднимаясь по иерархии должностей сотрудника до корневого родительского объекта.
+   * @param {number} personId - Значение параметра `personId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_main_boss_by_person_id(personId: number): unknown;
+
+  /**
+   * Импортирует языковые константы из заданного файла в общий список lngs, объединяя существующие записи после подтверждения, и возвращает число обработанных записей.
+   * @param {string} sLngUrlParam - Значение параметра `sLngUrlParam`.
+   * @param {boolean} bDoObtainParam - Значение параметра `bDoObtainParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function add_lng(sLngUrlParam: string, bDoObtainParam: boolean): number;
+
+  /**
+   * Возвращает локализованную веб-строку по заданному имени, вызывая tools_web.get_web_str.
+   * @param {string} sNameParam - Значение параметра `sNameParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_web_str(sNameParam: string): unknown;
+
+  /**
+   * Возвращает признак того, является ли пользователь непосредственным функциональным руководителем сотрудника или занимает вышестоящую руководящую должность; по умолчанию использует текущих пользователя и объект.
+   * @param {number} iUserIDParam - Значение параметра `iUserIDParam`.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_boss(iUserIDParam: number, iPersonIDParam: number): unknown;
+
+  /**
+   * Проверяет, руководит ли один пользователь другим по каталогам collaborator, group, org, position или subdivision, при необходимости фильтруя по типу руководителя; возвращает логическое значение.
+   * @param {number} iManagerIdParam - Значение параметра `iManagerIdParam`.
+   * @param {number} iUserIdParam - Значение параметра `iUserIdParam`.
+   * @param {string} catalogNames - Значение параметра `catalogNames`.
+   * @param {string} vBossType - Значение параметра `vBossType`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function is_user_boss(iManagerIdParam: number, iUserIdParam: number, catalogNames: string, vBossType: string): boolean;
+
+  /**
+   * Возвращает признак совпадения заданного идентификатора пользователя с текущим пользователем или пользователем сотрудника, используя сотрудника запроса как запасной вариант.
+   * @param {number} iUserIDParam - Значение параметра `iUserIDParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function is_self_cur_user(iUserIDParam: number): boolean;
+
+  /**
+   * Возвращает признак того, занимает ли текущий пользователь руководящую должность верхнего уровня непосредственно над сотрудником текущего объекта в иерархии.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_main_boss(): unknown;
+
+  /**
+   * Возвращает признак того, занимает ли текущий пользователь должность с заданным идентификатором, либо false при ошибке.
+   * @param {number} positionId - Значение параметра `positionId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_by_position_id(positionId: number): unknown;
+
+  /**
+   * Возвращает признак того, содержит ли группа с заданным идентификатором текущего пользователя, либо false при ошибке.
+   * @param {number} groupId - Значение параметра `groupId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_by_group_id(groupId: number): unknown;
+
+  /**
+   * Возвращает признак того, указан ли текущий пользователь среди функциональных руководителей сотрудника текущего объекта, либо false при ошибке.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_person_func_manager(): unknown;
+
+  /**
+   * Возвращает признак того, является ли текущий пользователь функциональным руководителем организации сотрудника текущего объекта, либо false при ошибке.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_person_org_func_manager(): unknown;
+
+  /**
+   * Возвращает признак того, находится ли сотрудник текущего объекта среди подчинённых текущего пользователя, либо false при ошибке.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_func_manager(): unknown;
+
+  /**
+   * Возвращает признак того, является ли текущий пользователь активным участником проекта текущего объекта при наличии типа руководителя project_manager.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function is_project_manager(): unknown;
+
+  /**
+   * Формирует условие XQuery по дате из опции и значения, затем возвращает признак наличия у текущего пользователя соответствующей записи об активности.
+   * @param {number} iActivityIDParam - Значение параметра `iActivityIDParam`.
+   * @param {string} sValueParam - Значение параметра `sValueParam`.
+   * @param {string} sUslParam - Значение параметра `sUslParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function is_statement_date(iActivityIDParam: number, sValueParam: string, sUslParam: string): string;
+
+  /**
+   * Заполняет в целевом элементе идентификатор документооборота, имя объекта, код и дату начала из документа объекта; возвращает false, если документ нельзя открыть.
+   * @param {string} type - Значение параметра `type`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {number} objectId - Значение параметра `objectId`.
+   * @param {XmlTopElem} objectDoc - Значение параметра `objectDoc`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function object_filling(type: string, source: XmlTopElem, objectId: number, objectDoc: XmlTopElem): boolean;
+
+  /**
+   * Заполняет целевые поля из документа объекта по типу, при необходимости копируя административный доступ и пользовательские соответствия; возвращает false, если документ нельзя открыть.
+   * @param {string} type - Значение параметра `type`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {number} objectId - Значение параметра `objectId`.
+   * @param {XmlTopElem} objectDoc - Значение параметра `objectDoc`.
+   * @param {boolean} customFlag - Значение параметра `customFlag`.
+   * @param {Object} oAddParam - Значение параметра `oAddParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function common_filling(type: string, source: XmlTopElem, objectId: number, objectDoc: XmlTopElem, customFlag: boolean, oAddParam: Object): boolean;
+
+  /**
+   * Очищает зависящие от типа поисковые поля, например имена, коды и даты, в исходном элементе и его дочернем элементе sd, затем возвращает true.
+   * @param {string} type - Значение параметра `type`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {XmlTopElem} ps - Значение параметра `ps`.
+   * @param {XmlDocument} doc - Значение параметра `doc`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function common_clear(type: string, source: XmlTopElem, ps: XmlTopElem, doc: XmlDocument): boolean;
+
+  /**
+   * Открывает документы обучения и курса, проверяет незавершённые обязательные разделы и проходной балл и возвращает признак возможности завершения курса.
+   * @param {number | XmlTopElem} learningDoc - Значение параметра `learningDoc`.
+   * @param {number | XmlTopElem} courseDoc - Значение параметра `courseDoc`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function check_course_finish_condition(learningDoc: number | XmlTopElem, courseDoc: number | XmlTopElem): boolean;
+
+  /**
+   * Завершает активное обучение: завершает тестовые разделы, сохраняет документ обучения с баллом и состоянием, ставит в очередь обновление плана обучения, вызывает событие, удаляет активное обучение и возвращает идентификатор обучения.
+   * @param {number} learningId - Значение параметра `learningId`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {XmlTopElem} courseDoc - Значение параметра `courseDoc`.
+   * @returns {number} Результат выполнения.
+   */
+  function active_learning_finish(learningId: number, source: XmlTopElem, courseDoc: XmlTopElem): number;
+
+  /**
+   * Создаёт документ тестирования из активного тестирования, заполняет разделы и ответы, вызывает событие завершения и возвращает документ тестирования.
+   * @param {number} learningId - Значение параметра `learningId`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {XmlTopElem} assessmentDoc - Значение параметра `assessmentDoc`.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {boolean} bFinishTest - Значение параметра `bFinishTest`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function active_test_learning_finish(learningId: number, source: XmlTopElem, assessmentDoc: XmlTopElem, iPersonIDParam: number, bFinishTest: boolean): XmlDocument;
+
+  /**
+   * Проверяет идентификаторы, ставит в очередь обновление плана обучения для тестирования и завершает запись прокторинга; возвращает false при некорректных документах.
+   * @param {number} activeLearningID - Значение параметра `activeLearningID`.
+   * @param {number} learningID - Значение параметра `learningID`.
+   * @param {XmlTopElem} teLearning - Значение параметра `teLearning`.
+   * @param {XmlTopElem} teAssessment - Значение параметра `teAssessment`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function active_test_learning_finish_link(activeLearningID: number, learningID: number, teLearning: XmlTopElem, teAssessment: XmlTopElem): unknown;
+
+  /**
+   * Создаёт попытку тестирования, обновляет попытки разделов, состояние и балл, уведомляет об экспертной оценке, сохраняет активное тестирование и возвращает признак наличия оставшихся попыток.
+   * @param {number} learningId - Значение параметра `learningId`.
+   * @param {string} learningCode - Значение параметра `learningCode`.
+   * @param {XmlTopElem} assessmentDoc - Значение параметра `assessmentDoc`.
+   * @param {boolean} flagCreateLearning - Значение параметра `flagCreateLearning`.
+   * @param {XmlDocument} docActiveLearning - Значение параметра `docActiveLearning`.
+   * @param {boolean} bIsFinal - Значение параметра `bIsFinal`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function active_test_learning_finish_attempt(learningId: number, learningCode: string, assessmentDoc: XmlTopElem, flagCreateLearning: boolean, docActiveLearning: XmlDocument, bIsFinal: boolean): boolean;
+
+  /**
+   * Расшифровывает основное содержимое занятия, извлекает цели, взаимодействия и журнал, при необходимости дополняет данными QTI и возвращает объединённый XML.
+   *
+   * Примечание исходного кода: НАЧАЛО отчёта и журнала занятия
+   * @param {string} core - Значение параметра `core`.
+   * @param {string} qtiPath - Значение параметра `qtiPath`.
+   * @param {string} qtiText - Значение параметра `qtiText`.
+   * @param {XmlTopElem} learningDoc - Значение параметра `learningDoc`.
+   * @returns {string} Результат выполнения.
+   */
+  function core_decrypt(core: string, qtiPath: string, qtiText: string, learningDoc: XmlTopElem): string;
+
+  /**
+   * Декодирует основной текст с префиксом ws_ с помощью кодов подстановки и возвращает XML-фрагмент журнала либо пустой журнал при его отсутствии.
+   * @param {string} sSourceParam - Значение параметра `sSourceParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_annals_from_core(sSourceParam: string): unknown;
+
+  /**
+   * Возвращает сериализованное поле журнала с заголовком XML либо пустую строку, если поле равно null.
+   * @param {XmlElem<unknown>} fldAnnalsParam - Значение параметра `fldAnnalsParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_annals_text_from_annals(fldAnnalsParam: XmlElem<unknown>): unknown;
+
+  /**
+   * Определяет URL папки QTI для раздела курса или URL публикации теста в локальном веб-каталоге.
+   * @param {XmlTopElem} oSource - Значение параметра `oSource`.
+   * @param {XmlElem<unknown>} fldPartParam - Значение параметра `fldPartParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_qti_path(oSource: XmlTopElem, fldPartParam: XmlElem<unknown>): string;
+
+  /**
+   * Возвращает стандартную строку декларации XML, используемую при формировании XML-документов.
+   * @returns {string} Результат выполнения.
+   */
+  function xml_header(): string;
+
+  /**
+   * Формирует текстовый документ журнала из отчёта занятия, объектов или основного содержимого занятия, декодирует кодировку и заполняет данные QTI, возвращая поле либо null.
+   * @param {XmlTopElem} oSourceParam - Значение параметра `oSourceParam`.
+   * @param {string} sQtiPathParam - Значение параметра `sQtiPathParam`.
+   * @param {string} sQtiTextParam - Значение параметра `sQtiTextParam`.
+   * @param {boolean} bNoSendCorrectAnswerParam - Значение параметра `bNoSendCorrectAnswerParam`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function annals_decrypt(oSourceParam: XmlTopElem, sQtiPathParam: string, sQtiTextParam: string, bNoSendCorrectAnswerParam: boolean): XmlTopElem;
+
+  /**
+   * Устарела; расшифровывает отчёт занятия или вызывает annals_decrypt и возвращает XML-текст журнала.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {string} qtiPath - Значение параметра `qtiPath`.
+   * @param {string} qtiText - Значение параметра `qtiText`.
+   * @returns {string} Результат выполнения.
+   */
+  function report_decrypt(source: XmlTopElem, qtiPath: string, qtiText: string): string;
+
+  /**
+   * Копирует длительность в целевой элемент и вычисляет прошедшие секунды и оставшееся время таймера по задержке исходного элемента.
+   * @param {XmlElem<unknown>} fldTarget - Значение параметра `fldTarget`.
+   * @param {XmlElem<unknown>} fldSource - Значение параметра `fldSource`.
+   */
+  function fill_annals_timings(fldTarget: XmlElem<unknown>, fldSource: XmlElem<unknown>): void;
+
+  /**
+   * Разбирает последнюю попытку элемента данных в массив объектов ответов с полями ident и value.
+   * @param {XmlElem<unknown>} fldDataItem - Значение параметра `fldDataItem`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_data_answers(fldDataItem: XmlElem<unknown>): unknown[];
+
+  /**
+   * Просматривает значения setvar в resprocessing QTI и возвращает первое положительное значение баллов задания, иначе null.
+   * @param {XmlElem<unknown>} fldQuestion - Значение параметра `fldQuestion`.
+   * @returns {number | null} Результат выполнения.
+   */
+  function get_item_points(fldQuestion: XmlElem<unknown>): number | null;
+
+  /**
+   * Заполняет объекты журнала разделами QTI, состояниями вопросов, временными данными и баллами, удаляя объекты, не относящиеся к QTI.
+   * @param {XmlElem<unknown>} fldAnnalsObjectsTarget - Значение параметра `fldAnnalsObjectsTarget`.
+   * @param {string} sQtiPathParam - Значение параметра `sQtiPathParam`.
+   * @param {string} sQtiTextParam - Значение параметра `sQtiTextParam`.
+   * @param {XmlElem<unknown>} fldAnnalsObjectsSource - Значение параметра `fldAnnalsObjectsSource`.
+   * @param {boolean} bNoSendCorrectAnswerParam - Значение параметра `bNoSendCorrectAnswerParam`.
+   */
+  function fill_annals_text(fldAnnalsObjectsTarget: XmlElem<unknown>, sQtiPathParam: string, sQtiTextParam: string, fldAnnalsObjectsSource: XmlElem<unknown>, bNoSendCorrectAnswerParam: boolean): void;
+
+  /**
+   * Устарела; разбирает XML журнала, заполняет текст данными QTI и возвращает итоговую XML-строку или пустую строку.
+   * @param {string} annals - Значение параметра `annals`.
+   * @param {string} qtiPath - Значение параметра `qtiPath`.
+   * @param {string} qtiText - Значение параметра `qtiText`.
+   * @param {XmlTopElem} learningDoc - Значение параметра `learningDoc`.
+   * @param {Object} oAnnalsTarget - Значение параметра `oAnnalsTarget`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_annals_text(annals: string, qtiPath: string, qtiText: string, learningDoc: XmlTopElem, oAnnalsTarget: Object): string;
+
+  /**
+   * Выполняет операции действия документооборота: изменение состояния, полей и статуса, добавление событий, вычисление кода и уведомления; возвращает объект результата с признаками ошибки и действия.
+   * @param {XmlDocument} source - Значение параметра `source`.
+   * @param {string} actionCode - Значение параметра `actionCode`.
+   * @param {number} workflowId - Значение параметра `workflowId`.
+   * @param {XmlTopElem} workflowDoc - Значение параметра `workflowDoc`.
+   * @param {number} alterCurObjectID - Значение параметра `alterCurObjectID`.
+   * @param {Date} dConditionProcess - Значение параметра `dConditionProcess`.
+   * @param {Object} lPERequest - Значение параметра `lPERequest`.
+   * @param {XmlTopElem} curUser - Значение параметра `curUser`.
+   * @param {Object} oRemoteActionParam - Значение параметра `oRemoteActionParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function workflow_action_process(source: XmlDocument, actionCode: string, workflowId: number, workflowDoc: XmlTopElem, alterCurObjectID: number, dConditionProcess: Date, lPERequest: Object, curUser: XmlTopElem, oRemoteActionParam: Object): string;
+
+  /**
+   * Объединяет дочерние элементы документа по URL с глобальными списками, добавляя только отсутствующие ключи, и возвращает true.
+   * @param {string} url - Значение параметра `url`.
+   * @param {string} listName - Значение параметра `listName`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function obtain_lists(url: string, listName: string): boolean;
+
+  /**
+   * Устарела; закрывает мероприятие, создаёт отсутствующие результаты, активирует обучение по курсам, обновляет планы обучения, сохраняет, вызывает событие завершения и возвращает документ мероприятия.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlTopElem} eventDoc - Значение параметра `eventDoc`.
+   * @param {Object} oScreenParam - Значение параметра `oScreenParam`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function event_finish(eventId: number, eventDoc: XmlTopElem, oScreenParam: Object): XmlDocument;
+
+  /**
+   * Устарела; активирует мероприятие, запускает обучение по курсам и программы плана обучения, сохраняет и вызывает событие начала, возвращая документ мероприятия.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlTopElem} eventDoc - Значение параметра `eventDoc`.
+   * @param {Object} oScreenParam - Значение параметра `oScreenParam`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function event_start(eventId: number, eventDoc: XmlTopElem, oScreenParam: Object): XmlDocument;
+
+  /**
+   * Определяет идентификатор пользователя и сеанс, затем передаёт проверку доступа в tools_web.check_access и возвращает её результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {XmlTopElem} sourceDoc - Значение параметра `sourceDoc`.
+   * @param {number} userId - Значение параметра `userId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function check_access(sourceDoc: XmlTopElem, userId: number): unknown;
+
+  /**
+   * Нормализует имя каталога, считая имена во множественном числе каталогами, и открывает новый документ по URL соответствующей формы.
+   * @param {string} sCatalogNameParam - Значение параметра `sCatalogNameParam`.
+   * @param {boolean} bIsCatalogParam - Значение параметра `bIsCatalogParam`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function new_doc_by_name(sCatalogNameParam: string, bIsCatalogParam: boolean): XmlDocument;
+
+  /**
+   * Формирует данные формы выгрузки обмена для объектов и шаблонов пакета, записывает XML по заданному URL, добавляет записи отчёта и возвращает число обработанных объектов.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} pakUrl - Значение параметра `pakUrl`.
+   * @param {number} reportId - Значение параметра `reportId`.
+   * @param {string} paramSource - Значение параметра `paramSource`.
+   * @param {string} sPackIDParam - Значение параметра `sPackIDParam`.
+   * @param {string} sModeParam - Значение параметра `sModeParam`.
+   * @param {boolean} bStdParam - Значение параметра `bStdParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function create_inst_package(pakUrl: string, reportId: number, paramSource: string, sPackIDParam: string, sModeParam: string, bStdParam: boolean): number;
+
+  /**
+   * Записывает XML обновления через create_inst_package во временную папку, упаковывает в ZIP, копирует по целевому URL и возвращает счётчик.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} pakUrl - Значение параметра `pakUrl`.
+   * @param {number} reportId - Значение параметра `reportId`.
+   * @param {string} paramSource - Значение параметра `paramSource`.
+   * @param {string} sPackIDParam - Значение параметра `sPackIDParam`.
+   * @param {string} sModeParam - Значение параметра `sModeParam`.
+   * @param {boolean} bStdParam - Значение параметра `bStdParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function create_package(pakUrl: string, reportId: number, paramSource: string, sPackIDParam: string, sModeParam: string, bStdParam: boolean): unknown;
+
+  /**
+   * Создаёт отчёт о действии, упаковывает объекты и файлы в ZIP с desc.xml по итоговому URL, обновляет состояние завершения отчёта и возвращает объект результата.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sResultUrlParam - Значение параметра `sResultUrlParam`.
+   * @param {XmlElem<unknown>} fldPackage - Значение параметра `fldPackage`.
+   * @returns {Object} Результат выполнения.
+   */
+  function create_list_package(sResultUrlParam: string, fldPackage: XmlElem<unknown>): Object;
+
+  /**
+   * Ищет документ каталога по значениям ключей через XQuery и открывает его из корзины или базы данных по умолчанию; возвращает null, если документ не найден.
+   * @param {string} sObjectNameParam - Значение параметра `sObjectNameParam`.
+   * @param {string | string[]} oKeyParam - Значение параметра `oKeyParam`.
+   * @param {string | Object} oKeyValueParam - Значение параметра `oKeyValueParam`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function get_doc_by_key(sObjectNameParam: string, oKeyParam: string | string[], oKeyValueParam: string | Object): XmlDocument | null;
+
+  /**
+   * Возвращает документ, найденный по ключу, или создаёт новый документ, привязанный к базе данных, с заданными значениями ключей, если документа нет.
+   * @param {string} sObjectNameParam - Значение параметра `sObjectNameParam`.
+   * @param {string | string[]} oKeyParam - Значение параметра `oKeyParam`.
+   * @param {string | Object} oKeyValueParam - Значение параметра `oKeyValueParam`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function obtain_doc_by_key(sObjectNameParam: string, oKeyParam: string | string[], oKeyValueParam: string | Object): XmlDocument;
+
+  /**
+   * Заполняет документ теста из текста QTI, заново создавая разделы, задания, ответы и признаки правильности, сохраняет задания; ничего не возвращает.
+   * @param {number} assessmentId - Значение параметра `assessmentId`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {string} qtiText - Значение параметра `qtiText`.
+   * @returns {number} Результат выполнения.
+   */
+  function assessment_filling_from_qti(assessmentId: number, source: XmlTopElem, qtiText: string): number;
+
+  /**
+   * На сервере находит подписки на документ, включая родительские документы, и отправляет уведомления; на клиенте вызывает серверный метод.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} documentId - Значение параметра `documentId`.
+   * @param {XmlTopElem} documentDoc - Значение параметра `documentDoc`.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function submit_subscriptions(documentId: number, documentDoc: XmlTopElem, iPersonIDParam: number): unknown;
+
+  /**
+   * Формирует строку условия XQuery из условий фильтра, учитывая пользовательские поля, множественные значения и оптимизацию ресурсоёмкого сопоставления.
+   * @param {unknown[]} conditions - Значение параметра `conditions`.
+   * @param {string} cond - Значение параметра `cond`.
+   * @param {string} elemName - Значение параметра `elemName`.
+   * @returns {string} Результат выполнения.
+   */
+  function create_filter_xquery(conditions: unknown[], cond: string, elemName: string): string;
+
+  /**
+   * Формирует выражение поля JavaScript для условия фильтра, приводя значения по типу и считывая пользовательские поля.
+   * @param {XmlElem<unknown>} fldConditionParam - Значение параметра `fldConditionParam`.
+   * @param {string} sElemNameParam - Значение параметра `sElemNameParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function create_condition_field(fldConditionParam: XmlElem<unknown>, sElemNameParam: string): string;
+
+  /**
+   * Формирует логическое выражение фильтра JavaScript из условий, включая скобки, проверки вхождения и заполнители вычисляемых значений.
+   * @param {unknown[]} conditions - Значение параметра `conditions`.
+   * @param {string} firstCond - Значение параметра `firstCond`.
+   * @param {string} elemName - Значение параметра `elemName`.
+   * @returns {string} Результат выполнения.
+   */
+  function create_filter_javascript(conditions: unknown[], firstCond: string, elemName: string): string;
+
+  /**
+   * Объединяет поля и листы документа списка шаблонов с глобальным custom_templates и возвращает число обработанных списков.
+   * @param {string} url - Значение параметра `url`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @returns {number} Результат выполнения.
+   */
+  function obtain_custom_templates(url: string, source: XmlTopElem): number;
+
+  /**
+   * Добавляет отсутствующие роли доступа в глобальный список access_roles из переданного документа и возвращает число добавленных ролей.
+   * @param {string} url - Значение параметра `url`.
+   * @param {XmlTopElem} list - Значение параметра `list`.
+   * @returns {number} Результат выполнения.
+   */
+  function obtain_access_roles(url: string, list: XmlTopElem): number;
+
+  /**
+   * Возвращает пароль, хешированный в настроенном формате (md5, sha1, sha256), не изменяя уже хешированные значения.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} password - Значение параметра `password`.
+   * @param {string} check - Значение параметра `check`.
+   * @returns {string} Результат выполнения.
+   */
+  function make_password(password: string, check: string): string;
+
+  /**
+   * Открывает history.xml для заданного типа и возвращает строку версии с датой изменения.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sTypeParam - Значение параметра `sTypeParam`.
+   * @param {boolean} bDateFlag - Значение параметра `bDateFlag`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_version(sTypeParam: string, bDateFlag: boolean): string;
+
+  /**
+   * Определяет пользовательский шаблон по каталогу и исходному корневому элементу, объединяя поля, и возвращает поле либо null.
+   * @param {string} catalog - Значение параметра `catalog`.
+   * @param {number} topId - Значение параметра `topId`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @returns {XmlElem<unknown> | null} Результат выполнения.
+   */
+  function get_custom_template(catalog: string, topId: number, source: XmlTopElem): XmlElem<unknown> | null;
+
+  /**
+   * Устанавливает флаг запрета веб-доступа сотрудника, сохраняет документ и отправляет уведомление; возвращает false для администраторов или при неизменном статусе.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {boolean} status - Значение параметра `status`.
+   * @param {XmlDocument} source - Значение параметра `source`.
+   * @param {boolean} checkAdmin - Значение параметра `checkAdmin`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function set_web_ban(personId: number, status: boolean, source: XmlDocument, checkAdmin: boolean): boolean;
+
+  /**
+   * Обновляет списки объектов блоков отображения из исходного элемента, копируя его в выбранный блок и удаляя из остальных блоков.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {XmlTopElem} dispBlock - Значение параметра `dispBlock`.
+   * @param {XmlTopElem} dispObjectBlocks - Значение параметра `dispObjectBlocks`.
+   * @param {number} sourceId - Значение параметра `sourceId`.
+   */
+  function disp_block_filling_by_source(source: XmlTopElem, dispBlock: XmlTopElem, dispObjectBlocks: XmlTopElem, sourceId: number): void;
+
+  /**
+   * Перезагружает документ блоков объектов отображения, заполняет его из исходного элемента и блока, затем сохраняет документ.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @param {XmlTopElem} dispBlock - Значение параметра `dispBlock`.
+   */
+  function disp_block_filling(source: XmlTopElem, dispBlock: XmlTopElem): void;
+
+  /**
+   * Формирует строку XQuery для каталога с учётом фильтров, иерархии, сортировки и запрошенных возвращаемых полей.
+   * @param {Object} catalogName - Значение параметра `catalogName`.
+   * @param {string} xqueryQual - Значение параметра `xqueryQual`.
+   * @param {string} filterXquery - Значение параметра `filterXquery`.
+   * @param {string} ftFilter - Значение параметра `ftFilter`.
+   * @param {string} orderStr - Значение параметра `orderStr`.
+   * @param {string} orderDir - Значение параметра `orderDir`.
+   * @param {boolean} isHier - Значение параметра `isHier`.
+   * @param {string} foreignField - Значение параметра `foreignField`.
+   * @param {unknown[] | Object} oColumnsParam - Значение параметра `oColumnsParam`.
+   * @param {string} sSearchTypeParam - Значение параметра `sSearchTypeParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function create_xquery(catalogName: Object, xqueryQual: string, filterXquery: string, ftFilter: string, orderStr: string, orderDir: string, isHier: boolean, foreignField: string, oColumnsParam: unknown[] | Object, sSearchTypeParam: string): string;
+
+  /**
+   * Записывает начало обработки, выполняет стандартную обработку по типу объекта, например мероприятия, курса, теста или материала, отправляет уведомления и возвращает документ заявки.
+   * @param {number} iRequestID - Значение параметра `iRequestID`.
+   * @param {XmlDocument} docRequest - Значение параметра `docRequest`.
+   * @param {XmlTopElem} curUser - Значение параметра `curUser`.
+   * @param {boolean} bNoLog - Значение параметра `bNoLog`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function request_processing(iRequestID: number, docRequest: XmlDocument, curUser: XmlTopElem, bNoLog: boolean): XmlDocument;
+
+  /**
+   * Вызывает метод библиотеки кода типа заявки или выполняет сохранённый код с заявкой, возвращая null при недоступности либо true.
+   * @param {XmlDocument} docRequest - Значение параметра `docRequest`.
+   * @param {XmlTopElem} teRequestType - Значение параметра `teRequestType`.
+   * @param {number} curUserID - Значение параметра `curUserID`.
+   * @param {string} sCode - Значение параметра `sCode`.
+   * @param {number} iCodeLibraryId - Значение параметра `iCodeLibraryId`.
+   * @param {string} sMethodName - Значение параметра `sMethodName`.
+   * @returns {boolean | null} Результат выполнения.
+   */
+  function request_eval_code(docRequest: XmlDocument, teRequestType: XmlTopElem, curUserID: number, sCode: string, iCodeLibraryId: number, sMethodName: string): boolean | null;
+
+  /**
+   * Применяет версию объекта к его объекту, архивирует старые версии, создаёт записи изменений, уведомляет подписчиков вики и сохраняет оба документа.
+   * @param {XmlDocument} docVersion - Значение параметра `docVersion`.
+   * @param {number} iVersionID - Значение параметра `iVersionID`.
+   * @param {XmlDocument} docObject - Значение параметра `docObject`.
+   * @param {number} iPersonID - Значение параметра `iPersonID`.
+   * @param {XmlTopElem} tePerson - Значение параметра `tePerson`.
+   * @param {string} sComment - Значение параметра `sComment`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function update_object_versions(docVersion: XmlDocument, iVersionID: number, docObject: XmlDocument, iPersonID: number, tePerson: XmlTopElem, sComment: string): XmlTopElem;
+
+  /**
+   * Создаёт, обновляет или удаляет связи статьи вики из adding_objects, очищает это поле и возвращает документ объекта.
+   * @param {XmlDocument} docObject - Значение параметра `docObject`.
+   * @param {number} iObjectID - Значение параметра `iObjectID`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function update_adding_objects(docObject: XmlDocument, iObjectID: number): XmlDocument;
+
+  /**
+   * Отклоняет заявку: устанавливает статус, записывает действие в журнал, выполняет код отклонения, отправляет уведомления и возвращает документ заявки.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iRequestID - Значение параметра `iRequestID`.
+   * @param {XmlDocument} docRequest - Значение параметра `docRequest`.
+   * @param {number} iPersonID - Значение параметра `iPersonID`.
+   * @param {Date} dSaveParam - Значение параметра `dSaveParam`.
+   * @param {XmlTopElem} curUser - Значение параметра `curUser`.
+   * @param {boolean} bNoLog - Значение параметра `bNoLog`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function request_rejecting(iRequestID: number, docRequest: XmlDocument, iPersonID: number, dSaveParam: Date, curUser: XmlTopElem, bNoLog: boolean): XmlDocument;
+
+  /**
+   * Передаёт добавление сотрудника в мероприятие в libEducation с флагами сохранения, создания результата и уведомления, возвращая документ мероприятия либо null.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {number} iEventIDParam - Значение параметра `iEventIDParam`.
+   * @param {XmlTopElem} tePersonParam - Значение параметра `tePersonParam`.
+   * @param {XmlDocument} docEventParam - Значение параметра `docEventParam`.
+   * @param {number} iEducationPlanIDParam - Значение параметра `iEducationPlanIDParam`.
+   * @param {number} iRequestPersonIDParam - Значение параметра `iRequestPersonIDParam`.
+   * @param {number} iRequestIDParam - Значение параметра `iRequestIDParam`.
+   * @param {boolean} bGuestLogin - Значение параметра `bGuestLogin`.
+   * @param {boolean} bDoObtain - Значение параметра `bDoObtain`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function add_person_to_event(iPersonIDParam: number, iEventIDParam: number, tePersonParam: XmlTopElem, docEventParam: XmlDocument, iEducationPlanIDParam: number, iRequestPersonIDParam: number, iRequestIDParam: number, bGuestLogin: boolean, bDoObtain: boolean): XmlDocument | null;
+
+  /**
+   * Передаёт удаление сотрудника из мероприятия методу DeletePersonFromEventXmd библиотеки libEducation и возвращает документ мероприятия.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {boolean} flagSave - Значение параметра `flagSave`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function del_person_from_event(personId: number, eventId: number, docEvent: XmlDocument, flagSave: boolean): XmlDocument;
+
+  /**
+   * Восстанавливает отсутствующие или пустые языковые константы из стандартного const.xml, задаёт краткий идентификатор и URL и возвращает число восстановленных констант.
+   * @param {number} lngId - Значение параметра `lngId`.
+   * @param {XmlTopElem} source - Значение параметра `source`.
+   * @returns {number} Результат выполнения.
+   */
+  function recovery_empty_lng_const(lngId: number, source: XmlTopElem): number;
+
+  /**
+   * Ставит команду агента в очередь при наличии возможности unibridge, иначе запускает и сохраняет агента; возвращает логическое значение.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} agentId - Значение параметра `agentId`.
+   * @param {number} elementId - Значение параметра `elementId`.
+   * @param {string} elemsIdStr - Значение параметра `elemsIdStr`.
+   * @param {Date} dDateParam - Значение параметра `dDateParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function start_agent(agentId: number, elementId: number, elemsIdStr: string, dDateParam: Date): boolean;
+
+  /**
+   * Перестраивает разделы для списка обучений по курсу с записью хода выполнения, возвращая объект результата со счётчиком и ошибкой.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {unknown[]} learningArray - Значение параметра `learningArray`.
+   * @param {string} courseDocStr - Значение параметра `courseDocStr`.
+   * @returns {Object} Результат выполнения.
+   */
+  function update_learnings_course_parts_structure(learningArray: unknown[], courseDocStr: string): Object;
+
+  /**
+   * Перестраивает разделы обучения из курса, копирует названия тестов, пересчитывает балл, сохраняет документ и возвращает признак успеха.
+   * @param {number} learningId - Значение параметра `learningId`.
+   * @param {XmlTopElem} courseDoc - Значение параметра `courseDoc`.
+   * @param {XmlDocument} docLearning - Значение параметра `docLearning`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function update_course_parts_structure(learningId: number, courseDoc: XmlTopElem, docLearning: XmlDocument): boolean;
+
+  /**
+   * Собирает идентификаторы непосредственных подчинённых по функциям руководителя, должностям и организациям через XQuery, возвращая массив идентификаторов.
+   * @param {number} iUserId - Значение параметра `iUserId`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_direct_sub_person_ids(iUserId: number): string;
+
+  /**
+   * Возвращает идентификаторы сотрудников должностей в иерархии подразделений, соответствующих необязательным условиям, в порядке иерархии.
+   * @param {number} subdivisionId - Значение параметра `subdivisionId`.
+   * @param {string} sConditionsParam - Значение параметра `sConditionsParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_sub_person_ids_by_subdivision_id(subdivisionId: number, sConditionsParam: string): string;
+
+  /**
+   * Получает полные документы сотрудников подразделения с помощью функции поиска идентификаторов подчинённых.
+   * @param {number} subdivisionId - Значение параметра `subdivisionId`.
+   * @param {string} sConditionsParam - Значение параметра `sConditionsParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_sub_persons_by_subdivision_id(subdivisionId: number, sConditionsParam: string): unknown;
+
+  /**
+   * Собирает идентификаторы подчинённых руководителя по выбранным типам каталогов с необязательной поисковой фильтрацией; возвращает уникальные идентификаторы либо null при превышении ограничений.
+   * @param {number} managerId - Значение параметра `managerId`.
+   * @param {string} catalogNames - Значение параметра `catalogNames`.
+   * @param {string} vBossType - Значение параметра `vBossType`.
+   * @param {number} iLimitParam - Значение параметра `iLimitParam`.
+   * @param {string} sSearchParam - Значение параметра `sSearchParam`.
+   * @returns {unknown[] | null} Результат выполнения.
+   */
+  function get_sub_person_ids_by_func_manager_id(managerId: number, catalogNames: string, vBossType: string, iLimitParam: number, sSearchParam: string): unknown[] | null;
+
+  /**
+   * Вызывает get_sub_person_ids_by_func_manager_id и получает записи сотрудников по возвращённым идентификаторам.
+   * @param {number} iManagerIDParam - Значение параметра `iManagerIDParam`.
+   * @param {string} sCatalogNamesParam - Значение параметра `sCatalogNamesParam`.
+   * @param {string} vBossType - Значение параметра `vBossType`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_sub_persons_by_func_manager_id(iManagerIDParam: number, sCatalogNamesParam: string, vBossType: string): unknown;
+
+  /**
+   * Собирает подразделения, подчинённые организациям и должностям руководителя, возвращая объединённый массив записей подразделений.
+   * @param {number} managerId - Значение параметра `managerId`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_all_subs_by_func_manager_id(managerId: number): unknown[];
+
+  /**
+   * Устарела по соображениям безопасности и теперь возвращает пустую строку; оставшийся код выполнял бы код страницы по URL с возможным кешированием результата.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} url - Значение параметра `url`.
+   * @param {number} docId - Значение параметра `docId`.
+   * @param {number} rndId - Значение параметра `rndId`.
+   * @returns {string} Результат выполнения.
+   */
+  function eval_code_page_url(url: string, docId: number, rndId: number): string;
+
+  /**
+   * Возвращает корневой элемент текущего пользователя из контекста аутентификации, сеанса или кешированного состояния, загружая или обновляя его при необходимости.
+   * @returns {XmlTopElem | null} Результат выполнения.
+   */
+  function get_cur_user(): XmlTopElem | null;
+
+  /**
+   * Обновляет кешированные данные текущего пользователя по идентификатору пользователя LDS, определяет тип администратора, обновляет доступ к содержимому и возвращает корневой элемент пользователя.
+   * @returns {XmlTopElem | null} Результат выполнения.
+   */
+  function update_cur_user(): XmlTopElem | null;
+
+  /**
+   * Возвращает группы текущего пользователя, запрашивая членство в группах на сервере и обновляя кешированный список при его отсутствии.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cur_user_groups(): unknown;
+
+  /**
+   * Перестраивает и кеширует список групп текущего пользователя по записям членства в группах; для анонимных пользователей возвращает пустой массив.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function update_cur_user_groups(): unknown;
+
+  /**
+   * Возвращает true, если текущий пользователь не найден или его роль доступа — admin, иначе false.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function cur_user_is_admin(): unknown;
+
+  /**
+   * Возвращает кешированный доступ к содержимому для текущего пользователя, предварительно вычисляя и кешируя его, если он ещё не загружен.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cur_user_content_access(): unknown;
+
+  /**
+   * Вычисляет и кеширует записи доступа к содержимому текущего пользователя с фильтрацией по типу администратора, затем возвращает итоговый массив.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function update_cur_user_content_access(): unknown[];
+
+  /**
+   * Возвращает кешированную конфигурацию администратора текущего пользователя, предварительно загружая и кешируя её при отсутствии.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cur_user_admin_configuration(): unknown;
+
+  /**
+   * Определяет роль доступа и конфигурацию администратора текущего пользователя, кеширует её и список приложений и возвращает корневой элемент конфигурации.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function update_cur_user_admin_configuration(): unknown;
+
+  /**
+   * Возвращает кешированные приложения конфигурации администратора текущего пользователя, предварительно обновляя конфигурацию; при недоступности возвращает пустой массив.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_cur_user_admin_configuration_applications(): unknown[];
+
+  /**
+   * Возвращает уровень доступа текущего пользователя к приложению, используя логику приложения или роли доступа в зависимости от типа администратора.
+   * @param {number} iApplicationIDParam - Значение параметра `iApplicationIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cur_user_application_access_level(iApplicationIDParam: number): unknown;
+
+  /**
+   * Ищет приложение по идентификатору или коду в функциональных блоках роли доступа и возвращает его уровень доступа либо null.
+   * @param {XmlElem<unknown>} fldAccessRoleParam - Значение параметра `fldAccessRoleParam`.
+   * @param {number} iApplicationIDParam - Значение параметра `iApplicationIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_access_role_application_access_level(fldAccessRoleParam: XmlElem<unknown>, iApplicationIDParam: number): unknown;
+
+  /**
+   * Формирует и кеширует блоки доступа из утверждений LDS текущего пользователя, возвращая блоки с правами чтения, записи и удаления.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cur_user_access_blocks(): unknown;
+
+  /**
+   * Перестраивает условия фильтра каталога, добавляя ограничения роли доступа, группы пользователей и схемы и очищая условия квалификации; ничего не возвращает.
+   * @param {XmlElem<unknown>} sourceConditions - Значение параметра `sourceConditions`.
+   * @param {string} catalogName - Значение параметра `catalogName`.
+   * @param {XmlElem<unknown>} schemeId - Значение параметра `schemeId`.
+   * @param {boolean} setFlag - Значение параметра `setFlag`.
+   */
+  function update_filter_conditions(sourceConditions: XmlElem<unknown>, catalogName: string, schemeId: XmlElem<unknown>, setFlag: boolean): void;
+
+  /**
+   * Проверяет доступ текущего пользователя к объекту по роли администратора, членству в группе или фильтрам каталога доступа, записывая отказы в auth-events.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @param {XmlElem<unknown>} fldAccessCalalogNameParam - Значение параметра `fldAccessCalalogNameParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function check_cur_user_admin_access(teObjectParam: XmlTopElem, fldAccessCalalogNameParam: XmlElem<unknown>): boolean;
+
+  /**
+   * Проверяет административный доступ текущего пользователя к объекту, показывает ошибку и отменяет действие при отказе, а для новых объектов заполняет роль или группу.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function admin_access_filling(teObjectParam: XmlTopElem): boolean;
+
+  /**
+   * Копирует поля роли доступа и группы из исходного объекта в целевой, если каталог доступа разрешает автоматическое заполнение.
+   * @param {number} toObjId - Значение параметра `toObjId`.
+   * @param {XmlTopElem} toObjDoc - Значение параметра `toObjDoc`.
+   * @param {number} fromObjId - Значение параметра `fromObjId`.
+   * @param {XmlTopElem} fromObjDoc - Значение параметра `fromObjDoc`.
+   */
+  function admin_access_copying(toObjId: number, toObjDoc: XmlTopElem, fromObjId: number, fromObjDoc: XmlTopElem): void;
+
+  /**
+   * Заменяет в строке теги-заполнители даты, времени и каталога приложения и возвращает полученный текст.
+   * @param {string} str - Значение параметра `str`.
+   * @param {Date} date - Значение параметра `date`.
+   * @returns {string} Результат выполнения.
+   */
+  function replace_temlate_tags(str: string, date: Date): string;
+
+  /**
+   * Формирует строку вычисляемого выражения из условий документооборота, включая проверки состояния документооборота, значений полей и записей об активности.
+   * @param {unknown[]} conditions - Значение параметра `conditions`.
+   * @param {number} iWorkflowIDParam - Значение параметра `iWorkflowIDParam`.
+   * @param {XmlTopElem} teWorkflowParam - Значение параметра `teWorkflowParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function build_condition_eval_str(conditions: unknown[], iWorkflowIDParam: number, teWorkflowParam: XmlTopElem): string;
+
+  /**
+   * Распространяет права сотрудников на документ из родительского объекта или документа на связанные документы, обновляя документы интерфейса и возвращая счётчик.
+   * @param {number} objId - Значение параметра `objId`.
+   * @param {Object} objDoc - Значение параметра `objDoc`.
+   * @returns {number} Результат выполнения.
+   */
+  function update_document_persons(objId: number, objDoc: Object): number;
+
+  /**
+   * Поднимается по родительским документам до ближайшего документа, атрибуты которого разрешают подписку, и возвращает его идентификатор либо null.
+   * @param {Object} oDocumentParam - Значение параметра `oDocumentParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_notification_document(oDocumentParam: Object): unknown;
+
+  /**
+   * Определяет центр затрат сотрудника по самому сотруднику или родительским должностям согласно приоритету, используя глобальное значение по умолчанию как запасное.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cost_center_id_by_person_id(personId: number, personDoc: XmlTopElem): unknown;
+
+  /**
+   * Находит центр затрат сотрудника и возвращает идентификаторы сотрудников — руководителей этого центра затрат либо пустой массив.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_cost_center_boss_by_person_id(personId: number, personDoc: XmlTopElem): unknown;
+
+  /**
+   * Возвращает идентификаторы сотрудников на руководящих должностях непосредственно в заданном подразделении либо null при некорректном идентификаторе.
+   * @param {number} subId - Значение параметра `subId`.
+   * @returns {string | null} Результат выполнения.
+   */
+  function get_sub_boss_by_sub_id(subId: number): string | null;
+
+  /**
+   * Нормализует строку времени с разделителями-двоеточиями в HH:MM или HH:MM:SS; возвращает null при некорректном значении или отсутствии обязательных частей.
+   * @param {string} str - Значение параметра `str`.
+   * @param {boolean} miniteFlag - Значение параметра `miniteFlag`.
+   * @param {boolean} secondFlag - Значение параметра `secondFlag`.
+   * @returns {string | null} Результат выполнения.
+   */
+  function get_time(str: string, miniteFlag: boolean, secondFlag: boolean): string | null;
+
+  /**
+   * Очищает HTML-описания, переписывая относительные пути изображений и удаляя потерявшие связь теги составных вложений; возвращает итоговый HTML.
+   * @param {string} desc - Значение параметра `desc`.
+   * @param {string} tempDir - Значение параметра `tempDir`.
+   * @returns {string} Результат выполнения.
+   */
+  function desc_cleanup(desc: string, tempDir: string): string;
+
+  /**
+   * Возвращает локализованный заголовок поля, разрешая ключи локализации const= через языковой словарь интерфейса.
+   * @param {string} field - Значение параметра `field`.
+   * @param {string} curLngWeb - Значение параметра `curLngWeb`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_field_title(field: string, curLngWeb: string): string;
+
+  /**
+   * Формирует плоский список имён и заголовков полей из структуры формы, включая пользовательские поля и метаданные связанных каталогов.
+   * @param {unknown[]} fieldNames - Значение параметра `fieldNames`.
+   * @param {XmlTopElem} form - Значение параметра `form`.
+   * @param {boolean} iscatalog - Значение параметра `iscatalog`.
+   * @param {string} evalpath - Значение параметра `evalpath`.
+   * @param {string} pretitle - Значение параметра `pretitle`.
+   * @param {number} customfieldstypeid - Значение параметра `customfieldstypeid`.
+   */
+  function fill_field_names(fieldNames: unknown[], form: XmlTopElem, iscatalog: boolean, evalpath: string, pretitle: string, customfieldstypeid: number): void;
+
+  /**
+   * Фактически отключена и сразу возвращает пустую строку; закомментированный код вычислял бы формулы дат с источниками и промежуточными параметрами.
+   * @param {string} src1 - Значение параметра `src1`.
+   * @param {string} src2 - Значение параметра `src2`.
+   * @param {string} evalstr - Значение параметра `evalstr`.
+   * @param {string} param1 - Значение параметра `param1`.
+   * @param {string} param2 - Значение параметра `param2`.
+   * @param {string} param3 - Значение параметра `param3`.
+   * @returns {string} Результат выполнения.
+   */
+  function DateFunc(src1: string, src2: string, evalstr: string, param1: string, param2: string, param3: string): string;
+
+  /**
+   * Сдвигает дату на дни, часы, минуты и секунды и возвращает скорректированную дату, используя текущую дату, если она не передана.
+   * @param {string} dateVal - Значение параметра `dateVal`.
+   * @param {number} days - Значение параметра `days`.
+   * @param {number} hours - Значение параметра `hours`.
+   * @param {number} minutes - Значение параметра `minutes`.
+   * @param {number} seconds - Значение параметра `seconds`.
+   * @returns {string} Результат выполнения.
+   */
+  function AdjustDate(dateVal: string, days: number, hours: number, minutes: number, seconds: number): string;
+
+  /**
+   * Сопоставляет имя типа данных отчёта с кратким кодом поля хранения, по умолчанию используя код строки.
+   * @param {string} sDatatype - Значение параметра `sDatatype`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_report_storage_field(sDatatype: string): string;
+
+  /**
+   * Удалённо формирует пользовательский отчёт в фоновой задаче, записывает запуск в журнал и возвращает сведения о ходе выполнения задачи.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} reportId - Значение параметра `reportId`.
+   * @param {string} ps - Значение параметра `ps`.
+   * @param {XmlDocument} docReportParam - Значение параметра `docReportParam`.
+   * @param {string} sLngSHORT - Значение параметра `sLngSHORT`.
+   * @param {boolean} bMetaOnly - Значение параметра `bMetaOnly`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function build_report_remote(reportId: number, ps: string, docReportParam: XmlDocument, sLngSHORT: string, bMetaOnly: boolean): XmlDocument | null;
+
+  /**
+   * Рекурсивно собирает узел и всех его потомков из каталога по заданному полю родителя, возвращая их массивом.
+   * @param {number} nodeId - Значение параметра `nodeId`.
+   * @param {string} nodeCatalog - Значение параметра `nodeCatalog`.
+   * @param {string} nodeParentField - Значение параметра `nodeParentField`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_sub_hierarchy(nodeId: number, nodeCatalog: string, nodeParentField: string): unknown;
+
+  /**
+   * Обрабатывает печатную форму Word, Excel или другого формата по данным документа, возвращая созданный временный файл либо его содержимое.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string | number} oFormParam - Значение параметра `oFormParam`.
+   * @param {number} iTopElemParam - Значение параметра `iTopElemParam`.
+   * @param {boolean} bReturnFilename - Значение параметра `bReturnFilename`.
+   * @param {XmlTopElem} topElemParam - Значение параметра `topElemParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function process_print_form(oFormParam: string | number, iTopElemParam: number, bReturnFilename: boolean, topElemParam: XmlTopElem): string;
+
+  /**
+   * Обходит иерархию сотрудников, должностей или подразделений для поиска записи сотрудника ответственного руководителя; при отсутствии возвращает undefined.
+   * @param {XmlDocument} object - Значение параметра `object`.
+   * @returns {XmlTopElem | null} Результат выполнения.
+   */
+  function get_user_boss(object: XmlDocument): XmlTopElem | null;
+
+  /**
+   * Заполняет поле кадровым путём сотрудника из filling_path_subs и возвращает это поле.
+   * @param {XmlElem<unknown>} pathSubs - Значение параметра `pathSubs`.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function path_subs_filling(pathSubs: XmlElem<unknown>, personId: number, personDoc: XmlTopElem): unknown;
+
+  /**
+   * Преобразует миллисекунды в строку HH:MM:SS, включая дробную часть миллисекунд при её наличии.
+   * @param {string} mseconds - Значение параметра `mseconds`.
+   * @returns {string} Результат выполнения.
+   */
+  function str_time_from_mseconds(mseconds: string): string;
+
+  /**
+   * Формирует отформатированную строку кадрового пути сотрудника с учётом глубины, направления и разделителя.
+   * @param {number} personID - Значение параметра `personID`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @param {number} depth - Значение параметра `depth`.
+   * @param {string} top - Значение параметра `top`.
+   * @param {string} separator - Значение параметра `separator`.
+   * @returns {string} Результат выполнения.
+   */
+  function person_list_staff_by_person_id(personID: number, personDoc: XmlTopElem, depth: number, top: string, separator: string): string;
+
+  /**
+   * Добавляет сотрудника в аудиторию оценочной процедуры, если его там нет, сохраняет документ и возвращает его либо null.
+   *
+   * Примечание исходного кода: НАЧАЛО, автор — Мария Букина
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {number} assessmentAppraiseId - Значение параметра `assessmentAppraiseId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @param {XmlDocument} docAssessmentAppraise - Значение параметра `docAssessmentAppraise`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function add_person_to_assessment_appraise(personId: number, assessmentAppraiseId: number, personDoc: XmlTopElem, docAssessmentAppraise: XmlDocument): XmlDocument | null;
+
+  /**
+   * Собирает теги из разделов знаний и возвращает отсортированные теги, встречающиеся только один раз после фильтрации дубликатов.
+   *
+   * Примечание исходного кода: КОНЕЦ, автор — Мария Букина
+   * @returns {string} Результат выполнения.
+   */
+  function get_tag_cloud(): string;
+
+  /**
+   * Генерирует XML-строки формы XMD и каталога из определения типа документа, возвращая их вместе с полем иерархии.
+   * @param {number} iDocTypeIDParam - Значение параметра `iDocTypeIDParam`.
+   * @param {XmlTopElem} teDocTypeParam - Значение параметра `teDocTypeParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_doc_type_xmds(iDocTypeIDParam: number, teDocTypeParam: XmlTopElem): unknown;
+
+  /**
+   * Проверяет поля типа документа, генерирует и записывает его формы XMD, при изменениях устанавливает флаг перезапуска и возвращает признак успеха.
+   * @param {XmlTopElem} docTopelem - Значение параметра `docTopelem`.
+   * @param {number} docId - Значение параметра `docId`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function generate_doc_type_xmds(docTopelem: XmlTopElem, docId: number): boolean;
+
+  /**
+   * Генерирует и регистрирует формы XMD типа документа в базе данных, сбрасывает флаг перезапуска и возвращает объект результата.
+   * @param {XmlDocument} docDocTypePARAM - Значение параметра `docDocTypePARAM`.
+   * @param {number} iDocIDParam - Значение параметра `iDocIDParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function register_doc_type(docDocTypePARAM: XmlDocument, iDocIDParam: number): Object;
+
+  /**
+   * Удаляет все объекты типа документа и файлы его форм XMD; возвращает 1 при успехе, 0 при наличии содержимого или -1.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} docTypeID - Значение параметра `docTypeID`.
+   * @param {boolean} checkContent - Значение параметра `checkContent`.
+   * @returns {number} Результат выполнения.
+   */
+  function drop_doc_type(docTypeID: number, checkContent: boolean): number;
+
+  /**
+   * Передаёт создание сертификата заданного типа методу create_certificate мероприятия и возвращает результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} evenId - Значение параметра `evenId`.
+   * @param {number} typeId - Значение параметра `typeId`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {boolean} bCreateByNotAssist - Значение параметра `bCreateByNotAssist`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function create_certificate_to_event(evenId: number, typeId: number, docEvent: XmlDocument, bCreateByNotAssist: boolean): XmlTopElem;
+
+  /**
+   * Создаёт документ сертификата по типу сертификата, заполняет данные сотрудника и мероприятия, сохраняет в базе данных и возвращает его.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {number} typeId - Значение параметра `typeId`.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlTopElem} personDoc - Значение параметра `personDoc`.
+   * @param {XmlTopElem} typeDoc - Значение параметра `typeDoc`.
+   * @param {XmlTopElem} eventDoc - Значение параметра `eventDoc`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function create_certificate_to_person(personId: number, typeId: number, eventId: number, personDoc: XmlTopElem, typeDoc: XmlTopElem, eventDoc: XmlTopElem): XmlDocument;
+
+  /**
+   * Поднимается по родительским записям форума для поиска идентификатора корневой записи, останавливаясь после пятидесяти уровней.
+   * @param {number} iForumEntryParam - Значение параметра `iForumEntryParam`.
+   * @param {XmlTopElem} teForumEntryParam - Значение параметра `teForumEntryParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function get_main_forum_entry_by_forum_entry_id(iForumEntryParam: number, teForumEntryParam: XmlTopElem): number;
+
+  /**
+   * Назначает квалификацию сотруднику, создаёт или обновляет документ назначения, при необходимости отправляет уведомления и письма, вызывает системное событие и возвращает документ.
+   * @param {number} personId - Значение параметра `personId`.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {number} qualificationId - Значение параметра `qualificationId`.
+   * @param {Date} assignmentDate - Значение параметра `assignmentDate`.
+   * @param {Date} expirationDate - Значение параметра `expirationDate`.
+   * @param {unknown[]} qualificationTestArray - Значение параметра `qualificationTestArray`.
+   * @param {unknown[]} qualificationCourseArray - Значение параметра `qualificationCourseArray`.
+   * @param {boolean} sendMail - Значение параметра `sendMail`.
+   * @param {boolean} inProcess - Значение параметра `inProcess`.
+   * @param {boolean} bAssignTestsParam - Значение параметра `bAssignTestsParam`.
+   * @param {boolean} bAssignCoursesParam - Значение параметра `bAssignCoursesParam`.
+   * @param {boolean} bUnconditionalAssignmentParam - Значение параметра `bUnconditionalAssignmentParam`.
+   * @param {XmlTopElem} qualificationAssignmentDoc - Значение параметра `qualificationAssignmentDoc`.
+   * @param {XmlTopElem} teQualification - Значение параметра `teQualification`.
+   * @param {XmlTopElem} tePerson - Значение параметра `tePerson`.
+   * @param {boolean} bGivePointParam - Значение параметра `bGivePointParam`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function assign_qualification_to_person(personId: number, eventId: number, qualificationId: number, assignmentDate: Date, expirationDate: Date, qualificationTestArray: unknown[], qualificationCourseArray: unknown[], sendMail: boolean, inProcess: boolean, bAssignTestsParam: boolean, bAssignCoursesParam: boolean, bUnconditionalAssignmentParam: boolean, qualificationAssignmentDoc: XmlTopElem, teQualification: XmlTopElem, tePerson: XmlTopElem, bGivePointParam: boolean): XmlDocument | null;
+
+  /**
+   * Передаёт назначение квалификации на заданную дату методу assign_qualification мероприятия и возвращает результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} evenId - Значение параметра `evenId`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {number} qualificationId - Значение параметра `qualificationId`.
+   * @param {Date} date - Значение параметра `date`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function assign_qualification_to_event(evenId: number, docEvent: XmlDocument, qualificationId: number, date: Date): XmlTopElem;
+
+  /**
+   * Записывает содержимое XMS пользовательского шаблона администратора в файл формы, удаляя существующий файл, и возвращает признак успеха.
+   * @param {XmlTopElem} template - Значение параметра `template`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function save_custom_ui_form(template: XmlTopElem): boolean;
+
+  /**
+   * Возвращает URL формы пользовательского шаблона администратора, используя существующий URL кода или записывая код во временный файл либо файл формы.
+   * @param {Object} oCustomAdminTemplateParam - Значение параметра `oCustomAdminTemplateParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_custom_ui_form(oCustomAdminTemplateParam: Object): string;
+
+  /**
+   * Возвращает путь формы каталога документов, используя настроенную форму пользовательского шаблона либо стандартную форму документа.
+   * @param {string} catalogName - Значение параметра `catalogName`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_custom_document_form(catalogName: string): string;
+
+  /**
+   * Формирует отформатированную строку пути иерархии разделов знаний с учётом глубины, направления и разделителя.
+   * @param {number} knowledgePartID - Значение параметра `knowledgePartID`.
+   * @param {XmlTopElem} knowledgePartDoc - Значение параметра `knowledgePartDoc`.
+   * @param {number} depth - Значение параметра `depth`.
+   * @param {string} top - Значение параметра `top`.
+   * @param {string} separator - Значение параметра `separator`.
+   * @returns {string} Результат выполнения.
+   */
+  function knowledge_part_path_by_knowledge_part_id(knowledgePartID: number, knowledgePartDoc: XmlTopElem, depth: number, top: string, separator: string): string;
+
+  /**
+   * Заменяет руководителей, для которых действует замещение, их заместителями в списке руководителей, возвращая итоговые идентификаторы сотрудников.
+   * @param {unknown[]} arrFuncManagerParam - Значение параметра `arrFuncManagerParam`.
+   * @param {Object} oParams - Значение параметра `oParams`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_func_manager_substitution(arrFuncManagerParam: unknown[], oParams: Object): unknown[];
+
+  /**
+   * Обходит иерархию collaborator, position, subdivision и org через func_managers, возвращая руководителей сотрудника, их идентификаторы или записи руководителей.
+   * @param {XmlTopElem | XmlDocument} objectParam - Значение параметра `objectParam`.
+   * @param {Object} oParams - Значение параметра `oParams`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_uni_user_bosses(objectParam: XmlTopElem | XmlDocument, oParams: Object): unknown[];
+
+  /**
+   * Возвращает первую запись руководителя из результата get_uni_user_bosses для заданного объекта.
+   * @param {Object} objectParam - Значение параметра `objectParam`.
+   * @param {Object} oParams - Значение параметра `oParams`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_uni_user_boss(objectParam: Object, oParams: Object): unknown[];
+
+  /**
+   * Применяет операции эскалации документооборота к исходному документу в памяти, создавая уведомления и обрабатывая заявки; возвращает признак успеха.
+   * @param {XmlDocument} source - Значение параметра `source`.
+   * @param {string} escalationCode - Значение параметра `escalationCode`.
+   * @param {number} workflowId - Значение параметра `workflowId`.
+   * @param {XmlTopElem} workflowDoc - Значение параметра `workflowDoc`.
+   * @param {number} alterCurObjectID - Значение параметра `alterCurObjectID`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function workflow_escalation_process(source: XmlDocument, escalationCode: string, workflowId: number, workflowDoc: XmlTopElem, alterCurObjectID: number): boolean;
+
+  /**
+   * Возвращает профили компетенций, соответствующие кодам компетенций должности пользователя, используя профиль типовой должности, если совпадений нет.
+   * @param {XmlTopElem | XmlDocument} objectParam - Значение параметра `objectParam`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function get_user_comp_profiles(objectParam: XmlTopElem | XmlDocument): XmlTopElem;
+
+  /**
+   * Читает update.xml пакета и возвращает XML запрошенного объекта вместе с полями состояния ошибки.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} packageUrl - Значение параметра `packageUrl`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {string} sObjectTypeParam - Значение параметра `sObjectTypeParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_object_data_from_package_url(packageUrl: string, iObjectIDParam: number, sObjectTypeParam: string): Object;
+
+  /**
+   * Извлекает пакет ZIP или XML во временный каталог, заполняет форму журнала пакета и возвращает её с кодами ошибок при их наличии.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} packageUrl - Значение параметра `packageUrl`.
+   * @param {Object} oParam - Значение параметра `oParam`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function get_package_log(packageUrl: string, oParam: Object): XmlTopElem;
+
+  /**
+   * Очищает и заново заполняет объекты, шаблоны, списки и роли журнала пакета из источника, возвращая число элементов.
+   * @param {XmlElem<unknown>} fldPackageTarget - Значение параметра `fldPackageTarget`.
+   * @param {XmlElem<unknown>} fldSourceParam - Значение параметра `fldSourceParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function package_log_filling(fldPackageTarget: XmlElem<unknown>, fldSourceParam: XmlElem<unknown>): number;
+
+  /**
+   * Генерирует текст сценария, объявляющий переданные wvars с типизированными значениями и регистрирующий их в SCOPE_WVARS.
+   * @param {unknown[]} listWVarsPARAM - Значение параметра `listWVarsPARAM`.
+   * @param {boolean} bWarily - Значение параметра `bWarily`.
+   * @returns {string} Результат выполнения.
+   */
+  function wvars_to_script(listWVarsPARAM: unknown[], bWarily: boolean): string;
+
+  /**
+   * Генерирует текст сценария, объявляющий свойства переданного объекта с типизированными значениями и регистрирующий их в SCOPE_WVARS.
+   * @param {Object} objectPARAM - Значение параметра `objectPARAM`.
+   * @param {boolean} bWarily - Значение параметра `bWarily`.
+   * @returns {string} Результат выполнения.
+   */
+  function object_to_script(objectPARAM: Object, bWarily: boolean): string;
+
+  /**
+   * Преобразует переданный список wvar в объект со значениями, приведёнными согласно типу каждой wvar.
+   * @param {unknown[]} listWVarsPARAM - Значение параметра `listWVarsPARAM`.
+   * @returns {Object} Результат выполнения.
+   */
+  function wvars_to_object(listWVarsPARAM: unknown[]): Object;
+
+  /**
+   * Создаёт уведомления для сотрудников, руководителей, тьюторов, организаторов и преподавателей мероприятия, обновляет даты последней отправки и возвращает true.
+   * @param {number} eventId - Значение параметра `eventId`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {string} sendType - Значение параметра `sendType`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function send_event_notifications(eventId: number, docEvent: XmlDocument, sendType: string): boolean;
+
+  /**
+   * Разбирает строку XML или JSON в обычный объект; для нераспознанных входных данных возвращает пустой объект.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sSomeObjectPARAM - Значение параметра `sSomeObjectPARAM`.
+   * @returns {Object} Результат выполнения.
+   */
+  function read_object(sSomeObjectPARAM: string): Object;
+
+  /**
+   * Преобразует каждый элемент массива в текст XML или JSON и объединяет их в единый документ с заголовком.
+   * @param {unknown[]} aArrayPARAM - Значение параметра `aArrayPARAM`.
+   * @param {string} sFormatPARAM - Значение параметра `sFormatPARAM`.
+   * @param {string} sNamePARAM - Значение параметра `sNamePARAM`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function array_to_text(aArrayPARAM: unknown[], sFormatPARAM: string, sNamePARAM: string): unknown;
+
+  /**
+   * Объединяет фрагменты текста в единый массив XML или JSON либо именованный объект в зависимости от флагов.
+   * @param {unknown[]} aDataPARAM - Значение параметра `aDataPARAM`.
+   * @param {string} sName - Значение параметра `sName`.
+   * @param {boolean} bObj - Значение параметра `bObj`.
+   * @param {string} sFormatPARAM - Значение параметра `sFormatPARAM`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function merge_text_array(aDataPARAM: unknown[], sName: string, bObj: boolean, sFormatPARAM: string): unknown;
+
+  /**
+   * Сериализует переданный объект в текст XML или JSON с ограничением максимальной глубины рекурсии и возвращает строку.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {unknown} objectPARAM - Значение параметра `objectPARAM`.
+   * @param {string} sFormatPARAM - Значение параметра `sFormatPARAM`.
+   * @param {number} iMaxDepthPARAM - Значение параметра `iMaxDepthPARAM`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function object_to_text(objectPARAM: unknown, sFormatPARAM: string, iMaxDepthPARAM: number): unknown;
+
+  /**
+   * Сохраняет снимок версии документа в базе данных, если его каталог разрешает резервное копирование и содержимое изменилось.
+   * @param {XmlDocument} oDocParam - Значение параметра `oDocParam`.
+   */
+  function create_object_version(oDocParam: XmlDocument): void;
+
+  /**
+   * Собирает обязательные курсы, тесты и программы из должности, семейства должностей и групп сотрудника в результирующий массив.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {XmlTopElem} tePersonParam - Значение параметра `tePersonParam`.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_mandatory_learnings(iPersonIDParam: number, iObjectIDParam: number, tePersonParam: XmlTopElem, teObjectParam: XmlTopElem): Object;
+
+  /**
+   * Фильтрует записи func_manager сотрудника, оставляя те, чьи типы руководителей применимы к указанному сотруднику или группе.
+   *
+   * Примечание исходного кода: UNI
+   * @param {number | XmlTopElem | XmlDocument} objectParam - Значение параметра `objectParam`.
+   * @param {number | XmlTopElem} oPersonParam - Значение параметра `oPersonParam`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_relative_boss_types(objectParam: number | XmlTopElem | XmlDocument, oPersonParam: number | XmlTopElem): unknown[];
+
+  /**
+   * Определяет типы руководителей по записям руководителей и возвращает связанные с ними операции.
+   *
+   * Примечание исходного кода: UNI
+   * @param {Object} oManagerParam - Значение параметра `oManagerParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_relative_operations(oManagerParam: Object): unknown;
+
+  /**
+   * Проверяет, относится ли операция, определённая по идентификатору или имени действия, к одному из типов руководителя.
+   * @param {Object} oManagerParam - Значение параметра `oManagerParam`.
+   * @param {Object} oOperationParam - Значение параметра `oOperationParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function check_relative_operation(oManagerParam: Object, oOperationParam: Object): boolean;
+
+  /**
+   * Определяет типы руководителя пользователя относительно мероприятия, организации, подразделения или другого объекта, включая специальные типы ролей.
+   * @param {number} iUserIDParam - Значение параметра `iUserIDParam`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_object_relative_boss_types(iUserIDParam: number, iObjectIDParam: number): unknown;
+
+  /**
+   * Собирает идентификаторы операций из типов руководителей и возвращает соответствующие операции с необязательной фильтрацией по имени каталога.
+   * @param {unknown[]} arrBossTypesParam - Значение параметра `arrBossTypesParam`.
+   * @param {string} sCatalogNameParam - Значение параметра `sCatalogNameParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_relative_operations_by_boss_types(arrBossTypesParam: unknown[], sCatalogNameParam: string): unknown;
+
+  /**
+   * Возвращает операции, доступные пользователю для объекта, объединяя относительные типы руководителей и их операции.
+   * @param {number} iUserIDParam - Значение параметра `iUserIDParam`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {string} sCatalogNameParam - Значение параметра `sCatalogNameParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_object_relative_operations(iUserIDParam: number, iObjectIDParam: number, sCatalogNameParam: string): unknown;
+
+  /**
+   * Возвращает true для администраторов, иначе проверяет наличие действия в переданном массиве операций.
+   * @param {unknown[]} arrOperationsParam - Значение параметра `arrOperationsParam`.
+   * @param {XmlTopElem} teCurUserParam - Значение параметра `teCurUserParam`.
+   * @param {string} sActionParam - Значение параметра `sActionParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function check_operation_rights(arrOperationsParam: unknown[], teCurUserParam: XmlTopElem, sActionParam: string): boolean;
+
+  /**
+   * Копирует все свойства исходного объекта в объект-получатель, перезаписывая существующие значения, и возвращает получатель.
+   * @param {Object} oObjectRecipient - Значение параметра `oObjectRecipient`.
+   * @param {Object} oObjectSource - Значение параметра `oObjectSource`.
+   * @returns {Object} Результат выполнения.
+   */
+  function extend_object(oObjectRecipient: Object, oObjectSource: Object): Object;
+
+  /**
+   * Возвращает операции, назначенные кешированному типу руководителя текущего пользователя, при необходимости загружая и кешируя этот тип.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_current_user_operations(): unknown[];
+
+  /**
+   * Присваивает указанные дочерние поля из источника целевому элементу, не изменяя остальные поля.
+   * @param {XmlElem<unknown>} fldTarget - Значение параметра `fldTarget`.
+   * @param {XmlElem<unknown>} fldSourceParam - Значение параметра `fldSourceParam`.
+   * @param {unknown[]} arrFieldNamesParam - Значение параметра `arrFieldNamesParam`.
+   */
+  function assign_elems(fldTarget: XmlElem<unknown>, fldSourceParam: XmlElem<unknown>, arrFieldNamesParam: unknown[]): void;
+
+  /**
+   * Присваивает все дочерние поля из источника целевому элементу, кроме указанных в списке исключений.
+   * @param {XmlElem<unknown>} fldTarget - Значение параметра `fldTarget`.
+   * @param {XmlElem<unknown>} fldSourceParam - Значение параметра `fldSourceParam`.
+   * @param {unknown[]} arrFieldNamesParam - Значение параметра `arrFieldNamesParam`.
+   */
+  function assign_elems_exclude(fldTarget: XmlElem<unknown>, fldSourceParam: XmlElem<unknown>, arrFieldNamesParam: unknown[]): void;
+
+  /**
+   * Возвращает значение запрошенного поля связанного элемента либо переданный текст ошибки при его отсутствии.
+   * @param {XmlElem<unknown>} fldForeignFieldParam - Значение параметра `fldForeignFieldParam`.
+   * @param {string} sFieldParam - Значение параметра `sFieldParam`.
+   * @param {string} sErrTextParam - Значение параметра `sErrTextParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_foreign_field(fldForeignFieldParam: XmlElem<unknown>, sFieldParam: string, sErrTextParam: string): unknown;
+
+  /**
+   * Сокращает логин до части перед почтовым доменом или после последней обратной косой черты.
+   * @param {string} sLoginParam - Значение параметра `sLoginParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_short_login_by_login(sLoginParam: string): unknown;
+
+  /**
+   * Ищет сотрудников по логину с учётом регистра и использует сопоставление по краткому логину как запасной вариант при аутентификации NTLM.
+   * @param {string} login - Значение параметра `login`.
+   * @param {string} authType - Значение параметра `authType`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_user_by_login(login: string, authType: string): unknown;
+
+  /**
+   * Возвращает уникальные разделы знаний из профилей знаний должностей сотрудника вместе с его собственными разделами знаний.
+   * @param {number} personId - Значение параметра `personId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_knowledge_parts_by_person_id(personId: number): unknown;
+
+  /**
+   * Возвращает экспертов, указанных в разделах знаний сотрудника во всех его профилях знаний.
+   * @param {number} personId - Значение параметра `personId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_experts_by_person_id(personId: number): unknown;
+
+  /**
+   * При необходимости открывает объект и возвращает значение настроенного свойства отображаемого имени.
+   * @param {XmlTopElem} oObjectParam - Значение параметра `oObjectParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_object_name_field_value(oObjectParam: XmlTopElem): unknown;
+
+  /**
+   * Копирует данные по URL в целевое расположение, используя провайдер UniBridge или загрузку частями, когда это применимо.
+   * @param {string} sDestDirPARAM - Значение параметра `sDestDirPARAM`.
+   * @param {string} sSourceDirPARAM - Значение параметра `sSourceDirPARAM`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function copy_url(sDestDirPARAM: string, sSourceDirPARAM: string): unknown;
+
+  /**
+   * Распаковывает ZIP-архив в целевой каталог, используя провайдер хранения данных на серверах с такой возможностью.
+   * @param {string} sSourceDirPARAM - Значение параметра `sSourceDirPARAM`.
+   * @param {string} sDestDirPARAM - Значение параметра `sDestDirPARAM`.
+   * @returns {number} Результат выполнения.
+   */
+  function zip_extract(sSourceDirPARAM: string, sDestDirPARAM: string): number;
+
+  /**
+   * Создаёт ZIP-архив из файла, каталога или набора файлов, используя сборку .NET Zip на сервере.
+   * @param {string} sArchivePathPARAM - Значение параметра `sArchivePathPARAM`.
+   * @param {string} sContentPathPARAM - Значение параметра `sContentPathPARAM`.
+   * @param {string} sContentDirPathPARAM - Значение параметра `sContentDirPathPARAM`.
+   */
+  function zip_create(sArchivePathPARAM: string, sContentPathPARAM: string, sContentDirPathPARAM: string): void;
+
+  /**
+   * Возвращает 'xml', если база данных не имеет базовой поддержки UniBridge, иначе 'undefined'.
+   */
+  function sys_db_type(): void;
+
+  /**
+   * Вычисляет сериализованные данные каталогов и передаёт регистрацию в register_doc_types_catalog.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sSerializedCatalogsToRegPARAM - Значение параметра `sSerializedCatalogsToRegPARAM`.
+   * @param {boolean} bServerCheck - Значение параметра `bServerCheck`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function register_doc_types_catalog_by_serialized_str(sSerializedCatalogsToRegPARAM: string, bServerCheck: boolean): unknown;
+
+  /**
+   * Регистрирует формы каталогов с изменившимися хешами, обновляет сохранённые хеши и при необходимости проверяет регистрацию на сервере.
+   * @param {unknown[]} aCatalogsToRegPARAM - Значение параметра `aCatalogsToRegPARAM`.
+   * @param {boolean} bServerCheck - Значение параметра `bServerCheck`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function register_doc_types_catalog(aCatalogsToRegPARAM: unknown[], bServerCheck: boolean): boolean;
+
+  /**
+   * Возвращает отображаемое имя объекта, вычисляя пути с точечной нотацией; при ошибке возвращает 'N/A'.
+   * @param {XmlTopElem} oObjectParam - Значение параметра `oObjectParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_disp_name_value(oObjectParam: XmlTopElem): string;
+
+  /**
+   * Разбирает строку параметров id/type в простой объект, игнорируя остальные ключи.
+   * @param {string} sSomeObjectPARAM - Значение параметра `sSomeObjectPARAM`.
+   * @returns {Object} Результат выполнения.
+   */
+  function read_selected_date(sSomeObjectPARAM: string): Object;
+
+  /**
+   * Возвращает привязанный к сеансу идентификатор контрольной суммы для переданного идентификатора с помощью tools_web.
+   * @param {string} sIdParam - Значение параметра `sIdParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_sum_sid(sIdParam: string): unknown;
+
+  /**
+   * Проверяет переданную контрольную сумму по SID текущего сеанса с помощью tools_web.
+   * @param {string} sIdParam - Значение параметра `sIdParam`.
+   * @param {string} sSumParam - Значение параметра `sSumParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function check_sum_sid(sIdParam: string, sSumParam: string): unknown;
+
+  /**
+   * Удаляет из телефонного номера пробелы, скобки, знаки плюса, дефисы и разделители, возвращая очищенную строку.
+   * @param {string} strPhoneParam - Значение параметра `strPhoneParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function build_simple_phone(strPhoneParam: string): string;
+
+  /**
+   * Формирует нормализованную строку телефона, добавляя основные части для записей с кодом региона.
+   * @param {string} strPhoneParam - Значение параметра `strPhoneParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function build_phone(strPhoneParam: string): string;
+
+  /**
+   * Создаёт и сохраняет просмотр библиотечного материала, при необходимости уведомляет сотрудника и возвращает новый документ.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {number} iMaterialIDParam - Значение параметра `iMaterialIDParam`.
+   * @param {XmlTopElem} tePersonParam - Значение параметра `tePersonParam`.
+   * @param {XmlTopElem} teMaterialParam - Значение параметра `teMaterialParam`.
+   * @param {boolean} bSendNotificationParam - Значение параметра `bSendNotificationParam`.
+   * @param {number} iEducationPlanID - Значение параметра `iEducationPlanID`.
+   * @param {boolean} bCommentParam - Значение параметра `bCommentParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function recommend_library_material_to_person(iPersonIDParam: number, iMaterialIDParam: number, tePersonParam: XmlTopElem, teMaterialParam: XmlTopElem, bSendNotificationParam: boolean, iEducationPlanID: number, bCommentParam: boolean): unknown;
+
+  /**
+   * Возвращает разобранную дату либо переданное значение по умолчанию при ошибке разбора.
+   * @param {Object} oDateParam - Значение параметра `oDateParam`.
+   * @param {Object} oDefaultParam - Значение параметра `oDefaultParam`.
+   * @returns {Object | null} Результат выполнения.
+   */
+  function opt_date(oDateParam: Object, oDefaultParam: Object): Object | null;
+
+  /**
+   * Возвращает пустую строку для null, иначе число в виде текста со знаком минуса для отрицательных значений.
+   * @param {number} iNumberParam - Значение параметра `iNumberParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function str_negative_number(iNumberParam: number): unknown;
+
+  /**
+   * Форматирует число байтов в удобочитаемый размер с необязательными единицами измерения; для некорректных данных возвращает маркер ошибки.
+   * @param {number} iByteSizePARAM - Значение параметра `iByteSizePARAM`.
+   * @param {boolean} bAddUnitPARAM - Значение параметра `bAddUnitPARAM`.
+   * @returns {string} Результат выполнения.
+   */
+  function beautify_file_size(iByteSizePARAM: number, bAddUnitPARAM: boolean): string;
+
+  /**
+   * Формирует и возвращает XML-команду постановки запуска заданного агента для переданных элементов в очередь.
+   * @param {number} iServerAgentIDParam - Значение параметра `iServerAgentIDParam`.
+   * @param {string} sElementIDParam - Значение параметра `sElementIDParam`.
+   * @param {string} sElemsIDParam - Значение параметра `sElemsIDParam`.
+   * @param {Date} dDateParam - Значение параметра `dDateParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_agent_command_queue_xml(iServerAgentIDParam: number, sElementIDParam: string, sElemsIDParam: string, dDateParam: Date): unknown;
+
+  /**
+   * Загружает текст по URL и разбирает его как INI-файл.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function open_doc_win_ini(sUrlParam: string): unknown;
+
+  /**
+   * Показывает информационные, отладочные сообщения или ошибки и при включённом отладочном журналировании записывает их в журнал событий.
+   * @param {string} sTextParam - Значение параметра `sTextParam`.
+   * @param {string} sMessageTypeParam - Значение параметра `sMessageTypeParam`.
+   * @param {boolean} bShowAdditionalInfoParam - Значение параметра `bShowAdditionalInfoParam`.
+   */
+  function log(sTextParam: string, sMessageTypeParam: string, bShowAdditionalInfoParam: boolean): void;
+
+  /**
+   * Возвращает активные подписки сотрудника вместе с подписками на принадлежащие ему блоги.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {string} sMessageTypeParam - Значение параметра `sMessageTypeParam`.
+   * @param {boolean} bShowAdditionalInfoParam - Значение параметра `bShowAdditionalInfoParam`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_sibscriber_subscriptions(iPersonIDParam: number, sMessageTypeParam: string, bShowAdditionalInfoParam: boolean): unknown[];
+
+  /**
+   * При необходимости передаёт выполнение серверу, затем перед проверкой существования убеждается, что путь относится к x-local.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function file_url_exists_server(sFilePathParam: string): unknown;
+
+  /**
+   * При необходимости передаёт выполнение серверу, отклоняет небезопасные пути x-local и возвращает текст файла.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function load_url_text_server(sFilePathParam: string): unknown;
+
+  /**
+   * При необходимости передаёт выполнение серверу, проверяет путь x-local и возвращает данные файла или его последние байты.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
+   * @param {number} iSizeParam - Значение параметра `iSizeParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function load_url_data_server(sFilePathParam: string, iSizeParam: number): string;
+
+  /**
+   * Перечисляет файлы каталога x-local, при необходимости оставляя только каталоги, и возвращает записи; на клиенте передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
+   * @param {boolean} bDirParam - Значение параметра `bDirParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function read_directory_server(sFilePathParam: string, bDirParam: boolean): string;
+
+  /**
+   * Удаляет каталог x-local или temp на сервере и возвращает true при успехе либо false, если путь не является каталогом.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sDirParam - Значение параметра `sDirParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function delete_directory_server(sDirParam: string): boolean;
+
+  /**
+   * Распаковывает ZIP-архив из исходного URL x-local в целевой URL x-local на сервере; ничего не возвращает.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sSourceUrlParam - Значение параметра `sSourceUrlParam`.
+   * @param {string} sTargetUrlParam - Значение параметра `sTargetUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function zip_extract_server(sSourceUrlParam: string, sTargetUrlParam: string): unknown;
+
+  /**
+   * Удаляет заданный файл в x-local://trash/ через DeleteUrl; при вызове с клиента передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function delete_trash_url_server(sUrlParam: string): unknown;
+
+  /**
+   * Записывает запись заданного типа и текста в журнал событий сервера; на клиенте передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sTypeParam - Значение параметра `sTypeParam`.
+   * @param {string} sTextParam - Значение параметра `sTextParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function log_event_server(sTypeParam: string, sTextParam: string): unknown;
+
+  /**
+   * Повторно открывает документ по URL x-local и заменяет его кешированную копию через ReplaceCachedDoc; на клиенте передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function replace_cached_doc_server(sUrlParam: string): unknown;
+
+  /**
+   * Копирует данные исходного URL в базу данных по умолчанию или расположение trash/temp и возвращает результат tools.copy_url.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sDestUrlParam - Значение параметра `sDestUrlParam`.
+   * @param {string} sSourceUrlParam - Значение параметра `sSourceUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function copy_url_server(sDestUrlParam: string, sSourceUrlParam: string): unknown;
+
+  /**
+   * Возвращает размер файла в байтах в x-local://share/ на сервере, отклоняя другие пути.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function url_file_size_server(sUrlParam: string): unknown;
+
+  /**
+   * Записывает текст по URL x-local, предпочитая PutUrl из unibridge и используя PutUrlText как запасной вариант; при ошибке показывает предупреждение.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @param {string} sTextParam - Значение параметра `sTextParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function put_url_text_server(sUrlParam: string, sTextParam: string): unknown;
+
+  /**
+   * Загружает данные из общего URL x-local, при необходимости в кодировке base64, блокируя переходы к родительским каталогам; на клиенте передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @param {boolean} b64encode - Значение параметра `b64encode`.
+   * @returns {string} Результат выполнения.
+   */
+  function load_share_url_server(sUrlParam: string, b64encode: boolean): string;
+
+  /**
+   * Синхронизирует указанный каталог через провайдер unibridge, если база данных поддерживает синхронизацию каталогов; ничего не возвращает.
+   * @param {Object} catalogName - Значение параметра `catalogName`.
+   */
+  function sync_catalog(catalogName: Object): void;
+
+  /**
+   * Обновляет имена дочерних элементов типов мероприятий в целевом или общем объекте, удаляя устаревшие нестандартные записи и при необходимости заново кешируя локализованные документы.
+   * @param {boolean} bUpdateServersParam - Значение параметра `bUpdateServersParam`.
+   * @param {XmlTopElem} oTarget - Значение параметра `oTarget`.
+   */
+  function update_commons_event_types(bUpdateServersParam: boolean, oTarget: XmlTopElem): void;
+
+  /**
+   * Проверяет цифровую подпись документа и возвращает XML-результат с идентификатором статуса и сообщением, регистрируя и кешируя форму результата.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iDocIDParam - Значение параметра `iDocIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function DigitalVerifyDoc(iDocIDParam: number): unknown;
+
+  /**
+   * Проверяет подпись CAPICOM или CAdESCOM для текста, возвращая объект с кодом результата и локализованным сообщением; при ошибках проверки показывает предупреждение.
+   * @param {string} strTextParam - Значение параметра `strTextParam`.
+   * @param {string} strSignatureParam - Значение параметра `strSignatureParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function DigitalVerify(strTextParam: string, strSignatureParam: string): unknown;
+
+  /**
+   * Переносит и сохраняет списки пользовательских установочных пакетов, затем обрабатывает необработанные пакеты, переключая глобальную настройку и показывая сообщения о ходе выполнения.
+   * @param {unknown[]} arrAddPacksParam - Значение параметра `arrAddPacksParam`.
+   * @param {string} sBasePathElem - Значение параметра `sBasePathElem`.
+   */
+  function process_custom_packs(arrAddPacksParam: unknown[], sBasePathElem: string): void;
+
+  /**
+   * Проверяет размер файла и общий объём ресурсов сотрудника по ограничениям профиля, возвращая 'ok' либо локализованное сообщение о превышении лимита.
+   * @param {number} iFileSizeParam - Значение параметра `iFileSizeParam`.
+   * @param {number} iPersonIDParam - Значение параметра `iPersonIDParam`.
+   * @param {XmlTopElem} tePerson - Значение параметра `tePerson`.
+   * @returns {string} Результат выполнения.
+   */
+  function check_resource_size(iFileSizeParam: number, iPersonIDParam: number, tePerson: XmlTopElem): string;
+
+  /**
+   * Передаёт включение в кадровый резерв методу include_person_to_personnel_reserve библиотеки кода libTalentPool и возвращает его результат.
+   * @param {number} iPersonIdParam - Значение параметра `iPersonIdParam`.
+   * @param {XmlTopElem} teRequestParam - Значение параметра `teRequestParam`.
+   * @param {number} iCareerReserveTypeIdParam - Значение параметра `iCareerReserveTypeIdParam`.
+   * @param {number} iPositionIdParam - Значение параметра `iPositionIdParam`.
+   * @param {string} strStateParam - Значение параметра `strStateParam`.
+   * @param {number} iPositionCommonIdParam - Значение параметра `iPositionCommonIdParam`.
+   * @param {string} sIncludeDateParam - Значение параметра `sIncludeDateParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function include_person_to_personnel_reserve_position(iPersonIdParam: number, teRequestParam: XmlTopElem, iCareerReserveTypeIdParam: number, iPositionIdParam: number, strStateParam: string, iPositionCommonIdParam: number, sIncludeDateParam: string): number;
+
+  /**
+   * Извлекает из документа поля по путям, разделённым точками с запятой, во вложенный объект; возвращает null, если исходный документ некорректен.
+   * @param {XmlElem<unknown>} fldSPXML - Значение параметра `fldSPXML`.
+   * @param {string} sFieldList - Значение параметра `sFieldList`.
+   * @param {boolean} bNoValidation - Значение параметра `bNoValidation`.
+   * @returns {Object | null} Результат выполнения.
+   */
+  function extract_bfields_by_list(fldSPXML: XmlElem<unknown>, sFieldList: string, bNoValidation: boolean): Object | null;
+
+  /**
+   * Возвращает документ, которому принадлежит элемент, при необходимости открывая его по идентификатору, либо null, если открыть его нельзя.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @returns {XmlDocument | null} Результат выполнения.
+   */
+  function get_opened_doc(teObjectParam: XmlTopElem): XmlDocument | null;
+
+  /**
+   * Преобразует HTML в PDF-файл с помощью сборки PdfGenerator; при ошибке генерации показывает предупреждение и возвращает false.
+   * @param {string} sHtmlText - Значение параметра `sHtmlText`.
+   * @param {string} sResourcesDirPath - Значение параметра `sResourcesDirPath`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function html_to_pdf(sHtmlText: string, sResourcesDirPath: string): boolean;
+
+  /**
+   * Устанавливает тип руководителя в документе участника проекта, сохраняет его и возвращает true либо false с предупреждением при ошибке.
+   * @param {number} iProjectParticipantIDParam - Значение параметра `iProjectParticipantIDParam`.
+   * @param {XmlDocument} docProjectParticipantParam - Значение параметра `docProjectParticipantParam`.
+   * @param {number} iBossTypeIDParam - Значение параметра `iBossTypeIDParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function set_project_participant_type(iProjectParticipantIDParam: number, docProjectParticipantParam: XmlDocument, iBossTypeIDParam: number): string;
+
+  /**
+   * Создаёт и сохраняет участника проекта при его отсутствии, может установить статус согласования, уведомляет руководителей проекта, вызывает системное событие и возвращает документ.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @param {number} iProjectIDParam - Значение параметра `iProjectIDParam`.
+   * @param {number} iBossTypeIDParam - Значение параметра `iBossTypeIDParam`.
+   * @param {boolean} bWithoutAgreement - Значение параметра `bWithoutAgreement`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function create_project_participant(iObjectIDParam: number, teObjectParam: XmlTopElem, iProjectIDParam: number, iBossTypeIDParam: number, bWithoutAgreement: boolean): XmlDocument;
+
+  /**
+   * Записывает событие журнала профилирования с идентификатором, тактами, сеансом, URL запроса и типом; ничего не возвращает.
+   * @param {string} sIDParam - Значение параметра `sIDParam`.
+   * @param {string} request - Значение параметра `request`.
+   * @param {string} sTypeParam - Значение параметра `sTypeParam`.
+   */
+  function set_profile_log(sIDParam: string, request: string, sTypeParam: string): void;
+
+  /**
+   * Очищает поле статуса документа экземпляра товара и сохраняет его; возвращает false при ошибке операции.
+   * @param {XmlDocument} oSourceGoodInstance - Значение параметра `oSourceGoodInstance`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function clear_good_instance_status(oSourceGoodInstance: XmlDocument): boolean;
+
+  /**
+   * Формирует и возвращает XML-документ данных с идентификатором (случайным при отсутствии), датой создания и версией сервера.
+   * @param {string} sIDParam - Значение параметра `sIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_form_upload_data(sIDParam: string): unknown;
+
+  /**
+   * Добавляет объект каталога в XML-поле формы выгрузки, встраивая данные ресурса в base64 и необязательные флаги; ничего не возвращает.
+   * @param {XmlElem<unknown>} fldFormTarget - Значение параметра `fldFormTarget`.
+   * @param {XmlElem<unknown>} fldObjParam - Значение параметра `fldObjParam`.
+   * @param {number} oObjIDParam - Значение параметра `oObjIDParam`.
+   * @param {Object} oParams - Значение параметра `oParams`.
+   */
+  function set_field_to_form_upload_data(fldFormTarget: XmlElem<unknown>, fldObjParam: XmlElem<unknown>, oObjIDParam: number, oParams: Object): void;
+
+  /**
+   * Возвращает жёстко заданные идентификаторы объектов каталога по умолчанию по каталогу и типу, динамически находя системы вебинаров, либо null для неизвестных значений.
+   * @param {string} sCatalogNameParam - Значение параметра `sCatalogNameParam`.
+   * @param {string} sTypeParam - Значение параметра `sTypeParam`.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @returns {number | null} Результат выполнения.
+   */
+  function get_default_object_id(sCatalogNameParam: string, sTypeParam: string, teObjectParam: XmlTopElem): number | null;
+
+  /**
+   * Определяет и возвращает элемент системы уведомлений по идентификатору или документу, при необходимости переходя по вложенной ссылке notification_system_id.
+   * @param {Object} oParam - Значение параметра `oParam`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function get_notification_system(oParam: Object): XmlTopElem;
+
+  /**
+   * Объединяет сохранённые параметры системы уведомлений со значениями вызывающей стороны и вызывает указанный метод её библиотеки, показывая предупреждения при ошибках.
+   * @param {Object} oParam - Значение параметра `oParam`.
+   * @param {string} sMethodNameParam - Значение параметра `sMethodNameParam`.
+   * @param {unknown[]} oArrParam - Значение параметра `oArrParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function call_notification_system_method(oParam: Object, sMethodNameParam: string, oArrParam: unknown[]): unknown;
+
+  /**
+   * Устанавливает type_id целевого элемента и определяет соответствующий идентификатор типа мероприятия; при отсутствии очищает event_type_id и возвращает null.
+   * @param {XmlElem<unknown>} ftTarget - Значение параметра `ftTarget`.
+   * @param {string} sEventTypeParam - Значение параметра `sEventTypeParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function set_event_type_id(ftTarget: XmlElem<unknown>, sEventTypeParam: string): unknown;
+
+  /**
+   * Создаёт и сохраняет документ очереди сценариев с кодом, задержкой, датой начала и флагом автоудаления, возвращая идентификатор документа.
+   * @param {string} sScriptParam - Значение параметра `sScriptParam`.
+   * @param {string} sCodeParam - Значение параметра `sCodeParam`.
+   * @param {boolean} bDeleteAutomaticallyParam - Значение параметра `bDeleteAutomaticallyParam`.
+   * @param {number} iDelayParam - Значение параметра `iDelayParam`.
+   * @param {Date} dStartDate - Значение параметра `dStartDate`.
+   * @returns {number} Результат выполнения.
+   */
+  function add_script_to_queue(sScriptParam: string, sCodeParam: string, bDeleteAutomaticallyParam: boolean, iDelayParam: number, dStartDate: Date): number;
+
+  /**
+   * Опросом очереди сценариев каждые 500 мс ожидает завершения сценария, затем возвращает результат и ошибку, при необходимости удаляя документ.
+   * @param {number} iScriptIdParam - Значение параметра `iScriptIdParam`.
+   * @param {boolean} bDeleteScript - Значение параметра `bDeleteScript`.
+   * @returns {Object | null} Результат выполнения.
+   */
+  function wait_script_queue(iScriptIdParam: number, bDeleteScript: boolean): Object | null;
+
+  /**
+   * Открывает документ курса, возвращая сохранённую версию объекта в виде курса, если базовый URL отличается.
+   * @param {number} iCourseIdParam - Значение параметра `iCourseIdParam`.
+   * @param {string} sBaseUrlParam - Значение параметра `sBaseUrlParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function open_course_version(iCourseIdParam: number, sBaseUrlParam: string): unknown;
+
+  /**
+   * Нормализует текст запроса, переписывает конструкции hierarchy, contains и distinct для базы данных, затем выполняет XQuery и возвращает результаты.
+   * @param {string} sQueryParam - Значение параметра `sQueryParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function xquery(sQueryParam: string): unknown;
+
+  /**
+   * Лениво загружает кеш xHttp.ini и возвращает значение указанной переменной либо undefined при её отсутствии.
+   * @param {string} sIniVarName - Значение параметра `sIniVarName`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_xhttp_ini(sIniVarName: string): unknown;
+
+  /**
+   * Передаёт вызовы get_pic_path, get_size или resize библиотеке кода wtv_resource и возвращает её результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sMode - Значение параметра `sMode`.
+   * @param {unknown} vParam1 - Значение параметра `vParam1`.
+   * @param {unknown} vParam2 - Значение параметра `vParam2`.
+   * @param {unknown} vParam3 - Значение параметра `vParam3`.
+   * @param {unknown} vParam4 - Значение параметра `vParam4`.
+   * @param {number} iResourceID - Значение параметра `iResourceID`.
+   * @returns {string} Результат выполнения.
+   */
+  function resource_pic_envelope(sMode: string, vParam1: unknown, vParam2: unknown, vParam3: unknown, vParam4: unknown, iResourceID: number): string;
+
+  /**
+   * Возвращает URL без изменений для путей x-local или file, иначе добавляет к нему префикс x-local://wtv/.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrl - Значение параметра `sUrl`.
+   * @returns {string} Результат выполнения.
+   */
+  function file_source_url(sUrl: string): string;
+
+  /**
+   * Возвращает URL файла для загрузки, полученный из библиотеки кода источника файлов или его встроенного обработчика run_code.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @param {string} sFileNameParam - Значение параметра `sFileNameParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function file_source_get_upload_file_url(iFileSourceIdParam: number, sFileNameParam: string): string;
+
+  /**
+   * Загружает файл через библиотеку настроенного источника файлов или встроенный обработчик и возвращает полученный временный URL.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @param {string} sFileUrlParam - Значение параметра `sFileUrlParam`.
+   * @param {string} sTempFileUrlParam - Значение параметра `sTempFileUrlParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function file_source_upload_file(iFileSourceIdParam: number, sFileUrlParam: string, sTempFileUrlParam: string): string;
+
+  /**
+   * Возвращает временный URL сохранения файла, сформированный библиотекой источника файлов или встроенным обработчиком run_code.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @param {number} iResourceIdParam - Значение параметра `iResourceIdParam`.
+   * @param {string} sUidPARAM - Значение параметра `sUidPARAM`.
+   * @returns {string} Результат выполнения.
+   */
+  function file_source_get_temp_file_to_save_url(iFileSourceIdParam: number, iResourceIdParam: number, sUidPARAM: string): string;
+
+  /**
+   * Запрашивает удаление устаревшего файла у библиотеки источника файлов или встроенного обработчика и возвращает логический результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @param {string} sOldFileUrlParam - Значение параметра `sOldFileUrlParam`.
+   * @param {string} sCurFileUrlParam - Значение параметра `sCurFileUrlParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function file_source_clear_old_file(iFileSourceIdParam: number, sOldFileUrlParam: string, sCurFileUrlParam: string): boolean;
+
+  /**
+   * Возвращает список файлов, предоставленный библиотекой настроенного источника файлов или встроенным обработчиком.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function file_source_get_files_list(iFileSourceIdParam: number): unknown;
+
+  /**
+   * Передаёт файл потоком в ответ через библиотеку источника файлов или встроенный обработчик; ничего не возвращает.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @param {string} sUidPARAM - Значение параметра `sUidPARAM`.
+   * @param {Object} oRequestPARAM - Значение параметра `oRequestPARAM`.
+   * @param {Object} oResponsePARAM - Значение параметра `oResponsePARAM`.
+   */
+  function file_source_download_file(iFileSourceIdParam: number, sUidPARAM: string, oRequestPARAM: Object, oResponsePARAM: Object): void;
+
+  /**
+   * Возвращает URL файла для заданного uid из библиотеки настроенного источника файлов или встроенного обработчика.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iFileSourceIdParam - Значение параметра `iFileSourceIdParam`.
+   * @param {string} sUidPARAM - Значение параметра `sUidPARAM`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function file_source_get_file_url(iFileSourceIdParam: number, sUidPARAM: string): unknown;
+
+  /**
+   * Вызывает разрешённый метод библиотеки системы вебинаров для онлайн-мероприятий, не являющихся шаблонами, возвращая ошибку и сообщение; при сбое показывает предупреждение.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iWebinarSystemIdParam - Значение параметра `iWebinarSystemIdParam`.
+   * @param {string} sMethodNameParam - Значение параметра `sMethodNameParam`.
+   * @param {Object} oParams - Значение параметра `oParams`.
+   * @returns {Object} Результат выполнения.
+   */
+  function call_webinar_system_method(iWebinarSystemIdParam: number, sMethodNameParam: string, oParams: Object): Object;
+
+  /**
+   * Возвращает обычный объект с идентификатором и кодом системы вебинаров, URL и кодом библиотеки и wvars; на клиенте передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iWebinarSystemIdParam - Значение параметра `iWebinarSystemIdParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_webinar_system_topelem(iWebinarSystemIdParam: number): Object;
+
+  /**
+   * Загружает документ библиотечной системы, добавляет его в параметры и вызывает указанный метод её библиотеки кода, возвращая результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iLibrarySystemIdParam - Значение параметра `iLibrarySystemIdParam`.
+   * @param {string} sMethodNameParam - Значение параметра `sMethodNameParam`.
+   * @param {Object} oParams - Значение параметра `oParams`.
+   * @returns {string} Результат выполнения.
+   */
+  function call_library_system_method(iLibrarySystemIdParam: number, sMethodNameParam: string, oParams: Object): string;
+
+  /**
+   * Пересчитывает запись статистики в задаче с индикацией выполнения и возвращает результат вычисления, обновляя статус задачи.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iStatisticRecId - Значение параметра `iStatisticRecId`.
+   * @param {number} iObjectIdParam - Значение параметра `iObjectIdParam`.
+   * @param {boolean} bIgnorePeriodSettingsParam - Значение параметра `bIgnorePeriodSettingsParam`.
+   * @param {boolean} bCalculateCatalogsParam - Значение параметра `bCalculateCatalogsParam`.
+   * @returns {XmlTopElem | null} Результат выполнения.
+   */
+  function calculate_statistic_rec(iStatisticRecId: number, iObjectIdParam: number, bIgnorePeriodSettingsParam: boolean, bCalculateCatalogsParam: boolean): XmlTopElem | null;
+
+  /**
+   * Пересчитывает статистику по истечении её периода, затем возвращает отфильтрованные результаты запроса данных статистики.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iStatisticRecId - Значение параметра `iStatisticRecId`.
+   * @param {number} iObjectIdParam - Значение параметра `iObjectIdParam`.
+   * @param {string} sPeriodTypeParam - Значение параметра `sPeriodTypeParam`.
+   * @param {Date} dDateStartParam - Значение параметра `dDateStartParam`.
+   * @param {Date} dDateEndParam - Значение параметра `dDateEndParam`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_statistic_data(iStatisticRecId: number, iObjectIdParam: number, sPeriodTypeParam: string, dDateStartParam: Date, dDateEndParam: Date): unknown[];
+
+  /**
+   * Вычисляет или восстанавливает данные статистики для объекта и периода, при необходимости виртуально или принудительно (с удалением старых записей), сообщая ход выполнения задачи.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number | XmlDocument} statisticRec - Значение параметра `statisticRec`.
+   * @param {number} iObjectIdParam - Значение параметра `iObjectIdParam`.
+   * @param {string} sPeriodTypeParam - Значение параметра `sPeriodTypeParam`.
+   * @param {Date} dDateStartParam - Значение параметра `dDateStartParam`.
+   * @param {Date} dDateEndParam - Значение параметра `dDateEndParam`.
+   * @param {boolean} bVirtual - Значение параметра `bVirtual`.
+   * @param {boolean} bForceRedo - Значение параметра `bForceRedo`.
+   * @returns {XmlTopElem | null} Результат выполнения.
+   */
+  function obtain_statistic_data(statisticRec: number | XmlDocument, iObjectIdParam: number, sPeriodTypeParam: string, dDateStartParam: Date, dDateEndParam: Date, bVirtual: boolean, bForceRedo: boolean): XmlTopElem | null;
+
+  /**
+   * Рекурсивно копирует свойства объектов и массивов в соответствующие XML-поля целевого элемента, возвращая true.
+   * @param {XmlElem<unknown>} fldTarget - Значение параметра `fldTarget`.
+   * @param {Object} oSourceParam - Значение параметра `oSourceParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function assign_from_object(fldTarget: XmlElem<unknown>, oSourceParam: Object): boolean;
+
+  /**
+   * Открывает и возвращает документ с заданным числовым идентификатором; при ошибке открытия возвращает undefined.
+   * @param {number} iDocID - Значение параметра `iDocID`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function open_doc(iDocID: number): XmlDocument;
+
+  /**
+   * Копирует изменённые элементы разделов обучения в их документы learning_part, сохраняет их, очищает данные занятия и сбрасывает флаг изменения.
+   * @param {XmlTopElem} topElem - Значение параметра `topElem`.
+   */
+  function filling_learning_parts(topElem: XmlTopElem): void;
+
+  /**
+   * Разбирает строку адреса электронной почты в объект с отображаемым именем и адресом, удаляя обрамляющие кавычки.
+   * @param {string} sAddressParam - Значение параметра `sAddressParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function parse_email_address(sAddressParam: string): Object;
+
+  /**
+   * Отклоняет код с опасными функциями работы с файлами, реестром, процессами или eval, затем выполняет его с помощью SafeEval или eval.
+   * @param {string} sCodeSaveExecutionParam - Значение параметра `sCodeSaveExecutionParam`.
+   * @param {Object} oEnvParam - Значение параметра `oEnvParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function safe_execution(sCodeSaveExecutionParam: string, oEnvParam: Object): boolean;
+
+  /**
+   * Объединяет права связей с объектами и профилей сотрудника и групп в массив доступа к каталогам; на клиенте передаёт выполнение серверу.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iPersonID - Значение параметра `iPersonID`.
+   * @param {XmlTopElem} tePerson - Значение параметра `tePerson`.
+   * @param {boolean} bAppOnly - Значение параметра `bAppOnly`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_content_access(iPersonID: number, tePerson: XmlTopElem, bAppOnly: boolean): unknown;
+
+  /**
+   * Добавляет или обновляет запись объекта в документах person_object_link сотрудника и групп, сохраняя их и при необходимости создавая персональную связь.
+   * @param {number | XmlTopElem} idOrTEUserPARAM - Значение параметра `idOrTEUserPARAM`.
+   * @param {string} sCatalogPARAM - Значение параметра `sCatalogPARAM`.
+   * @param {number} idOrTEObjectID - Значение параметра `idOrTEObjectID`.
+   * @param {boolean} bCanEditPARAM - Значение параметра `bCanEditPARAM`.
+   * @param {boolean} bCanDeletePARAM - Значение параметра `bCanDeletePARAM`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function update_content_access(idOrTEUserPARAM: number | XmlTopElem, sCatalogPARAM: string, idOrTEObjectID: number, bCanEditPARAM: boolean, bCanDeletePARAM: boolean): unknown;
+
+  /**
+   * Объединяет права связей профиля субъекта и объекты с документом содержимого; ничего не возвращает.
+   * @param {XmlTopElem} teContentPARAM - Значение параметра `teContentPARAM`.
+   * @param {XmlTopElem} teSubjectPARAM - Значение параметра `teSubjectPARAM`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function set_default_content(teContentPARAM: XmlTopElem, teSubjectPARAM: XmlTopElem): XmlTopElem;
+
+  /**
+   * Записывает флаг UpgradeLocked в конфигурацию провайдера UniBridge и обновляет кешированную переменную модуля; ничего не возвращает.
+   * @param {boolean} bParam - Значение параметра `bParam`.
+   */
+  function set_upgrade_locked(bParam: boolean): void;
+
+  /**
+   * Возвращает именованный объект сборки или класса .NET из встроенного соответствия, создавая и кешируя его в общем хранилище объектов.
+   * @param {string} sLibNameParam - Значение параметра `sLibNameParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_object_assembly(sLibNameParam: string): Object;
+
+  /**
+   * Создаёт и сохраняет документ члена комитета при отсутствии соответствующей записи, вызывает системное событие и возвращает документ либо null.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @param {number} iPersonnelCommitteeIDParam - Значение параметра `iPersonnelCommitteeIDParam`.
+   * @param {string} strCommitteeMemberTypeParam - Значение параметра `strCommitteeMemberTypeParam`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function create_committee_member(iObjectIDParam: number, teObjectParam: XmlTopElem, iPersonnelCommitteeIDParam: number, strCommitteeMemberTypeParam: string): XmlDocument;
+
+  /**
+   * Создаёт, привязывает и сохраняет новый документ результата опроса для сотрудника или анонимного опроса, вызывает системное событие common_create_poll_result и возвращает документ.
+   * @param {number} oPersonID - Значение параметра `oPersonID`.
+   * @param {number} oPollID - Значение параметра `oPollID`.
+   * @param {number} iPollProcedureID - Значение параметра `iPollProcedureID`.
+   * @param {number} iEducationPlanID - Значение параметра `iEducationPlanID`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function activate_poll_to_person(oPersonID: number, oPollID: number, iPollProcedureID: number, iEducationPlanID: number): XmlDocument;
+
+  /**
+   * Удаляет связанные файловые ресурсы, затем документ результата опроса из базы данных, возвращая true.
+   * @param {Object} oPollResultParam - Значение параметра `oPollResultParam`.
+   * @param {XmlTopElem} tePollParam - Значение параметра `tePollParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function delete_poll_result(oPollResultParam: Object, tePollParam: XmlTopElem): boolean;
+
+  /**
+   * Сортирует массив по заданному ключу и возвращает соответствующий элемент либо undefined, если совпадение не найдено.
+   * @param {unknown[]} arrParam - Значение параметра `arrParam`.
+   * @param {string} sKeyParam - Значение параметра `sKeyParam`.
+   * @param {Object} oValueParam - Значение параметра `oValueParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function array_opt_find_by_key(arrParam: unknown[], sKeyParam: string, oValueParam: Object): unknown;
+
+  /**
+   * Лениво создаёт объект сборки Crypto, кеширует его в tools.crypto_obj и возвращает его либо null при ошибке загрузки.
+   * @returns {Object | null} Результат выполнения.
+   */
+  function crypto_obj_init(): Object | null;
+
+  /**
+   * Возвращает жёстко заданный идентификатор системы прокторинга по умолчанию 6729767194009546182.
+   * @returns {number} Результат выполнения.
+   */
+  function get_default_proctoring_system_id(): number;
+
+  /**
+   * Возвращает описательное имя типа значения, при необходимости с уточняющим суффиксом формы, узла или примитивного типа.
+   * @param {unknown} v - Значение параметра `v`.
+   * @param {boolean} detailed - Значение параметра `detailed`.
+   * @returns {string} Результат выполнения.
+   */
+  function data_type(v: unknown, detailed: boolean): string;
+
+  /**
+   * На клиенте передаёт выполнение серверу; на сервере загружает форму списка языков и возвращает её корневой элемент, заполненный lngs.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function get_list_lngs(): XmlTopElem;
+
+  /**
+   * Возвращает признак необходимости срабатывания настройки periodity сейчас, проверяя тип запуска, диапазон дат, временное окно и дату последнего запуска.
+   * @param {XmlElem<unknown>} fldPeriodityParam - Значение параметра `fldPeriodityParam`.
+   * @param {Date} curDate - Значение параметра `curDate`.
+   * @param {number} iSleepSecParam - Значение параметра `iSleepSecParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function check_periodity(fldPeriodityParam: XmlElem<unknown>, curDate: Date, iSleepSecParam: number): boolean;
+
+  /**
+   * Начинает загрузку частями, обнуляя целевой или временный файл, сохраняет данные сеанса на 600 секунд и возвращает его идентификатор.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
+   * @param {number} iLenghtParam - Значение параметра `iLenghtParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function upload_begin(sUrlParam: string, iLenghtParam: number): string;
+
+  /**
+   * Записывает декодированный фрагмент в целевой файл сеанса в заданном диапазоне байтов; возвращает true или выбрасывает исключение при потере сеанса.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sIDParam - Значение параметра `sIDParam`.
+   * @param {number} iStartIndexParam - Значение параметра `iStartIndexParam`.
+   * @param {number} iFinishIndexParam - Значение параметра `iFinishIndexParam`.
+   * @param {string} sDataParam - Значение параметра `sDataParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function upload_range(sIDParam: string, iStartIndexParam: number, iFinishIndexParam: number, sDataParam: string): boolean;
+
+  /**
+   * Завершает загрузку, копируя временный файл в целевое расположение, удаляя временный файл и данные сеанса; возвращает true.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sIDParam - Значение параметра `sIDParam`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function upload_end(sIDParam: string): boolean;
+
+  /**
+   * Возвращает имена профилей из каталога профилей oapi, добавляя имена XML-схем из необязательного настроенного каталога.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @returns {unknown[]} Результат выполнения.
+   */
+  function get_oapi_schemas(): unknown[];
+
+  /**
+   * Возвращает true, если форма поля содержит ровно один дочерний элемент с признаком multiple, что указывает на поле простого массива.
+   * @param {XmlElem<unknown>} fldParam - Значение параметра `fldParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function is_simple_array_field(fldParam: XmlElem<unknown>): number;
+
+  /**
+   * Перемещает документ из базы данных корзины обратно в базу данных по умолчанию и возвращает результат перемещения.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function restore_doc(iObjectIDParam: number): unknown;
+
+  /**
+   * Проверяет, что строка содержит только допустимые символы идентификатора, при необходимости требуя допустимый первый символ переменной, и возвращает логическое значение.
+   * @param {string} str - Значение параметра `str`.
+   * @param {boolean} isVar - Значение параметра `isVar`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function ValidateName(str: string, isVar: boolean): boolean;
+
+  /**
+   * Проверяет данные мероприятия, при необходимости передаёт проверку полей системе вебинаров, кеширует флаг пропуска проверки на десять секунд и возвращает объект ошибки и сообщения.
+   * @param {number} iEventID - Значение параметра `iEventID`.
+   * @param {XmlDocument} docEvent - Значение параметра `docEvent`.
+   * @param {XmlTopElem} teEvent - Значение параметра `teEvent`.
+   * @returns {Object} Результат выполнения.
+   */
+  function check_event_fields(iEventID: number, docEvent: XmlDocument, teEvent: XmlTopElem): Object;
+
+  /**
+   * Возвращает переданный корневой элемент библиотеки кода либо определяет его и загружает в кеш при отсутствии.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number | string | XmlTopElem} oLibraryParam - Значение параметра `oLibraryParam`.
+   * @returns {XmlTopElem} Результат выполнения.
+   */
+  function get_code_library(oLibraryParam: number | string | XmlTopElem): XmlTopElem;
+
+  /**
+   * Открывает библиотеку кода по заданному URL, вызывает указанный метод и возвращает его результат без переключения локали.
+   * @param {Object} oLibraryUrlParam - Значение параметра `oLibraryUrlParam`.
+   * @param {string} sMethodNameParam - Значение параметра `sMethodNameParam`.
+   * @param {unknown[]} arrParams - Значение параметра `arrParams`.
+   * @returns {Object} Результат выполнения.
+   */
+  function lite_call_code_library_method(oLibraryUrlParam: Object, sMethodNameParam: string, arrParams: unknown[]): Object;
+
+  /**
+   * Определяет библиотеку, выполняет код C# через сборщик dotnet или методы JS с временным переключением локали i18n и возвращает результат.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number | string | XmlTopElem} oLibraryParam - Значение параметра `oLibraryParam`.
+   * @param {string} sMethodNameParam - Значение параметра `sMethodNameParam`.
+   * @param {unknown[]} arrParams - Значение параметра `arrParams`.
+   * @returns {Object} Результат выполнения.
+   */
+  function call_code_library_method(oLibraryParam: number | string | XmlTopElem, sMethodNameParam: string, arrParams: unknown[]): Object;
+
+  /**
+   * Определяет библиотеку кода и возвращает её wvars, преобразованные в обычный объект.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number | string | XmlTopElem} oLibraryParam - Значение параметра `oLibraryParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_params_code_library(oLibraryParam: number | string | XmlTopElem): Object;
+
+  /**
+   * Ищет значение параметра в библиотеке или связанных приложениях, преобразуя его согласно объявленному типу; при отсутствии возвращает null.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {Object} oLibraryParam - Значение параметра `oLibraryParam`.
+   * @param {string} sNameAttr - Значение параметра `sNameAttr`.
+   * @returns {Object | null} Результат выполнения.
+   */
+  function get_process_param(oLibraryParam: Object, sNameAttr: string): Object | null;
+
+  /**
+   * Преобразует объект результата библиотеки кода или строку ошибки в локализованное сообщение об ошибке, включая имя параметра для известных кодов.
+   * @param {Object} oLibResParam - Значение параметра `oLibResParam`.
+   * @param {Object} oEnvParam - Значение параметра `oEnvParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_code_library_error_message(oLibResParam: Object, oEnvParam: Object): string;
+
+  /**
+   * Разбирает строку ошибки в новый или переданный объект результата, выделяя необязательный числовой код перед разделителем ::.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sErrorStr - Значение параметра `sErrorStr`.
+   * @param {Object} oError - Значение параметра `oError`.
+   * @returns {Object} Результат выполнения.
+   */
+  function parse_throw_error(sErrorStr: string, oError: Object): Object;
+
+  /**
+   * Разделяет текст ошибки по первому переносу строки на части для пользователя и администратора и возвращает обе.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sErrorStr - Значение параметра `sErrorStr`.
+   * @returns {Object} Результат выполнения.
+   */
+  function split_errortext(sErrorStr: string): Object;
+
+  /**
+   * Возвращает новый объект результата библиотеки кода с нулевым кодом ошибки, пустым текстом ошибки и пустыми объектами данных и пагинации.
+   * @param {Object} oLibResParam - Значение параметра `oLibResParam`.
+   * @param {Object} oEnvParam - Значение параметра `oEnvParam`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_code_library_result_object(oLibResParam: Object, oEnvParam: Object): unknown;
+
+  /**
+   * На клиенте передаёт выполнение серверу; на сервере собирает сведения о выполняющихся и завершённых агентах из очередей UniBridge в строку массива JSON.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @returns {string | null} Результат выполнения.
+   */
+  function amgr_get_agent_list_json(): string | null;
+
+  /**
+   * На клиенте передаёт выполнение серверу; на сервере ставит сообщение отмены потока в очередь и возвращает true.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} roleUID - Значение параметра `roleUID`.
+   * @param {number} threadID - Значение параметра `threadID`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function amgr_cancel_agent(roleUID: number, threadID: number): boolean;
+
+  /**
+   * На клиенте передаёт выполнение серверу; на сервере ставит команду Kill для роли на узле в очередь и возвращает true.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {number} nodeId - Значение параметра `nodeId`.
+   * @param {number} roleUID - Значение параметра `roleUID`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function amgr_kill_role(nodeId: number, roleUID: number): boolean;
+
+  /**
+   * Формирует отображаемое описание из заголовка типа объекта обмена и кода и имени объекта либо отображаемого поля.
+   * @param {XmlTopElem} teObjectParam - Значение параметра `teObjectParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_doc_desc(teObjectParam: XmlTopElem): string;
+
+  /**
+   * Отправляет аутентифицированный HTTP POST на about.websoft.ru и возвращает тело ответа либо null после предупреждения об ошибке.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sLogin - Значение параметра `sLogin`.
+   * @param {string} sPassword - Значение параметра `sPassword`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_client_data(sLogin: string, sPassword: string): unknown;
+
+  /**
+   * Однократно собирает участников бесед из всех систем вебинаров, кеширует их в tools и возвращает кешированный массив.
+   * @param {number} iWebinarSystemId - Значение параметра `iWebinarSystemId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_webinar_conversation_participants(iWebinarSystemId: number): unknown;
+
+  /**
+   * Обновляет кешированных участников бесед вебинаров для одной системы вебинаров, обновляет кешированную коллекцию и возвращает true.
+   * @param {number} iWebinarSystemId - Значение параметра `iWebinarSystemId`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function update_webinar_conversation_participants(iWebinarSystemId: number): boolean;
+
+  /**
+   * Возвращает включённые обработчики системного события, при отсутствии формируя и кешируя облегчённый список обработчиков на 86400 секунд.
+   * @param {number} iSystemEventId - Значение параметра `iSystemEventId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_system_event_handlers(iSystemEventId: number): unknown;
+
+  /**
+   * Добавляет или обновляет обработчик системного события в кешированной коллекции, обновляет кеш на 86400 секунд и возвращает true.
+   * @param {number} iSystemEventId - Значение параметра `iSystemEventId`.
+   * @param {number} iSystemEventHandlerId - Значение параметра `iSystemEventHandlerId`.
+   * @param {XmlTopElem} teSystemEventHandler - Значение параметра `teSystemEventHandler`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function add_system_event_handlers_to_obj(iSystemEventId: number, iSystemEventHandlerId: number, teSystemEventHandler: XmlTopElem): boolean;
+
+  /**
+   * Удаляет обработчик из кешированной коллекции обработчиков системных событий, обновляет кеш на 86400 секунд и возвращает true.
+   * @param {number} iSystemEventId - Значение параметра `iSystemEventId`.
+   * @param {number} iSystemEventHandlerId - Значение параметра `iSystemEventHandlerId`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function del_system_event_handlers_from_obj(iSystemEventId: number, iSystemEventHandlerId: number): boolean;
+
+  /**
+   * Через диалог добавляет объект в пакет, при необходимости вместе с файлами, ролями, разделами и связанными объектами, сохраняет пакет и возвращает объект результата.
+   * @param {XmlDocument} docObject - Значение параметра `docObject`.
+   * @param {number} iObjectID - Значение параметра `iObjectID`.
+   * @param {Object} screen - Значение параметра `screen`.
+   * @param {XmlElem<unknown>} fldPackage - Значение параметра `fldPackage`.
+   * @param {Object} oParam - Значение параметра `oParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function add_object_to_package(docObject: XmlDocument, iObjectID: number, screen: Object, fldPackage: XmlElem<unknown>, oParam: Object): Object;
+
+  /**
+   * На клиенте передаёт выполнение серверу; на сервере генерирует PNG с QR-кодом через WebUtils и возвращает URL временного файла либо null.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} text - Значение параметра `text`.
+   * @param {Object} options - Значение параметра `options`.
+   * @returns {string | null} Результат выполнения.
+   */
+  function generate_qr(text: string, options: Object): string | null;
+
+  /**
+   * Повторно активирует назначенное обучение или тестирование для того же сотрудника через активацию курса или теста, возвращая новый документ обучения.
+   * @param {Object} oLeartningParam - Значение параметра `oLeartningParam`.
+   * @returns {XmlDocument} Результат выполнения.
+   */
+  function repeate_learning_activation(oLeartningParam: Object): XmlDocument;
+
+  /**
+   * Записывает записи каталога person_hierarchys с цепочками подразделений для каждой инструкции, записывая ход выполнения; ничего не возвращает.
+   *
+   * Примечание исходного кода: /*PERSON_HIERARHY*\/
+   * @param {unknown[]} aInstructions - Значение параметра `aInstructions`.
+   */
+  function person_hierarchy_build(aInstructions: unknown[]): void;
+
+  /**
+   * Перестраивает всю иерархию сотрудников под блокировкой пользовательских данных, очищая person_hierarchys и формируя записи из должностей, затем снимает блокировку.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function person_hierarchy_build_all(): unknown;
+
+  /**
+   * На клиенте передаёт выполнение серверу и помещает XML команды в указанную очередь UniBridge, возвращая true.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sQueueName - Значение параметра `sQueueName`.
+   * @param {string} sCommandXml - Значение параметра `sCommandXml`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function put_message_in_queue(sQueueName: string, sCommandXml: string): boolean;
+
+  /**
+   * Возвращает кешированный корневой элемент источника файлов по идентификатору, предварительно обновляя кеш источников файлов при его отсутствии.
+   * @param {number} iFileSourceId - Значение параметра `iFileSourceId`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function get_file_sources(iFileSourceId: number): unknown;
+
+  /**
+   * Загружает все источники файлов или обновляет одну запись в кеше источников файлов tools и возвращает true.
+   * @param {number} iFileSourceId - Значение параметра `iFileSourceId`.
+   * @param {XmlTopElem} teFileSource - Значение параметра `teFileSource`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function update_file_sources(iFileSourceId: number, teFileSource: XmlTopElem): boolean;
+
+  /**
+   * Сбрасывает кеш библиотек кода в новый пустой словарь; аргумент идентификатора не используется.
+   * @param {number} iCodeLibraryId - Значение параметра `iCodeLibraryId`.
+   */
+  function init_cache_code_librarys(iCodeLibraryId: number): void;
+
+  /**
+   * Возвращает кешированную библиотеку кода по идентификатору или коду, загружая и кешируя её при отсутствии и выбрасывая исключение при неизвестном коде.
+   * @param {number} iCodeLibraryId - Значение параметра `iCodeLibraryId`.
+   * @returns {XmlTopElem | null} Результат выполнения.
+   */
+  function get_cache_code_librarys(iCodeLibraryId: number): XmlTopElem | null;
+
+  /**
+   * Загружает все библиотеки кода в словарь кеша или обновляет одну запись с ключом по коду и возвращает true.
+   * @param {number} iCodeLibraryId - Значение параметра `iCodeLibraryId`.
+   * @param {XmlTopElem} teParamCodeLibrary - Значение параметра `teParamCodeLibrary`.
+   * @returns {boolean} Результат выполнения.
+   */
+  function update_cache_code_librarys(iCodeLibraryId: number, teParamCodeLibrary: XmlTopElem): boolean;
+
+  /**
+   * Очищает кеш форм каждой выбранной библиотеки кода JavaScript, возвращая количество или объединённое сообщение об ошибке.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {unknown[]} codeLibraryIDs - Значение параметра `codeLibraryIDs`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function drop_cache_code_library(codeLibraryIDs: unknown[]): unknown;
+
+  /**
+   * Записывает переданные данные в общий файл, добавляя BOM кодировки, если кодировка не 1251, и возвращает URL файла либо ошибку.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {Object} oSource - Значение параметра `oSource`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_file_from_data(oSource: Object): Object;
+
+  /**
+   * Возвращает порядковый номер дня в году для заданной даты, начиная с единицы, либо null, если дата некорректна.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {Date} dDate - Значение параметра `dDate`.
+   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   */
+  function getDayYear(dDate: Date): unknown;
+
+  /**
+   * Возвращает номер недели в году с учётом дня недели 1 января либо null для некорректной даты.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {Date} dDate - Значение параметра `dDate`.
+   * @returns {number | null} Результат выполнения.
+   */
+  function getWeekYear(dDate: Date): number | null;
+
+  /**
+   * Формирует строку поискового условия XQuery из текста поиска, полей каталога и режима полнотекстового поиска или doc-contains.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {string} sSearchString - Значение параметра `sSearchString`.
+   * @param {string} sCatalogName - Значение параметра `sCatalogName`.
+   * @param {unknown[]} arrSearchFieldNames - Значение параметра `arrSearchFieldNames`.
+   * @param {string} sForeignFieldName - Значение параметра `sForeignFieldName`.
+   * @param {string} sSearchTypeParam - Значение параметра `sSearchTypeParam`.
+   * @returns {string} Результат выполнения.
+   */
+  function create_search_condition(sSearchString: string, sCatalogName: string, arrSearchFieldNames: unknown[], sForeignFieldName: string, sSearchTypeParam: string): string;
+
+  /**
+   * Возвращает утверждения роли, разобранные из утверждений IDM текущего пользователя, кешируя их на клиенте, либо null для локальных или отсутствующих утверждений.
+   *
+   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
+   * @param {boolean} dUpdateParam - Значение параметра `dUpdateParam`.
+   * @returns {unknown[] | null} Результат выполнения.
+   */
+  function get_access_role_claims(dUpdateParam: boolean): unknown[] | null;
+
+  /**
+   * Ставит команду удаления загружаемого документа в очередь fetch-doc каждого работающего узла и возвращает число уведомлённых узлов.
+   * @param {number} iObjectIDParam - Значение параметра `iObjectIDParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function remove_fetch_doc(iObjectIDParam: number): number;
+
+  /**
+   * Открывает файл Excel через сборку Excel и преобразует непустые строки каждого листа в XML-элемент рабочей книги.
+   * @param {string} sFileUrlParam - Значение параметра `sFileUrlParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function open_excel(sFileUrlParam: string): Object;
+
+  /**
+   * Возвращает текст объекта для хеширования, передавая обработку статей вики библиотеке кода libWiki; в остальных случаях возвращает пустую строку.
+   * @param {XmlTopElem} topElem - Значение параметра `topElem`.
+   * @returns {string} Результат выполнения.
+   */
+  function get_hashable_object_text(topElem: XmlTopElem): string;
+
+  /**
+   * На сервере возвращает новый SRWLock; на клиенте возвращает обычный или безопасный объект согласно запрошенному типу.
+   * @param {string} sDefaultObjectTypeParam - Значение параметра `sDefaultObjectTypeParam`.
+   * @returns {Object} Результат выполнения.
+   */
+  function get_srw_object(sDefaultObjectTypeParam: string): Object;
+
+  /**
+   * Копирует значения из массива unform в поле простого массива, сопоставляя по первичному ключу, и возвращает число записанных полей.
+   * @param {XmlElem<unknown>} fldArrTargetParam - Значение параметра `fldArrTargetParam`.
+   * @param {XmlElem<unknown>} fldArrSourceParam - Значение параметра `fldArrSourceParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function obtain_simple_array_from_unform_array(fldArrTargetParam: XmlElem<unknown>, fldArrSourceParam: XmlElem<unknown>): number;
+
+  /**
+   * Рекурсивно копирует значения исходного поля unform в целевое поле и возвращает число изменённых полей.
+   * @param {XmlElem<unknown>} fldTargetParam - Значение параметра `fldTargetParam`.
+   * @param {XmlElem<unknown>} fldSourceParam - Значение параметра `fldSourceParam`.
+   * @returns {number} Результат выполнения.
+   */
+  function obtain_field_from_unform_field(fldTargetParam: XmlElem<unknown>, fldSourceParam: XmlElem<unknown>): number;
 }

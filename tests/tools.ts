@@ -1,3 +1,41 @@
+type ToolsTypesEqual<A, B> =
+  (<T>() => T extends A ? 1 : 2) extends
+  (<T>() => T extends B ? 1 : 2) ? true : false;
+
+declare function assertToolsType<T extends true>(value: unknown): T;
+
+const serverProtocol = tools.get_server_protocol();
+assertToolsType<ToolsTypesEqual<typeof serverProtocol, "file" | "http" | "https" | "mailto" | "ftp" | "x-local">>(serverProtocol);
+
+const sourceUrl = tools.file_source_url("course.xml");
+assertToolsType<ToolsTypesEqual<typeof sourceUrl, string>>(sourceUrl);
+
+const installedObjectCount = tools.create_inst_package("package.xml", 1, "source", "package-id", "mode", true);
+assertToolsType<ToolsTypesEqual<typeof installedObjectCount, number>>(installedObjectCount);
+
+declare const mergedTools: WtvTools;
+const mergedSourceUrl = mergedTools.file_source_url("course.xml");
+assertToolsType<ToolsTypesEqual<typeof mergedSourceUrl, string>>(mergedSourceUrl);
+
+const shortPdfResult = tools.html_to_pdf("<p>Text</p>", "resources");
+const fullPdfResult = tools.html_to_pdf("<p>Text</p>", "resources", "output.pdf", 0);
+assertToolsType<ToolsTypesEqual<typeof shortPdfResult, boolean>>(shortPdfResult);
+assertToolsType<ToolsTypesEqual<typeof fullPdfResult, boolean>>(fullPdfResult);
+
+const inferredDocument = tools.open_doc(1);
+assertToolsType<ToolsTypesEqual<typeof inferredDocument, XmlDocument | undefined>>(inferredDocument);
+
+const originalPackageResult = tools.create_data_package(1, 2, "package-id", Date());
+assertToolsType<ToolsTypesEqual<typeof originalPackageResult, string>>(originalPackageResult);
+tools.create_data_package(1, 2, "package-id", Date(), 3, "primary-key");
+
+// @ts-expect-error Путь к источнику должен быть строкой.
+tools.file_source_url(1);
+// @ts-expect-error Для создания установочного пакета требуются все аргументы.
+tools.create_inst_package("package.xml", 1, "source", "package-id", "mode");
+// @ts-expect-error Флаг стандартного пакета должен быть логическим значением.
+tools.create_inst_package("package.xml", 1, "source", "package-id", "mode", "true");
+
 const collaboratorId = UniqueID();
 const collaborator = tools.open_doc<CollaboratorDocument>(collaboratorId);
 const collaborator2 = tools.new_doc_by_name<CollaboratorDocument>("collaborator");
