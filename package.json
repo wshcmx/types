@@ -1,6 +1,6 @@
 {
   "name": "@wshcmx/types",
-  "version": "13.5.0",
+  "version": "14.0.0",
   "type": "module",
   "packageManager": "pnpm@12.14.0",
   "directories": {
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.13.0",
-    "eslint-plugin-jsdoc": "^65.4.0",
+    "eslint-plugin-jsdoc": "^65.4.2",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.0"
   }
