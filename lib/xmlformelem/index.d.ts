@@ -269,7 +269,7 @@ interface XmlFormElem {
    * Если путь неверный, возвращается ошибка.
    * @param {string} path - Путь от текущего до целевого элемента, с разделением имен узлов точками.
    */
-  EvalPath(path: string): unknown;
+  EvalPath<T = XmlElem<unknown>>(path: string): T;
 
   /**
    * Работает с только с дополнительными атрибутами элемента формы.

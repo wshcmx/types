@@ -591,7 +591,7 @@ interface XmElem<T, ForeignElem = never> {
    * Если путь неверный, возвращается ошибка.
    * @param {string} path - Путь от текущего до целевого элемента, с разделением имен узлов точками.
    */
-  EvalPath<T>(path: string): T;
+  EvalPath<T = XmlElem<unknown>>(path: string): T;
 
   /**
    * Проверяет, существует ли в форме текущего элемента дочерний элемент с таким именем,
@@ -617,7 +617,7 @@ interface XmElem<T, ForeignElem = never> {
    * @param {string} name - Имя элемента, являющегося ключом. Необязательный аргумент.
    * Если имя ключа не указано, используется первичный ключ.
    */
-  GetChildByKey<K>(value: K, name?: string): XmlElem<T>;
+  GetChildByKey<K, T extends XmlElem<unknown> = XmlElem<unknown>>(value: K, name?: string): XmlElem<T>;
 
   /**
    * Находит дочерний элемент с заданным значением и возвращает его порядковый индекс.
@@ -653,7 +653,7 @@ interface XmElem<T, ForeignElem = never> {
    * @param {string} name - Имя элемента, являющегося ключом. Необязательный аргумент.
    * Если имя ключа не указано, используется первичный ключ.
    */
-  GetOptChildByKey<K>(value: K, name?: string): XmlElem<T> | undefined;
+  GetOptChildByKey<K, T extends XmlElem<unknown> = XmlElem<unknown>>(value: K, name?: string): XmlElem<T> | undefined;
 
   /**
    * Метод GetOptChildValue() возвращает значение дочернего элемента,
