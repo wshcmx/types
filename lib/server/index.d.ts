@@ -11,13 +11,11 @@ interface ServerObject {
    *
    * Возвращаемое значение не используется ни в одном месте вызова в пакете
    * (подключаемые файлы не возвращают значений, используемых вызывающим кодом).
-   *
-   * @param path Путь к выполняемому шаблону. Может быть относительным к текущему
-   *   шаблону (например, `"include/user_init.html"`,
-   *   `"../include/access_init.html"`) или абсолютным, обычно сформированным
-   *   с помощью `AppDirectoryPath()` (например, `AppDirectoryPath() + "/wt/web/view_access_panel.html"`).
-   *   Также может быть вычисляемым строковым выражением.
-   *
+   * @param {string} path - Путь к выполняемому шаблону. Может быть относительным к текущему
+   * шаблону (например, `"include/user_init.html"`,
+   * `"../include/access_init.html"`) или абсолютным, обычно сформированным
+   * с помощью `AppDirectoryPath()` (например, `AppDirectoryPath() + "/wt/web/view_access_panel.html"`).
+   * Также может быть вычисляемым строковым выражением.
    * @example
    * Server.Execute("include/user_init.html");
    * Server.Execute(AppDirectoryPath() + "/wt/web/view_access_panel.html");

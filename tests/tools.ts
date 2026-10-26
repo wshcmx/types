@@ -13,7 +13,7 @@ assertToolsType<ToolsTypesEqual<typeof sourceUrl, string>>(sourceUrl);
 const installedObjectCount = tools.create_inst_package("package.xml", 1, "source", "package-id", "mode", true);
 assertToolsType<ToolsTypesEqual<typeof installedObjectCount, number>>(installedObjectCount);
 
-declare const mergedTools: WtvTools;
+declare const mergedTools: typeof tools;
 const mergedSourceUrl = mergedTools.file_source_url("course.xml");
 assertToolsType<ToolsTypesEqual<typeof mergedSourceUrl, string>>(mergedSourceUrl);
 
