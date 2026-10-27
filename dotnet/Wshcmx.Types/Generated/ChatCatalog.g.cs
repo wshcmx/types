@@ -63,7 +63,7 @@ namespace Wshcmx.Types
         public string? Collaborators { get; set; }
 
         [Column("participant_ids")]
-        public List<double> ParticipantIds { get; set; } = new List<double>();
+        public List<double>? ParticipantIds { get; set; } = new List<double>();
 
         /// <summary>
         /// Разговор

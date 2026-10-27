@@ -18,7 +18,7 @@ namespace Wshcmx.Types
         /// Условия
         /// </summary>
         [Column("conditions")]
-        public List<ViewConditionBase> Conditions { get; set; } = new List<ViewConditionBase>();
+        public List<ViewConditionBase>? Conditions { get; set; } = new List<ViewConditionBase>();
 
         /// <summary>
         /// Условия запроса
@@ -42,13 +42,13 @@ namespace Wshcmx.Types
         /// Роли доступа
         /// </summary>
         [Column("access_roles")]
-        public List<AccessDocBaseAccessRole> AccessRoles { get; set; } = new List<AccessDocBaseAccessRole>();
+        public List<AccessDocBaseAccessRole>? AccessRoles { get; set; } = new List<AccessDocBaseAccessRole>();
 
         /// <summary>
         /// Группы доступа
         /// </summary>
         [Column("access_groups")]
-        public List<AccessDocBaseAccessGroup> AccessGroups { get; set; } = new List<AccessDocBaseAccessGroup>();
+        public List<AccessDocBaseAccessGroup>? AccessGroups { get; set; } = new List<AccessDocBaseAccessGroup>();
 
         /// <summary>
         /// Организация
@@ -162,7 +162,7 @@ namespace Wshcmx.Types
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public List<double>? KpiProfilesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Профиль премирования
@@ -174,7 +174,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// ID тегов
@@ -186,7 +186,7 @@ namespace Wshcmx.Types
         /// Тэги
         /// </summary>
         [Column("tag_id")]
-        public List<double> TagId { get; set; } = new List<double>();
+        public List<double>? TagId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

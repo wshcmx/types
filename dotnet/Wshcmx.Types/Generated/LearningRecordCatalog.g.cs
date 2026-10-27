@@ -174,13 +174,13 @@ namespace Wshcmx.Types
         /// Прокторы
         /// </summary>
         [Column("proctors_id")]
-        public List<double> ProctorsId { get; set; } = new List<double>();
+        public List<double>? ProctorsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Все прокторы
         /// </summary>
         [Column("archive_proctors_id")]
-        public List<double> ArchiveProctorsId { get; set; } = new List<double>();
+        public List<double>? ArchiveProctorsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Предпочтительный проктор

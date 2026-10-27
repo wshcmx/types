@@ -75,10 +75,10 @@ namespace Wshcmx.Types
         public string Status { get; set; }
 
         [Column("typical_development_program_id")]
-        public List<double> TypicalDevelopmentProgramId { get; set; } = new List<double>();
+        public List<double>? TypicalDevelopmentProgramId { get; set; } = new List<double>();
 
         [Column("subdivision_id")]
-        public List<double> SubdivisionId { get; set; } = new List<double>();
+        public List<double>? SubdivisionId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

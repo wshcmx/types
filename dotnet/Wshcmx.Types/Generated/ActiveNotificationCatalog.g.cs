@@ -60,7 +60,7 @@ namespace Wshcmx.Types
         /// Адресаты
         /// </summary>
         [Column("recipient_person_id")]
-        public List<double> RecipientPersonId { get; set; } = new List<double>();
+        public List<double>? RecipientPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Уведомление заполняется пользователем

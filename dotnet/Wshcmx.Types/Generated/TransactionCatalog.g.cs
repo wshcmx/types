@@ -102,7 +102,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("objects")]
-        public List<double> Objects { get; set; } = new List<double>();
+        public List<double>? Objects { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

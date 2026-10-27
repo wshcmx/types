@@ -30,7 +30,7 @@ namespace Wshcmx.Types
         public double MaxInstances { get; set; }
 
         [Column("entries")]
-        public List<SxAgentsDocumentEntry> Entries { get; set; } = new List<SxAgentsDocumentEntry>();
+        public List<SxAgentsDocumentEntry>? Entries { get; set; } = new List<SxAgentsDocumentEntry>();
 
         [Column("schedule")]
         public SxAgentsSchedule? Schedule { get; set; }

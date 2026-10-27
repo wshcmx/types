@@ -21,7 +21,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("objects")]
-        public List<PackageObjectsDocumentObject> Objects { get; set; } = new List<PackageObjectsDocumentObject>();
+        public List<PackageObjectsDocumentObject>? Objects { get; set; } = new List<PackageObjectsDocumentObject>();
 
         [Column("add_deleted_objects")]
         public bool AddDeletedObjects { get; set; }
@@ -33,10 +33,10 @@ namespace Wshcmx.Types
         public bool ProcessAccessRoles { get; set; }
 
         [Column("files")]
-        public List<PackageObjectsDocumentFile> Files { get; set; } = new List<PackageObjectsDocumentFile>();
+        public List<PackageObjectsDocumentFile>? Files { get; set; } = new List<PackageObjectsDocumentFile>();
 
         [Column("custom_templates")]
-        public List<PackageObjectsDocumentCustomTemplate> CustomTemplates { get; set; } = new List<PackageObjectsDocumentCustomTemplate>();
+        public List<PackageObjectsDocumentCustomTemplate>? CustomTemplates { get; set; } = new List<PackageObjectsDocumentCustomTemplate>();
 
         [Column("id_disp_type")]
         public string IdDispType { get; set; }

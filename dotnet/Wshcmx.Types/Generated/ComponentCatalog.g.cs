@@ -33,10 +33,10 @@ namespace Wshcmx.Types
         public string? Path { get; set; }
 
         [Column("items")]
-        public List<ComponentsDocumentItem> Items { get; set; } = new List<ComponentsDocumentItem>();
+        public List<ComponentsDocumentItem>? Items { get; set; } = new List<ComponentsDocumentItem>();
 
         [Column("change_logs")]
-        public List<ComponentsDocumentChangeLog> ChangeLogs { get; set; } = new List<ComponentsDocumentChangeLog>();
+        public List<ComponentsDocumentChangeLog>? ChangeLogs { get; set; } = new List<ComponentsDocumentChangeLog>();
     }
 
     public class ComponentsDocumentChangeLog

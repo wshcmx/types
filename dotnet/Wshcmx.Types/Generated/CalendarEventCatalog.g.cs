@@ -195,13 +195,13 @@ namespace Wshcmx.Types
         public DateTime? PlanEndDate { get; set; }
 
         [Column("participant_ids")]
-        public List<double> ParticipantIds { get; set; } = new List<double>();
+        public List<double>? ParticipantIds { get; set; } = new List<double>();
 
         [Column("tutor_ids")]
-        public List<double> TutorIds { get; set; } = new List<double>();
+        public List<double>? TutorIds { get; set; } = new List<double>();
 
         [Column("scheduler_week_days_ids")]
-        public List<string> SchedulerWeekDaysIds { get; set; } = new List<string>();
+        public List<string>? SchedulerWeekDaysIds { get; set; } = new List<string>();
 
         /// <summary>
         /// Время начала
@@ -228,10 +228,10 @@ namespace Wshcmx.Types
         public string? WeekTypeId { get; set; }
 
         [Column("confirm_participant_ids")]
-        public List<double> ConfirmParticipantIds { get; set; } = new List<double>();
+        public List<double>? ConfirmParticipantIds { get; set; } = new List<double>();
 
         [Column("not_participate_participant_ids")]
-        public List<double> NotParticipateParticipantIds { get; set; } = new List<double>();
+        public List<double>? NotParticipateParticipantIds { get; set; } = new List<double>();
 
         /// <summary>
         /// Следующая дата запуска события

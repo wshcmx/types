@@ -15,49 +15,49 @@ namespace Wshcmx.Types
     public class ListCatalog
     {
         [Column("object_resource_types")]
-        public List<ExchangeListsBaseObjectResourceType> ObjectResourceTypes { get; set; } = new List<ExchangeListsBaseObjectResourceType>();
+        public List<ExchangeListsBaseObjectResourceType>? ObjectResourceTypes { get; set; } = new List<ExchangeListsBaseObjectResourceType>();
 
         [Column("currency_types")]
-        public List<ExchangeListsBaseCurrencyType> CurrencyTypes { get; set; } = new List<ExchangeListsBaseCurrencyType>();
+        public List<ExchangeListsBaseCurrencyType>? CurrencyTypes { get; set; } = new List<ExchangeListsBaseCurrencyType>();
 
         [Column("locations")]
-        public List<ExchangeListsBaseLocation> Locations { get; set; } = new List<ExchangeListsBaseLocation>();
+        public List<ExchangeListsBaseLocation>? Locations { get; set; } = new List<ExchangeListsBaseLocation>();
 
         [Column("benefits")]
-        public List<ExchangeListsBaseBenefit> Benefits { get; set; } = new List<ExchangeListsBaseBenefit>();
+        public List<ExchangeListsBaseBenefit>? Benefits { get; set; } = new List<ExchangeListsBaseBenefit>();
 
         [Column("event_forms")]
-        public List<ExchangeListsBaseEventForm> EventForms { get; set; } = new List<ExchangeListsBaseEventForm>();
+        public List<ExchangeListsBaseEventForm>? EventForms { get; set; } = new List<ExchangeListsBaseEventForm>();
 
         [Column("organizational_forms")]
-        public List<ExchangeListsBaseOrganizationalForm> OrganizationalForms { get; set; } = new List<ExchangeListsBaseOrganizationalForm>();
+        public List<ExchangeListsBaseOrganizationalForm>? OrganizationalForms { get; set; } = new List<ExchangeListsBaseOrganizationalForm>();
 
         [Column("facts")]
-        public List<ExchangeListsBaseFact> Facts { get; set; } = new List<ExchangeListsBaseFact>();
+        public List<ExchangeListsBaseFact>? Facts { get; set; } = new List<ExchangeListsBaseFact>();
 
         [Column("filters")]
-        public List<ExchangeListsBaseFilter> Filters { get; set; } = new List<ExchangeListsBaseFilter>();
+        public List<ExchangeListsBaseFilter>? Filters { get; set; } = new List<ExchangeListsBaseFilter>();
 
         [Column("person_states")]
-        public List<ExchangeListsBasePersonState> PersonStates { get; set; } = new List<ExchangeListsBasePersonState>();
+        public List<ExchangeListsBasePersonState>? PersonStates { get; set; } = new List<ExchangeListsBasePersonState>();
 
         [Column("professional_areas")]
-        public List<ExchangeListsBaseProfessionalArea> ProfessionalAreas { get; set; } = new List<ExchangeListsBaseProfessionalArea>();
+        public List<ExchangeListsBaseProfessionalArea>? ProfessionalAreas { get; set; } = new List<ExchangeListsBaseProfessionalArea>();
 
         [Column("import_excel_person_schemes")]
-        public List<ExchangeListsBaseImportExcelPersonScheme> ImportExcelPersonSchemes { get; set; } = new List<ExchangeListsBaseImportExcelPersonScheme>();
+        public List<ExchangeListsBaseImportExcelPersonScheme>? ImportExcelPersonSchemes { get; set; } = new List<ExchangeListsBaseImportExcelPersonScheme>();
 
         [Column("web_requirements")]
-        public List<ExchangeListsBaseWebRequirement> WebRequirements { get; set; } = new List<ExchangeListsBaseWebRequirement>();
+        public List<ExchangeListsBaseWebRequirement>? WebRequirements { get; set; } = new List<ExchangeListsBaseWebRequirement>();
 
         [Column("ext_externalscripts")]
-        public List<ExchangeListsBaseExtExternalscript> ExtExternalscripts { get; set; } = new List<ExchangeListsBaseExtExternalscript>();
+        public List<ExchangeListsBaseExtExternalscript>? ExtExternalscripts { get; set; } = new List<ExchangeListsBaseExtExternalscript>();
 
         [Column("competence_types")]
-        public List<ExchangeListsBaseCompetenceType> CompetenceTypes { get; set; } = new List<ExchangeListsBaseCompetenceType>();
+        public List<ExchangeListsBaseCompetenceType>? CompetenceTypes { get; set; } = new List<ExchangeListsBaseCompetenceType>();
 
         [Column("view_conditions_schemes")]
-        public List<ListsDocumentViewConditionsScheme> ViewConditionsSchemes { get; set; } = new List<ListsDocumentViewConditionsScheme>();
+        public List<ListsDocumentViewConditionsScheme>? ViewConditionsSchemes { get; set; } = new List<ListsDocumentViewConditionsScheme>();
     }
 
     public class ListsDocumentViewConditionsScheme

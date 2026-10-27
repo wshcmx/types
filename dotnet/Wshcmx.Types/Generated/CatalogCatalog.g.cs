@@ -15,10 +15,10 @@ namespace Wshcmx.Types
     public class CatalogCatalog
     {
         [Column("catalogs")]
-        public List<CatalogsDocumentCatalog> Catalogs { get; set; } = new List<CatalogsDocumentCatalog>();
+        public List<CatalogsDocumentCatalog>? Catalogs { get; set; } = new List<CatalogsDocumentCatalog>();
 
         [Column("access_block_types")]
-        public List<CatalogsDocumentAccessBlockType> AccessBlockTypes { get; set; } = new List<CatalogsDocumentAccessBlockType>();
+        public List<CatalogsDocumentAccessBlockType>? AccessBlockTypes { get; set; } = new List<CatalogsDocumentAccessBlockType>();
     }
 
     public class CatalogsDocumentAccessBlockType

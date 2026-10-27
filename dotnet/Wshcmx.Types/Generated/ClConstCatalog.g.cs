@@ -33,10 +33,10 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("imprint")]
-        public List<string> Imprint { get; set; } = new List<string>();
+        public List<string>? Imprint { get; set; } = new List<string>();
 
         [Column("object_id")]
-        public List<double> ObjectId { get; set; } = new List<double>();
+        public List<double>? ObjectId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

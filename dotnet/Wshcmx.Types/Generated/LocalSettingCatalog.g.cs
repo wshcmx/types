@@ -21,7 +21,7 @@ namespace Wshcmx.Types
         public LocalSettingsDocumentNewsAuth? NewsAuth { get; set; }
 
         [Column("blocks")]
-        public List<LocalSettingsDocumentBlock> Blocks { get; set; } = new List<LocalSettingsDocumentBlock>();
+        public List<LocalSettingsDocumentBlock>? Blocks { get; set; } = new List<LocalSettingsDocumentBlock>();
 
         [Column("certificate_template_exists")]
         public bool CertificateTemplateExists { get; set; }
@@ -33,7 +33,7 @@ namespace Wshcmx.Types
         public LocalSettingsDocumentView? View { get; set; }
 
         [Column("view_filters")]
-        public List<LocalSettingsDocumentViewFilter> ViewFilters { get; set; } = new List<LocalSettingsDocumentViewFilter>();
+        public List<LocalSettingsDocumentViewFilter>? ViewFilters { get; set; } = new List<LocalSettingsDocumentViewFilter>();
 
         [Column("package_id")]
         public string? PackageId { get; set; }
@@ -45,16 +45,16 @@ namespace Wshcmx.Types
         public string? LastCatalogUrl { get; set; }
 
         [Column("tabs")]
-        public List<LocalSettingsDocumentTab> Tabs { get; set; } = new List<LocalSettingsDocumentTab>();
+        public List<LocalSettingsDocumentTab>? Tabs { get; set; } = new List<LocalSettingsDocumentTab>();
 
         [Column("first_list_url")]
         public string? FirstListUrl { get; set; }
 
         [Column("view_types")]
-        public List<LocalSettingsDocumentViewType> ViewTypes { get; set; } = new List<LocalSettingsDocumentViewType>();
+        public List<LocalSettingsDocumentViewType>? ViewTypes { get; set; } = new List<LocalSettingsDocumentViewType>();
 
         [Column("small_access_blocks")]
-        public List<LocalSettingsDocumentSmallAccessBlock> SmallAccessBlocks { get; set; } = new List<LocalSettingsDocumentSmallAccessBlock>();
+        public List<LocalSettingsDocumentSmallAccessBlock>? SmallAccessBlocks { get; set; } = new List<LocalSettingsDocumentSmallAccessBlock>();
 
         [Column("first_disp_small_access_blocks")]
         public bool FirstDispSmallAccessBlocks { get; set; }
@@ -93,10 +93,10 @@ namespace Wshcmx.Types
         public LocalSettingsDocumentAdminConfiguration? AdminConfiguration { get; set; }
 
         [Column("resource_settings")]
-        public List<LocalSettingsDocumentResourceSetting> ResourceSettings { get; set; } = new List<LocalSettingsDocumentResourceSetting>();
+        public List<LocalSettingsDocumentResourceSetting>? ResourceSettings { get; set; } = new List<LocalSettingsDocumentResourceSetting>();
 
         [Column("custom_datas")]
-        public List<LocalSettingsDocumentCustomData> CustomDatas { get; set; } = new List<LocalSettingsDocumentCustomData>();
+        public List<LocalSettingsDocumentCustomData>? CustomDatas { get; set; } = new List<LocalSettingsDocumentCustomData>();
     }
 
     public class LocalSettingsDocumentAdminConfiguration

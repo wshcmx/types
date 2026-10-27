@@ -90,13 +90,13 @@ namespace Wshcmx.Types
         /// Тесты
         /// </summary>
         [Column("assessments_id")]
-        public List<double> AssessmentsId { get; set; } = new List<double>();
+        public List<double>? AssessmentsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

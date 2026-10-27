@@ -60,7 +60,7 @@ namespace Wshcmx.Types
         /// Тип страницы
         /// </summary>
         [Column("web_mode_id")]
-        public List<double> WebModeId { get; set; } = new List<double>();
+        public List<double>? WebModeId { get; set; } = new List<double>();
 
         /// <summary>
         /// Вендор
@@ -96,7 +96,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

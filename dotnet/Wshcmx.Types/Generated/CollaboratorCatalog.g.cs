@@ -138,7 +138,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("category_id")]
-        public List<string> CategoryId { get; set; } = new List<string>();
+        public List<string>? CategoryId { get; set; } = new List<string>();
 
         /// <summary>
         /// Запрещен доступ на портал
@@ -261,7 +261,7 @@ namespace Wshcmx.Types
         public string? Experts { get; set; }
 
         [Column("person_object_profile_id")]
-        public List<double> PersonObjectProfileId { get; set; } = new List<double>();
+        public List<double>? PersonObjectProfileId { get; set; } = new List<double>();
 
         /// <summary>
         /// Текущее состояние

@@ -18,7 +18,7 @@ namespace Wshcmx.Types
         /// Условия
         /// </summary>
         [Column("conditions")]
-        public List<ViewConditionBase> Conditions { get; set; } = new List<ViewConditionBase>();
+        public List<ViewConditionBase>? Conditions { get; set; } = new List<ViewConditionBase>();
 
         /// <summary>
         /// Условия запроса

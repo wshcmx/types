@@ -54,7 +54,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Родительски профиль KPI
@@ -66,7 +66,7 @@ namespace Wshcmx.Types
         /// КПЭ
         /// </summary>
         [Column("kpi_id")]
-        public List<double> KpiId { get; set; } = new List<double>();
+        public List<double>? KpiId { get; set; } = new List<double>();
 
         /// <summary>
         /// Значения карты знаний
@@ -108,7 +108,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип выборки условий видимости
@@ -120,7 +120,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_main_person_id")]
-        public List<double> WorkflowMainPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowMainPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

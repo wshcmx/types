@@ -66,7 +66,7 @@ namespace Wshcmx.Types
         /// Раздел библиотеки
         /// </summary>
         [Column("sections_id")]
-        public List<double> SectionsId { get; set; } = new List<double>();
+        public List<double>? SectionsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Год издания

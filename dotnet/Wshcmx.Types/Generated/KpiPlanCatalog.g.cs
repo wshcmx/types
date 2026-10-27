@@ -138,7 +138,7 @@ namespace Wshcmx.Types
         /// Эксперты
         /// </summary>
         [Column("expert_id")]
-        public List<double> ExpertId { get; set; } = new List<double>();
+        public List<double>? ExpertId { get; set; } = new List<double>();
 
         /// <summary>
         /// Документооборот
@@ -162,7 +162,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип выборки условий видимости

@@ -78,7 +78,7 @@ namespace Wshcmx.Types
         /// Вопросы
         /// </summary>
         [Column("question_id")]
-        public List<double> QuestionId { get; set; } = new List<double>();
+        public List<double>? QuestionId { get; set; } = new List<double>();
 
         /// <summary>
         /// Заполнена

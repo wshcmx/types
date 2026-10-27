@@ -66,6 +66,6 @@ namespace Wshcmx.Types
         /// Чат-боты
         /// </summary>
         [Column("chatbot_ids")]
-        public List<double> ChatbotIds { get; set; } = new List<double>();
+        public List<double>? ChatbotIds { get; set; } = new List<double>();
     }
 }

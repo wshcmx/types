@@ -78,6 +78,6 @@ namespace Wshcmx.Types
         /// Владельцы
         /// </summary>
         [Column("owner_object")]
-        public List<double> OwnerObject { get; set; } = new List<double>();
+        public List<double>? OwnerObject { get; set; } = new List<double>();
     }
 }

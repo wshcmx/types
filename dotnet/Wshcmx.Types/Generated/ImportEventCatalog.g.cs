@@ -30,7 +30,7 @@ namespace Wshcmx.Types
         public string? StatusId { get; set; }
 
         [Column("collaborators")]
-        public List<ImportEventsDocumentCollaborator> Collaborators { get; set; } = new List<ImportEventsDocumentCollaborator>();
+        public List<ImportEventsDocumentCollaborator>? Collaborators { get; set; } = new List<ImportEventsDocumentCollaborator>();
 
         [Column("desc")]
         public string? Desc { get; set; }

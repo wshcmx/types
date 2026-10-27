@@ -90,16 +90,16 @@ namespace Wshcmx.Types
         /// Все адресаты
         /// </summary>
         [Column("recipient_id")]
-        public List<double> RecipientId { get; set; } = new List<double>();
+        public List<double>? RecipientId { get; set; } = new List<double>();
 
         /// <summary>
         /// Адресаты, непрочитавшие сообщения
         /// </summary>
         [Column("unread_recipient_id")]
-        public List<double> UnreadRecipientId { get; set; } = new List<double>();
+        public List<double>? UnreadRecipientId { get; set; } = new List<double>();
 
         [Column("disp_role_id")]
-        public List<string> DispRoleId { get; set; } = new List<string>();
+        public List<string>? DispRoleId { get; set; } = new List<string>();
 
         /// <summary>
         /// Timestamp последнего сообщения
@@ -108,7 +108,7 @@ namespace Wshcmx.Types
         public double? LastMessageTimestamp { get; set; }
 
         [Column("message_timestamps")]
-        public List<double> MessageTimestamps { get; set; } = new List<double>();
+        public List<double>? MessageTimestamps { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации
@@ -126,7 +126,7 @@ namespace Wshcmx.Types
         /// Адресаты, с новыми реакциями на сообщения
         /// </summary>
         [Column("new_reaction_recipient_id")]
-        public List<double> NewReactionRecipientId { get; set; } = new List<double>();
+        public List<double>? NewReactionRecipientId { get; set; } = new List<double>();
 
         /// <summary>
         /// Последнее сообщение
@@ -144,7 +144,7 @@ namespace Wshcmx.Types
         /// Идентификаторы timestamp персональных сообщений
         /// </summary>
         [Column("different_last_message")]
-        public List<string> DifferentLastMessage { get; set; } = new List<string>();
+        public List<string>? DifferentLastMessage { get; set; } = new List<string>();
 
         /// <summary>
         /// ID последнего сообщения
@@ -156,7 +156,7 @@ namespace Wshcmx.Types
         /// Идентификаторы timestamp персональных сообщений
         /// </summary>
         [Column("personal_message_timestamps")]
-        public List<string> PersonalMessageTimestamps { get; set; } = new List<string>();
+        public List<string>? PersonalMessageTimestamps { get; set; } = new List<string>();
 
         [Column("update")]
         public bool? Update { get; set; }

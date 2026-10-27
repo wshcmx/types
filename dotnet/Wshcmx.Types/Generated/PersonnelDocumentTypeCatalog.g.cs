@@ -42,13 +42,13 @@ namespace Wshcmx.Types
         /// Допустимые типы подписи со стороны организации
         /// </summary>
         [Column("org_signature_types")]
-        public List<string> OrgSignatureTypes { get; set; } = new List<string>();
+        public List<string>? OrgSignatureTypes { get; set; } = new List<string>();
 
         /// <summary>
         /// Допустимые типы подписи со стороны сотрудника
         /// </summary>
         [Column("person_signature_types")]
-        public List<string> PersonSignatureTypes { get; set; } = new List<string>();
+        public List<string>? PersonSignatureTypes { get; set; } = new List<string>();
 
         /// <summary>
         /// Первый подписывает сотрудник
@@ -90,6 +90,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
     }
 }

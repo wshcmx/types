@@ -30,7 +30,7 @@ namespace Wshcmx.Types
         /// Модули
         /// </summary>
         [Column("access_blocs")]
-        public List<AccessRoleBaseAccessBloc> AccessBlocs { get; set; } = new List<AccessRoleBaseAccessBloc>();
+        public List<AccessRoleBaseAccessBloc>? AccessBlocs { get; set; } = new List<AccessRoleBaseAccessBloc>();
 
         /// <summary>
         /// Управление руководителями
@@ -51,7 +51,7 @@ namespace Wshcmx.Types
         public double? AdminConfigurationId { get; set; }
 
         [Column("func_blocks")]
-        public List<AccessRoleBaseFuncBlock> FuncBlocks { get; set; } = new List<AccessRoleBaseFuncBlock>();
+        public List<AccessRoleBaseFuncBlock>? FuncBlocks { get; set; } = new List<AccessRoleBaseFuncBlock>();
 
         /// <summary>
         /// Только чтение

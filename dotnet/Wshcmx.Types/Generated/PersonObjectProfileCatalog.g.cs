@@ -33,7 +33,7 @@ namespace Wshcmx.Types
         public string? Name { get; set; }
 
         [Column("object_catalog")]
-        public List<string> ObjectCatalog { get; set; } = new List<string>();
+        public List<string>? ObjectCatalog { get; set; } = new List<string>();
 
         /// <summary>
         /// Дата модификации

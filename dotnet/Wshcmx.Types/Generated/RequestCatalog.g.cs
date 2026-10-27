@@ -144,13 +144,13 @@ namespace Wshcmx.Types
         /// Тэги
         /// </summary>
         [Column("tag_id")]
-        public List<double> TagId { get; set; } = new List<double>();
+        public List<double>? TagId { get; set; } = new List<double>();
 
         /// <summary>
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип выборки условий видимости
@@ -162,7 +162,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_main_person_id")]
-        public List<double> WorkflowMainPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowMainPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Значения карты знаний

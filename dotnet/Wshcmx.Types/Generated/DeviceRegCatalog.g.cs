@@ -66,6 +66,6 @@ namespace Wshcmx.Types
         /// uf_tokens
         /// </summary>
         [Column("tokens")]
-        public List<double> Tokens { get; set; } = new List<double>();
+        public List<double>? Tokens { get; set; } = new List<double>();
     }
 }

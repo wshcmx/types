@@ -168,7 +168,7 @@ namespace Wshcmx.Types
         /// Объекты
         /// </summary>
         [Column("objects")]
-        public List<double> Objects { get; set; } = new List<double>();
+        public List<double>? Objects { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип объекта
@@ -204,7 +204,7 @@ namespace Wshcmx.Types
         /// Все участники
         /// </summary>
         [Column("participants_id")]
-        public List<double> ParticipantsId { get; set; } = new List<double>();
+        public List<double>? ParticipantsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Писать по умолчанию запрещено

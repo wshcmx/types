@@ -84,13 +84,13 @@ namespace Wshcmx.Types
         /// Авторы
         /// </summary>
         [Column("author_id")]
-        public List<double> AuthorId { get; set; } = new List<double>();
+        public List<double>? AuthorId { get; set; } = new List<double>();
 
         /// <summary>
         /// Типы руководителей авторов
         /// </summary>
         [Column("author_boss_type_id")]
-        public List<double> AuthorBossTypeId { get; set; } = new List<double>();
+        public List<double>? AuthorBossTypeId { get; set; } = new List<double>();
 
         /// <summary>
         /// Позиция в списке
@@ -114,7 +114,7 @@ namespace Wshcmx.Types
         /// Группы для ознакомления
         /// </summary>
         [Column("acquaint_group_ids")]
-        public List<double> AcquaintGroupIds { get; set; } = new List<double>();
+        public List<double>? AcquaintGroupIds { get; set; } = new List<double>();
 
         /// <summary>
         /// Аннотация
@@ -144,7 +144,7 @@ namespace Wshcmx.Types
         /// Файлы
         /// </summary>
         [Column("files_id")]
-        public List<double> FilesId { get; set; } = new List<double>();
+        public List<double>? FilesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации
@@ -162,7 +162,7 @@ namespace Wshcmx.Types
         /// Группы прав доступа
         /// </summary>
         [Column("access_group_ids")]
-        public List<double> AccessGroupIds { get; set; } = new List<double>();
+        public List<double>? AccessGroupIds { get; set; } = new List<double>();
 
         /// <summary>
         /// Анонимный доступ
