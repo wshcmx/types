@@ -54,7 +54,7 @@ namespace Wshcmx.Types
         /// Столбцы
         /// </summary>
         [Column("columns")]
-        public List<ViewColumnsBaseColumn> Columns { get; set; } = new List<ViewColumnsBaseColumn>();
+        public List<ViewColumnsBaseColumn>? Columns { get; set; } = new List<ViewColumnsBaseColumn>();
 
         [Column("is_hier")]
         public bool IsHier { get; set; }
@@ -66,7 +66,7 @@ namespace Wshcmx.Types
         public string SortField { get; set; }
 
         [Column("link_catalogs")]
-        public List<ViewBaseLinkCatalog> LinkCatalogs { get; set; } = new List<ViewBaseLinkCatalog>();
+        public List<ViewBaseLinkCatalog>? LinkCatalogs { get; set; } = new List<ViewBaseLinkCatalog>();
 
         [Column("catalog")]
         public string? Catalog { get; set; }

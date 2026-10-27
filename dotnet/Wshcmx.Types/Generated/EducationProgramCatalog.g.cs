@@ -60,12 +60,12 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Учебные программы
         /// </summary>
         [Column("education_methods_id")]
-        public List<double> EducationMethodsId { get; set; } = new List<double>();
+        public List<double>? EducationMethodsId { get; set; } = new List<double>();
     }
 }

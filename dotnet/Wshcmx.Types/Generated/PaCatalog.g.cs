@@ -126,7 +126,7 @@ namespace Wshcmx.Types
         /// Согласующие эксперты
         /// </summary>
         [Column("custom_experts_array")]
-        public List<double> CustomExpertsArray { get; set; } = new List<double>();
+        public List<double>? CustomExpertsArray { get; set; } = new List<double>();
 
         /// <summary>
         /// Согласующие эксперты
@@ -168,7 +168,7 @@ namespace Wshcmx.Types
         /// Профиль KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public List<double>? KpiProfilesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Профиль премирования

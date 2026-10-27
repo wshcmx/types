@@ -150,7 +150,7 @@ namespace Wshcmx.Types
         /// Роли участников проекта
         /// </summary>
         [Column("participant_roles_id")]
-        public List<double> ParticipantRolesId { get; set; } = new List<double>();
+        public List<double>? ParticipantRolesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Исключен из проекта
@@ -210,7 +210,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип выборки условий видимости

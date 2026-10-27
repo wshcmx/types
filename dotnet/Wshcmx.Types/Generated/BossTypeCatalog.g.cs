@@ -63,9 +63,9 @@ namespace Wshcmx.Types
         public string? AppInstanceId { get; set; }
 
         [Column("object_type")]
-        public List<string> ObjectType { get; set; } = new List<string>();
+        public List<string>? ObjectType { get; set; } = new List<string>();
 
         [Column("operation_id")]
-        public List<string> OperationId { get; set; } = new List<string>();
+        public List<string>? OperationId { get; set; } = new List<string>();
     }
 }

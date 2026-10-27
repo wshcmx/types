@@ -66,6 +66,6 @@ namespace Wshcmx.Types
         public bool Changed { get; set; }
 
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
     }
 }

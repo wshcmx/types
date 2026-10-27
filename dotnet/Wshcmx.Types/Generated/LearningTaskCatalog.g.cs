@@ -96,13 +96,13 @@ namespace Wshcmx.Types
         /// Эксперт курса
         /// </summary>
         [Column("experts_id")]
-        public List<double> ExpertsId { get; set; } = new List<double>();
+        public List<double>? ExpertsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// ID тегов

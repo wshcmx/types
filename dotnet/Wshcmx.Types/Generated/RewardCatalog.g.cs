@@ -57,7 +57,7 @@ namespace Wshcmx.Types
         /// Периоды
         /// </summary>
         [Column("budget_periods")]
-        public List<RewardsDocumentBudgetPeriod> BudgetPeriods { get; set; } = new List<RewardsDocumentBudgetPeriod>();
+        public List<RewardsDocumentBudgetPeriod>? BudgetPeriods { get; set; } = new List<RewardsDocumentBudgetPeriod>();
 
         /// <summary>
         /// Краткое описание

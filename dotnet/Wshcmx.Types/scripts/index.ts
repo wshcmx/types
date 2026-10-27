@@ -418,10 +418,13 @@ function renderClass(
       }
       used.add(propName);
     }
-    const type = applyRenames(p.type, renameMap);
+    let type = applyRenames(p.type, renameMap);
+    if (useColumnAttr && p.isCollection) {
+      type = makeNullable(type);
+    }
     const attr = useColumnAttr ? "Column" : "XmlElement";
     lines.push(`        [${attr}("${p.originalName.replace(/"/g, '\\"')}")]`);
-    const initializer = p.isCollection ? ` = new ${type}();` : "";
+    const initializer = p.isCollection ? ` = new ${stripTrailingNullable(type)}();` : "";
     lines.push(`        public ${type} ${propName} { get; set; }${initializer}`);
   });
   lines.push("    }");

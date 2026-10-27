@@ -18,7 +18,7 @@ namespace Wshcmx.Types
         public SxApplicationsSxApplicationsItemServerData? ServerData { get; set; }
 
         [Column("item")]
-        public List<SxApplicationsItem> Item { get; set; } = new List<SxApplicationsItem>();
+        public List<SxApplicationsItem>? Item { get; set; } = new List<SxApplicationsItem>();
     }
 
     public class SxApplicationsItem

@@ -231,10 +231,10 @@ namespace Wshcmx.Types
         public bool IsCandidate { get; set; }
 
         [Column("lng_id")]
-        public List<string> LngId { get; set; } = new List<string>();
+        public List<string>? LngId { get; set; } = new List<string>();
 
         [Column("educ_type_id")]
-        public List<string> EducTypeId { get; set; } = new List<string>();
+        public List<string>? EducTypeId { get; set; } = new List<string>();
 
         /// <summary>
         /// Образование

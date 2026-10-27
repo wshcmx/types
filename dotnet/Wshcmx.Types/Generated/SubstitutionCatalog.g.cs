@@ -69,7 +69,7 @@ namespace Wshcmx.Types
         public string? TargetObjectSelector { get; set; }
 
         [Column("target_object_id")]
-        public List<double> TargetObjectId { get; set; } = new List<double>();
+        public List<double>? TargetObjectId { get; set; } = new List<double>();
 
         /// <summary>
         /// Нестандартные права (строка или JSON с информацией о правах)

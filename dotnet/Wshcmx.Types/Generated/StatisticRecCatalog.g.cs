@@ -78,7 +78,7 @@ namespace Wshcmx.Types
         /// Период
         /// </summary>
         [Column("period_type")]
-        public List<string> PeriodType { get; set; } = new List<string>();
+        public List<string>? PeriodType { get; set; } = new List<string>();
 
         /// <summary>
         /// Тип расчета
@@ -138,13 +138,13 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип объекта
         /// </summary>
         [Column("catalog")]
-        public List<string> Catalog { get; set; } = new List<string>();
+        public List<string>? Catalog { get; set; } = new List<string>();
 
         /// <summary>
         /// Блок

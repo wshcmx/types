@@ -15,6 +15,6 @@ namespace Wshcmx.Types
     public class GeneralReportCatalog
     {
         [Column("block_reports")]
-        public List<BlockReportsBaseBlockReport> BlockReports { get; set; } = new List<BlockReportsBaseBlockReport>();
+        public List<BlockReportsBaseBlockReport>? BlockReports { get; set; } = new List<BlockReportsBaseBlockReport>();
     }
 }

@@ -192,7 +192,7 @@ namespace Wshcmx.Types
         /// Эксперты
         /// </summary>
         [Column("expert_id")]
-        public List<double> ExpertId { get; set; } = new List<double>();
+        public List<double>? ExpertId { get; set; } = new List<double>();
 
         /// <summary>
         /// Фактическая дата начала
@@ -246,7 +246,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Описание
@@ -294,7 +294,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("workflow_person_id")]
-        public List<double> WorkflowPersonId { get; set; } = new List<double>();
+        public List<double>? WorkflowPersonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Тип выборки условий видимости
@@ -312,7 +312,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("preparation_id")]
-        public List<double> PreparationId { get; set; } = new List<double>();
+        public List<double>? PreparationId { get; set; } = new List<double>();
 
         /// <summary>
         /// К задаче прикреплены файлы
@@ -324,7 +324,7 @@ namespace Wshcmx.Types
         /// Сотрудник
         /// </summary>
         [Column("read_by_users")]
-        public List<double> ReadByUsers { get; set; } = new List<double>();
+        public List<double>? ReadByUsers { get; set; } = new List<double>();
 
         /// <summary>
         /// ID тегов

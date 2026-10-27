@@ -96,7 +96,7 @@ namespace Wshcmx.Types
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public List<double>? KpiProfilesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Профиль премирования
@@ -111,13 +111,13 @@ namespace Wshcmx.Types
         public double? KnowledgeProfileId { get; set; }
 
         [Column("parent_position_common_id")]
-        public List<double> ParentPositionCommonId { get; set; } = new List<double>();
+        public List<double>? ParentPositionCommonId { get; set; } = new List<double>();
 
         /// <summary>
         /// Грейды
         /// </summary>
         [Column("grade_ids")]
-        public List<double> GradeIds { get; set; } = new List<double>();
+        public List<double>? GradeIds { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации
@@ -135,6 +135,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
     }
 }

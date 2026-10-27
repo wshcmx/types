@@ -156,24 +156,24 @@ namespace Wshcmx.Types
         /// Активные участники
         /// </summary>
         [Column("active_participants_id")]
-        public List<double> ActiveParticipantsId { get; set; } = new List<double>();
+        public List<double>? ActiveParticipantsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Все участники
         /// </summary>
         [Column("participants_id")]
-        public List<double> ParticipantsId { get; set; } = new List<double>();
+        public List<double>? ParticipantsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Все входившие участники
         /// </summary>
         [Column("entered_participants_id")]
-        public List<double> EnteredParticipantsId { get; set; } = new List<double>();
+        public List<double>? EnteredParticipantsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Все входившие участники
         /// </summary>
         [Column("missed_unread_participants_id")]
-        public List<double> MissedUnreadParticipantsId { get; set; } = new List<double>();
+        public List<double>? MissedUnreadParticipantsId { get; set; } = new List<double>();
     }
 }

@@ -60,7 +60,7 @@ namespace Wshcmx.Types
         /// Авторы
         /// </summary>
         [Column("authors_id")]
-        public List<double> AuthorsId { get; set; } = new List<double>();
+        public List<double>? AuthorsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

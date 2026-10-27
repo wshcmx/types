@@ -54,7 +54,7 @@ namespace Wshcmx.Types
         /// Условия
         /// </summary>
         [Column("conditions")]
-        public List<ViewConditionBase> Conditions { get; set; } = new List<ViewConditionBase>();
+        public List<ViewConditionBase>? Conditions { get; set; } = new List<ViewConditionBase>();
 
         /// <summary>
         /// Условия запроса
@@ -78,13 +78,13 @@ namespace Wshcmx.Types
         /// Роли доступа
         /// </summary>
         [Column("access_roles")]
-        public List<AccessDocBaseAccessRole> AccessRoles { get; set; } = new List<AccessDocBaseAccessRole>();
+        public List<AccessDocBaseAccessRole>? AccessRoles { get; set; } = new List<AccessDocBaseAccessRole>();
 
         /// <summary>
         /// Группы доступа
         /// </summary>
         [Column("access_groups")]
-        public List<AccessDocBaseAccessGroup> AccessGroups { get; set; } = new List<AccessDocBaseAccessGroup>();
+        public List<AccessDocBaseAccessGroup>? AccessGroups { get; set; } = new List<AccessDocBaseAccessGroup>();
 
         /// <summary>
         /// Организация

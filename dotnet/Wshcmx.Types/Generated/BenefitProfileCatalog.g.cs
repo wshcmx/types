@@ -114,19 +114,19 @@ namespace Wshcmx.Types
         /// ID типовых должностей
         /// </summary>
         [Column("position_commons_ids")]
-        public List<double> PositionCommonsIds { get; set; } = new List<double>();
+        public List<double>? PositionCommonsIds { get; set; } = new List<double>();
 
         /// <summary>
         /// ID грейдов
         /// </summary>
         [Column("grades_ids")]
-        public List<double> GradesIds { get; set; } = new List<double>();
+        public List<double>? GradesIds { get; set; } = new List<double>();
 
         /// <summary>
         /// ID типов привилегий
         /// </summary>
         [Column("benefits_ids")]
-        public List<double> BenefitsIds { get; set; } = new List<double>();
+        public List<double>? BenefitsIds { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации

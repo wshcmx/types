@@ -78,7 +78,7 @@ namespace Wshcmx.Types
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public List<double>? KpiProfilesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Значения карты знаний

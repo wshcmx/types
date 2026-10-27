@@ -24,7 +24,7 @@ namespace Wshcmx.Types
         public string? Password { get; set; }
 
         [Column("person_object_profiles")]
-        public List<CollaboratorAccessDocumentPersonObjectProfile> PersonObjectProfiles { get; set; } = new List<CollaboratorAccessDocumentPersonObjectProfile>();
+        public List<CollaboratorAccessDocumentPersonObjectProfile>? PersonObjectProfiles { get; set; } = new List<CollaboratorAccessDocumentPersonObjectProfile>();
 
         [Column("change_password")]
         public bool ChangePassword { get; set; }

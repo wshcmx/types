@@ -30,7 +30,7 @@ namespace Wshcmx.Types
         public double? ParentSubId { get; set; }
 
         [Column("subdivision_id")]
-        public List<double> SubdivisionId { get; set; } = new List<double>();
+        public List<double>? SubdivisionId { get; set; } = new List<double>();
 
         [Column("ready")]
         public bool Ready { get; set; }

@@ -48,7 +48,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("operation_id")]
-        public List<double> OperationId { get; set; } = new List<double>();
+        public List<double>? OperationId { get; set; } = new List<double>();
 
         /// <summary>
         /// Коды удаленных действий
@@ -60,7 +60,7 @@ namespace Wshcmx.Types
         /// Действия
         /// </summary>
         [Column("remote_action_id")]
-        public List<double> RemoteActionId { get; set; } = new List<double>();
+        public List<double>? RemoteActionId { get; set; } = new List<double>();
 
         /// <summary>
         /// Нестандартные права (строка или JSON с информацией о правах)
@@ -72,7 +72,7 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Действует

@@ -72,13 +72,13 @@ namespace Wshcmx.Types
         /// Преподаватель
         /// </summary>
         [Column("lectors_id")]
-        public List<double> LectorsId { get; set; } = new List<double>();
+        public List<double>? LectorsId { get; set; } = new List<double>();
 
         /// <summary>
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации
@@ -93,6 +93,6 @@ namespace Wshcmx.Types
         public string? AppInstanceId { get; set; }
 
         [Column("objects_id")]
-        public List<double> ObjectsId { get; set; } = new List<double>();
+        public List<double>? ObjectsId { get; set; } = new List<double>();
     }
 }

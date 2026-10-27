@@ -54,7 +54,7 @@ namespace Wshcmx.Types
         /// Профили KPI
         /// </summary>
         [Column("kpi_profiles_id")]
-        public List<double> KpiProfilesId { get; set; } = new List<double>();
+        public List<double>? KpiProfilesId { get; set; } = new List<double>();
 
         /// <summary>
         /// Профиль премирования
@@ -84,7 +84,7 @@ namespace Wshcmx.Types
         /// Тэги
         /// </summary>
         [Column("tag_id")]
-        public List<double> TagId { get; set; } = new List<double>();
+        public List<double>? TagId { get; set; } = new List<double>();
 
         /// <summary>
         /// Дата модификации
@@ -102,6 +102,6 @@ namespace Wshcmx.Types
         /// Категория
         /// </summary>
         [Column("role_id")]
-        public List<double> RoleId { get; set; } = new List<double>();
+        public List<double>? RoleId { get; set; } = new List<double>();
     }
 }
