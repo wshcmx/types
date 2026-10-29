@@ -579,9 +579,9 @@ declare namespace Websoft {
          * Формат определяется по расширению имени файла в пути сохранения.
          * Доступные форматы: XLS, XLSX, CSV, ODS, TIFF, SVG, PDF, MHTML, HTML.
          * @param {string} newPath - Путь сохранения, включая имя файла.
-         * @param {boolean} [bAutoFit=false] - Подбирать ширину столбцов и высоту строк перед сохранением.
+         * @param {boolean} [autoFit=false] - Подбирать ширину столбцов и высоту строк перед сохранением.
          */
-        SaveAs(newPath: string, bAutoFit?: boolean): 1 | 0;
+        SaveAs(newPath: string, autoFit?: boolean): 1 | 0;
       }
 
       class Font extends WebsoftBaseClass {
