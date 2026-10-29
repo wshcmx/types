@@ -577,10 +577,11 @@ declare namespace Websoft {
         /**
          * Сохраняет документ по указанному пути.
          * Формат определяется по расширению имени файла в пути сохранения.
-         * Доступные форматы: CSV, ODS, TIFF, SVG, PDF, MHTML, HTML.
-         * @param newPath - Путь сохранения, включая имя файла.
+         * Доступные форматы: XLS, XLSX, CSV, ODS, TIFF, SVG, PDF, MHTML, HTML.
+         * @param {string} newPath - Путь сохранения, включая имя файла.
+         * @param {boolean} [autoFit=false] - Подбирать ширину столбцов и высоту строк перед сохранением.
          */
-        SaveAs(newPath: string): 1 | 0;
+        SaveAs(newPath: string, autoFit?: boolean): 1 | 0;
       }
 
       class Font extends WebsoftBaseClass {
@@ -1842,7 +1843,9 @@ declare namespace Websoft {
       Execute(source: string): MatchCollection;
       Execute(source: string, pattern: string): MatchCollection;
       IsMatch(source: string): boolean;
+      IsMatch(source: string, pattern: string): boolean;
       Replace(source: string, repl: string): string;
+      Replace(source: string, repl: string, pattern: string): string;
     }
 
     class SubMatches {
