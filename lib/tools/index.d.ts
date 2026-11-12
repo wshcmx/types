@@ -1987,16 +1987,13 @@ declare namespace tools {
    */
   function del_system_event_handlers_from_obj(iSystemEventId: number, iSystemEventHandlerId: number): boolean;
 
-  function delete_directory_server(dir: string): boolean | never;
-
   /**
-   * Удаляет каталог x-local или temp на сервере и возвращает true при успехе либо false, если путь не является каталогом.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sDirParam - Значение параметра `sDirParam`.
-   * @returns {boolean} Результат выполнения.
+   * Удаляет каталог на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} dir - URL x-local:// или путь в каталоге временных файлов сервера.
+   * @returns {boolean} true после удаления; false, если путь не является каталогом.
+   * @throws Если путь не начинается с x-local:// и не ведёт в каталог временных файлов сервера.
    */
-  function delete_directory_server(sDirParam: string): boolean;
+  function delete_directory_server(dir: string): boolean;
 
   function delete_poll_result(pollResult: Object, pollTopElem: XmlTopElem): unknown;
 
@@ -2016,16 +2013,12 @@ declare namespace tools {
    */
   function delete_transaction(transactionId: number): number;
 
-  function delete_trash_url_server(url: string): void | never;
-
   /**
-   * Удаляет заданный файл в x-local://trash/ через DeleteUrl; при вызове с клиента передаёт выполнение серверу.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
-   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   * Удаляет файл на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} url - URL файла в x-local://trash/.
+   * @throws Если URL не начинается с x-local://trash/.
    */
-  function delete_trash_url_server(sUrlParam: string): unknown;
+  function delete_trash_url_server(url: string): void;
 
   /**
    * Прообразовывает содержание строки для сохранения в теге <desc> ... </desc>.
@@ -2430,16 +2423,13 @@ declare namespace tools {
    */
   function file_url_exists(filePath: string): boolean;
 
-  function file_url_exists_server(filePath: string): boolean | never;
-
   /**
-   * При необходимости передаёт выполнение серверу, затем перед проверкой существования убеждается, что путь относится к x-local.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
-   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   * Проверяет существование файла на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} filePath - URL файла в x-local://.
+   * @returns {boolean} true, если файл существует; иначе false.
+   * @throws Если URL не начинается с x-local://.
    */
-  function file_url_exists_server(sFilePathParam: string): unknown;
+  function file_url_exists_server(filePath: string): boolean;
 
   /**
    * Заполняет структуру annals результатами теста в XML-формате.
@@ -4906,28 +4896,25 @@ declare namespace tools {
    */
   function load_share_url_server(sUrlParam: string, b64encode: boolean): string;
 
-  function load_url_data_server(filePath: string, size: number): string | never;
+  /**
+   * Загружает данные файла на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} filePath - URL файла в x-local://.
+   * @param {number} size - Количество байт с конца файла. Если размер файла меньше size, возвращаются все данные.
+   * @returns {string} Данные файла в виде строки. Если размер файла не меньше size,
+   * возвращает последние size байт с поясняющим текстом в начале.
+   * @throws Если URL не начинается с x-local:// или содержит переходы `../`, `..\`
+   * либо фрагменты `/~`, `\~`.
+   */
+  function load_url_data_server(filePath: string, size: number): string;
 
   /**
-   * При необходимости передаёт выполнение серверу, проверяет путь x-local и возвращает данные файла или его последние байты.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
-   * @param {number} iSizeParam - Значение параметра `iSizeParam`.
-   * @returns {string} Результат выполнения.
+   * Загружает текст файла на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} filePath - URL файла в x-local://.
+   * @returns {string} Текст файла.
+   * @throws Если URL не начинается с x-local:// или содержит переходы `../`, `..\`
+   * либо фрагменты `/~`, `\~`.
    */
-  function load_url_data_server(sFilePathParam: string, iSizeParam: number): string;
-
-  function load_url_text_server(filePath: string): string | never;
-
-  /**
-   * При необходимости передаёт выполнение серверу, отклоняет небезопасные пути x-local и возвращает текст файла.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
-   * @returns {unknown} Тип не установлен статически; указан `unknown`.
-   */
-  function load_url_text_server(sFilePathParam: string): unknown;
+  function load_url_text_server(filePath: string): string;
 
   function load_xhttp_ini(): void;
 
@@ -5639,17 +5626,14 @@ declare namespace tools {
    */
   function random_string(digitNum: number, dict: string): string;
 
-  function read_directory_server(filePath: string, dir: boolean): string[] | never;
-
   /**
-   * Перечисляет файлы каталога x-local, при необходимости оставляя только каталоги, и возвращает записи; на клиенте передаёт выполнение серверу.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sFilePathParam - Значение параметра `sFilePathParam`.
-   * @param {boolean} bDirParam - Значение параметра `bDirParam`.
-   * @returns {string} Результат выполнения.
+   * Перечисляет содержимое каталога на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} filePath - URL каталога в x-local://.
+   * @param {boolean} dir - true для каталогов; false для файлов.
+   * @returns {string[]} Массив URL выбранных файлов или каталогов.
+   * @throws Если URL не начинается с x-local://.
    */
-  function read_directory_server(sFilePathParam: string, bDirParam: boolean): string;
+  function read_directory_server(filePath: string, dir: boolean): string[];
 
   /**
    * Преобразует строку в объект. Например, строку в формате json в объект. Или строку, содержащую XML, в объект.
@@ -5800,16 +5784,13 @@ declare namespace tools {
    */
   function repeate_learning_activation(oLeartningParam: Object): XmlDocument;
 
-  function replace_cached_doc_server(url: string): void | never;
-
   /**
-   * Повторно открывает документ по URL x-local и заменяет его кешированную копию через ReplaceCachedDoc; на клиенте передаёт выполнение серверу.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
-   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   * Повторно открывает документ на сервере и заменяет его кешированную копию.
+   * При вызове с клиента передаёт выполнение серверу.
+   * @param {string} url - URL документа в x-local://.
+   * @throws Если URL не начинается с x-local://.
    */
-  function replace_cached_doc_server(sUrlParam: string): unknown;
+  function replace_cached_doc_server(url: string): void;
 
   /**
    * Используется в процессе выгрузке/загрузки данных в WebTutor при интеграции с другими системами.
@@ -6606,16 +6587,13 @@ declare namespace tools {
    */
   function upload_range(sIDParam: string, iStartIndexParam: number, iFinishIndexParam: number, sDataParam: string): boolean;
 
-  function url_file_size_server(url: string): number | never;
-
   /**
-   * Возвращает размер файла в байтах в x-local://share/ на сервере, отклоняя другие пути.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sUrlParam - Значение параметра `sUrlParam`.
-   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   * Определяет размер файла на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} url - URL файла в x-local://share/.
+   * @returns {number} Размер файла в байтах.
+   * @throws Если URL не начинается с x-local://share/.
    */
-  function url_file_size_server(sUrlParam: string): unknown;
+  function url_file_size_server(url: string): number;
 
   function ValidateName(str: unknown, isVar: boolean): unknown;
 
@@ -6810,15 +6788,11 @@ declare namespace tools {
    */
   function zip_extract(sSourceDirPARAM: string, sDestDirPARAM: string): number;
 
-  function zip_extract_server(sourceUrl: string, targetUrl: string): void | never;
-
   /**
-   * Распаковывает ZIP-архив из исходного URL x-local в целевой URL x-local на сервере; ничего не возвращает.
-   *
-   * В исходном коде объявлено `ALLOW-CALL-FROM-CLIENT="1"`.
-   * @param {string} sSourceUrlParam - Значение параметра `sSourceUrlParam`.
-   * @param {string} sTargetUrlParam - Значение параметра `sTargetUrlParam`.
-   * @returns {unknown} Тип не установлен статически; указан `unknown`.
+   * Распаковывает ZIP-архив на сервере. При вызове с клиента передаёт выполнение серверу.
+   * @param {string} sourceUrl - URL архива в x-local://.
+   * @param {string} targetUrl - URL целевого каталога в x-local://.
+   * @throws Если URL источника или целевого каталога не начинается с x-local://.
    */
-  function zip_extract_server(sSourceUrlParam: string, sTargetUrlParam: string): unknown;
+  function zip_extract_server(sourceUrl: string, targetUrl: string): void;
 }
